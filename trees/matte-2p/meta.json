@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+
+  "slug": "matte-2p",
+  "path": "/trees/matte-2p/",
+
+  "title": "Matematikk 2P",
+  "subtitle": "Praktisk matematikk, Vg2 studieforberedende",
+  "summary": "Prosent og vekstfaktor, personlig økonomi og lån, eksponentiell vekst, statistikk, geometri og litt programmering — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",
+
+  "country": "Norge",
+  "countryCode": "NO",
+  "language": "Norsk (bokmål)",
+  "languageCode": "nb",
+
+  "level": "Videregående",
+  "grade": "Vg2",
+  "institution": "Utdanningsdirektoratet",
+  "curriculum": "LK20",
+  "courseCode": "",
+
+  "subjectArea": "Matematikk",
+  "course": "Matematikk 2P",
+
+  "topics": [
+    "Prosent og vekstfaktor",
+    "Lån og økonomi",
+    "Eksponentialfunksjoner",
+    "Statistikk",
+    "Programmering",
+    "Geometri",
+    "Likninger og funksjoner"
+  ],
+  "keywords": [
+    "vekstfaktor",
+    "prisindeks",
+    "reallønn",
+    "annuitetslån",
+    "sentralmål",
+    "spredningsmål",
+    "formlikhet",
+    "målestokk",
+    "eksamen"
+  ],
+
+  "nodeCount": 103,
+  "skillCount": 78,
+  "conceptCount": 25,
+
+  "author": "Vidar Skogvoll",
+  "authorUrl": "https://skogvoll.com",
+  "license": "CC BY-SA 4.0",
+  "status": "Publisert",
+  "updated": "2026-08-25"
+}

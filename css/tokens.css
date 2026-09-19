@@ -34,6 +34,25 @@
   --amber-text:    #8A5A12;   /* the same signal as words — 5.4:1 on --paper */
   --amber-tint:    #F7EBD9;
 
+  /* ---- Rules and elevation ----------------------------------------------
+     --rule-strong is the hairline at hover/active strength.
+     The two shadows exist ONLY for the skill-tree app: its floating toolbar
+     and its modals sit above a scrolling graph canvas and need real
+     elevation. The design system's "no shadows" rule is about cards on a
+     band ground and still holds everywhere else — do not reach for these on
+     a marketing page. */
+  --rule-strong:   rgba(26, 29, 27, 0.30);
+  --shadow-float:  0 4px 14px rgba(26, 29, 27, 0.18);
+  --shadow-modal:  0 12px 40px rgba(26, 29, 27, 0.28);
+
+  /* ---- Danger ------------------------------------------------------------
+     Validation errors in the skill-tree app (a malformed CSV, a cycle in the
+     graph). --danger is the fill/rule; --danger-text is the same signal as
+     words — 5.9:1 on --paper. */
+  --danger:        #C2362F;
+  --danger-text:   #A32B24;
+  --danger-tint:   rgba(194, 54, 47, 0.10);
+
   /* ---- Scrim ------------------------------------------------------------
      A FLAT overlay, not a gradient: the system has no gradients, and a
      photograph still has to be dimmed before display type can sit on it. */

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferdighetstrær | AI Skill Trees</title>
+  <meta name="description" content="Søk og filtrer i ferdighetstrærne — kart over hvordan ferdigheter og begreper i et fag bygger på hverandre, med KI-instrukser til hver node.">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/catalog.css">
+</head>
+<body>
+
+  <header class="siteheader">
+    <div class="siteheader__inner">
+      <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true">&#9679;</span>AI Skill Trees</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Tittelbånd -->
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow">Ferdighetstrær</p>
+        <h1>Finn et ferdighetstre</h1>
+        <div class="prose">
+          <p>
+            Hvert tre er et kart over ett fag: hva en elev må kunne, og hva hver
+            ting bygger på. Klikk deg inn, huk av det du mestrer, og kopier en
+            ferdig KI-instruks for å trene videre på det som står for tur.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Søkefelt + sortering, som en egen kontrollstripe -->
+    <section class="band band--tight band--alt" aria-label="Søk">
+      <div class="band__inner">
+        <div class="searchbar">
+          <div class="searchbar__field">
+            <label class="field-label" for="search">Søk</label>
+            <input class="input" type="search" id="search" autocomplete="off"
+                   placeholder="Fag, trinn, emne eller stikkord — f.eks. «2P», «statistikk», «vekstfaktor»">
+          </div>
+          <div class="searchbar__field searchbar__field--narrow">
+            <label class="field-label" for="sort">Sorter etter</label>
+            <div class="select-wrap">
+              <select class="select" id="sort"></select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtre + resultater -->
+    <section class="band band--snug">
+      <div class="band__inner">
+        <div class="catalog">
+
+          <!-- Filterlista. Innholdet bygges av catalog.js ut fra
+               metadatafilene, ikke av markupen her — se FACETS i js/catalog.js. -->
+          <form class="filters" id="filters" data-collapsed="true" onsubmit="return false;">
+            <button class="filters__toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="filters-body">
+              <span>Filtre</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+
+            <div class="filters__body" id="filters-body">
+              <div class="filters__head">
+                <h2>Filtre</h2>
+              </div>
+              <div id="facet-list"></div>
+            </div>
+          </form>
+
+          <div class="results">
+            <div class="results__head">
+              <p class="results__count" id="result-count" role="status" aria-live="polite"></p>
+              <button class="linkbtn" type="button" id="reset" hidden>Nullstill alle filtre</button>
+            </div>
+
+            <div class="chips" id="chips"></div>
+
+            <p class="loading" id="load-status">Laster ferdighetstrær …</p>
+
+            <ul class="treegrid" id="treegrid"></ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="band band--dark sitefooter">
+    <div class="band__inner sitefooter__inner">
+      <p>AI Skill Trees — an open method by Vidar Skogvoll.</p>
+      <p>Trærne er under flytting hit fra skogvoll.com. Foreløpig ligger begge steder.</p>
+    </div>
+  </footer>
+
+  <script src="/js/catalog.js"></script>
+</body>
+</html>

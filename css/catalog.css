@@ -1,0 +1,337 @@
+/* ==========================================================================
+   catalog.css — the searchable/filterable tree catalogue at /trees/.
+
+   Design system: aiskilltrees-style v1.0. Loads after tokens.css, base.css
+   and components.css. No hardcoded hex values, no font stacks.
+
+   The layout is a two-column faceted search: a sticky filter rail on the
+   left, results on the right. Below 900px the rail becomes a disclosure
+   panel above the results — see the note at the bottom of this file.
+   ========================================================================== */
+
+/* Two tighter band rhythms, for the control strip and the results band. The
+   default --space-band is tuned for a marketing page; a tool page with a
+   search field and a result grid reads as one unit and needs less air between
+   its parts. Kept here rather than in base.css because nothing else on the
+   site needs them yet. */
+.band--tight { padding-block: var(--space-4); }
+.band--snug  { padding-block: var(--space-5); }
+
+/* --------------------------------------------------------------------------
+   Search bar. Sits in its own --paper-2 band directly under the page header,
+   so it reads as one control strip across the full width.
+   -------------------------------------------------------------------------- */
+
+.searchbar { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: flex-end; }
+
+.searchbar__field { flex: 1 1 22rem; min-width: 0; }
+.searchbar__field--narrow { flex: 0 1 14rem; }
+
+.field-label {
+  display: block;
+  font-size: var(--step-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: var(--space-1);
+}
+
+.input, .select {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;                      /* square — the system has no rounded containers */
+  padding: 0.7rem 0.9rem;
+  min-height: 44px;                      /* tap target */
+  transition: border-color 150ms ease;
+}
+.input:hover, .select:hover { border-color: var(--ink-2); }
+.input::placeholder { color: var(--ink-3); }
+
+/* The native select arrow is drawn with a rotated square border rather than
+   an inline SVG, so the chevron stays a token color instead of a hardcoded
+   fill baked into a data: URI. */
+.select { appearance: none; padding-right: 2.2rem; }
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--ink-2);
+  border-bottom: 2px solid var(--ink-2);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   The two-column shell.
+   -------------------------------------------------------------------------- */
+
+.catalog {
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   Filter rail.
+   -------------------------------------------------------------------------- */
+
+.filters { position: sticky; top: var(--space-2); }
+
+.filters__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: var(--space-3);
+}
+.filters__head h2 { font-size: var(--step-l); margin: 0; }
+
+.facet { border: 0; padding: 0; margin: 0 0 var(--space-4); }
+
+.facet__legend {
+  font-size: var(--step-s);
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0;
+  margin-bottom: var(--space-1);
+}
+
+.facet__list { list-style: none; margin: 0; padding: 0; }
+
+.facet__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  min-height: 34px;
+  cursor: pointer;
+  font-size: var(--step-s);
+  color: var(--ink-2);
+}
+.facet__row:hover { color: var(--ink); }
+
+.facet__row input {
+  appearance: none;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  border-radius: 0;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.facet__row input::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid var(--ink-inverse);
+  border-bottom: 2px solid var(--ink-inverse);
+  transform: rotate(-45deg) translate(1px, -1px);
+  opacity: 0;
+}
+.facet__row input:checked { background: var(--primary); border-color: var(--primary); }
+.facet__row input:checked::after { opacity: 1; }
+.facet__row input:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.facet__name { flex: 1 1 auto; }
+
+.facet__count {
+  flex: none;
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* A value that nothing in the current result set has. Kept visible rather
+   than removed, so the rail does not jump around as filters change — but
+   disabled, and told apart by more than color: the label dims AND the count
+   reads 0. */
+.facet__row.is-empty { color: var(--ink-3); cursor: not-allowed; opacity: 0.55; }
+.facet__row.is-empty input { cursor: not-allowed; }
+
+/* --------------------------------------------------------------------------
+   Results.
+   -------------------------------------------------------------------------- */
+
+.results__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: var(--space-3);
+}
+
+.results__count { font-size: var(--step-s); color: var(--ink-2); margin: 0; }
+.results__count strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* Active-filter chips: a removable summary of what is currently applied, so
+   the state is legible without scanning the rail. */
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-3); }
+.chips:empty { display: none; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink);
+  background: var(--primary-tint);
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  border-radius: 0;
+  padding: 0.35rem 0.6rem;
+  min-height: 32px;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.chip:hover { background: color-mix(in srgb, var(--primary) 18%, var(--paper)); }
+.chip__x { font-size: var(--step-s); line-height: 1; color: var(--ink-2); }
+
+.linkbtn {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--primary);
+  background: none;
+  border: 0;
+  padding: 0.35rem 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.linkbtn:hover { color: var(--primary-strong); }
+.linkbtn[hidden] { display: none; }
+
+.treegrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The card. --surface fill, square, 1px rule, no shadow — the system's card. */
+.treecard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: var(--space-3);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.treecard:hover { border-color: var(--primary); background: var(--primary-tint); color: var(--ink); }
+
+.treecard__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+  margin-bottom: var(--space-1);
+}
+
+.treecard__title { font-size: var(--step-l); margin: 0 0 0.25rem; }
+.treecard__subtitle { font-size: var(--step-xs); color: var(--ink-2); margin: 0 0 var(--space-2); }
+
+.treecard__summary {
+  font-family: var(--font-serif);
+  font-size: var(--step-s);
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 var(--space-3);
+}
+
+.treecard__foot {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--rule);
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+}
+.treecard__go { color: var(--primary); font-weight: 500; }
+.treecard:hover .treecard__go { color: var(--primary-strong); }
+
+/* A draft tree. Flagged with a word, not only a color — see the design
+   system's rule about never communicating by color alone. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--step-xs);
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink-2);
+}
+.pill--draft { background: var(--amber-tint); border-color: var(--amber); color: var(--amber-text); }
+
+.empty {
+  border: 1px dashed var(--rule-strong);
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+  color: var(--ink-2);
+}
+.empty h3 { margin-bottom: var(--space-1); }
+
+.loading { color: var(--ink-3); font-size: var(--step-s); }
+
+/* --------------------------------------------------------------------------
+   Responsive. The system's breakpoints are 768 and 1024; this file adds 900,
+   where the 16rem rail genuinely stops fitting beside a 20rem card grid.
+   Below it the rail becomes a disclosure panel: catalog.js flips
+   .filters[data-collapsed], and the toggle button only exists here.
+   -------------------------------------------------------------------------- */
+
+.filters__toggle { display: none; }
+
+@media (max-width: 900px) {
+  .catalog { grid-template-columns: 1fr; gap: var(--space-3); }
+  .filters { position: static; }
+
+  .filters__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    width: 100%;
+    min-height: 44px;
+    font-family: var(--font-sans);
+    font-size: var(--step-s);
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 0;
+    padding: 0.7rem 0.9rem;
+    cursor: pointer;
+  }
+
+  .filters__head { display: none; }
+  .filters[data-collapsed="true"] .filters__body { display: none; }
+  .filters__body { padding-top: var(--space-3); }
+}

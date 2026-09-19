@@ -1,0 +1,1095 @@
+/* ==========================================================================
+   tree.css — the skill-tree graph app (the view at /trees/<slug>/).
+
+   PORTED from skogvoll.com's ferdighetstre/style.css, 2026-09-19. Everything
+   below the bridge is that file verbatim: the layout, the detail panel, the
+   floating toolbar and every tuning comment in it are the result of a lot of
+   iteration and are NOT to be re-derived here. What changed on the way over is
+   this header, and the override block at the very BOTTOM of the file.
+
+   The bridge below re-expresses the names that file uses (--bg, --accent,
+   --text, --radius ...) in terms of aiskilltrees-style tokens, so the app
+   inherits this site's palette without touching 1000 lines of tuned CSS. If a
+   value looks wrong on this site, fix it HERE, in the bridge — or, when a
+   single rule rather than a color needs to change, in the override block at
+   the bottom. Editing a rule in the body would make the two copies diverge
+   for no reason, and makes the next port harder than it needs to be.
+
+   The page loads tokens.css and then this file, and NOT base.css: base.css
+   carries the band model and prose defaults for the marketing pages, which
+   would fight the app's own layout. That means the small reset below has to
+   live here.
+
+   Design system: aiskilltrees-style v1.0. No hardcoded hex values, no font
+   stacks — every color below resolves to a token in tokens.css.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ---- Bridge: engine token name → aiskilltrees token --------------------- */
+  --bg:            var(--paper);
+  --surface-hover: var(--paper-2);
+  --border:        var(--rule);
+  --border-strong: var(--rule-strong);
+  --text:          var(--ink);
+  --text-muted:    var(--ink-3);
+  --accent:        var(--primary);
+
+  /* The source system used a gradient here. aiskilltrees-style has no
+     gradients at all, so the "gradient" is a flat primary fill. */
+  --accent-grad:   var(--primary);
+
+  /* "Mastered" in the graph is the primary green, per the design system's
+     note on the skill-tree graph. State is never carried by color alone —
+     a mastered node also gets an inset ring and a checked box. */
+  --success:       var(--primary);
+  --danger-soft:   var(--danger-text);
+
+  /* Square corners are the system's rule. --radius-pill stays round: it is
+     only used on circular icon buttons (zoom, menu, help), which are controls,
+     not page-level containers. */
+  --radius:        0;
+  --radius-sm:     0;
+  --radius-pill:   9999px;
+
+  /* ---- Node types --------------------------------------------------------
+     Begrep (a concept) and ferdighet (a skill) are told apart by fill and by
+     the label on the node itself, never by fill alone. Both fills are pale
+     tints so that the edge lines behind a node never read through the card. */
+  --begrep-bg:        var(--primary-tint);
+  --begrep-border:    color-mix(in srgb, var(--primary) 55%, transparent);
+
+  --ferdighet-bg:     var(--amber-tint);
+  --ferdighet-border: color-mix(in srgb, var(--amber) 60%, transparent);
+
+  --locked-opacity: 0.45;
+
+  --column-alt: color-mix(in srgb, var(--ink) 4%, transparent);
+
+  /* Exam-part badges. These are small white-on-color labels, so both need to
+     clear AA against white — hence --amber-text rather than --amber. */
+  --del1: var(--primary);
+  --del2: var(--amber-text);
+}
+
+body { font-family: var(--font-sans); }
+
+
+html, body { height: 100%; }
+
+a { color: var(--accent); }
+
+/* Den opprinnelige <header> er tømt av ensureActionMenu() (se engine.js) -
+   ALT innholdet dens (tilbake-lenke, dag/natt-knapp, fremdriftslinje,
+   tittel, undertekst) flyttes inn i #action-menu-panel, slik at grafen kan
+   fylle hele skjermhøyden. Skjules derfor unconditionally her i CSS (ikke
+   bare via JS) for å unngå et glimt av den gamle headeren før JS rekker å
+   flytte innholdet. */
+header {
+  display: none;
+}
+
+/* The source page had a light/dark toggle. aiskilltrees-style has no dark
+   mode in v1 and this page ships no toggle button, so those rules are gone.
+   engine.js looks the button up with querySelector and tolerates its
+   absence (see ensureActionMenu), so nothing else had to change. */
+
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.back-link:hover, .back-link:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Meny-knapp nederst til venstre, til venstre for zoom-knappene i
+   #bottom-toolbar (se setupZoom/getBottomToolbar i engine.js) - IKKE øverst
+   til høyre, siden den da nesten overlappet tilbake-knappen i detaljpanelet
+   når det er åpent på mobil (begge endte i samme hjørne). Slår ut
+   #action-menu-panel, som ensureActionMenu() (engine.js) fyller med ALT som
+   før lå i headeren: tilbake-lenke + dag/natt-knapp (#menu-nav-row),
+   fremdriftslinje, tittel/undertekst, og til slutt de sjeldnere brukte
+   knappene (læringsmål-liste, prøvegenerator, motivasjon). Selve #menu-wrap
+   er bare et ankerpunkt for panelet - #bottom-toolbar (fixed) gir selve den
+   flytende posisjoneringen. Hjelp-knappen (#help-btn, se under) står som
+   egen knapp rett til høyre for #menu-wrap, IKKE inni panelet - se
+   setupHelpButton i engine.js. */
+#menu-wrap {
+  position: relative;
+}
+
+#menu-toggle-btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow-float);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#menu-toggle-btn svg { width: 18px; height: 18px; }
+
+#menu-toggle-btn:hover, #menu-toggle-btn[aria-expanded="true"] {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+/* Hjelp-knappen («?») står som egen, alltid synlig knapp rett til høyre for
+   #menu-toggle-btn (se setupHelpButton i engine.js) - IKKE inni
+   #action-menu-panel som de andre sjeldnere brukte knappene, siden dette er
+   det første en ny bruker trenger å finne. */
+#help-btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-float);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#help-btn:hover, #help-btn:focus-visible {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+#action-menu-panel {
+  display: none;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 30;
+  width: min(320px, calc(100vw - 2.4rem));
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+  padding: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#action-menu-panel.open { display: flex; }
+
+#menu-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#action-menu-panel h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+#action-menu-panel p.tagline {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+#action-menu-panel #motivation-btn,
+#action-menu-panel #goal-index-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  white-space: normal;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#action-menu-panel #motivation-btn:hover,
+#action-menu-panel #goal-index-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.progress-bar {
+  flex: 1;
+  max-width: 420px;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent-grad);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+#error-banner {
+  display: none;
+  background: var(--danger-tint);
+  border-bottom: 1px solid var(--danger);
+  color: var(--danger-soft);
+  font-size: 0.85rem;
+  padding: 0.8rem 2rem;
+  white-space: pre-wrap;
+}
+
+#error-banner.visible { display: block; }
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  width: 100%;
+}
+
+#graph-scroll {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  /* Lite padding-top - headeren er borte (se ensureActionMenu), så det er
+     ikke lenger noe å holde grafen klar av der. Resten av avstanden til
+     første kolonneoverskrift kommer fra LAYOUT.padding i selve
+     layout-algoritmen (se computeGlobalRowStarts/layoutColumn). */
+  padding: 0.75rem 2rem 2.4rem;
+  position: relative;
+  cursor: grab;
+}
+
+#graph-scroll.panning {
+  cursor: grabbing;
+  user-select: none;
+}
+
+#graph-container {
+  position: relative;
+  margin: 0 auto;
+  transform-origin: 0 0;
+}
+
+/* Flytende verktøylinje for zoom - eneste innhold igjen i bottom-toolbar
+   etter at "vis alle læringsmål" og prøvegeneratoren flyttet inn i
+   #action-menu-panel (se ensureActionMenu i engine.js). Disse knappene
+   brukes aktivt mens man utforsker kartet, så de forblir synlige i stedet
+   for gjemt bak et trekkspill. */
+#bottom-toolbar {
+  position: fixed;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+#zoom-controls {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+/* Ikon-only knapper (+/−/⤢), ingen tekst - holder knappene små også på
+   mobil, se prosjektnotat om at knappene var for store der. */
+#zoom-in-btn, #zoom-out-btn, #fit-view-btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-float);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+#zoom-in-btn:hover, #zoom-out-btn:hover, #fit-view-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  transform: translateY(-1px);
+}
+
+/* Prøvegenerator-widget - nå inne i #action-menu-panel, se der for
+   panel-spesifikk styling av knappen selv. */
+#exam-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+}
+
+#exam-count-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+#exam-count {
+  width: 3.2rem;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#action-menu-panel #exam-btn {
+  flex: 1 1 auto;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--accent-grad);
+  color: var(--ink-inverse);
+  cursor: pointer;
+  white-space: normal;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#action-menu-panel #exam-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+@media (max-width: 720px) {
+  #bottom-toolbar { left: 1rem; bottom: 1rem; }
+}
+
+/* "Vis alle læringsmål"-vindu */
+
+#goal-index-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+
+#goal-index-overlay.open { display: flex; }
+
+#goal-index-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#goal-index-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#goal-index-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#goal-index-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+#goal-index-body {
+  overflow-y: auto;
+  padding: 1.2rem 1.6rem 1.8rem;
+}
+
+.goal-index-section { margin-bottom: 1.4rem; }
+.goal-index-section:last-child { margin-bottom: 0; }
+
+.goal-index-section h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.goal-index-section ul {
+  list-style: none;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+#goal-index-intro {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+/* Én rad per læringsmål: avkryssing for undervisningsopplegget til venstre,
+   navn + status til høyre. De to er bevisst visuelt forskjellige - status
+   er ren lesbar informasjon (mestret/klar/mangler), mens avkryssinga er det
+   eneste man kan klikke på her. */
+.goal-index-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.18rem 0;
+}
+
+.goal-index-item .goal-pick {
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.goal-index-item-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  min-width: 0;
+}
+
+.goal-index-item-name {
+  cursor: pointer;
+}
+
+.goal-index-item-status {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  white-space: normal;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.goal-index-item.status-mastered .goal-index-item-name { color: var(--text); }
+.goal-index-item.status-mastered .goal-index-item-status { color: var(--accent); opacity: 1; }
+.goal-index-item.status-blocked .goal-index-item-name { opacity: 0.72; }
+
+/* Fast bunnlinje i modalen med undervisningsopplegg-generatoren. */
+#lesson-plan-bar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0.9rem 1.6rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+#lesson-plan-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-right: auto;
+}
+
+#lesson-minutes-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+#lesson-minutes {
+  width: 3.6rem;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#lesson-plan-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--accent-grad);
+  color: var(--ink-inverse);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#lesson-plan-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+#lesson-plan-btn:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@media (max-width: 720px) {
+  #goal-index-overlay { padding: 0; }
+  #goal-index-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+  #lesson-plan-bar { padding: 0.8rem 1rem; border-radius: 0; }
+  #lesson-plan-count { margin-right: 0; flex: 1 0 100%; }
+  #lesson-plan-btn { flex: 1 1 auto; }
+}
+
+/* «Hvordan bruker jeg denne siden?»-vindu */
+
+#help-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+
+#help-overlay.open { display: flex; }
+
+#help-modal {
+  width: 100%;
+  max-width: 620px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#help-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#help-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#help-body {
+  overflow-y: auto;
+  padding: 1.2rem 1.6rem 1.8rem;
+}
+
+#help-body h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+#help-body h3:not(:first-child) {
+  margin-top: 1.2rem;
+}
+
+#help-body p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (max-width: 720px) {
+  #help-overlay { padding: 0; }
+  #help-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+}
+
+#edges {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#edges path {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1.6;
+}
+
+#edges path.edge-active {
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  opacity: 0.7;
+}
+
+.column-band {
+  position: absolute;
+  background: transparent;
+  pointer-events: none;
+}
+
+.column-band-alt {
+  background: var(--column-alt);
+}
+
+.column-header {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.column-header-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.column-header-actions {
+  display: flex;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.column-header-btn {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.column-header-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+#nodes-layer {
+  position: relative;
+  z-index: 2;
+}
+
+.node-box {
+  position: absolute;
+  padding: 0.7rem 0.85rem 0.6rem;
+  background: var(--begrep-bg);
+  border: 1.5px solid var(--begrep-border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease, border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  user-select: none;
+}
+
+.node-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.node-box.type-ferdighet {
+  border-radius: 8px;
+  background: var(--ferdighet-bg);
+  border-color: var(--ferdighet-border);
+}
+
+.node-box.locked {
+  opacity: var(--locked-opacity);
+}
+
+.node-box.mastered {
+  box-shadow: 0 0 0 2px var(--success) inset;
+}
+
+.node-box.active {
+  box-shadow: 0 0 0 2px var(--text) inset;
+}
+
+.node-box.highlight-pulse {
+  animation: prereq-pulse 1.6s ease-out;
+}
+
+@keyframes prereq-pulse {
+  0% { box-shadow: 0 0 0 0 var(--accent); }
+  40% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.node-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.node-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.node-index {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.node-checkbox {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--success);
+  cursor: pointer;
+}
+
+.node-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.node-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.badge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: none;
+}
+
+.badge-del1 { background: var(--del1); color: var(--surface); }
+.badge-del2 { background: var(--del2); color: var(--surface); }
+.badge-begge { background: linear-gradient(90deg, var(--del1) 50%, var(--del2) 50%); color: var(--surface); }
+
+.badge-type {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Detail panel */
+
+#detail-panel {
+  width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  transition: width 0.22s ease;
+  flex-shrink: 0;
+}
+
+#detail-panel.open {
+  width: min(440px, 92vw);
+}
+
+#detail-panel-inner {
+  width: min(440px, 92vw);
+  height: 100%;
+  overflow-y: auto;
+  padding: 1.6rem 1.6rem 3rem;
+}
+
+#detail-close {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+#detail-close:hover, #detail-close:focus-visible { color: var(--text); }
+
+#detail-panel h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  clear: both;
+  padding-top: 0.1rem;
+}
+
+#detail-meta {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#detail-status {
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+#detail-status.available { color: var(--accent); }
+
+.mastery-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.mastered-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+#detail-desc {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.4rem;
+}
+
+.prereq-list {
+  margin: 0 0 1.4rem 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.prereq-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.prereq-check {
+  flex: 0 0 auto;
+  width: 1em;
+  text-align: center;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.prereq-item-done .prereq-check {
+  color: var(--success);
+  opacity: 1;
+}
+
+.prereq-link {
+  font: inherit;
+  color: var(--accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s;
+}
+
+.prereq-link:hover,
+.prereq-link:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.instruction-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--accent-grad);
+  color: var(--ink-inverse);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn:hover { transform: translateY(-1px); opacity: 0.92; }
+.btn.secondary:hover { border-color: var(--border-strong); background: var(--surface-hover); transform: none; opacity: 1; }
+
+#instruction-text {
+  display: none;
+  width: 100%;
+  min-height: 220px;
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  resize: vertical;
+  margin-bottom: 1.4rem;
+}
+
+#instruction-text.visible { display: block; }
+
+.exam-list {
+  list-style: none;
+  font-size: 0.86rem;
+}
+
+.exam-list li {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.exam-list li:first-child { border-top: none; }
+
+.exam-list a { text-decoration: none; }
+.exam-list a:hover, .exam-list a:focus-visible { text-decoration: underline; }
+
+#detail-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+/* Legend */
+
+/* Kortene selv skriver nå ut "Del 1"/"Del 2"/"Del 1+2" i sin egen badge
+   (se makeHjelpemiddelBadge i engine.js) i stedet for forkortelsen "D1" -
+   en egen forklarende legend er derfor overflødig. #legend-elementet står
+   igjen tomt i hvert fags index.html; skjul det helt så det ikke tar opp
+   plass. */
+#legend {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  #detail-panel.open { width: 100vw; position: fixed; inset: 0; z-index: 20; }
+  #detail-panel-inner { width: 100vw; }
+}
+
+/* ==========================================================================
+   SITE-SPECIFIC OVERRIDES — must stay last in the file.
+
+   Everything above this line is the ported source, unchanged. Rules that
+   aiskilltrees-style actually contradicts go here instead of being edited
+   in place, so the two copies stay easy to diff.
+
+   They have to be LAST: the rules they overrule have the same specificity,
+   so only source order decides. Put this block at the top and it silently
+   does nothing.
+   ========================================================================== */
+
+/* The source system gave every button a pill radius. aiskilltrees-style sets
+   buttons square. Only the genuinely circular icon controls — the menu, help
+   and zoom buttons — keep --radius-pill, and those are left alone above. */
+.btn,
+#action-menu-panel #goal-index-btn,
+#action-menu-panel #exam-btn,
+#lesson-plan-btn {
+  border-radius: var(--radius);
+}
