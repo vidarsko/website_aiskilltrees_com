@@ -1,0 +1,279 @@
+/* ==========================================================================
+   components.css — nav, hero, buttons, tiles, footer.
+   Loads after base.css. Tokens only.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Site header — full-bleed bar, gutter on the contents only.
+   -------------------------------------------------------------------------- */
+
+.siteheader {
+  width: 100%;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+
+.siteheader__inner {
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+  padding: var(--space-2) var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.wordmark {
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark:hover { color: var(--primary); }
+
+.wordmark__mark {
+  color: var(--primary);
+  margin-right: 0.35em;
+}
+
+.sitenav {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--step-s);
+  font-weight: 500;
+}
+.sitenav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  padding: var(--space-1) 0;
+}
+.sitenav a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+/* --------------------------------------------------------------------------
+   Hero — full-bleed photograph, flat scrim, display type sitting on it.
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(28rem, 76vh, 46rem);
+  display: grid;
+  align-items: end;
+  isolation: isolate;
+  background: var(--ink);   /* shows while the photo loads */
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Keeps the presenter and the whiteboard graph in frame when the crop
+     tightens on narrow viewports. */
+  object-position: 62% 34%;
+}
+
+/* Flat overlay, not a gradient — the system has no gradients. */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--scrim);
+}
+
+.hero__inner {
+  max-width: var(--measure-wide);
+  width: 100%;
+  margin-inline: auto;
+  padding: var(--space-band) var(--gutter);
+  color: var(--ink-inverse);
+}
+
+.hero__title {
+  font-size: var(--step-3xl);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+  margin-bottom: var(--space-3);
+}
+
+.hero__lede {
+  font-family: var(--font-serif);
+  font-size: var(--step-l);
+  line-height: 1.45;
+  max-width: 48ch;
+  margin-bottom: var(--space-4);
+}
+
+.hero__caption {
+  font-size: var(--step-xs);
+  color: var(--ink-inverse);
+  opacity: 0.72;
+  margin-top: var(--space-4);
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — square, sans, 500. No radius anywhere in this system.
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--ink-inverse);
+}
+.btn--primary:hover { background: var(--primary-strong); color: var(--ink-inverse); }
+
+.btn--ghost {
+  background: transparent;
+  border-color: currentColor;
+  color: var(--ink);
+}
+.btn--ghost:hover { background: var(--ink); color: var(--ink-inverse); }
+
+/* On a dark or primary band the pair inverts. */
+.hero .btn--primary,
+.band--dark .btn--primary,
+.band--primary .btn--primary {
+  background: var(--ink-inverse);
+  color: var(--ink);
+}
+.hero .btn--primary:hover,
+.band--dark .btn--primary:hover,
+.band--primary .btn--primary:hover {
+  background: var(--surface);
+  color: var(--primary-strong);
+}
+
+.hero .btn--ghost,
+.band--dark .btn--ghost,
+.band--primary .btn--ghost { color: var(--ink-inverse); }
+.hero .btn--ghost:hover,
+.band--dark .btn--ghost:hover,
+.band--primary .btn--ghost:hover {
+  background: var(--ink-inverse);
+  color: var(--ink);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Tiles — the three entry points. Square, hairline border, no shadow.
+   Reflow with auto-fit rather than breakpoints.
+   -------------------------------------------------------------------------- */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1px;                      /* the hairline IS the gap: tiles sit flush */
+  background: var(--rule);       /* shows through the 1px gaps as the rule */
+  border: 1px solid var(--rule);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  min-height: 13rem;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.tile:hover,
+.tile:focus-visible {
+  background: var(--primary);
+  color: var(--ink-inverse);
+}
+
+.tile__index {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+.tile:hover .tile__index,
+.tile:focus-visible .tile__index { color: var(--ink-inverse); opacity: 0.8; }
+
+.tile__title {
+  font-family: var(--font-sans);
+  font-size: var(--step-l);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.tile__body {
+  font-family: var(--font-serif);
+  font-size: var(--step-s);
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+.tile:hover .tile__body,
+.tile:focus-visible .tile__body { color: var(--ink-inverse); }
+
+/* The arrow is decoration; the tile title carries the meaning. */
+.tile__go {
+  margin-top: auto;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 500;
+  color: var(--primary);
+}
+.tile:hover .tile__go,
+.tile:focus-visible .tile__go { color: var(--ink-inverse); }
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.sitefooter {
+  font-size: var(--step-xs);
+}
+
+.sitefooter__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.sitefooter p { margin: 0; opacity: 0.8; }
+.sitefooter a { color: var(--ink-inverse); }

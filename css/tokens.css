@@ -1,0 +1,67 @@
+/* ==========================================================================
+   tokens.css — the single source of truth for color, type and spacing.
+   Design system: aiskilltrees-style v1.0
+   (canonical: ../.claude/skills/aiskilltrees-style/SKILL.md in the umbrella repo)
+
+   NO other stylesheet and NO page may hardcode a hex value or a font stack.
+   If a value is missing, add a token here — that is what keeps the palette
+   one variable to change rather than a find-and-replace across the site.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ---- Grounds ---------------------------------------------------------- */
+  --paper:         #F6F4EF;   /* default page ground — warm off-white */
+  --paper-2:       #EDEAE2;   /* alternate band, one step deeper */
+  --surface:       #FFFFFF;   /* cards, tables, the graph canvas */
+
+  /* ---- Ink -------------------------------------------------------------- */
+  --ink:           #1A1D1B;   /* primary text, and the dark band ground — 15.5:1 on --paper */
+  --ink-2:         #4A4F4B;   /* secondary text — 7.6:1 on --paper */
+  --ink-3:         #646964;   /* muted: captions, metadata — 5.1:1 on --paper */
+  --ink-inverse:   #F6F4EF;   /* text on --ink and --primary bands */
+  --rule:          rgba(26, 29, 27, 0.14);   /* hairline separators inside a band */
+  --rule-inverse:  rgba(246, 244, 239, 0.22);
+
+  /* ---- Primary ---------------------------------------------------------- */
+  --primary:        #1F6F4A;  /* deep evergreen — 6.1:1 on white, 5.6:1 on --paper */
+  --primary-strong: #16543A;  /* hover/active — 8.9:1 on white */
+  --primary-tint:   #E3EFE8;  /* pale band fill */
+
+  /* ---- Signal (graph states; emphasis used sparingly) ------------------- */
+  --amber:         #C8801F;   /* fills and marks only — 5.3:1 against --ink */
+  --amber-text:    #8A5A12;   /* the same signal as words — 5.4:1 on --paper */
+  --amber-tint:    #F7EBD9;
+
+  /* ---- Scrim ------------------------------------------------------------
+     A FLAT overlay, not a gradient: the system has no gradients, and a
+     photograph still has to be dimmed before display type can sit on it. */
+  --scrim:         rgba(26, 29, 27, 0.62);
+
+  /* ---- Type ------------------------------------------------------------- */
+  --font-sans:  "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-serif: "Charis SIL", "Source Serif 4", Georgia, serif;
+
+  --step-xs:  0.875rem;                                       /* 14px — captions, metadata */
+  --step-s:   1rem;                                           /* 16px — UI, labels */
+  --step-m:   clamp(1.0625rem, 0.5vw + 0.95rem, 1.1875rem);   /* 17→19px — body prose */
+  --step-l:   clamp(1.375rem, 1vw + 1.1rem, 1.75rem);         /* 22→28px — h3 */
+  --step-xl:  clamp(1.75rem, 2vw + 1.25rem, 2.5rem);          /* 28→40px — h2 */
+  --step-2xl: clamp(2.25rem, 4.5vw + 1rem, 3.75rem);          /* 36→60px — h1 */
+  --step-3xl: clamp(2.75rem, 7vw + 0.5rem, 5.5rem);           /* 44→88px — hero only */
+
+  /* ---- Spacing and measures -------------------------------------------- */
+  --gutter:        clamp(1.25rem, 5vw, 4rem);   /* 20px phone → 64px desktop, INSIDE bands */
+  --space-band:    clamp(3rem, 8vw, 7rem);      /* vertical padding of a band */
+  --space-band-lg: clamp(4.5rem, 12vw, 10rem);  /* hero and closing CTA only */
+  --measure-prose: 68ch;
+  --measure-wide:  1280px;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+}
