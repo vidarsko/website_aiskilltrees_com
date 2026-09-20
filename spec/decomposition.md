@@ -1,6 +1,6 @@
 # The decomposition model
 
-**Version 1.1.0** · source language: English · Contribution 1 of the AI Skill Trees method.
+**Version 1.2.0** · source language: English · Contribution 1 of the AI Skill Trees method.
 
 This is the specification for turning a curriculum into a skill tree. It is written to be
 handed to an AI agent together with the curriculum document for one subject, or with a topic
@@ -205,8 +205,9 @@ be shared freely. A syllabus published by a private examination body is that bod
 and where a school holds a licence to reproduce it, the licence is usually the school's rather
 than yours personally. Handing a document to a third-party model is an act of copying in its
 own right, separate from anything you publish afterwards, so it is the question to answer
-first. Where you may not share the document, read it yourself and hand the agent the topic
-list instead: the specification is what the agent needs, and the source text is not.
+first — and it arises even for a tree you only ever intend to keep to yourself. Where you may
+not share the document, read it yourself and hand the agent the topic list instead: the
+specification is what the agent needs, and the source text is not.
 
 The division of labour is consistent, and worth knowing in advance:
 
@@ -227,24 +228,37 @@ Treat a first pass as a draft to cut down, not a draft to extend.
 **Decompose into your own formulations. Do not copy curriculum text, textbook prose or
 examination questions verbatim into a `nodes.csv`.**
 
-Two separate reasons, and both matter:
+**What the copyright question turns on is what you do with the finished tree.** A tree you build
+for your own teaching and keep to yourself is a different act from one you publish, and most
+teachers are in the first case: the artifact is for their own classroom and never goes near a
+catalogue. Decide which case you are in before you start, because it decides which of the two
+reasons below applies to you. What it does not change is section 7 — handing a source document
+to a model is copying whether or not anything is published afterwards.
 
-1. **Licensing.** The CSV files are published under an open licence. Text you do not hold the
-   rights to cannot be relicensed by putting it in one. Whether the curriculum itself is
-   copyrighted varies by country — in Norway and Sweden it is a regulation and is not — but
-   textbooks and published examination papers are copyrighted almost everywhere, including
-   where the curriculum is not.
-2. **It is the wrong output anyway.** A node's `description` is a learning outcome written for
-   *this* tree at *this* level for *this* cohort. Curriculum text is written for a different
-   purpose and at a different grain, and pasting it in produces worse nodes, not faster ones.
+1. **Licensing — this applies only if the tree is to be published.** The CSV files published
+   with this method are released under an open licence. Text you do not hold the rights to
+   cannot be relicensed by putting it in one. Whether the curriculum itself is copyrighted
+   varies by country — in Norway and Sweden it is a regulation and is not — but textbooks and
+   published examination papers are copyrighted almost everywhere, including where the
+   curriculum is not. A tree that stays with you is not a publication, and this reason does not
+   reach it: a paragraph of a textbook sitting in a file on your own machine is the same kind
+   of act as writing it into your own lecture notes.
+2. **It is the wrong output anyway — this applies either way.** A node's `description` is a
+   learning outcome written for *this* tree at *this* level for *this* cohort. Curriculum text
+   is written for a different purpose and at a different grain, and pasting it in produces
+   worse nodes, not faster ones. This is the reason the rule above is stated for everybody and
+   not only for the subjects headed for publication.
 
-Section 7 covers the other half of this. What you may hand to a model in the first place is a
-separate question from what you may publish, and it is answered first.
+**A private tree can become a published one.** If there is any prospect of that, work as though
+reason 1 already applied: retrofitting your own formulations onto a finished tree means going
+through every node again, which is far more work than writing them that way once.
 
 Using copyrighted material as **background** to work out what a subject requires is a different
-act from reproducing it, and is the normal way this work is done. Where a subject was built that
-way, **say so in that subject's note** — name what was consulted, and record that no source text
-or problem numbers were reproduced. Do not conceal a source, and never instruct an agent to
+act from reproducing it, and is the normal way this work is done. Where a subject was built
+that way, **say so in that subject's note** — name what was consulted, and record that no
+source text or problem numbers were reproduced. This is worth doing for a private tree too: the
+note costs nothing while you still remember what you read, and it is what lets the subject be
+published later without an audit. Do not conceal a source, and never instruct an agent to
 conceal one.
 
 ---
@@ -252,7 +266,7 @@ conceal one.
 ## 9. Checklist for a new subject
 
 1. Write the subject note first: cohort, position in the sequence, self-selection, family
-   (section 1).
+   (section 1), and whether the tree is for your own teaching or for publication (section 8).
 2. Read `prompts/subjects/<family>.json` → `decomposition`.
 3. Go through the curriculum and list the competence aims. Check what you may do with the
    document before handing any of it to an agent (section 7).

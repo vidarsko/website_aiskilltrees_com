@@ -741,10 +741,11 @@ function vocabLocalized(entry) {
 function vocabText(field, key) {
   if (!VOCAB || !VOCAB[field] || !key) return null;
   const entry = VOCAB[field][key];
-  /* En institusjon er ikke bare en tekst - den bærer også sin egen
-     inndeling - så visningsnavnet ligger under `label`. De andre feltene
-     er rene {språk: tekst}-oppslag. */
-  return vocabLocalized(field === 'institution' ? (entry && entry.label) : entry);
+  /* Institusjonsnavnet er ÉN streng og oversettes ikke - se vocabulary.json.
+     En institusjon har et navn. De andre feltene er vanlige
+     {språk: tekst}-oppslag. */
+  if (field === 'institution') return (entry && entry.label) || null;
+  return vocabLocalized(entry);
 }
 
 function vocabInstitution(key) {
@@ -1504,7 +1505,17 @@ function setupPanning() {
 
   scrollEl.addEventListener('mousedown', e => {
     if (e.button !== 0) return;
-    if (e.target.closest('.node-box, input, a, button, textarea')) return;
+    /* A NODE IS PART OF THE MAP, SO YOU CAN GRAB IT AND DRAG.
+       `.node-box` used to be excluded here, which made a quarter of the
+       visible surface refuse to pan at all — and far more than that inside a
+       dense column, where the boxes are most of what there is to put the
+       cursor on. Panning from a node is safe because the click that would
+       open the detail panel is already suppressed after a real drag: see the
+       capture-phase click handler below, which fires before the node's own
+       click listener (createNodeElement in this file). Controls inside a node
+       — the mastery checkbox, the aid-level tag — are still excluded, since
+       dragging is not what you meant when you pressed one of those. */
+    if (e.target.closest('input, a, button, textarea, select, label')) return;
     isPanning = true;
     didDrag = false;
     startX = e.clientX;
@@ -1531,6 +1542,12 @@ function setupPanning() {
     if (!isPanning) return;
     isPanning = false;
     scrollEl.classList.remove('panning');
+    /* Clear the drag flag AFTER the click event that follows this mouseup, so
+       the handler below still sees it, but a drag that ends without any click
+       — released outside the window, say — cannot leave it set and swallow
+       the next real click on a node. Matters more now that a drag can start
+       on a node box. */
+    setTimeout(() => { didDrag = false; }, 0);
   });
 
   // Hindre at et klikk på en node åpner detaljpanelet når museklikket
