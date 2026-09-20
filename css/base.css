@@ -112,6 +112,14 @@ p:last-child, h1:last-child, h2:last-child, h3:last-child { margin-bottom: 0; }
 .band--dark .eyebrow,
 .band--primary .eyebrow { color: var(--ink-inverse); opacity: 0.75; }
 
+/* A qualifying aside inside .prose — smaller and muted, still serif, still
+   prose. The catalogue's "the trees are not translated" note is the case it
+   was added for. Not a callout: no box, no rule, no color. */
+.prose .note {
+  font-size: var(--step-s);
+  color: var(--ink-3);
+}
+
 /* Links in prose: colored AND underlined — never color alone. */
 a {
   color: var(--primary);

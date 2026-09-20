@@ -20,7 +20,9 @@
 /* ------------------------------------------------------------------ */
 /* Fasettene. ENESTE stedet filterdimensjonene er definert.            */
 /*                                                                      */
-/* `key` er feltnavnet i meta.json, `label` overskriften i filterlista. */
+/* `key` er feltnavnet i meta.json, `labelKey` slår opp overskriften i    */
+/* sidas i18n-ordbok (se trees/index.html) — selve teksten bor der, ikke  */
+/* her, siden katalogen finnes på tre språk.                              */
 /* Verdiene i lista bygges av seg selv ut fra metadataene, så et nytt   */
 /* land/nivå/fagområde dukker opp av seg selv så snart ett tre bruker   */
 /* det — ingen kodeendring. Å legge til en ny DIMENSJON er én linje     */
@@ -30,13 +32,48 @@
 /* utvalget grovest (land) til det som deler det finest (status).       */
 /* ------------------------------------------------------------------ */
 const FACETS = [
-  { key: 'country',     label: 'Land' },
-  { key: 'level',       label: 'Nivå' },
-  { key: 'subjectArea', label: 'Fagområde' },
-  { key: 'institution', label: 'Institusjon' },
-  { key: 'language',    label: 'Språk' },
-  { key: 'status',      label: 'Status' },
+  { key: 'country',     labelKey: 'facet-country' },
+  { key: 'level',       labelKey: 'facet-level' },
+  { key: 'subjectArea', labelKey: 'facet-subjectArea' },
+  { key: 'institution', labelKey: 'facet-institution' },
+  { key: 'language',    labelKey: 'facet-language' },
+  { key: 'status',      labelKey: 'facet-status' },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Språk. Katalogens EGET språk veksles av js/i18n.js; selve trærne er  */
+/* ikke oversatt — hvert tre er skrevet på ett språk av den som laget   */
+/* det, og `language` i meta.json er et faktum om treet, ikke en visning */
+/* av det. Derfor oversettes fasettenes OVERSKRIFTER her, men ikke      */
+/* VERDIENE under dem: de kommer rett fra metadataene.                  */
+/*                                                                      */
+/* t() og fmt() tåler at i18n.js ikke er lastet (da faller alt tilbake  */
+/* til nøkkelen), slik at en side som glemmer scriptet degraderer i     */
+/* stedet for å kaste.                                                  */
+/* ------------------------------------------------------------------ */
+function t(key) {
+  return (window.i18n && window.i18n.t) ? window.i18n.t(key) : key;
+}
+
+/* fmt('card-skills', { n: 78 }) → «78 ferdigheter». Plassholderne er
+   {navn} i ordboka, slik at hvert språk kan sette tallet der det hører
+   hjemme i setningen. */
+function fmt(key, vars) {
+  return String(t(key)).replace(/\{(\w+)\}/g, function (whole, name) {
+    return Object.prototype.hasOwnProperty.call(vars, name) ? String(vars[name]) : whole;
+  });
+}
+
+function lang() {
+  return (window.i18n && window.i18n.lang) || 'en';
+}
+
+/* Sorteringslokalet følger katalogspråket, så «Å» havner sist på norsk og
+   «Ö» sist på svensk. */
+const COLLATION = { en: 'en', no: 'nb', sv: 'sv' };
+function collator() {
+  return COLLATION[lang()] || 'en';
+}
 
 /* Felt som fritekstsøket leter i. `topics` og `keywords` er lister —
    join-es før søk, slik at et søk på «annuitetslån» treffer et tre som
@@ -47,11 +84,13 @@ const SEARCH_FIELDS = [
   'topics', 'keywords',
 ];
 
+/* Nøklene er en del av delbare lenker (?sort=storst) og må derfor IKKE
+   endres når teksten oversettes — labelKey slår opp visningsteksten. */
 const SORTS = {
-  relevans:  { label: 'Mest relevant',        fn: (a, b) => b._score - a._score || cmpTitle(a, b) },
-  tittel:    { label: 'Tittel (A–Å)',         fn: cmpTitle },
-  storst:    { label: 'Flest ferdigheter',    fn: (a, b) => (b.nodeCount || 0) - (a.nodeCount || 0) || cmpTitle(a, b) },
-  oppdatert: { label: 'Sist oppdatert',       fn: (a, b) => String(b.updated || '').localeCompare(String(a.updated || '')) || cmpTitle(a, b) },
+  relevans:  { labelKey: 'sort-relevans',  fn: (a, b) => b._score - a._score || cmpTitle(a, b) },
+  tittel:    { labelKey: 'sort-tittel',    fn: cmpTitle },
+  storst:    { labelKey: 'sort-storst',    fn: (a, b) => (b.nodeCount || 0) - (a.nodeCount || 0) || cmpTitle(a, b) },
+  oppdatert: { labelKey: 'sort-oppdatert', fn: (a, b) => String(b.updated || '').localeCompare(String(a.updated || '')) || cmpTitle(a, b) },
 };
 
 /* Hvor mange ULIKE verdier en fasett må ha før den vises i filterlista.
@@ -63,7 +102,7 @@ const SORTS = {
 const MIN_FACET_VALUES = 1;
 
 function cmpTitle(a, b) {
-  return String(a.title || '').localeCompare(String(b.title || ''), 'nb');
+  return String(a.title || '').localeCompare(String(b.title || ''), collator());
 }
 
 /* ------------------------------------------------------------------ */
@@ -95,14 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
   el.reset    = document.getElementById('reset');
   el.toggle   = document.getElementById('filters-toggle');
 
-  Object.keys(SORTS).forEach(key => {
-    const opt = document.createElement('option');
-    opt.value = key;
-    opt.textContent = SORTS[key].label;
-    el.sort.appendChild(opt);
-  });
+  buildSortOptions();
 
-  el.search.addEventListener('input', () => { query = el.search.value.trim(); render(); syncUrl(); });
+  el.search.addEventListener('input', () => {
+    query = el.search.value.trim();
+    render();
+    syncUrl();
+    trackSearchSoon();
+  });
   el.sort.addEventListener('change', () => { sort = el.sort.value; render(); syncUrl(); });
   el.reset.addEventListener('click', clearAll);
 
@@ -117,8 +156,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('popstate', () => { readUrl(); reflectControls(); render(); });
 
+  /* Katalogspråket byttes av js/i18n.js, som bare rører markup med
+     data-i18n. Alt DENNE fila har bygget (fasettlista, kortene, telleren,
+     sorteringsvalgene) må tegnes om for hånd. Rekkefølgen er viktig:
+     buildFacets() leser `selected`, så avhukingene overlever. */
+  if (window.i18n && window.i18n.onChange) {
+    window.i18n.onChange(() => {
+      buildSortOptions();
+      el.sort.value = sort;
+      if (TREES.length) { buildFacets(); render(); }
+    });
+  }
+
   loadTrees();
 });
+
+function buildSortOptions() {
+  el.sort.innerHTML = '';
+  Object.keys(SORTS).forEach(key => {
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = t(SORTS[key].labelKey);
+    el.sort.appendChild(opt);
+  });
+}
 
 function loadTrees() {
   fetch('trees.json')
@@ -144,9 +205,8 @@ function loadTrees() {
       // Den vanligste årsaken lokalt er at sida er åpnet rett fra disk:
       // fetch() av JSON feiler da i de fleste nettlesere.
       el.status.hidden = false;
-      el.status.textContent =
-        'Klarte ikke å laste katalogen: ' + err.message +
-        ' (kjører du sida via en lokal server? fetch() av JSON-filer feiler hvis index.html åpnes direkte fra disk.)';
+      el.status.removeAttribute('data-i18n');   // ikke overskriv feilen ved språkbytte
+      el.status.textContent = fmt('load-error', { message: err.message });
     });
 }
 
@@ -183,8 +243,8 @@ function prepare(tree) {
 
 /* Alle ord i søket må finnes (AND), hvert av dem som delstreng. Det gjør
    «2p statistikk» til et nyttig søk uten at noen må skrive en parser. */
-function matchesQuery(tree, terms) {
-  return terms.every(t => tree._haystack.includes(t));
+function matchesQuery(tree, words) {
+  return words.every(w => tree._haystack.includes(w));
 }
 
 /* Innenfor én fasett er valgene ELLER (huker du av Norge og Sverige, vil du
@@ -206,19 +266,19 @@ function terms() {
 }
 
 function currentResults() {
-  const t = terms();
-  return TREES.filter(tree => matchesQuery(tree, t) && matchesFacets(tree, null));
+  const words = terms();
+  return TREES.filter(tree => matchesQuery(tree, words) && matchesFacets(tree, null));
 }
 
 /* Enkel relevansscore: treff i tittel/kurs veier tyngst, deretter
    ingress/undertittel, deretter alt annet. Uten søketekst er alle like og
    sorteringen faller tilbake på tittel. */
-function score(tree, t) {
-  if (!t.length) return 0;
+function score(tree, words) {
+  if (!words.length) return 0;
   const title = String(tree.title + ' ' + (tree.course || '')).toLowerCase();
   const near = String((tree.subtitle || '') + ' ' + (tree.summary || '')).toLowerCase();
   let s = 0;
-  t.forEach(term => {
+  words.forEach(term => {
     if (title.includes(term)) s += 10;
     else if (near.includes(term)) s += 4;
     else s += 1;
@@ -231,23 +291,27 @@ function score(tree, t) {
 /* ------------------------------------------------------------------ */
 
 function render() {
-  const t = terms();
+  const words = terms();
   const results = currentResults();
-  results.forEach(tree => { tree._score = score(tree, t); });
+  results.forEach(tree => { tree._score = score(tree, words); });
   results.sort(SORTS[sort].fn);
 
   renderCounts();
   renderChips();
 
+  /* Tallet skal stå i <strong>, men hvor i setningen det havner er opp til
+     språket ({n} i ordboka). Derfor splittes den oversatte strengen rundt
+     tallet i stedet for å limes sammen av biter. */
   el.count.innerHTML = '';
+  const countKey = results.length === 1 ? 'results-one' : 'results-many';
+  const parts = String(t(countKey)).split('{n}');
+  el.count.appendChild(document.createTextNode(parts[0] || ''));
   const strong = document.createElement('strong');
   strong.textContent = String(results.length);
   el.count.appendChild(strong);
-  el.count.appendChild(document.createTextNode(
-    results.length === 1 ? ' ferdighetstre' : ' ferdighetstrær'
-  ));
+  el.count.appendChild(document.createTextNode(parts.length > 1 ? parts[1] : ''));
   if (results.length !== TREES.length) {
-    el.count.appendChild(document.createTextNode(' av ' + TREES.length));
+    el.count.appendChild(document.createTextNode(fmt('results-of', { total: TREES.length })));
   }
 
   el.reset.hidden = !hasActiveFilters();
@@ -257,7 +321,7 @@ function render() {
     el.grid.appendChild(emptyState());
     return;
   }
-  results.forEach(tree => el.grid.appendChild(card(tree)));
+  results.forEach((tree, i) => el.grid.appendChild(card(tree, i + 1)));
 }
 
 function emptyState() {
@@ -266,33 +330,49 @@ function emptyState() {
   li.style.gridColumn = '1 / -1';
 
   const h = document.createElement('h3');
-  h.textContent = 'Ingen ferdighetstrær passer';
+  h.textContent = t('empty-title');
   li.appendChild(h);
 
   const p = document.createElement('p');
-  p.textContent = 'Prøv færre filtre eller et bredere søk.';
+  p.textContent = t('empty-body');
   li.appendChild(p);
 
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'linkbtn';
-  btn.textContent = 'Nullstill alt';
+  btn.textContent = t('empty-reset');
   btn.addEventListener('click', clearAll);
   li.appendChild(btn);
 
   return li;
 }
 
-function card(tree) {
+function card(tree, position) {
   const li = document.createElement('li');
 
   const a = document.createElement('a');
   a.className = 'treecard';
   a.href = tree.path;
+  a.addEventListener('click', () => {
+    if (!window.aistTrack) return;
+    window.aistTrack('tree_open', {
+      tree_slug: tree.slug,
+      tree_title: tree.title,
+      tree_language: tree.languageCode || tree.language || null,
+      list_position: position,
+      // Hvilket katalogspråk leseren sto i da treet ble åpnet. Sammen med
+      // tree_language er det svaret på om noen går inn i et tre de ikke
+      // kan lese språket i — se språknotatet på /trees/.
+      ui_language: lang(),
+      search_term: query || null
+    });
+  });
 
+  /* Treets eget språk står på kortet, ikke bare i filteret: trærne er ikke
+     oversatt, så språket er noe leseren trenger FØR klikket. */
   const meta = document.createElement('p');
   meta.className = 'treecard__meta';
-  [tree.country, tree.level, tree.subjectArea].filter(Boolean).forEach(v => {
+  [tree.country, tree.level, tree.subjectArea, tree.language].filter(Boolean).forEach(v => {
     const span = document.createElement('span');
     span.textContent = v;
     meta.appendChild(span);
@@ -323,9 +403,9 @@ function card(tree) {
 
   const left = document.createElement('span');
   const counts = [];
-  if (tree.skillCount) counts.push(tree.skillCount + ' ferdigheter');
-  if (tree.conceptCount) counts.push(tree.conceptCount + ' begreper');
-  left.textContent = counts.join(' · ') || (tree.nodeCount ? tree.nodeCount + ' noder' : '');
+  if (tree.skillCount) counts.push(fmt('card-skills', { n: tree.skillCount }));
+  if (tree.conceptCount) counts.push(fmt('card-concepts', { n: tree.conceptCount }));
+  left.textContent = counts.join(' · ') || (tree.nodeCount ? fmt('card-nodes', { n: tree.nodeCount }) : '');
   foot.appendChild(left);
 
   // Utkast flagges med et ord, ikke bare en farge.
@@ -337,7 +417,7 @@ function card(tree) {
   } else {
     const go = document.createElement('span');
     go.className = 'treecard__go';
-    go.textContent = 'Åpne treet →';
+    go.textContent = t('card-open');
     foot.appendChild(go);
   }
 
@@ -363,7 +443,7 @@ function buildFacets() {
 
     const legend = document.createElement('legend');
     legend.className = 'facet__legend';
-    legend.textContent = facet.label;
+    legend.textContent = t(facet.labelKey);
     fieldset.appendChild(legend);
 
     const ul = document.createElement('ul');
@@ -385,6 +465,11 @@ function buildFacets() {
         if (input.checked) set.add(value); else set.delete(value);
         render();
         syncUrl();
+        // Bare påslag rapporteres. Et avslag er som regel bare en angring,
+        // og å telle begge ville gjort «hvilke filtre brukes» ubrukelig.
+        if (input.checked && window.aistTrack) {
+          window.aistTrack('catalog_filter', { facet: facet.key, facet_value: value });
+        }
       });
 
       const name = document.createElement('span');
@@ -418,11 +503,11 @@ function uniqueValues(key) {
    verdi du ikke hadde huket av vist 0 så snart du huket av én, og
    filterlista ville vært ubrukelig til å se hva neste klikk gir. */
 function renderCounts() {
-  const t = terms();
+  const words = terms();
 
   el.facets.querySelectorAll('.facet').forEach(fieldset => {
     const key = fieldset.dataset.facet;
-    const pool = TREES.filter(tree => matchesQuery(tree, t) && matchesFacets(tree, key));
+    const pool = TREES.filter(tree => matchesQuery(tree, words) && matchesFacets(tree, key));
 
     const counts = new Map();
     pool.forEach(tree => {
@@ -450,10 +535,11 @@ function renderChips() {
       const chip = document.createElement('button');
       chip.type = 'button';
       chip.className = 'chip';
-      chip.setAttribute('aria-label', 'Fjern filteret ' + facet.label + ': ' + value);
+      const facetLabel = t(facet.labelKey);
+      chip.setAttribute('aria-label', fmt('chip-remove-aria', { facet: facetLabel, value: value }));
 
       const text = document.createElement('span');
-      text.textContent = facet.label + ': ' + value;
+      text.textContent = facetLabel + ': ' + value;
 
       const x = document.createElement('span');
       x.className = 'chip__x';
@@ -498,6 +584,40 @@ function reflectControls() {
       input.checked = selected.get(key).has(input.value);
     });
   });
+}
+
+/* ------------------------------------------------------------------ */
+/* Analytics                                                            */
+/*                                                                      */
+/* Det ENE spørsmålet katalogen kan svare på som ingenting annet kan:   */
+/* hvilke fag folk leter etter. Katalogen har i skrivende stund ett tre */
+/* av sytten, og resten ligger fortsatt på skogvoll.com — et søk uten   */
+/* treff er derfor ikke en feil, men den mest direkte beskjeden om hva  */
+/* som bør migreres eller skrives neste gang.                           */
+/*                                                                      */
+/* Hendelsen sendes ETTER at skrivinga har lagt seg (900 ms), ikke per  */
+/* tastetrykk: ellers rapporteres «s», «st», «sta» … som fire søk.      */
+/* Navnet `search` er GA4s eget standardnavn og havner derfor i den     */
+/* innebygde søkerapporten framfor i en egendefinert.                   */
+/* ------------------------------------------------------------------ */
+
+const SEARCH_TRACK_DELAY = 900;
+let searchTimer = null;
+let lastTrackedQuery = '';
+
+function trackSearchSoon() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    const term = query.trim();
+    // Under to tegn er det ikke et søk ennå, bare en påbegynt tanke.
+    if (term.length < 2 || term === lastTrackedQuery) return;
+    lastTrackedQuery = term;
+    if (!window.aistTrack) return;
+
+    const hits = currentResults().length;
+    window.aistTrack('search', { search_term: term, results: hits, ui_language: lang() });
+    if (hits === 0) window.aistTrack('catalog_no_results', { search_term: term, ui_language: lang() });
+  }, SEARCH_TRACK_DELAY);
 }
 
 /* ------------------------------------------------------------------ */

@@ -1,52 +1,197 @@
 <!DOCTYPE html>
-<html lang="nb">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ferdighetstrær | AI Skill Trees</title>
-  <meta name="description" content="Søk og filtrer i ferdighetstrærne — kart over hvordan ferdigheter og begreper i et fag bygger på hverandre, med KI-instrukser til hver node.">
+  <title>Skill trees | AI Skill Trees</title>
+  <meta name="description" content="Search and filter the skill trees — maps of how the skills and concepts in a subject build on one another, with an AI instruction for every node." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/catalog.css">
+
+  <script src="/js/analytics.js"></script>
+  <script src="/js/i18n.js" defer></script>
+
+  <!--
+    The translation dictionary for THIS page. Two kinds of key live here:
+
+    - Keys used by the markup below, via data-i18n / data-i18n-attr. The
+      static markup holds the ENGLISH string, because English is the default
+      and that way the common case never flashes a wrong language.
+    - Keys used by js/catalog.js, which builds the facet list, the cards and
+      the result count in script and looks them up with window.i18n.t().
+      FACETS / SORTS in that file name the keys; the strings are only here.
+
+    NOTE ON FACET *VALUES*. The labels ("Country", "Level") translate; the
+    values under them ("Norge", "Videregående", "Matematikk") do not. They
+    come from each tree's own meta.json and are data about that tree, not UI
+    — a new value appears the moment a tree uses it, with no code change, and
+    a lookup table here would silently go stale the first time someone
+    contributes a tree in a language we did not anticipate. Same reason the
+    trees themselves are not translated. See AGENTS.md, "Språk".
+  -->
+  <script type="application/json" id="i18n-dict">
+  {
+    "doc-title": {
+      "en": "Skill trees | AI Skill Trees",
+      "no": "Ferdighetstrær | AI Skill Trees",
+      "sv": "Kunskapsträd | AI Skill Trees"
+    },
+    "meta-description": {
+      "en": "Search and filter the skill trees — maps of how the skills and concepts in a subject build on one another, with an AI instruction for every node.",
+      "no": "Søk og filtrer i ferdighetstrærne — kart over hvordan ferdigheter og begreper i et fag bygger på hverandre, med KI-instrukser til hver node.",
+      "sv": "Sök och filtrera bland kunskapsträden — kartor över hur färdigheter och begrepp i ett ämne bygger på varandra, med en AI-instruktion till varje nod."
+    },
+
+    "lang-switch-label": { "en": "Language", "no": "Språk", "sv": "Språk" },
+
+    "page-eyebrow": { "en": "Skill trees", "no": "Ferdighetstrær", "sv": "Kunskapsträd" },
+    "page-heading": {
+      "en": "Find a skill tree",
+      "no": "Finn et ferdighetstre",
+      "sv": "Hitta ett kunskapsträd"
+    },
+    "page-intro": {
+      "en": "Each tree maps one subject: what a student needs to be able to do, and what each thing builds on. Click in, tick off what you have mastered, and copy a ready-made AI instruction to practise whatever comes next.",
+      "no": "Hvert tre er et kart over ett fag: hva en elev må kunne, og hva hver ting bygger på. Klikk deg inn, huk av det du mestrer, og kopier en ferdig KI-instruks for å trene videre på det som står for tur.",
+      "sv": "Varje träd är en karta över ett ämne: vad en elev behöver kunna, och vad varje sak bygger på. Klicka dig in, bocka av det du behärskar och kopiera en färdig AI-instruktion för att träna vidare på det som står på tur."
+    },
+    "page-language-note": {
+      "en": "The trees themselves are not translated. Each one is written in a single language by the teacher who made it, and that language is shown on its card and in the Language filter.",
+      "no": "Trærne er ikke oversatt. Hvert av dem er skrevet på ett språk av læreren som laget det, og språket står på kortet og i språkfilteret.",
+      "sv": "Träden är inte översatta. Vart och ett är skrivet på ett enda språk av läraren som gjorde det, och språket visas på kortet och i språkfiltret."
+    },
+
+    "search-region-label": { "en": "Search", "no": "Søk", "sv": "Sök" },
+    "search-label": { "en": "Search", "no": "Søk", "sv": "Sök" },
+    "search-placeholder": {
+      "en": "Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”",
+      "no": "Fag, trinn, emne eller stikkord — f.eks. «2P», «statistikk», «vekstfaktor»",
+      "sv": "Ämne, nivå, område eller nyckelord — t.ex. ”2P”, ”statistik”, ”förändringsfaktor”"
+    },
+    "sort-label": { "en": "Sort by", "no": "Sorter etter", "sv": "Sortera efter" },
+
+    "filters-heading": { "en": "Filters", "no": "Filtre", "sv": "Filter" },
+    "reset-all": {
+      "en": "Clear all filters",
+      "no": "Nullstill alle filtre",
+      "sv": "Rensa alla filter"
+    },
+    "loading": {
+      "en": "Loading skill trees …",
+      "no": "Laster ferdighetstrær …",
+      "sv": "Laddar kunskapsträd …"
+    },
+    "load-error": {
+      "en": "Could not load the catalogue: {message} (are you serving this through a local server? fetch() of JSON files fails when index.html is opened straight from disk.)",
+      "no": "Klarte ikke å laste katalogen: {message} (kjører du sida via en lokal server? fetch() av JSON-filer feiler hvis index.html åpnes direkte fra disk.)",
+      "sv": "Kunde inte ladda katalogen: {message} (kör du sidan via en lokal server? fetch() av JSON-filer misslyckas om index.html öppnas direkt från disk.)"
+    },
+
+    "sort-relevans":  { "en": "Most relevant",     "no": "Mest relevant",      "sv": "Mest relevant" },
+    "sort-tittel":    { "en": "Title (A–Z)",       "no": "Tittel (A–Å)",       "sv": "Titel (A–Ö)" },
+    "sort-storst":    { "en": "Most skills",       "no": "Flest ferdigheter",  "sv": "Flest färdigheter" },
+    "sort-oppdatert": { "en": "Recently updated",  "no": "Sist oppdatert",     "sv": "Senast uppdaterad" },
+
+    "facet-country":     { "en": "Country",      "no": "Land",        "sv": "Land" },
+    "facet-level":       { "en": "Level",        "no": "Nivå",        "sv": "Nivå" },
+    "facet-subjectArea": { "en": "Subject area", "no": "Fagområde",   "sv": "Ämnesområde" },
+    "facet-institution": { "en": "Institution",  "no": "Institusjon", "sv": "Institution" },
+    "facet-language":    { "en": "Language",     "no": "Språk",       "sv": "Språk" },
+    "facet-status":      { "en": "Status",       "no": "Status",      "sv": "Status" },
+
+    "results-one":  { "en": "{n} skill tree",  "no": "{n} ferdighetstre",  "sv": "{n} kunskapsträd" },
+    "results-many": { "en": "{n} skill trees", "no": "{n} ferdighetstrær", "sv": "{n} kunskapsträd" },
+    "results-of":   { "en": " of {total}",     "no": " av {total}",        "sv": " av {total}" },
+
+    "empty-title": {
+      "en": "No skill trees match",
+      "no": "Ingen ferdighetstrær passer",
+      "sv": "Inga kunskapsträd matchar"
+    },
+    "empty-body": {
+      "en": "Try fewer filters or a broader search.",
+      "no": "Prøv færre filtre eller et bredere søk.",
+      "sv": "Prova färre filter eller en bredare sökning."
+    },
+    "empty-reset": { "en": "Clear everything", "no": "Nullstill alt", "sv": "Rensa allt" },
+
+    "card-skills":   { "en": "{n} skills",   "no": "{n} ferdigheter", "sv": "{n} färdigheter" },
+    "card-concepts": { "en": "{n} concepts", "no": "{n} begreper",    "sv": "{n} begrepp" },
+    "card-nodes":    { "en": "{n} nodes",    "no": "{n} noder",       "sv": "{n} noder" },
+    "card-open":     { "en": "Open the tree →", "no": "Åpne treet →", "sv": "Öppna trädet →" },
+
+    "chip-remove-aria": {
+      "en": "Remove the filter {facet}: {value}",
+      "no": "Fjern filteret {facet}: {value}",
+      "sv": "Ta bort filtret {facet}: {value}"
+    },
+
+    "footer-line-1": {
+      "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+      "no": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+      "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+    },
+    "footer-line-2": {
+      "en": "The trees are being moved here from skogvoll.com. For now they exist in both places.",
+      "no": "Trærne er under flytting hit fra skogvoll.com. Foreløpig ligger de begge steder.",
+      "sv": "Träden håller på att flyttas hit från skogvoll.com. Tills vidare finns de på båda ställena."
+    }
+  }
+  </script>
 </head>
 <body>
 
   <header class="siteheader">
     <div class="siteheader__inner">
       <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true">&#9679;</span>AI Skill Trees</a>
+
+      <!-- Switches the CATALOGUE's own language. It does not translate the
+           trees — see the language note in the title band below. -->
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang-switch-label">
+        <button class="lang-btn" type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button>
+        <button class="lang-btn" type="button" data-lang="no" lang="nb" aria-pressed="false" title="Norsk (bokmål)">NO</button>
+        <button class="lang-btn" type="button" data-lang="sv" lang="sv" aria-pressed="false" title="Svenska">SV</button>
+      </div>
     </div>
   </header>
 
   <main>
 
-    <!-- Tittelbånd -->
+    <!-- Title band -->
     <section class="band">
       <div class="band__inner">
-        <p class="eyebrow">Ferdighetstrær</p>
-        <h1>Finn et ferdighetstre</h1>
+        <p class="eyebrow" data-i18n="page-eyebrow">Skill trees</p>
+        <h1 data-i18n="page-heading">Find a skill tree</h1>
         <div class="prose">
-          <p>
-            Hvert tre er et kart over ett fag: hva en elev må kunne, og hva hver
-            ting bygger på. Klikk deg inn, huk av det du mestrer, og kopier en
-            ferdig KI-instruks for å trene videre på det som står for tur.
+          <p data-i18n="page-intro">
+            Each tree maps one subject: what a student needs to be able to do, and what
+            each thing builds on. Click in, tick off what you have mastered, and copy a
+            ready-made AI instruction to practise whatever comes next.
+          </p>
+          <p class="note" data-i18n="page-language-note">
+            The trees themselves are not translated. Each one is written in a single
+            language by the teacher who made it, and that language is shown on its card
+            and in the Language filter.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Søkefelt + sortering, som en egen kontrollstripe -->
-    <section class="band band--tight band--alt" aria-label="Søk">
+    <!-- Search + sort, as its own control strip -->
+    <section class="band band--tight band--alt" aria-label="Search" data-i18n-attr="aria-label:search-region-label">
       <div class="band__inner">
         <div class="searchbar">
           <div class="searchbar__field">
-            <label class="field-label" for="search">Søk</label>
+            <label class="field-label" for="search" data-i18n="search-label">Search</label>
             <input class="input" type="search" id="search" autocomplete="off"
-                   placeholder="Fag, trinn, emne eller stikkord — f.eks. «2P», «statistikk», «vekstfaktor»">
+                   placeholder="Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”"
+                   data-i18n-attr="placeholder:search-placeholder">
           </div>
           <div class="searchbar__field searchbar__field--narrow">
-            <label class="field-label" for="sort">Sorter etter</label>
+            <label class="field-label" for="sort" data-i18n="sort-label">Sort by</label>
             <div class="select-wrap">
               <select class="select" id="sort"></select>
             </div>
@@ -55,22 +200,23 @@
       </div>
     </section>
 
-    <!-- Filtre + resultater -->
+    <!-- Filters + results -->
     <section class="band band--snug">
       <div class="band__inner">
         <div class="catalog">
 
-          <!-- Filterlista. Innholdet bygges av catalog.js ut fra
-               metadatafilene, ikke av markupen her — se FACETS i js/catalog.js. -->
+          <!-- The filter list. Its contents are built by catalog.js from the
+               metadata files, not by the markup here — see FACETS in
+               js/catalog.js, and the facet-* keys in the dictionary above. -->
           <form class="filters" id="filters" data-collapsed="true" onsubmit="return false;">
             <button class="filters__toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="filters-body">
-              <span>Filtre</span>
+              <span data-i18n="filters-heading">Filters</span>
               <span aria-hidden="true">▾</span>
             </button>
 
             <div class="filters__body" id="filters-body">
               <div class="filters__head">
-                <h2>Filtre</h2>
+                <h2 data-i18n="filters-heading">Filters</h2>
               </div>
               <div id="facet-list"></div>
             </div>
@@ -79,12 +225,12 @@
           <div class="results">
             <div class="results__head">
               <p class="results__count" id="result-count" role="status" aria-live="polite"></p>
-              <button class="linkbtn" type="button" id="reset" hidden>Nullstill alle filtre</button>
+              <button class="linkbtn" type="button" id="reset" hidden data-i18n="reset-all">Clear all filters</button>
             </div>
 
             <div class="chips" id="chips"></div>
 
-            <p class="loading" id="load-status">Laster ferdighetstrær …</p>
+            <p class="loading" id="load-status" data-i18n="loading">Loading skill trees …</p>
 
             <ul class="treegrid" id="treegrid"></ul>
           </div>
@@ -97,11 +243,11 @@
 
   <footer class="band band--dark sitefooter">
     <div class="band__inner sitefooter__inner">
-      <p>AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p>Trærne er under flytting hit fra skogvoll.com. Foreløpig ligger begge steder.</p>
+      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
+      <p data-i18n="footer-line-2">The trees are being moved here from skogvoll.com. For now they exist in both places.</p>
     </div>
   </footer>
 
-  <script src="/js/catalog.js"></script>
+  <script src="/js/catalog.js" defer></script>
 </body>
 </html>

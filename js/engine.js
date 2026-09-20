@@ -210,6 +210,43 @@ const validationErrors = [];
 let themeList = [];
 
 /* ------------------------------------------------------------------ */
+/* Analytics                                                            */
+/*                                                                      */
+/* Én hendelse, `copy_instruction`, med hvilken SLAGS instruks som ble  */
+/* kopiert. Det er handlingen hele verktøyet finnes for — grafen kaller */
+/* ingen språkmodell, så en kopiert instruks er det nærmeste denne sida */
+/* kommer en fullført oppgave, og det eneste stedet det er verdt å måle.*/
+/*                                                                      */
+/* Vi teller IKKE avhukinger, nodeåpninger eller framdrift: det ville   */
+/* vært et detaljert bilde av hva én elev sliter med, sendt til Google, */
+/* for et verktøy hvis hele poeng er at det ikke krever konto eller     */
+/* databehandleravtale. Instruksteksten sendes heller aldri — bare      */
+/* hvilken type og hvilken node.                                        */
+/*                                                                      */
+/* Hendelsen sendes når knappen trykkes, ikke når utklippstavla svarer: */
+/* fallbacken (window.prompt med teksten) leverer instruksen like fullt,*/
+/* og skal telle likt.                                                  */
+/*                                                                      */
+/* Krever /js/analytics.js i <head>. Mangler den, gjør dette ingenting. */
+/* ------------------------------------------------------------------ */
+
+// «/trees/matte-2p/» → «matte-2p». Slug-en er mappenavnet; det finnes
+// ingen egen id i config, og mappenavnet er allerede nøkkelen i
+// /trees/trees.json og i meta.json.
+function treeSlug() {
+  const parts = location.pathname.split('/').filter(Boolean);
+  const i = parts.indexOf('trees');
+  return (i !== -1 && parts[i + 1]) ? parts[i + 1] : (parts[parts.length - 1] || 'unknown');
+}
+
+function trackCopy(kind, extra) {
+  if (!window.aistTrack) return;
+  const params = { tree_slug: treeSlug(), instruction_kind: kind };
+  if (extra) Object.keys(extra).forEach(k => { if (extra[k] != null) params[k] = extra[k]; });
+  window.aistTrack('copy_instruction', params);
+}
+
+/* ------------------------------------------------------------------ */
 /* Oppstart                                                             */
 /* ------------------------------------------------------------------ */
 
@@ -435,6 +472,7 @@ function setupMotivationButton() {
   btn.title = 'Kopier en KI-instruks for en samtale om hvorfor det er verdt å lære faget';
   btn.addEventListener('click', () => {
     const original = btn.textContent;
+    trackCopy('motivation');
     navigator.clipboard.writeText(MOTIVATION_INSTRUCTION_TEMPLATE).then(() => {
       btn.textContent = 'Kopiert!';
       setTimeout(() => { btn.textContent = original; }, 1500);
@@ -603,6 +641,7 @@ function ensureGoalIndexModal() {
   copyBtn.textContent = 'Kopier alle';
   copyBtn.addEventListener('click', () => {
     const text = composeGoalIndexText();
+    trackCopy('goal_index');
     navigator.clipboard.writeText(text).then(() => {
       const original = copyBtn.textContent;
       copyBtn.textContent = 'Kopiert!';
@@ -664,6 +703,8 @@ function ensureGoalIndexModal() {
     const minutes = Math.min(240, Math.max(15, parseInt(minutesInput.value, 10) || LESSON_DEFAULT_MINUTES));
     minutesInput.value = minutes;
     const text = composeLessonPlanInstruction(nodes, minutes);
+
+    trackCopy('lesson_plan', { node_count: nodes.length, lesson_minutes: minutes });
 
     const original = planBtn.textContent;
     navigator.clipboard.writeText(text).then(() => {
@@ -874,6 +915,8 @@ function setupExamButton() {
     const count = Math.min(50, Math.max(1, parseInt(countInput.value, 10) || 10));
     countInput.value = count;
     const text = composeExamInstruction(masteredNodes, count);
+
+    trackCopy('exam', { node_count: masteredNodes.length, task_count: count });
 
     navigator.clipboard.writeText(text).then(() => {
       examBtn.textContent = 'Kopiert!';
@@ -2019,6 +2062,7 @@ function renderDetail(node) {
   });
 
   copyBtn.addEventListener('click', () => {
+    trackCopy('node', { node_id: node.id, node_title: node.navn || null, node_topic: node.emne || null });
     navigator.clipboard.writeText(instructionText).then(() => {
       const original = copyBtn.textContent;
       copyBtn.textContent = 'Kopiert!';

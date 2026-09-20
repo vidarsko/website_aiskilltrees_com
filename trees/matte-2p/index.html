@@ -14,6 +14,19 @@
   -->
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/tree.css">
+
+  <!--
+    Analytics, same place as on every other page: in <head>, right after the
+    stylesheets. js/engine.js sends one `copy_instruction` event per copied
+    instruction on top of the page view — see the "Analytics" block there for
+    what is deliberately NOT measured.
+
+    NO LANGUAGE SWITCH HERE, and no js/i18n.js: this tree is written in
+    Norwegian by its author and is not a translatable view. The catalogue at
+    /trees/ is what switches language, and it shows each tree's own language
+    on its card. See AGENTS.md, "Språk".
+  -->
+  <script src="/js/analytics.js"></script>
 </head>
 <body>
   <!--

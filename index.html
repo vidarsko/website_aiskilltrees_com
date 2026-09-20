@@ -4,11 +4,125 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Skill Trees</title>
-  <meta name="description" content="A teacher-written map of a subject, plus instructions that turn any AI chat into a practice partner — one that holds back what it could give away.">
+  <meta name="description" content="A teacher-written map of a subject, plus instructions that turn any AI chat into a practice partner — one that holds back what it could give away." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
+
+  <script src="/js/analytics.js"></script>
+  <script src="/js/i18n.js" defer></script>
+
+  <!--
+    The translation dictionary for THIS page. English is the source: the
+    markup below holds the English string verbatim, and i18n.js only swaps
+    text when the visitor is on NO or SV, so the default language never
+    flashes. Keys are referenced from the markup with data-i18n (text),
+    data-i18n-html (text containing markup) and data-i18n-attr (attributes).
+
+    The skill trees under /trees/<slug>/ are NOT translated — each is written
+    in one language by its author. See js/i18n.js and AGENTS.md.
+  -->
+  <script type="application/json" id="i18n-dict">
+  {
+    "meta-description": {
+      "en": "A teacher-written map of a subject, plus instructions that turn any AI chat into a practice partner — one that holds back what it could give away.",
+      "no": "Et lærerskrevet kart over et fag, pluss instrukser som gjør hvilken som helst KI-chat til en øvingspartner — en som holder tilbake det den kunne røpet.",
+      "sv": "En lärarskriven karta över ett ämne, plus instruktioner som gör vilken AI-chatt som helst till en övningspartner — en som håller inne med det den skulle kunna avslöja."
+    },
+
+    "lang-switch-label": { "en": "Language", "no": "Språk", "sv": "Språk" },
+
+    "hero-eyebrow": {
+      "en": "An open method for teachers",
+      "no": "En åpen metode for lærere",
+      "sv": "En öppen metod för lärare"
+    },
+    "hero-title": {
+      "en": "Skill trees your students can actually see.",
+      "no": "Ferdighetstrær elevene faktisk får se.",
+      "sv": "Kunskapsträd som eleverna faktiskt får se."
+    },
+    "hero-lede": {
+      "en": "A teacher-written map of a subject, plus instructions that turn any AI chat into a practice partner — one that holds back what it could give away.",
+      "no": "Et lærerskrevet kart over et fag, pluss instrukser som gjør hvilken som helst KI-chat til en øvingspartner — en som holder tilbake det den kunne røpet.",
+      "sv": "En lärarskriven karta över ett ämne, plus instruktioner som gör vilken AI-chatt som helst till en övningspartner — en som håller inne med det den skulle kunna avslöja."
+    },
+    "hero-img-alt": {
+      "en": "A teacher standing at a whiteboard, pointing at a hand-drawn diagram of boxes joined by arrows, in front of a seated group.",
+      "no": "En lærer står ved en tavle og peker på en håndtegnet figur av bokser bundet sammen med piler, foran en gruppe som sitter og ser på.",
+      "sv": "En lärare står vid en whiteboard och pekar på en handritad figur av rutor sammanbundna med pilar, framför en sittande grupp."
+    },
+    "hero-cta-primary": {
+      "en": "See a tree",
+      "no": "Se et ferdighetstre",
+      "sv": "Se ett kunskapsträd"
+    },
+    "hero-cta-secondary": {
+      "en": "Read the method",
+      "no": "Les metoden",
+      "sv": "Läs metoden"
+    },
+
+    "what-eyebrow": { "en": "What this is", "no": "Hva dette er", "sv": "Vad det här är" },
+    "what-heading": {
+      "en": "The graph is the interface, not the engine.",
+      "no": "Grafen er grensesnittet, ikke motoren.",
+      "sv": "Grafen är gränssnittet, inte motorn."
+    },
+    "what-p1": {
+      "en": "Prerequisite graphs are not new — adaptive systems have computed them for decades. What they do not do is show them. Here the graph <em>is</em> the interface: the student sees the whole structure of a subject, chooses where to start, and can tell what any one skill rests on.",
+      "no": "Forkunnskapsgrafer er ikke noe nytt — adaptive systemer har regnet dem ut i flere tiår. Det de ikke gjør, er å vise dem. Her <em>er</em> grafen grensesnittet: eleven ser hele strukturen i faget, velger selv inngang, og kan se hva hver enkelt ferdighet hviler på.",
+      "sv": "Förkunskapsgrafer är inget nytt — adaptiva system har räknat ut dem i decennier. Det de inte gör är att visa dem. Här <em>är</em> grafen gränssnittet: eleven ser hela ämnets struktur, väljer själv sin ingång och kan se vad varje enskild färdighet vilar på."
+    },
+    "what-p2": {
+      "en": "Nothing here calls a language model. The tool composes a teacher-written instruction that you paste into whichever AI chat you already use. No vendor lock-in, no cost per student, no data processing agreement — and every instruction is written to make the model hold something back, so the student still does the thinking.",
+      "no": "Ingenting her kaller en språkmodell. Verktøyet setter sammen en lærerskrevet instruks som du limer inn i den KI-chatten du allerede bruker. Ingen leverandøravhengighet, ingen kostnad per elev, ingen databehandleravtale — og hver eneste instruks er skrevet for å få modellen til å holde noe tilbake, slik at eleven fortsatt gjør tenkearbeidet.",
+      "sv": "Ingenting här anropar en språkmodell. Verktyget sätter samman en lärarskriven instruktion som du klistrar in i den AI-chatt du redan använder. Ingen leverantörsinlåsning, ingen kostnad per elev, inget personuppgiftsbiträdesavtal — och varje instruktion är skriven för att få modellen att hålla något inne, så att eleven fortfarande gör tankearbetet."
+    },
+
+    "start-eyebrow": { "en": "Start here", "no": "Start her", "sv": "Börja här" },
+
+    "tile-1-title": {
+      "en": "Existing skill trees",
+      "no": "Ferdighetstrær som finnes",
+      "sv": "Kunskapsträd som finns"
+    },
+    "tile-1-body": {
+      "en": "Browse the subjects already decomposed — what a finished tree looks like, and what a node actually contains.",
+      "no": "Bla i fagene som allerede er dekomponert — hvordan et ferdig tre ser ut, og hva en node faktisk inneholder.",
+      "sv": "Bläddra bland ämnena som redan är nedbrutna — hur ett färdigt träd ser ut, och vad en nod faktiskt innehåller."
+    },
+    "tile-1-go": { "en": "Browse →", "no": "Bla i dem →", "sv": "Bläddra →" },
+
+    "tile-2-title": { "en": "Make your own", "no": "Lag ditt eget", "sv": "Gör ditt eget" },
+    "tile-2-body": {
+      "en": "The decomposition specification, the instructions, and a template for starting a new subject — in your language, for your syllabus.",
+      "no": "Dekomponeringsspesifikasjonen, instruksene og en mal for å starte et nytt fag — på ditt språk, for din læreplan.",
+      "sv": "Nedbrytningsspecifikationen, instruktionerna och en mall för att börja med ett nytt ämne — på ditt språk, för din läroplan."
+    },
+    "tile-2-go": { "en": "Get the spec →", "no": "Hent spesifikasjonen →", "sv": "Hämta specifikationen →" },
+
+    "tile-3-title": { "en": "Research", "no": "Forskning", "sv": "Forskning" },
+    "tile-3-body": {
+      "en": "The cognitive grounding behind the design, and the paper describing why a visible, teacher-written graph is the point.",
+      "no": "Det kognitive grunnlaget bak designet, og artikkelen som forklarer hvorfor en synlig, lærerskrevet graf er hele poenget.",
+      "sv": "Den kognitiva grunden bakom designen, och artikeln som förklarar varför en synlig, lärarskriven graf är hela poängen."
+    },
+    "tile-3-go": { "en": "Read the paper →", "no": "Les artikkelen →", "sv": "Läs artikeln →" },
+
+    "footer-line-1": {
+      "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+      "no": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+      "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+    },
+    "footer-line-2": {
+      "en": "Placeholder landing page. Content and destinations are still being decided.",
+      "no": "Midlertidig forside. Innhold og lenkemål er ikke avgjort ennå.",
+      "sv": "Tillfällig startsida. Innehåll och länkmål är ännu inte bestämda."
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -17,7 +131,18 @@
       <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true">&#9679;</span>AI Skill Trees</a>
       <!-- TODO: nav. Omitted entirely rather than shipped as an empty landmark
            or as dead links — add <nav class="sitenav" aria-label="Main"> here
-           once there are real destinations. -->
+           once there are real destinations. The language switch sits at the
+           far end of the bar and stays there when the nav arrives. -->
+
+      <!-- Language switch. The button labels are endonyms (EN / NO / SV), so
+           they read the same whichever language is active and need no
+           translating themselves. The trees are not translated — see
+           js/i18n.js for why this is a page-level control, not a site-wide one. -->
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang-switch-label">
+        <button class="lang-btn" type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button>
+        <button class="lang-btn" type="button" data-lang="no" lang="nb" aria-pressed="false" title="Norsk (bokmål)">NO</button>
+        <button class="lang-btn" type="button" data-lang="sv" lang="sv" aria-pressed="false" title="Svenska">SV</button>
+      </div>
     </div>
   </header>
 
@@ -33,21 +158,24 @@
     <section class="hero">
       <div class="hero__media">
         <img src="https://skogvoll.com/media/DSC_6349.JPG"
-             alt="A teacher standing at a whiteboard, pointing at a hand-drawn diagram of boxes joined by arrows, in front of a seated group.">
+             alt="A teacher standing at a whiteboard, pointing at a hand-drawn diagram of boxes joined by arrows, in front of a seated group."
+             data-i18n-attr="alt:hero-img-alt">
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
 
       <div class="hero__inner">
-        <p class="eyebrow">An open method for teachers</p>
-        <h1 class="hero__title">Skill trees your students can actually see.</h1>
-        <p class="hero__lede">
+        <p class="eyebrow" data-i18n="hero-eyebrow">An open method for teachers</p>
+        <h1 class="hero__title" data-i18n="hero-title">Skill trees your students can actually see.</h1>
+        <p class="hero__lede" data-i18n="hero-lede">
           A teacher-written map of a subject, plus instructions that turn any AI chat
           into a practice partner — one that holds back what it could give away.
         </p>
         <div class="btn-row">
-          <!-- "Read the method" has no destination yet. -->
-          <a class="btn btn--primary" href="/trees/">See a tree</a>
-          <a class="btn btn--ghost" href="#">Read the method</a>
+          <!-- "Read the method" has no destination yet. data-track-cta reports
+               which of these gets pressed — including the dead one, which is
+               how we learn what to build next. See js/analytics.js. -->
+          <a class="btn btn--primary" href="/trees/" data-track-cta="hero-see-a-tree" data-i18n="hero-cta-primary">See a tree</a>
+          <a class="btn btn--ghost" href="#" data-track-cta="hero-read-the-method" data-i18n="hero-cta-secondary">Read the method</a>
         </div>
       </div>
     </section>
@@ -55,16 +183,16 @@
     <!-- What it is -->
     <section class="band">
       <div class="band__inner">
-        <p class="eyebrow">What this is</p>
-        <h2>The graph is the interface, not the engine.</h2>
+        <p class="eyebrow" data-i18n="what-eyebrow">What this is</p>
+        <h2 data-i18n="what-heading">The graph is the interface, not the engine.</h2>
         <div class="prose">
-          <p>
+          <p data-i18n-html="what-p1">
             Prerequisite graphs are not new — adaptive systems have computed them for decades.
             What they do not do is show them. Here the graph <em>is</em> the interface: the
             student sees the whole structure of a subject, chooses where to start, and can tell
             what any one skill rests on.
           </p>
-          <p>
+          <p data-i18n-html="what-p2">
             Nothing here calls a language model. The tool composes a teacher-written instruction
             that you paste into whichever AI chat you already use. No vendor lock-in, no cost per
             student, no data processing agreement — and every instruction is written to make the
@@ -77,39 +205,39 @@
     <!-- Three entry points -->
     <section class="band band--alt">
       <div class="band__inner">
-        <p class="eyebrow">Start here</p>
+        <p class="eyebrow" data-i18n="start-eyebrow">Start here</p>
         <div class="tiles">
 
           <!-- 01 now has a real destination: the tree catalogue. 02 and 03 are
                still placeholders — see AGENTS.md, "Ikke avgjort ennå". -->
-          <a class="tile" href="/trees/">
+          <a class="tile" href="/trees/" data-track-cta="tile-01-existing-trees">
             <span class="tile__index">01</span>
-            <h3 class="tile__title">Existing skill trees</h3>
-            <p class="tile__body">
+            <h3 class="tile__title" data-i18n="tile-1-title">Existing skill trees</h3>
+            <p class="tile__body" data-i18n="tile-1-body">
               Browse the subjects already decomposed — what a finished tree looks like,
               and what a node actually contains.
             </p>
-            <span class="tile__go" aria-hidden="true">Browse &rarr;</span>
+            <span class="tile__go" aria-hidden="true" data-i18n="tile-1-go">Browse &rarr;</span>
           </a>
 
-          <a class="tile" href="#">
+          <a class="tile" href="#" data-track-cta="tile-02-make-your-own">
             <span class="tile__index">02</span>
-            <h3 class="tile__title">Make your own</h3>
-            <p class="tile__body">
+            <h3 class="tile__title" data-i18n="tile-2-title">Make your own</h3>
+            <p class="tile__body" data-i18n="tile-2-body">
               The decomposition specification, the instructions, and a template for starting a
               new subject — in your language, for your syllabus.
             </p>
-            <span class="tile__go" aria-hidden="true">Get the spec &rarr;</span>
+            <span class="tile__go" aria-hidden="true" data-i18n="tile-2-go">Get the spec &rarr;</span>
           </a>
 
-          <a class="tile" href="#">
+          <a class="tile" href="#" data-track-cta="tile-03-research">
             <span class="tile__index">03</span>
-            <h3 class="tile__title">Research</h3>
-            <p class="tile__body">
+            <h3 class="tile__title" data-i18n="tile-3-title">Research</h3>
+            <p class="tile__body" data-i18n="tile-3-body">
               The cognitive grounding behind the design, and the paper describing why a
               visible, teacher-written graph is the point.
             </p>
-            <span class="tile__go" aria-hidden="true">Read the paper &rarr;</span>
+            <span class="tile__go" aria-hidden="true" data-i18n="tile-3-go">Read the paper &rarr;</span>
           </a>
 
         </div>
@@ -120,8 +248,8 @@
 
   <footer class="band band--dark sitefooter">
     <div class="band__inner sitefooter__inner">
-      <p>AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p>Placeholder landing page. Content and destinations are still being decided.</p>
+      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
+      <p data-i18n="footer-line-2">Placeholder landing page. Content and destinations are still being decided.</p>
     </div>
   </footer>
 

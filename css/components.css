@@ -56,6 +56,53 @@
 }
 
 /* --------------------------------------------------------------------------
+   Language switch — NO/EN/SV, in the header bar.
+
+   Square like every other control in this system: no radius, hairline rule,
+   sans 500. The buttons sit flush against each other with the rule showing
+   through a 1px gap, the same trick .tiles uses, so the group reads as one
+   object rather than three loose chips.
+
+   The active language is marked by fill AND aria-pressed, never by color
+   alone — same reason links here are underlined.
+
+   Not present on a tree page: the trees are not translated. See js/i18n.js.
+   -------------------------------------------------------------------------- */
+
+.lang-switch {
+  display: flex;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  flex: 0 0 auto;
+}
+
+.lang-btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--space-1);
+  border: 0;
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.lang-btn:hover { background: var(--surface); color: var(--ink); }
+
+.lang-btn.is-active {
+  background: var(--primary);
+  color: var(--ink-inverse);
+  cursor: default;
+}
+.lang-btn.is-active:hover { background: var(--primary); color: var(--ink-inverse); }
+
+/* --------------------------------------------------------------------------
    Hero — full-bleed photograph, flat scrim, display type sitting on it.
    -------------------------------------------------------------------------- */
 
