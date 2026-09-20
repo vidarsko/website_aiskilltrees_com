@@ -26,7 +26,8 @@
         "goal",
         "conceptGuidance",
         "nodeInstruction",
-        "aids"
+        "aids",
+        "aidsMultiple"
       ],
       "sections": {
         "role": "You are an AI learning assistant helping a student practise {courseName}.",
@@ -47,7 +48,9 @@
         "conceptGuidance": "This is a CONCEPT (declarative knowledge), not a computational skill. When you test whether the student understands the concept, do not use extensive calculation problems as the test — working extensively with the concept belongs in a separate, related skill further down the skill tree, and is usually meaningless to test here since the student will train on it thoroughly there anyway. Test conceptual understanding qualitatively instead, for example by asking the student to explain the concept in their own words, explain a special or boundary case, justify why something is or is not an instance of the concept, or identify the concept among several alternatives. If a test does involve numbers, keep the calculation minimal and subordinate — the point is whether the student understands the concept, not whether they can calculate.",
         "prerequisites": "The student should already have mastered the following prerequisites:\n{prerequisiteList}",
         "prerequisitesNone": "This node has no prerequisites recorded in the skill tree — assume the student is completely new to this concept or skill.",
-        "goal": "The goal of the session is for the student to learn the following: \"{nodeName}\". The text below describes what it means to master this node — that is the goal of the session, not something the student already knows:\n{nodeDescription}"
+        "goal": "The goal of the session is for the student to learn the following: \"{nodeName}\". The text below describes what it means to master this node — that is the goal of the session, not something the student already knows:\n{nodeDescription}",
+        "aids": "The following applies to the aids the student may use:\n{aidsText}",
+        "aidsMultiple": "This skill spans several assessment contexts, listed above. The student must be able to perform it under the MOST RESTRICTIVE of them — that is, the one allowing the fewest aids. Train it that way by default: if one of the listed contexts allows no calculator or no tools, the student should be able to do it without them, and only then practise the faster route the other context permits. Do not let the student settle for managing it only where the aids do the work."
       }
     },
     "exam": {
@@ -61,6 +64,7 @@
         "conceptMixAllConcepts",
         "conceptMixMixed",
         "aids",
+        "aidsMultiple",
         "withholdAnswers"
       ],
       "sections": {
@@ -72,7 +76,8 @@
         "conceptMixAllConcepts": "Every point in this selection is a [concept] point — the whole test should therefore consist of qualitative tasks, no calculation problems.",
         "conceptMixMixed": "Weight the mix of tasks according to the composition of the selection: the larger the share of [concept] points relative to [skill] points, the larger the share of the test that should be qualitative rather than computational. A [concept] point may also appear as a small, subordinate part of a task that otherwise tests a related [skill] point.",
         "withholdAnswers": "Show ONLY the tasks at first, without the answers. Do not give the answers before the student has responded — wait until the student asks for an assessment (either after each task, or after answering all of them). Then give a complete answer key with reasoning for each answer, a short assessment of what the student got right, and what they should practise more.",
-        "aids": "Mark each task with {aidsMarkers} according to which part it belongs to, and stick to the correct use of aids for each part:\n{aidsText}"
+        "aids": "Mark each task with the aid level it belongs to, using the labels shown in the list above, and stick to the correct use of aids for each:\n{aidsText}",
+        "aidsMultiple": "This skill spans several assessment contexts, listed above. The student must be able to perform it under the MOST RESTRICTIVE of them — that is, the one allowing the fewest aids. Train it that way by default: if one of the listed contexts allows no calculator or no tools, the student should be able to do it without them, and only then practise the faster route the other context permits. Do not let the student settle for managing it only where the aids do the work."
       }
     },
     "lessonPlan": {
@@ -92,6 +97,7 @@
         "diagnostic",
         "recall",
         "aids",
+        "aidsMultiple",
         "format"
       ],
       "sections": {
@@ -108,14 +114,15 @@
         "conceptAdaptation": "ADAPTATION FOR CONCEPTS\nSome of the learning goals above are marked [concept]. That is declarative knowledge, not a computational skill, and the example–problem pair model above is written for computational skills. Make a simple adaptation for these: the teacher's \"problem\" instead becomes the teacher showing and working through some examples and non-examples of the concept, and the students' \"problems\" become deciding whether new cases are examples of the concept or not and justifying why, or explaining the concept in their own words. The independent practice becomes correspondingly qualitative. Keep calculation minimal and subordinate in these blocks — the computational skill itself belongs to a separate learning goal further down the skill tree.",
         "diagnostic": "DIAGNOSTIC QUESTION — end EVERY learning goal with one, before the class moves on\nA diagnostic question is a multiple-choice question with exactly four options, numbered 1, 2, 3 and 4. The wrong options must not be arbitrary: each of them should correspond to a CONCRETE, common misconception attached to this particular learning goal. Write a separate line to the teacher saying which misconception each wrong option catches, so the teacher knows what an answer actually means.\nRequirements for the question:\n- It must fit on one slide or on the board, and be answerable in under 30 seconds without working on paper.\n- All four options must look plausible. No obviously silly options — then students answer correctly without understanding.\nHow to run it (write this into the plan): the teacher shows the question, the students think in silence for 30 seconds, and on the teacher's signal EVERYONE answers simultaneously by holding up that number of fingers. The point is that the whole class has to commit, not just whoever puts their hand up.\n- If nearly everyone answers correctly: move straight on to the next learning goal.\n- If the class is split: do not give the answer immediately. Suggest one way to take up the misconception, and vary this between learning goals:\n  (i) one student per option gets to argue for their answer while the teacher and the rest of the class only listen, without interrupting or correcting — and then the class votes again;\n  (ii) the students discuss in pairs with their neighbour for one minute and vote again;\n  (iii) the students group up by which option they chose, and must agree on a shared argument before voting again.\n  Only after the new vote does the teacher go through the correct answer — and then explains explicitly why each of the wrong options is wrong.",
         "recall": "FINAL BLOCK — RETRIEVAL ({recallMinutes} minutes)\nEnd the lesson with retrieval: the students close their books and notes and write down in their exercise books everything they remember learning today. Write out the concrete instruction the teacher should give, ready to put on a slide or the board. Also give the teacher 2–3 short prompt questions they can write on the board if some students cannot get started. Write one sentence too about why this is done — that retrieving something from memory is what fixes it, not reading it again — so the teacher can say it to the class.",
-        "aids": "Stick to the correct use of aids in the problems you create, according to which part each learning goal belongs to (marked {aidsMarkers} in the list above):\n{aidsText}",
+        "aids": "Stick to the correct use of aids in the problems you create, according to which level each learning goal belongs to (shown in the list above):\n{aidsText}",
         "format": "FORMAT OF THE ANSWER\nWrite the plan as one continuous document the teacher can read top to bottom while teaching. Use a heading with a minute marking for each block, in the same order as the timetable above.\nEverything that is to be shown to the students — the starter task, the teacher's example, the student problems, the diagnostic question and the retrieval instruction — must appear in its own clearly delimited block beginning with \"ON THE BOARD:\" on its own line. The contents of such a block must be written verbatim as it should appear on the slide or board, with no instructions to the teacher inside the block. Everything else — what the teacher should do and say, answers, what to look for — goes outside the blocks. That way the teacher can copy the \"ON THE BOARD\" blocks straight into their slides.\nGive complete answers to all problems, in separate paragraphs marked \"Answers\", always outside the \"ON THE BOARD\" blocks.\nWrite simply and concretely, and avoid pedagogical jargon in the text that will be shown to students.",
         "_scheduleLines": {
           "_comment": "Not part of `order` — the engine builds the schedule line by line and hands the result in as the {schedule} slot.",
           "starter": "{from}-{to} min: Starter",
           "goal": "{from}-{to} min: Learning goal {index} - {name}. Of these, the last {diagnostic} minutes are set aside for the diagnostic question.",
           "recall": "{from}-{to} min: Retrieval"
-        }
+        },
+        "aidsMultiple": "This skill spans several assessment contexts, listed above. The student must be able to perform it under the MOST RESTRICTIVE of them — that is, the one allowing the fewest aids. Train it that way by default: if one of the listed contexts allows no calculator or no tools, the student should be able to do it without them, and only then practise the faster route the other context permits. Do not let the student settle for managing it only where the aids do the work."
       }
     },
     "motivation": {
@@ -156,5 +163,5 @@
       }
     }
   },
-  "_conditions": "Sections whose id appears in `order` but which only apply sometimes are switched on by the engine (SECTION_WHEN in js/engine.js): prerequisites/prerequisitesNone, formulering (only when the tree sets that slot), conceptGuidance (only for type=begrep), aids (only when features.aids is on), and the three conceptMix variants. Adding a section with no condition means it always renders."
+  "_conditions": "Sections whose id appears in `order` but which only apply sometimes are switched on by the engine (SECTION_WHEN in js/engine.js): prerequisites/prerequisitesNone, formulering (only when the tree sets that slot), conceptGuidance (only for type=begrep), aids (only when the tree's data actually names a level), aidsMultiple (only when a node or selection spans more than one level), and the three conceptMix variants. Adding a section with no condition means it always renders."
 }

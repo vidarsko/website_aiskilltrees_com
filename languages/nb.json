@@ -19,8 +19,8 @@
     "copyFallback": "Kunne ikke kopiere automatisk - kopier teksten under manuelt:",
     "errorBanner": "⚠ {n} problem(er) funnet i datafilene (se konsoll for detaljer):",
     "nodeType": {
-      "ferdighet": "ferdighet",
-      "begrep": "begrep"
+      "skill": "ferdighet",
+      "concept": "begrep"
     },
     "badges": {
       "del1": "Del 1",
@@ -69,8 +69,8 @@
         },
         {
           "id": "aids",
-          "heading": "D1 / D2",
-          "body": "Merkelappen på en boks viser deg hvilken del av eksamen ferdigheten hører til - del 1 (uten hjelpemidler) eller del 2 (med hjelpemidler), eller begge.",
+          "heading": "Hjelpemiddel-merkelappen",
+          "body": "Merkelappen på en boks viser hvilket hjelpemiddelnivå ferdigheten hører til — for eksempel «Del 1» eller «Del 2». Er den delt i flere farger, hører ferdigheten til flere nivåer, og du bør klare den under det strengeste av dem. Klikk på merkelappen for å se hva du får bruke.",
           "when": "feature:aids"
         },
         {
@@ -124,10 +124,16 @@
       "mastered": "✓ Mestret",
       "available": "Tilgjengelig — forutsetninger er oppfylt",
       "locked": "Låst — mangler forutsetninger",
-      "empty": "Klikk på en node i kartet for å se detaljer."
+      "empty": "Klikk på en node i kartet for å se detaljer.",
+      "examLabel": "{season} {year}, {part}, oppgave {number}"
     },
     "loadError": "Kritisk feil ved lasting: {message} (kjører du siden via en lokal server? fetch() av datafilene feiler ved å åpne index.html direkte fra disk i mange nettlesere.)",
-    "defaultTopic": "Annet"
+    "defaultTopic": "Annet",
+    "aids": {
+      "heading": "Hjelpemidler",
+      "tagTitle": "Se hva du får bruke på dette nivået",
+      "multipleNote": "Denne ferdigheten hører til flere nivåer. Du bør klare den under det strengeste av dem — altså med færrest hjelpemidler."
+    }
   },
   "prompt": {
     "_comment": "Språklaget i KI-instruksene. Fyller de to hullene prompts/core.json lar stå åpne. core.json sier HVA modellen skal gjøre; dette sier hvilket språk den skal gjøre det på, og hva som kjennetegner god prosa PÅ det språket - råd som ikke overlever en oversettelse og derfor ikke kan bo i den engelske kjernen.",

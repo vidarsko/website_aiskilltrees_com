@@ -50,7 +50,6 @@ let CORE = null;            // /prompts/core.json
 let STORAGE_KEY = null;
 let TOPIC_ORDER = [];
 let FEATURES = {};
-let SHOW_HJELPEMIDDEL = false;
 let SHOW_MOTIVATION_BUTTON = false;
 let CONVERSATION_LANGUAGE = '';
 
@@ -92,9 +91,9 @@ function fill(text, vars) {
       ? String(vars[name]) : whole);
 }
 
-/* Visningsnavnet for en nodetype. Selve VERDIEN i CSV-en ('ferdighet',
-   'begrep') er et dataenum og er norsk på alle språk - også i den
-   svenske noder.csv. Bare etiketten oversettes. */
+/* Visningsnavnet for en nodetype. Selve VERDIEN i CSV-en ('skill',
+   'concept') er et dataenum og er ENGELSK på alle språk - også i den
+   norske og den svenske noder.csv. Bare etiketten oversettes. */
 function typeLabelText(type) {
   const map = (LANG.ui.nodeType) || {};
   return map[type] || type;
@@ -112,18 +111,21 @@ const SECTION_WHEN = {
   'node.formulering':        ctx => !!slot('formuleringsfokus'),
   'node.prerequisites':      ctx => ctx.ancestors && ctx.ancestors.length > 0,
   'node.prerequisitesNone':  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
-  'node.conceptGuidance':    ctx => ctx.node && ctx.node.type === 'begrep',
-  'node.nodeInstruction':    ctx => !!(ctx.node && ctx.node.instruks),
-  'node.aids':               () => SHOW_HJELPEMIDDEL,
+  'node.conceptGuidance':    ctx => ctx.node && ctx.node.type === 'concept',
+  'node.nodeInstruction':    ctx => !!(ctx.node && ctx.node.instruction),
+  'node.aids':               ctx => treeUsesAids() && (ctx.node.aids || []).length > 0,
+  'node.aidsMultiple':       ctx => !!ctx.multipleAids,
+  'exam.aidsMultiple':       ctx => !!ctx.multipleAids,
+  'lessonPlan.aidsMultiple': ctx => !!ctx.multipleAids,
   'exam.conceptMix':             ctx => !!ctx.hasConcepts,
   'exam.conceptMixAllConcepts':  ctx => !!ctx.allConcepts,
   'exam.conceptMixMixed':        ctx => !!ctx.hasConcepts && !ctx.allConcepts,
-  'exam.aids':                   ctx => SHOW_HJELPEMIDDEL && !!ctx.aidsText,
+  'exam.aids':                   ctx => treeUsesAids() && !!ctx.aidsText,
   'lessonPlan.prerequisites':     ctx => ctx.ancestors && ctx.ancestors.length > 0,
   'lessonPlan.prerequisitesNone': ctx => !ctx.ancestors || ctx.ancestors.length === 0,
   'lessonPlan.tightWarning':      ctx => !!ctx.tight,
   'lessonPlan.conceptAdaptation': ctx => !!ctx.hasConcepts,
-  'lessonPlan.aids':              ctx => SHOW_HJELPEMIDDEL && !!ctx.aidsText,
+  'lessonPlan.aids':              ctx => treeUsesAids() && !!ctx.aidsText,
 };
 
 function slot(name) {
@@ -168,10 +170,6 @@ function composePrompt(promptName, ctx) {
 }
 
 /* Hjelpemiddelteksten er fagets egen prosa og bor i tree.json, ikke her. */
-function composeHjelpemiddelContext(hjelpemiddel) {
-  const aids = (CONFIG.prompts || {}).aids || {};
-  return aids[hjelpemiddel] || aids.default || '';
-}
 
 /* ------------------------------------------------------------------ */
 /* Global tilstand                                                     */
@@ -268,7 +266,6 @@ async function bootstrap() {
   STORAGE_KEY = CONFIG.storageKey;
   TOPIC_ORDER = CONFIG.topicOrder || [];
   FEATURES = CONFIG.features || {};
-  SHOW_HJELPEMIDDEL = FEATURES.aids === true;
   SHOW_MOTIVATION_BUTTON = FEATURES.motivation === true;
   Object.assign(LAYOUT, CONFIG.layoutOverrides || {});
 
@@ -614,7 +611,7 @@ function helpSection(body, heading, text) {
 
 function renderHelpBody(body) {
   body.innerHTML = '';
-  const enabled = { 'feature:aids': SHOW_HJELPEMIDDEL, 'feature:motivation': SHOW_MOTIVATION_BUTTON };
+  const enabled = { 'feature:aids': treeUsesAids(), 'feature:motivation': SHOW_MOTIVATION_BUTTON };
   (LANG.ui.help.sections || []).forEach(sec => {
     if (sec.when && !enabled[sec.when]) return;
     helpSection(body, sec.heading, sec.body);
@@ -634,7 +631,7 @@ function closeHelpModal() {
 function composeGoalIndexText() {
   return themeList
     .map(({ letter, topic, nodes }) => {
-      const lines = nodes.map(n => `${n.goalIndex}) ${n.navn}`).join('\n');
+      const lines = nodes.map(n => `${n.goalIndex}) ${n.name}`).join('\n');
       return `${letter}) ${topic}\n${lines}`;
     })
     .join('\n\n');
@@ -821,7 +818,7 @@ function goalStatus(node, progress) {
     kind: 'blocked',
     symbol: '⊘',
     text: t('status.blocked', { codes: codes }),
-    title: missing.map(m => `${m.goalIndex}) ${m.navn}`).join('\n'),
+    title: missing.map(m => `${m.goalIndex}) ${m.name}`).join('\n'),
   };
 }
 
@@ -854,7 +851,7 @@ function renderGoalIndexBody(body) {
       cb.className = 'goal-pick';
       cb.id = 'goal-pick-' + n.id;
       cb.checked = lessonSelection.has(n.id);
-      cb.setAttribute('aria-label', t('lesson.includeAria', { name: n.navn }));
+      cb.setAttribute('aria-label', t('lesson.includeAria', { name: n.name }));
       cb.addEventListener('change', () => {
         if (cb.checked) lessonSelection.add(n.id);
         else lessonSelection.delete(n.id);
@@ -868,7 +865,7 @@ function renderGoalIndexBody(body) {
       const label = document.createElement('label');
       label.setAttribute('for', cb.id);
       label.className = 'goal-index-item-name';
-      label.textContent = `${n.goalIndex}) ${n.navn}`;
+      label.textContent = `${n.goalIndex}) ${n.name}`;
       main.appendChild(label);
 
       const badge = document.createElement('span');
@@ -957,9 +954,6 @@ function setupExamButton() {
   actions.appendChild(widget);
 }
 
-function hjelpemiddelKort(value) {
-  return value === 'del1' ? 'D1' : value === 'del2' ? 'D2' : 'D1+D2';
-}
 
 // Setter sammen en KI-instruks for å lage en prøve på tvers av alle noder
 // eleven (eller læreren) har markert som mestret - ikke bare én enkelt node
@@ -969,47 +963,41 @@ function hjelpemiddelKort(value) {
 function composeExamInstruction(nodes, count) {
   const list = nodes.map(n => {
     const tags = [promptTypeTag(n.type)];
-    if (SHOW_HJELPEMIDDEL) tags.push(hjelpemiddelKort(n.hjelpemiddel));
-    return `- ${n.navn} [${tags.join(', ')}]: ${n.beskrivelse}`;
+    if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
+    return `- ${n.name} [${tags.join(', ')}]: ${n.description}`;
   }).join('\n');
 
   return composePrompt('exam', {
-    hasConcepts: nodes.some(n => n.type === 'begrep'),
-    allConcepts: nodes.length > 0 && nodes.every(n => n.type === 'begrep'),
+    hasConcepts: nodes.some(n => n.type === 'concept'),
+    allConcepts: nodes.length > 0 && nodes.every(n => n.type === 'concept'),
     aidsText: aidsTextFor(nodes),
+    multipleAids: nodes.some(n => (n.aids || []).length > 1),
     vars: {
       nodeCount: nodes.length,
       taskCount: count,
       nodeList: list,
-      aidsMarkers: AIDS_MARKERS,
       aidsText: aidsTextFor(nodes),
     },
   });
 }
 
-/* Merkelappene i sjølve instruksen er ENGELSKE og uavhengige av
-   grensesnittspråket: prompts/core.json er skrevet på engelsk og omtaler
-   dem som [skill]/[concept]. Verdien i CSV-en ('ferdighet'/'begrep') er et
-   dataenum - se typeLabelText() for etiketten MENNESKER ser. */
-const PROMPT_TYPE_TAG = { ferdighet: 'skill', begrep: 'concept' };
-const AIDS_MARKERS = '[D1] / [D2]';
-
+/* Merkelappene i instruksen er verdien rett fra CSV-en, som nå ER
+   engelsk ('skill'/'concept') og dermed matcher ordlyden i
+   prompts/core.json. Se typeLabelText() for etiketten MENNESKER ser. */
 function promptTypeTag(type) {
-  return PROMPT_TYPE_TAG[type] || type;
+  return type;
 }
 
 /* Hjelpemiddelteksten for et UTVALG noder: ta med avsnittet for hver del
    som faktisk er representert, aldri begge hvis bare den ene er det. */
 function aidsTextFor(nodes) {
-  if (!SHOW_HJELPEMIDDEL) return '';
-  const parts = [];
-  if (nodes.some(n => n.hjelpemiddel === 'del1' || n.hjelpemiddel === 'begge')) {
-    parts.push(composeHjelpemiddelContext('del1'));
-  }
-  if (nodes.some(n => n.hjelpemiddel === 'del2' || n.hjelpemiddel === 'begge')) {
-    parts.push(composeHjelpemiddelContext('del2'));
-  }
-  return parts.filter(Boolean).join('\n');
+  if (!treeUsesAids()) return '';
+  const seen = new Set();
+  nodes.forEach(n => (n.aids || []).forEach(l => seen.add(l)));
+  return Array.from(seen).sort((a, b) => a - b)
+    .map(l => { const lv = aidsLevel(l); return lv ? aidsTagText([l]) + ': ' + lv.model : ''; })
+    .filter(Boolean)
+    .join('\n');
 }
 
 /* ------------------------------------------------------------------ */
@@ -1056,7 +1044,7 @@ function buildLessonSchedule(nodes, totalMinutes) {
   nodes.forEach((node, i) => {
     const len = base + (i < extra ? 1 : 0);
     const diag = Math.min(LESSON_DIAGNOSTIC_MIN, Math.max(1, len - 1));
-    lines.push(fill(line.goal, { from: t, to: t + len, index: i + 1, name: node.navn, diagnostic: diag }));
+    lines.push(fill(line.goal, { from: t, to: t + len, index: i + 1, name: node.name, diagnostic: diag }));
     t += len;
   });
 
@@ -1092,8 +1080,8 @@ function composeLessonPlanInstruction(nodes, totalMinutes) {
 
   const goalList = nodes.map((n, i) => {
     const tags = [promptTypeTag(n.type)];
-    if (SHOW_HJELPEMIDDEL) tags.push(hjelpemiddelKort(n.hjelpemiddel));
-    return `${i + 1}. ${n.navn} [${tags.join(', ')}]\n   ${n.beskrivelse}`;
+    if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
+    return `${i + 1}. ${n.name} [${tags.join(', ')}]\n   ${n.description}`;
   }).join('\n');
 
   // Forutsetningene utledes fra avhenger_av-kjeden, som i composeInstruction()
@@ -1111,19 +1099,19 @@ function composeLessonPlanInstruction(nodes, totalMinutes) {
 
   return composePrompt('lessonPlan', {
     ancestors: prerequisites,
-    hasConcepts: nodes.some(n => n.type === 'begrep'),
+    hasConcepts: nodes.some(n => n.type === 'concept'),
     tight: schedule.tight,
     aidsText: aidsTextFor(nodes),
+    multipleAids: nodes.some(n => (n.aids || []).length > 1),
     vars: {
       goalCount: nodes.length,
       totalMinutes: schedule.total,
       perGoal: schedule.perGoal,
       goalList: goalList,
-      prerequisiteList: prerequisites.sort(compareByGoalIndex).map(a => '- ' + a.navn).join('\n'),
+      prerequisiteList: prerequisites.sort(compareByGoalIndex).map(a => '- ' + a.name).join('\n'),
       schedule: schedule.text,
       starterMinutes: LESSON_STARTER_MIN,
       recallMinutes: LESSON_RECALL_MIN,
-      aidsMarkers: AIDS_MARKERS,
       aidsText: aidsTextFor(nodes),
     },
   });
@@ -1249,6 +1237,99 @@ function parseCsv(text) {
 /* Indeksering av data                                                  */
 /* ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ */
+/* Hjelpemiddelnivåer (`aids`)                                          */
+/*                                                                      */
+/* Kolonnen `aids` i noder.csv er enten `0` eller en semikolonliste av   */
+/* nivåtall: `1`, `1;2`, `1;3`. Samme separator som `depends_on`, så     */
+/* konvensjonen er ikke ny i fila.                                       */
+/*                                                                      */
+/* `0` og tomt betyr det samme: INGEN merkelapp. Et fag uten en slik     */
+/* inndeling setter bare 0 overalt og trenger ingen konfigurasjon — det  */
+/* er derfor `features.aids`-bryteren er borte. Om merkelappene vises i  */
+/* det hele tatt utledes av DATAENE, ikke av et flagg noen kan glemme.   */
+/*                                                                      */
+/* Begreper anbefales å stå på 0: en hjelpemiddelregel beskriver hvordan */
+/* en ferdighet UTFØRES, og et begrep utføres ikke. Se AGENTS.md.        */
+/* ------------------------------------------------------------------ */
+
+function parseAids(raw) {
+  return String(raw || '')
+    .split(';')
+    .map(s => parseInt(s.trim(), 10))
+    .filter(n => Number.isInteger(n) && n > 0)
+    .sort((a, b) => a - b);
+}
+
+function aidsConfig() { return (CONFIG && CONFIG.aids) || null; }
+
+function aidsLevel(n) {
+  const cfg = aidsConfig();
+  if (!cfg) return null;
+  return (cfg.levels || []).filter(l => l.level === n)[0] || null;
+}
+
+/* Merkelappteksten. Ett nivå → «Del 1» (eller nivåets eget `name`).
+   Flere → «Del 1+2». En sammensatt lapp har ALLTID ord på seg: fargene
+   skiller seg på kulør, ikke på lyshet, så teksten er det som bærer
+   betydningen. Se kommentaren ved --aid-* i tokens.css. */
+function aidsTagText(levels) {
+  const cfg = aidsConfig();
+  if (!cfg || !levels.length) return '';
+  const noun = cfg.label || '';
+  if (levels.length === 1) {
+    const one = aidsLevel(levels[0]);
+    if (one && one.name) return one.name;
+    return (noun ? noun + ' ' : '') + levels[0];
+  }
+  return (noun ? noun + ' ' : '') + levels.join('+');
+}
+
+/* Vises merkelappene på dette treet? Ja hvis minst én node nevner et
+   nivå. Utledet, ikke konfigurert. */
+function treeUsesAids() {
+  return !!aidsConfig() && allNodes.some(n => n.aids && n.aids.length);
+}
+
+/* Merkelappen. Knapp, ikke <span>: den er klikkbar og sender leseren til
+   hjelpemiddelavsnittet i detaljpanelet, som er det ENESTE stedet en
+   elev får vite hva nivået faktisk betyr. */
+function makeAidsTag(node) {
+  const levels = node.aids || [];
+  if (!levels.length) return null;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'aidtag' + (levels.length > 1 ? ' aidtag--split' : '');
+  btn.textContent = aidsTagText(levels);
+  btn.title = t('aids.tagTitle');
+
+  if (levels.length === 1) {
+    btn.style.background = aidsColor(levels[0]);
+  } else {
+    /* Like brede striper, én per nivå, i nivårekkefølge. */
+    const step = 100 / levels.length;
+    const stops = levels.map((lv, i) =>
+      `${aidsColor(lv)} ${i * step}%, ${aidsColor(lv)} ${(i + 1) * step}%`).join(', ');
+    btn.style.background = `linear-gradient(90deg, ${stops})`;
+  }
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    openDetail(node.id);
+    const sec = document.getElementById('detail-aids');
+    if (sec) sec.scrollIntoView({ block: 'nearest' });
+  });
+  return btn;
+}
+
+/* Fargen er bundet til NIVÅET, ikke til faget: nivå 1 er alltid --aid-1.
+   Det er det som gjør at en norsk «Del 1» og en IB «Paper 1» ser like ut,
+   og som holder hex-verdier ute av et tres egne filer. */
+function aidsColor(level) {
+  const n = ((level - 1) % 5) + 1;
+  return `var(--aid-${n})`;
+}
+
 function buildNodeIndex(rows) {
   nodesById = new Map();
   allNodes = [];
@@ -1258,12 +1339,12 @@ function buildNodeIndex(rows) {
     const node = {
       id,
       type: (row.type || '').trim(),
-      emne: (row.emne || '').trim() || t('defaultTopic'),
-      navn: (row.navn || '').trim(),
-      beskrivelse: (row.beskrivelse || '').trim(),
-      avhenger_av: (row.avhenger_av || '').split(';').map(s => s.trim()).filter(Boolean),
-      hjelpemiddel: (row.hjelpemiddel || '').trim(),
-      instruks: (row.instruks || '').trim(),
+      topic: (row.topic || '').trim() || t('defaultTopic'),
+      name: (row.name || '').trim(),
+      description: (row.description || '').trim(),
+      depends_on: (row.depends_on || '').split(';').map(s => s.trim()).filter(Boolean),
+      aids: parseAids(row.aids),
+      instruction: (row.instruction || '').trim(),
       children: [],
       nivaa: 0,
       x: 0,
@@ -1274,7 +1355,7 @@ function buildNodeIndex(rows) {
   });
 
   allNodes.forEach(node => {
-    node.avhenger_av.forEach(depId => {
+    node.depends_on.forEach(depId => {
       const dep = nodesById.get(depId);
       if (dep) dep.children.push(node.id);
     });
@@ -1288,10 +1369,10 @@ function buildExamIndex(rows) {
     if (!nodeId) return;
     if (!examsByNode.has(nodeId)) examsByNode.set(nodeId, []);
     examsByNode.get(nodeId).push({
-      aar: (row.aar || '').trim(),
-      sesong: (row.sesong || '').trim(),
-      del: (row.del || '').trim(),
-      oppgavenummer: (row.oppgavenummer || '').trim(),
+      year: (row.year || '').trim(),
+      season: (row.season || '').trim(),
+      aids: (row.aids || '').trim(),
+      number: (row.number || '').trim(),
       url: (row.url || '').trim(),
     });
   });
@@ -1303,12 +1384,12 @@ function buildExamIndex(rows) {
 
 function validateReferences() {
   allNodes.forEach(node => {
-    node.avhenger_av.forEach(depId => {
+    node.depends_on.forEach(depId => {
       if (!nodesById.has(depId)) {
         validationErrors.push(`Node "${node.id}" refererer til ukjent avhenger_av-id "${depId}".`);
       }
     });
-    if (node.emne === 'Annet' && !TOPIC_ORDER.includes('Annet')) {
+    if (node.topic === 'Annet' && !TOPIC_ORDER.includes('Annet')) {
       validationErrors.push(`Node "${node.id}" mangler "emne" i noder.csv og havner i samle-kolonnen "Annet".`);
     }
   });
@@ -1327,7 +1408,7 @@ function validateDag() {
   function visit(node) {
     color.set(node.id, GRAY);
     stack.push(node.id);
-    for (const depId of node.avhenger_av) {
+    for (const depId of node.depends_on) {
       const dep = nodesById.get(depId);
       if (!dep) continue;
       const c = color.get(dep.id);
@@ -1374,8 +1455,8 @@ function renderErrorBanner() {
 function groupByColumn() {
   const columns = new Map();
   allNodes.forEach(node => {
-    if (!columns.has(node.emne)) columns.set(node.emne, []);
-    columns.get(node.emne).push(node);
+    if (!columns.has(node.topic)) columns.set(node.topic, []);
+    columns.get(node.topic).push(node);
   });
   const known = TOPIC_ORDER.filter(t => columns.has(t));
   const unknown = [...columns.keys()]
@@ -1399,7 +1480,7 @@ function computeLevels() {
     if (inProgress.has(node.id)) return 0; // syklus - allerede rapportert av validateDag
     inProgress.add(node.id);
     let lvl = 0;
-    node.avhenger_av.forEach(depId => {
+    node.depends_on.forEach(depId => {
       const dep = nodesById.get(depId);
       if (dep) lvl = Math.max(lvl, level(dep) + 1);
     });
@@ -1487,13 +1568,13 @@ function layoutColumn(nodes, globalRowStart) {
   nodes.forEach(node => levelRows.get(node.nivaa).push(node));
 
   // Startrekkefølge: stabil, alfabetisk på navn for et deterministisk utgangspunkt
-  levelRows.forEach(row => row.sort((a, b) => a.navn.localeCompare(b.navn, 'nb')));
+  levelRows.forEach(row => row.sort((a, b) => a.name.localeCompare(b.name, 'nb')));
   levelsPresent.forEach(lvl => assignOrderIndex(levelRows.get(lvl)));
 
   for (let pass = 0; pass < LAYOUT.barycenterPasses; pass++) {
     const topDown = pass % 2 === 0;
     const order = topDown ? levelsPresent : [...levelsPresent].reverse();
-    order.forEach(lvl => barycenterSortRow(levelRows.get(lvl), topDown ? 'avhenger_av' : 'children', idsInColumn));
+    order.forEach(lvl => barycenterSortRow(levelRows.get(lvl), topDown ? 'depends_on' : 'children', idsInColumn));
     levelsPresent.forEach(lvl => assignOrderIndex(levelRows.get(lvl)));
   }
 
@@ -1655,7 +1736,7 @@ function renderGraph(columnMeta) {
 
   // Kanter
   allNodes.forEach(node => {
-    node.avhenger_av.forEach(depId => {
+    node.depends_on.forEach(depId => {
       const dep = nodesById.get(depId);
       if (!dep) return;
       const x1 = LAYOUT.padding + dep.x + LAYOUT.nodeWidth / 2;
@@ -1703,7 +1784,7 @@ function createNodeElement(node, progress) {
   indexSpan.className = 'node-index';
   indexSpan.textContent = node.goalIndex + ') ';
   name.appendChild(indexSpan);
-  name.appendChild(document.createTextNode(node.navn));
+  name.appendChild(document.createTextNode(node.name));
   topRow.appendChild(name);
 
   el.appendChild(topRow);
@@ -1715,7 +1796,7 @@ function createNodeElement(node, progress) {
 
   const metaLeft = document.createElement('div');
   metaLeft.className = 'node-meta-left';
-  if (SHOW_HJELPEMIDDEL) metaLeft.appendChild(makeHjelpemiddelBadge(node.hjelpemiddel));
+  if (treeUsesAids()) { const tag = makeAidsTag(node); if (tag) metaLeft.appendChild(tag); }
   const typeLabel = document.createElement('span');
   typeLabel.className = 'badge-type';
   typeLabel.textContent = typeLabelText(node.type);
@@ -1750,14 +1831,6 @@ function createMasteryToggle(labelText, checked, onChange) {
   return label;
 }
 
-function makeHjelpemiddelBadge(value) {
-  const span = document.createElement('span');
-  span.className = 'badge ' + (
-    value === 'del1' ? 'badge-del1' : value === 'del2' ? 'badge-del2' : 'badge-begge'
-  );
-  span.textContent = value === 'del1' ? t('badges.del1') : value === 'del2' ? t('badges.del2') : t('badges.begge');
-  return span;
-}
 
 /* ------------------------------------------------------------------ */
 /* Progresjon / localStorage                                            */
@@ -1809,8 +1882,8 @@ function isNodeMastered(node, progress) {
 }
 
 function isAvailable(node, progress) {
-  if (!node.avhenger_av.length) return true;
-  return node.avhenger_av.every(depId => {
+  if (!node.depends_on.length) return true;
+  return node.depends_on.every(depId => {
     const dep = nodesById.get(depId);
     return dep && isNodeMastered(dep, progress);
   });
@@ -1840,7 +1913,7 @@ function getAllAncestors(node) {
   const result = [];
 
   function visit(n) {
-    n.avhenger_av.forEach(depId => {
+    n.depends_on.forEach(depId => {
       if (visited.has(depId)) return;
       visited.add(depId);
       const dep = nodesById.get(depId);
@@ -1855,7 +1928,7 @@ function getAllAncestors(node) {
 }
 
 // Hjelpemiddel-konteksten (del1/del2/begge) er faglig innhold - hvert fag
-// definerer selv teksten i config.js (composeHjelpemiddelContext), siden
+// definerer selv teksten i tree.json (aids.levels[].model), siden
 // hva "hjelpemidler" betyr og hvilke regler som gjelder varierer per fag.
 
 
@@ -1864,16 +1937,21 @@ function composeInstruction(node) {
   return composePrompt('node', {
     node: node,
     ancestors: ancestors,
+    /* Alle nivåene sendes alltid, og når det er FLERE legges regelen ved:
+       eleven skal klare ferdigheten under det strengeste av dem. Uten den
+       leser modellen to hjelpemiddelavsnitt uten å vite hva den skal gjøre
+       med dem. Vidars beslutning, 2026-09-20. */
+    multipleAids: (node.aids || []).length > 1,
     vars: {
-      nodeName: node.navn,
-      nodeDescription: node.beskrivelse,
-      prerequisiteList: ancestors.map(a => '- ' + a.navn).join('\n'),
+      nodeName: node.name,
+      nodeDescription: node.description,
+      prerequisiteList: ancestors.map(a => '- ' + a.name).join('\n'),
     },
     // Kjøretidsseksjoner: tekst motoren bygger av selve grafen, som
     // ingen av de tre filene kan kjenne på forhånd.
     sections: {
-      nodeInstruction: node.instruks || null,
-      aids: SHOW_HJELPEMIDDEL ? composeHjelpemiddelContext(node.hjelpemiddel) : null,
+      nodeInstruction: node.instruction || null,
+      aids: treeUsesAids() ? aidsTextFor([node]) : null,
     },
   });
 }
@@ -1926,12 +2004,12 @@ function renderDetail(node) {
   inner.appendChild(closeBtn);
 
   const h2 = document.createElement('h2');
-  h2.textContent = `${node.goalIndex}) ${node.navn}`;
+  h2.textContent = `${node.goalIndex}) ${node.name}`;
   inner.appendChild(h2);
 
   const meta = document.createElement('div');
   meta.id = 'detail-meta';
-  if (SHOW_HJELPEMIDDEL) meta.appendChild(makeHjelpemiddelBadge(node.hjelpemiddel));
+  if (treeUsesAids()) { const tag = makeAidsTag(node); if (tag) meta.appendChild(tag); }
   const typeBadge = document.createElement('span');
   typeBadge.className = 'badge-type';
   typeBadge.textContent = typeLabelText(node.type);
@@ -1948,13 +2026,54 @@ function renderDetail(node) {
 
   const toggles = document.createElement('div');
   toggles.className = 'mastery-toggles';
-  toggles.appendChild(createMasteryToggle('Marker som mestret', entry.mastered, checked => setNodeProgress(node.id, 'mastered', checked)));
+  toggles.appendChild(createMasteryToggle(t('node.markMastered'), entry.mastered, checked => setNodeProgress(node.id, 'mastered', checked)));
   inner.appendChild(toggles);
 
   const desc = document.createElement('p');
   desc.id = 'detail-desc';
-  desc.textContent = node.beskrivelse;
+  desc.textContent = node.description;
   inner.appendChild(desc);
+
+  /* Hjelpemiddelavsnittet. Fram til 2026-09-20 fantes denne teksten BARE
+     inne i KI-instruksen - modellen leste den, eleven fikk aldri se den,
+     bare en to-bokstavers merkelapp. Klikk på merkelappen scroller hit. */
+  if (treeUsesAids() && (node.aids || []).length) {
+    const box = document.createElement('div');
+    box.id = 'detail-aids';
+
+    const h = document.createElement('div');
+    h.className = 'badge-type';
+    h.style.marginBottom = '0.4rem';
+    h.textContent = t('aids.heading');
+    box.appendChild(h);
+
+    node.aids.forEach(level => {
+      const lv = aidsLevel(level);
+      if (!lv) return;
+      const row = document.createElement('p');
+      row.className = 'detail-aids__level';
+
+      const chip = document.createElement('span');
+      chip.className = 'aidtag aidtag--static';
+      chip.style.background = aidsColor(level);
+      chip.textContent = aidsTagText([level]);
+      row.appendChild(chip);
+
+      row.appendChild(document.createTextNode(' ' + (lv.student || '')));
+      box.appendChild(row);
+    });
+
+    /* Samme regel som modellen får: spenner ferdigheten over flere nivåer,
+       er det det strengeste som gjelder. */
+    if (node.aids.length > 1) {
+      const note = document.createElement('p');
+      note.className = 'detail-aids__note';
+      note.textContent = t('aids.multipleNote');
+      box.appendChild(note);
+    }
+
+    inner.appendChild(box);
+  }
 
   if (ancestors.length) {
     const h3 = document.createElement('div');
@@ -1976,7 +2095,7 @@ function renderDetail(node) {
       const link = document.createElement('button');
       link.type = 'button';
       link.className = 'prereq-link';
-      link.textContent = a.navn;
+      link.textContent = a.name;
       link.addEventListener('click', () => {
         openDetail(a.id);
         scrollNodeIntoView(a.id);
@@ -2015,7 +2134,7 @@ function renderDetail(node) {
   });
 
   copyBtn.addEventListener('click', () => {
-    trackCopy('node', { node_id: node.id, node_title: node.navn || null, node_topic: node.emne || null });
+    trackCopy('node', { node_id: node.id, node_title: node.name || null, node_topic: node.topic || null });
     navigator.clipboard.writeText(instructionText).then(() => {
       const original = copyBtn.textContent;
       copyBtn.textContent = t('copied');
@@ -2037,7 +2156,12 @@ function renderDetail(node) {
     ul.className = 'exam-list';
     exams.forEach(exam => {
       const li = document.createElement('li');
-      const label = `${capitalize(exam.sesong)} ${exam.aar}, del ${exam.del}, oppgave ${exam.oppgavenummer}`;
+      const label = t('detail.examLabel', {
+        season: capitalize(exam.season),
+        year: exam.year,
+        part: aidsTagText(parseAids(exam.aids)) || exam.aids,
+        number: exam.number,
+      });
       if (exam.url) {
         const a = document.createElement('a');
         a.href = exam.url;

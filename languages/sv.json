@@ -19,8 +19,8 @@
     "copyFallback": "Det gick inte att kopiera automatiskt - kopiera texten nedan manuellt:",
     "errorBanner": "⚠ {n} problem hittades i datafilerna (se konsolen för detaljer):",
     "nodeType": {
-      "ferdighet": "färdighet",
-      "begrep": "begrepp"
+      "skill": "färdighet",
+      "concept": "begrepp"
     },
     "badges": {
       "del1": "Del 1",
@@ -69,8 +69,8 @@
         },
         {
           "id": "aids",
-          "heading": "D1 / D2",
-          "body": "Märkningen på en ruta visar vilken del av provet färdigheten hör till - del 1 (utan hjälpmedel) eller del 2 (med hjälpmedel), eller båda.",
+          "heading": "Hjälpmedelsmärkningen",
+          "body": "Märkningen på en ruta visar vilken hjälpmedelsnivå färdigheten hör till — till exempel «Del 1» eller «Del 2». Är den delad i flera färger hör färdigheten till flera nivåer, och du bör klara den under den striktaste av dem. Klicka på märkningen för att se vad du får använda.",
           "when": "feature:aids"
         },
         {
@@ -124,10 +124,16 @@
       "mastered": "✓ Avklarad",
       "available": "Tillgänglig — förkunskaperna är uppfyllda",
       "locked": "Låst — saknar förkunskaper",
-      "empty": "Klicka på en nod i kartan för att se detaljer."
+      "empty": "Klicka på en nod i kartan för att se detaljer.",
+      "examLabel": "{season} {year}, {part}, uppgift {number}"
     },
     "loadError": "Kritiskt fel vid laddning: {message} (kör du sidan via en lokal server? fetch() av datafilerna misslyckas om index.html öppnas direkt från disk i många webbläsare.)",
-    "defaultTopic": "Övrigt"
+    "defaultTopic": "Övrigt",
+    "aids": {
+      "heading": "Hjälpmedel",
+      "tagTitle": "Se vad du får använda på den här nivån",
+      "multipleNote": "Den här färdigheten hör till flera nivåer. Du bör klara den under den striktaste av dem — alltså med minst hjälpmedel."
+    }
   },
   "prompt": {
     "_comment": "Språklagret i AI-instruktionerna. Samma roll som languages/nb.json → prompt. Formuleringarna är hämtade från den svenska systermotorn på skogvoll.com, inte nyöversatta.",

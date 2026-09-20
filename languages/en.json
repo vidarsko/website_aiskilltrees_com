@@ -19,8 +19,8 @@
     "copyFallback": "Could not copy automatically - copy the text below manually:",
     "errorBanner": "⚠ {n} problem(s) found in the data files (see console for details):",
     "nodeType": {
-      "ferdighet": "skill",
-      "begrep": "concept"
+      "skill": "skill",
+      "concept": "concept"
     },
     "badges": {
       "del1": "Part 1",
@@ -69,8 +69,8 @@
         },
         {
           "id": "aids",
-          "heading": "P1 / P2",
-          "body": "The label on a box shows which part of the exam the skill belongs to - part 1 (without aids) or part 2 (with aids), or both.",
+          "heading": "The aid tag",
+          "body": "The tag on a box shows which aid level the skill belongs to — for example \"Part 1\" or \"Part 2\". If it is split into several colours, the skill belongs to several levels, and you should be able to manage it under the most restrictive one. Click the tag to see what you may use.",
           "when": "feature:aids"
         },
         {
@@ -124,10 +124,16 @@
       "mastered": "✓ Mastered",
       "available": "Available — prerequisites are met",
       "locked": "Locked — prerequisites missing",
-      "empty": "Click a node in the map to see details."
+      "empty": "Click a node in the map to see details.",
+      "examLabel": "{season} {year}, {part}, task {number}"
     },
     "loadError": "Critical error while loading: {message} (are you serving the page through a local server? fetch() of the data files fails when index.html is opened straight from disk in many browsers.)",
-    "defaultTopic": "Other"
+    "defaultTopic": "Other",
+    "aids": {
+      "heading": "Aids",
+      "tagTitle": "See what you may use at this level",
+      "multipleNote": "This skill belongs to several levels. You should be able to manage it under the most restrictive of them — that is, with the fewest aids."
+    }
   },
   "prompt": {
     "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. Writing-style guidance is necessarily empty here: it is advice about a specific language's prose.",

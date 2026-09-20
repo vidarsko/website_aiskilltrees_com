@@ -67,10 +67,6 @@
 
   --column-alt: color-mix(in srgb, var(--ink) 4%, transparent);
 
-  /* Exam-part badges. These are small white-on-color labels, so both need to
-     clear AA against white — hence --amber-text rather than --amber. */
-  --del1: var(--primary);
-  --del2: var(--amber-text);
 }
 
 body { font-family: var(--font-sans); }
@@ -855,9 +851,57 @@ main {
   border: none;
 }
 
-.badge-del1 { background: var(--del1); color: var(--surface); }
-.badge-del2 { background: var(--del2); color: var(--surface); }
-.badge-begge { background: linear-gradient(90deg, var(--del1) 50%, var(--del2) 50%); color: var(--surface); }
+/* --------------------------------------------------------------------------
+   Aid tag.
+
+   Replaces the old .badge-del1/.badge-del2/.badge-begge trio, which hardcoded
+   a two-level Norwegian exam split into CSS class names. Levels are now open
+   ended: the colour comes from --aid-N in tokens.css, chosen by LEVEL, and is
+   set inline by makeAidsTag() in engine.js — that is the one place a `style`
+   attribute is legitimate here, because the level count is data.
+
+   A tag ALWAYS carries its label in words ("Del 1", "Del 1+2"). The --aid-*
+   colours separate by hue rather than luminance, so the text is what carries
+   the meaning; a wordless tag would be colour-only. See tokens.css.
+
+   It is a <button>: clicking it opens the detail panel at the aids section,
+   which is the only place a student can read what the level actually allows.
+   -------------------------------------------------------------------------- */
+
+.aidtag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.45rem;
+  border: 0;
+  border-radius: 0;
+  color: var(--surface);
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.aidtag:hover { filter: brightness(1.12); }
+.aidtag:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* A split tag is the same size as a single one — that is the whole point of
+   splitting rather than stacking two tags. The text sits on top of both
+   stripes, so it needs a shadow to stay readable across the seam. */
+.aidtag--split { text-shadow: 0 0 2px rgba(26, 29, 27, 0.55); }
+
+/* In the detail panel the tag is a label, not a control. */
+.aidtag--static { cursor: default; }
+.aidtag--static:hover { filter: none; }
+
+#detail-aids { margin: 1.2rem 0 1.4rem; }
+.detail-aids__level { margin: 0 0 0.5rem; line-height: 1.55; }
+.detail-aids__note {
+  margin: 0.6rem 0 0;
+  font-size: 0.86rem;
+  color: var(--text-muted, var(--ink-2));
+}
 
 .badge-type {
   font-size: 0.68rem;

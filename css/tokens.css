@@ -53,6 +53,25 @@
   --danger-text:   #A32B24;
   --danger-tint:   rgba(194, 54, 47, 0.10);
 
+  /* ---- Aid levels --------------------------------------------------------
+     An ORDERED palette for the `aids` column. A subject picks LEVELS, never
+     colours: level 1 always gets --aid-1, level 2 --aid-2, and so on. That is
+     what keeps a Norwegian «Del 1» and an IB «Paper 1» the same colour, and
+     what keeps hex values out of a tree's own files.
+
+     Levels 1 and 2 are deliberately the old --del1/--del2 values, so the 2P
+     tree looks exactly as it did.
+
+     All five carry WHITE text at AA for small text (measured, not guessed):
+     6.12, 5.91, 7.06, 8.47 and 9.30 : 1. They separate by HUE, not by
+     luminance — which is safe here only because an aid tag always carries its
+     label in words. Never ship a wordless aid tag. */
+  --aid-1: #1F6F4A;   /* evergreen — 6.12:1 on white */
+  --aid-2: #8A5A12;   /* amber-brown — 5.91:1 */
+  --aid-3: #2A5C86;   /* deep blue — 7.06:1 */
+  --aid-4: #6E3A6B;   /* plum — 8.47:1 */
+  --aid-5: #7A2E2E;   /* brick — 9.30:1 */
+
   /* ---- Scrim ------------------------------------------------------------
      A FLAT overlay, not a gradient: the system has no gradients, and a
      photograph still has to be dimmed before display type can sit on it. */
