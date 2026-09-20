@@ -1,10 +1,11 @@
 # The decomposition model
 
-**Version 1.0.0** · source language: English · Contribution 1 of the AI Skill Trees method.
+**Version 1.1.0** · source language: English · Contribution 1 of the AI Skill Trees method.
 
 This is the specification for turning a curriculum into a skill tree. It is written to be
-handed to an AI agent together with the curriculum document for one subject; the agent
-produces a first decomposition, and a teacher then revises it. It is also readable on its own
+handed to an AI agent together with the curriculum document for one subject, or with a topic
+list where that document may not be shared (section 7); the agent produces a first
+decomposition, and a teacher then revises it. It is also readable on its own
 by a teacher who wants to do the work by hand.
 
 The output is one CSV file, `nodes.csv`, plus a short subject note. Nothing else. The engine
@@ -194,11 +195,22 @@ configuration — not in this specification and not in the CSV.
 ## 7. Working with an agent
 
 A teacher does not write 100 nodes by hand. Hand this specification to an agent together with
-the curriculum, and revise what comes back.
+the curriculum — or, where you may not share the curriculum, with your own list of the
+subject's topics — and revise what comes back.
+
+**Settle what you are permitted to do with the source document before any of it goes to a
+model.** Curriculum texts differ in status from one country to the next. In Norway and Sweden
+a curriculum is adopted as a regulation and carries no copyright at all, so the document can
+be shared freely. A syllabus published by a private examination body is that body's property,
+and where a school holds a licence to reproduce it, the licence is usually the school's rather
+than yours personally. Handing a document to a third-party model is an act of copying in its
+own right, separate from anything you publish afterwards, so it is the question to answer
+first. Where you may not share the document, read it yourself and hand the agent the topic
+list instead: the specification is what the agent needs, and the source text is not.
 
 The division of labour is consistent, and worth knowing in advance:
 
-**The agent is reliable at** enumerating outcomes from a curriculum document, proposing
+**The agent is reliable at** enumerating outcomes from a curriculum or a topic list, proposing
 dependencies within a topic, and keeping to the CSV schema and the naming conventions.
 
 **The teacher's judgement is required for** the load-bearing decision, since the agent tends to
@@ -218,12 +230,16 @@ examination questions verbatim into a `nodes.csv`.**
 Two separate reasons, and both matter:
 
 1. **Licensing.** The CSV files are published under an open licence. Text you do not hold the
-   rights to cannot be relicensed by putting it in one. Official curriculum texts are commonly
-   copyrighted — the IB subject guides are, for instance — and so are textbooks and published
-   examination papers.
+   rights to cannot be relicensed by putting it in one. Whether the curriculum itself is
+   copyrighted varies by country — in Norway and Sweden it is a regulation and is not — but
+   textbooks and published examination papers are copyrighted almost everywhere, including
+   where the curriculum is not.
 2. **It is the wrong output anyway.** A node's `description` is a learning outcome written for
    *this* tree at *this* level for *this* cohort. Curriculum text is written for a different
    purpose and at a different grain, and pasting it in produces worse nodes, not faster ones.
+
+Section 7 covers the other half of this. What you may hand to a model in the first place is a
+separate question from what you may publish, and it is answered first.
 
 Using copyrighted material as **background** to work out what a subject requires is a different
 act from reproducing it, and is the normal way this work is done. Where a subject was built that
@@ -238,7 +254,8 @@ conceal one.
 1. Write the subject note first: cohort, position in the sequence, self-selection, family
    (section 1).
 2. Read `prompts/subjects/<family>.json` → `decomposition`.
-3. Go through the curriculum and list the competence aims.
+3. Go through the curriculum and list the competence aims. Check what you may do with the
+   document before handing any of it to an agent (section 7).
 4. Identify the load-bearing concepts (section 4) against the threshold from step 1.
 5. Split any concept that carries extensive procedural work into a concept node plus a skill
    node (section 2).
