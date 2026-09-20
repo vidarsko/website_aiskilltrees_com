@@ -1,0 +1,78 @@
+{
+  "_comment": "Everything that is true of mathematics but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"mathematics\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Duplication BETWEEN family files is deliberate and accepted: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. This file carries its own `version`, cited separately from the instruction modules in the paper's appendix.",
+  "family": "mathematics",
+  "title": "Mathematics",
+  "version": "1.0.0",
+  "schemaVersion": 2,
+  "sourceLanguage": "en",
+
+  "decomposition": {
+    "_comment": "Read at authoring time, not by the engine. See prompts/spec/decomposition.md.",
+    "nodeTypeCharacter": "In mathematics the skill/concept split is usually clean: a concept is a definition, a named quantity or a rule stated in words, and a skill is a procedure carried out on numbers or symbols. Where understanding a concept in practice demands extensive calculation before anyone would say it had been practised, that calculation does NOT belong in the concept node. Split it into its own skill node listing the concept among its prerequisites.",
+    "skillVerbs": "Name a skill node with a verb phrase for what the student does with numbers or symbols: \"Calculate the growth factor from a percentage\", \"Draw the graph of a linear function\", \"Solve a quadratic equation by factorising\". A noun-phrase name on a skill node is a sign the node needs reconsidering.",
+    "loadBearingExamples": "Load-bearing mathematical vocabulary that typically earns a node: coordinate system, term, factor, growth factor, function, variable. Ordinary words used in their everyday sense do not: \"speed\" in a sentence about a car earns no node, while \"average speed\" as a defined quantity does.",
+    "prerequisiteDirection": "Mathematics has unusually long prerequisite chains, and they are the whole point of the map. Be generous with dependencies WITHIN a topic, and check explicitly for the ones that cross topics (a statistics node depending on a fractions node, a geometry node depending on an algebra node) — these are the ones most often missed, and they are what makes the graph more than a list of topics."
+  },
+
+  "instructions": {
+    "node": {
+      "add": [
+        {
+          "id": "leadInExample",
+          "after": "leadIn",
+          "text": "A worked example of that lead-in, in this subject: do not open with a general, abstract statement of the rule. Start with a concrete calculation using real numbers instead — \"Imagine multiplying 2 by itself 6 times: 2×2×2×2×2×2. That quickly becomes tedious to write — so we write 2⁶ instead. We call this a power.\" — and let the rule arrive as the conclusion."
+        },
+        {
+          "id": "conceptGuidanceCalculation",
+          "after": "conceptGuidance",
+          "text": "Concretely, in this subject: do not use extensive calculation problems to test a concept. If a test does involve numbers, keep the calculation minimal and subordinate — the point is whether the student understands the concept, not whether they can calculate."
+        }
+      ]
+    },
+
+    "exam": {
+      "add": [
+        {
+          "id": "conceptMixCalculation",
+          "after": "conceptMix",
+          "text": "Concretely, in this subject: a [skill] point becomes a calculation problem, and a [concept] point must not. Where numbers do appear in a [concept] task, keep the calculation minimal and subordinate to the understanding being tested."
+        }
+      ]
+    },
+
+    "lessonPlan": {
+      "add": [
+        {
+          "id": "starterExample",
+          "after": "starter",
+          "text": "An example of the FORM the starter should take (not of its content): \"Look at these fractions: 1/2, 1/3, 1/4, 1/6, 1/8. Add some of them together so that you get as close to 1 as possible.\" Note what makes it work — anyone can start, there is no single right answer, and a student can keep going for several minutes without being finished."
+        },
+        {
+          "id": "mainPartExamplePair",
+          "after": "examplePair",
+          "text": "IN THIS SUBJECT the rounds above are the example–problem pair model, and you may call it that in the plan. The teacher's turn is one problem worked on the board with every intermediate step shown. The students' turn is a set of corresponding problems — the same kind of problem with different numbers or a new wrapping. The independent practice is three problem sets. Give a complete worked answer to every problem you write, not just the final number."
+        },
+        {
+          "id": "conceptAdaptationCalculation",
+          "after": "conceptAdaptation",
+          "text": "Concretely, in this subject: keep calculation minimal and subordinate in the blocks for a [concept] learning goal. The computational skill that goes with the concept belongs to a separate learning goal further down the skill tree, and the students will practise it thoroughly there."
+        }
+      ]
+    },
+
+    "motivation": {
+      "add": [
+        {
+          "id": "argumentsPracticeExample",
+          "after": "argumentsPractice",
+          "text": "A concrete instance of the automaticity argument in this subject: if you know your times tables by heart, you don't have to spend effort working them out every time — that leaves room in your head for what is actually hard and interesting in the problem."
+        },
+        {
+          "id": "argumentsLongTermSubject",
+          "after": "argumentsLongTerm",
+          "text": "- Understanding numbers and percentages gives you control over your own money and agreements as an adult — you can see for yourself whether something is a good deal, instead of just trusting that other people are being honest with you. For example, you understand what an insurance salesperson is actually offering you, or how you and the people you live with can split costs fairly."
+        }
+      ]
+    }
+  }
+}

@@ -3,6 +3,7 @@
   "schemaVersion": 1,
   "title": "Matematikk 2P",
   "description": "Interaktivt ferdighetstre for matematikk 2P: huk av det du mestrer, og kopier en KI-instruks for å trene videre.",
+  "subjectFamily": "mathematics",
   "language": "nb",
   "languageName": "Norwegian (bokmål)",
   "storageKey": "2p-ferdighetstre-fullfort",
@@ -21,7 +22,7 @@
   "slots": {
     "courseName": "matematikk 2P (norsk videregående skole)",
     "motivationSubject": "matte",
-    "formuleringsfokus": "glemmer prosenttegn eller andre enheter, bruker likhetstegn feil (f.eks. kjeder sammen uttrykk med \"=\" som ikke faktisk er like, eller bruker \"=\" til å bety \"neste steg\" i stedet for likhet), eller runder av for tidlig eller upresist"
+    "expressionFocus": "glemmer prosenttegn eller andre enheter, bruker likhetstegn feil (f.eks. kjeder sammen uttrykk med \"=\" som ikke faktisk er like, eller bruker \"=\" til å bety \"neste steg\" i stedet for likhet), eller runder av for tidlig eller upresist"
   },
   "aids": {
     "_comment": "Nivåene i `aids`-kolonnen i noder.csv. `label` er substantivet faget bruker; merkelappen settes sammen som «Del 1» / «Del 1+2». En IB-variant setter bare label: \"Paper\" og de samme to nivåene. Farge velges IKKE her — nivå 1 får alltid --aid-1 osv., se tokens.css.\n`student` er teksten eleven leser i detaljpanelet; `model` er teksten KI-instruksen får. To lesere, to tekster: den gamle prosaen var skrevet til modellen («Forvent at eleven regner for hånd») og ga ingen mening for en elev.",

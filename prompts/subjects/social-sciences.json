@@ -1,0 +1,55 @@
+{
+  "_comment": "DELIBERATELY THIN — the `instructions` half is not written yet, by decision: only one social-science tree exists (samfunnskunnskap Vg1), and there is not enough evidence yet to say what this family actually needs. The sections present are the minimum that stops the generic instructions reading as though they were written for mathematics, which they were. The `decomposition` half IS written, because it already existed: the SOLO taxonomy below is moved here verbatim in substance from ferdighetstre_private/instruks.md section 'SOLO-taksonomi for kvalitative fag', where it had been sitting inside an otherwise maths-shaped framework with nothing to attach it to. Add to `instructions` as real trees in this family are built; each addition bumps this file's `version` without touching any other module.",
+  "family": "social-sciences",
+  "title": "Social sciences and humanities",
+  "version": "0.1.0",
+  "schemaVersion": 2,
+  "sourceLanguage": "en",
+  "status": "draft",
+
+  "decomposition": {
+    "_comment": "Read at authoring time, not by the engine. See prompts/spec/decomposition.md.",
+    "nodeTypeCharacter": "In a subject that is more qualitative than quantitative, mastery is usually a matter of showing successively higher QUALITATIVE command of the material, not of executing a procedure. Skill nodes are therefore formulated with the verbs of the SOLO taxonomy rather than with computational verbs.",
+    "soloTaxonomy": {
+      "_comment": "The level NAMES are for reference in this spec only. They must NEVER appear in a tree's own node name, description or instruction — only the verbs are used to formulate node text.",
+      "guidance": "The two lowest levels are in practice already covered by the concept nodes: to recall, identify, describe or give examples of something is exactly what a concept node tests. The point of the taxonomy here is therefore mainly to identify and formulate skill nodes at the HIGHER levels — skills that require the student to connect several concepts into something more than the sum of its parts. The full table is kept because the lower levels are useful as contrast and for placing the upper ones in a whole.",
+      "levels": [
+        { "level": 1, "name": "Pre-structural", "description": "The student has not understood the task. The answer is irrelevant, merely restates the question, or rests on guessing.", "verbs": [] },
+        { "level": 2, "name": "Uni-structural", "description": "The student focuses on one relevant aspect of the task. The understanding is literal and simple.", "verbs": ["recall", "identify", "reproduce"] },
+        { "level": 3, "name": "Multi-structural", "description": "The student focuses on several relevant aspects but treats them independently of one another, as a list. The connection is missing.", "verbs": ["describe", "give examples of", "combine"] },
+        { "level": 4, "name": "Relational", "description": "The student connects the aspects into an integrated whole, and understands connections, causes and relations.", "verbs": ["analyse", "argue", "compare", "explain", "apply"] },
+        { "level": 5, "name": "Extended abstract", "description": "The student generalises the structure beyond the given context; the knowledge transfers to new, abstract domains.", "verbs": ["discuss", "formulate", "generalise", "explore"] }
+      ],
+      "consequenceForLayout": "A skill placed higher in the SOLO taxonomy belongs further down the dependency graph, and should depend on nodes at lower levels. A node whose name uses a level 4–5 verb (analyse, discuss, generalise) should therefore sit below nodes using level 2–3 verbs (recall, describe). Do not create many nodes at the upper levels — they are meant to be a few summative skills that draw together what the student has built up through the nodes beneath, and may therefore be somewhat larger and more composite than the nodes below them."
+    },
+    "skillVerbs": "Name a skill node with a verb phrase taken from SOLO level 4 or 5 where the node is a genuine higher-order skill: \"Compare how two sources present the same event\", \"Argue for a position on a conflict of interest, using evidence\". Level 2–3 material usually belongs in a concept node instead.",
+    "loadBearingExamples": "Load-bearing vocabulary in these subjects is typically a word that names a contested or technical distinction later nodes depend on — sovereignty, separation of powers, welfare state, source criticism. An everyday political or social word used in its ordinary sense earns no node.",
+    "openQuestion": "NOT SETTLED: whether the aids/assessment-context field means anything in a subject assessed orally or by coursework. samfunnskunnskap Vg1 currently sets it off entirely. Revisit when a second tree in this family exists."
+  },
+
+  "instructions": {
+    "node": {
+      "add": [
+        {
+          "id": "conceptGuidanceCalculation",
+          "after": "conceptGuidance",
+          "text": "Concretely, in this subject: do not test a concept by asking for a long written argument or a full source analysis — that is the work of a separate skill node further down the tree. A couple of sentences in the student's own words, a judgement about a borderline case, or asking which of two cases the concept actually covers is enough."
+        }
+      ]
+    },
+
+    "exam": { "add": [] },
+
+    "lessonPlan": {
+      "add": [
+        {
+          "id": "mainPartCase",
+          "after": "examplePair",
+          "text": "IN THIS SUBJECT, anchor each learning goal in a concrete case, source or example before generalising from it. The teacher's turn is working through one case aloud — what it shows, what it does not show, and which idea it is an instance of. The students' turn is doing the same with a fresh case. Where the learning goal is a higher-order skill — analysing, comparing, arguing, discussing — the students' turn must require connecting several ideas rather than recalling them one at a time; if the task can be answered in a single sentence, it is pitched too low for the goal."
+        }
+      ]
+    },
+
+    "motivation": { "add": [] }
+  }
+}

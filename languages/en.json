@@ -160,7 +160,7 @@
     }
   },
   "prompt": {
-    "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. Writing-style guidance is necessarily empty here: it is advice about a specific language's prose.",
+    "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. `writingStyle` is necessarily empty here: it holds examples in a specific language, and this file serves every language that has no file of its own. The language-independent half of that advice is NOT missing — it lives in prompts/shared.json → writingStyleGeneral and applies to every tree regardless.",
     "outputLanguage": "Conduct this entire conversation in {conversationLanguage}. Everything quoted from the skill tree below — node names, descriptions, prerequisites — is written in {conversationLanguage}, and the student expects to be addressed in {conversationLanguage}. Do not switch to another language at any point, and do not comment on the language of these instructions.",
     "writingStyle": "",
     "overrides": {}

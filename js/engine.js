@@ -8,19 +8,33 @@
 /* setning i en KI-instruks. Det er hele poenget med oppdelingen under, */
 /* og grunnen til at det finnes ÉN motor framfor én per språk.          */
 /*                                                                      */
-/* Tre lag, delt etter hva teksten varierer med:                        */
+/* Fire lag, delt etter hva teksten varierer med:                       */
 /*                                                                      */
-/*   /prompts/core.json      Pedagogikken. ENGELSK er kilden. Sier HVA  */
-/*                           modellen skal gjøre, aldri på hvilket      */
-/*                           språk. Fag- og språkuavhengig.             */
-/*   /languages/<kode>.json  Alt som varierer med SPRÅK: knappetekster, */
-/*                           hjelpeteksten, og språklaget i instruksen  */
-/*                           (`outputLanguage` + `writingStyle`), som   */
-/*                           fyller hullene core.json lar stå åpne.     */
-/*   ./tree.json             Alt som varierer med FAG: emnerekkefølge,  */
-/*                           lagringsnøkkel, funksjonsbrytere og        */
-/*                           slot-verdier (courseName, formuleringsfokus */
-/*                           …). Rene data - ingen funksjoner.          */
+/*   /prompts/                Pedagogikken. ENGELSK er kilden. Sier HVA */
+/*                            modellen skal gjøre, aldri på hvilket     */
+/*                            språk. Én fil per bidrag i artikkelen,    */
+/*                            hver med sitt eget `version`:             */
+/*                              manifest.json        indeksen           */
+/*                              practice-tutor.json  bidrag 2           */
+/*                              test-generator.json  bidrag 3           */
+/*                              motivation.json      bidrag 4           */
+/*                              lesson-plan.json     bidrag 5           */
+/*                              shared.json          seksjoner brukt av */
+/*                                                   flere av dem       */
+/*                              spec/decomposition.md bidrag 1 (leses   */
+/*                                                   ikke av motoren)   */
+/*   /prompts/subjects/       Alt som varierer med FAGFAMILIE, og som   */
+/*     <familie>.json         altså er sant for matematikk men ikke for */
+/*                            samfunnsfag. Legger seksjoner TIL de      */
+/*                            generelle instruksene. Et tre velger med  */
+/*                            `subjectFamily` i tree.json.              */
+/*   /languages/<kode>.json   Alt som varierer med SPRÅK: knappetekster,*/
+/*                            hjelpeteksten, og språklaget i instruksen */
+/*                            (`outputLanguage` + `writingStyle`).      */
+/*   ./tree.json              Alt som varierer med ETT FAG: emne-       */
+/*                            rekkefølge, lagringsnøkkel, funksjons-    */
+/*                            brytere og slot-verdier (courseName,      */
+/*                            expressionFocus …). Rene data.            */
 /*                                                                      */
 /* Bakgrunnen: fram til 2026-09-20 fantes motoren i to eksemplarer,     */
 /* ferdighetstre/engine.js og fardighetstrad/engine.js på skogvoll.com  */
@@ -31,13 +45,18 @@
 /*                                                                      */
 /* Rekkefølgen tekst slås opp i (mest spesifikk vinner):                */
 /*   1. kjøretidsseksjon bygget av motoren (forutsetningslista o.l.)    */
-/*   2. tree.json  → prompts.<instruks>.<seksjon>                       */
-/*   3. språkfila  → prompt.overrides.<instruks>.<seksjon>              */
-/*   4. språkfila  → prompt.<seksjon>   (outputLanguage, writingStyle)  */
-/*   5. core.json  → prompts.<instruks>.sections.<seksjon>              */
+/*   2. tree.json    → prompts.<instruks>.<seksjon>                     */
+/*   3. språkfila    → prompt.overrides.<instruks>.<seksjon>            */
+/*   4. språkfila    → prompt.<seksjon> (outputLanguage, writingStyle)  */
+/*   5. fagfamilien  → instructions.<instruks>.add[].text               */
+/*   6. instruksmodulen → sections.<seksjon>                            */
+/*   7. shared.json  → sections.<seksjon>                               */
 /* Punkt 3 er grunnen til at «engelsk kjerne + språklag» og «full       */
 /* oversettelse» er samme mekanisme: et språk kan overstyre én seksjon  */
 /* eller alle, uten at noe annet endres.                                */
+/* Punkt 5 gir fagfamilien to virkemåter med én mekanisme: en NY id     */
+/* flettes inn i `order` etter ankeret sitt, mens en id som allerede    */
+/* finnes i `order` overstyrer den generelle teksten på plassen sin.    */
 /* ------------------------------------------------------------------ */
 
 /* Fylles av bootstrap() før init(). Ingen av dem er `const`, fordi de
@@ -46,7 +65,14 @@
 let CONFIG = null;          // ./tree.json
 let META = null;            // ./meta.json (katalogens metadata — vises i kursinfo)
 let LANG = null;            // /languages/<kode>.json
-let CORE = null;            // /prompts/core.json
+let CORE = null;            // { prompts: { <id>: instruksmodul } } - satt sammen av
+                            //   bootstrap() fra /prompts/manifest.json. Formen er den
+                            //   samme som den gamle core.json hadde, med vilje: resten
+                            //   av motoren leser CORE.prompts[navn] og merker ikke at
+                            //   fila er blitt til seks.
+let SHARED = {};            // /prompts/shared.json → sections (delt mellom instrukser)
+let FAMILY = null;          // /prompts/subjects/<familie>.json, eller null
+let MANIFEST = null;        // /prompts/manifest.json - versjonene artikkelen siterer
 
 let STORAGE_KEY = null;
 let TOPIC_ORDER = [];
@@ -103,13 +129,13 @@ function typeLabelText(type) {
 /* ------------------------------------------------------------------ */
 /* Komposisjon av KI-instruks                                           */
 /*                                                                      */
-/* Rekkefølgen på seksjonene er DATA (`order` i core.json), slik at den  */
-/* kan endres uten å røre kode. Hvilke seksjoner som gjelder NÅR er      */
-/* logikk, og bor her.                                                  */
+/* Rekkefølgen på seksjonene er DATA (`order` i instruksmodulen), slik   */
+/* at den kan endres uten å røre kode. Hvilke seksjoner som gjelder NÅR  */
+/* er logikk, og bor her.                                               */
 /* ------------------------------------------------------------------ */
 
 const SECTION_WHEN = {
-  'node.formulering':        ctx => !!slot('formuleringsfokus'),
+  'node.expression':         ctx => !!slot('expressionFocus'),
   'node.prerequisites':      ctx => ctx.ancestors && ctx.ancestors.length > 0,
   'node.prerequisitesNone':  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
   'node.conceptGuidance':    ctx => ctx.node && ctx.node.type === 'concept',
@@ -133,6 +159,12 @@ function slot(name) {
   return (CONFIG.slots || {})[name];
 }
 
+/* Tilleggene fagfamilien bidrar med til ÉN instruks, som en liste av
+   { id, after, text }. Tomt for et tre uten `subjectFamily`. */
+function familyAdds(promptName) {
+  return ((FAMILY && FAMILY.instructions && FAMILY.instructions[promptName]) || {}).add || [];
+}
+
 /* Slår opp teksten for én seksjon. Se rekkefølgen i filhodet. */
 function sectionText(promptName, id, ctx) {
   if (ctx.sections && ctx.sections[id] != null) return ctx.sections[id];
@@ -145,8 +177,40 @@ function sectionText(promptName, id, ctx) {
   if (fromLangOverride != null) return fromLangOverride;
   if (langPrompt[id] != null) return langPrompt[id];
 
+  const fromFamily = familyAdds(promptName).find(a => a.id === id);
+  if (fromFamily && fromFamily.text != null) return fromFamily.text;
+
   const spec = CORE.prompts[promptName];
-  return spec ? spec.sections[id] : null;
+  if (spec && spec.sections[id] != null) return spec.sections[id];
+
+  return SHARED[id] != null ? SHARED[id] : null;
+}
+
+/* Instruksens egen `order`, med fagfamiliens seksjoner flettet inn etter
+   ankeret hver av dem oppgir. En familie som gjenbruker en id som ALLEREDE
+   finnes i `order` flytter ingenting - da vinner familieteksten på plassen
+   seksjonen har fra før, via sectionText() over. */
+function sectionOrder(promptName) {
+  const order = CORE.prompts[promptName].order.slice();
+  familyAdds(promptName).forEach(add => {
+    if (order.indexOf(add.id) !== -1) return;
+    const at = add.after ? order.indexOf(add.after) : -1;
+    if (at === -1) order.push(add.id);
+    else order.splice(at + 1, 0, add.id);
+  });
+  return order;
+}
+
+/* En seksjon fra en fagfamilie arver betingelsen til seksjonen den er
+   forankret etter. Uten dette ville f.eks. matematikkens utdyping av
+   `conceptGuidance` stått på hver eneste ferdighetsnode, ikke bare på
+   begrepsnodene - se `_conditions` i prompts/manifest.json. */
+function sectionApplies(promptName, id, ctx) {
+  const when = SECTION_WHEN[promptName + '.' + id];
+  if (when) return when(ctx);
+  const add = familyAdds(promptName).find(a => a.id === id);
+  if (add && add.after) return sectionApplies(promptName, add.after, ctx);
+  return true;
 }
 
 function composePrompt(promptName, ctx) {
@@ -160,9 +224,8 @@ function composePrompt(promptName, ctx) {
     ctx.vars || {});
 
   const out = [];
-  spec.order.forEach(id => {
-    const when = SECTION_WHEN[promptName + '.' + id];
-    if (when && !when(ctx)) return;
+  sectionOrder(promptName).forEach(id => {
+    if (!sectionApplies(promptName, id, ctx)) return;
     const text = sectionText(promptName, id, ctx);
     if (text == null || text === '') return;
     out.push(fill(text, vars));
@@ -261,7 +324,30 @@ async function bootstrap() {
     lang = await fetchJson('/languages/en.json');
   }
   LANG = lang;
-  CORE = await fetchJson('/prompts/core.json');
+
+  /* Pedagogikken ligger i én modul per bidrag, ikke i én core.json. Bare
+     manifestet har et hardkodet filnavn; alt annet er oppført DER, slik at
+     en ny modul eller en ny fagfamilie ikke koster en kodeendring. Hver
+     modul har sitt eget `version`, fordi artikkelens appendiks siterer dem
+     hver for seg. Manifestet først, så resten i parallell. */
+  MANIFEST = await fetchJson('/prompts/manifest.json');
+  const famPath = CONFIG.subjectFamily
+    ? (MANIFEST.subjectFamilies || {})[CONFIG.subjectFamily]
+    : null;
+  if (CONFIG.subjectFamily && !famPath) {
+    console.warn('Ukjent subjectFamily «' + CONFIG.subjectFamily +
+                 '» - treet får bare de generelle instruksene.');
+  }
+  const ids = Object.keys(MANIFEST.instructions);
+  const loaded = await Promise.all(
+    [fetchJson('/prompts/' + MANIFEST.shared)]
+      .concat(ids.map(id => fetchJson('/prompts/' + MANIFEST.instructions[id].file)))
+      .concat(famPath ? [fetchJson('/prompts/' + famPath)] : []));
+
+  SHARED = loaded[0].sections || {};
+  CORE = { prompts: {} };
+  ids.forEach((id, i) => { CORE.prompts[id] = loaded[i + 1]; });
+  FAMILY = famPath ? loaded[loaded.length - 1] : null;
   /* meta.json eies av katalogen. Kursinfo-vinduet viser den samme
      metadataen framfor å duplisere den inn i tree.json — ett sted å
      rette en årstall- eller forfatterfeil. Mangler den, klarer vi oss. */
@@ -1199,7 +1285,7 @@ function composeExamInstruction(nodes, count) {
 
 /* Merkelappene i instruksen er verdien rett fra CSV-en, som nå ER
    engelsk ('skill'/'concept') og dermed matcher ordlyden i
-   prompts/core.json. Se typeLabelText() for etiketten MENNESKER ser. */
+   prompts/practice-tutor.json. Se typeLabelText() for etiketten MENNESKER ser. */
 function promptTypeTag(type) {
   return type;
 }

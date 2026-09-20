@@ -3,6 +3,7 @@
   "schemaVersion": 1,
   "title": "Matematik 1a",
   "description": "Interaktivt färdighetsträd för matematik 1a: kryssa i det du behärskar, och kopiera en AI-instruktion för att träna vidare.",
+  "subjectFamily": "mathematics",
   "language": "sv",
   "languageName": "Swedish",
   "storageKey": "matte1a-sv-fardighetstre-fullfort",
@@ -20,7 +21,7 @@
   "slots": {
     "courseName": "matematik 1a (svenskt gymnasium, yrkesprogram, Gy25)",
     "motivationSubject": "matte",
-    "formuleringsfokus": "glömmer enhet eller %-tecken, blandar ihop area och omkrets, avrundar för tidigt eller onoggrant, eller använder likhetstecknet fel (t.ex. kedjar samman uttryck med \"=\" som inte faktiskt är lika, eller använder \"=\" för att betyda \"nästa steg\" istället för likhet)"
+    "expressionFocus": "glömmer enhet eller %-tecken, blandar ihop area och omkrets, avrundar för tidigt eller onoggrant, eller använder likhetstecknet fel (t.ex. kedjar samman uttryck med \"=\" som inte faktiskt är lika, eller använder \"=\" för att betyda \"nästa steg\" istället för likhet)"
   },
   "_aidsComment": "Ingen `aids`-blokk, og alle radene i noder.csv står på 0: matematik 1a har inget bekräftat nationellt prov med en del1/del2-liknande hjälpmedelsuppdelning att kalibrera mot. Merkelappene vises da ikke i det hele tatt — utledet av dataene, ikke av et flagg."
 }
