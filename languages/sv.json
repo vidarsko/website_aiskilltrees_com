@@ -70,7 +70,7 @@
         {
           "id": "aids",
           "heading": "Hjälpmedelsmärkningen",
-          "body": "Märkningen på en ruta visar vilken hjälpmedelsnivå färdigheten hör till — till exempel «Del 1» eller «Del 2». Är den delad i flera färger hör färdigheten till flera nivåer, och du bör klara den under den striktaste av dem. Klicka på märkningen för att se vad du får använda.",
+          "body": "Märkningen på en ruta visar vilken hjälpmedelsnivå färdigheten hör till — till exempel «Del 1» eller «Del 2». Är den delad i flera färger hör färdigheten till flera nivåer, och du bör klara den under den striktaste av dem. Klicka på märkningen för att öppna «Om ämnet», där varje nivå förklaras.",
           "when": "feature:aids"
         },
         {
@@ -133,6 +133,28 @@
       "heading": "Hjälpmedel",
       "tagTitle": "Se vad du får använda på den här nivån",
       "multipleNote": "Den här färdigheten hör till flera nivåer. Du bör klara den under den striktaste av dem — alltså med minst hjälpmedel."
+    },
+    "menu": {
+      "label": "Meny"
+    },
+    "courseInfo": {
+      "button": "Om ämnet",
+      "heading": "Om ämnet",
+      "course": "Ämne",
+      "level": "Nivå",
+      "curriculum": "Läroplan",
+      "institution": "Utgiven av",
+      "country": "Land",
+      "language": "Språk",
+      "size": "Omfattning",
+      "credits": "Skapad av",
+      "author": "Författare",
+      "updated": "Senast uppdaterad",
+      "license": "Licens",
+      "status": "Status",
+      "skills": "{n} färdigheter",
+      "concepts": "{n} begrepp",
+      "nodes": "{n} noder"
     }
   },
   "prompt": {

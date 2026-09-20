@@ -28,13 +28,34 @@
   'use strict';
 
   var STORAGE_KEY = 'lang';
-  var SUPPORTED = ['en', 'no', 'sv'];
+
+  /* BCP 47 codes, so there is room for 'nn' (nynorsk) beside 'nb' (bokmål)
+     later without renaming anything. The catalogue and the tree engine now
+     agree: languages/nb.json was already called nb, while the page
+     dictionaries said 'no' — that split is gone. */
+  var SUPPORTED = ['en', 'nb', 'sv'];
   var DEFAULT_LANG = 'en';
 
-  /* The value for <html lang>. 'no' is what the UI and localStorage call it
-     (it is what the button says); 'nb' is what a browser and a screen reader
-     need, since the copy is bokmål. */
-  var HTML_LANG = { en: 'en', no: 'nb', sv: 'sv' };
+  /* Inbound aliases. A stored 'no' from before 2026-09-20, a ?lang=no link
+     that is already out there, and a browser asking for plain Norwegian all
+     resolve to bokmål. 'nn' lands here too FOR NOW — a nynorsk reader is
+     better served bokmål than English — but the moment 'nn' joins SUPPORTED,
+     the exact match below wins and this alias stops applying to it. */
+  var ALIASES = { no: 'nb', nn: 'nb', nob: 'nb', nno: 'nb' };
+
+  function normalise(code) {
+    if (!code) return null;
+    code = String(code).toLowerCase();
+    if (SUPPORTED.indexOf(code) !== -1) return code;
+    var base = code.split('-')[0];
+    if (SUPPORTED.indexOf(base) !== -1) return base;
+    if (ALIASES[base] && SUPPORTED.indexOf(ALIASES[base]) !== -1) return ALIASES[base];
+    return null;
+  }
+
+  /* The code IS the <html lang> value now, so this map is an identity —
+     kept as the one place to diverge if a language ever needs to. */
+  var HTML_LANG = { en: 'en', nb: 'nb', sv: 'sv' };
 
   function detectLang() {
     /* ?lang=no beats everything, and is then remembered like a click.
@@ -42,25 +63,24 @@
        redirects to aiskilltrees.com/?lang=no. Also makes a link shareable in
        a chosen language. See AGENTS.md, "Domener". */
     var fromUrl = null;
-    try {
-      fromUrl = new URLSearchParams(location.search).get('lang');
-      if (fromUrl === 'nb' || fromUrl === 'nn') fromUrl = 'no';
-    } catch (e) {}
-    if (fromUrl && SUPPORTED.indexOf(fromUrl) !== -1) {
+    try { fromUrl = normalise(new URLSearchParams(location.search).get('lang')); } catch (e) {}
+    if (fromUrl) {
       try { localStorage.setItem(STORAGE_KEY, fromUrl); } catch (e) {}
       return fromUrl;
     }
 
     var stored = null;
-    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
+    try { stored = normalise(localStorage.getItem(STORAGE_KEY)); } catch (e) {}
+    if (stored) {
+      // Rewrite a legacy 'no' in place, so it is normalised once, not forever.
+      try { localStorage.setItem(STORAGE_KEY, stored); } catch (e) {}
+      return stored;
+    }
 
     var browserLangs = navigator.languages || [navigator.language || ''];
     for (var i = 0; i < browserLangs.length; i++) {
-      var code = (browserLangs[i] || '').toLowerCase();
-      if (code.indexOf('sv') === 0) return 'sv';
-      if (code.indexOf('no') === 0 || code.indexOf('nb') === 0 || code.indexOf('nn') === 0) return 'no';
-      if (code.indexOf('en') === 0) return 'en';
+      var hit = normalise(browserLangs[i]);
+      if (hit) return hit;
     }
     return DEFAULT_LANG;
   }
@@ -136,7 +156,8 @@
     get lang() { return current; },
     supported: SUPPORTED.slice(),
     setLang: function (lang) {
-      if (!lang || SUPPORTED.indexOf(lang) === -1 || lang === current) return;
+      lang = normalise(lang);
+      if (!lang || lang === current) return;
       var from = current;
       current = lang;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}

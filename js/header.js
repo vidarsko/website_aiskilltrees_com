@@ -22,24 +22,27 @@
 
   /* The site's pages. Adding one is a line here — nothing else. */
   var NAV = [
-    { href: '/trees/',         label: { en: 'Trees',         no: 'Ferdighetstrær', sv: 'Kunskapsträd' } },
-    { href: '/make-your-own/', label: { en: 'Make your own', no: 'Lag ditt eget',  sv: 'Gör ditt eget' } },
-    { href: '/research/',      label: { en: 'Research',      no: 'Forskning',      sv: 'Forskning' } }
+    { href: '/trees/',         label: { en: 'Trees',         nb: 'Ferdighetstrær', sv: 'Kunskapsträd' } },
+    { href: '/make-your-own/', label: { en: 'Make your own', nb: 'Lag ditt eget',  sv: 'Gör ditt eget' } },
+    { href: '/research/',      label: { en: 'Research',      nb: 'Forskning',      sv: 'Forskning' } }
   ];
 
   /* Endonyms: a language is named in its own language, so this list reads
      the same whichever language is active and needs no translating. */
+  /* `code` is the BCP 47 tag ('nb' = bokmål, leaving room for 'nn'); `short`
+     is only what the button shows, and NO reads better than NB to a
+     Norwegian. The two deliberately differ. */
   var LANGS = [
     { code: 'en', short: 'EN', name: 'English' },
-    { code: 'no', short: 'NO', name: 'Norsk' },
+    { code: 'nb', short: 'NO', name: 'Norsk' },
     { code: 'sv', short: 'SV', name: 'Svenska' }
   ];
 
   var UI = {
-    menu:     { en: 'Menu',            no: 'Meny',        sv: 'Meny' },
+    menu:     { en: 'Menu',            nb: 'Meny',        sv: 'Meny' },
     language: { en: 'Language',        no: 'Språk',       sv: 'Språk' },
-    chooseLanguage: { en: 'Choose language', no: 'Velg språk', sv: 'Välj språk' },
-    main:     { en: 'Main',            no: 'Hovedmeny',   sv: 'Huvudmeny' }
+    chooseLanguage: { en: 'Choose language', nb: 'Velg språk', sv: 'Välj språk' },
+    main:     { en: 'Main',            nb: 'Hovedmeny',   sv: 'Huvudmeny' }
   };
 
   var host = document.querySelector('[data-site-header]');

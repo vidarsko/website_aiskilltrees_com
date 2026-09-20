@@ -70,7 +70,7 @@
         {
           "id": "aids",
           "heading": "The aid tag",
-          "body": "The tag on a box shows which aid level the skill belongs to — for example \"Part 1\" or \"Part 2\". If it is split into several colours, the skill belongs to several levels, and you should be able to manage it under the most restrictive one. Click the tag to see what you may use.",
+          "body": "The tag on a box shows which aid level the skill belongs to — for example \"Part 1\" or \"Part 2\". If it is split into several colours, the skill belongs to several levels, and you should be able to manage it under the most restrictive one. Click the tag to open \"About the course\", where each level is explained.",
           "when": "feature:aids"
         },
         {
@@ -133,6 +133,28 @@
       "heading": "Aids",
       "tagTitle": "See what you may use at this level",
       "multipleNote": "This skill belongs to several levels. You should be able to manage it under the most restrictive of them — that is, with the fewest aids."
+    },
+    "menu": {
+      "label": "Menu"
+    },
+    "courseInfo": {
+      "button": "About the course",
+      "heading": "About the course",
+      "course": "Course",
+      "level": "Level",
+      "curriculum": "Curriculum",
+      "institution": "Published by",
+      "country": "Country",
+      "language": "Language",
+      "size": "Size",
+      "credits": "Made by",
+      "author": "Author",
+      "updated": "Last updated",
+      "license": "Licence",
+      "status": "Status",
+      "skills": "{n} skills",
+      "concepts": "{n} concepts",
+      "nodes": "{n} nodes"
     }
   },
   "prompt": {

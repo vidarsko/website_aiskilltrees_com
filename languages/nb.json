@@ -70,7 +70,7 @@
         {
           "id": "aids",
           "heading": "Hjelpemiddel-merkelappen",
-          "body": "Merkelappen på en boks viser hvilket hjelpemiddelnivå ferdigheten hører til — for eksempel «Del 1» eller «Del 2». Er den delt i flere farger, hører ferdigheten til flere nivåer, og du bør klare den under det strengeste av dem. Klikk på merkelappen for å se hva du får bruke.",
+          "body": "Merkelappen på en boks viser hvilket hjelpemiddelnivå ferdigheten hører til — for eksempel «Del 1» eller «Del 2». Er den delt i flere farger, hører ferdigheten til flere nivåer, og du bør klare den under det strengeste av dem. Klikk på merkelappen for å åpne «Om faget», der hvert nivå er forklart.",
           "when": "feature:aids"
         },
         {
@@ -133,6 +133,28 @@
       "heading": "Hjelpemidler",
       "tagTitle": "Se hva du får bruke på dette nivået",
       "multipleNote": "Denne ferdigheten hører til flere nivåer. Du bør klare den under det strengeste av dem — altså med færrest hjelpemidler."
+    },
+    "menu": {
+      "label": "Meny"
+    },
+    "courseInfo": {
+      "button": "Om faget",
+      "heading": "Om faget",
+      "course": "Fag",
+      "level": "Nivå",
+      "curriculum": "Læreplan",
+      "institution": "Utgitt av",
+      "country": "Land",
+      "language": "Språk",
+      "size": "Omfang",
+      "credits": "Laget av",
+      "author": "Forfatter",
+      "updated": "Sist oppdatert",
+      "license": "Lisens",
+      "status": "Status",
+      "skills": "{n} ferdigheter",
+      "concepts": "{n} begreper",
+      "nodes": "{n} noder"
     }
   },
   "prompt": {

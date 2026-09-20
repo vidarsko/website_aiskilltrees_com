@@ -44,6 +44,7 @@
    ikke kan leses før tre fetch-er har kommet tilbake - det er den ene
    reelle forskjellen fra den gamle synkrone config.js-modellen. */
 let CONFIG = null;          // ./tree.json
+let META = null;            // ./meta.json (katalogens metadata — vises i kursinfo)
 let LANG = null;            // /languages/<kode>.json
 let CORE = null;            // /prompts/core.json
 
@@ -261,6 +262,10 @@ async function bootstrap() {
   }
   LANG = lang;
   CORE = await fetchJson('/prompts/core.json');
+  /* meta.json eies av katalogen. Kursinfo-vinduet viser den samme
+     metadataen framfor å duplisere den inn i tree.json — ett sted å
+     rette en årstall- eller forfatterfeil. Mangler den, klarer vi oss. */
+  META = await fetchJson('meta.json').catch(() => null);
 
   CONVERSATION_LANGUAGE = CONFIG.languageName || LANG.name;
   STORAGE_KEY = CONFIG.storageKey;
@@ -446,9 +451,9 @@ function ensureActionMenu() {
   const toggle = document.createElement('button');
   toggle.id = 'menu-toggle-btn';
   toggle.type = 'button';
-  toggle.setAttribute('aria-label', 'Meny');
+  toggle.setAttribute('aria-label', t('menu.label'));
   toggle.setAttribute('aria-expanded', 'false');
-  toggle.title = 'Meny';
+  toggle.title = t('menu.label');
   toggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
   toggle.addEventListener('click', toggleActionMenu);
   wrap.appendChild(toggle);
@@ -537,22 +542,216 @@ function setupMotivationButton() {
 // og/eller motivasjonsknappen. Egen, alltid synlig knapp rett til høyre for
 // meny-knappen (IKKE gjemt bak trekkspill-panelet som de andre sjeldnere
 // brukte knappene) - siden dette er det første en ny bruker trenger å finne.
+/* «?» lå tidligere som en egen knapp i den flytende verktøylinjen, ved
+   siden av burgeren. Flyttet INN i menyen 2026-09-20: verktøylinjen skal
+   bare ha burgeren og zoom-kontrollene, så grafen får plassen. */
 function setupHelpButton() {
-  ensureActionMenu(); // sikrer at #menu-wrap finnes i verktøylinjen
-  const menuWrap = document.getElementById('menu-wrap');
-  if (!menuWrap) return;
+  const panel = ensureActionMenu();
+  if (!panel) return;
 
   const btn = document.createElement('button');
   btn.id = 'help-btn';
   btn.type = 'button';
-  btn.textContent = '?';
-  btn.setAttribute('aria-label', t('help.label'));
+  btn.textContent = t('help.label');
   btn.title = t('help.label');
   btn.addEventListener('click', () => {
     closeActionMenu();
     openHelpModal();
   });
-  menuWrap.insertAdjacentElement('afterend', btn);
+  panel.appendChild(btn);
+}
+
+/* ------------------------------------------------------------------ */
+/* Kursinformasjon                                                      */
+/*                                                                      */
+/* Metadataen om treet — fag, nivå, læreplan, hvem som laget det og når  */
+/* — og den fullstendige forklaringen av hjelpemiddelnivåene. Det siste  */
+/* er grunnen til at vinduet finnes: en merkelapp som «Del 1+2» er       */
+/* meningsløs uten et sted å slå opp hva nivåene tillater, og fram til   */
+/* nå fantes den teksten bare inne i KI-instruksen.                      */
+/*                                                                      */
+/* Klikk på en hjelpemiddel-merkelapp åpner dette vinduet, scrollet til  */
+/* hjelpemiddelavsnittet.                                               */
+/* ------------------------------------------------------------------ */
+
+function setupCourseInfoButton() {
+  const panel = ensureActionMenu();
+  if (!panel) return;
+
+  const btn = document.createElement('button');
+  btn.id = 'course-info-btn';
+  btn.type = 'button';
+  btn.textContent = t('courseInfo.button');
+  btn.title = t('courseInfo.button');
+  btn.addEventListener('click', () => {
+    closeActionMenu();
+    openCourseInfoModal();
+  });
+  panel.appendChild(btn);
+}
+
+function ensureCourseInfoModal() {
+  let overlay = document.getElementById('course-info-overlay');
+  if (overlay) return overlay;
+
+  overlay = document.createElement('div');
+  overlay.id = 'course-info-overlay';
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeCourseInfoModal(); });
+
+  const modal = document.createElement('div');
+  modal.id = 'course-info-modal';
+
+  const header = document.createElement('div');
+  header.id = 'course-info-header';
+  const h2 = document.createElement('h2');
+  h2.textContent = t('courseInfo.heading');
+  header.appendChild(h2);
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'btn secondary';
+  closeBtn.textContent = t('close');
+  closeBtn.addEventListener('click', closeCourseInfoModal);
+  header.appendChild(closeBtn);
+  modal.appendChild(header);
+
+  const body = document.createElement('div');
+  body.id = 'course-info-body';
+  renderCourseInfoBody(body);
+  modal.appendChild(body);
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeCourseInfoModal();
+  });
+  return overlay;
+}
+
+function renderCourseInfoBody(body) {
+  const m = META || {};
+  body.innerHTML = '';
+
+  if (m.summary || CONFIG.description) {
+    const lead = document.createElement('p');
+    lead.className = 'course-info__lead';
+    lead.textContent = m.summary || CONFIG.description;
+    body.appendChild(lead);
+  }
+
+  /* Faktatabellen. Bare rader som FINNES vises — et felt ingen har fylt ut
+     skal ikke stå igjen som en tom rad. */
+  const facts = [
+    ['courseInfo.course',      m.course],
+    ['courseInfo.level',       [m.level, m.grade].filter(Boolean).join(' · ')],
+    ['courseInfo.curriculum',  m.curriculum],
+    ['courseInfo.institution', m.institution],
+    ['courseInfo.country',     m.country],
+    ['courseInfo.language',    m.language],
+    ['courseInfo.size',        nodeCountText(m)],
+  ].filter(row => row[1]);
+
+  if (facts.length) {
+    const dl = document.createElement('dl');
+    dl.className = 'course-info__facts';
+    facts.forEach(([key, value]) => {
+      const dt = document.createElement('dt');
+      dt.textContent = t(key);
+      const dd = document.createElement('dd');
+      dd.textContent = value;
+      dl.append(dt, dd);
+    });
+    body.appendChild(dl);
+  }
+
+  // ---- hjelpemiddelnivåene, i sin helhet --------------------------
+  const cfg = aidsConfig();
+  if (treeUsesAids() && cfg) {
+    const sec = document.createElement('div');
+    sec.id = 'course-info-aids';
+
+    const h3 = document.createElement('h3');
+    h3.textContent = t('aids.heading');
+    sec.appendChild(h3);
+
+    (cfg.levels || []).forEach(lv => {
+      const row = document.createElement('p');
+      row.className = 'course-info__level';
+      const chip = document.createElement('span');
+      chip.className = 'aidtag aidtag--static';
+      chip.style.background = aidsColor(lv.level);
+      chip.textContent = aidsTagText([lv.level]);
+      row.appendChild(chip);
+      row.appendChild(document.createTextNode(' ' + (lv.student || '')));
+      sec.appendChild(row);
+    });
+
+    const note = document.createElement('p');
+    note.className = 'course-info__note';
+    note.textContent = t('aids.multipleNote');
+    sec.appendChild(note);
+
+    body.appendChild(sec);
+  }
+
+  // ---- hvem, når, lisens ------------------------------------------
+  const credits = [
+    ['courseInfo.author',  m.author],
+    ['courseInfo.updated', m.updated],
+    ['courseInfo.license', m.license],
+    ['courseInfo.status',  m.status],
+  ].filter(row => row[1]);
+
+  if (credits.length) {
+    const h3 = document.createElement('h3');
+    h3.textContent = t('courseInfo.credits');
+    body.appendChild(h3);
+
+    const dl = document.createElement('dl');
+    dl.className = 'course-info__facts';
+    credits.forEach(([key, value]) => {
+      const dt = document.createElement('dt');
+      dt.textContent = t(key);
+      const dd = document.createElement('dd');
+      if (key === 'courseInfo.author' && m.authorUrl) {
+        const a = document.createElement('a');
+        a.href = m.authorUrl;
+        a.textContent = value;
+        a.rel = 'noopener';
+        dd.appendChild(a);
+      } else {
+        dd.textContent = value;
+      }
+      dl.append(dt, dd);
+    });
+    body.appendChild(dl);
+  }
+}
+
+function nodeCountText(m) {
+  const parts = [];
+  if (m.skillCount) parts.push(fmtCount('courseInfo.skills', m.skillCount));
+  if (m.conceptCount) parts.push(fmtCount('courseInfo.concepts', m.conceptCount));
+  if (!parts.length && m.nodeCount) parts.push(fmtCount('courseInfo.nodes', m.nodeCount));
+  return parts.join(' · ');
+}
+
+function fmtCount(key, n) {
+  return t(key, { n: n });
+}
+
+function openCourseInfoModal(scrollToAids) {
+  const overlay = ensureCourseInfoModal();
+  renderCourseInfoBody(document.getElementById('course-info-body'));
+  overlay.classList.add('open');
+  if (scrollToAids) {
+    const sec = document.getElementById('course-info-aids');
+    if (sec) sec.scrollIntoView({ block: 'start' });
+  }
+}
+
+function closeCourseInfoModal() {
+  const overlay = document.getElementById('course-info-overlay');
+  if (overlay) overlay.classList.remove('open');
 }
 
 // Modalen bygges lat, én gang, og gjenbrukes ved senere åpninger - samme
@@ -1190,6 +1389,7 @@ async function init() {
   setupPanning();
   setupZoom();
   setupHelpButton();
+  setupCourseInfoButton();
   setupGoalIndexButton();
   setupExamButton();
   if (SHOW_MOTIVATION_BUTTON) setupMotivationButton();
@@ -1315,9 +1515,7 @@ function makeAidsTag(node) {
 
   btn.addEventListener('click', e => {
     e.stopPropagation();
-    openDetail(node.id);
-    const sec = document.getElementById('detail-aids');
-    if (sec) sec.scrollIntoView({ block: 'nearest' });
+    openCourseInfoModal(true);
   });
   return btn;
 }
@@ -2034,46 +2232,11 @@ function renderDetail(node) {
   desc.textContent = node.description;
   inner.appendChild(desc);
 
-  /* Hjelpemiddelavsnittet. Fram til 2026-09-20 fantes denne teksten BARE
-     inne i KI-instruksen - modellen leste den, eleven fikk aldri se den,
-     bare en to-bokstavers merkelapp. Klikk på merkelappen scroller hit. */
-  if (treeUsesAids() && (node.aids || []).length) {
-    const box = document.createElement('div');
-    box.id = 'detail-aids';
-
-    const h = document.createElement('div');
-    h.className = 'badge-type';
-    h.style.marginBottom = '0.4rem';
-    h.textContent = t('aids.heading');
-    box.appendChild(h);
-
-    node.aids.forEach(level => {
-      const lv = aidsLevel(level);
-      if (!lv) return;
-      const row = document.createElement('p');
-      row.className = 'detail-aids__level';
-
-      const chip = document.createElement('span');
-      chip.className = 'aidtag aidtag--static';
-      chip.style.background = aidsColor(level);
-      chip.textContent = aidsTagText([level]);
-      row.appendChild(chip);
-
-      row.appendChild(document.createTextNode(' ' + (lv.student || '')));
-      box.appendChild(row);
-    });
-
-    /* Samme regel som modellen får: spenner ferdigheten over flere nivåer,
-       er det det strengeste som gjelder. */
-    if (node.aids.length > 1) {
-      const note = document.createElement('p');
-      note.className = 'detail-aids__note';
-      note.textContent = t('aids.multipleNote');
-      box.appendChild(note);
-    }
-
-    inner.appendChild(box);
-  }
+  /* Hjelpemiddelforklaringen ligger IKKE her, men i kursinfo-vinduet:
+     nivåene er en egenskap ved FAGET, ikke ved noden, og å gjenta den
+     lange teksten i hver eneste node ville vært den samme dupliseringen
+     dette repoet nettopp har ryddet vekk. Merkelappen i meta-raden over
+     er klikkbar og åpner vinduet på riktig avsnitt. */
 
   if (ancestors.length) {
     const h3 = document.createElement('div');
