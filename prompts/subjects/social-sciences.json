@@ -1,11 +1,10 @@
 {
-  "_comment": "DELIBERATELY THIN — the `instructions` half is not written yet, by decision: only one social-science tree exists (samfunnskunnskap Vg1), and there is not enough evidence yet to say what this family actually needs. The sections present are the minimum that stops the generic instructions reading as though they were written for mathematics, which they were. The `decomposition` half IS written, because it already existed: the SOLO taxonomy below is moved here verbatim in substance from ferdighetstre_private/instruks.md section 'SOLO-taksonomi for kvalitative fag', where it had been sitting inside an otherwise maths-shaped framework with nothing to attach it to. Add to `instructions` as real trees in this family are built; each addition bumps this file's `version` without touching any other module.",
+  "_comment": "Everything that is true of the social sciences and humanities but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"social-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats another family file, that is deliberate: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. Covers social studies, history, religious education and literature. Carries its own `version`, cited separately in the paper's appendix.",
   "family": "social-sciences",
   "title": "Social sciences and humanities",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
-  "status": "draft",
 
   "decomposition": {
     "_comment": "Read at authoring time, not by the engine. See prompts/spec/decomposition.md.",
@@ -24,7 +23,7 @@
     },
     "skillVerbs": "Name a skill node with a verb phrase taken from SOLO level 4 or 5 where the node is a genuine higher-order skill: \"Compare how two sources present the same event\", \"Argue for a position on a conflict of interest, using evidence\". Level 2–3 material usually belongs in a concept node instead.",
     "loadBearingExamples": "Load-bearing vocabulary in these subjects is typically a word that names a contested or technical distinction later nodes depend on — sovereignty, separation of powers, welfare state, source criticism. An everyday political or social word used in its ordinary sense earns no node.",
-    "openQuestion": "NOT SETTLED: whether the aids/assessment-context field means anything in a subject assessed orally or by coursework. samfunnskunnskap Vg1 currently sets it off entirely. Revisit when a second tree in this family exists."
+    "assessmentContext": "Subjects in this family are often assessed orally or by coursework rather than by a written examination split into parts. Where that is so, turn the aids field off in the subject's configuration and leave it empty for every row."
   },
 
   "instructions": {

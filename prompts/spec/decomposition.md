@@ -231,12 +231,6 @@ way, **say so in that subject's note** — name what was consulted, and record t
 or problem numbers were reproduced. Do not conceal a source, and never instruct an agent to
 conceal one.
 
-> **Open question, not settled.** How far the "background material" position extends — in
-> particular for official curricula whose competence aims are themselves the thing being
-> decomposed — has not been resolved for this project. See the open questions in the project
-> note *Publisere ferdighetstrær som åpen metode*. Until it is, the rules above are the floor,
-> not a clearance.
-
 ---
 
 ## 9. Checklist for a new subject
