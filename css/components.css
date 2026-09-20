@@ -247,10 +247,16 @@
   background: var(--ink);   /* shows while the photo loads */
 }
 
+/* The three hero layers stack with POSITIVE z-index, and they have to.
+   Negative values worked while this was a photograph, but a <video> is handed
+   its own GPU compositing layer, and a composited layer does not reliably stay
+   below its siblings on a negative z-index — the clip painted straight over
+   the scrim. Explicit 0 / 1 / 2 is respected either way. */
 .hero__media {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
+  pointer-events: none;   /* decorative; never swallows a click on a button */
 }
 
 .hero__media video,
@@ -280,11 +286,14 @@
 .hero__scrim {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   background: var(--scrim);
+  pointer-events: none;
 }
 
 .hero__inner {
+  position: relative;      /* must be positioned to sit above the two layers */
+  z-index: 2;
   max-width: var(--measure-wide);
   width: 100%;
   margin-inline: auto;
