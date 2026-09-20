@@ -455,3 +455,95 @@
 
 .sitefooter p { margin: 0; opacity: 0.8; }
 .sitefooter a { color: var(--ink-inverse); }
+
+/* --------------------------------------------------------------------------
+   Numbered steps — the contribution flow on /make-your-own/.
+
+   Same grammar as .tiles (flush cells, the hairline IS the gap), but stacked
+   as an ordered list rather than a grid: these are sequential, and a grid
+   would let a reader take them in any order.
+   -------------------------------------------------------------------------- */
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--surface);
+}
+
+.step__index {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+
+.step__title {
+  font-family: var(--font-sans);
+  font-size: var(--step-l);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.step__body {
+  font-family: var(--font-serif);
+  font-size: var(--step-m);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: var(--measure-prose);
+  margin: 0;
+}
+
+/* A call to action whose destination does not exist yet. Rendered as a
+   <span>, not a disabled <a>: there is no href to disable, and a link that
+   goes nowhere is worse than a control that says so. The note travels with
+   the label so the state is never carried by styling alone. */
+.btn--disabled {
+  background: var(--paper-2);
+  border-color: var(--rule);
+  color: var(--ink-3);
+  cursor: not-allowed;
+  gap: var(--space-2);
+}
+.btn--disabled:hover { background: var(--paper-2); color: var(--ink-3); }
+
+.btn__note {
+  font-size: var(--step-xs);
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Where the copyable setup prompt will sit. Monospace and scrollable,
+   because it will be long and people will select all of it. */
+.promptbox {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-3);
+  max-height: 22rem;
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--step-xs);
+  line-height: 1.6;
+  color: var(--ink-2);
+  white-space: pre-wrap;
+}
+
+/* A band that is a short aside rather than a section of content. */
+.band--tight { padding-block: var(--space-4); }

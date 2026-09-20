@@ -14,7 +14,6 @@
    search field and a result grid reads as one unit and needs less air between
    its parts. Kept here rather than in base.css because nothing else on the
    site needs them yet. */
-.band--tight { padding-block: var(--space-4); }
 .band--snug  { padding-block: var(--space-5); }
 
 /* --------------------------------------------------------------------------

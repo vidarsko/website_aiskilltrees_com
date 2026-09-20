@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Make your own | AI Skill Trees</title>
-  <meta name="description" content="The decomposition specification, the instructions, and a template for starting a new subject — in your language, for your syllabus." data-i18n-attr="content:meta-description">
+  <meta name="description" content="Download the kit, let an AI walk you through the decomposition, and send your tree in. No account, no backend, no cost." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
@@ -15,14 +15,14 @@
   <script src="/js/header.js" defer></script>
 
   <!--
-    PLACEHOLDER PAGE. Exists so the nav has a real destination rather than a
-    dead `#`, and so the URL is claimed. The copy below says outright that it
-    is unwritten — see AGENTS.md, "Ikke avgjort ennå", for what is meant to
-    land here.
+    SKETCH, 2026-09-20. The four steps are the agreed contribution flow (see
+    "Bidragsflyten" in the project note), but the kit, the setup prompt and
+    the form do not exist yet. Every CTA is therefore DISABLED rather than
+    linked to a dead URL — a button that says "not ready yet" is honest; one
+    that 404s is not.
 
-    The static markup holds the ENGLISH string, because English is the
-    default; NO and SV live in the dictionary. Nav labels are NOT here —
-    they belong to js/header.js, which owns the bar for every page.
+    When the real destinations exist, swap `.btn--disabled` + <span> for real
+    <a href> and delete the .draft-note band.
   -->
   <script type="application/json" id="i18n-dict">
   {
@@ -32,9 +32,9 @@
       "sv": "Gör ditt eget | AI Skill Trees"
     },
     "meta-description": {
-      "en": "The decomposition specification, the instructions, and a template for starting a new subject — in your language, for your syllabus.",
-      "nb": "Dekomponeringsspesifikasjonen, instruksene og en mal for å starte et nytt fag — på ditt språk, for din læreplan.",
-      "sv": "Nedbrytningsspecifikationen, instruktionerna och en mall för att börja med ett nytt ämne — på ditt språk, för din läroplan."
+      "en": "Download the kit, let an AI walk you through the decomposition, and send your tree in. No account, no backend, no cost.",
+      "nb": "Last ned mappa, la en KI ta deg gjennom dekomponeringen, og send inn treet ditt. Ingen konto, ingen backend, ingen kostnad.",
+      "sv": "Ladda ner mappen, låt en AI ta dig genom nedbrytningen, och skicka in ditt träd. Inget konto, ingen backend, ingen kostnad."
     },
     "page-eyebrow": {
       "en": "For teachers",
@@ -47,14 +47,109 @@
       "sv": "Gör ditt eget"
     },
     "page-lede": {
-      "en": "The decomposition specification, the instructions, and a template for starting a new subject — in your language, for your syllabus.",
-      "nb": "Dekomponeringsspesifikasjonen, instruksene og en mal for å starte et nytt fag — på ditt språk, for din læreplan.",
-      "sv": "Nedbrytningsspecifikationen, instruktionerna och en mall för att börja med ett nytt ämne — på ditt språk, för din läroplan."
+      "en": "A skill tree is two text files and a folder. There is nothing to install, nothing to pay for, and no account to create — and the result is yours under an open licence whether or not you ever send it here.",
+      "nb": "Et ferdighetstre er to tekstfiler og en mappe. Det er ingenting å installere, ingenting å betale for og ingen konto å opprette — og resultatet er ditt under en åpen lisens uansett om du sender det inn hit eller ikke.",
+      "sv": "Ett kunskapsträd är två textfiler och en mapp. Det finns inget att installera, inget att betala för och inget konto att skapa — och resultatet är ditt under en öppen licens oavsett om du skickar in det hit eller inte."
     },
-    "page-body": {
-      "en": "This page is not written yet. What will go here: how a subject is decomposed into skills and concepts, what a node has to contain, and how to contribute a tree of your own.",
-      "nb": "Denne sida er ikke skrevet ennå. Det som skal hit: hvordan et fag dekomponeres i ferdigheter og begreper, hva en node må inneholde, og hvordan du bidrar med et tre selv.",
-      "sv": "Den här sidan är inte skriven ännu. Det som ska hit: hur ett ämne bryts ner i färdigheter och begrepp, vad en nod måste innehålla, och hur du bidrar med ett eget träd."
+    "draft-note": {
+      "en": "This page is a sketch. The steps below are the agreed plan, but the kit, the prompt and the form are not built yet — the links are placeholders.",
+      "nb": "Denne sida er en skisse. Trinnene under er planen slik den er avtalt, men mappa, ledeteksten og skjemaet finnes ikke ennå — lenkene er plassholdere.",
+      "sv": "Den här sidan är en skiss. Stegen nedan är den överenskomna planen, men mappen, instruktionen och formuläret finns inte ännu — länkarna är platshållare."
+    },
+    "steps-eyebrow": {
+      "en": "How it works",
+      "nb": "Slik gjør du det",
+      "sv": "Så gör du"
+    },
+    "step-1-title": {
+      "en": "Download the kit",
+      "nb": "Last ned mappa",
+      "sv": "Ladda ner mappen"
+    },
+    "step-1-body": {
+      "en": "One folder with the engine, the default instructions and a placeholder subject already filled in. Open it and a working tree appears — then replace the placeholder with your own subject.",
+      "nb": "Én mappe med motoren, standardinstruksene og et plassholderfag som alt er fylt ut. Åpne den, så står det et fungerende tre der — bytt så plassholderen mot ditt eget fag.",
+      "sv": "En mapp med motorn, standardinstruktionerna och ett platshållarämne som redan är ifyllt. Öppna den så står ett fungerande träd där — byt sedan ut platshållaren mot ditt eget ämne."
+    },
+    "step-2-title": {
+      "en": "Paste the prompt into an AI",
+      "nb": "Lim ledeteksten inn i en KI",
+      "sv": "Klistra in instruktionen i en AI"
+    },
+    "step-2-body": {
+      "en": "Copy the instruction below into whichever AI chat you already use. It asks how you prefer to work, then takes you through decomposing your subject, filling in the files and checking the result.",
+      "nb": "Kopier instruksen under inn i den KI-chatten du allerede bruker. Den spør hvordan du helst jobber, og tar deg så gjennom å dekomponere faget, fylle ut filene og sjekke resultatet.",
+      "sv": "Kopiera instruktionen nedan till den AI-chatt du redan använder. Den frågar hur du helst arbetar och tar dig sedan genom att bryta ner ämnet, fylla i filerna och kontrollera resultatet."
+    },
+    "step-3-title": {
+      "en": "Send it in",
+      "nb": "Send det inn",
+      "sv": "Skicka in det"
+    },
+    "step-3-body": {
+      "en": "A form asks for the subject, the level, the country and the licence, and takes your files. Sending in is optional — the tree works on your own machine either way.",
+      "nb": "Et skjema spør om fag, nivå, land og lisens, og tar imot filene dine. Å sende inn er frivillig — treet virker på din egen maskin uansett.",
+      "sv": "Ett formulär frågar om ämne, nivå, land och licens, och tar emot dina filer. Att skicka in är frivilligt — trädet fungerar på din egen dator ändå."
+    },
+    "step-4-title": {
+      "en": "It gets reviewed, then published",
+      "nb": "Det blir gjennomgått, så publisert",
+      "sv": "Det granskas, sedan publiceras det"
+    },
+    "step-4-body": {
+      "en": "Mechanical checks run automatically — columns present, prerequisites pointing at real nodes, no cycles. The subject-matter reading is done by hand, which takes time, and that is the point rather than a bottleneck.",
+      "nb": "Mekaniske sjekker kjører automatisk — at kolonnene finnes, at forutsetningene peker på noder som er der, at grafen ikke har sykler. Den faglige gjennomgangen gjøres for hånd, og den tar tid. Det er poenget, ikke en flaskehals.",
+      "sv": "Mekaniska kontroller körs automatiskt — att kolumnerna finns, att förkunskaperna pekar på noder som finns, att grafen saknar cykler. Den ämnesmässiga granskningen görs för hand och tar tid. Det är poängen, inte en flaskhals."
+    },
+    "prompt-eyebrow": {
+      "en": "The setup prompt",
+      "nb": "Oppsettsledeteksten",
+      "sv": "Instruktionen för uppsättning"
+    },
+    "prompt-heading": {
+      "en": "Copy this into an AI chat",
+      "nb": "Kopier denne inn i en KI-chat",
+      "sv": "Kopiera denna till en AI-chatt"
+    },
+    "prompt-body": {
+      "en": "Written in English, like the rest of the instructions in this method — it will work in your language, and will ask you which one to use. Not written yet; this box is where it will live.",
+      "nb": "Skrevet på engelsk, som resten av instruksene i metoden — den virker på ditt språk, og spør deg hvilket. Ikke skrevet ennå; denne boksen er der den skal stå.",
+      "sv": "Skriven på engelska, som resten av instruktionerna i metoden — den fungerar på ditt språk och frågar dig vilket. Inte skriven ännu; den här rutan är där den ska stå."
+    },
+    "prompt-placeholder": {
+      "en": "[ The setup prompt will appear here, with a copy button. ]",
+      "nb": "[ Oppsettsledeteksten kommer her, med en kopier-knapp. ]",
+      "sv": "[ Instruktionen kommer här, med en kopieringsknapp. ]"
+    },
+    "update-eyebrow": {
+      "en": "Already sent one in?",
+      "nb": "Har du sendt inn før?",
+      "sv": "Har du skickat in tidigare?"
+    },
+    "update-heading": {
+      "en": "Sending a new version",
+      "nb": "Sende en ny versjon",
+      "sv": "Skicka en ny version"
+    },
+    "update-body": {
+      "en": "Use the same form and give the slug of the tree you are updating. A tree is expected to change — a syllabus is revised, a decomposition turns out wrong in one place, a colleague finds a gap. Versions are kept, so what a student saw last term stays citable.",
+      "nb": "Bruk det samme skjemaet og oppgi slug-en til treet du oppdaterer. Et tre skal endre seg — en læreplan revideres, en dekomponering viser seg feil ett sted, en kollega finner et hull. Versjonene tas vare på, så det en elev så i fjor høst fortsatt kan vises til.",
+      "sv": "Använd samma formulär och ange slug för trädet du uppdaterar. Ett träd ska förändras — en läroplan revideras, en nedbrytning visar sig fel på ett ställe, en kollega hittar en lucka. Versionerna sparas, så det en elev såg förra terminen går fortfarande att hänvisa till."
+    },
+    "cta-download": {
+      "en": "Download the kit",
+      "nb": "Last ned mappa",
+      "sv": "Ladda ner mappen"
+    },
+    "cta-form": {
+      "en": "Open the submission form",
+      "nb": "Åpne innsendingsskjemaet",
+      "sv": "Öppna inlämningsformuläret"
+    },
+    "cta-soon": {
+      "en": "Not ready yet",
+      "nb": "Ikke klart ennå",
+      "sv": "Inte klart ännu"
     },
     "footer-line-1": {
       "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
@@ -62,9 +157,9 @@
       "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
     },
     "footer-line-2": {
-      "en": "Placeholder page. Content is still being written.",
-      "nb": "Midlertidig side. Innholdet er ikke skrevet ennå.",
-      "sv": "Tillfällig sida. Innehållet är inte skrivet ännu."
+      "en": "Sketch. The kit, the prompt and the form are still being built.",
+      "nb": "Skisse. Mappa, ledeteksten og skjemaet er fortsatt under arbeid.",
+      "sv": "Skiss. Mappen, instruktionen och formuläret byggs fortfarande."
     }
   }
   </script>
@@ -74,22 +169,87 @@
   <header class="siteheader" data-site-header></header>
 
   <main>
+
     <section class="band">
       <div class="band__inner">
         <p class="eyebrow" data-i18n="page-eyebrow">For teachers</p>
         <h1 data-i18n="page-heading">Make your own</h1>
         <div class="prose">
-          <p class="lede-p" data-i18n="page-lede">The decomposition specification, the instructions, and a template for starting a new subject — in your language, for your syllabus.</p>
-          <p class="note" data-i18n="page-body">This page is not written yet. What will go here: how a subject is decomposed into skills and concepts, what a node has to contain, and how to contribute a tree of your own.</p>
+          <p class="lede-p" data-i18n="page-lede">A skill tree is two text files and a folder. There is nothing to install, nothing to pay for, and no account to create — and the result is yours under an open licence whether or not you ever send it here.</p>
         </div>
       </div>
     </section>
+
+    <!-- Says outright that this is unbuilt. Delete the whole band when it isn't. -->
+    <section class="band band--tint band--tight">
+      <div class="band__inner">
+        <p class="prose note" data-i18n="draft-note">This page is a sketch. The steps below are the agreed plan, but the kit, the prompt and the form are not built yet — the links are placeholders.</p>
+      </div>
+    </section>
+
+    <section class="band band--alt">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="steps-eyebrow">How it works</p>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__index" aria-hidden="true">01</span>
+            <h2 class="step__title" data-i18n="step-1-title">Download the kit</h2>
+            <p class="step__body" data-i18n="step-1-body">One folder with the engine, the default instructions and a placeholder subject already filled in. Open it and a working tree appears — then replace the placeholder with your own subject.</p>
+            <span class="btn btn--primary btn--disabled" aria-disabled="true">
+              <span data-i18n="cta-download">Download the kit</span>
+              <span class="btn__note" data-i18n="cta-soon">Not ready yet</span>
+            </span>
+          </li>
+          <li class="step">
+            <span class="step__index" aria-hidden="true">02</span>
+            <h2 class="step__title" data-i18n="step-2-title">Paste the prompt into an AI</h2>
+            <p class="step__body" data-i18n="step-2-body">Copy the instruction below into whichever AI chat you already use. It asks how you prefer to work, then takes you through decomposing your subject, filling in the files and checking the result.</p>
+          </li>
+          <li class="step">
+            <span class="step__index" aria-hidden="true">03</span>
+            <h2 class="step__title" data-i18n="step-3-title">Send it in</h2>
+            <p class="step__body" data-i18n="step-3-body">A form asks for the subject, the level, the country and the licence, and takes your files. Sending in is optional — the tree works on your own machine either way.</p>
+            <span class="btn btn--ghost btn--disabled" aria-disabled="true">
+              <span data-i18n="cta-form">Open the submission form</span>
+              <span class="btn__note" data-i18n="cta-soon">Not ready yet</span>
+            </span>
+          </li>
+          <li class="step">
+            <span class="step__index" aria-hidden="true">04</span>
+            <h2 class="step__title" data-i18n="step-4-title">It gets reviewed, then published</h2>
+            <p class="step__body" data-i18n="step-4-body">Mechanical checks run automatically — columns present, prerequisites pointing at real nodes, no cycles. The subject-matter reading is done by hand, which takes time, and that is the point rather than a bottleneck.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="prompt-eyebrow">The setup prompt</p>
+        <h2 data-i18n="prompt-heading">Copy this into an AI chat</h2>
+        <div class="prose">
+          <p data-i18n="prompt-body">Written in English, like the rest of the instructions in this method — it will work in your language, and will ask you which one to use. Not written yet; this box is where it will live.</p>
+        </div>
+        <pre class="promptbox" data-i18n="prompt-placeholder">[ The setup prompt will appear here, with a copy button. ]</pre>
+      </div>
+    </section>
+
+    <section class="band band--alt">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="update-eyebrow">Already sent one in?</p>
+        <h2 data-i18n="update-heading">Sending a new version</h2>
+        <div class="prose">
+          <p data-i18n="update-body">Use the same form and give the slug of the tree you are updating. A tree is expected to change — a syllabus is revised, a decomposition turns out wrong in one place, a colleague finds a gap. Versions are kept, so what a student saw last term stays citable.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="band band--dark sitefooter">
     <div class="band__inner sitefooter__inner">
       <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p data-i18n="footer-line-2">Placeholder page. Content is still being written.</p>
+      <p data-i18n="footer-line-2">Sketch. The kit, the prompt and the form are still being built.</p>
     </div>
   </footer>
 
