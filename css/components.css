@@ -253,13 +253,27 @@
   z-index: -2;
 }
 
+.hero__media video,
 .hero__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Keeps the presenter and the whiteboard graph in frame when the crop
-     tightens on narrow viewports. */
-  object-position: 62% 34%;
+  /* The clip is 1920x736 — the same shape as the hero box on a 1920-wide
+     display, so nothing is cropped there at all. Below that the box gets
+     relatively taller and cover crops the sides instead: on a phone only about
+     a quarter of the width survives. 55% aims that quarter at the middle
+     panel — the node title and its copy-the-instruction button — rather than
+     at the edge of the tree or at the chat. */
+  object-position: 55% 50%;
+}
+
+/* The video is the default and the still stands in for it only where motion is
+   unwanted. The still is frame 0 of the video, so the swap is invisible. */
+.hero__still { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { display: none; }
+  .hero__still { display: block; }
 }
 
 /* Flat overlay, not a gradient — the system has no gradients. */

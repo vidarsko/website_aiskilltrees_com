@@ -47,9 +47,9 @@
           "sv": "Varje träd är en graf över färdigheterna och begreppen i ett ämne, skrivet av en lärare. Varje nod har en instruktion som du kan kopiera in i en AI-chatt för att öva på den färdigheten."
       },
       "hero-img-alt": {
-          "en": "A teacher standing at a whiteboard, pointing at a hand-drawn diagram of boxes joined by arrows, in front of a seated group.",
-          "nb": "En lærer står ved en tavle og peker på en håndtegnet figur av bokser bundet sammen med piler, foran en gruppe som sitter og ser på.",
-          "sv": "En lärare står vid en whiteboard och pekar på en handritad figur av rutor sammanbundna med pilar, framför en sittande grupp."
+          "en": "A screen recording of the method in use: a skill tree on the left, one node's instruction in the middle, and an AI chat working through the answer on the right.",
+          "nb": "Et skjermopptak av metoden i bruk: et ferdighetstre til venstre, instruksen til én node i midten, og en KI-chat som jobber seg gjennom svaret til høyre.",
+          "sv": "En skärminspelning av metoden i bruk: ett kunskapsträd till vänster, instruktionen för en nod i mitten, och en AI-chatt som arbetar sig genom svaret till höger."
       },
       "hero-cta-primary": {
           "en": "See a tree",
@@ -151,16 +151,31 @@
   <main>
 
     <!--
-      HERO. Full-bleed photograph with a flat scrim over it.
-      TODO: the image is a placeholder borrowed from skogvoll.com for this test.
-      Before launch, move a copy into /media/ in this repo (the site should not
-      hotlink another site), and source a wider original — this file is 1371px
-      across, which softens on a large laptop display at full bleed.
+      HERO. Full-bleed screen recording with a flat scrim over it.
+
+      The clip is the method in use: a node picked in the tree on the left, its
+      instruction in the middle panel, the answer coming back in the chat on the
+      right. It is decorative. The scrim is 62% opaque, so nothing in it is meant
+      to be read — the h1 carries the meaning, which is why the video is
+      aria-hidden.
+
+      1920x736 is not arbitrary: that is exactly the hero box on a 1920-wide
+      display, so the clip is shown uncropped there. Narrower viewports crop
+      horizontally around object-position — see css/components.css, which aims
+      that crop at the middle panel.
+
+      The poster is frame 0 of the same file, so the handoff from still to
+      playing video is invisible. It is also what stands in for the video when
+      autoplay is refused, or the visitor has asked for reduced motion.
     -->
     <section class="hero">
       <div class="hero__media">
-        <img src="https://skogvoll.com/media/DSC_6349.JPG"
-             alt="A teacher standing at a whiteboard, pointing at a hand-drawn diagram of boxes joined by arrows, in front of a seated group."
+        <video class="hero__video" poster="/media/hero.jpg"
+               autoplay muted loop playsinline preload="auto" aria-hidden="true">
+          <source src="/media/hero.mp4" type="video/mp4">
+        </video>
+        <img class="hero__still" src="/media/hero.jpg"
+             alt="A screen recording of the method in use: a skill tree on the left, one node's instruction in the middle, and an AI chat working through the answer on the right."
              data-i18n-attr="alt:hero-img-alt">
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
