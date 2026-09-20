@@ -1,0 +1,36 @@
+{
+  "_comment": "Importert fra skogvoll.com/fardighetstrad/matte-1a 2026-09-20, som første ikke-norske tre. Hele poenget med importen var å bevise at et nytt språk koster ÉN fil under /languages/ og INGEN kopi av motoren — den gamle løsningen hadde en egen 107 KB svensk engine.js.",
+  "schemaVersion": 1,
+
+  "title": "Matematik 1a",
+  "description": "Interaktivt färdighetsträd för matematik 1a: kryssa i det du behärskar, och kopiera en AI-instruktion för att träna vidare.",
+
+  "language": "sv",
+  "languageName": "Swedish",
+
+  "storageKey": "matte1a-sv-fardighetstre-fullfort",
+
+  "features": {
+    "motivation": true,
+    "aids": false
+  },
+
+  "topicOrder": [
+    "Aritmetik och procent",
+    "Geometri och skala",
+    "Algebra och funktioner",
+    "Ekonomi och digitala verktyg",
+    "Sannolikhet och statistik",
+    "Problemlösning och modeller"
+  ],
+
+  "slots": {
+    "courseName": "matematik 1a (svenskt gymnasium, yrkesprogram, Gy25)",
+    "motivationSubject": "matte",
+    "formuleringsfokus": "glömmer enhet eller %-tecken, blandar ihop area och omkrets, avrundar för tidigt eller onoggrant, eller använder likhetstecknet fel (t.ex. kedjar samman uttryck med \"=\" som inte faktiskt är lika, eller använder \"=\" för att betyda \"nästa steg\" istället för likhet)"
+  },
+
+  "prompts": {
+    "_comment": "Ingen aids-prosa: matematik 1a har inget bekräftat nationellt prov med en del1/del2-liknande hjälpmedelsuppdelning att kalibrera mot ännu, så features.aids är false och D1/D2-märkningen är dold helt. Se matte-1a_private/ på skogvoll.com."
+  }
+}

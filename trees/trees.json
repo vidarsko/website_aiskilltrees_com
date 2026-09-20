@@ -1,6 +1,7 @@
 {
   "_comment": "Manifest over ferdighetstrærne på denne sida. Hver oppføring peker på en mappe under /trees/ som inneholder meta.json, config.js, noder.csv og index.html. Katalogsida (/trees/) henter denne fila først og deretter <slug>/meta.json for hvert tre, parallelt — det er derfor selve metadataene ikke er duplisert her. Legger du til et nytt tre: legg mappa på plass og føy slug-en til lista under. Det er alt som skal til; ingen byggesteg, ingen kodeendring.",
   "trees": [
-    "matte-2p"
+    "matte-2p",
+    "matte-1a-sv"
   ]
 }

@@ -1,0 +1,138 @@
+{
+  "code": "en",
+  "htmlLang": "en",
+  "name": "English",
+  "endonym": "English",
+  "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
+  "ui": {
+    "backLink": "← all skill trees",
+    "pageTitle": "Skill tree for {title}",
+    "tagline": "A map of how skills and concepts build on one another — tick off what you have mastered, and copy an AI instruction to practise what comes next.",
+    "progressLabel": "{done} of {total} skills completed",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fitToView": "Show the whole tree",
+    "fitToViewTitle": "Show the whole tree (Ctrl+scroll to zoom)",
+    "close": "✕ Close",
+    "closeLower": "✕ close",
+    "copied": "Copied!",
+    "copyFallback": "Could not copy automatically - copy the text below manually:",
+    "errorBanner": "⚠ {n} problem(s) found in the data files (see console for details):",
+    "nodeType": {
+      "ferdighet": "skill",
+      "begrep": "concept"
+    },
+    "badges": {
+      "del1": "Part 1",
+      "del2": "Part 2",
+      "begge": "Part 1+2"
+    },
+    "status": {
+      "mastered": "Mastered",
+      "ready": "Ready to learn",
+      "notMastered": "Not mastered yet",
+      "blocked": "Missing first: {codes}"
+    },
+    "help": {
+      "label": "How do I use this page?",
+      "heading": "How do I use this page?",
+      "sections": [
+        {
+          "id": "menuButton",
+          "heading": "The menu button",
+          "body": "Press the ☰ button at the bottom left, next to this help button, to open a menu with the back link, light/dark mode, your progress and the other buttons on the page - explained below."
+        },
+        {
+          "id": "map",
+          "heading": "The map",
+          "body": "The map shows how skills and concepts build on one another, from the most basic on the left to the most composite on the right. Boxes you do not have the prerequisites for yet appear grey and locked - tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
+        },
+        {
+          "id": "clickBox",
+          "heading": "Click a box",
+          "body": "When you click a box you get the prerequisites, a full description of the learning goal, and an AI instruction you can copy and paste into an AI chat to practise that particular skill. Mark the box as mastered when you know it - your progress is saved in your browser, and you can remove the mark again whenever you like."
+        },
+        {
+          "id": "goalIndex",
+          "heading": "«Show all learning goals»",
+          "body": "This button gives you a single systematic list of every learning goal in the course, sorted by topic - useful when you want an overview or want to read the whole list without clicking through the map. Each goal shows its status: ✓ means you have marked it as mastered, ◇ means you have everything you need to learn it now, and ⊘ shows which goals you should take first (with their code, e.g. C1)."
+        },
+        {
+          "id": "lessonPlan",
+          "heading": "«Build a lesson plan» (for teachers)",
+          "body": "At the bottom of «Show all learning goals», teachers can tick the learning goals the next lesson should cover, set the length of the lesson, and get an AI instruction for a complete lesson plan: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. The mastery ticks are your own, in your own browser - they show what you personally have been through, not what the class actually knows."
+        },
+        {
+          "id": "exam",
+          "heading": "«Make a test from mastered skills»",
+          "body": "This button gives you an AI instruction for a test covering a selection of what you have already marked as mastered. Paste it into an AI chat to test yourself across several skills at once."
+        },
+        {
+          "id": "aids",
+          "heading": "P1 / P2",
+          "body": "The label on a box shows which part of the exam the skill belongs to - part 1 (without aids) or part 2 (with aids), or both.",
+          "when": "feature:aids"
+        },
+        {
+          "id": "motivation",
+          "heading": "«Why should I learn this?»",
+          "body": "This button gives you an AI instruction for a short conversation about why the subject is worth learning at all. Paste it into an AI chat if you need a nudge in the right direction.",
+          "when": "feature:motivation"
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Show all learning goals",
+      "title": "Show a systematic list of every learning goal, sorted by topic",
+      "heading": "All learning goals",
+      "copyAll": "Copy all",
+      "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. For teachers: tick the learning goals the next lesson should cover, and build a complete lesson plan at the bottom."
+    },
+    "motivation": {
+      "button": "Why should I learn this?",
+      "title": "Copy an AI instruction for a conversation about why the subject is worth learning"
+    },
+    "lesson": {
+      "button": "Build a lesson plan (for teachers)",
+      "title": "Copy an AI instruction for a complete lesson covering the goals you have ticked",
+      "minutesAria": "Length of the lesson in minutes",
+      "includeAria": "Include «{name}» in the lesson plan",
+      "selectedNone": "No learning goals selected",
+      "selectedOne": "1 learning goal selected",
+      "selectedMany": "{n} learning goals selected"
+    },
+    "exam": {
+      "button": "Make a test from mastered skills",
+      "title": "Copy an AI instruction to build a test based on what you have marked as mastered",
+      "none": "No mastered skills yet",
+      "countLabel": "Number of tasks",
+      "countAria": "Number of tasks in the test"
+    },
+    "node": {
+      "markMastered": "Mark as mastered"
+    },
+    "column": {
+      "markAll": "Mark every skill in «{topic}» as mastered",
+      "clearAll": "Remove the mastered mark from every skill in «{topic}»"
+    },
+    "detail": {
+      "show": "Show AI instruction",
+      "hide": "Hide AI instruction",
+      "copy": "Copy AI instruction",
+      "prereqs": "Prerequisites",
+      "examTasks": "Exam tasks",
+      "mastered": "✓ Mastered",
+      "available": "Available — prerequisites are met",
+      "locked": "Locked — prerequisites missing",
+      "empty": "Click a node in the map to see details."
+    },
+    "loadError": "Critical error while loading: {message} (are you serving the page through a local server? fetch() of the data files fails when index.html is opened straight from disk in many browsers.)",
+    "defaultTopic": "Other"
+  },
+  "prompt": {
+    "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. Writing-style guidance is necessarily empty here: it is advice about a specific language's prose.",
+    "outputLanguage": "Conduct this entire conversation in {conversationLanguage}. Everything quoted from the skill tree below — node names, descriptions, prerequisites — is written in {conversationLanguage}, and the student expects to be addressed in {conversationLanguage}. Do not switch to another language at any point, and do not comment on the language of these instructions.",
+    "writingStyle": "",
+    "overrides": {}
+  }
+}

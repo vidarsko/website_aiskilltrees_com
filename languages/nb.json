@@ -1,0 +1,138 @@
+{
+  "code": "nb",
+  "htmlLang": "nb",
+  "name": "Norsk (bokmål)",
+  "endonym": "Norsk",
+  "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
+  "ui": {
+    "backLink": "← alle ferdighetstrær",
+    "pageTitle": "Ferdighetstre for {title}",
+    "tagline": "Et kart over hvordan ferdigheter og begreper bygger på hverandre — huk av det du mestrer, og kopier en KI-instruks for å trene videre.",
+    "progressLabel": "{done} av {total} ferdigheter fullført",
+    "zoomIn": "Zoom inn",
+    "zoomOut": "Zoom ut",
+    "fitToView": "Vis hele treet",
+    "fitToViewTitle": "Vis hele treet (Ctrl+scroll for å zoome)",
+    "close": "✕ Lukk",
+    "closeLower": "✕ lukk",
+    "copied": "Kopiert!",
+    "copyFallback": "Kunne ikke kopiere automatisk - kopier teksten under manuelt:",
+    "errorBanner": "⚠ {n} problem(er) funnet i datafilene (se konsoll for detaljer):",
+    "nodeType": {
+      "ferdighet": "ferdighet",
+      "begrep": "begrep"
+    },
+    "badges": {
+      "del1": "Del 1",
+      "del2": "Del 2",
+      "begge": "Del 1+2"
+    },
+    "status": {
+      "mastered": "Mestret",
+      "ready": "Klar til å læres",
+      "notMastered": "Ikke mestret ennå",
+      "blocked": "Mangler først: {codes}"
+    },
+    "help": {
+      "label": "Hvordan bruker jeg denne siden?",
+      "heading": "Hvordan bruker jeg denne siden?",
+      "sections": [
+        {
+          "id": "menuButton",
+          "heading": "Menyknappen",
+          "body": "Trykk på ☰-knappen nederst til venstre, ved siden av denne hjelpeknappen, for å åpne en meny med tilbake-lenke, lys/mørk modus, fremgangen din og de andre knappene på siden - forklart under."
+        },
+        {
+          "id": "map",
+          "heading": "Kartet",
+          "body": "Kartet viser hvordan ferdigheter og begreper bygger på hverandre, fra det mest grunnleggende til venstre til det mest sammensatte til høyre. Boksene du ikke har forutsetningene for ennå, ser du som grå og låste - huk av dem du mangler først. Dra for å panorere kartet, og bruk +/- eller musehjulet for å zoome."
+        },
+        {
+          "id": "clickBox",
+          "heading": "Klikk på en boks",
+          "body": "Når du klikker på en boks, får du opp forutsetningene, en full beskrivelse av læringsmålet, og en KI-instruks du kan kopiere og lime inn i en KI-chat for å trene på nettopp den ferdigheten. Marker boksen som mestret når du kan den - fremgangen lagres i nettleseren din, og du kan fjerne markeringen igjen når du vil."
+        },
+        {
+          "id": "goalIndex",
+          "heading": "«Vis alle læringsmål»",
+          "body": "Når du trykker på denne knappen, får du en samlet, systematisk liste over alle læringsmålene i faget, sortert etter tema - nyttig når du vil ha oversikt eller lese gjennom hele lista uten å klikke deg gjennom kartet. Hvert læringsmål viser status: ✓ betyr at du har markert det som mestret, ◇ betyr at du har alt du trenger for å lære det nå, og ⊘ viser hvilke læringsmål du bør ta først (med koden deres, f.eks. C1)."
+        },
+        {
+          "id": "lessonPlan",
+          "heading": "«Lag undervisningsopplegg» (for lærere)",
+          "body": "Nederst i «Vis alle læringsmål» kan lærere huke av de læringsmålene neste økt skal dekke, sette lengden på økta, og få en KI-instruks for et ferdig undervisningsopplegg: starter, gjennomgang etter example-problem pair-modellen, diagnostiske spørsmål og gjenhenting til slutt. Avkrysningene for mestret er dine egne, i din egen nettleser - de viser hva du selv har vært gjennom, ikke hva klassen faktisk kan."
+        },
+        {
+          "id": "exam",
+          "heading": "«Lag prøve av mestrede ferdigheter»",
+          "body": "Når du trykker på denne knappen, får du en KI-instruks for en prøve som dekker et utvalg av det du allerede har markert som mestret. Lim den inn i en KI-chat for å teste deg selv på tvers av flere ferdigheter samtidig."
+        },
+        {
+          "id": "aids",
+          "heading": "D1 / D2",
+          "body": "Merkelappen på en boks viser deg hvilken del av eksamen ferdigheten hører til - del 1 (uten hjelpemidler) eller del 2 (med hjelpemidler), eller begge.",
+          "when": "feature:aids"
+        },
+        {
+          "id": "motivation",
+          "heading": "«Hvorfor skal jeg lære matte?»",
+          "body": "Når du trykker på denne knappen, får du en KI-instruks for en kort samtale om hvorfor det er verdt å lære faget i det hele tatt. Lim den inn i en KI-chat hvis du trenger et dytt i riktig retning.",
+          "when": "feature:motivation"
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Vis alle læringsmål",
+      "title": "Vis en systematisk liste over alle læringsmål, sortert etter tema",
+      "heading": "Alle læringsmål",
+      "copyAll": "Kopier alle",
+      "intro": "Lista viser alle læringsmålene i faget, sortert etter tema, med status for hvert av dem. For lærere: huk av de læringsmålene neste økt skal dekke, og lag et ferdig undervisningsopplegg nederst."
+    },
+    "motivation": {
+      "button": "Hvorfor skal jeg lære matte?",
+      "title": "Kopier en KI-instruks for en samtale om hvorfor det er verdt å lære faget"
+    },
+    "lesson": {
+      "button": "Lag undervisningsopplegg (for lærere)",
+      "title": "Kopier en KI-instruks for en ferdig undervisningsøkt om de læringsmålene du har huket av",
+      "minutesAria": "Lengde på økta i minutter",
+      "includeAria": "Ta med «{name}» i undervisningsopplegget",
+      "selectedNone": "Ingen læringsmål valgt",
+      "selectedOne": "1 læringsmål valgt",
+      "selectedMany": "{n} læringsmål valgt"
+    },
+    "exam": {
+      "button": "Lag prøve av mestrede ferdigheter",
+      "title": "Kopier en KI-instruks for å lage en prøve basert på det du har markert som mestret",
+      "none": "Ingen mestrede ferdigheter ennå",
+      "countLabel": "Antall oppgaver",
+      "countAria": "Antall oppgaver i prøven"
+    },
+    "node": {
+      "markMastered": "Marker som mestret"
+    },
+    "column": {
+      "markAll": "Marker alle ferdigheter i «{topic}» som mestret",
+      "clearAll": "Fjern mestret-merking for alle ferdigheter i «{topic}»"
+    },
+    "detail": {
+      "show": "Vis KI-instruks",
+      "hide": "Skjul KI-instruks",
+      "copy": "Kopier KI-instruks",
+      "prereqs": "Forutsetninger",
+      "examTasks": "Eksamensoppgaver",
+      "mastered": "✓ Mestret",
+      "available": "Tilgjengelig — forutsetninger er oppfylt",
+      "locked": "Låst — mangler forutsetninger",
+      "empty": "Klikk på en node i kartet for å se detaljer."
+    },
+    "loadError": "Kritisk feil ved lasting: {message} (kjører du siden via en lokal server? fetch() av datafilene feiler ved å åpne index.html direkte fra disk i mange nettlesere.)",
+    "defaultTopic": "Annet"
+  },
+  "prompt": {
+    "_comment": "Språklaget i KI-instruksene. Fyller de to hullene prompts/core.json lar stå åpne. core.json sier HVA modellen skal gjøre; dette sier hvilket språk den skal gjøre det på, og hva som kjennetegner god prosa PÅ det språket - råd som ikke overlever en oversettelse og derfor ikke kan bo i den engelske kjernen.",
+    "outputLanguage": "Conduct this entire conversation in Norwegian (bokmål). Everything quoted from the skill tree below — node names, descriptions, prerequisites — is written in Norwegian, and the student expects to be addressed in Norwegian. These instructions are in English; your replies must not be. Do not switch to English at any point, and do not comment on the fact that the instructions were in another language. Address the student as «du», and use «hen» rather than «han/hun» when referring to the student in the third person.",
+    "writingStyle": "Guidance specific to writing good Norwegian for students:\n- Write actively, not passively — say who or what does something, not merely that something \"blir gjort\" or \"kan gjøres\". For example, do not write «tallet kan bare skrives som...», but «vi kan skrive tallet som...»; not «det gjøres ved å...», but «vi gjør dette ved å...» or «du gjør dette ved å...».\n- Avoid ordinary Norwegian words that are nonetheless rare in speech, bookish, or a little too grown-up — for example «vaklende», «fundament», «ferdigheter», «motivasjon». Before you use a word, check whether it is something you would actually say out loud to a friend, and swap it for a simpler one if not. Say plainly what the student can do and is managing, using the simplest words that exist.\n- Ordinary Norwegian — including subject-adjacent everyday speech with no concept of its own in the tree, such as «fart» in its ordinary sense — needs no explanation.",
+    "overrides": {}
+  }
+}

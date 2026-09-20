@@ -3,32 +3,58 @@
 /* ------------------------------------------------------------------ */
 /* Delt motor for ferdighetstre-appene.                                */
 /*                                                                      */
-/* Denne filen inneholder ALT som er likt på tvers av fag: CSV-parsing, */
-/* DAG-validering, kolonne/lagdelt layout-algoritme, rendering,         */
-/* localStorage-progresjon og komposisjon av KI-instruks.               */
+/* DENNE FILA INNEHOLDER INGEN BRUKERVENDT TEKST. Ikke skriv en streng  */
+/* her som et menneske skal lese - verken en knappetekst eller en       */
+/* setning i en KI-instruks. Det er hele poenget med oppdelingen under, */
+/* og grunnen til at det finnes ÉN motor framfor én per språk.          */
 /*                                                                      */
-/* Alt som er spesifikt for ett fag (lagringsnøkkel, emne-rekkefølge,   */
-/* KI-instruksmal, hjelpemiddel-tekst, evt. layout-justeringer) hentes  */
-/* fra window.FT_CONFIG, som hvert fags config.js må definere FØR denne */
-/* filen lastes. Se ferdighetstre/instruks.md for kravene til config. */
+/* Tre lag, delt etter hva teksten varierer med:                        */
+/*                                                                      */
+/*   /prompts/core.json      Pedagogikken. ENGELSK er kilden. Sier HVA  */
+/*                           modellen skal gjøre, aldri på hvilket      */
+/*                           språk. Fag- og språkuavhengig.             */
+/*   /languages/<kode>.json  Alt som varierer med SPRÅK: knappetekster, */
+/*                           hjelpeteksten, og språklaget i instruksen  */
+/*                           (`outputLanguage` + `writingStyle`), som   */
+/*                           fyller hullene core.json lar stå åpne.     */
+/*   ./tree.json             Alt som varierer med FAG: emnerekkefølge,  */
+/*                           lagringsnøkkel, funksjonsbrytere og        */
+/*                           slot-verdier (courseName, formuleringsfokus */
+/*                           …). Rene data - ingen funksjoner.          */
+/*                                                                      */
+/* Bakgrunnen: fram til 2026-09-20 fantes motoren i to eksemplarer,     */
+/* ferdighetstre/engine.js og fardighetstrad/engine.js på skogvoll.com  */
+/* - 107 KB hver, med en kommentar øverst om at enhver logikkendring    */
+/* måtte speiles manuelt i den andre. De skilte seg på 527 linjer, og   */
+/* alle 527 var tekst. Et nytt språk koster nå ÉN fil under             */
+/* /languages/, ikke en kopi av denne.                                  */
+/*                                                                      */
+/* Rekkefølgen tekst slås opp i (mest spesifikk vinner):                */
+/*   1. kjøretidsseksjon bygget av motoren (forutsetningslista o.l.)    */
+/*   2. tree.json  → prompts.<instruks>.<seksjon>                       */
+/*   3. språkfila  → prompt.overrides.<instruks>.<seksjon>              */
+/*   4. språkfila  → prompt.<seksjon>   (outputLanguage, writingStyle)  */
+/*   5. core.json  → prompts.<instruks>.sections.<seksjon>              */
+/* Punkt 3 er grunnen til at «engelsk kjerne + språklag» og «full       */
+/* oversettelse» er samme mekanisme: et språk kan overstyre én seksjon  */
+/* eller alle, uten at noe annet endres.                                */
 /* ------------------------------------------------------------------ */
 
-if (!window.FT_CONFIG) {
-  throw new Error('FT_CONFIG mangler. Last inn fagets config.js før engine.js.');
-}
+/* Fylles av bootstrap() før init(). Ingen av dem er `const`, fordi de
+   ikke kan leses før tre fetch-er har kommet tilbake - det er den ene
+   reelle forskjellen fra den gamle synkrone config.js-modellen. */
+let CONFIG = null;          // ./tree.json
+let LANG = null;            // /languages/<kode>.json
+let CORE = null;            // /prompts/core.json
 
-const CONFIG = window.FT_CONFIG;
+let STORAGE_KEY = null;
+let TOPIC_ORDER = [];
+let FEATURES = {};
+let SHOW_HJELPEMIDDEL = false;
+let SHOW_MOTIVATION_BUTTON = false;
+let CONVERSATION_LANGUAGE = '';
 
-const STORAGE_KEY = CONFIG.storageKey;
-
-// Noen fag (f.eks. fag uten skriftlig del1/del2-eksamen) har ikke noe
-// meningsfullt "hjelpemiddel"-konsept. Sett CONFIG.showHjelpemiddel = false i
-// fagets config.js for å skjule D1/D2-merkelappen og hjelpemiddel-avsnittet i
-// KI-instruksen helt. Default (udefinert eller true) beholder eksisterende
-// oppførsel uendret for fag som allerede bruker feltet.
-const SHOW_HJELPEMIDDEL = CONFIG.showHjelpemiddel !== false;
-
-const LAYOUT = Object.assign({
+let LAYOUT = {
   nodeWidth: 210,
   nodeHeight: 92,
   hGap: 34,
@@ -38,160 +64,113 @@ const LAYOUT = Object.assign({
   maxNodesPerRow: 3, // bryt en emne-rad i flere rader nedover når den blir bredere enn dette
   padding: 20,
   barycenterPasses: 4,
-}, CONFIG.layoutOverrides || {});
+};
 
-// Rekkefølge på emne-kolonnene i kartet, venstre til høyre. Emner som finnes i
-// noder.csv men ikke i denne listen havner til slutt (alfabetisk), slik at nye
-// emner i CSV-en aldri forsvinner selv om noen glemmer å oppdatere denne listen.
-const TOPIC_ORDER = CONFIG.topicOrder || [];
+/* ------------------------------------------------------------------ */
+/* Oppslag av tekst                                                     */
+/* ------------------------------------------------------------------ */
 
-// Generell mal for KI-instruksen. Rollebeskrivelsen, samtalereglene og
-// vurderings-/mestringsdelen er identiske uansett fag, så de er hardkodet
-// her. Faget bidrar kun med `courseName` (hvilket fag/kurs dette er) og
-// valgfritt `formuleringsfokus` (fagspesifikke eksempler på formulerings-
-// feil KI-en bør kommentere, f.eks. notasjonsfeil i matematikk). Et fag kan
-// også overstyre HELE malen via `aiInstructionTemplate` hvis den delte
-// strukturen ikke passer.
-function buildInstructionTemplate(config) {
-  if (config.aiInstructionTemplate) return config.aiInstructionTemplate;
-  if (!config.courseName) {
-    throw new Error('FT_CONFIG: sett enten "aiInstructionTemplate" eller "courseName".');
+/* t('exam.button') → knappeteksten på gjeldende språk.
+   t('column.markAll', { topic: 'Statistikk' }) fyller {topic}.
+   Finnes ikke nøkkelen, returneres nøkkelen selv - en manglende
+   oversettelse skal vises som en synlig nøkkel, ikke som tom knapp. */
+function t(path, vars) {
+  let cur = LANG && LANG.ui;
+  for (const part of path.split('.')) {
+    if (cur == null) break;
+    cur = cur[part];
   }
-
-  const formuleringsAvsnitt = config.formuleringsfokus
-    ? `\n\nVær nøye med hvordan eleven formulerer seg, ikke bare om sluttsvaret er riktig. Kommenter vennlig, men tydelig, når eleven for eksempel ${config.formuleringsfokus}. Forklar kort hvorfor det er viktig, og vis hvordan det bør skrives riktig.`
-    : '';
-
-  return `Du er en KI-læringsassistent som skal hjelpe en elev å trene på ${config.courseName}.
-
-Merk: har du en funksjon som husker informasjon på tvers av samtaler (et langtidsminne), skal ingenting fra denne samtalen lagres der - verken om eleven, faget eller noe annet. Samtalen gjelder kun denne ene ferdigheten her og nå, og skal ikke prege hvordan du opptrer i andre samtaler.
-
-Start samtalen med én gang ved å henvende deg direkte til eleven (bruk «du»). Ikke innled med å oppsummere denne instruksen eller med fraser som «Ok, la oss sette i gang» - gå rett i gang med å snakke til eleven. Nevn kort (én-to setninger) hvilken ferdighet/hvilket begrep dere skal jobbe med, og fortell eleven at målet er at hen skal mestre nettopp dette - og at hen ikke trenger å avgjøre det på egen hånd: du hjelper hen underveis og sier tydelig fra når hen er klar til å gå videre til neste ferdighet i ferdighetstreet. Spør deretter hva eleven ønsker hjelp til akkurat nå, for eksempel:
-- å forstå hva ferdigheten/begrepet går ut på
-- å øve på å løse oppgaver
-- å lage egne oppgaver
-- å lage en liten prøve
-
-Vær hyggelig og bruk gjerne litt emojis i samtalen, men hold det profesjonelt. Hold svarene dine veldig korte gjennom hele samtalen, med mindre eleven eksplisitt ber om en grundigere forklaring. Minn eleven på at han kan spørre om alt han ikke forstår.
-
-NB: Du er en språkmodell, ikke en lærebok, og kan ta feil eller virke skråsikker uten å ha rett. Eleven bør være kritisk til det du sier, og heller spørre læreren eller medelever hvis noe er uklart, viktig, eller hvis du selv virker usikker. Minn eleven på dette fra start og gjenta det fra tid til annen.
-
-Bruk enkelt, konkret språk gjennom hele samtalen. Fagord er avgrenset til det som faktisk er navnet på et begrep i ferdighetstreet: ord fra forutsetningslisten under (som eleven allerede skal ha mestret før denne noden) kan du bruke fritt, mens ord som først opptrer i denne nodens eget navn eller beskrivelse er nye - forklar dem eksplisitt idet du bruker dem første gang, ikke i forbifarten før forklaringen kommer etterpå. Uansett om et ord "skulle" være kjent fra før: hvis eleven virker usikker på det, forklar det der og da, uten å gjøre et poeng av at det burde sittet. Vanlig norsk - også fagnært dagligtale-språk uten et eget begrep i treet, som «fart» brukt i vanlig forstand - trenger ingen slik forklaring. Skriv aktivt, ikke passivt - si hvem eller hva som gjør noe, ikke bare at noe "blir gjort" eller "kan gjøres". For eksempel, ikke skriv «tallet kan bare skrives som...», men «vi kan skrive tallet som...»; ikke «det gjøres ved å...», men «vi gjør dette ved å...» eller «du gjør dette ved å...». Når eleven ber om en forklaring, ikke start svaret med en presis, generell definisjon eller påstand - det er lett å henge seg opp i vanskelige ord før man skjønner poenget. Led eleven inn i det i stedet: sett det i en konkret sammenheng eller vis et enkelt eksempel med ekte tall først, og la selve definisjonen/regelen/begrepsnavnet komme som en naturlig konklusjon etterpå, ikke som en åpning. For eksempel, ikke start med «Ampere er SI-enheten for elektrisk strøm, definert som ladning per tidsenhet», men noe sånt som: «Se for deg at du måler hvor mye ladning som passerer gjennom en ledning. På 3 sekunder måler du at 6 Coulomb har passert. Da har det gått 6/3 = 2 Coulomb per sekund - det kaller vi 2 ampere. Ampere er altså enheten vi bruker for...». Samme prinsipp i matematikk: start gjerne med et konkret regnestykke med tall (f.eks. «Se for deg at du skal gange 2 med seg selv 6 ganger: 2×2×2×2×2×2. Det blir fort tungvint å skrive - derfor skriver vi 2⁶ i stedet. Dette kaller vi en potens.») fremfor en generell/abstrakt påstand om regelen. Tilpass hvor avansert språk og hvor mye forkunnskap du forutsetter etter nivået på faget - jo høyere nivå, jo mer kan du forutsette - men vær aldri fordummende eller nedlatende.
-
-Tilpass vanskelighetsgraden underveis basert på hvordan eleven presterer: gjør det lettere om eleven strever, og vanskeligere om eleven mestrer lett. Gi eleven fasit og en kort vurdering av svaret/løsningen etter hvert forsøk, med konkret begrunnelse for hva som er riktig og hva som eventuelt mangler.${formuleringsAvsnitt}
-
-Når du gir eksempler, vis gjerne flere typer: noen få vanlige, klare eksempler (de mest typiske), et eksempel som ligger helt i grenseland av definisjonen (der elever ofte blir usikre eller uenige - forklar hvorfor det likevel er innenfor), et eksempel som ligner eller ofte forveksles med begrepet, men som ikke er et eksempel på det, og gjerne et par eksempler som ser nesten like ut, men der bare det ene faktisk er et gyldig eksempel. Ikke bruk fagord som «prototype-eksempler», «grenseeksempler» eller «minimalt forskjellige par» når du snakker til eleven - beskriv dem heller med vanlige ord, for eksempel «Her er to vanlige eksempler», «Her er et eksempel som ligger helt i grenseland - hva tror du, er dette et eksempel eller ikke?», eller «Her er to eksempler som ligner veldig på hverandre, men bare det ene er egentlig et eksempel på dette. Kan du se hvorfor?». For hvert eksempel, forklar tydelig hvorfor det er et gyldig eksempel eller ikke.
-
-Der det passer, kan du gjerne bruke en velegnet analogi for å forklare et poeng. Si i så fall tydelig fra at analogien ikke er perfekt - den er bare en mental støtte for å få tak i ideen, ikke en nøyaktig beskrivelse av det faglige innholdet.
-
-Hjelp eleven å vurdere om hen mestrer ferdigheten: forklar tydelig hva det vil si å mestre nettopp denne ferdigheten, og si tydelig fra når du vurderer at eleven mestrer den godt og konsekvent, slik at eleven vet at hen kan gå videre til neste ferdighet i ferdighetstreet.
-
-Gjennom hele samtalen har du noen grunnprinsipper å holde i bakhodet og minne eleven på med jevne mellomrom - ett om gangen, kort (typisk én setning), aldri som en samlet oppramsing og ikke i hver eneste melding. Prioriter det første punktet foran de andre hvis du må velge:
-- Det finnes mange ulike KI/språkmodeller, av til dels svært ulik kvalitet - eleven bør ikke anta at alle gir like gode eller like pålitelige svar.
-- Du kan tilby å teste eleven underveis og hjelpe hen å vurdere egen innsats, som ett av flere ting eleven kan be om.
-- Hvis fenomenet ferdigheten/begrepet handler om egner seg godt for det, kan du tilby å lage en liten, selvstendig HTML-simulering (ferdig HTML/CSS/JS i én kodeblokk, ingen eksterne avhengigheter) som illustrerer det. Bruk skjønn - tilby dette kun når det faktisk gir noe pedagogisk utover forklaring i tekst, ikke som en fast rutine. Husk at eleven kan sitte med en annen KI-modell enn deg som ikke kan kjøre/vise frem kode på samme måte - nevn i så fall kort at eleven kan trenge å lime koden inn et annet sted (f.eks. lagre den som en .html-fil og åpne den i nettleseren) for å se den.
-- Ferdighetstreet har også en egen «Lag prøve av mestrede ferdigheter»-knapp (nederst på siden) som lager en KI-instruks for en hel prøve på tvers av alt eleven har krysset av som mestret, ikke bare denne ene noden - minn eleven på at den finnes. Å stadig lage seg egne prøver og teste seg selv jevnlig, etter hvert som flere ferdigheter krysses av, er noe av det mest effektive eleven kan gjøre for å sikre at hen faktisk har lært stoffet - ikke bare rett før eksamen.
-- Ferdighetstreet er ikke nødvendigvis fullstendig - det kan mangle ferdigheter/begreper, eller læreren kan vektlegge noe annerledes. Å krysse av alt i treet er derfor ikke en garanti for at eleven kan alt hen trenger til faget - minn eleven på å sjekke med læreren at treet faktisk dekker det som forventes.`;
+  return typeof cur === 'string' ? fill(cur, vars) : path;
 }
 
-const AI_INSTRUCTION_TEMPLATE = buildInstructionTemplate(CONFIG);
-
-// Motivasjonsknapp («Hvorfor skal jeg lære matte?»): en egen, generell
-// KI-instruks (ikke knyttet til noen enkelt node) for en kort, empatisk
-// samtale om hvorfor det er verdt å lære faget i det hele tatt - ikke bare
-// hvorfor jevn øving lønner seg (se buildMotivationInstructionTemplate for
-// begrunnelsen for dette skillet). Kun matematikkfagene setter
-// CONFIG.showMotivationButton = true - default (udefinert) skjuler knappen.
-const SHOW_MOTIVATION_BUTTON = CONFIG.showMotivationButton === true;
-
-// Delt mal for motivasjonssamtalen. Prinsippene (ett spørsmål/argument om
-// gangen, korte svar, la eleven oppdage poenget selv) er identiske uansett
-// fag, så malen er hardkodet her akkurat som buildInstructionTemplate. I
-// motsetning til buildInstructionTemplate settes IKKE courseName inn - denne
-// knappen finnes foreløpig kun for matematikkfagene (se
-// CONFIG.showMotivationButton), og "matte" i løpende tekst leser mer naturlig
-// enn den formelle courseName-strengen (f.eks. "matematikk 9. trinn (norsk
-// ungdomsskole)") midt i en analogi. Funksjonen tar derfor ingen parametre,
-// og teksten er dermed identisk for alle matematikkfag.
-function buildMotivationInstructionTemplate() {
-  return `Du er en KI-samtalepartner som skal hjelpe en elev å selv oppdage hvorfor det er verdt å lære matte - ikke bare hvorfor jevn øving fungerer bedre enn å pugge rett før en prøve, men selve grunnen til at faget er verdt å lære i det hele tatt. Gjennom en kort, varm og empatisk samtale, ikke en forelesning.
-
-Merk: har du en funksjon som husker informasjon på tvers av samtaler (et langtidsminne), skal ingenting fra denne samtalen lagres der - verken om eleven eller noe annet. Samtalen gjelder kun akkurat nå, og skal ikke prege hvordan du opptrer i andre samtaler.
-
-Kjernebudskapet samtalen skal bygge fram mot, gjennom elevens egne svar (ikke server dette rett ut med en gang - det er poenget eleven selv skal komme fram til): grunnen til å lære matte nå er at faget bygger på seg selv, slik at det eleven lærer nå gjør veien videre lettere i stedet for tyngre - og at alle kan få det til, uansett hvor vanskelig det kjennes akkurat nå, med riktig trening over tid.
-
-Grunnprinsipp: still ett spørsmål eller argument av gangen, og la eleven svare før du sier noe mer. Bygg videre på det eleven faktisk svarer, ikke et fast manus - målet er at eleven skal oppdage poenget selv, ikke bli fortalt det. Hold svarene dine korte gjennom hele samtalen, maks 2-4 setninger per tur - mess aldri opp flere argumenter i samme svar, ett argument, én gang, så tilbake til eleven. Avslutt hver eneste melding din med et spørsmål til eleven, slik at samtalen alltid går videre - ikke la en tur ende uten at eleven har noe å svare på, heller ikke den siste, oppsummerende meldingen.
-
-Vær varm og empatisk, aldri belærende eller formanende. Snakk med eleven, ikke til eleven. Bruk gjerne litt emoji underveis for å holde tonen lett og uformell, men ikke i hver eneste setning. Anerkjenn at matte kan oppleves vanskelig eller ubehagelig, før du kommer med råd. Bruk enkelt språk og hverdagsanalogier, ikke fagterminologi om selve læringen (unngå ord som "spacing effect" eller "kognitiv belastning" - bruk analogiene under i stedet). Dette gjelder mer enn bare fremmedord: unngå også helt vanlige norske ord som likevel er sjeldne i muntlig tale, bokmål-aktige eller litt for voksne (f.eks. "vaklende", "fundament", "ferdigheter", "motivasjon") - før du bruker et ord, sjekk om det er noe du faktisk ville sagt høyt til en venn, og bytt det ut med et enklere hvis ikke. Si heller rett ut hva eleven kan eller får til, med de enkleste ordene som finnes.
-
-Start samtalen varmt, men kort - maks to-tre setninger, og IKKE avslør kjernebudskapet over med én gang: anerkjenn at eleven lurer på hvorfor hen i det hele tatt skal lære matte, og at det er forståelig - mange synes faget er vanskelig, og da er det lett å bli demotivert. Still deretter ett kort spørsmål om eleven selv, ikke om studieteknikk - for eksempel «Synes du matte er vanskelig?» eller «Er det vanskelig å konsentrere seg når du skal jobbe med det?». Velg ett spørsmål, ikke flere på rad.
-
-Fortsett gjerne å bli litt kjent med eleven utover i samtalen, og bruk det du lærer videre - for eksempel om hen synes hen er flink, når faget er gøy, eller om hen er god til å jobbe jevnt med ting generelt. Still høyst ett slikt spørsmål om gangen - ikke gjør samtalen til et intervju.
-
-Et spørsmål du gjerne kan bruke tidlig: spør hva eleven er god på - kan være idrett, et instrument, gaming, tegning eller noe helt annet. Bruk svaret aktivt resten av samtalen: trekk sammenligninger mellom hvordan eleven ble god på akkurat den tingen (øvde jevnt, tålte at det var vanskelig i starten, brukte tid på det) og hvordan det samme gjelder for matte. Et konkret grep: minn eleven på at det var forvirrende med mange nye ord og ting den aller første gangen hen prøvde det hen er god på nå - noe sånt som «Første gangen du [holdt på med den tingen], var det sikkert mange nye ord og litt forvirrende? Det er fordi det tar tid å skjønne hva ting betyr og hvordan de henger sammen. Etter hvert blir det mindre forvirrende, fordi du kan mer.» Vis så at det samme gjelder matte - de nye ordene og reglene kjennes forvirrende nå, men blir tydeligere jo mer eleven kan. Bruk gjerne denne tingen eleven selv har nevnt som eksempel når du henter fram analogiene under også, i stedet for generiske eksempler.
-
-Du har tre typer argumenter å spille på i denne samtalen: (1) kjernebudskapet over, om at faget bygger på seg selv - det samtalen primært skal jobbe seg fram mot; (2) argumentene rett under her, om hvorfor jevn øving lønner seg og at alle kan få det til; og (3) et par egne argumenter om hvorfor matte er viktig på lengre sikt i eget liv, beskrevet til slutt i denne lista sammen med når de skal brukes - de er sjeldnere i bruk, og skal aldri ta over for de to første.
-
-Type 2 - argumenter for hvorfor det lønner seg å øve, og hvorfor alle kan få det til: bruk ett eller to om gangen, tilpasset det eleven faktisk sier, aldri hele lista i én tur. Sikt likevel mot å komme innom flere av dem i løpet av hele samtalen, spredt utover flere turer etter hvert som samtalen utvikler seg - ikke server dem samlet, og ikke stopp ved bare ett. Snakk konkret om hva eleven kan og får til, ikke abstrakt, og formuler deg aktivt med eleven selv som subjekt ("du") der du kan, ikke upersonlig med "man":
-- Muskelanalogien: å lære er som å trene en muskel - du blir ikke sterk av å lese om løfting, men av å løfte litt og ofte over tid. Hjernen din bygger seg opp ved at du bruker den gjentatte ganger, ikke ved at noen forteller deg noe én gang.
-- Gym-analogien: du kommer ikke i form av én lang treningsøkt rett før et løp. Øver du jevnt gjennom uka, får du bedre resultat enn om du presser alt inn kvelden før en prøve - selv om det kan føles som du "gjør nok" da.
-- Når noe sitter av seg selv: kan du for eksempel gangetabellen utenat, trenger du ikke bruke krefter på å regne den ut hver gang - da får du plass i hodet til det som faktisk er vanskelig og interessant i oppgaven.
-- Testeffekten: jo flere ganger du henter fram noe fra hukommelsen, jo bedre sitter det. Det er derfor prøver og gjentatte oppgaver faktisk ER læring, ikke bare en sjekk på om du har lært det. Henter du fram noe du nesten har glemt, styrker det hukommelsen mer enn å lese det på nytt.
-- Lego-analogien: matte bygger på seg selv, akkurat som et legoslott - du må sette de nederste klossene først, ellers rakner det når du bygger videre oppå. Lærer du det du møter først skikkelig nå, blir det du bygger senere både lettere og mer stabilt - det er selve svaret på hvorfor det er verdt å lære matte nå, ikke bare "nyttig en gang i fremtiden".
-- Å trene opp fokus: når du øver på å jobbe med noe over lengre tid, blir du samtidig bedre til å holde fokus - like nyttig som det å kunne regne. Det er helt forståelig at du mister fokus innimellom, særlig på grunn av mobilen - den er laget for akkurat det. Et forsøk viste at elever fikk til mer i matte når de la mobilen utenfor klasserommet under timen; jo mer du øver på å jobbe uten avbrudd, jo lettere blir det - og dette hjelper deg langt utover matte også.
-- Det er helt greit å synes det er kjedelig: noen synes matte er gøy, men du trenger slett ikke være en av dem. Innimellom gjør du kjedelige ting fordi de er bra for deg - som å holde deg i form eller spise sunt. Tenk på det som en treningsøkt: du jobber konsentrert en stund, og tar en ordentlig pause når du har pause. Ofte snur det også: noe du synes er kjedelig kan plutselig bli gøy den dagen du får det til - det "oi, jeg fikk det til!"-øyeblikket er verdt å stoppe opp og kjenne på.
-- Empati og håp: mange synes matte er vanskelig - det er helt normalt, og ikke et tegn på at du "ikke er flink". Du kan få det til, med riktig trening, akkurat som alle andre. Bruk dette tidlig i samtalen eller når eleven virker motløs - ikke bare som noe du sier for å trøste helt til slutt.
-
-Type 3 - argumenter for hvorfor matte er viktig på lengre sikt, i eget liv: bruk KUN hvis eleven selv bringer opp en innvending i retning av «når skal jeg noen gang få bruk for dette i det virkelige liv» eller lignende - ikke noe du tar initiativ til selv. Nevn høyst ett av dem, én gang, og gå så tilbake til type 1 og 2 - dette skal aldri bli hovedpoenget i samtalen eller noe du blir hengende fast i. Hold argumentet personlig, ikke samfunnsnyttig ("dette hjelper deg", ikke "dette er bra for samfunnet"):
-- Å skjønne tall og prosent gir deg kontroll over egne penger og avtaler som voksen - du ser selv om noe er en god avtale, i stedet for bare å stole på at andre er ærlige med deg. For eksempel skjønner du hva en forsikringsselger egentlig tilbyr deg, eller hvordan du og de du bor sammen med kan dele utgifter rettferdig.
-
-Samtalen skal ha en retning, ikke bare fortsette spørsmål for spørsmål i det uendelige - prøv å ende opp med noe dere er enige om mot slutten, som knytter seg til kjernebudskapet over (hvorfor det er verdt å lære faget, ikke bare hvorfor øve jevnt). Speil gjerne tilbake det eleven selv har sagt underveis (f.eks. «Du nevnte at...»), og oppsummer sammen med eleven hva dere har kommet fram til, før dere avslutter.
-
-Praktiske regler for dialogen:
-- Ett spørsmål eller argument per tur - aldri en liste eller flere argumenter samlet
-- Ikke be eleven skrive lange svar eller tekster - dette er en samtale, ikke en skriveoppgave
-- La elevens svar styre hvilket argument du bruker videre
-- Forteller eleven at hen fikk til noe (løste en oppgave, skjønte et poeng, husket noe hen trodde var glemt), stopp opp og gled deg sammen med hen der og da - det er lov å være stolt av små ting. Foreslå gjerne at hen forteller det til en medelev, læreren eller noen hjemme
-- Møt innvendinger (f.eks. «men jeg gidder ikke») empatisk, ikke med enda et argument - still heller et nytt spørsmål
-- Ikke bruk ferdighetstreet eleven fikk denne teksten fra som en ledetråd for samtalen - hold deg til det eleven faktisk sier. Kommer samtalen naturlig inn på å repetere eller teste noe eleven har lært tidligere, kan du nevne at nettsiden eleven kopierte denne teksten fra har en egen «Lag prøve av mestrede ferdigheter»-knapp, som lager en ny KI-instruks for en liten prøve. Si det på akkurat denne måten ("nettsiden du kopierte denne teksten fra"), ikke bare "ferdighetstreet", så eleven skjønner hva du mener - og bruk det kun når det er naturlig, ikke som et fast punkt du alltid tar med
-- Avslutt samtalen med en kort oppsummering av det dere sammen har kommet fram til (speil gjerne tilbake elevens egne ord der det passer), noe lite og konkret eleven kan prøve (f.eks. å øve 10 minutter i dag og 10 minutter i morgen i stedet for 20 minutter på én gang), og et lite spørsmål til slutt, som «Høres det ut som noe du kan prøve?» - ikke en lang oppsummering av alle argumentene fra deg alene
-
-Start samtalen med én gang med den varme hilsenen og det åpne spørsmålet - ikke innled med å oppsummere denne instruksen eller med fraser som «Ok, la oss sette i gang».`;
+/* Fyller {navn} fra `vars`. En plassholder uten verdi blir stående som
+   den er, slik at den er lett å få øye på framfor å bli til "undefined". */
+function fill(text, vars) {
+  if (!vars) return text;
+  return String(text).replace(/\{(\w+)\}/g, (whole, name) =>
+    Object.prototype.hasOwnProperty.call(vars, name) && vars[name] != null
+      ? String(vars[name]) : whole);
 }
 
-const MOTIVATION_INSTRUCTION_TEMPLATE = SHOW_MOTIVATION_BUTTON
-  ? buildMotivationInstructionTemplate()
-  : null;
+/* Visningsnavnet for en nodetype. Selve VERDIEN i CSV-en ('ferdighet',
+   'begrep') er et dataenum og er norsk på alle språk - også i den
+   svenske noder.csv. Bare etiketten oversettes. */
+function typeLabelText(type) {
+  const map = (LANG.ui.nodeType) || {};
+  return map[type] || type;
+}
 
-// Settes inn i den komponerte instruksen KUN for noder med type "begrep" (se
-// composeInstruction under og "KI-instruks: komposisjon" i instruks.md).
-// Uten denne har KI-en en tendens til å teste begrepsforståelse med
-// fullverdige regneoppgaver - noe som gjerne er meningsløst siden samme
-// regning trenes grundigere i en tilknyttet "ferdighet"-node lenger ned i
-// treet. Ferdighet-noder får IKKE denne teksten - der er regneoppgaver
-// nettopp poenget.
-const BEGREP_TEST_GUIDANCE = `Dette er et BEGREP (deklarativ kunnskap), ikke en regneferdighet. Når du tester om eleven forstår begrepet, ikke bruk omfattende regneoppgaver som test - utstrakt regning med begrepet hører hjemme i en egen, tilknyttet ferdighet lenger ned i ferdighetstreet, og blir gjerne meningsløst å teste her siden eleven uansett skal trene grundig på det der. Test heller begrepsforståelsen kvalitativt, for eksempel ved å be eleven forklare begrepet med egne ord, forklare et spesial-/grensetilfelle, begrunne hvorfor noe er eller ikke er et eksempel på begrepet, eller identifisere begrepet blant flere alternativer. Om en test likevel involverer tall, hold regningen minimal og underordnet - poenget er om eleven forstår begrepet, ikke om eleven kan regne.`;
+/* ------------------------------------------------------------------ */
+/* Komposisjon av KI-instruks                                           */
+/*                                                                      */
+/* Rekkefølgen på seksjonene er DATA (`order` i core.json), slik at den  */
+/* kan endres uten å røre kode. Hvilke seksjoner som gjelder NÅR er      */
+/* logikk, og bor her.                                                  */
+/* ------------------------------------------------------------------ */
 
-// Bygger ÉN generell kommentar (satt inn én gang i composeExamInstruction(),
-// ikke gjentatt per begrep-node) om forskjellen på begrep og ferdighet - se
-// BEGREP_TEST_GUIDANCE over for bakgrunnen. Kalles KUN når utvalget av
-// mestrede noder inneholder minst én node av type "begrep". Uten denne ber
-// prøve-instruksen KI-en lage "typiske eksamensoppgaver" for absolutt alle
-// punktene i lista, uansett type - noe som for en begrep-node (kun
-// dokumentert mestret på forståelsesnivå) fort blir en fullverdig
-// regneoppgave langt over det som faktisk er bekreftet mestret. Teksten
-// forgrener seg på sammensetningen av utvalget: består det KUN av
-// begrep-noder skal hele prøven være kvalitativ (det finnes ingen
-// ferdighet-oppgave å legge et begrep inn i som deloppgave), mens en
-// blanding skal vektes gradvis - jo større andel begrep-noder i utvalget,
-// desto mer av prøven skal være kvalitativ fremfor regneoppgaver.
-function buildExamBegrepGuidance(nodes) {
-  const allBegrep = nodes.every(n => n.type === 'begrep');
-  const intro = `Punktene i lista over er merket [begrep] eller [ferdighet]. [ferdighet]-punkter skal testes med fullverdige oppgaver, akkurat slik du normalt ville gjort på en skriftlig prøve. [begrep]-punkter skal derimot ALDRI bli en fullverdig regneoppgave alene - test heller begrepsforståelsen kvalitativt, for eksempel ved å be eleven forklare begrepet med egne ord, begrunne om noe er et eksempel på begrepet, identifisere begrepet blant flere alternativer, eller forklare et spesial-/grensetilfelle.`;
-  if (allBegrep) {
-    return `${intro} Alle punktene i dette utvalget er [begrep]-punkter - hele prøven skal derfor bestå av kvalitative oppgaver, ingen regneoppgaver.`;
-  }
-  return `${intro} Vekt oppgavemiksen etter sammensetningen av utvalget: jo større andel [begrep]-punkter relativt til [ferdighet]-punkter, desto større andel av prøven skal være kvalitative oppgaver fremfor regneoppgaver. Et [begrep]-punkt kan også inngå som en liten, underordnet deloppgave i en oppgave som ellers tester et tilknyttet [ferdighet]-punkt.`;
+const SECTION_WHEN = {
+  'node.formulering':        ctx => !!slot('formuleringsfokus'),
+  'node.prerequisites':      ctx => ctx.ancestors && ctx.ancestors.length > 0,
+  'node.prerequisitesNone':  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
+  'node.conceptGuidance':    ctx => ctx.node && ctx.node.type === 'begrep',
+  'node.nodeInstruction':    ctx => !!(ctx.node && ctx.node.instruks),
+  'node.aids':               () => SHOW_HJELPEMIDDEL,
+  'exam.conceptMix':             ctx => !!ctx.hasConcepts,
+  'exam.conceptMixAllConcepts':  ctx => !!ctx.allConcepts,
+  'exam.conceptMixMixed':        ctx => !!ctx.hasConcepts && !ctx.allConcepts,
+  'exam.aids':                   ctx => SHOW_HJELPEMIDDEL && !!ctx.aidsText,
+  'lessonPlan.prerequisites':     ctx => ctx.ancestors && ctx.ancestors.length > 0,
+  'lessonPlan.prerequisitesNone': ctx => !ctx.ancestors || ctx.ancestors.length === 0,
+  'lessonPlan.tightWarning':      ctx => !!ctx.tight,
+  'lessonPlan.conceptAdaptation': ctx => !!ctx.hasConcepts,
+  'lessonPlan.aids':              ctx => SHOW_HJELPEMIDDEL && !!ctx.aidsText,
+};
+
+function slot(name) {
+  return (CONFIG.slots || {})[name];
+}
+
+/* Slår opp teksten for én seksjon. Se rekkefølgen i filhodet. */
+function sectionText(promptName, id, ctx) {
+  if (ctx.sections && ctx.sections[id] != null) return ctx.sections[id];
+
+  const fromTree = ((CONFIG.prompts || {})[promptName] || {})[id];
+  if (fromTree != null) return fromTree;
+
+  const langPrompt = (LANG.prompt || {});
+  const fromLangOverride = ((langPrompt.overrides || {})[promptName] || {})[id];
+  if (fromLangOverride != null) return fromLangOverride;
+  if (langPrompt[id] != null) return langPrompt[id];
+
+  const spec = CORE.prompts[promptName];
+  return spec ? spec.sections[id] : null;
+}
+
+function composePrompt(promptName, ctx) {
+  const spec = CORE.prompts[promptName];
+  if (!spec) throw new Error('Ukjent instruks: ' + promptName);
+  ctx = ctx || {};
+
+  const vars = Object.assign(
+    { conversationLanguage: CONVERSATION_LANGUAGE, examButtonLabel: t('exam.button') },
+    CONFIG.slots || {},
+    ctx.vars || {});
+
+  const out = [];
+  spec.order.forEach(id => {
+    const when = SECTION_WHEN[promptName + '.' + id];
+    if (when && !when(ctx)) return;
+    const text = sectionText(promptName, id, ctx);
+    if (text == null || text === '') return;
+    out.push(fill(text, vars));
+  });
+  return out.join('\n\n');
+}
+
+/* Hjelpemiddelteksten er fagets egen prosa og bor i tree.json, ikke her. */
+function composeHjelpemiddelContext(hjelpemiddel) {
+  const aids = (CONFIG.prompts || {}).aids || {};
+  return aids[hjelpemiddel] || aids.default || '';
 }
 
 /* ------------------------------------------------------------------ */
@@ -250,7 +229,78 @@ function trackCopy(kind, extra) {
 /* Oppstart                                                             */
 /* ------------------------------------------------------------------ */
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', bootstrap);
+
+/* ------------------------------------------------------------------ */
+/* Bootstrap                                                            */
+/*                                                                      */
+/* Tre filer må ligge på bordet før noe kan tegnes. tree.json først,    */
+/* fordi den sier hvilket språk treet er på; språkfila og pedagogikken  */
+/* hentes så parallelt.                                                 */
+/*                                                                      */
+/* Mangler /languages/<kode>.json, faller vi tilbake til en.json for    */
+/* GRENSESNITTET, men IKKE for samtalespråket: det kommer fra treets    */
+/* eget `languageName`. Et tysk tre snakker derfor tysk fra dag én,     */
+/* med engelske knapper, uten at noen har oversatt en linje.            */
+/* ------------------------------------------------------------------ */
+
+async function bootstrap() {
+  try {
+    CONFIG = await fetchJson('tree.json');
+  } catch (err) {
+    console.error(err);
+    document.body.textContent = 'Fant ikke tree.json for dette ferdighetstreet: ' + err.message;
+    return;
+  }
+
+  const code = CONFIG.language || 'en';
+  let lang;
+  try {
+    lang = await fetchJson('/languages/' + code + '.json');
+  } catch (err) {
+    console.warn('Ingen språkfil for «' + code + '» - bruker engelsk grensesnitt.', err);
+    lang = await fetchJson('/languages/en.json');
+  }
+  LANG = lang;
+  CORE = await fetchJson('/prompts/core.json');
+
+  CONVERSATION_LANGUAGE = CONFIG.languageName || LANG.name;
+  STORAGE_KEY = CONFIG.storageKey;
+  TOPIC_ORDER = CONFIG.topicOrder || [];
+  FEATURES = CONFIG.features || {};
+  SHOW_HJELPEMIDDEL = FEATURES.aids === true;
+  SHOW_MOTIVATION_BUTTON = FEATURES.motivation === true;
+  Object.assign(LAYOUT, CONFIG.layoutOverrides || {});
+
+  applyPageChrome();
+  init();
+}
+
+function fetchJson(path) {
+  return fetch(path).then(res => {
+    if (!res.ok) throw new Error('Fant ikke ' + path + ' (status ' + res.status + ')');
+    return res.json();
+  });
+}
+
+/* Tittel, overskrift, ingress og tilbakelenke kommer fra språkfila +
+   tree.json, ikke fra index.html. Det er derfor index.html kan være
+   BYTE-IDENTISK for hvert eneste tre - se AGENTS.md. */
+function applyPageChrome() {
+  const title = CONFIG.title || '';
+  document.documentElement.setAttribute('lang', LANG.htmlLang || LANG.code);
+  document.title = t('pageTitle', { title: title }) + ' | AI Skill Trees';
+
+  const set = (sel, text) => { const el = document.querySelector(sel); if (el) el.textContent = text; };
+  set('header h1', t('pageTitle', { title: title }));
+  set('.back-link', t('backLink'));
+  set('.tagline', t('tagline'));
+  set('#progress-label', t('progressLabel', { done: 0, total: 0 }));
+  set('#detail-empty', t('detail.empty'));
+
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc && CONFIG.description) desc.setAttribute('content', CONFIG.description);
+}
 
 /* ------------------------------------------------------------------ */
 /* Zoom (ctrl+scroll) og "vis hele treet"                              */
@@ -307,8 +357,8 @@ function setupZoom() {
   zoomOutBtn.id = 'zoom-out-btn';
   zoomOutBtn.type = 'button';
   zoomOutBtn.textContent = '−';
-  zoomOutBtn.setAttribute('aria-label', 'Zoom ut');
-  zoomOutBtn.title = 'Zoom ut';
+  zoomOutBtn.setAttribute('aria-label', t('zoomOut'));
+  zoomOutBtn.title = t('zoomOut');
   zoomOutBtn.addEventListener('click', () => zoomBy(1 / 1.25));
   group.appendChild(zoomOutBtn);
 
@@ -316,8 +366,8 @@ function setupZoom() {
   btn.id = 'fit-view-btn';
   btn.type = 'button';
   btn.textContent = '⤢';
-  btn.setAttribute('aria-label', 'Vis hele treet');
-  btn.title = 'Vis hele treet (Ctrl+scroll for å zoome)';
+  btn.setAttribute('aria-label', t('fitToView'));
+  btn.title = t('fitToViewTitle');
   btn.addEventListener('click', fitToView);
   group.appendChild(btn);
 
@@ -325,8 +375,8 @@ function setupZoom() {
   zoomInBtn.id = 'zoom-in-btn';
   zoomInBtn.type = 'button';
   zoomInBtn.textContent = '+';
-  zoomInBtn.setAttribute('aria-label', 'Zoom inn');
-  zoomInBtn.title = 'Zoom inn';
+  zoomInBtn.setAttribute('aria-label', t('zoomIn'));
+  zoomInBtn.title = t('zoomIn');
   zoomInBtn.addEventListener('click', () => zoomBy(1.25));
   group.appendChild(zoomInBtn);
 
@@ -356,8 +406,8 @@ function setupGoalIndexButton() {
   const btn = document.createElement('button');
   btn.id = 'goal-index-btn';
   btn.type = 'button';
-  btn.textContent = 'Vis alle læringsmål';
-  btn.title = 'Vis en systematisk liste over alle læringsmål, sortert etter tema';
+  btn.textContent = t('goalIndex.button');
+  btn.title = t('goalIndex.title');
   btn.addEventListener('click', () => {
     closeActionMenu();
     openGoalIndexModal();
@@ -468,16 +518,17 @@ function setupMotivationButton() {
   const btn = document.createElement('button');
   btn.id = 'motivation-btn';
   btn.type = 'button';
-  btn.textContent = 'Hvorfor skal jeg lære matte?';
-  btn.title = 'Kopier en KI-instruks for en samtale om hvorfor det er verdt å lære faget';
+  btn.textContent = t('motivation.button');
+  btn.title = t('motivation.title');
   btn.addEventListener('click', () => {
     const original = btn.textContent;
     trackCopy('motivation');
-    navigator.clipboard.writeText(MOTIVATION_INSTRUCTION_TEMPLATE).then(() => {
-      btn.textContent = 'Kopiert!';
+    const motivationText = composePrompt('motivation', {});
+    navigator.clipboard.writeText(motivationText).then(() => {
+      btn.textContent = t('copied');
       setTimeout(() => { btn.textContent = original; }, 1500);
     }).catch(() => {
-      window.prompt('Kunne ikke kopiere automatisk - kopier teksten under manuelt:', MOTIVATION_INSTRUCTION_TEMPLATE);
+      window.prompt(t('copyFallback'), motivationText);
     });
   });
   actions.appendChild(btn);
@@ -498,8 +549,8 @@ function setupHelpButton() {
   btn.id = 'help-btn';
   btn.type = 'button';
   btn.textContent = '?';
-  btn.setAttribute('aria-label', 'Hvordan bruker jeg denne siden?');
-  btn.title = 'Hvordan bruker jeg denne siden?';
+  btn.setAttribute('aria-label', t('help.label'));
+  btn.title = t('help.label');
   btn.addEventListener('click', () => {
     closeActionMenu();
     openHelpModal();
@@ -526,12 +577,12 @@ function ensureHelpModal() {
   header.id = 'help-header';
 
   const h2 = document.createElement('h2');
-  h2.textContent = 'Hvordan bruker jeg denne siden?';
+  h2.textContent = t('help.heading');
   header.appendChild(h2);
 
   const closeBtn = document.createElement('button');
   closeBtn.className = 'btn secondary';
-  closeBtn.textContent = '✕ Lukk';
+  closeBtn.textContent = t('close');
   closeBtn.addEventListener('click', closeHelpModal);
   header.appendChild(closeBtn);
 
@@ -563,34 +614,11 @@ function helpSection(body, heading, text) {
 
 function renderHelpBody(body) {
   body.innerHTML = '';
-
-  helpSection(body, 'Menyknappen',
-    'Trykk på ☰-knappen nederst til venstre, ved siden av denne hjelpeknappen, for å åpne en meny med tilbake-lenke, lys/mørk modus, fremgangen din og de andre knappene på siden - forklart under.');
-
-  helpSection(body, 'Kartet',
-    'Kartet viser hvordan ferdigheter og begreper bygger på hverandre, fra det mest grunnleggende til venstre til det mest sammensatte til høyre. Boksene du ikke har forutsetningene for ennå, ser du som grå og låste - huk av dem du mangler først. Dra for å panorere kartet, og bruk +/- eller musehjulet for å zoome.');
-
-  helpSection(body, 'Klikk på en boks',
-    'Når du klikker på en boks, får du opp forutsetningene, en full beskrivelse av læringsmålet, og en KI-instruks du kan kopiere og lime inn i en KI-chat for å trene på nettopp den ferdigheten. Marker boksen som mestret når du kan den - fremgangen lagres i nettleseren din, og du kan fjerne markeringen igjen når du vil.');
-
-  helpSection(body, '«Vis alle læringsmål»',
-    'Når du trykker på denne knappen, får du en samlet, systematisk liste over alle læringsmålene i faget, sortert etter tema - nyttig når du vil ha oversikt eller lese gjennom hele lista uten å klikke deg gjennom kartet. Hvert læringsmål viser status: ✓ betyr at du har markert det som mestret, ◇ betyr at du har alt du trenger for å lære det nå, og ⊘ viser hvilke læringsmål du bør ta først (med koden deres, f.eks. C1).');
-
-  helpSection(body, '«Lag undervisningsopplegg» (for lærere)',
-    'Nederst i «Vis alle læringsmål» kan lærere huke av de læringsmålene neste økt skal dekke, sette lengden på økta, og få en KI-instruks for et ferdig undervisningsopplegg: starter, gjennomgang etter example-problem pair-modellen, diagnostiske spørsmål og gjenhenting til slutt. Avkrysningene for mestret er dine egne, i din egen nettleser - de viser hva du selv har vært gjennom, ikke hva klassen faktisk kan.');
-
-  helpSection(body, '«Lag prøve av mestrede ferdigheter»',
-    'Når du trykker på denne knappen, får du en KI-instruks for en prøve som dekker et utvalg av det du allerede har markert som mestret. Lim den inn i en KI-chat for å teste deg selv på tvers av flere ferdigheter samtidig.');
-
-  if (SHOW_HJELPEMIDDEL) {
-    helpSection(body, 'D1 / D2',
-      'Merkelappen på en boks viser deg hvilken del av eksamen ferdigheten hører til - del 1 (uten hjelpemidler) eller del 2 (med hjelpemidler), eller begge.');
-  }
-
-  if (SHOW_MOTIVATION_BUTTON) {
-    helpSection(body, '«Hvorfor skal jeg lære matte?»',
-      'Når du trykker på denne knappen, får du en KI-instruks for en kort samtale om hvorfor det er verdt å lære faget i det hele tatt. Lim den inn i en KI-chat hvis du trenger et dytt i riktig retning.');
-  }
+  const enabled = { 'feature:aids': SHOW_HJELPEMIDDEL, 'feature:motivation': SHOW_MOTIVATION_BUTTON };
+  (LANG.ui.help.sections || []).forEach(sec => {
+    if (sec.when && !enabled[sec.when]) return;
+    helpSection(body, sec.heading, sec.body);
+  });
 }
 
 function openHelpModal() {
@@ -630,7 +658,7 @@ function ensureGoalIndexModal() {
   header.id = 'goal-index-header';
 
   const h2 = document.createElement('h2');
-  h2.textContent = 'Alle læringsmål';
+  h2.textContent = t('goalIndex.heading');
   header.appendChild(h2);
 
   const actions = document.createElement('div');
@@ -638,23 +666,23 @@ function ensureGoalIndexModal() {
 
   const copyBtn = document.createElement('button');
   copyBtn.className = 'btn';
-  copyBtn.textContent = 'Kopier alle';
+  copyBtn.textContent = t('goalIndex.copyAll');
   copyBtn.addEventListener('click', () => {
     const text = composeGoalIndexText();
     trackCopy('goal_index');
     navigator.clipboard.writeText(text).then(() => {
       const original = copyBtn.textContent;
-      copyBtn.textContent = 'Kopiert!';
+      copyBtn.textContent = t('copied');
       setTimeout(() => { copyBtn.textContent = original; }, 1500);
     }).catch(() => {
-      window.prompt('Kunne ikke kopiere automatisk - kopier teksten under manuelt:', text);
+      window.prompt(t('copyFallback'), text);
     });
   });
   actions.appendChild(copyBtn);
 
   const closeBtn = document.createElement('button');
   closeBtn.className = 'btn secondary';
-  closeBtn.textContent = '✕ Lukk';
+  closeBtn.textContent = t('close');
   closeBtn.addEventListener('click', closeGoalIndexModal);
   actions.appendChild(closeBtn);
 
@@ -686,7 +714,7 @@ function ensureGoalIndexModal() {
   minutesInput.max = '240';
   minutesInput.step = '5';
   minutesInput.value = String(LESSON_DEFAULT_MINUTES);
-  minutesInput.setAttribute('aria-label', 'Lengde på økta i minutter');
+  minutesInput.setAttribute('aria-label', t('lesson.minutesAria'));
   minutesLabel.appendChild(minutesInput);
   minutesLabel.appendChild(document.createTextNode('min'));
   bar.appendChild(minutesLabel);
@@ -694,8 +722,8 @@ function ensureGoalIndexModal() {
   const planBtn = document.createElement('button');
   planBtn.id = 'lesson-plan-btn';
   planBtn.type = 'button';
-  planBtn.textContent = 'Lag undervisningsopplegg (for lærere)';
-  planBtn.title = 'Kopier en KI-instruks for en ferdig undervisningsøkt om de læringsmålene du har huket av';
+  planBtn.textContent = t('lesson.button');
+  planBtn.title = t('lesson.title');
   planBtn.addEventListener('click', () => {
     const nodes = getLessonSelectionNodes();
     if (!nodes.length) return;
@@ -708,10 +736,10 @@ function ensureGoalIndexModal() {
 
     const original = planBtn.textContent;
     navigator.clipboard.writeText(text).then(() => {
-      planBtn.textContent = 'Kopiert!';
+      planBtn.textContent = t('copied');
       setTimeout(() => { planBtn.textContent = original; }, 1500);
     }).catch(() => {
-      window.prompt('Kunne ikke kopiere automatisk - kopier teksten under manuelt:', text);
+      window.prompt(t('copyFallback'), text);
     });
   });
   bar.appendChild(planBtn);
@@ -782,17 +810,17 @@ function getMissingAncestors(node, progress) {
 //   mangler  - noen forutsetninger mangler; de listes med kode (C1, C2, ...)
 function goalStatus(node, progress) {
   if (isNodeMastered(node, progress)) {
-    return { kind: 'mastered', symbol: '✓', text: 'Mestret' };
+    return { kind: 'mastered', symbol: '✓', text: t('status.mastered') };
   }
   const missing = getMissingAncestors(node, progress);
   if (!missing.length) {
-    return { kind: 'ready', symbol: '◇', text: 'Klar til å læres' };
+    return { kind: 'ready', symbol: '◇', text: t('status.ready') };
   }
   const codes = missing.map(m => m.goalIndex).join(', ');
   return {
     kind: 'blocked',
     symbol: '⊘',
-    text: `Mangler først: ${codes}`,
+    text: t('status.blocked', { codes: codes }),
     title: missing.map(m => `${m.goalIndex}) ${m.navn}`).join('\n'),
   };
 }
@@ -803,7 +831,7 @@ function renderGoalIndexBody(body) {
 
   const intro = document.createElement('p');
   intro.id = 'goal-index-intro';
-  intro.textContent = 'Lista viser alle læringsmålene i faget, sortert etter tema, med status for hvert av dem. For lærere: huk av de læringsmålene neste økt skal dekke, og lag et ferdig undervisningsopplegg nederst.';
+  intro.textContent = t('goalIndex.intro');
   body.appendChild(intro);
 
   themeList.forEach(({ letter, topic, nodes }) => {
@@ -826,7 +854,7 @@ function renderGoalIndexBody(body) {
       cb.className = 'goal-pick';
       cb.id = 'goal-pick-' + n.id;
       cb.checked = lessonSelection.has(n.id);
-      cb.setAttribute('aria-label', `Ta med «${n.navn}» i undervisningsopplegget`);
+      cb.setAttribute('aria-label', t('lesson.includeAria', { name: n.navn }));
       cb.addEventListener('change', () => {
         if (cb.checked) lessonSelection.add(n.id);
         else lessonSelection.delete(n.id);
@@ -883,22 +911,22 @@ function setupExamButton() {
 
   const countLabel = document.createElement('label');
   countLabel.id = 'exam-count-label';
-  countLabel.textContent = 'Antall oppgaver';
+  countLabel.textContent = t('exam.countLabel');
   const countInput = document.createElement('input');
   countInput.type = 'number';
   countInput.id = 'exam-count';
   countInput.min = '1';
   countInput.max = '50';
   countInput.value = '10';
-  countInput.setAttribute('aria-label', 'Antall oppgaver i prøven');
+  countInput.setAttribute('aria-label', t('exam.countAria'));
   countLabel.appendChild(countInput);
   widget.appendChild(countLabel);
 
   const examBtn = document.createElement('button');
   examBtn.id = 'exam-btn';
   examBtn.type = 'button';
-  examBtn.textContent = 'Lag prøve av mestrede ferdigheter';
-  examBtn.title = 'Kopier en KI-instruks for å lage en prøve basert på det du har markert som mestret';
+  examBtn.textContent = t('exam.button');
+  examBtn.title = t('exam.title');
   widget.appendChild(examBtn);
 
   examBtn.addEventListener('click', () => {
@@ -907,7 +935,7 @@ function setupExamButton() {
     const masteredNodes = allNodes.filter(n => isNodeMastered(n, progress));
 
     if (!masteredNodes.length) {
-      examBtn.textContent = 'Ingen mestrede ferdigheter ennå';
+      examBtn.textContent = t('exam.none');
       setTimeout(() => { examBtn.textContent = original; }, 1800);
       return;
     }
@@ -919,10 +947,10 @@ function setupExamButton() {
     trackCopy('exam', { node_count: masteredNodes.length, task_count: count });
 
     navigator.clipboard.writeText(text).then(() => {
-      examBtn.textContent = 'Kopiert!';
+      examBtn.textContent = t('copied');
       setTimeout(() => { examBtn.textContent = original; }, 1500);
     }).catch(() => {
-      window.prompt('Kunne ikke kopiere automatisk - kopier teksten under manuelt:', text);
+      window.prompt(t('copyFallback'), text);
     });
   });
 
@@ -939,38 +967,49 @@ function hjelpemiddelKort(value) {
 // noder; instruksen ber KI-en velge et representativt utvalg på `count`
 // oppgaver som til sammen dekker flest mulig av dem.
 function composeExamInstruction(nodes, count) {
-  const courseLabel = CONFIG.courseName || 'faget';
-  const list = nodes
-    .map(n => {
-      const tags = [n.type];
-      if (SHOW_HJELPEMIDDEL) tags.push(hjelpemiddelKort(n.hjelpemiddel));
-      return `- ${n.navn} [${tags.join(', ')}]: ${n.beskrivelse}`;
-    })
-    .join('\n');
+  const list = nodes.map(n => {
+    const tags = [promptTypeTag(n.type)];
+    if (SHOW_HJELPEMIDDEL) tags.push(hjelpemiddelKort(n.hjelpemiddel));
+    return `- ${n.navn} [${tags.join(', ')}]: ${n.beskrivelse}`;
+  }).join('\n');
 
+  return composePrompt('exam', {
+    hasConcepts: nodes.some(n => n.type === 'begrep'),
+    allConcepts: nodes.length > 0 && nodes.every(n => n.type === 'begrep'),
+    aidsText: aidsTextFor(nodes),
+    vars: {
+      nodeCount: nodes.length,
+      taskCount: count,
+      nodeList: list,
+      aidsMarkers: AIDS_MARKERS,
+      aidsText: aidsTextFor(nodes),
+    },
+  });
+}
+
+/* Merkelappene i sjølve instruksen er ENGELSKE og uavhengige av
+   grensesnittspråket: prompts/core.json er skrevet på engelsk og omtaler
+   dem som [skill]/[concept]. Verdien i CSV-en ('ferdighet'/'begrep') er et
+   dataenum - se typeLabelText() for etiketten MENNESKER ser. */
+const PROMPT_TYPE_TAG = { ferdighet: 'skill', begrep: 'concept' };
+const AIDS_MARKERS = '[D1] / [D2]';
+
+function promptTypeTag(type) {
+  return PROMPT_TYPE_TAG[type] || type;
+}
+
+/* Hjelpemiddelteksten for et UTVALG noder: ta med avsnittet for hver del
+   som faktisk er representert, aldri begge hvis bare den ene er det. */
+function aidsTextFor(nodes) {
+  if (!SHOW_HJELPEMIDDEL) return '';
   const parts = [];
-  parts.push(`Du er en KI-læringsassistent som skal lage en skriftlig prøve i ${courseLabel} til en elev, basert på ferdighetene og begrepene eleven (eller læreren) har markert som mestret i ferdighetstreet.`);
-  parts.push(`Følgende ${nodes.length} ferdigheter/begreper er markert som mestret:\n${list}`);
-  parts.push(`Lag en prøve med nøyaktig ${count} oppgave(r). Prøven trenger ikke dekke alle punktene over - velg heller ut et representativt utvalg som til sammen dekker flest mulig av dem, varier vanskelighetsgrad, og la gjerne noen oppgaver kombinere flere av ferdighetene. Nummerer oppgavene og formuler dem slik de typisk ville sett ut på en skriftlig prøve/eksamen i faget.`);
-
-  if (nodes.some(n => n.type === 'begrep')) {
-    parts.push(buildExamBegrepGuidance(nodes));
+  if (nodes.some(n => n.hjelpemiddel === 'del1' || n.hjelpemiddel === 'begge')) {
+    parts.push(composeHjelpemiddelContext('del1'));
   }
-
-  if (SHOW_HJELPEMIDDEL) {
-    const hasDel1 = nodes.some(n => n.hjelpemiddel === 'del1' || n.hjelpemiddel === 'begge');
-    const hasDel2 = nodes.some(n => n.hjelpemiddel === 'del2' || n.hjelpemiddel === 'begge');
-    if (hasDel1 || hasDel2) {
-      const hjelpemiddelParts = [];
-      if (hasDel1) hjelpemiddelParts.push(composeHjelpemiddelContext('del1'));
-      if (hasDel2) hjelpemiddelParts.push(composeHjelpemiddelContext('del2'));
-      parts.push(`Merk hver oppgave med [D1] eller [D2] etter hvilken del den hører til, og hold deg til riktig hjelpemiddelbruk for hver del:\n${hjelpemiddelParts.join('\n')}`);
-    }
+  if (nodes.some(n => n.hjelpemiddel === 'del2' || n.hjelpemiddel === 'begge')) {
+    parts.push(composeHjelpemiddelContext('del2'));
   }
-
-  parts.push('Vis KUN oppgavene først, uten fasit. Ikke gi fasit før eleven har svart - vent til eleven ber om vurdering (enten etter hver oppgave, eller etter å ha svart på alle sammen). Gi da en fullstendig fasit med begrunnelse for hvert svar, en kort vurdering av hva eleven fikk til, og hva hen bør øve mer på.');
-
-  return parts.join('\n\n');
+  return parts.filter(Boolean).join('\n');
 }
 
 /* ------------------------------------------------------------------ */
@@ -993,8 +1032,8 @@ function updateLessonPlanBar() {
   if (!countLabel || !btn) return;
   const n = lessonSelection.size;
   countLabel.textContent = n === 0
-    ? 'Ingen læringsmål valgt'
-    : n === 1 ? '1 læringsmål valgt' : `${n} læringsmål valgt`;
+    ? t('lesson.selectedNone')
+    : n === 1 ? t('lesson.selectedOne') : t('lesson.selectedMany', { n: n });
   btn.disabled = n === 0;
 }
 
@@ -1010,17 +1049,18 @@ function buildLessonSchedule(nodes, totalMinutes) {
 
   const lines = [];
   let t = 0;
-  lines.push(`${t}-${t + LESSON_STARTER_MIN} min: Starter`);
+  const line = CORE.prompts.lessonPlan.sections._scheduleLines;
+  lines.push(fill(line.starter, { from: t, to: t + LESSON_STARTER_MIN }));
   t += LESSON_STARTER_MIN;
 
   nodes.forEach((node, i) => {
     const len = base + (i < extra ? 1 : 0);
     const diag = Math.min(LESSON_DIAGNOSTIC_MIN, Math.max(1, len - 1));
-    lines.push(`${t}-${t + len} min: Læringsmål ${i + 1} - ${node.navn}. Av disse settes de siste ${diag} minuttene av til det diagnostiske spørsmålet.`);
+    lines.push(fill(line.goal, { from: t, to: t + len, index: i + 1, name: node.navn, diagnostic: diag }));
     t += len;
   });
 
-  lines.push(`${t}-${t + LESSON_RECALL_MIN} min: Gjenhenting`);
+  lines.push(fill(line.recall, { from: t, to: t + LESSON_RECALL_MIN }));
   t += LESSON_RECALL_MIN;
 
   return { text: lines.join('\n'), perGoal: base, tight: base < LESSON_MIN_GOAL_BLOCK, total: t };
@@ -1029,56 +1069,11 @@ function buildLessonSchedule(nodes, totalMinutes) {
 // Fast metodikk-tekst, lik for alle fag. Ligger hardkodet her (ikke i CSV
 // og ikke i config.js) på samme måte som BEGREP_TEST_GUIDANCE: dette er
 // didaktikk som gjelder på tvers av fag, ikke fagspesifikt innhold.
-const LESSON_STARTER_GUIDANCE = `BOLK 1 - STARTER (${LESSON_STARTER_MIN} minutter)
-Lag EN åpen oppgave som hele klassen kan begynne på med en gang, og som leder inn mot dagens læringsmål.
-Krav til starteren:
-- Den skal få plass på én PowerPoint-slide eller på tavla. Skriv den ut ordrett, slik den skal stå der.
-- Den skal være ÅPEN: det skal ikke finnes bare ett riktig svar, men mange mulige svar eller mange veier fram. Elevene skal kunne holde på i flere minutter uten å bli "ferdige".
-- Den skal ha lav terskel. En elev som ikke kan noe av det som skal læres i dag, skal likevel kunne begynne med en gang. Dette er det vanskeligste kravet: starteren skal IKKE bygge på forkunnskaper utover det som står i forutsetningslista over, og helst ikke engang på alt det.
-- Den skal invitere til å prøve seg, gjette, sammenlikne med sidemannen og justere.
-Et eksempel på FORMEN (ikke på innholdet): "Se på disse brøkene: 1/2, 1/3, 1/4, 1/6, 1/8. Legg sammen noen av dem slik at du kommer så nær 1 som mulig."
-Skriv i tillegg 2-3 setninger til læreren om hvordan starteren leder inn mot dagens læringsmål, og hva læreren skal se etter mens elevene jobber.`;
 
-const LESSON_EPP_GUIDANCE = `HOVEDDELEN - ETT LÆRINGSMÅL OM GANGEN
-Undervisningen av hvert læringsmål skal følge example-problem pair-modellen: læreren gjør en oppgave, elevene gjør en tilsvarende oppgave, og så gjentas det med en litt vanskeligere oppgave.
-Lag 2-3 slike runder per læringsmål. Hver runde består av:
 
-a) LÆRERENS OPPGAVE - én oppgave læreren gjør på tavla, ferdig utregnet med alle mellomregninger, skrevet slik de skal stå på tavla. Foreslå også HVORDAN læreren skal gjøre den, og varier mellom rundene. Mulige varianter:
-   - Læreren gjør hele oppgaven i FULLSTENDIG STILLHET, uten å si et ord, og elevene må etterpå forklare til sidemannen - eller skrive ned for seg selv - hva læreren gjorde og hvorfor.
-   - Læreren tenker høyt underveis.
-   - Læreren gjør ett bevisst feiltrinn som elevene skal finne.
-   - Læreren stopper midtveis og lar klassen foreslå neste steg.
 
-b) ELEVENES OPPGAVER - flere oppgaver som likner lærerens, i stigende vanskegrad, slik at elever som blir fort ferdige har noe mer å gå på. Gi minst tre. VIKTIG: de ekstra oppgavene skal ligge SIDELENGS i forhold til kursprogresjonen - samme type oppgave med andre tall, ny innpakning eller en liten vri - og IKKE framover mot neste runde. Det neste, vanskeligere steget skal læreren selv gjennomgå i neste runde; foregriper de ekstra oppgavene det, mister neste runde poenget sitt. Marker tydelig hvilken av oppgavene læreren skal gjennomgå etterpå (den enkleste). Gi fasit til alle.
 
-Rundene skal bygge oppover: første runde er det enkleste tilfellet, siste runde ligger tett opp mot slik læringsmålet faktisk skal beherskes.
 
-c) EGENREGNING - etter siste runde, tre oppgavesett på ulikt nivå (f.eks. "Kom i gang", "Videre", "Utfordring") som elevene jobber med på egen hånd. Elevene velger selv, eller læreren fordeler. Gi fullstendig fasit til alle tre settene.`;
-
-const LESSON_BEGREP_GUIDANCE = `TILPASNING FOR BEGREPER
-Noen av læringsmålene over er merket [begrep]. Det er deklarativ kunnskap, ikke en regneferdighet, og example-problem pair-modellen over er skrevet for regneferdigheter. Gjør derfor en enkel tilpasning for disse: lærerens "oppgave" blir i stedet at læreren viser fram og går gjennom noen eksempler og ikke-eksempler på begrepet, og elevenes "oppgaver" blir å avgjøre om nye tilfeller er eksempler på begrepet eller ikke og begrunne hvorfor, eller å forklare begrepet med egne ord. Egenregninga blir tilsvarende kvalitativ. Hold regning minimal og underordnet i disse bolkene - selve regneferdigheten hører hjemme i et eget læringsmål lenger ned i ferdighetstreet.`;
-
-const LESSON_DIAGNOSTIC_GUIDANCE = `DIAGNOSTISK SPØRSMÅL - avslutt HVERT læringsmål med ett, før klassen går videre
-Et diagnostisk spørsmål er et flervalgsspørsmål med nøyaktig fire alternativer, nummerert 1, 2, 3 og 4. De gale alternativene skal ikke være tilfeldige: hvert av dem skal svare til en KONKRET, vanlig misforståelse knyttet til akkurat dette læringsmålet. Skriv i en egen linje til læreren hvilken misforståelse hvert galt alternativ fanger opp, slik at læreren vet hva et svar faktisk betyr.
-Krav til spørsmålet:
-- Det skal få plass på én slide eller på tavla, og kunne besvares på under 30 sekunder uten utregning på papir.
-- Alle fire alternativene skal se plausible ut. Ingen åpenbart tullete alternativer - da svarer elevene riktig uten å forstå.
-Gjennomføring (skriv den inn i opplegget): læreren viser spørsmålet, elevene tenker i stillhet i 30 sekunder, og på lærerens signal svarer ALLE samtidig ved å vise antall fingre. Poenget er at hele klassen må ta stilling, ikke bare den som rekker opp hånda.
-- Svarer så godt som alle riktig: gå rett videre til neste læringsmål.
-- Er klassen delt: ikke gi fasit med en gang. Foreslå én måte å ta tak i misforståelsen på, og varier mellom læringsmålene:
-  (i) én elev per alternativ får argumentere for sitt svar mens læreren og resten av klassen bare lytter, uten å avbryte eller korrigere - og deretter stemmer klassen på nytt;
-  (ii) elevene diskuterer to og to med sidemannen i ett minutt og stemmer på nytt;
-  (iii) elevene går sammen i grupper etter hvilket alternativ de valgte, og skal bli enige om et felles argument før ny avstemming.
-  Først etter den nye avstemmingen gjennomgår læreren riktig svar - og forklarer da eksplisitt hvorfor hvert av de gale alternativene er galt.`;
-
-const LESSON_RECALL_GUIDANCE = `SISTE BOLK - GJENHENTING (${LESSON_RECALL_MIN} minutter)
-Avslutt økta med gjenhenting: elevene lukker bok og notater og skriver ned i boka si alt de husker at de har lært i dag. Skriv ut den konkrete beskjeden læreren skal gi, klar til å settes på en slide eller tavla. Gi i tillegg læreren 2-3 korte hjelpespørsmål hen kan skrive på tavla hvis noen elever ikke kommer i gang. Skriv også én setning om hvorfor dette gjøres - at det å hente noe fram fra hukommelsen er det som fester det, ikke å lese det om igjen - slik at læreren kan si det til klassen.`;
-
-const LESSON_FORMAT_GUIDANCE = `FORMAT PÅ SVARET
-Skriv opplegget som én sammenhengende plan læreren kan lese ovenfra og ned mens hen underviser. Bruk en overskrift med minuttangivelse for hver bolk, i samme rekkefølge som timeplanen over.
-Alt som skal vises fram for elevene - starteroppgaven, lærerens eksempel, elevoppgavene, det diagnostiske spørsmålet og beskjeden om gjenhenting - skal stå i en egen, tydelig avgrenset blokk som begynner med "PÅ TAVLA:" på egen linje. Innholdet i en slik blokk skal være skrevet ordrett slik det skal stå på slide eller tavle, uten instrukser til læreren inni blokken. Alt annet - hva læreren skal gjøre og si, fasit, hva hen skal se etter - står utenfor blokkene. Da kan læreren kopiere "PÅ TAVLA"-blokkene rett inn i PowerPoint.
-Gi fullstendig fasit til alle oppgaver, i egne avsnitt merket "Fasit", alltid utenfor "PÅ TAVLA"-blokkene.
-Skriv enkelt og konkret, og unngå didaktiske fagord i teksten som skal vises for elevene.`;
 
 // Setter sammen KI-instruksen for en hel undervisningsøkt. I motsetning til
 // composeInstruction() (som henvender seg til ELEVEN om én node) og
@@ -1093,25 +1088,16 @@ Skriv enkelt og konkret, og unngå didaktiske fagord i teksten som skal vises fo
 // forutsetninger som faktisk mangler, vises i stedet som status i
 // læringsmål-lista (se goalStatus).
 function composeLessonPlanInstruction(nodes, totalMinutes) {
-  const courseLabel = CONFIG.courseName || 'faget';
   const schedule = buildLessonSchedule(nodes, totalMinutes);
-  const parts = [];
 
-  parts.push(`Du er en erfaren fagdidaktiker som skal hjelpe en LÆRER med å planlegge én konkret undervisningsøkt i ${courseLabel}. Du snakker med læreren, ikke med eleven. Svar med selve undervisningsopplegget med en gang - ikke still oppklarende spørsmål først, og ikke innled med å oppsummere denne instruksen. Læreren kan be om justeringer etterpå.`);
+  const goalList = nodes.map((n, i) => {
+    const tags = [promptTypeTag(n.type)];
+    if (SHOW_HJELPEMIDDEL) tags.push(hjelpemiddelKort(n.hjelpemiddel));
+    return `${i + 1}. ${n.navn} [${tags.join(', ')}]\n   ${n.beskrivelse}`;
+  }).join('\n');
 
-  parts.push('Hvis du har en form for minnefunksjon på tvers av samtaler (langtidsminne), skal du ikke lagre noe fra denne samtalen der - verken om læreren, klassen eller faget. Opplegget gjelder kun denne ene økta her og nå.');
-
-  const goalList = nodes
-    .map((n, i) => {
-      const tags = [n.type];
-      if (SHOW_HJELPEMIDDEL) tags.push(hjelpemiddelKort(n.hjelpemiddel));
-      return `${i + 1}. ${n.navn} [${tags.join(', ')}]\n   ${n.beskrivelse}`;
-    })
-    .join('\n');
-  parts.push(`Økta varer i ${schedule.total} minutter og skal dekke følgende ${nodes.length} læringsmål, i denne rekkefølgen:\n${goalList}`);
-
-  // Forutsetningene utledes automatisk fra avhenger_av-kjeden, på samme måte
-  // som i composeInstruction() - læreren velger kun målene for økta.
+  // Forutsetningene utledes fra avhenger_av-kjeden, som i composeInstruction()
+  // - læreren velger kun målene for økta.
   const selectedIds = new Set(nodes.map(n => n.id));
   const prerequisites = [];
   const seen = new Set();
@@ -1123,39 +1109,24 @@ function composeLessonPlanInstruction(nodes, totalMinutes) {
     });
   });
 
-  if (prerequisites.length) {
-    const names = prerequisites.sort(compareByGoalIndex).map(a => `- ${a.navn}`).join('\n');
-    parts.push(`Elevene har fra før vært gjennom følgende ferdigheter og begreper, som dagens læringsmål bygger videre på. Legg dette til grunn: du kan bygge på dem, bruke ordene fritt uten å definere dem på nytt, og trekke dem inn i både starteren og eksemplene.\n${names}`);
-  } else {
-    parts.push('Dagens læringsmål har ingen registrerte forutsetninger i ferdighetstreet - anta at temaet er helt nytt for elevene.');
-  }
-
-  parts.push(`Følg denne timeplanen, og skriv minuttangivelsen inn i opplegget for hver bolk:\n${schedule.text}`);
-
-  if (schedule.tight) {
-    parts.push(`MERK: med ${nodes.length} læringsmål på ${schedule.total} minutter blir det bare rundt ${schedule.perGoal} minutter per læringsmål. Det er for lite til å rekke både example-problem pair-runder, egenregning og et diagnostisk spørsmål. Innled derfor opplegget med en kort, vennlig merknad til læreren om dette, og foreslå konkret hvilke(t) læringsmål som bør flyttes til en senere økt. Lag deretter et fullstendig opplegg for alle målene likevel, etter timeplanen over.`);
-  }
-
-  parts.push(LESSON_STARTER_GUIDANCE);
-  parts.push(LESSON_EPP_GUIDANCE);
-  if (nodes.some(n => n.type === 'begrep')) parts.push(LESSON_BEGREP_GUIDANCE);
-  parts.push(LESSON_DIAGNOSTIC_GUIDANCE);
-  parts.push(LESSON_RECALL_GUIDANCE);
-
-  if (SHOW_HJELPEMIDDEL) {
-    const hasDel1 = nodes.some(n => n.hjelpemiddel === 'del1' || n.hjelpemiddel === 'begge');
-    const hasDel2 = nodes.some(n => n.hjelpemiddel === 'del2' || n.hjelpemiddel === 'begge');
-    if (hasDel1 || hasDel2) {
-      const hjelpemiddelParts = [];
-      if (hasDel1) hjelpemiddelParts.push(composeHjelpemiddelContext('del1'));
-      if (hasDel2) hjelpemiddelParts.push(composeHjelpemiddelContext('del2'));
-      parts.push(`Hold deg til riktig hjelpemiddelbruk i oppgavene du lager, etter hvilken del hvert læringsmål hører til (merket [D1]/[D2] i lista over):\n${hjelpemiddelParts.join('\n')}`);
-    }
-  }
-
-  parts.push(LESSON_FORMAT_GUIDANCE);
-
-  return parts.join('\n\n');
+  return composePrompt('lessonPlan', {
+    ancestors: prerequisites,
+    hasConcepts: nodes.some(n => n.type === 'begrep'),
+    tight: schedule.tight,
+    aidsText: aidsTextFor(nodes),
+    vars: {
+      goalCount: nodes.length,
+      totalMinutes: schedule.total,
+      perGoal: schedule.perGoal,
+      goalList: goalList,
+      prerequisiteList: prerequisites.sort(compareByGoalIndex).map(a => '- ' + a.navn).join('\n'),
+      schedule: schedule.text,
+      starterMinutes: LESSON_STARTER_MIN,
+      recallMinutes: LESSON_RECALL_MIN,
+      aidsMarkers: AIDS_MARKERS,
+      aidsText: aidsTextFor(nodes),
+    },
+  });
 }
 
 // Zoomer ut (aldri inn utover 100%) og flytter visningen slik at hele
@@ -1254,7 +1225,7 @@ async function init() {
     updateProgressUI();
   } catch (err) {
     console.error('Kunne ikke laste ferdighetstreet:', err);
-    validationErrors.push('Kritisk feil ved lasting: ' + err.message + ' (kjører du siden via en lokal server? fetch() av CSV-filer feiler ved å åpne index.html direkte fra disk i mange nettlesere.)');
+    validationErrors.push(t('loadError', { message: err.message }));
     renderErrorBanner();
   }
 }
@@ -1287,7 +1258,7 @@ function buildNodeIndex(rows) {
     const node = {
       id,
       type: (row.type || '').trim(),
-      emne: (row.emne || '').trim() || 'Annet',
+      emne: (row.emne || '').trim() || t('defaultTopic'),
       navn: (row.navn || '').trim(),
       beskrivelse: (row.beskrivelse || '').trim(),
       avhenger_av: (row.avhenger_av || '').split(';').map(s => s.trim()).filter(Boolean),
@@ -1385,7 +1356,7 @@ function renderErrorBanner() {
     return;
   }
   console.warn('Ferdighetstre-validering fant problemer:\n' + validationErrors.join('\n'));
-  banner.textContent = '⚠ ' + validationErrors.length + ' problem(er) funnet i datafilene (se konsoll for detaljer):\n' + validationErrors.join('\n');
+  banner.textContent = t('errorBanner', { n: validationErrors.length }) + '\n' + validationErrors.join('\n');
   banner.classList.add('visible');
 }
 
@@ -1664,7 +1635,7 @@ function renderGraph(columnMeta) {
     markBtn.type = 'button';
     markBtn.className = 'column-header-btn';
     markBtn.textContent = '✓';
-    markBtn.title = `Marker alle ferdigheter i «${col.topic}» som mestret`;
+    markBtn.title = t('column.markAll', { topic: col.topic });
     markBtn.addEventListener('click', () => bulkSetMastery(col.nodes, true));
     actions.appendChild(markBtn);
 
@@ -1672,7 +1643,7 @@ function renderGraph(columnMeta) {
     clearBtn.type = 'button';
     clearBtn.className = 'column-header-btn';
     clearBtn.textContent = '✕';
-    clearBtn.title = `Fjern mestret-merking for alle ferdigheter i «${col.topic}»`;
+    clearBtn.title = t('column.clearAll', { topic: col.topic });
     clearBtn.addEventListener('click', () => bulkSetMastery(col.nodes, false));
     actions.appendChild(clearBtn);
 
@@ -1747,7 +1718,7 @@ function createNodeElement(node, progress) {
   if (SHOW_HJELPEMIDDEL) metaLeft.appendChild(makeHjelpemiddelBadge(node.hjelpemiddel));
   const typeLabel = document.createElement('span');
   typeLabel.className = 'badge-type';
-  typeLabel.textContent = node.type;
+  typeLabel.textContent = typeLabelText(node.type);
   metaLeft.appendChild(typeLabel);
   meta.appendChild(metaLeft);
 
@@ -1755,7 +1726,7 @@ function createNodeElement(node, progress) {
   checkbox.type = 'checkbox';
   checkbox.className = 'node-checkbox';
   checkbox.checked = !!entry.mastered;
-  checkbox.title = 'Marker som mestret';
+  checkbox.title = t('node.markMastered');
   checkbox.addEventListener('click', e => e.stopPropagation());
   checkbox.addEventListener('change', () => setNodeProgress(node.id, 'mastered', checkbox.checked));
   meta.appendChild(checkbox);
@@ -1784,7 +1755,7 @@ function makeHjelpemiddelBadge(value) {
   span.className = 'badge ' + (
     value === 'del1' ? 'badge-del1' : value === 'del2' ? 'badge-del2' : 'badge-begge'
   );
-  span.textContent = value === 'del1' ? 'Del 1' : value === 'del2' ? 'Del 2' : 'Del 1+2';
+  span.textContent = value === 'del1' ? t('badges.del1') : value === 'del2' ? t('badges.del2') : t('badges.begge');
   return span;
 }
 
@@ -1857,7 +1828,7 @@ function updateProgressUI() {
   const done = allNodes.filter(n => isNodeMastered(n, progress)).length;
   const pct = total ? Math.round((done / total) * 100) : 0;
   document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-label').textContent = `${done} av ${total} ferdigheter fullført`;
+  document.getElementById('progress-label').textContent = t('progressLabel', { done: done, total: total });
 }
 
 /* ------------------------------------------------------------------ */
@@ -1886,41 +1857,25 @@ function getAllAncestors(node) {
 // Hjelpemiddel-konteksten (del1/del2/begge) er faglig innhold - hvert fag
 // definerer selv teksten i config.js (composeHjelpemiddelContext), siden
 // hva "hjelpemidler" betyr og hvilke regler som gjelder varierer per fag.
-function composeHjelpemiddelContext(hjelpemiddel) {
-  if (typeof CONFIG.composeHjelpemiddelContext === 'function') {
-    return CONFIG.composeHjelpemiddelContext(hjelpemiddel);
-  }
-  const labels = { del1: 'del 1', del2: 'del 2', begge: 'del 1 og del 2' };
-  return `Hjelpemidler: Dette gjelder ${labels[hjelpemiddel] || 'eksamen'}.`;
-}
+
 
 function composeInstruction(node) {
-  const parts = [];
-  parts.push(AI_INSTRUCTION_TEMPLATE);
-
   const ancestors = getAllAncestors(node);
-  if (ancestors.length) {
-    const names = ancestors.map(a => `- ${a.navn}`).join('\n');
-    parts.push(`Eleven skal fra før beherske følgende forutsetninger:\n${names}`);
-  } else {
-    parts.push('Denne noden har ingen forutsetninger registrert i ferdighetstreet - anta at eleven er helt ny til dette begrepet/ferdigheten.');
-  }
-
-  parts.push(`Målet for økta er at eleven skal lære følgende: "${node.navn}". Teksten under beskriver hva det vil si å mestre noden - det er målet for økta, ikke noe eleven kan fra før:\n${node.beskrivelse}`);
-
-  if (node.type === 'begrep') {
-    parts.push(BEGREP_TEST_GUIDANCE);
-  }
-
-  if (node.instruks) {
-    parts.push(node.instruks);
-  }
-
-  if (SHOW_HJELPEMIDDEL) {
-    parts.push(composeHjelpemiddelContext(node.hjelpemiddel));
-  }
-
-  return parts.join('\n\n');
+  return composePrompt('node', {
+    node: node,
+    ancestors: ancestors,
+    vars: {
+      nodeName: node.navn,
+      nodeDescription: node.beskrivelse,
+      prerequisiteList: ancestors.map(a => '- ' + a.navn).join('\n'),
+    },
+    // Kjøretidsseksjoner: tekst motoren bygger av selve grafen, som
+    // ingen av de tre filene kan kjenne på forhånd.
+    sections: {
+      nodeInstruction: node.instruks || null,
+      aids: SHOW_HJELPEMIDDEL ? composeHjelpemiddelContext(node.hjelpemiddel) : null,
+    },
+  });
 }
 
 /* ------------------------------------------------------------------ */
@@ -1966,7 +1921,7 @@ function renderDetail(node) {
 
   const closeBtn = document.createElement('button');
   closeBtn.id = 'detail-close';
-  closeBtn.textContent = '✕ lukk';
+  closeBtn.textContent = t('closeLower');
   closeBtn.addEventListener('click', closeDetail);
   inner.appendChild(closeBtn);
 
@@ -1979,17 +1934,15 @@ function renderDetail(node) {
   if (SHOW_HJELPEMIDDEL) meta.appendChild(makeHjelpemiddelBadge(node.hjelpemiddel));
   const typeBadge = document.createElement('span');
   typeBadge.className = 'badge-type';
-  typeBadge.textContent = node.type;
+  typeBadge.textContent = typeLabelText(node.type);
   meta.appendChild(typeBadge);
   inner.appendChild(meta);
 
   const status = document.createElement('div');
   status.id = 'detail-status';
   status.textContent = mastered
-    ? '✓ Mestret'
-    : available
-      ? 'Tilgjengelig — forutsetninger er oppfylt'
-      : 'Låst — mangler forutsetninger';
+    ? t('detail.mastered')
+    : available ? t('detail.available') : t('detail.locked');
   if (available && !mastered) status.classList.add('available');
   inner.appendChild(status);
 
@@ -2007,7 +1960,7 @@ function renderDetail(node) {
     const h3 = document.createElement('div');
     h3.className = 'badge-type';
     h3.style.marginBottom = '0.4rem';
-    h3.textContent = 'Forutsetninger';
+    h3.textContent = t('detail.prereqs');
     inner.appendChild(h3);
     const ul = document.createElement('ul');
     ul.className = 'prereq-list';
@@ -2018,7 +1971,7 @@ function renderDetail(node) {
       const check = document.createElement('span');
       check.className = 'prereq-check';
       check.textContent = aMastered ? '✓' : '○';
-      check.title = aMastered ? 'Mestret' : 'Ikke mestret ennå';
+      check.title = aMastered ? t('status.mastered') : t('status.notMastered');
       li.appendChild(check);
       const link = document.createElement('button');
       link.type = 'button';
@@ -2039,12 +1992,12 @@ function renderDetail(node) {
 
   const showBtn = document.createElement('button');
   showBtn.className = 'btn secondary';
-  showBtn.textContent = 'Vis KI-instruks';
+  showBtn.textContent = t('detail.show');
   actions.appendChild(showBtn);
 
   const copyBtn = document.createElement('button');
   copyBtn.className = 'btn';
-  copyBtn.textContent = 'Kopier KI-instruks';
+  copyBtn.textContent = t('detail.copy');
   actions.appendChild(copyBtn);
 
   inner.appendChild(actions);
@@ -2058,14 +2011,14 @@ function renderDetail(node) {
 
   showBtn.addEventListener('click', () => {
     const visible = textarea.classList.toggle('visible');
-    showBtn.textContent = visible ? 'Skjul KI-instruks' : 'Vis KI-instruks';
+    showBtn.textContent = visible ? t('detail.hide') : t('detail.show');
   });
 
   copyBtn.addEventListener('click', () => {
     trackCopy('node', { node_id: node.id, node_title: node.navn || null, node_topic: node.emne || null });
     navigator.clipboard.writeText(instructionText).then(() => {
       const original = copyBtn.textContent;
-      copyBtn.textContent = 'Kopiert!';
+      copyBtn.textContent = t('copied');
       setTimeout(() => { copyBtn.textContent = original; }, 1500);
     }).catch(() => {
       textarea.classList.add('visible');
@@ -2077,7 +2030,7 @@ function renderDetail(node) {
     const h3 = document.createElement('div');
     h3.className = 'badge-type';
     h3.style.margin = '1.4rem 0 0.4rem';
-    h3.textContent = 'Eksamensoppgaver';
+    h3.textContent = t('detail.examTasks');
     inner.appendChild(h3);
 
     const ul = document.createElement('ul');
