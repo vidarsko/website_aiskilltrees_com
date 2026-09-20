@@ -34,6 +34,10 @@
 /*                                                                      */
 /* `parent` gjør fasetten AVHENGIG: den vises ikke før foreldrefasetten  */
 /* har et valg, og viser da bare verdiene som hører til det valget.      */
+/* Kjeden er land → institusjon → inndeling, og den tømmer seg nedover:  */
+/* fjernes landet, forsvinner både institusjonen og inndelingen, og      */
+/* valgene i dem nullstilles. Det fungerer fordi FACETS står i den       */
+/* rekkefølgen og buildFacets() går gjennom lista ovenfra og ned.        */
 /* `division` er inndelingen INNENFOR en institusjon — Vg2, 8. trinn,    */
 /* Årskurs 1, MN-fakultetet — og en sammenslått liste over alle fire     */
 /* ville vært støy. Se `institution` i vocabulary.json for hvorfor       */
@@ -44,8 +48,8 @@
 /* ------------------------------------------------------------------ */
 const FACETS = [
   { key: 'country',     labelKey: 'facet-country' },
-  { key: 'institution', labelKey: 'facet-institution' },
-  { key: 'division',    labelKey: 'facet-division', parent: 'institution' },
+  { key: 'institution', labelKey: 'facet-institution', parent: 'country' },
+  { key: 'division',    labelKey: 'facet-division',    parent: 'institution' },
   { key: 'subjectArea', labelKey: 'facet-subjectArea' },
   { key: 'language',    labelKey: 'facet-language' },
 ];
@@ -114,10 +118,13 @@ function localized(entry) {
 function vocab(field, key) {
   if (!VOCAB || !VOCAB[field] || !key) return null;
   const entry = VOCAB[field][key];
-  /* En institusjon er ikke bare en tekst — den bærer også sin egen
-     inndeling — så visningsnavnet ligger under `label`. De andre feltene
-     er rene {språk: tekst}-oppslag. */
-  return localized(field === 'institution' ? (entry && entry.label) : entry);
+  /* En institusjon bærer også sin egen inndeling, så visningsnavnet ligger
+     under `label` — og det er ÉN streng, ikke et språkoppslag. En
+     institusjon har et navn: «Videregående skole» heter det på norsk
+     uansett hvem som leser, på samme måte som et tre er skrevet på ett
+     språk. De andre feltene er vanlige {språk: tekst}-oppslag. */
+  if (field === 'institution') return (entry && entry.label) || null;
+  return localized(entry);
 }
 
 function institutionEntry(key) {
@@ -160,7 +167,7 @@ function vocabSynonyms(tree) {
   });
   const inst = institutionEntry(tree.institution);
   if (inst) {
-    if (inst.label) out.push(...Object.values(inst.label).filter(v => typeof v === 'string'));
+    if (typeof inst.label === 'string') out.push(inst.label);
     const div = inst.divisions && inst.divisions[tree.division];
     if (div) out.push(...Object.values(div).filter(v => typeof v === 'string'));
   }

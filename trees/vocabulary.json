@@ -27,10 +27,10 @@
   },
 
   "institution": {
-    "_comment": "Skoleslaget eller institusjonen treet hører hjemme i, og — under `divisions` — dens egen inndeling.\n\nHvorfor inndelingen ligger HER og ikke som en egen toppnøkkel: «Vg2» og «MN-fakultetet» er ikke samme slags ting. Den ene er et årstrinn i et skoleslag, den andre en organisatorisk enhet. Ingen felles overskrift dekker begge, og de standardiserte vokabularene (schema.org `educationalLevel`, EQF) har bare årstrinn-betydningen. Løsningen er å la institusjonen navngi sin egen inndeling: datafeltet heter nøytralt `division` i meta.json, og `divisionLabel` under er overskriften brukeren faktisk ser.\n\nDet er også grunnen til at `division` er en AVHENGIG fasett i katalogen: verdiene er bare meningsfulle når institusjonen er valgt, og en sammenslått liste over Vg1, 8. trinn, Årskurs 2 og MN ville vært støy. Se `parent` i FACETS i js/catalog.js.",
+    "_comment": "Skoleslaget eller institusjonen treet hører hjemme i, og — under `divisions` — dens egen inndeling.\n\n`label` er én streng og IKKE oversatt: en institusjon har et navn. «Videregående skole» heter det på norsk uansett hvem som leser, på samme måte som et tre er skrevet på ett språk. Det er også derfor navnene ikke lenger trenger å skille seg fra hverandre med land i parentes — fasetten vises først etter at et land er valgt, så «Gymnasiet» og «Videregående skole» kan ikke forveksles. `divisionLabel` er derimot en overskrift i grensesnittet, ikke et navn, og oversettes fortsatt.\n\nHvorfor inndelingen ligger HER og ikke som en egen toppnøkkel: «Vg2» og «MN-fakultetet» er ikke samme slags ting. Den ene er et årstrinn i et skoleslag, den andre en organisatorisk enhet. Ingen felles overskrift dekker begge, og de standardiserte vokabularene (schema.org `educationalLevel`, EQF) har bare årstrinn-betydningen. Løsningen er å la institusjonen navngi sin egen inndeling: datafeltet heter nøytralt `division` i meta.json, og `divisionLabel` under er overskriften brukeren faktisk ser.\n\nDet er også grunnen til at `division` er en AVHENGIG fasett i katalogen: verdiene er bare meningsfulle når institusjonen er valgt, og en sammenslått liste over Vg1, 8. trinn, Årskurs 2 og MN ville vært støy. Se `parent` i FACETS i js/catalog.js.",
 
     "grunnskole": {
-      "label":         { "en": "Lower secondary school", "nb": "Ungdomsskole", "sv": "Högstadiet" },
+      "label": "Ungdomsskole",
       "divisionLabel": { "en": "Year",                    "nb": "Trinn",        "sv": "Årskurs" },
       "divisions": {
         "8":  { "en": "Year 8",  "nb": "8. trinn",  "sv": "Årskurs 8" },
@@ -40,7 +40,7 @@
     },
 
     "vgs": {
-      "label":         { "en": "Upper secondary school", "nb": "Videregående skole", "sv": "Gymnasiet (Norge)" },
+      "label": "Videregående skole",
       "divisionLabel": { "en": "Year",                   "nb": "Trinn",              "sv": "Årskurs" },
       "divisions": {
         "_comment": "«Vg1»/«Vg2»/«Vg3» er egennavn i det norske skoleslaget og oversettes ikke — de står likt på alle tre språk med vilje.",
@@ -51,7 +51,7 @@
     },
 
     "gym": {
-      "label":         { "en": "Upper secondary school (Sweden)", "nb": "Gymnasiet (Sverige)", "sv": "Gymnasiet" },
+      "label": "Gymnasiet",
       "divisionLabel": { "en": "Year",                            "nb": "Årskurs",             "sv": "Årskurs" },
       "divisions": {
         "1": { "en": "Year 1", "nb": "Årskurs 1", "sv": "Årskurs 1" },
@@ -62,7 +62,7 @@
 
     "uio": {
       "_comment": "Første ikke-skole-institusjon, lagt inn som mønsteret universitetsfag skal følge: inndelingen er FAKULTET, ikke årstrinn. Ingen trær bruker den ennå.",
-      "label":         { "en": "University of Oslo", "nb": "Universitetet i Oslo", "sv": "Universitetet i Oslo" },
+      "label": "Universitetet i Oslo",
       "divisionLabel": { "en": "Faculty",            "nb": "Fakultet",             "sv": "Fakultet" },
       "divisions": {
         "mn": { "en": "Faculty of Mathematics and Natural Sciences", "nb": "Det matematisk-naturvitenskapelige fakultet", "sv": "Matematisk-naturvetenskapliga fakulteten" }
