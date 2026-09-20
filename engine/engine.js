@@ -27,14 +27,17 @@
 /*     <familie>.json         altså er sant for matematikk men ikke for */
 /*                            samfunnsfag. Legger seksjoner TIL de      */
 /*                            generelle instruksene. Et tre velger med  */
-/*                            `subjectFamily` i tree.json.              */
+/*                            `subjectFamily` i tree.csv.               */
 /*   /languages/<kode>.json   Alt som varierer med SPRÅK: knappetekster,*/
 /*                            hjelpeteksten, og språklaget i instruksen */
 /*                            (`outputLanguage` + `writingStyle`).      */
-/*   ./tree.json              Alt som varierer med ETT FAG: emne-       */
-/*                            rekkefølge, lagringsnøkkel, funksjons-    */
-/*                            brytere og slot-verdier (courseName,      */
-/*                            expressionFocus …). Rene data.            */
+/*   ./tree.csv               ALT som er dette treets eget, i ÉN fil:   */
+/*                            nodene, konfigurasjonen (config-rader) og */
+/*                            lærerens egne instruks-overstyringer      */
+/*                            (prompt-rader). `type`-kolonnen sier hva  */
+/*                            raden er. tree.json og noder.csv er       */
+/*                            borte fra og med 0.2.0.                   */
+/*   ./exams.csv               Valgfri: eksamensoppgaver per node.      */
 /*                                                                      */
 /* Bakgrunnen: fram til 2026-09-20 fantes motoren i to eksemplarer,     */
 /* ferdighetstre/engine.js og fardighetstrad/engine.js på skogvoll.com  */
@@ -45,7 +48,7 @@
 /*                                                                      */
 /* Rekkefølgen tekst slås opp i (mest spesifikk vinner):                */
 /*   1. kjøretidsseksjon bygget av motoren (forutsetningslista o.l.)    */
-/*   2. tree.json    → prompts.<instruks>.<seksjon>                     */
+/*   2. tree.csv     → prompt-rad (instruks + seksjon, eller * + seksjon)*/
 /*   3. språkfila    → prompt.overrides.<instruks>.<seksjon>            */
 /*   4. språkfila    → prompt.<seksjon> (outputLanguage, writingStyle)  */
 /*   5. fagfamilien  → instructions.<instruks>.add[].text               */
@@ -62,7 +65,7 @@
 /* Fylles av bootstrap() før init(). Ingen av dem er `const`, fordi de
    ikke kan leses før tre fetch-er har kommet tilbake - det er den ene
    reelle forskjellen fra den gamle synkrone config.js-modellen. */
-let CONFIG = null;          // ./tree.json
+let CONFIG = null;          // utledet av config-radene i ./tree.csv
 let META = null;            // ./meta.json (katalogens metadata — vises i kursinfo)
 let VOCAB = null;           // /trees/vocabulary.json (kontrollert vokabular for meta.json)
 let LANG = null;            // /languages/<kode>.json
@@ -74,6 +77,9 @@ let CORE = null;            // { prompts: { <id>: instruksmodul } } - satt samme
 let SHARED = {};            // /prompts/shared.json → sections (delt mellom instrukser)
 let FAMILY = null;          // /prompts/subjects/<familie>.json, eller null
 let MANIFEST = null;        // /prompts/manifest.json - versjonene artikkelen siterer
+let NODE_ROWS = [];         // node-radene i ./tree.csv, satt av bootstrap()
+let PROMPT_ROWS = {};       // prompt-radene i ./tree.csv: { '<instruks>.<seksjon>': tekst }
+                            //   '*' som instruks betyr «alle instrukser».
 
 let STORAGE_KEY = null;
 let TOPIC_ORDER = [];
@@ -121,7 +127,7 @@ function fill(text, vars) {
 
 /* Visningsnavnet for en nodetype. Selve VERDIEN i CSV-en ('skill',
    'concept') er et dataenum og er ENGELSK på alle språk - også i den
-   norske og den svenske noder.csv. Bare etiketten oversettes. */
+   norske og den svenske tree.csv. Bare etiketten oversettes. */
 function typeLabelText(type) {
   const map = (LANG.ui.nodeType) || {};
   return map[type] || type;
@@ -170,8 +176,13 @@ function familyAdds(promptName) {
 function sectionText(promptName, id, ctx) {
   if (ctx.sections && ctx.sections[id] != null) return ctx.sections[id];
 
-  const fromTree = ((CONFIG.prompts || {})[promptName] || {})[id];
-  if (fromTree != null) return fromTree;
+  /* prompt-radene i tree.csv. Mest spesifikk vinner: en rad som navngir
+     instruksen slår en rad som gjelder alle. Dette er det stedet LÆREREN
+     redigerer, så det ligger øverst av det som kommer fra filer. */
+  const fromCsv = PROMPT_ROWS[promptName + '.' + id];
+  if (fromCsv != null) return fromCsv;
+  const fromCsvAll = PROMPT_ROWS['*.' + id];
+  if (fromCsvAll != null) return fromCsvAll;
 
   const langPrompt = (LANG.prompt || {});
   const fromLangOverride = ((langPrompt.overrides || {})[promptName] || {})[id];
@@ -234,7 +245,7 @@ function composePrompt(promptName, ctx) {
   return out.join('\n\n');
 }
 
-/* Hjelpemiddelteksten er fagets egen prosa og bor i tree.json, ikke her. */
+/* Hjelpemiddelteksten er fagets egen prosa og bor i tree.csv, ikke her. */
 
 /* ------------------------------------------------------------------ */
 /* Global tilstand                                                     */
@@ -297,7 +308,7 @@ document.addEventListener('DOMContentLoaded', bootstrap);
 /* ------------------------------------------------------------------ */
 /* Bootstrap                                                            */
 /*                                                                      */
-/* Tre filer må ligge på bordet før noe kan tegnes. tree.json først,    */
+/* tree.csv må leses først: den sier hvilket språk treet er på, og      */
 /* fordi den sier hvilket språk treet er på; språkfila og pedagogikken  */
 /* hentes så parallelt.                                                 */
 /*                                                                      */
@@ -308,13 +319,24 @@ document.addEventListener('DOMContentLoaded', bootstrap);
 /* ------------------------------------------------------------------ */
 
 async function bootstrap() {
+  /* ÉN fil. tree.csv holder alt som er dette treets eget: nodene,
+     konfigurasjonen (config-rader) og eventuelle instruks-overstyringer
+     (prompt-rader). tree.json finnes ikke lenger - se CHANGELOG 0.2.0.
+     Den må leses FØRST, fordi den er det eneste stedet som sier hvilket
+     språk treet er på. */
+  let rows;
   try {
-    CONFIG = await fetchJson('tree.json');
+    rows = parseCsv(await fetchText('tree.csv'));
   } catch (err) {
     console.error(err);
-    document.body.textContent = 'Fant ikke tree.json for dette ferdighetstreet: ' + err.message;
+    document.body.textContent = 'Fant ikke tree.csv for dette ferdighetstreet: ' + err.message;
     return;
   }
+
+  const split = splitRows(rows);
+  NODE_ROWS = split.nodes;
+  PROMPT_ROWS = split.prompts;
+  CONFIG = buildConfig(split.config);
 
   const code = CONFIG.language || 'en';
   let lang;
@@ -325,6 +347,12 @@ async function bootstrap() {
     lang = await fetchJson('/languages/en.json');
   }
   LANG = lang;
+
+  /* Utledet framfor konfigurert. Samtalespråkets navn står i språkfila, og
+     lagringsnøkkelen er et internt navn ingen lærer skal måtte finne på.
+     Begge kan likevel oppgis - en config-rad vinner alltid. */
+  if (!CONFIG.languageName) CONFIG.languageName = LANG.name || code;
+  if (!CONFIG.storageKey) CONFIG.storageKey = deriveStorageKey(CONFIG.title || code);
 
   /* Pedagogikken ligger i én modul per bidrag, ikke i én core.json. Bare
      manifestet har et hardkodet filnavn; alt annet er oppført DER, slik at
@@ -349,10 +377,11 @@ async function bootstrap() {
   CORE = { prompts: {} };
   ids.forEach((id, i) => { CORE.prompts[id] = loaded[i + 1]; });
   FAMILY = famPath ? loaded[loaded.length - 1] : null;
-  /* meta.json eies av katalogen. Kursinfo-vinduet viser den samme
-     metadataen framfor å duplisere den inn i tree.json — ett sted å
-     rette en årstall- eller forfatterfeil. Mangler den, klarer vi oss. */
-  META = await fetchJson('meta.json').catch(() => null);
+  /* meta.json eies av katalogen, og finnes bare for et tre som ligger DER.
+     Et tre en lærer har laget selv har ingen katalogoppføring, så kursinfoen
+     settes da sammen av config-radene i stedet - ellers ville «Om faget»
+     vært tomt for alle andre enn meg. */
+  META = await fetchJson('meta.json').catch(() => null) || metaFromConfig();
   /* Vokabularet oversetter nøklene i meta.json (country, institution,
      division, subjectArea, language) til lesbar tekst. Treet slår opp på
      SITT EGET språk, ikke leserens: et tre er enspråklig, og «Om faget»
@@ -364,21 +393,194 @@ async function bootstrap() {
   TOPIC_ORDER = CONFIG.topicOrder || [];
   FEATURES = CONFIG.features || {};
   SHOW_MOTIVATION_BUTTON = FEATURES.motivation === true;
-  Object.assign(LAYOUT, CONFIG.layoutOverrides || {});
+  Object.assign(LAYOUT, CONFIG.layout || {});
 
   applyPageChrome();
   init();
 }
 
+/* ------------------------------------------------------------------ */
+/* tree.csv: tre slags rader i én tabell                                */
+/*                                                                      */
+/* `type` avgjør hva raden er:                                          */
+/*   skill | concept  - en node i treet (som før)                       */
+/*   config           - en innstilling:   name = nøkkel, description = verdi */
+/*   prompt           - en instruks-overstyring: topic = hvilken instruks */
+/*                      (tom = alle), name = seksjon, instruction = teksten */
+/*                                                                      */
+/* Hvorfor verdien står i `description` for config og i `instruction`   */
+/* for prompt: en config-verdi er data, en prompt-tekst er instruks, og */
+/* begge låner da kolonnen som betyr omtrent det samme fra før.         */
+/* ------------------------------------------------------------------ */
+
+function splitRows(rows) {
+  const out = { nodes: [], config: [], prompts: {} };
+  rows.forEach((row, i) => {
+    const kind = (row.type || '').trim().toLowerCase();
+    if (kind === 'config') {
+      out.config.push({ key: (row.name || '').trim(), value: (row.description || '').trim(), row: i + 2 });
+    } else if (kind === 'prompt') {
+      const which = (row.topic || '').trim() || '*';
+      const section = (row.name || '').trim();
+      if (section) out.prompts[which + '.' + section] = (row.instruction || '').trim();
+    } else {
+      out.nodes.push(row);
+    }
+  });
+  return out;
+}
+
+/* Kjente innstillinger. En ukjent nøkkel er en FEIL, ikke noe som
+   ignoreres: i et regneark er stillhet den farligste responsen som
+   finnes - `aids.2.modell` ville ellers bare ikke gjort noen ting. */
+const CONFIG_KEYS = [
+  'schemaVersion', 'title', 'description', 'language', 'languageName',
+  'subjectFamily', 'storageKey', 'topicOrder',
+  'course', 'curriculum', 'author', 'authorUrl', 'license',
+  'features.motivation', 'features.exams',
+  'slots.courseName', 'slots.motivationSubject', 'slots.expressionFocus',
+  'aids.label',
+];
+const CONFIG_KEY_PATTERNS = [
+  /^aids\.\d+\.(name|student|model)$/,
+  /^layout\.[A-Za-z][A-Za-z0-9]*$/,
+  /^slots\.[A-Za-z][A-Za-z0-9]*$/,
+];
+const CONFIG_REQUIRED = ['title', 'language'];
+
+function configKeyKnown(key) {
+  return CONFIG_KEYS.indexOf(key) !== -1 || CONFIG_KEY_PATTERNS.some(re => re.test(key));
+}
+
+/* Nærmeste kjente nøkkel, for «mente du ...?». Enkel redigeringsavstand,
+   og bare når den er liten nok til at gjettet er verdt å trykke. */
+function nearestConfigKey(key) {
+  let best = null, bestDist = Infinity;
+  CONFIG_KEYS.concat(['aids.1.student', 'aids.1.model', 'aids.1.name']).forEach(k => {
+    const d = editDistance(key.toLowerCase(), k.toLowerCase());
+    if (d < bestDist) { bestDist = d; best = k; }
+  });
+  return bestDist <= Math.max(2, Math.floor(key.length / 4)) ? best : null;
+}
+
+function editDistance(a, b) {
+  const prev = new Array(b.length + 1);
+  for (let j = 0; j <= b.length; j++) prev[j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    let diag = prev[0];
+    prev[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const tmp = prev[j];
+      prev[j] = Math.min(prev[j] + 1, prev[j - 1] + 1,
+                         diag + (a[i - 1] === b[j - 1] ? 0 : 1));
+      diag = tmp;
+    }
+  }
+  return prev[b.length];
+}
+
+function buildConfig(entries) {
+  const cfg = {};
+  const seen = new Set();
+  entries.forEach(entry => {
+    if (!entry.key) return;
+    if (!configKeyKnown(entry.key)) {
+      const guess = nearestConfigKey(entry.key);
+      pushError('errorUnknownConfig', { key: entry.key, row: entry.row, guess: guess });
+      return;
+    }
+    seen.add(entry.key);
+    setByPath(cfg, entry.key, coerceConfigValue(entry.key, entry.value));
+  });
+  CONFIG_REQUIRED.forEach(key => {
+    if (!seen.has(key)) pushError('errorMissingConfig', { key: key });
+  });
+  normaliseAids(cfg);
+  return cfg;
+}
+
+/* `aids.1.student` og `aids.2.model` blir til `{ label, levels: [...] }`,
+   som er formen resten av motoren leser. Tallene er lærerens eget
+   vokabular fra før - `aids`-kolonnen på nodene sier `1;2`. */
+function normaliseAids(cfg) {
+  const aids = cfg.aids;
+  if (!aids) return;
+  const levels = [];
+  Object.keys(aids).forEach(key => {
+    if (!/^\d+$/.test(key)) return;
+    levels.push(Object.assign({ level: parseInt(key, 10) }, aids[key]));
+    delete aids[key];
+  });
+  if (levels.length) {
+    levels.sort((a, b) => a.level - b.level);
+    aids.levels = levels;
+  }
+}
+
+function coerceConfigValue(key, value) {
+  if (key === 'topicOrder') return value.split(';').map(s => s.trim()).filter(Boolean);
+  if (value === 'true') return true;
+  if (value === 'false') return false;
+  if (/^-?\d+$/.test(value) && (key === 'schemaVersion' || key.indexOf('layout.') === 0)) {
+    return parseInt(value, 10);
+  }
+  return value;
+}
+
+function setByPath(obj, path, value) {
+  const parts = path.split('.');
+  let cur = obj;
+  for (let i = 0; i < parts.length - 1; i++) {
+    if (typeof cur[parts[i]] !== 'object' || cur[parts[i]] === null) cur[parts[i]] = {};
+    cur = cur[parts[i]];
+  }
+  cur[parts[parts.length - 1]] = value;
+}
+
+/* Lagringsnøkkelen er intern, og utledes fra tittelen. Den må bare være
+   stabil og unik nok til at to trær i samme nettleser ikke deler
+   avhukinger. */
+function deriveStorageKey(title) {
+  const slug = String(title).toLowerCase()
+    .replace(/[æäà]/g, 'a').replace(/[øö]/g, 'o').replace(/å/g, 'a')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return (slug || 'skill-tree') + '-progress';
+}
+
+/* «Om faget» for et tre uten katalogoppføring. Bare fritekstfeltene:
+   fasettnøklene (country, institution, ...) hører katalogen til, og et
+   tre en lærer laget for seg selv står ikke i den. */
+function metaFromConfig() {
+  const fields = ['course', 'curriculum', 'author', 'authorUrl', 'license', 'description'];
+  const meta = {};
+  let any = false;
+  fields.forEach(f => { if (CONFIG[f]) { meta[f] = CONFIG[f]; any = true; } });
+  if (CONFIG.title) meta.title = CONFIG.title;
+  return any ? meta : null;
+}
+
 function fetchJson(path) {
+  const pre = preloaded(path);
+  if (pre !== undefined) return Promise.resolve(pre);
   return fetch(path).then(res => {
     if (!res.ok) throw new Error('Fant ikke ' + path + ' (status ' + res.status + ')');
     return res.json();
   });
 }
 
+/* Alt motoren laster, går gjennom fetchJson() og fetchText(). Finnes
+   `window.AIST_BUNDLE`, tas innholdet DERFRA framfor over nettet - det er
+   hele mekanismen bak enkeltfil-utgaven, som må virke fra file:// der
+   fetch() er CORS-blokkert. På nett finnes ikke variabelen, og alt går
+   som før. */
+function preloaded(path) {
+  const bundle = (typeof window !== 'undefined' && window.AIST_BUNDLE) || null;
+  if (!bundle) return undefined;
+  return Object.prototype.hasOwnProperty.call(bundle, path) ? bundle[path] : undefined;
+}
+
 /* Tittel, overskrift, ingress og tilbakelenke kommer fra språkfila +
-   tree.json, ikke fra index.html. Det er derfor index.html kan være
+   tree.csv, ikke fra index.html. Det er derfor index.html kan være
    BYTE-IDENTISK for hvert eneste tre - se AGENTS.md. */
 function applyPageChrome() {
   const title = CONFIG.title || '';
@@ -1570,21 +1772,24 @@ async function init() {
   setupExamButton();
   if (SHOW_MOTIVATION_BUTTON) setupMotivationButton();
   try {
-    const [noderText, eksamenText] = await Promise.all([
-      fetchText('noder.csv'),
-      fetchText('eksamensoppgaver.csv'),
-    ]);
-
-    const noderRows = parseCsv(noderText);
-    const eksamenRows = parseCsv(eksamenText);
-
-    buildNodeIndex(noderRows);
-    buildExamIndex(eksamenRows);
+    /* Nodene er allerede lest av bootstrap() - tree.csv er ÉN fil, og den
+       måtte leses først for å finne treets språk. Eksamensoppgaver er en
+       egen, valgfri fil: de fleste trær har dem ikke, og kolonnene deres
+       ligner ikke nodenes nok til at de hører hjemme i samme tabell. */
+    buildNodeIndex(NODE_ROWS);
+    /* exams.csv hentes bare når treet sier at den finnes. Alternativet -
+       å prøve og ta imot en 404 - virker like godt, men legger igjen en
+       rød linje i konsollen for en fil som er valgfri, og det er nettopp
+       den slags støy som får en lærer til å tro at noe er i stykker. */
+    const exams = FEATURES.exams ? await fetchText('exams.csv').catch(() => null) : null;
+    buildExamIndex(exams ? parseCsv(exams) : []);
     validateReferences();
     validateDag();
 
     renderErrorBanner();
     computeLevels();
+    deriveTopicOrder();
+    publishEffectiveConfig();
     layoutAndRender();
     updateProgressUI();
   } catch (err) {
@@ -1595,6 +1800,8 @@ async function init() {
 }
 
 function fetchText(path) {
+  const pre = preloaded(path);
+  if (pre !== undefined) return Promise.resolve(pre);
   return fetch(path).then(res => {
     if (!res.ok) throw new Error(`Fant ikke ${path} (status ${res.status})`);
     return res.text();
@@ -1604,7 +1811,7 @@ function fetchText(path) {
 function parseCsv(text) {
   const result = Papa.parse(text, { header: true, skipEmptyLines: true });
   if (result.errors && result.errors.length) {
-    result.errors.forEach(e => validationErrors.push(`CSV-feil: ${e.message} (rad ${e.row})`));
+    result.errors.forEach(e => pushError('errorCsv', { message: e.message, row: e.row }));
   }
   return result.data;
 }
@@ -1616,7 +1823,7 @@ function parseCsv(text) {
 /* ------------------------------------------------------------------ */
 /* Hjelpemiddelnivåer (`aids`)                                          */
 /*                                                                      */
-/* Kolonnen `aids` i noder.csv er enten `0` eller en semikolonliste av   */
+/* Kolonnen `aids` i tree.csv er enten `0` eller en semikolonliste av    */
 /* nivåtall: `1`, `1;2`, `1;3`. Samme separator som `depends_on`, så     */
 /* konvensjonen er ikke ny i fila.                                       */
 /*                                                                      */
@@ -1760,16 +1967,16 @@ function validateReferences() {
   allNodes.forEach(node => {
     node.depends_on.forEach(depId => {
       if (!nodesById.has(depId)) {
-        validationErrors.push(`Node "${node.id}" refererer til ukjent avhenger_av-id "${depId}".`);
+        pushError('errorUnknownDep', { id: node.id, dep: depId });
       }
     });
     if (node.topic === 'Annet' && !TOPIC_ORDER.includes('Annet')) {
-      validationErrors.push(`Node "${node.id}" mangler "emne" i noder.csv og havner i samle-kolonnen "Annet".`);
+      pushError('errorNoTopic', { id: node.id, topic: t('defaultTopic') });
     }
   });
   examsByNode.forEach((rows, nodeId) => {
     if (!nodesById.has(nodeId)) {
-      validationErrors.push(`eksamensoppgaver.csv refererer til ukjent node_id "${nodeId}".`);
+      pushError('errorUnknownExamNode', { id: nodeId });
     }
   });
 }
@@ -1789,7 +1996,7 @@ function validateDag() {
       if (c === GRAY) {
         const cycleStart = stack.indexOf(dep.id);
         const cycle = stack.slice(cycleStart).concat(dep.id);
-        validationErrors.push(`Syklus oppdaget i avhenger_av: ${cycle.join(' -> ')}`);
+        pushError('errorCycle', { cycle: cycle.join(' → ') });
       } else if (c === WHITE) {
         visit(dep);
       }
@@ -1803,6 +2010,19 @@ function validateDag() {
   });
 }
 
+/* En config-feil oppdages FØR språkfila er lastet - den er jo funnet i
+   fila som sier hvilket språk treet er på. Derfor lagres den som nøkkel
+   og verdier, og oversettes først når den skal vises. */
+function pushError(key, vars) {
+  validationErrors.push({ key: key, vars: vars });
+}
+
+function errorText(e) {
+  if (typeof e === 'string') return e;
+  const main = t(e.key, e.vars);
+  return e.vars && e.vars.guess ? main + ' ' + t('errorDidYouMean', { key: e.vars.guess }) : main;
+}
+
 function renderErrorBanner() {
   const banner = document.getElementById('error-banner');
   if (!validationErrors.length) {
@@ -1810,8 +2030,9 @@ function renderErrorBanner() {
     banner.textContent = '';
     return;
   }
-  console.warn('Ferdighetstre-validering fant problemer:\n' + validationErrors.join('\n'));
-  banner.textContent = t('errorBanner', { n: validationErrors.length }) + '\n' + validationErrors.join('\n');
+  const lines = validationErrors.map(errorText);
+  console.warn('Ferdighetstre-validering fant problemer:\n' + lines.join('\n'));
+  banner.textContent = t('errorBanner', { n: lines.length }) + '\n' + lines.join('\n');
   banner.classList.add('visible');
 }
 
@@ -1866,6 +2087,76 @@ function computeLevels() {
   allNodes.forEach(node => {
     node.nivaa = level(node);
   });
+}
+
+/* Temarekkefølgen er kolonnerekkefølgen fra venstre mot høyre, og den
+   UTLEDES når `topicOrder` ikke er oppgitt: sortert på laveste nivå blant
+   temaets noder, så på median nivå, så alfabetisk.
+
+   Poenget med laveste nivå er at toppen av hver kolonne da danner en trapp
+   nedover fra venstre mot høyre - står et tema langt til høyre, er det
+   fordi du må lenger ned i treet før du kan begynne på det. Bildet viser
+   dermed sin egen sorteringsregel, og en lærer leser treet i den
+   rekkefølgen faget kan tas.
+
+   Median er med som nummer to nøkkel fordi ETT trivielt inngangsemne på
+   nivå 0 ellers river hele temaet helt til venstre, selv om resten av det
+   ligger dypt. Alfabetisk til slutt, fordi det er den eneste tie-breaken
+   som ikke flytter seg når læreren sorterer om i regnearket sitt. */
+function deriveTopicOrder() {
+  if (TOPIC_ORDER.length) return;   // en oppgitt rekkefølge vinner alltid
+
+  const levels = new Map();
+  allNodes.forEach(node => {
+    if (!levels.has(node.topic)) levels.set(node.topic, []);
+    levels.get(node.topic).push(node.nivaa);
+  });
+
+  const locale = (LANG && (LANG.htmlLang || LANG.code)) || 'nb';
+  const stats = [...levels.entries()].map(([topic, lv]) => {
+    const sorted = [...lv].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return {
+      topic: topic,
+      min: sorted[0],
+      median: sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2,
+    };
+  });
+
+  stats.sort((a, b) =>
+    a.min - b.min ||
+    a.median - b.median ||
+    a.topic.localeCompare(b.topic, locale));
+
+  TOPIC_ORDER = stats.map(s => s.topic);
+}
+
+/* Utleder du noe, skylder du brukeren å se hva du utledet. Byggersida på
+   /make-your-own/ viser dette som «slik forsto jeg innstillingene dine»;
+   her legges det bare fram. */
+function publishEffectiveConfig() {
+  if (typeof window === 'undefined') return;
+  window.AIST_EFFECTIVE_CONFIG = {
+    title: CONFIG.title || '',
+    description: CONFIG.description || '',
+    language: CONFIG.language || '',
+    languageName: CONVERSATION_LANGUAGE,
+    subjectFamily: CONFIG.subjectFamily || '',
+    storageKey: STORAGE_KEY,
+    topicOrder: TOPIC_ORDER.slice(),
+    topicOrderDerived: !(CONFIG.topicOrder && CONFIG.topicOrder.length),
+    features: Object.assign({}, FEATURES),
+    slots: Object.assign({}, CONFIG.slots || {}),
+    aids: CONFIG.aids || null,
+    nodeCount: allNodes.length,
+    skillCount: allNodes.filter(n => n.type === 'skill').length,
+    conceptCount: allNodes.filter(n => n.type === 'concept').length,
+    rootCount: allNodes.filter(n => !n.depends_on.length).length,
+    depth: allNodes.reduce((m, n) => Math.max(m, n.nivaa), 0) + 1,
+    promptOverrides: Object.keys(PROMPT_ROWS),
+    errors: validationErrors.map(errorText),
+  };
+  window.dispatchEvent(new CustomEvent('aist:ready', { detail: window.AIST_EFFECTIVE_CONFIG }));
 }
 
 function assignOrderIndex(row) {
@@ -2302,7 +2593,7 @@ function getAllAncestors(node) {
 }
 
 // Hjelpemiddel-konteksten (del1/del2/begge) er faglig innhold - hvert fag
-// definerer selv teksten i tree.json (aids.levels[].model), siden
+// definerer selv teksten i tree.csv (aids.<n>.model), siden
 // hva "hjelpemidler" betyr og hvilke regler som gjelder varierer per fag.
 
 

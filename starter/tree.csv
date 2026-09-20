@@ -1,0 +1,19 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Example skill tree,,,
+,config,,description,"A tiny tree with eight nodes, here so you can see the mechanism work before you write anything of your own. Replace every row below with your own subject.",,,
+,config,,language,en,,,
+,config,,subjectFamily,mathematics,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,this example course,,,
+,config,,slots.motivationSubject,maths,,,
+,config,,slots.expressionFocus,"writes an answer with no units, or uses the equals sign to chain steps that are not actually equal",,,
+,prompt,node,tone,"This row is here to show you that you can rewrite the teaching instructions themselves, not just the tree. It replaces one section of the practice tutor. Delete it and the default comes back.",,,"Be friendly and use a few emoji, but keep it professional. Keep your answers short unless the student asks for more."
+place-value,concept,Whole numbers,Place value,"The student can explain that the position of a digit decides its value, and can say what each digit in a multi-digit number is worth.",,,
+adding-whole,skill,Whole numbers,Adding whole numbers,"The student can add two multi-digit numbers, including cases that carry.",place-value,,
+multiplying-whole,skill,Whole numbers,Multiplying whole numbers,"The student can multiply a multi-digit number by a single digit, and explain the method in terms of place value.",adding-whole;place-value,,
+what-is-a-fraction,concept,Fractions,What a fraction is,"The student can explain a fraction as a number of equal parts of a whole, and read the numerator and denominator correctly.",place-value,,Ask the student to draw or describe a fraction before naming it. Getting to the picture first matters more here than getting the notation right.
+equivalent-fractions,skill,Fractions,Equivalent fractions,"The student can decide whether two fractions are equal, and can write a fraction in a different but equal form.",what-is-a-fraction;multiplying-whole,,
+simplify-fractions,skill,Fractions,Simplifying fractions,"The student can write a fraction in its simplest form, and explain why the value has not changed.",equivalent-fractions,,
+adding-fractions,skill,Fractions,Adding fractions with different denominators,The student can add two fractions with different denominators by rewriting them with a common denominator.,equivalent-fractions;adding-whole,,
+fractions-in-context,skill,Fractions,Using fractions in everyday situations,"The student can decide when a fraction is the right tool for a question asked in ordinary language, and can interpret the answer back in context.",adding-fractions;simplify-fractions,,

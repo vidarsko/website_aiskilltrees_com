@@ -18,6 +18,14 @@
     "copied": "Kopierat!",
     "copyFallback": "Det gick inte att kopiera automatiskt - kopiera texten nedan manuellt:",
     "errorBanner": "⚠ {n} problem hittades i datafilerna (se konsolen för detaljer):",
+    "errorCsv": "Kalkylarket kunde inte läsas på rad {row}: {message}",
+    "errorUnknownDep": "Noden »{id}« anger »{dep}« som förkunskap, men ingen nod har det id:t.",
+    "errorNoTopic": "Noden »{id}« saknar tema och hamnar i samlingskolumnen »{topic}«.",
+    "errorUnknownExamNode": "exams.csv hänvisar till nod-id:t »{id}«, som inte finns i tree.csv.",
+    "errorCycle": "De här noderna är förkunskaper för varandra, i en ring: {cycle}. En av länkarna måste bort.",
+    "errorUnknownConfig": "Okänd inställning »{key}« på rad {row} i tree.csv. Ingenting tillämpades.",
+    "errorDidYouMean": "Menade du »{key}«?",
+    "errorMissingConfig": "tree.csv saknar en config-rad för »{key}«, som krävs.",
     "nodeType": {
       "skill": "färdighet",
       "concept": "begrepp"

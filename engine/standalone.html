@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--
+    ===================================================================
+    ENKELTFIL-UTGAVEN av et ferdighetstre.
+
+    Denne fila er hele treet: motoren, stilene, instruksene, språkfila og
+    selve treet ligger inne i den. Den henter ingenting, og virker derfor
+    ved dobbeltklikk, uten nett og uten server.
+
+    DET ER IKKE EN FINESSE, DET ER DET ENESTE SOM VIRKER. En side åpnet
+    fra disk får opphavet `null` i nettleseren, og en side uten opphav får
+    ikke lese filer ved siden av seg - `fetch()` blokkeres av CORS. En
+    <script>-tagg blokkeres derimot ikke, fordi den ikke gir sida lesbare
+    data, den kjører kode. Derfor kommer treet inn som `AIST_BUNDLE`
+    nedenfor, altså som kode framfor som en fil som blir lest.
+
+    KILDEFILA DI LIGGER I FILA. Regnearket står ordrett i AIST_BUNDLE
+    under nøkkelen "tree.csv". Mister du CSV-en, kan du hente den ut
+    derfra - denne fila er sin egen kilde.
+
+    TILBAKELENKA ER FJERNET med vilje: dette treet ligger ikke i en
+    katalog, og en lenke til et nettsted er verdiløs i en fil som nettopp
+    er laget for å virke uten nett.
+
+    Laget av byggeren på aiskilltrees.com/make-your-own/. Vil du endre
+    treet, rediger regnearket og bygg en ny fil der; denne er med vilje
+    skrivebeskyttet, slik at den er trygg å dele videre til en klasse.
+    ===================================================================
+  -->
+  <title>AI Skill Trees</title>
+  <meta name="description" content="">
+
+  <style>/*AIST:STYLES*/</style>
+
+</head>
+<body>
+  <!--
+    engine.js tømmer denne <header>-en og flytter alt innholdet (tilbakelenke,
+    fremdriftslinje, tittel, ingress) inn i den flytende menyen nede til
+    venstre, slik at grafen får hele skjermhøyden. Se ensureActionMenu().
+    Elementene må derfor ligge her, med akkurat disse klassene — men de vises
+    aldri på denne plassen (tree.css skjuler `header` helt).
+  -->
+  <header>
+    <div class="header-inner">
+      <h1></h1>
+      <p class="tagline"></p>
+      <div class="progress-row">
+        <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
+        <span class="progress-label" id="progress-label"></span>
+      </div>
+    </div>
+  </header>
+
+  <div id="error-banner"></div>
+  <div id="legend"></div>
+
+  <main>
+    <div id="graph-scroll">
+      <div id="graph-container">
+        <div id="column-bands"></div>
+        <svg id="edges"></svg>
+        <div id="column-headers"></div>
+        <div id="nodes-layer"></div>
+      </div>
+    </div>
+
+    <aside id="detail-panel">
+      <div id="detail-panel-inner">
+        <p id="detail-empty"></p>
+      </div>
+    </aside>
+  </main>
+
+  <script>/*AIST:PAPAPARSE*/</script>
+  <script>/*AIST:BUNDLE*/</script>
+  <script>/*AIST:ENGINE*/</script>
+</body>
+</html>

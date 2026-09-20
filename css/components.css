@@ -570,3 +570,168 @@
 
 /* A band that is a short aside rather than a section of content. */
 .band--tight { padding-block: var(--space-4); }
+
+/* ==========================================================================
+   Tre-byggeren på /make-your-own/ (lagt til 2026-09-20)
+
+   Panelet har fire tilstander på `data-state`: empty (før noe er sluppet
+   inn), working, warn (tegnet, men med noe å rette) og ready. Resultatet
+   er skjult i `empty`, slik at sida ikke åpner med en rad tomme bokser.
+   ========================================================================== */
+
+.builder {
+  margin-top: var(--space-4);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.builder__drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+  background: var(--surface);
+  border: 2px dashed var(--rule-strong);
+  cursor: pointer;
+}
+
+.builder__drop:hover,
+.builder__drop:focus-visible,
+.builder__drop.is-over {
+  border-color: var(--primary);
+  background: var(--primary-tint);
+}
+
+.builder__droplabel {
+  font-family: var(--font-sans);
+  font-size: var(--step-m);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.builder__drophint {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+}
+
+.builder__result { display: grid; gap: var(--space-2); }
+.builder[data-state="empty"] .builder__result,
+.builder[data-state="working"] .builder__result { display: none; }
+.builder[data-state="error"] .statgrid,
+.builder[data-state="error"] .settings,
+.builder[data-state="error"] .builder__preview,
+.builder[data-state="error"] #download-html { display: none; }
+
+/* Feilseksjonen står bare der når det ER noe å rette. */
+.builder__errors:not(:has(.checklist)) { display: none; }
+
+.builder__subhead {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.builder__preview {
+  width: 100%;
+  height: min(70vh, 40rem);
+  margin-top: var(--space-2);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+/* ---- Tallene ved siden av grafen ---------------------------------------
+   En lærer kan ikke se av et regneark at forutsetningene aldri ble gjort.
+   Hen kan se det av at 41 av 58 noder starter fra ingenting. Derfor er
+   disse tallene ikke pynt, og derfor har `--flagged` en setning ved seg
+   framfor bare en farge. */
+.statgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.statline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: var(--space-2);
+  background: var(--surface);
+}
+
+.statline__value {
+  font-family: var(--font-sans);
+  font-size: var(--step-l);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.statline__label {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+}
+
+.statline__note {
+  margin-top: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  line-height: 1.5;
+  color: var(--amber-text);
+}
+
+.statline--flagged { background: var(--amber-tint); }
+
+/* ---- «Slik ble innstillingene dine lest» ------------------------------- */
+.settings { margin: var(--space-2) 0 0; display: grid; gap: 1px; background: var(--rule);
+            border: 1px solid var(--rule); }
+
+.setting {
+  display: grid;
+  grid-template-columns: minmax(8rem, 14rem) 1fr;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  background: var(--surface);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+}
+
+.setting dt { margin: 0; color: var(--ink-3); }
+.setting dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+
+@media (max-width: 34rem) {
+  .setting { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* ---- Feillista --------------------------------------------------------- */
+.checklist { margin: var(--space-2) 0 0; padding-left: 1.2rem; }
+
+.checklist--errors li {
+  margin-bottom: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  line-height: 1.55;
+  color: var(--danger-text);
+}
+
+.btn--small { min-height: 36px; padding: 0.4rem 1rem; font-size: var(--step-xs); }
+
+.step__note {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+.note {
+  font-size: var(--step-s);
+  color: var(--ink-3);
+}

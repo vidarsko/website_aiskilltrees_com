@@ -18,6 +18,14 @@
     "copied": "Copied!",
     "copyFallback": "Could not copy automatically - copy the text below manually:",
     "errorBanner": "⚠ {n} problem(s) found in the data files (see console for details):",
+    "errorCsv": "The spreadsheet could not be read on row {row}: {message}",
+    "errorUnknownDep": "Node «{id}» lists «{dep}» as a prerequisite, but no node has that id.",
+    "errorNoTopic": "Node «{id}» has no topic, and ends up in the catch-all column «{topic}».",
+    "errorUnknownExamNode": "exams.csv refers to the node id «{id}», which does not exist in tree.csv.",
+    "errorCycle": "These nodes are prerequisites for each other, in a circle: {cycle}. One of those links has to go.",
+    "errorUnknownConfig": "Unknown setting «{key}» on row {row} of tree.csv. Nothing was applied.",
+    "errorDidYouMean": "Did you mean «{key}»?",
+    "errorMissingConfig": "tree.csv has no config row for «{key}», which is required.",
     "nodeType": {
       "skill": "skill",
       "concept": "concept"

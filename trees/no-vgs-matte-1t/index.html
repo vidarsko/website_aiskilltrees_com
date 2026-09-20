@@ -76,7 +76,14 @@
     </aside>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <!--
+    PapaParse ligger LOKALT, ikke på et CDN (endret 2026-09-20). To grunner,
+    og den første er avgjørende: en nedlastet enkeltfil-utgave av et tre må
+    virke uten nett, og da kan ingen del av motoren ligge på en annen
+    maskin. Den andre er at sida da ikke gjør et tredjepartskall for å
+    tegne et ferdighetstre. MIT-lisensen står i fila.
+  -->
+  <script src="/engine/vendor/papaparse.min.js"></script>
   <script src="/engine/engine.js"></script>
 </body>
 </html>

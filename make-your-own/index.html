@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Make your own | AI Skill Trees</title>
-  <meta name="description" content="Download the kit, let an AI walk you through the decomposition, and send your tree in. There is no account, no backend and no cost." data-i18n-attr="content:meta-description">
+  <meta name="description" content="Build a skill tree for your own subject. Your spreadsheet stays on your machine; you get back one HTML file that works offline." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
@@ -13,16 +13,26 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <!--
+    PapaParse leses av builder.js for å kikke på config-radene (språk og
+    fagfamilie) før enkeltfila settes sammen. Samme lokale kopi som
+    ferdighetstrærne bruker - ingen CDN, se engine/index.html.
+  -->
+  <script src="/engine/vendor/papaparse.min.js" defer></script>
+  <script src="/js/builder.js" defer></script>
 
   <!--
-    SKETCH, 2026-09-20. The four steps are the agreed contribution flow (see
-    "Bidragsflyten" in the project note), but the kit, the setup prompt and
-    the form do not exist yet. Every CTA is therefore DISABLED rather than
-    linked to a dead URL — a button that says "not ready yet" is honest; one
-    that 404s is not.
+    BYGGEREN ER PÅ DENNE SIDA, OG BARE HER. Avgjort 2026-09-20, og det er
+    verdt å vite hvorfor, siden den nedlastede HTML-fila teknisk sett
+    kunne bygget en ny utgave av seg selv: det ville vært to steder å
+    vedlikeholde det samme, og en slippsone foran en klasse femtenåringer
+    som bare skal bruke treet. Fila er skrivebeskyttet med vilje.
 
-    When the real destinations exist, swap `.btn--disabled` + <span> for real
-    <a href> and delete the .draft-note band.
+    «Last opp» står det ingen steder, fordi ingenting lastes opp. Fila
+    leses med FileReader i lærerens egen nettleser, og HTML-fila settes
+    sammen der. Det er hele grunnen til at sida verken har backend,
+    konto eller databehandleravtale - ikke en formulering, men det som
+    faktisk skjer. Ikke skriv om teksten slik at den lover noe annet.
   -->
   <script type="application/json" id="i18n-dict">
   {
@@ -32,9 +42,9 @@
           "sv": "Gör ditt eget | AI Skill Trees"
       },
       "meta-description": {
-          "en": "Download the kit, let an AI walk you through the decomposition, and send your tree in. There is no account, no backend and no cost.",
-          "nb": "Last ned mappa, la en KI ta deg gjennom dekomponeringen, og send inn treet ditt. Det er ingen konto, ingen backend og ingen kostnad.",
-          "sv": "Ladda ner mappen, låt en AI ta dig genom nedbrytningen och skicka in ditt träd. Det finns inget konto, ingen backend och ingen kostnad."
+          "en": "Build a skill tree for your own subject. Your spreadsheet stays on your machine; you get back one HTML file that works offline.",
+          "nb": "Bygg et ferdighetstre for ditt eget fag. Regnearket ditt blir på din egen maskin, og du får tilbake én HTML-fil som virker uten nett.",
+          "sv": "Bygg ett färdighetsträd för ditt eget ämne. Ditt kalkylark stannar på din egen dator, och du får tillbaka en HTML-fil som fungerar utan nät."
       },
       "page-eyebrow": {
           "en": "For teachers",
@@ -47,109 +57,229 @@
           "sv": "Gör ditt eget"
       },
       "page-lede": {
-          "en": "A skill tree is a folder with two text files in it. Nothing needs to be installed or paid for, and the result is yours under an open licence whether or not you send it here.",
-          "nb": "Et ferdighetstre er en mappe med to tekstfiler i. Ingenting må installeres eller betales for, og resultatet er ditt under en åpen lisens enten du sender det inn her eller ikke.",
-          "sv": "Ett kunskapsträd är en mapp med två textfiler i. Ingenting behöver installeras eller betalas för, och resultatet är ditt under en öppen licens vare sig du skickar in det här eller inte."
+          "en": "A skill tree is one spreadsheet. Write it, drop it in below, and you get back a single HTML file with the whole tree inside it — no account, no installation, no cost.",
+          "nb": "Et ferdighetstre er ett regneark. Skriv det, slipp det inn under, og du får tilbake én HTML-fil med hele treet i. Ingen konto, ingen installasjon, ingen kostnad.",
+          "sv": "Ett färdighetsträd är ett kalkylark. Skriv det, släpp in det nedan, och du får tillbaka en HTML-fil med hela trädet i. Inget konto, ingen installation, ingen kostnad."
       },
-      "draft-note": {
-          "en": "This page is a sketch. The steps below are the agreed plan, but the kit, the prompt and the form are not built yet — the links are placeholders.",
-          "nb": "Denne sida er en skisse. Trinnene under er planen slik den er avtalt, men mappa, ledeteksten og skjemaet finnes ikke ennå — lenkene er plassholdere.",
-          "sv": "Den här sidan är en skiss. Stegen nedan är den överenskomna planen, men mappen, instruktionen och formuläret finns inte ännu — länkarna är platshållare."
+      "privacy-note": {
+          "en": "Your file is not uploaded anywhere. It is opened in your own browser, and the HTML file is built there too — this page has no server to send it to.",
+          "nb": "Fila di lastes ikke opp noe sted. Den åpnes i din egen nettleser, og HTML-fila lages der også — denne sida har ingen server å sende den til.",
+          "sv": "Din fil laddas inte upp någonstans. Den öppnas i din egen webbläsare, och HTML-filen byggs där också — den här sidan har ingen server att skicka den till."
       },
-      "steps-eyebrow": {
-          "en": "How it works",
-          "nb": "Slik gjør du det",
-          "sv": "Så gör du"
+      "levels-eyebrow": {
+          "en": "Three ways in",
+          "nb": "Tre veier inn",
+          "sv": "Tre vägar in"
       },
-      "step-1-title": {
-          "en": "Download the kit",
-          "nb": "Last ned mappa",
-          "sv": "Ladda ner mappen"
+      "levels-heading": {
+          "en": "Start wherever you are",
+          "nb": "Begynn der du er",
+          "sv": "Börja där du är"
       },
-      "step-1-body": {
-          "en": "One folder with the engine, the default instructions and a placeholder subject already filled in. Open it and a working tree appears — then replace the placeholder with your own subject.",
-          "nb": "Én mappe med motoren, standardinstruksene og et plassholderfag som alt er fylt ut. Åpne den, så står det et fungerende tre der — bytt så plassholderen mot ditt eget fag.",
-          "sv": "En mapp med motorn, standardinstruktionerna och ett platshållarämne som redan är ifyllt. Öppna den så står ett fungerande träd där — byt sedan ut platshållaren mot ditt eget ämne."
+      "l0-title": {
+          "en": "You have nothing yet",
+          "nb": "Du har ingenting ennå",
+          "sv": "Du har ingenting ännu"
       },
-      "step-2-title": {
-          "en": "Paste the prompt into an AI",
-          "nb": "Lim ledeteksten inn i en KI",
-          "sv": "Klistra in instruktionen i en AI"
+      "l0-body": {
+          "en": "Copy the instruction below into whichever AI chat you already use. It asks about your subject, your level and your curriculum, takes you through the decomposition, and hands you a spreadsheet at the end. Nothing to install.",
+          "nb": "Kopier instruksen under inn i den KI-chatten du allerede bruker. Den spør om faget ditt, nivået og læreplanen, tar deg gjennom dekomponeringen, og gir deg et regneark til slutt. Ingenting å installere.",
+          "sv": "Kopiera instruktionen nedan till den AI-chatt du redan använder. Den frågar om ditt ämne, din nivå och din läroplan, tar dig genom nedbrytningen och ger dig ett kalkylark till slut. Inget att installera."
       },
-      "step-2-body": {
-          "en": "Copy the instruction below into whichever AI chat you already use. It asks how you prefer to work, then takes you through decomposing your subject, filling in the files and checking the result.",
-          "nb": "Kopier instruksen under inn i den KI-chatten du allerede bruker. Den spør hvordan du helst jobber, og tar deg så gjennom å dekomponere faget, fylle ut filene og sjekke resultatet.",
-          "sv": "Kopiera instruktionen nedan till den AI-chatt du redan använder. Den frågar hur du helst arbetar och tar dig sedan genom att bryta ner ämnet, fylla i filerna och kontrollera resultatet."
+      "l0-cta": {
+          "en": "Copy the prompt",
+          "nb": "Kopier ledeteksten",
+          "sv": "Kopiera instruktionen"
       },
-      "step-3-title": {
-          "en": "Send it in",
-          "nb": "Send det inn",
-          "sv": "Skicka in det"
+      "l0-placeholder": {
+          "en": "[ Loading the prompt… ]",
+          "nb": "[ Henter ledeteksten … ]",
+          "sv": "[ Hämtar instruktionen … ]"
       },
-      "step-3-body": {
-          "en": "A form asks for the subject, the level, the country and the licence, and takes your files. Sending in is optional — the tree works on your own machine either way.",
-          "nb": "Et skjema spør om fag, nivå, land og lisens, og tar imot filene dine. Å sende inn er frivillig — treet virker på din egen maskin uansett.",
-          "sv": "Ett formulär frågar om ämne, nivå, land och licens, och tar emot dina filer. Att skicka in är frivilligt — trädet fungerar på din egen dator ändå."
+      "l1-title": {
+          "en": "You have a spreadsheet",
+          "nb": "Du har et regneark",
+          "sv": "Du har ett kalkylark"
       },
-      "step-4-title": {
-          "en": "It gets reviewed, then published",
-          "nb": "Det blir gjennomgått, så publisert",
-          "sv": "Det granskas, sedan publiceras det"
+      "l1-body": {
+          "en": "Drop it in below. You will see your tree straight away, along with what the file actually says and anything that looks wrong. When it looks right, download it.",
+          "nb": "Slipp det inn under. Du ser treet ditt med en gang, sammen med hva fila faktisk sier og alt som ser galt ut. Ser det riktig ut, laster du det ned.",
+          "sv": "Släpp in det nedan. Du ser ditt träd direkt, tillsammans med vad filen faktiskt säger och allt som ser fel ut. Ser det rätt ut laddar du ner det."
       },
-      "step-4-body": {
-          "en": "Mechanical checks run automatically: columns present, prerequisites pointing at real nodes, no cycles. The subject-matter reading is done by hand, which takes time.",
-          "nb": "Mekaniske sjekker kjøres automatisk: kolonnene finnes, forkunnskapene peker på noder som er der, ingen sykler. Den faglige gjennomgangen gjøres for hånd, og den tar tid.",
-          "sv": "Mekaniska kontroller körs automatiskt: kolumnerna finns, förkunskaperna pekar på noder som finns, inga cykler. Den ämnesmässiga genomgången görs för hand, och den tar tid."
+      "l1-cta": {
+          "en": "Download an example spreadsheet",
+          "nb": "Last ned et eksempelregneark",
+          "sv": "Ladda ner ett exempelkalkylark"
       },
-      "prompt-eyebrow": {
-          "en": "The setup prompt",
-          "nb": "Oppsettsledeteksten",
-          "sv": "Instruktionen för uppsättning"
+      "l1-cta-note": {
+          "en": "Eight nodes, every feature used once. It is also the best thing to hand the AI as a format example.",
+          "nb": "Åtte noder, hver ting brukt én gang. Den er også det beste å gi KI-en som formateksempel.",
+          "sv": "Åtta noder, varje sak använd en gång. Den är också det bästa att ge AI:n som formatexempel."
       },
-      "prompt-heading": {
-          "en": "Copy this into an AI chat",
-          "nb": "Kopier denne inn i en KI-chat",
-          "sv": "Kopiera denna till en AI-chatt"
+      "l2-title": {
+          "en": "You are going to live with this",
+          "nb": "Du skal leve med dette",
+          "sv": "Du ska leva med det här"
       },
-      "prompt-body": {
-          "en": "Written in English, like the rest of the instructions in this method — it will work in your language, and will ask you which one to use. Not written yet; this box is where it will live.",
-          "nb": "Skrevet på engelsk, som resten av instruksene i metoden — den virker på ditt språk, og spør deg hvilket. Ikke skrevet ennå; denne boksen er der den skal stå.",
-          "sv": "Skriven på engelska, som resten av instruktionerna i metoden — den fungerar på ditt språk och frågar dig vilket. Inte skriven ännu; den här rutan är där den ska stå."
+      "l2-body": {
+          "en": "If you will maintain a tree over several years, or build them for a whole department, it is worth working in an editor with an AI agent that can read the specification, run the checks and keep your versions. The method repository has the decomposition model, the default instructions and the file format.",
+          "nb": "Skal du vedlikeholde et tre over flere år, eller bygge dem for en hel seksjon, er det verdt å jobbe i en editor med en KI-agent som kan lese spesifikasjonen, kjøre sjekkene og holde styr på versjonene dine. Metode-repoet har dekomponeringsmodellen, standardinstruksene og filformatet.",
+          "sv": "Ska du underhålla ett träd över flera år, eller bygga dem för en hel sektion, är det värt att arbeta i en editor med en AI-agent som kan läsa specifikationen, köra kontrollerna och hålla reda på dina versioner. Metodrepot har nedbrytningsmodellen, standardinstruktionerna och filformatet."
       },
-      "prompt-placeholder": {
-          "en": "[ The setup prompt will appear here, with a copy button. ]",
-          "nb": "[ Oppsettsledeteksten kommer her, med en kopier-knapp. ]",
-          "sv": "[ Instruktionen kommer här, med en kopieringsknapp. ]"
+      "l2-cta": {
+          "en": "Open the method repository",
+          "nb": "Åpne metode-repoet",
+          "sv": "Öppna metodrepot"
       },
-      "update-eyebrow": {
-          "en": "Already sent one in?",
-          "nb": "Har du sendt inn før?",
-          "sv": "Har du skickat in tidigare?"
+      "builder-eyebrow": {
+          "en": "The builder",
+          "nb": "Byggeren",
+          "sv": "Byggaren"
       },
-      "update-heading": {
-          "en": "Sending a new version",
-          "nb": "Sende en ny versjon",
-          "sv": "Skicka en ny version"
+      "builder-heading": {
+          "en": "Your spreadsheet in, one HTML file out",
+          "nb": "Regnearket ditt inn, én HTML-fil ut",
+          "sv": "Ditt kalkylark in, en HTML-fil ut"
       },
-      "update-body": {
-          "en": "Use the same form and give the slug of the tree you are updating. A tree is expected to change as a syllabus is revised or a gap turns up. Versions are kept, so what a student saw last term stays citable.",
-          "nb": "Bruk det samme skjemaet og oppgi slug-en til treet du oppdaterer. Et tre skal kunne endres når en læreplan revideres eller et hull dukker opp. Versjonene tas vare på, så det en elev så forrige semester fortsatt kan siteres.",
-          "sv": "Använd samma formulär och ange sluggen för trädet du uppdaterar. Ett träd ska kunna ändras när en läroplan revideras eller en lucka dyker upp. Versionerna sparas, så det en elev såg förra terminen går fortfarande att citera."
+      "dropzone-label": {
+          "en": "Drop tree.csv here, or click to choose it",
+          "nb": "Slipp tree.csv her, eller klikk for å velge den",
+          "sv": "Släpp tree.csv här, eller klicka för att välja den"
       },
-      "cta-download": {
-          "en": "Download the kit",
-          "nb": "Last ned mappa",
-          "sv": "Ladda ner mappen"
+      "dropzone-hint": {
+          "en": "If you also have an exams.csv, drop it in at the same time.",
+          "nb": "Har du også en exams.csv, slipper du den inn samtidig.",
+          "sv": "Har du också en exams.csv släpper du in den samtidigt."
       },
-      "cta-form": {
-          "en": "Open the submission form",
-          "nb": "Åpne innsendingsskjemaet",
-          "sv": "Öppna inlämningsformuläret"
+      "download-cta": {
+          "en": "Download the tree as one HTML file",
+          "nb": "Last ned treet som én HTML-fil",
+          "sv": "Ladda ner trädet som en HTML-fil"
       },
-      "cta-soon": {
-          "en": "Not ready yet",
-          "nb": "Ikke klart ennå",
-          "sv": "Inte klart ännu"
+      "download-note": {
+          "en": "Everything is inside that one file: the engine, the instructions and your tree. It opens by double-clicking, works offline, and can be emailed to a class.",
+          "nb": "Alt ligger inne i den ene fila: motoren, instruksene og treet ditt. Den åpnes ved dobbeltklikk, virker uten nett, og kan sendes til en klasse på e-post.",
+          "sv": "Allt ligger inne i den enda filen: motorn, instruktionerna och ditt träd. Den öppnas med dubbelklick, fungerar utan nät och kan mejlas till en klass."
+      },
+      "report-settings": {
+          "en": "How your settings were read",
+          "nb": "Slik ble innstillingene dine lest",
+          "sv": "Så lästes dina inställningar"
+      },
+      "report-settings-note": {
+          "en": "Some of these you wrote, and some were worked out from your file. Both are shown, because a tree that looks wrong is usually one of these.",
+          "nb": "Noe av dette skrev du, og noe ble regnet ut fra fila di. Begge deler vises, fordi et tre som ser galt ut som regel er en av dem.",
+          "sv": "En del av detta skrev du, en del räknades ut från din fil. Båda visas, eftersom ett träd som ser fel ut oftast är en av dem."
+      },
+      "report-stats": {
+          "en": "What the tree looks like",
+          "nb": "Slik ser treet ut",
+          "sv": "Så ser trädet ut"
+      },
+      "report-errors": {
+          "en": "What needs fixing",
+          "nb": "Dette må rettes",
+          "sv": "Detta måste rättas"
+      },
+      "copy-errors-cta": {
+          "en": "Copy this list for your AI chat",
+          "nb": "Kopier lista til KI-chatten",
+          "sv": "Kopiera listan till AI-chatten"
+      },
+      "copied": {
+          "en": "Copied",
+          "nb": "Kopiert",
+          "sv": "Kopierat"
+      },
+      "copy-preamble": {
+          "en": "The skill tree builder found these problems in the tree.csv you made for me. Please fix them and give me the whole corrected file back.",
+          "nb": "Ferdighetstre-byggeren fant disse problemene i tree.csv-fila du laget for meg. Rett dem, og gi meg hele den rettede fila tilbake.",
+          "sv": "Färdighetsträdsbyggaren hittade de här problemen i tree.csv-filen du gjorde åt mig. Rätta dem och ge mig hela den rättade filen tillbaka."
+      },
+      "stat-nodes": {
+          "en": "nodes",
+          "nb": "noder",
+          "sv": "noder"
+      },
+      "stat-skills": {
+          "en": "skills / concepts",
+          "nb": "ferdigheter / begreper",
+          "sv": "färdigheter / begrepp"
+      },
+      "stat-skills-note": {
+          "en": "",
+          "nb": "",
+          "sv": ""
+      },
+      "stat-topics": {
+          "en": "topics",
+          "nb": "temaer",
+          "sv": "teman"
+      },
+      "stat-depth": {
+          "en": "levels deep",
+          "nb": "nivåer dypt",
+          "sv": "nivåer djupt"
+      },
+      "stat-roots": {
+          "en": "with no prerequisites",
+          "nb": "uten forutsetninger",
+          "sv": "utan förkunskaper"
+      },
+      "stat-roots-flat": {
+          "en": "That is a lot. A tree where most nodes start from nothing is usually one where the prerequisites were never worked out — worth sending back to the AI.",
+          "nb": "Det er mange. Et tre der de fleste nodene starter fra ingenting, er som regel et tre der forutsetningene aldri ble gjort — verdt å sende tilbake til KI-en.",
+          "sv": "Det är många. Ett träd där de flesta noder börjar från ingenting är oftast ett träd där förkunskaperna aldrig gjordes — värt att skicka tillbaka till AI:n."
+      },
+      "set-title": {
+          "en": "Title",
+          "nb": "Tittel",
+          "sv": "Titel"
+      },
+      "set-language": {
+          "en": "Language",
+          "nb": "Språk",
+          "sv": "Språk"
+      },
+      "set-family": {
+          "en": "Subject family",
+          "nb": "Fagfamilie",
+          "sv": "Ämnesfamilj"
+      },
+      "set-storage": {
+          "en": "Storage key",
+          "nb": "Lagringsnøkkel",
+          "sv": "Lagringsnyckel"
+      },
+      "set-topicorder": {
+          "en": "Topic order",
+          "nb": "Temarekkefølge",
+          "sv": "Temaordning"
+      },
+      "set-prompts": {
+          "en": "Instruction overrides",
+          "nb": "Overstyrte instrukser",
+          "sv": "Överstyrda instruktioner"
+      },
+      "set-derived": {
+          "en": "(worked out for you)",
+          "nb": "(utledet for deg)",
+          "sv": "(uträknat åt dig)"
+      },
+      "err-columns": {
+          "en": "The first row of the file must name the columns: {columns} is missing. Excel sometimes drops them when a file is saved in the wrong format — ask for the file again as plain CSV.",
+          "nb": "Første rad i fila må navngi kolonnene: {columns} mangler. Excel mister dem av og til når fila lagres i feil format — be om fila på nytt som ren CSV.",
+          "sv": "Filens första rad måste namnge kolumnerna: {columns} saknas. Excel tappar dem ibland när filen sparas i fel format — be om filen igen som ren CSV."
+      },
+      "err-render": {
+          "en": "The tree could not be drawn: {message}",
+          "nb": "Treet kunne ikke tegnes: {message}",
+          "sv": "Trädet kunde inte ritas: {message}"
+      },
+      "err-timeout": {
+          "en": "The tree did not finish drawing. That usually means the file is not a skill tree spreadsheet at all.",
+          "nb": "Treet ble aldri ferdig tegnet. Det betyr som regel at fila ikke er et ferdighetstre-regneark i det hele tatt.",
+          "sv": "Trädet ritades aldrig färdigt. Det betyder oftast att filen inte är ett färdighetsträdskalkylark alls."
       },
       "footer-line-1": {
           "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
@@ -157,9 +287,9 @@
           "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
       },
       "footer-line-2": {
-          "en": "Sketch. The kit, the prompt and the form are still being built.",
-          "nb": "Skisse. Mappa, ledeteksten og skjemaet er fortsatt under arbeid.",
-          "sv": "Skiss. Mappen, instruktionen och formuläret byggs fortfarande."
+          "en": "Nothing on this page is uploaded. Your file is read, and the result is built, in your own browser.",
+          "nb": "Ingenting på denne sida lastes opp. Fila di leses, og resultatet bygges, i din egen nettleser.",
+          "sv": "Ingenting på den här sidan laddas upp. Din fil läses, och resultatet byggs, i din egen webbläsare."
       }
   }
   </script>
@@ -175,71 +305,72 @@
         <p class="eyebrow" data-i18n="page-eyebrow">For teachers</p>
         <h1 data-i18n="page-heading">Make your own</h1>
         <div class="prose">
-          <p class="lede-p" data-i18n="page-lede">A skill tree is a folder with two text files in it. Nothing needs to be installed or paid for, and the result is yours under an open licence whether or not you send it here.</p>
+          <p class="lede-p" data-i18n="page-lede">A skill tree is one spreadsheet. Write it, drop it in below, and you get back a single HTML file with the whole tree inside it — no account, no installation, no cost.</p>
+          <p class="note" data-i18n="privacy-note">Your file is not uploaded anywhere. It is opened in your own browser, and the HTML file is built there too — this page has no server to send it to.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Says outright that this is unbuilt. Delete the whole band when it isn't. -->
-    <section class="band band--tint band--tight">
-      <div class="band__inner">
-        <p class="prose note" data-i18n="draft-note">This page is a sketch. The steps below are the agreed plan, but the kit, the prompt and the form are not built yet — the links are placeholders.</p>
       </div>
     </section>
 
     <section class="band band--alt">
       <div class="band__inner">
-        <p class="eyebrow" data-i18n="steps-eyebrow">How it works</p>
+        <p class="eyebrow" data-i18n="levels-eyebrow">Three ways in</p>
+        <h2 data-i18n="levels-heading">Start wherever you are</h2>
         <ol class="steps">
           <li class="step">
             <span class="step__index" aria-hidden="true">01</span>
-            <h2 class="step__title" data-i18n="step-1-title">Download the kit</h2>
-            <p class="step__body" data-i18n="step-1-body">One folder with the engine, the default instructions and a placeholder subject already filled in. Open it and a working tree appears — then replace the placeholder with your own subject.</p>
-            <span class="btn btn--primary btn--disabled" aria-disabled="true">
-              <span data-i18n="cta-download">Download the kit</span>
-              <span class="btn__note" data-i18n="cta-soon">Not ready yet</span>
-            </span>
+            <h3 class="step__title" data-i18n="l0-title">You have nothing yet</h3>
+            <p class="step__body" data-i18n="l0-body">Copy the instruction below into whichever AI chat you already use. It asks about your subject, your level and your curriculum, takes you through the decomposition, and hands you a spreadsheet at the end. Nothing to install.</p>
+            <button type="button" class="btn btn--primary" data-copy-target="authoring-prompt" data-i18n="l0-cta">Copy the prompt</button>
+            <pre class="promptbox" id="authoring-prompt" data-i18n="l0-placeholder">[ Loading the prompt… ]</pre>
           </li>
           <li class="step">
             <span class="step__index" aria-hidden="true">02</span>
-            <h2 class="step__title" data-i18n="step-2-title">Paste the prompt into an AI</h2>
-            <p class="step__body" data-i18n="step-2-body">Copy the instruction below into whichever AI chat you already use. It asks how you prefer to work, then takes you through decomposing your subject, filling in the files and checking the result.</p>
+            <h3 class="step__title" data-i18n="l1-title">You have a spreadsheet</h3>
+            <p class="step__body" data-i18n="l1-body">Drop it in below. You will see your tree straight away, along with what the file actually says and anything that looks wrong. When it looks right, download it.</p>
+            <a class="btn btn--ghost" href="/starter/tree.csv" download data-i18n="l1-cta">Download an example spreadsheet</a>
+            <p class="step__note" data-i18n="l1-cta-note">Eight nodes, every feature used once. It is also the best thing to hand the AI as a format example.</p>
           </li>
           <li class="step">
             <span class="step__index" aria-hidden="true">03</span>
-            <h2 class="step__title" data-i18n="step-3-title">Send it in</h2>
-            <p class="step__body" data-i18n="step-3-body">A form asks for the subject, the level, the country and the licence, and takes your files. Sending in is optional — the tree works on your own machine either way.</p>
-            <span class="btn btn--ghost btn--disabled" aria-disabled="true">
-              <span data-i18n="cta-form">Open the submission form</span>
-              <span class="btn__note" data-i18n="cta-soon">Not ready yet</span>
-            </span>
-          </li>
-          <li class="step">
-            <span class="step__index" aria-hidden="true">04</span>
-            <h2 class="step__title" data-i18n="step-4-title">It gets reviewed, then published</h2>
-            <p class="step__body" data-i18n="step-4-body">Mechanical checks run automatically: columns present, prerequisites pointing at real nodes, no cycles. The subject-matter reading is done by hand, which takes time.</p>
+            <h3 class="step__title" data-i18n="l2-title">You are going to live with this</h3>
+            <p class="step__body" data-i18n="l2-body">If you will maintain a tree over several years, or build them for a whole department, it is worth working in an editor with an AI agent that can read the specification, run the checks and keep your versions. The method repository has the decomposition model, the default instructions and the file format.</p>
+            <a class="btn btn--ghost" href="https://github.com/vidarsko/ai-skill-trees" data-i18n="l2-cta">Open the method repository</a>
           </li>
         </ol>
       </div>
     </section>
 
-    <section class="band">
+    <section class="band" id="builder">
       <div class="band__inner">
-        <p class="eyebrow" data-i18n="prompt-eyebrow">The setup prompt</p>
-        <h2 data-i18n="prompt-heading">Copy this into an AI chat</h2>
-        <div class="prose">
-          <p data-i18n="prompt-body">Written in English, like the rest of the instructions in this method — it will work in your language, and will ask you which one to use. Not written yet; this box is where it will live.</p>
-        </div>
-        <pre class="promptbox" data-i18n="prompt-placeholder">[ The setup prompt will appear here, with a copy button. ]</pre>
-      </div>
-    </section>
+        <p class="eyebrow" data-i18n="builder-eyebrow">The builder</p>
+        <h2 data-i18n="builder-heading">Your spreadsheet in, one HTML file out</h2>
 
-    <section class="band band--alt">
-      <div class="band__inner">
-        <p class="eyebrow" data-i18n="update-eyebrow">Already sent one in?</p>
-        <h2 data-i18n="update-heading">Sending a new version</h2>
-        <div class="prose">
-          <p data-i18n="update-body">Use the same form and give the slug of the tree you are updating. A tree is expected to change as a syllabus is revised or a gap turns up. Versions are kept, so what a student saw last term stays citable.</p>
+        <div class="builder" id="builder-panel" data-state="empty">
+          <div class="builder__drop" id="dropzone" tabindex="0" role="button">
+            <span class="builder__droplabel" data-i18n="dropzone-label">Drop tree.csv here, or click to choose it</span>
+            <span class="builder__drophint" data-i18n="dropzone-hint">If you also have an exams.csv, drop it in at the same time.</span>
+            <input type="file" id="file-input" accept=".csv,text/csv" multiple hidden>
+          </div>
+
+          <div class="builder__result">
+            <div class="builder__errors" id="builder-errors-wrap">
+              <h3 class="builder__subhead" data-i18n="report-errors">What needs fixing</h3>
+              <div id="builder-errors"></div>
+              <button type="button" class="btn btn--ghost btn--small" id="copy-errors" hidden data-i18n="copy-errors-cta">Copy this list for your AI chat</button>
+            </div>
+
+            <h3 class="builder__subhead" data-i18n="report-stats">What the tree looks like</h3>
+            <div class="statgrid" id="builder-stats"></div>
+
+            <h3 class="builder__subhead" data-i18n="report-settings">How your settings were read</h3>
+            <p class="note" data-i18n="report-settings-note">Some of these you wrote, and some were worked out from your file. Both are shown, because a tree that looks wrong is usually one of these.</p>
+            <dl class="settings" id="builder-settings"></dl>
+
+            <iframe class="builder__preview" id="preview-frame" title="Preview"></iframe>
+
+            <button type="button" class="btn btn--primary" id="download-html" disabled data-i18n="download-cta">Download the tree as one HTML file</button>
+            <p class="step__note" data-i18n="download-note">Everything is inside that one file: the engine, the instructions and your tree. It opens by double-clicking, works offline, and can be emailed to a class.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -249,7 +380,7 @@
   <footer class="band band--dark sitefooter">
     <div class="band__inner sitefooter__inner">
       <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p data-i18n="footer-line-2">Sketch. The kit, the prompt and the form are still being built.</p>
+      <p data-i18n="footer-line-2">Nothing on this page is uploaded. Your file is read, and the result is built, in your own browser.</p>
     </div>
   </footer>
 
