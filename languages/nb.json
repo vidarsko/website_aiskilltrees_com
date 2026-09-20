@@ -86,7 +86,8 @@
       "title": "Vis en systematisk liste over alle læringsmål, sortert etter tema",
       "heading": "Alle læringsmål",
       "copyAll": "Kopier alle",
-      "intro": "Lista viser alle læringsmålene i faget, sortert etter tema, med status for hvert av dem. For lærere: huk av de læringsmålene neste økt skal dekke, og lag et ferdig undervisningsopplegg nederst."
+      "intro": "Lista viser alle læringsmålene i faget, sortert etter tema, med status for hvert av dem. For lærere: huk av de læringsmålene neste økt skal dekke, og lag et ferdig undervisningsopplegg nederst.",
+      "openNode": "Gå til denne noden i kartet"
     },
     "motivation": {
       "button": "Hvorfor skal jeg lære matte?",
@@ -132,7 +133,8 @@
     "aids": {
       "heading": "Hjelpemidler",
       "tagTitle": "Se hva du får bruke på dette nivået",
-      "multipleNote": "Denne ferdigheten hører til flere nivåer. Du bør klare den under det strengeste av dem — altså med færrest hjelpemidler."
+      "multipleNote": "Denne ferdigheten hører til flere nivåer. Du bør klare den under det strengeste av dem — altså med færrest hjelpemidler.",
+      "multipleNoteGeneral": "En ferdighet kan høre til flere nivåer. Merkelappen er da delt i flere farger, og du bør klare ferdigheten under det strengeste av nivåene — altså med færrest hjelpemidler."
     },
     "menu": {
       "label": "Meny"

@@ -86,7 +86,8 @@
       "title": "Show a systematic list of every learning goal, sorted by topic",
       "heading": "All learning goals",
       "copyAll": "Copy all",
-      "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. For teachers: tick the learning goals the next lesson should cover, and build a complete lesson plan at the bottom."
+      "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. For teachers: tick the learning goals the next lesson should cover, and build a complete lesson plan at the bottom.",
+      "openNode": "Go to this node in the map"
     },
     "motivation": {
       "button": "Why should I learn this?",
@@ -132,7 +133,8 @@
     "aids": {
       "heading": "Aids",
       "tagTitle": "See what you may use at this level",
-      "multipleNote": "This skill belongs to several levels. You should be able to manage it under the most restrictive of them — that is, with the fewest aids."
+      "multipleNote": "This skill belongs to several levels. You should be able to manage it under the most restrictive of them — that is, with the fewest aids.",
+      "multipleNoteGeneral": "A skill can belong to several levels. Its tag is then split into several colours, and you should be able to manage the skill under the most restrictive of those levels — that is, with the fewest aids."
     },
     "menu": {
       "label": "Menu"

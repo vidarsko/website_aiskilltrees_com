@@ -86,7 +86,8 @@
       "title": "Visa en systematisk lista över alla lärandemål, sorterad efter tema",
       "heading": "Alla lärandemål",
       "copyAll": "Kopiera alla",
-      "intro": "Listan visar alla lärandemål i ämnet, sorterade efter tema, med status för vart och ett. För lärare: kryssa i de lärandemål nästa lektion ska täcka, och skapa en färdig lektionsplanering längst ner."
+      "intro": "Listan visar alla lärandemål i ämnet, sorterade efter tema, med status för vart och ett. För lärare: kryssa i de lärandemål nästa lektion ska täcka, och skapa en färdig lektionsplanering längst ner.",
+      "openNode": "Gå till den här noden i kartan"
     },
     "motivation": {
       "button": "Varför ska jag lära mig matte?",
@@ -132,7 +133,8 @@
     "aids": {
       "heading": "Hjälpmedel",
       "tagTitle": "Se vad du får använda på den här nivån",
-      "multipleNote": "Den här färdigheten hör till flera nivåer. Du bör klara den under den striktaste av dem — alltså med minst hjälpmedel."
+      "multipleNote": "Den här färdigheten hör till flera nivåer. Du bör klara den under den striktaste av dem — alltså med minst hjälpmedel.",
+      "multipleNoteGeneral": "En färdighet kan höra till flera nivåer. Märkningen är då delad i flera färger, och du bör klara färdigheten under den striktaste av nivåerna — alltså med minst hjälpmedel."
     },
     "menu": {
       "label": "Meny"

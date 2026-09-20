@@ -60,9 +60,9 @@ let LAYOUT = {
   hGap: 34,
   vGap: 96,
   columnGap: 56,
-  columnLabelHeight: 44,
+  columnLabelHeight: 28,   // emnebåndet øverst — holdes lavt, se .column-header i tree.css
   maxNodesPerRow: 3, // bryt en emne-rad i flere rader nedover når den blir bredere enn dette
-  padding: 20,
+  padding: 12,             // luft rundt hele lerretet; var 20 til 2026-09-20
   barycenterPasses: 4,
 };
 
@@ -631,14 +631,11 @@ function renderCourseInfoBody(body) {
   const m = META || {};
   body.innerHTML = '';
 
-  if (m.summary || CONFIG.description) {
-    const lead = document.createElement('p');
-    lead.className = 'course-info__lead';
-    lead.textContent = m.summary || CONFIG.description;
-    body.appendChild(lead);
-  }
+  /* Faktatabellen FØRST, ingressen etter. Vidars rekkefølge 2026-09-20:
+     den som åpner «Om faget» er ute etter fag, nivå og læreplan, ikke en
+     oppsummering de allerede har lest i katalogen.
 
-  /* Faktatabellen. Bare rader som FINNES vises — et felt ingen har fylt ut
+     Faktatabellen. Bare rader som FINNES vises — et felt ingen har fylt ut
      skal ikke stå igjen som en tom rad. */
   const facts = [
     ['courseInfo.course',      m.course],
@@ -663,6 +660,13 @@ function renderCourseInfoBody(body) {
     body.appendChild(dl);
   }
 
+  if (m.summary || CONFIG.description) {
+    const lead = document.createElement('p');
+    lead.className = 'course-info__lead';
+    lead.textContent = m.summary || CONFIG.description;
+    body.appendChild(lead);
+  }
+
   // ---- hjelpemiddelnivåene, i sin helhet --------------------------
   const cfg = aidsConfig();
   if (treeUsesAids() && cfg) {
@@ -685,9 +689,12 @@ function renderCourseInfoBody(body) {
       sec.appendChild(row);
     });
 
+    /* Egen tekst her: `aids.multipleNote` er skrevet om ÉN node («Denne
+       ferdigheten hører til flere nivåer»), og leser rart i et vindu som
+       beskriver hele faget. */
     const note = document.createElement('p');
     note.className = 'course-info__note';
-    note.textContent = t('aids.multipleNote');
+    note.textContent = t('aids.multipleNoteGeneral');
     sec.appendChild(note);
 
     body.appendChild(sec);
@@ -1061,11 +1068,21 @@ function renderGoalIndexBody(body) {
       const main = document.createElement('div');
       main.className = 'goal-index-item-main';
 
-      const label = document.createElement('label');
-      label.setAttribute('for', cb.id);
-      label.className = 'goal-index-item-name';
-      label.textContent = `${n.goalIndex}) ${n.name}`;
-      main.appendChild(label);
+      /* Navnet er en KNAPP som hopper til noden i kartet, ikke en <label>
+         som huker av boksen. Avkryssingen er lærerens utvalg til
+         undervisningsopplegget — en elev som blar i lista vil se noden,
+         ikke plukke den. Boksen står fortsatt der for den som vil krysse. */
+      const jump = document.createElement('button');
+      jump.type = 'button';
+      jump.className = 'goal-index-item-name';
+      jump.textContent = `${n.goalIndex}) ${n.name}`;
+      jump.title = t('goalIndex.openNode');
+      jump.addEventListener('click', () => {
+        closeGoalIndexModal();
+        scrollNodeIntoView(n.id);   // «gå til noden i treet», ikke bare åpne panelet
+        openDetail(n.id);
+      });
+      main.appendChild(jump);
 
       const badge = document.createElement('span');
       badge.className = 'goal-index-item-status';
