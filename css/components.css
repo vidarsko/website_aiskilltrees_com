@@ -264,12 +264,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* The clip is 1920x736 — the same shape as the hero box on a 1920-wide
-     display, so nothing is cropped there at all. Below that the box gets
-     relatively taller and cover crops the sides instead: on a phone only about
-     a quarter of the width survives. 55% aims that quarter at the middle
-     panel — the node title and its copy-the-instruction button — rather than
-     at the edge of the tree or at the chat. */
+  /* The clip is 1920x700 and the hero box is 1920x736 at its tallest, so a
+     wide display trims a few percent off the sides. Narrower viewports crop
+     far more: the box turns portrait on a phone, where only about a fifth of
+     the width survives. 55% aims that strip at the middle panel — the node
+     title and its copy-the-instruction button — rather than at the edge of
+     the tree or at the chat. */
   object-position: 55% 50%;
 }
 

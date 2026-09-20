@@ -159,10 +159,10 @@
       to be read — the h1 carries the meaning, which is why the video is
       aria-hidden.
 
-      1920x736 is not arbitrary: that is exactly the hero box on a 1920-wide
-      display, so the clip is shown uncropped there. Narrower viewports crop
-      horizontally around object-position — see css/components.css, which aims
-      that crop at the middle panel.
+      The clip is 1920x700 against a hero box that is at most 1920x736, so a
+      wide display trims a few percent off the sides. Narrower viewports crop
+      far more, horizontally, around object-position — see css/components.css,
+      which aims that crop at the middle panel.
 
       The poster is frame 0 of the same file, so the handoff from still to
       playing video is invisible. It is also what stands in for the video when
