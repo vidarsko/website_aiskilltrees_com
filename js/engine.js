@@ -64,6 +64,7 @@
    reelle forskjellen fra den gamle synkrone config.js-modellen. */
 let CONFIG = null;          // ./tree.json
 let META = null;            // ./meta.json (katalogens metadata — vises i kursinfo)
+let VOCAB = null;           // /trees/vocabulary.json (kontrollert vokabular for meta.json)
 let LANG = null;            // /languages/<kode>.json
 let CORE = null;            // { prompts: { <id>: instruksmodul } } - satt sammen av
                             //   bootstrap() fra /prompts/manifest.json. Formen er den
@@ -271,7 +272,7 @@ let themeList = [];
 /* Krever /js/analytics.js i <head>. Mangler den, gjør dette ingenting. */
 /* ------------------------------------------------------------------ */
 
-// «/trees/matte-2p/» → «matte-2p». Slug-en er mappenavnet; det finnes
+// «/trees/no-vgs-matte-2p/» → «no-vgs-matte-2p». Slug-en er mappenavnet; det finnes
 // ingen egen id i config, og mappenavnet er allerede nøkkelen i
 // /trees/trees.json og i meta.json.
 function treeSlug() {
@@ -352,6 +353,11 @@ async function bootstrap() {
      metadataen framfor å duplisere den inn i tree.json — ett sted å
      rette en årstall- eller forfatterfeil. Mangler den, klarer vi oss. */
   META = await fetchJson('meta.json').catch(() => null);
+  /* Vokabularet oversetter nøklene i meta.json (country, institution,
+     division, subjectArea, language) til lesbar tekst. Treet slår opp på
+     SITT EGET språk, ikke leserens: et tre er enspråklig, og «Om faget»
+     skal stå på treets språk uansett hvor leseren kom fra. */
+  VOCAB = await fetchJson('/trees/vocabulary.json').catch(() => null);
 
   CONVERSATION_LANGUAGE = CONFIG.languageName || LANG.name;
   STORAGE_KEY = CONFIG.storageKey;
@@ -713,6 +719,49 @@ function ensureCourseInfoModal() {
   return overlay;
 }
 
+/* ------------------------------------------------------------------ */
+/* Vokabularoppslag for «Om faget»                                      */
+/*                                                                      */
+/* meta.json lagrer nøkler («NO», «vgs», «vg2», «mathematics», «nb»),   */
+/* ikke ferdig tekst — se /trees/vocabulary.json. Oppslaget her gjøres   */
+/* på TREETS eget språk (CONFIG.language), ikke på leserens: trærne er   */
+/* enspråklige, og denne sida har ingen språkveksler.                    */
+/*                                                                      */
+/* Returnerer null når noe mangler, og kallestedet dropper raden. En     */
+/* ukjent nøkkel fanges av katalogen, som utelater treet og sier hvorfor */
+/* i konsollen — her er det ikke noe å vinne på å gjenta kontrollen.     */
+/* ------------------------------------------------------------------ */
+
+function vocabLocalized(entry) {
+  if (!entry) return null;
+  const code = (CONFIG && CONFIG.language) || 'en';
+  return entry[code] || entry.en || null;
+}
+
+function vocabText(field, key) {
+  if (!VOCAB || !VOCAB[field] || !key) return null;
+  const entry = VOCAB[field][key];
+  /* En institusjon er ikke bare en tekst - den bærer også sin egen
+     inndeling - så visningsnavnet ligger under `label`. De andre feltene
+     er rene {språk: tekst}-oppslag. */
+  return vocabLocalized(field === 'institution' ? (entry && entry.label) : entry);
+}
+
+function vocabInstitution(key) {
+  return (VOCAB && VOCAB.institution && key && VOCAB.institution[key]) || null;
+}
+
+function vocabDivision(institutionKey, divisionKey) {
+  const inst = vocabInstitution(institutionKey);
+  if (!inst || !inst.divisions || !divisionKey) return null;
+  return vocabLocalized(inst.divisions[divisionKey]);
+}
+
+function vocabDivisionLabel(institutionKey) {
+  const inst = vocabInstitution(institutionKey);
+  return inst ? vocabLocalized(inst.divisionLabel) : null;
+}
+
 function renderCourseInfoBody(body) {
   const m = META || {};
   body.innerHTML = '';
@@ -724,21 +773,26 @@ function renderCourseInfoBody(body) {
      Faktatabellen. Bare rader som FINNES vises — et felt ingen har fylt ut
      skal ikke stå igjen som en tom rad. */
   const facts = [
-    ['courseInfo.course',      m.course],
-    ['courseInfo.level',       [m.level, m.grade].filter(Boolean).join(' · ')],
-    ['courseInfo.curriculum',  m.curriculum],
-    ['courseInfo.institution', m.institution],
-    ['courseInfo.country',     m.country],
-    ['courseInfo.language',    m.language],
-    ['courseInfo.size',        nodeCountText(m)],
+    [t('courseInfo.course'),      m.course],
+    /* Inndelingsraden navngis av institusjonen framfor av språkfila:
+       «Trinn» for et skoleslag, «Fakultet» for et universitet. Se
+       `institution` i /trees/vocabulary.json for hvorfor det ikke finnes
+       ett ord som dekker begge. */
+    [vocabDivisionLabel(m.institution) || t('courseInfo.division'),
+                                  vocabDivision(m.institution, m.division)],
+    [t('courseInfo.curriculum'),  m.curriculum],
+    [t('courseInfo.institution'), vocabText('institution', m.institution)],
+    [t('courseInfo.country'),     vocabText('country', m.country)],
+    [t('courseInfo.language'),    vocabText('language', m.language)],
+    [t('courseInfo.size'),        nodeCountText(m)],
   ].filter(row => row[1]);
 
   if (facts.length) {
     const dl = document.createElement('dl');
     dl.className = 'course-info__facts';
-    facts.forEach(([key, value]) => {
+    facts.forEach(([label, value]) => {
       const dt = document.createElement('dt');
-      dt.textContent = t(key);
+      dt.textContent = label;
       const dd = document.createElement('dd');
       dd.textContent = value;
       dl.append(dt, dd);
@@ -787,11 +841,13 @@ function renderCourseInfoBody(body) {
   }
 
   // ---- hvem, når, lisens ------------------------------------------
+  /* Ingen statusrad: ligger treet på sida, er det publisert. Skillet
+     utkast/publisert ble fjernet 2026-09-20 — det beskrev hvor ferdig
+     Vidar syntes treet var, ikke noe leseren kunne bruke. */
   const credits = [
     ['courseInfo.author',  m.author],
     ['courseInfo.updated', m.updated],
     ['courseInfo.license', m.license],
-    ['courseInfo.status',  m.status],
   ].filter(row => row[1]);
 
   if (credits.length) {

@@ -56,7 +56,7 @@
   }
 
   /* A nav link is current when the path starts with its href. '/trees/'
-     therefore stays lit inside '/trees/matte-2p/' — but tree pages do not
+     therefore stays lit inside '/trees/no-vgs-matte-2p/' — but tree pages do not
      load this header at all (they are single-language, see js/engine.js). */
   function isCurrent(href) {
     var p = location.pathname;

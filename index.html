@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Skill Trees</title>
-  <meta name="description" content="A teacher-written map of a subject, plus instructions that turn any AI chat into a practice partner — one that holds back what it could give away." data-i18n-attr="content:meta-description">
+  <meta name="description" content="A skill tree is a graph of the skills and concepts in one school subject, written by a teacher. Each node carries an instruction you copy into an AI chat." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
@@ -26,121 +26,121 @@
   -->
   <script type="application/json" id="i18n-dict">
   {
-    "meta-description": {
-      "en": "A teacher-written map of a subject, plus instructions that turn any AI chat into a practice partner — one that holds back what it could give away.",
-      "nb": "Et lærerskrevet kart over et fag, pluss instrukser som gjør hvilken som helst KI-chat til en øvingspartner — en som holder tilbake det den kunne røpet.",
-      "sv": "En lärarskriven karta över ett ämne, plus instruktioner som gör vilken AI-chatt som helst till en övningspartner — en som håller inne med det den skulle kunna avslöja."
-    },
-    "hero-eyebrow": {
-      "en": "An open method for teachers",
-      "nb": "En åpen metode for lærere",
-      "sv": "En öppen metod för lärare"
-    },
-    "hero-title": {
-      "en": "Skill trees your students can actually see.",
-      "nb": "Ferdighetstrær elevene faktisk får se.",
-      "sv": "Kunskapsträd som eleverna faktiskt får se."
-    },
-    "hero-lede": {
-      "en": "A teacher-written map of a subject, plus instructions that turn any AI chat into a practice partner — one that holds back what it could give away.",
-      "nb": "Et lærerskrevet kart over et fag, pluss instrukser som gjør hvilken som helst KI-chat til en øvingspartner — en som holder tilbake det den kunne røpet.",
-      "sv": "En lärarskriven karta över ett ämne, plus instruktioner som gör vilken AI-chatt som helst till en övningspartner — en som håller inne med det den skulle kunna avslöja."
-    },
-    "hero-img-alt": {
-      "en": "A teacher standing at a whiteboard, pointing at a hand-drawn diagram of boxes joined by arrows, in front of a seated group.",
-      "nb": "En lærer står ved en tavle og peker på en håndtegnet figur av bokser bundet sammen med piler, foran en gruppe som sitter og ser på.",
-      "sv": "En lärare står vid en whiteboard och pekar på en handritad figur av rutor sammanbundna med pilar, framför en sittande grupp."
-    },
-    "hero-cta-primary": {
-      "en": "See a tree",
-      "nb": "Se et ferdighetstre",
-      "sv": "Se ett kunskapsträd"
-    },
-    "hero-cta-secondary": {
-      "en": "Read the method",
-      "nb": "Les metoden",
-      "sv": "Läs metoden"
-    },
-    "what-eyebrow": {
-      "en": "What this is",
-      "nb": "Hva dette er",
-      "sv": "Vad det här är"
-    },
-    "what-heading": {
-      "en": "The graph is the interface, not the engine.",
-      "nb": "Grafen er grensesnittet, ikke motoren.",
-      "sv": "Grafen är gränssnittet, inte motorn."
-    },
-    "what-p1": {
-      "en": "Prerequisite graphs are not new — adaptive systems have computed them for decades. What they do not do is show them. Here the graph <em>is</em> the interface: the student sees the whole structure of a subject, chooses where to start, and can tell what any one skill rests on.",
-      "nb": "Forkunnskapsgrafer er ikke noe nytt — adaptive systemer har regnet dem ut i flere tiår. Det de ikke gjør, er å vise dem. Her <em>er</em> grafen grensesnittet: eleven ser hele strukturen i faget, velger selv inngang, og kan se hva hver enkelt ferdighet hviler på.",
-      "sv": "Förkunskapsgrafer är inget nytt — adaptiva system har räknat ut dem i decennier. Det de inte gör är att visa dem. Här <em>är</em> grafen gränssnittet: eleven ser hela ämnets struktur, väljer själv sin ingång och kan se vad varje enskild färdighet vilar på."
-    },
-    "what-p2": {
-      "en": "Nothing here calls a language model. The tool composes a teacher-written instruction that you paste into whichever AI chat you already use. No vendor lock-in, no cost per student, no data processing agreement — and every instruction is written to make the model hold something back, so the student still does the thinking.",
-      "nb": "Ingenting her kaller en språkmodell. Verktøyet setter sammen en lærerskrevet instruks som du limer inn i den KI-chatten du allerede bruker. Ingen leverandøravhengighet, ingen kostnad per elev, ingen databehandleravtale — og hver eneste instruks er skrevet for å få modellen til å holde noe tilbake, slik at eleven fortsatt gjør tenkearbeidet.",
-      "sv": "Ingenting här anropar en språkmodell. Verktyget sätter samman en lärarskriven instruktion som du klistrar in i den AI-chatt du redan använder. Ingen leverantörsinlåsning, ingen kostnad per elev, inget personuppgiftsbiträdesavtal — och varje instruktion är skriven för att få modellen att hålla något inne, så att eleven fortfarande gör tankearbetet."
-    },
-    "start-eyebrow": {
-      "en": "Start here",
-      "nb": "Start her",
-      "sv": "Börja här"
-    },
-    "tile-1-title": {
-      "en": "Existing skill trees",
-      "nb": "Ferdighetstrær som finnes",
-      "sv": "Kunskapsträd som finns"
-    },
-    "tile-1-body": {
-      "en": "Browse the subjects already decomposed — what a finished tree looks like, and what a node actually contains.",
-      "nb": "Bla i fagene som allerede er dekomponert — hvordan et ferdig tre ser ut, og hva en node faktisk inneholder.",
-      "sv": "Bläddra bland ämnena som redan är nedbrutna — hur ett färdigt träd ser ut, och vad en nod faktiskt innehåller."
-    },
-    "tile-1-go": {
-      "en": "Browse →",
-      "nb": "Bla i dem →",
-      "sv": "Bläddra →"
-    },
-    "tile-2-title": {
-      "en": "Make your own",
-      "nb": "Lag ditt eget",
-      "sv": "Gör ditt eget"
-    },
-    "tile-2-body": {
-      "en": "The decomposition specification, the instructions, and a template for starting a new subject — in your language, for your syllabus.",
-      "nb": "Dekomponeringsspesifikasjonen, instruksene og en mal for å starte et nytt fag — på ditt språk, for din læreplan.",
-      "sv": "Nedbrytningsspecifikationen, instruktionerna och en mall för att börja med ett nytt ämne — på ditt språk, för din läroplan."
-    },
-    "tile-2-go": {
-      "en": "Get the spec →",
-      "nb": "Hent spesifikasjonen →",
-      "sv": "Hämta specifikationen →"
-    },
-    "tile-3-title": {
-      "en": "Research",
-      "nb": "Forskning",
-      "sv": "Forskning"
-    },
-    "tile-3-body": {
-      "en": "The cognitive grounding behind the design, and the paper describing why a visible, teacher-written graph is the point.",
-      "nb": "Det kognitive grunnlaget bak designet, og artikkelen som forklarer hvorfor en synlig, lærerskrevet graf er hele poenget.",
-      "sv": "Den kognitiva grunden bakom designen, och artikeln som förklarar varför en synlig, lärarskriven graf är hela poängen."
-    },
-    "tile-3-go": {
-      "en": "Read the paper →",
-      "nb": "Les artikkelen →",
-      "sv": "Läs artikeln →"
-    },
-    "footer-line-1": {
-      "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
-      "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
-      "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
-    },
-    "footer-line-2": {
-      "en": "Placeholder landing page. Content and destinations are still being decided.",
-      "nb": "Midlertidig forside. Innhold og lenkemål er ikke avgjort ennå.",
-      "sv": "Tillfällig startsida. Innehåll och länkmål är ännu inte bestämda."
-    }
+      "meta-description": {
+          "en": "A skill tree is a graph of the skills and concepts in one school subject, written by a teacher. Each node carries an instruction you copy into an AI chat.",
+          "nb": "Et ferdighetstre er en graf over ferdighetene og begrepene i ett skolefag, skrevet av en lærer. Hver node har en instruks du kopierer inn i en KI-chat.",
+          "sv": "Ett kunskapsträd är en graf över färdigheterna och begreppen i ett skolämne, skrivet av en lärare. Varje nod har en instruktion som du kopierar in i en AI-chatt."
+      },
+      "hero-eyebrow": {
+          "en": "An open method for teachers",
+          "nb": "En åpen metode for lærere",
+          "sv": "En öppen metod för lärare"
+      },
+      "hero-title": {
+          "en": "Skill trees for school subjects",
+          "nb": "Ferdighetstrær for skolefag",
+          "sv": "Kunskapsträd för skolämnen"
+      },
+      "hero-lede": {
+          "en": "Each tree is a graph of the skills and concepts in one subject, written by a teacher. Every node carries an instruction you can copy into an AI chat to practise that skill.",
+          "nb": "Hvert tre er en graf over ferdighetene og begrepene i ett fag, skrevet av en lærer. Hver node har en instruks du kan kopiere inn i en KI-chat for å øve på den ferdigheten.",
+          "sv": "Varje träd är en graf över färdigheterna och begreppen i ett ämne, skrivet av en lärare. Varje nod har en instruktion som du kan kopiera in i en AI-chatt för att öva på den färdigheten."
+      },
+      "hero-img-alt": {
+          "en": "A teacher standing at a whiteboard, pointing at a hand-drawn diagram of boxes joined by arrows, in front of a seated group.",
+          "nb": "En lærer står ved en tavle og peker på en håndtegnet figur av bokser bundet sammen med piler, foran en gruppe som sitter og ser på.",
+          "sv": "En lärare står vid en whiteboard och pekar på en handritad figur av rutor sammanbundna med pilar, framför en sittande grupp."
+      },
+      "hero-cta-primary": {
+          "en": "See a tree",
+          "nb": "Se et ferdighetstre",
+          "sv": "Se ett kunskapsträd"
+      },
+      "hero-cta-secondary": {
+          "en": "Read the method",
+          "nb": "Les metoden",
+          "sv": "Läs metoden"
+      },
+      "what-eyebrow": {
+          "en": "What this is",
+          "nb": "Hva dette er",
+          "sv": "Vad det här är"
+      },
+      "what-heading": {
+          "en": "What a skill tree contains",
+          "nb": "Hva et ferdighetstre inneholder",
+          "sv": "Vad ett kunskapsträd innehåller"
+      },
+      "what-p1": {
+          "en": "A tree lists the skills and concepts of a subject as nodes, with an arrow from each node to the ones it builds on. The whole subject is visible at once, so a student can choose where to start and see what a given skill depends on.",
+          "nb": "Et tre viser ferdighetene og begrepene i et fag som noder, med en pil fra hver node til dem den bygger på. Hele faget er synlig på én gang, så eleven kan velge hvor det passer å begynne og se hva en gitt ferdighet hviler på.",
+          "sv": "Ett träd visar färdigheterna och begreppen i ett ämne som noder, med en pil från varje nod till dem den bygger på. Hela ämnet syns på en gång, så eleven kan välja var det passar att börja och se vad en viss färdighet vilar på."
+      },
+      "what-p2": {
+          "en": "The site does not call a language model. Each node composes a text instruction that you copy into whichever AI chat you already use, which means there is no account to create, no cost per student and no data processing agreement. The instructions are written to have the model ask questions rather than give answers.",
+          "nb": "Sida kaller ingen språkmodell. Hver node setter sammen en tekstinstruks som du kopierer inn i den KI-chatten du allerede bruker, og det betyr ingen konto å opprette, ingen kostnad per elev og ingen databehandleravtale. Instruksene er skrevet slik at modellen stiller spørsmål framfor å gi svar.",
+          "sv": "Sidan anropar ingen språkmodell. Varje nod sätter samman en textinstruktion som du kopierar in i den AI-chatt du redan använder, vilket innebär att det inte finns något konto att skapa, ingen kostnad per elev och inget personuppgiftsbiträdesavtal. Instruktionerna är skrivna så att modellen ställer frågor i stället för att ge svar."
+      },
+      "start-eyebrow": {
+          "en": "Start here",
+          "nb": "Start her",
+          "sv": "Börja här"
+      },
+      "tile-1-title": {
+          "en": "Existing skill trees",
+          "nb": "Ferdighetstrær som finnes",
+          "sv": "Kunskapsträd som finns"
+      },
+      "tile-1-body": {
+          "en": "Browse the subjects that have a tree, and see what a finished tree and a single node look like.",
+          "nb": "Bla i fagene som har et tre, og se hvordan et ferdig tre og en enkelt node ser ut.",
+          "sv": "Bläddra bland ämnena som har ett träd, och se hur ett färdigt träd och en enskild nod ser ut."
+      },
+      "tile-1-go": {
+          "en": "Browse →",
+          "nb": "Bla i dem →",
+          "sv": "Bläddra →"
+      },
+      "tile-2-title": {
+          "en": "Make your own",
+          "nb": "Lag ditt eget",
+          "sv": "Gör ditt eget"
+      },
+      "tile-2-body": {
+          "en": "The decomposition specification, the instructions, and a template for starting a new subject.",
+          "nb": "Dekomponeringsspesifikasjonen, instruksene og en mal for å starte et nytt fag.",
+          "sv": "Nedbrytningsspecifikationen, instruktionerna och en mall för att börja med ett nytt ämne."
+      },
+      "tile-2-go": {
+          "en": "Get the spec →",
+          "nb": "Hent spesifikasjonen →",
+          "sv": "Hämta specifikationen →"
+      },
+      "tile-3-title": {
+          "en": "Research",
+          "nb": "Forskning",
+          "sv": "Forskning"
+      },
+      "tile-3-body": {
+          "en": "Background reading on the design, and the paper describing the method.",
+          "nb": "Bakgrunnslesning om designet, og artikkelen som beskriver metoden.",
+          "sv": "Bakgrundsläsning om designen, och artikeln som beskriver metoden."
+      },
+      "tile-3-go": {
+          "en": "Read the paper →",
+          "nb": "Les artikkelen →",
+          "sv": "Läs artikeln →"
+      },
+      "footer-line-1": {
+          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+      },
+      "footer-line-2": {
+          "en": "Placeholder landing page. Content and destinations are still being decided.",
+          "nb": "Midlertidig forside. Innhold og lenkemål er ikke avgjort ennå.",
+          "sv": "Tillfällig startsida. Innehåll och länkmål är ännu inte bestämda."
+      }
   }
   </script>
 </head>
@@ -167,10 +167,11 @@
 
       <div class="hero__inner">
         <p class="eyebrow" data-i18n="hero-eyebrow">An open method for teachers</p>
-        <h1 class="hero__title" data-i18n="hero-title">Skill trees your students can actually see.</h1>
+        <h1 class="hero__title" data-i18n="hero-title">Skill trees for school subjects</h1>
         <p class="hero__lede" data-i18n="hero-lede">
-          A teacher-written map of a subject, plus instructions that turn any AI chat
-          into a practice partner — one that holds back what it could give away.
+          Each tree is a graph of the skills and concepts in one subject, written by a
+          teacher. Every node carries an instruction you can copy into an AI chat to
+          practise that skill.
         </p>
         <div class="btn-row">
           <!-- data-track-cta reports which of these gets pressed. Both now
@@ -185,19 +186,18 @@
     <section class="band">
       <div class="band__inner">
         <p class="eyebrow" data-i18n="what-eyebrow">What this is</p>
-        <h2 data-i18n="what-heading">The graph is the interface, not the engine.</h2>
+        <h2 data-i18n="what-heading">What a skill tree contains</h2>
         <div class="prose">
-          <p data-i18n-html="what-p1">
-            Prerequisite graphs are not new — adaptive systems have computed them for decades.
-            What they do not do is show them. Here the graph <em>is</em> the interface: the
-            student sees the whole structure of a subject, chooses where to start, and can tell
-            what any one skill rests on.
+          <p data-i18n="what-p1">
+            A tree lists the skills and concepts of a subject as nodes, with an arrow from each
+            node to the ones it builds on. The whole subject is visible at once, so a student can
+            choose where to start and see what a given skill depends on.
           </p>
-          <p data-i18n-html="what-p2">
-            Nothing here calls a language model. The tool composes a teacher-written instruction
-            that you paste into whichever AI chat you already use. No vendor lock-in, no cost per
-            student, no data processing agreement — and every instruction is written to make the
-            model hold something back, so the student still does the thinking.
+          <p data-i18n="what-p2">
+            The site does not call a language model. Each node composes a text instruction that
+            you copy into whichever AI chat you already use, which means there is no account to
+            create, no cost per student and no data processing agreement. The instructions are
+            written to have the model ask questions rather than give answers.
           </p>
         </div>
       </div>
@@ -215,8 +215,8 @@
             <span class="tile__index">01</span>
             <h3 class="tile__title" data-i18n="tile-1-title">Existing skill trees</h3>
             <p class="tile__body" data-i18n="tile-1-body">
-              Browse the subjects already decomposed — what a finished tree looks like,
-              and what a node actually contains.
+              Browse the subjects that have a tree, and see what a finished tree and a
+              single node look like.
             </p>
             <span class="tile__go" aria-hidden="true" data-i18n="tile-1-go">Browse &rarr;</span>
           </a>
@@ -225,8 +225,8 @@
             <span class="tile__index">02</span>
             <h3 class="tile__title" data-i18n="tile-2-title">Make your own</h3>
             <p class="tile__body" data-i18n="tile-2-body">
-              The decomposition specification, the instructions, and a template for starting a
-              new subject — in your language, for your syllabus.
+              The decomposition specification, the instructions, and a template for starting
+              a new subject.
             </p>
             <span class="tile__go" aria-hidden="true" data-i18n="tile-2-go">Get the spec &rarr;</span>
           </a>
@@ -235,8 +235,7 @@
             <span class="tile__index">03</span>
             <h3 class="tile__title" data-i18n="tile-3-title">Research</h3>
             <p class="tile__body" data-i18n="tile-3-body">
-              The cognitive grounding behind the design, and the paper describing why a
-              visible, teacher-written graph is the point.
+              Background reading on the design, and the paper describing the method.
             </p>
             <span class="tile__go" aria-hidden="true" data-i18n="tile-3-go">Read the paper &rarr;</span>
           </a>

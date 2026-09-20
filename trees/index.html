@@ -35,191 +35,186 @@
   -->
   <script type="application/json" id="i18n-dict">
   {
-    "doc-title": {
-      "en": "Skill trees | AI Skill Trees",
-      "nb": "Ferdighetstrær | AI Skill Trees",
-      "sv": "Kunskapsträd | AI Skill Trees"
-    },
-    "meta-description": {
-      "en": "Search and filter the skill trees — maps of how the skills and concepts in a subject build on one another, with an AI instruction for every node.",
-      "nb": "Søk og filtrer i ferdighetstrærne — kart over hvordan ferdigheter og begreper i et fag bygger på hverandre, med KI-instrukser til hver node.",
-      "sv": "Sök och filtrera bland kunskapsträden — kartor över hur färdigheter och begrepp i ett ämne bygger på varandra, med en AI-instruktion till varje nod."
-    },
-    "page-eyebrow": {
-      "en": "Skill trees",
-      "nb": "Ferdighetstrær",
-      "sv": "Kunskapsträd"
-    },
-    "page-heading": {
-      "en": "Find a skill tree",
-      "nb": "Finn et ferdighetstre",
-      "sv": "Hitta ett kunskapsträd"
-    },
-    "page-intro": {
-      "en": "Each tree maps one subject: what a student needs to be able to do, and what each thing builds on. Click in, tick off what you have mastered, and copy a ready-made AI instruction to practise whatever comes next.",
-      "nb": "Hvert tre er et kart over ett fag: hva en elev må kunne, og hva hver ting bygger på. Klikk deg inn, huk av det du mestrer, og kopier en ferdig KI-instruks for å trene videre på det som står for tur.",
-      "sv": "Varje träd är en karta över ett ämne: vad en elev behöver kunna, och vad varje sak bygger på. Klicka dig in, bocka av det du behärskar och kopiera en färdig AI-instruktion för att träna vidare på det som står på tur."
-    },
-    "page-language-note": {
-      "en": "The trees themselves are not translated. Each one is written in a single language by the teacher who made it, and that language is shown on its card and in the Language filter.",
-      "nb": "Trærne er ikke oversatt. Hvert av dem er skrevet på ett språk av læreren som laget det, og språket står på kortet og i språkfilteret.",
-      "sv": "Träden är inte översatta. Vart och ett är skrivet på ett enda språk av läraren som gjorde det, och språket visas på kortet och i språkfiltret."
-    },
-    "search-region-label": {
-      "en": "Search",
-      "nb": "Søk",
-      "sv": "Sök"
-    },
-    "search-label": {
-      "en": "Search",
-      "nb": "Søk",
-      "sv": "Sök"
-    },
-    "search-placeholder": {
-      "en": "Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”",
-      "nb": "Fag, trinn, emne eller stikkord — f.eks. «2P», «statistikk», «vekstfaktor»",
-      "sv": "Ämne, nivå, område eller nyckelord — t.ex. ”2P”, ”statistik”, ”förändringsfaktor”"
-    },
-    "sort-label": {
-      "en": "Sort by",
-      "nb": "Sorter etter",
-      "sv": "Sortera efter"
-    },
-    "filters-heading": {
-      "en": "Filters",
-      "nb": "Filtre",
-      "sv": "Filter"
-    },
-    "reset-all": {
-      "en": "Clear all filters",
-      "nb": "Nullstill alle filtre",
-      "sv": "Rensa alla filter"
-    },
-    "loading": {
-      "en": "Loading skill trees …",
-      "nb": "Laster ferdighetstrær …",
-      "sv": "Laddar kunskapsträd …"
-    },
-    "load-error": {
-      "en": "Could not load the catalogue: {message} (are you serving this through a local server? fetch() of JSON files fails when index.html is opened straight from disk.)",
-      "nb": "Klarte ikke å laste katalogen: {message} (kjører du sida via en lokal server? fetch() av JSON-filer feiler hvis index.html åpnes direkte fra disk.)",
-      "sv": "Kunde inte ladda katalogen: {message} (kör du sidan via en lokal server? fetch() av JSON-filer misslyckas om index.html öppnas direkt från disk.)"
-    },
-    "sort-relevans": {
-      "en": "Most relevant",
-      "nb": "Mest relevant",
-      "sv": "Mest relevant"
-    },
-    "sort-tittel": {
-      "en": "Title (A–Z)",
-      "nb": "Tittel (A–Å)",
-      "sv": "Titel (A–Ö)"
-    },
-    "sort-storst": {
-      "en": "Most skills",
-      "nb": "Flest ferdigheter",
-      "sv": "Flest färdigheter"
-    },
-    "sort-oppdatert": {
-      "en": "Recently updated",
-      "nb": "Sist oppdatert",
-      "sv": "Senast uppdaterad"
-    },
-    "facet-country": {
-      "en": "Country",
-      "nb": "Land",
-      "sv": "Land"
-    },
-    "facet-level": {
-      "en": "Level",
-      "nb": "Nivå",
-      "sv": "Nivå"
-    },
-    "facet-subjectArea": {
-      "en": "Subject area",
-      "nb": "Fagområde",
-      "sv": "Ämnesområde"
-    },
-    "facet-institution": {
-      "en": "Institution",
-      "nb": "Institusjon",
-      "sv": "Institution"
-    },
-    "facet-language": {
-      "en": "Language",
-      "nb": "Språk",
-      "sv": "Språk"
-    },
-    "facet-status": {
-      "en": "Status",
-      "nb": "Status",
-      "sv": "Status"
-    },
-    "results-one": {
-      "en": "{n} skill tree",
-      "nb": "{n} ferdighetstre",
-      "sv": "{n} kunskapsträd"
-    },
-    "results-many": {
-      "en": "{n} skill trees",
-      "nb": "{n} ferdighetstrær",
-      "sv": "{n} kunskapsträd"
-    },
-    "results-of": {
-      "en": " of {total}",
-      "nb": " av {total}",
-      "sv": " av {total}"
-    },
-    "empty-title": {
-      "en": "No skill trees match",
-      "nb": "Ingen ferdighetstrær passer",
-      "sv": "Inga kunskapsträd matchar"
-    },
-    "empty-body": {
-      "en": "Try fewer filters or a broader search.",
-      "nb": "Prøv færre filtre eller et bredere søk.",
-      "sv": "Prova färre filter eller en bredare sökning."
-    },
-    "empty-reset": {
-      "en": "Clear everything",
-      "nb": "Nullstill alt",
-      "sv": "Rensa allt"
-    },
-    "card-skills": {
-      "en": "{n} skills",
-      "nb": "{n} ferdigheter",
-      "sv": "{n} färdigheter"
-    },
-    "card-concepts": {
-      "en": "{n} concepts",
-      "nb": "{n} begreper",
-      "sv": "{n} begrepp"
-    },
-    "card-nodes": {
-      "en": "{n} nodes",
-      "nb": "{n} noder",
-      "sv": "{n} noder"
-    },
-    "card-open": {
-      "en": "Open the tree →",
-      "nb": "Åpne treet →",
-      "sv": "Öppna trädet →"
-    },
-    "chip-remove-aria": {
-      "en": "Remove the filter {facet}: {value}",
-      "nb": "Fjern filteret {facet}: {value}",
-      "sv": "Ta bort filtret {facet}: {value}"
-    },
-    "footer-line-1": {
-      "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
-      "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
-      "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
-    },
-    "footer-line-2": {
-      "en": "The trees are being moved here from skogvoll.com. For now they exist in both places.",
-      "nb": "Trærne er under flytting hit fra skogvoll.com. Foreløpig ligger de begge steder.",
-      "sv": "Träden håller på att flyttas hit från skogvoll.com. Tills vidare finns de på båda ställena."
-    }
+      "doc-title": {
+          "en": "Skill trees | AI Skill Trees",
+          "nb": "Ferdighetstrær | AI Skill Trees",
+          "sv": "Kunskapsträd | AI Skill Trees"
+      },
+      "meta-description": {
+          "en": "Search and filter the skill trees — maps of how the skills and concepts in a subject build on one another, with an AI instruction for every node.",
+          "nb": "Søk og filtrer i ferdighetstrærne — kart over hvordan ferdigheter og begreper i et fag bygger på hverandre, med KI-instrukser til hver node.",
+          "sv": "Sök och filtrera bland kunskapsträden — kartor över hur färdigheter och begrepp i ett ämne bygger på varandra, med en AI-instruktion till varje nod."
+      },
+      "page-eyebrow": {
+          "en": "Skill trees",
+          "nb": "Ferdighetstrær",
+          "sv": "Kunskapsträd"
+      },
+      "page-heading": {
+          "en": "Find a skill tree",
+          "nb": "Finn et ferdighetstre",
+          "sv": "Hitta ett kunskapsträd"
+      },
+      "page-intro": {
+          "en": "Each tree maps one subject: what a student needs to be able to do, and what each thing builds on. Open a tree to tick off what you have mastered and copy the AI instruction for a given skill.",
+          "nb": "Hvert tre kartlegger ett fag: hva eleven må kunne gjøre, og hva hver ting bygger på. Åpne et tre for å huke av det du mestrer og kopiere KI-instruksen for en gitt ferdighet.",
+          "sv": "Varje träd kartlägger ett ämne: vad eleven behöver kunna göra, och vad varje sak bygger på. Öppna ett träd för att bocka av det du behärskar och kopiera AI-instruktionen för en viss färdighet."
+      },
+      "page-language-note": {
+          "en": "The trees themselves are not translated. Each one is written in a single language by the teacher who made it, and that language is shown on its card and in the Language filter.",
+          "nb": "Trærne er ikke oversatt. Hvert av dem er skrevet på ett språk av læreren som laget det, og språket står på kortet og i språkfilteret.",
+          "sv": "Träden är inte översatta. Vart och ett är skrivet på ett enda språk av läraren som gjorde det, och språket visas på kortet och i språkfiltret."
+      },
+      "search-region-label": {
+          "en": "Search",
+          "nb": "Søk",
+          "sv": "Sök"
+      },
+      "search-label": {
+          "en": "Search",
+          "nb": "Søk",
+          "sv": "Sök"
+      },
+      "search-placeholder": {
+          "en": "Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”",
+          "nb": "Fag, trinn, emne eller stikkord — f.eks. «2P», «statistikk», «vekstfaktor»",
+          "sv": "Ämne, nivå, område eller nyckelord — t.ex. ”2P”, ”statistik”, ”förändringsfaktor”"
+      },
+      "sort-label": {
+          "en": "Sort by",
+          "nb": "Sorter etter",
+          "sv": "Sortera efter"
+      },
+      "filters-heading": {
+          "en": "Filters",
+          "nb": "Filtre",
+          "sv": "Filter"
+      },
+      "reset-all": {
+          "en": "Clear all filters",
+          "nb": "Nullstill alle filtre",
+          "sv": "Rensa alla filter"
+      },
+      "loading": {
+          "en": "Loading skill trees …",
+          "nb": "Laster ferdighetstrær …",
+          "sv": "Laddar kunskapsträd …"
+      },
+      "load-error": {
+          "en": "Could not load the catalogue: {message} (are you serving this through a local server? fetch() of JSON files fails when index.html is opened straight from disk.)",
+          "nb": "Klarte ikke å laste katalogen: {message} (kjører du sida via en lokal server? fetch() av JSON-filer feiler hvis index.html åpnes direkte fra disk.)",
+          "sv": "Kunde inte ladda katalogen: {message} (kör du sidan via en lokal server? fetch() av JSON-filer misslyckas om index.html öppnas direkt från disk.)"
+      },
+      "sort-relevans": {
+          "en": "Most relevant",
+          "nb": "Mest relevant",
+          "sv": "Mest relevant"
+      },
+      "sort-tittel": {
+          "en": "Title (A–Z)",
+          "nb": "Tittel (A–Å)",
+          "sv": "Titel (A–Ö)"
+      },
+      "sort-storst": {
+          "en": "Most skills",
+          "nb": "Flest ferdigheter",
+          "sv": "Flest färdigheter"
+      },
+      "sort-oppdatert": {
+          "en": "Recently updated",
+          "nb": "Sist oppdatert",
+          "sv": "Senast uppdaterad"
+      },
+      "facet-country": {
+          "en": "Country",
+          "nb": "Land",
+          "sv": "Land"
+      },
+      "facet-subjectArea": {
+          "en": "Subject area",
+          "nb": "Fagområde",
+          "sv": "Ämnesområde"
+      },
+      "facet-institution": {
+          "en": "Institution",
+          "nb": "Institusjon",
+          "sv": "Institution"
+      },
+      "facet-division": {
+          "en": "Year or faculty",
+          "nb": "Trinn eller fakultet",
+          "sv": "Årskurs eller fakultet"
+      },
+      "facet-language": {
+          "en": "Language",
+          "nb": "Språk",
+          "sv": "Språk"
+      },
+      "results-one": {
+          "en": "{n} skill tree",
+          "nb": "{n} ferdighetstre",
+          "sv": "{n} kunskapsträd"
+      },
+      "results-many": {
+          "en": "{n} skill trees",
+          "nb": "{n} ferdighetstrær",
+          "sv": "{n} kunskapsträd"
+      },
+      "results-of": {
+          "en": " of {total}",
+          "nb": " av {total}",
+          "sv": " av {total}"
+      },
+      "empty-title": {
+          "en": "No skill trees match",
+          "nb": "Ingen ferdighetstrær passer",
+          "sv": "Inga kunskapsträd matchar"
+      },
+      "empty-body": {
+          "en": "Try fewer filters or a broader search.",
+          "nb": "Prøv færre filtre eller et bredere søk.",
+          "sv": "Prova färre filter eller en bredare sökning."
+      },
+      "empty-reset": {
+          "en": "Clear everything",
+          "nb": "Nullstill alt",
+          "sv": "Rensa allt"
+      },
+      "card-skills": {
+          "en": "{n} skills",
+          "nb": "{n} ferdigheter",
+          "sv": "{n} färdigheter"
+      },
+      "card-concepts": {
+          "en": "{n} concepts",
+          "nb": "{n} begreper",
+          "sv": "{n} begrepp"
+      },
+      "card-nodes": {
+          "en": "{n} nodes",
+          "nb": "{n} noder",
+          "sv": "{n} noder"
+      },
+      "card-open": {
+          "en": "Open the tree →",
+          "nb": "Åpne treet →",
+          "sv": "Öppna trädet →"
+      },
+      "chip-remove-aria": {
+          "en": "Remove the filter {facet}: {value}",
+          "nb": "Fjern filteret {facet}: {value}",
+          "sv": "Ta bort filtret {facet}: {value}"
+      },
+      "footer-line-1": {
+          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+      },
+      "footer-line-2": {
+          "en": "The trees are being moved here from skogvoll.com. For now they exist in both places.",
+          "nb": "Trærne er under flytting hit fra skogvoll.com. Foreløpig ligger de begge steder.",
+          "sv": "Träden håller på att flyttas hit från skogvoll.com. Tills vidare finns de på båda ställena."
+      }
   }
   </script>
 </head>
@@ -237,8 +232,8 @@
         <div class="prose">
           <p data-i18n="page-intro">
             Each tree maps one subject: what a student needs to be able to do, and what
-            each thing builds on. Click in, tick off what you have mastered, and copy a
-            ready-made AI instruction to practise whatever comes next.
+            each thing builds on. Open a tree to tick off what you have mastered and copy
+            the AI instruction for a given skill.
           </p>
           <p class="note" data-i18n="page-language-note">
             The trees themselves are not translated. Each one is written in a single

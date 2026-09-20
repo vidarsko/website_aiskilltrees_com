@@ -277,18 +277,6 @@
 .treecard__go { color: var(--primary); font-weight: 500; }
 .treecard:hover .treecard__go { color: var(--primary-strong); }
 
-/* A draft tree. Flagged with a word, not only a color — see the design
-   system's rule about never communicating by color alone. */
-.pill {
-  display: inline-flex;
-  align-items: center;
-  font-size: var(--step-xs);
-  padding: 0.15rem 0.45rem;
-  border: 1px solid var(--rule-strong);
-  color: var(--ink-2);
-}
-.pill--draft { background: var(--amber-tint); border-color: var(--amber); color: var(--amber-text); }
-
 .empty {
   border: 1px dashed var(--rule-strong);
   padding: var(--space-5) var(--space-3);

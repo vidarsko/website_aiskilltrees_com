@@ -1,0 +1,72 @@
+{
+  "_comment": "Kontrollert vokabular for de metadatafeltene som filtreres på i katalogen. Hvert tres meta.json lagrer NØKKELEN (f.eks. \"NO\", \"vgs\", \"mathematics\"), aldri den ferdige teksten — teksten slås opp her, på leserens språk. Det var «Matematikk» og «Mathematics» side om side i samme fasettliste som tvang dette fram: så lenge hvert tre skrev verdien selv, fikk katalogen én fasettverdi per språk framfor én per fagområde.\n\nStrengt, uten fallback: en nøkkel som ikke står her er en FEIL, ikke en verdi som vises rå. Vidar går gjennom hvert innsendte tre manuelt, så en ukjent verdi kan ikke nå sida uten at han har sett den — og da er det riktige å legge nøkkelen inn her framfor å la katalogen skjule tabben. catalog.js logger derfor en konsollfeil og hopper over treet.\n\nTo lesere, samme fil: katalogen slår opp på GRENSESNITTETS språk (NO/EN/SV-veksleren), mens et ferdighetstre slår opp på SITT EGET språk — et tre er enspråklig, og «Om faget»-vinduet skal stå på treets språk uansett hvor leseren kom fra.\n\nÅ legge til en verdi er én blokk her. Å legge til et SPRÅK er én nøkkel i hver blokk.",
+
+  "schemaVersion": 1,
+
+  "country": {
+    "_comment": "ISO 3166-1 alpha-2, store bokstaver. Landet læreplanen hører til, ikke der forfatteren bor.",
+    "NO": { "en": "Norway", "nb": "Norge", "sv": "Norge" },
+    "SE": { "en": "Sweden", "nb": "Sverige", "sv": "Sverige" }
+  },
+
+  "language": {
+    "_comment": "ISO 639-1. Språket treet er SKREVET på — et faktum om treet, ikke en visning av det: trærne oversettes ikke. `nb` og ikke `no`, slik at `nn` kan komme senere uten omdøping.",
+    "nb": { "en": "Norwegian (Bokmål)", "nb": "Norsk (bokmål)", "sv": "Norska (bokmål)" },
+    "sv": { "en": "Swedish", "nb": "Svensk", "sv": "Svenska" },
+    "en": { "en": "English", "nb": "Engelsk", "sv": "Engelska" }
+  },
+
+  "subjectArea": {
+    "_comment": "Fagområdet, grovere enn kurset selv: «Matematikk», ikke «Matematikk 2P». Nøklene er engelske fordi engelsk er kildespråket i metoden.\n\nIkke å forveksle med `subjectFamily` i tree.json, som er grovere igjen (mathematics / natural-sciences / social-sciences) og styrer hvilken pedagogikk-fil instruksen henter. Dette feltet styrer bare filtrering i katalogen.",
+    "mathematics":    { "en": "Mathematics",    "nb": "Matematikk",       "sv": "Matematik" },
+    "physics":        { "en": "Physics",        "nb": "Fysikk",           "sv": "Fysik" },
+    "chemistry":      { "en": "Chemistry",      "nb": "Kjemi",            "sv": "Kemi" },
+    "biology":        { "en": "Biology",        "nb": "Biologi",          "sv": "Biologi" },
+    "science":        { "en": "Science",        "nb": "Naturfag",         "sv": "Naturkunskap" },
+    "social-studies": { "en": "Social studies", "nb": "Samfunnskunnskap", "sv": "Samhällskunskap" }
+  },
+
+  "institution": {
+    "_comment": "Skoleslaget eller institusjonen treet hører hjemme i, og — under `divisions` — dens egen inndeling.\n\nHvorfor inndelingen ligger HER og ikke som en egen toppnøkkel: «Vg2» og «MN-fakultetet» er ikke samme slags ting. Den ene er et årstrinn i et skoleslag, den andre en organisatorisk enhet. Ingen felles overskrift dekker begge, og de standardiserte vokabularene (schema.org `educationalLevel`, EQF) har bare årstrinn-betydningen. Løsningen er å la institusjonen navngi sin egen inndeling: datafeltet heter nøytralt `division` i meta.json, og `divisionLabel` under er overskriften brukeren faktisk ser.\n\nDet er også grunnen til at `division` er en AVHENGIG fasett i katalogen: verdiene er bare meningsfulle når institusjonen er valgt, og en sammenslått liste over Vg1, 8. trinn, Årskurs 2 og MN ville vært støy. Se `parent` i FACETS i js/catalog.js.",
+
+    "grunnskole": {
+      "label":         { "en": "Lower secondary school", "nb": "Ungdomsskole", "sv": "Högstadiet" },
+      "divisionLabel": { "en": "Year",                    "nb": "Trinn",        "sv": "Årskurs" },
+      "divisions": {
+        "8":  { "en": "Year 8",  "nb": "8. trinn",  "sv": "Årskurs 8" },
+        "9":  { "en": "Year 9",  "nb": "9. trinn",  "sv": "Årskurs 9" },
+        "10": { "en": "Year 10", "nb": "10. trinn", "sv": "Årskurs 10" }
+      }
+    },
+
+    "vgs": {
+      "label":         { "en": "Upper secondary school", "nb": "Videregående skole", "sv": "Gymnasiet (Norge)" },
+      "divisionLabel": { "en": "Year",                   "nb": "Trinn",              "sv": "Årskurs" },
+      "divisions": {
+        "_comment": "«Vg1»/«Vg2»/«Vg3» er egennavn i det norske skoleslaget og oversettes ikke — de står likt på alle tre språk med vilje.",
+        "vg1": { "en": "Vg1", "nb": "Vg1", "sv": "Vg1" },
+        "vg2": { "en": "Vg2", "nb": "Vg2", "sv": "Vg2" },
+        "vg3": { "en": "Vg3", "nb": "Vg3", "sv": "Vg3" }
+      }
+    },
+
+    "gym": {
+      "label":         { "en": "Upper secondary school (Sweden)", "nb": "Gymnasiet (Sverige)", "sv": "Gymnasiet" },
+      "divisionLabel": { "en": "Year",                            "nb": "Årskurs",             "sv": "Årskurs" },
+      "divisions": {
+        "1": { "en": "Year 1", "nb": "Årskurs 1", "sv": "Årskurs 1" },
+        "2": { "en": "Year 2", "nb": "Årskurs 2", "sv": "Årskurs 2" },
+        "3": { "en": "Year 3", "nb": "Årskurs 3", "sv": "Årskurs 3" }
+      }
+    },
+
+    "uio": {
+      "_comment": "Første ikke-skole-institusjon, lagt inn som mønsteret universitetsfag skal følge: inndelingen er FAKULTET, ikke årstrinn. Ingen trær bruker den ennå.",
+      "label":         { "en": "University of Oslo", "nb": "Universitetet i Oslo", "sv": "Universitetet i Oslo" },
+      "divisionLabel": { "en": "Faculty",            "nb": "Fakultet",             "sv": "Fakultet" },
+      "divisions": {
+        "mn": { "en": "Faculty of Mathematics and Natural Sciences", "nb": "Det matematisk-naturvitenskapelige fakultet", "sv": "Matematisk-naturvetenskapliga fakulteten" }
+      }
+    }
+  }
+}

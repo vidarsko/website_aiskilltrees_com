@@ -23,29 +23,50 @@
 /* `key` er feltnavnet i meta.json, `labelKey` slår opp overskriften i    */
 /* sidas i18n-ordbok (se trees/index.html) — selve teksten bor der, ikke  */
 /* her, siden katalogen finnes på tre språk.                              */
-/* Verdiene i lista bygges av seg selv ut fra metadataene, så et nytt   */
-/* land/nivå/fagområde dukker opp av seg selv så snart ett tre bruker   */
-/* det — ingen kodeendring. Å legge til en ny DIMENSJON er én linje     */
-/* her pluss feltet i meta.json.                                        */
+/*                                                                      */
+/* Verdiene er NØKLER fra trees/vocabulary.json, ikke fri tekst. Fram    */
+/* til 2026-09-20 skrev hvert tre verdien selv, og resultatet var        */
+/* «Matematikk» og «Mathematics» som to atskilte valg i samme liste.     */
+/* Nå lagrer meta.json nøkkelen og vokabularet eier teksten på alle tre  */
+/* språk. Bivirkning verdt å ha med seg: en delt filterlenke inneholder  */
+/* nå nøkler og virker derfor på tvers av språk — før lå det norsk tekst */
+/* i URL-en.                                                             */
+/*                                                                      */
+/* `parent` gjør fasetten AVHENGIG: den vises ikke før foreldrefasetten  */
+/* har et valg, og viser da bare verdiene som hører til det valget.      */
+/* `division` er inndelingen INNENFOR en institusjon — Vg2, 8. trinn,    */
+/* Årskurs 1, MN-fakultetet — og en sammenslått liste over alle fire     */
+/* ville vært støy. Se `institution` i vocabulary.json for hvorfor       */
+/* feltet heter noe så nøytralt som «division».                          */
 /*                                                                      */
 /* Rekkefølgen under er rekkefølgen i filterlista, fra det som deler    */
-/* utvalget grovest (land) til det som deler det finest (status).       */
+/* utvalget grovest (land) til det som deler det finest (språk).        */
 /* ------------------------------------------------------------------ */
 const FACETS = [
   { key: 'country',     labelKey: 'facet-country' },
-  { key: 'level',       labelKey: 'facet-level' },
-  { key: 'subjectArea', labelKey: 'facet-subjectArea' },
   { key: 'institution', labelKey: 'facet-institution' },
+  { key: 'division',    labelKey: 'facet-division', parent: 'institution' },
+  { key: 'subjectArea', labelKey: 'facet-subjectArea' },
   { key: 'language',    labelKey: 'facet-language' },
-  { key: 'status',      labelKey: 'facet-status' },
 ];
+
+/* Feltene som slår opp direkte i vocabulary.json. `division` står ikke
+   her fordi verdiene ligger nøstet under sin institusjon og trenger et
+   eget oppslag — se divisionText() og divisionLegend(). */
+const VOCAB_FIELDS = ['country', 'language', 'subjectArea', 'institution'];
+
+let VOCAB = null;   // trees/vocabulary.json, lastet før trærne
 
 /* ------------------------------------------------------------------ */
 /* Språk. Katalogens EGET språk veksles av js/i18n.js; selve trærne er  */
 /* ikke oversatt — hvert tre er skrevet på ett språk av den som laget   */
 /* det, og `language` i meta.json er et faktum om treet, ikke en visning */
-/* av det. Derfor oversettes fasettenes OVERSKRIFTER her, men ikke      */
-/* VERDIENE under dem: de kommer rett fra metadataene.                  */
+/* av det.                                                              */
+/*                                                                      */
+/* Fasettenes overskrifter oversettes her, i sidas ordbok. VERDIENE     */
+/* under dem oversettes i trees/vocabulary.json — fram til 2026-09-20   */
+/* sto de urørt slik hvert tre hadde skrevet dem, og det ga «Matematikk» */
+/* og «Mathematics» som to valg i samme liste.                          */
 /*                                                                      */
 /* t() og fmt() tåler at i18n.js ikke er lastet (da faller alt tilbake  */
 /* til nøkkelen), slik at en side som glemmer scriptet degraderer i     */
@@ -68,6 +89,102 @@ function lang() {
   return (window.i18n && window.i18n.lang) || 'en';
 }
 
+/* ------------------------------------------------------------------ */
+/* Vokabularoppslag                                                     */
+/*                                                                      */
+/* Strengt, uten fallback til rå verdi. Vidar går gjennom hvert innsendt */
+/* tre manuelt, så en nøkkel som ikke finnes i vocabulary.json kan ikke  */
+/* nå sida uten at han har sett den — og da er det riktige svaret å      */
+/* legge nøkkelen inn, ikke å la katalogen vise den rått og skjule       */
+/* tabben. En ukjent nøkkel er altså en FEIL: treet utelates og grunnen  */
+/* står i konsollen. Se validateVocab().                                 */
+/*                                                                      */
+/* En manglende OVERSETTELSE er noe annet enn en manglende nøkkel, og    */
+/* faller tilbake på engelsk: da er verdien gyldig, bare ikke oversatt   */
+/* ennå, og å skjule treet ville vært ute av proporsjon.                 */
+/* ------------------------------------------------------------------ */
+
+function localized(entry) {
+  if (!entry) return null;
+  return entry[lang()] || entry.en || null;
+}
+
+/* Visningstekst for en vokabularverdi, f.eks. vocab('subjectArea',
+   'mathematics') → «Matematikk» på norsk. */
+function vocab(field, key) {
+  if (!VOCAB || !VOCAB[field] || !key) return null;
+  const entry = VOCAB[field][key];
+  /* En institusjon er ikke bare en tekst — den bærer også sin egen
+     inndeling — så visningsnavnet ligger under `label`. De andre feltene
+     er rene {språk: tekst}-oppslag. */
+  return localized(field === 'institution' ? (entry && entry.label) : entry);
+}
+
+function institutionEntry(key) {
+  return (VOCAB && VOCAB.institution && VOCAB.institution[key]) || null;
+}
+
+/* Inndelingen ligger nøstet under institusjonen sin, så et oppslag av en
+   division-verdi trenger å vite hvilken institusjon den hører til. */
+function divisionText(institutionKey, divisionKey) {
+  const inst = institutionEntry(institutionKey);
+  if (!inst || !inst.divisions) return null;
+  return localized(inst.divisions[divisionKey]);
+}
+
+/* Overskriften over division-fasetten kommer fra institusjonen, ikke fra
+   sidas ordbok: «Trinn» for et skoleslag, «Fakultet» for et universitet.
+   Er flere institusjoner huket av, og de kaller inndelingen sin ulike
+   ting, faller vi tilbake på sidas nøytrale overskrift. */
+function divisionLegend(institutionKeys) {
+  const labels = new Set();
+  institutionKeys.forEach(k => {
+    const inst = institutionEntry(k);
+    const label = inst && localized(inst.divisionLabel);
+    if (label) labels.add(label);
+  });
+  return labels.size === 1 ? Array.from(labels)[0] : null;
+}
+
+/* Alle visningstekster for et tres vokabularverdier, på ALLE språk.
+   Brukes bare til å bygge søkeindeksen: et søk på «matematikk» skal
+   treffe et tre som lagrer `mathematics`, uansett hvilket språk
+   katalogen står i. */
+function vocabSynonyms(tree) {
+  const out = [];
+  if (!VOCAB) return out;
+  VOCAB_FIELDS.forEach(field => {
+    if (field === 'institution') return;   // håndteres under, via .label
+    const entry = VOCAB[field] && VOCAB[field][tree[field]];
+    if (entry) out.push(...Object.values(entry).filter(v => typeof v === 'string'));
+  });
+  const inst = institutionEntry(tree.institution);
+  if (inst) {
+    if (inst.label) out.push(...Object.values(inst.label).filter(v => typeof v === 'string'));
+    const div = inst.divisions && inst.divisions[tree.division];
+    if (div) out.push(...Object.values(div).filter(v => typeof v === 'string'));
+  }
+  return out;
+}
+
+/* Hvert vokabularfelt i et tre må finnes i vocabulary.json. Returnerer en
+   liste over det som mangler — tom liste betyr at treet er i orden. */
+function validateVocab(tree) {
+  const problems = [];
+  VOCAB_FIELDS.forEach(field => {
+    const key = tree[field];
+    if (!key) { problems.push(field + ' mangler'); return; }
+    if (!VOCAB[field] || !VOCAB[field][key] || !vocab(field, key)) {
+      problems.push(field + ' = «' + key + '» finnes ikke i vocabulary.json');
+    }
+  });
+  const inst = institutionEntry(tree.institution);
+  if (inst && tree.division && !(inst.divisions && inst.divisions[tree.division])) {
+    problems.push('division = «' + tree.division + '» finnes ikke under institusjonen «' + tree.institution + '»');
+  }
+  return problems;
+}
+
 /* Sorteringslokalet følger katalogspråket, så «Å» havner sist på norsk og
    «Ö» sist på svensk. */
 const COLLATION = { en: 'en', no: 'nb', sv: 'sv' };
@@ -78,10 +195,12 @@ function collator() {
 /* Felt som fritekstsøket leter i. `topics` og `keywords` er lister —
    join-es før søk, slik at et søk på «annuitetslån» treffer et tre som
    aldri nevner ordet i tittelen. */
+/* Vokabularfeltene står IKKE her — de lagrer nøkler («mathematics»), og
+   et søk på «matematikk» ville ikke truffet. De legges i stedet inn som
+   oversettelser på alle språk, via vocabSynonyms(). */
 const SEARCH_FIELDS = [
   'title', 'subtitle', 'summary', 'course', 'courseCode',
-  'grade', 'subjectArea', 'institution', 'curriculum', 'author',
-  'topics', 'keywords',
+  'curriculum', 'author', 'topics', 'keywords',
 ];
 
 /* Nøklene er en del av delbare lenker (?sort=storst) og må derfor IKKE
@@ -182,18 +301,26 @@ function buildSortOptions() {
 }
 
 function loadTrees() {
-  fetch('trees.json')
-    .then(res => {
+  /* Vokabularet må ligge klart FØR trærne valideres mot det, så de to
+     hentes sammen framfor i rekkefølge. */
+  Promise.all([
+    fetch('vocabulary.json').then(res => {
+      if (!res.ok) throw new Error('vocabulary.json ga HTTP ' + res.status);
+      return res.json();
+    }),
+    fetch('trees.json').then(res => {
       if (!res.ok) throw new Error('trees.json ga HTTP ' + res.status);
       return res.json();
-    })
-    .then(manifest => {
+    }),
+  ])
+    .then(([vocabulary, manifest]) => {
+      VOCAB = vocabulary;
       const slugs = (manifest && manifest.trees) || [];
       if (!slugs.length) throw new Error('trees.json inneholder ingen trær.');
       return Promise.all(slugs.map(loadOne));
     })
     .then(list => {
-      TREES = list.filter(Boolean).map(prepare);
+      TREES = list.filter(Boolean).filter(checkVocab).map(prepare);
       if (!TREES.length) throw new Error('Ingen av trærne kunne lastes.');
       el.status.hidden = true;
       readUrl();
@@ -222,6 +349,21 @@ function loadOne(slug) {
     .catch(err => { console.error('Hopper over treet «' + slug + '»:', err); return null; });
 }
 
+/* Et tre med en vokabularverdi vi ikke kjenner utelates, og grunnen står
+   i konsollen. Se kommentaren over vocab(): dette skal være umulig i
+   praksis, siden hvert tre er gjennomgått for hånd — treffer det, er det
+   en skrivefeil i meta.json eller en verdi som mangler i vocabulary.json,
+   og begge deler er noe som skal rettes framfor skjules. */
+function checkVocab(tree) {
+  const problems = validateVocab(tree);
+  if (!problems.length) return true;
+  console.error(
+    'Treet «' + tree.slug + '» utelates fra katalogen — ukjente vokabularverdier:\n  ' +
+    problems.join('\n  ') + '\nLegg nøkkelen inn i trees/vocabulary.json.'
+  );
+  return false;
+}
+
 /* Bygger søketeksten én gang per tre, i stedet for å sette den sammen på
    nytt for hvert tastetrykk. */
 function prepare(tree) {
@@ -231,6 +373,7 @@ function prepare(tree) {
     if (Array.isArray(v)) parts.push(v.join(' '));
     else if (v) parts.push(String(v));
   });
+  parts.push(vocabSynonyms(tree).join(' '));
   tree._haystack = parts.join(' ').toLowerCase();
   tree._score = 0;
   if (!tree.path) tree.path = '/trees/' + tree.slug + '/';
@@ -358,7 +501,7 @@ function card(tree, position) {
     window.aistTrack('tree_open', {
       tree_slug: tree.slug,
       tree_title: tree.title,
-      tree_language: tree.languageCode || tree.language || null,
+      tree_language: tree.language || null,
       list_position: position,
       // Hvilket katalogspråk leseren sto i da treet ble åpnet. Sammen med
       // tree_language er det svaret på om noen går inn i et tre de ikke
@@ -369,10 +512,16 @@ function card(tree, position) {
   });
 
   /* Treets eget språk står på kortet, ikke bare i filteret: trærne er ikke
-     oversatt, så språket er noe leseren trenger FØR klikket. */
+     oversatt, så språket er noe leseren trenger FØR klikket. Verdiene er
+     nøkler i meta.json og slås opp i vokabularet på katalogens språk. */
   const meta = document.createElement('p');
   meta.className = 'treecard__meta';
-  [tree.country, tree.level, tree.subjectArea, tree.language].filter(Boolean).forEach(v => {
+  [
+    vocab('country', tree.country),
+    divisionText(tree.institution, tree.division),
+    vocab('subjectArea', tree.subjectArea),
+    vocab('language', tree.language),
+  ].filter(Boolean).forEach(v => {
     const span = document.createElement('span');
     span.textContent = v;
     meta.appendChild(span);
@@ -408,18 +557,13 @@ function card(tree, position) {
   left.textContent = counts.join(' · ') || (tree.nodeCount ? fmt('card-nodes', { n: tree.nodeCount }) : '');
   foot.appendChild(left);
 
-  // Utkast flagges med et ord, ikke bare en farge.
-  if (tree.status && tree.status.toLowerCase() !== 'publisert') {
-    const pill = document.createElement('span');
-    pill.className = 'pill pill--draft';
-    pill.textContent = tree.status;
-    foot.appendChild(pill);
-  } else {
-    const go = document.createElement('span');
-    go.className = 'treecard__go';
-    go.textContent = t('card-open');
-    foot.appendChild(go);
-  }
+  /* Ingen utkast/publisert-merking: ligger treet på sida, er det
+     publisert. Skillet ble fjernet 2026-09-20 — det beskrev hvor ferdig
+     Vidar syntes et tre var, ikke noe leseren kunne bruke. */
+  const go = document.createElement('span');
+  go.className = 'treecard__go';
+  go.textContent = t('card-open');
+  foot.appendChild(go);
 
   a.appendChild(foot);
   li.appendChild(a);
@@ -434,7 +578,16 @@ function buildFacets() {
   el.facets.innerHTML = '';
 
   FACETS.forEach(facet => {
-    const values = uniqueValues(facet.key);
+    /* En avhengig fasett er skjult til foreldrefasetten har et valg. Da
+       må den også slutte å filtrere: et valg som ligger igjen i en skjult
+       fasett ville tynnet ut resultatlista uten at noe på skjermen sa
+       hvorfor. Derfor nullstilles den her framfor bare å utelates. */
+    if (facet.parent && !selected.get(facet.parent).size) {
+      selected.get(facet.key).clear();
+      return;
+    }
+
+    const values = facetValues(facet);
     if (values.length < MIN_FACET_VALUES) return;
 
     const fieldset = document.createElement('fieldset');
@@ -443,7 +596,7 @@ function buildFacets() {
 
     const legend = document.createElement('legend');
     legend.className = 'facet__legend';
-    legend.textContent = t(facet.labelKey);
+    legend.textContent = facetLegend(facet);
     fieldset.appendChild(legend);
 
     const ul = document.createElement('ul');
@@ -454,27 +607,32 @@ function buildFacets() {
 
       const label = document.createElement('label');
       label.className = 'facet__row';
-      label.dataset.value = value;
+      // Nøkkelen, ikke teksten: renderCounts() og delbare lenker bruker
+      // den, og den skal være den samme på alle tre språk.
+      label.dataset.value = value.key;
 
       const input = document.createElement('input');
       input.type = 'checkbox';
-      input.value = value;
-      input.checked = selected.get(facet.key).has(value);
+      input.value = value.key;
+      input.checked = selected.get(facet.key).has(value.key);
       input.addEventListener('change', () => {
         const set = selected.get(facet.key);
-        if (input.checked) set.add(value); else set.delete(value);
+        if (input.checked) set.add(value.key); else set.delete(value.key);
+        // Er dette fasetten en annen henger av, endrer valget hvilke
+        // fasetter og verdier som i det hele tatt skal stå der.
+        if (hasChildFacet(facet.key)) buildFacets();
         render();
         syncUrl();
         // Bare påslag rapporteres. Et avslag er som regel bare en angring,
         // og å telle begge ville gjort «hvilke filtre brukes» ubrukelig.
         if (input.checked && window.aistTrack) {
-          window.aistTrack('catalog_filter', { facet: facet.key, facet_value: value });
+          window.aistTrack('catalog_filter', { facet: facet.key, facet_value: value.key });
         }
       });
 
       const name = document.createElement('span');
       name.className = 'facet__name';
-      name.textContent = value;
+      name.textContent = value.text;
 
       const count = document.createElement('span');
       count.className = 'facet__count';
@@ -491,10 +649,56 @@ function buildFacets() {
   renderCounts();
 }
 
-function uniqueValues(key) {
-  const seen = new Set();
-  TREES.forEach(tree => { if (tree[key]) seen.add(tree[key]); });
-  return Array.from(seen).sort((a, b) => a.localeCompare(b, 'nb'));
+function hasChildFacet(key) {
+  return FACETS.some(f => f.parent === key);
+}
+
+/* Verdiene i en fasett, som {key, text}, sortert på det leseren ser —
+   ikke på nøkkelen. «Kjemi» skal stå foran «Matematikk» på norsk selv om
+   nøklene er `chemistry` og `mathematics`.
+
+   En avhengig fasett (`division`) begrenses til foreldrevalget: bare
+   inndelingene som hører til de avhukede institusjonene. */
+function facetValues(facet) {
+  const pool = facet.parent
+    ? TREES.filter(tree => selected.get(facet.parent).has(tree[facet.parent]))
+    : TREES;
+
+  const seen = new Map();
+  pool.forEach(tree => {
+    const key = tree[facet.key];
+    if (!key || seen.has(key)) return;
+    const text = facet.key === 'division'
+      ? divisionText(tree.institution, key)
+      : vocab(facet.key, key);
+    if (text) seen.set(key, text);
+  });
+
+  return Array.from(seen, ([key, text]) => ({ key: key, text: text }))
+    .sort((a, b) => a.text.localeCompare(b.text, collator()));
+}
+
+/* Overskriften over fasetten. `division` henter sin fra institusjonen som
+   er valgt — «Trinn» for et skoleslag, «Fakultet» for et universitet — og
+   faller tilbake på sidas nøytrale overskrift når flere institusjoner med
+   ulike ord er huket av samtidig. */
+function facetLegend(facet) {
+  if (facet.key === 'division') {
+    const chosen = Array.from(selected.get('institution'));
+    const fromInstitution = divisionLegend(chosen);
+    if (fromInstitution) return fromInstitution;
+  }
+  return t(facet.labelKey);
+}
+
+/* Visningstekst for én valgt verdi — brukt av filterbrikkene, som lever
+   utenfor fasettlista og derfor ikke kan lese teksten av avkryssingsboksen. */
+function valueText(facetKey, key) {
+  if (facetKey !== 'division') return vocab(facetKey, key);
+  for (const tree of TREES) {
+    if (tree.division === key) return divisionText(tree.institution, key);
+  }
+  return null;
 }
 
 /* Tallet bak hver verdi er hvor mange treff DEN verdien ville gitt med alle
@@ -535,11 +739,12 @@ function renderChips() {
       const chip = document.createElement('button');
       chip.type = 'button';
       chip.className = 'chip';
-      const facetLabel = t(facet.labelKey);
-      chip.setAttribute('aria-label', fmt('chip-remove-aria', { facet: facetLabel, value: value }));
+      const facetLabel = facetLegend(facet);
+      const valueLabel = valueText(facet.key, value) || value;
+      chip.setAttribute('aria-label', fmt('chip-remove-aria', { facet: facetLabel, value: valueLabel }));
 
       const text = document.createElement('span');
-      text.textContent = facetLabel + ': ' + value;
+      text.textContent = facetLabel + ': ' + valueLabel;
 
       const x = document.createElement('span');
       x.className = 'chip__x';
@@ -549,6 +754,9 @@ function renderChips() {
       chip.append(text, x);
       chip.addEventListener('click', () => {
         selected.get(facet.key).delete(value);
+        // Fjerner man den siste institusjonen, skal inndelingsfasetten
+        // forsvinne igjen — samme grunn som i buildFacets().
+        if (hasChildFacet(facet.key)) buildFacets();
         reflectControls();
         render();
         syncUrl();
@@ -568,6 +776,7 @@ function clearAll() {
   query = '';
   el.search.value = '';
   FACETS.forEach(f => selected.get(f.key).clear());
+  buildFacets();          // avhengige fasetter skal forsvinne igjen
   reflectControls();
   render();
   syncUrl();

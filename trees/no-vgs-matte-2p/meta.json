@@ -1,25 +1,23 @@
 {
-  "schemaVersion": 1,
+  "_comment": "Katalogmetadata for dette treet. Feltene country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst — teksten slås opp der, på leserens språk. En nøkkel som ikke finnes der er en feil og stopper treet i katalogen.",
 
-  "slug": "matte-2p",
-  "path": "/trees/matte-2p/",
+  "schemaVersion": 2,
+
+  "slug": "no-vgs-matte-2p",
+  "path": "/trees/no-vgs-matte-2p/",
 
   "title": "Matematikk 2P",
   "subtitle": "Praktisk matematikk, Vg2 studieforberedende",
   "summary": "Prosent og vekstfaktor, personlig økonomi og lån, eksponentiell vekst, statistikk, geometri og litt programmering — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",
 
-  "country": "Norge",
-  "countryCode": "NO",
-  "language": "Norsk (bokmål)",
-  "languageCode": "nb",
+  "country": "NO",
+  "institution": "vgs",
+  "division": "vg2",
+  "subjectArea": "mathematics",
+  "language": "nb",
 
-  "level": "Videregående",
-  "grade": "Vg2",
-  "institution": "Utdanningsdirektoratet",
   "curriculum": "LK20",
   "courseCode": "",
-
-  "subjectArea": "Matematikk",
   "course": "Matematikk 2P",
 
   "topics": [
@@ -50,6 +48,5 @@
   "author": "Vidar Skogvoll",
   "authorUrl": "https://skogvoll.com",
   "license": "CC BY-SA 4.0",
-  "status": "Publisert",
   "updated": "2026-08-25"
 }

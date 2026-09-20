@@ -1,21 +1,25 @@
 {
-  "schemaVersion": 1,
-  "slug": "matte-1a-sv",
-  "path": "/trees/matte-1a-sv/",
+  "_comment": "Katalogmetadata for dette treet. Feltene country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst — teksten slås opp der, på leserens språk. En nøkkel som ikke finnes der er en feil og stopper treet i katalogen.",
+
+  "schemaVersion": 2,
+
+  "slug": "se-gym-matte-1a",
+  "path": "/trees/se-gym-matte-1a/",
+
   "title": "Matematik 1a",
   "subtitle": "Yrkesprogram, svenskt gymnasium (Gy25)",
   "summary": "Aritmetik och procent, geometri och skala, algebra och funktioner, privatekonomi och digitala verktyg, sannolikhet och statistik — nedbrutet i det eleverna faktiskt måste kunna göra, med Gy25 som grund.",
-  "country": "Sverige",
-  "countryCode": "SE",
-  "language": "Svenska",
-  "languageCode": "sv",
-  "level": "Gymnasium",
-  "grade": "År 1",
-  "institution": "Skolverket",
+
+  "country": "SE",
+  "institution": "gym",
+  "division": "1",
+  "subjectArea": "mathematics",
+  "language": "sv",
+
   "curriculum": "Gy25",
   "courseCode": "MATMAT01a",
-  "subjectArea": "Matematik",
   "course": "Matematik 1a",
+
   "topics": [
     "Aritmetik och procent",
     "Geometri och skala",
@@ -35,12 +39,13 @@
     "spridningsmått",
     "överslagsräkning"
   ],
+
+  "nodeCount": 50,
+  "skillCount": 26,
+  "conceptCount": 24,
+
   "author": "Vidar Skogvoll",
   "authorUrl": "https://skogvoll.com",
   "license": "CC BY-SA 4.0",
-  "status": "Utkast",
-  "updated": "2026-09-20",
-  "nodeCount": 50,
-  "skillCount": 26,
-  "conceptCount": 24
+  "updated": "2026-09-20"
 }
