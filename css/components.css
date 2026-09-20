@@ -56,32 +56,69 @@
 }
 
 /* --------------------------------------------------------------------------
-   Language switch — NO/EN/SV, in the header bar.
+   Nav, language dropdown and drawer.
 
-   Square like every other control in this system: no radius, hairline rule,
-   sans 500. The buttons sit flush against each other with the rule showing
-   through a 1px gap, the same trick .tiles uses, so the group reads as one
-   object rather than three loose chips.
+   All rendered by js/header.js — one file for every page. Square like the
+   rest of the system: no radius anywhere, hairline rules, flat fills.
 
-   The active language is marked by fill AND aria-pressed, never by color
-   alone — same reason links here are underlined.
+   Breakpoint is 768px, the system's phone → tablet step. Above it the nav
+   and the language control sit inline in the bar; below, the burger appears
+   and the same elements become a full-width drawer under the bar. It is one
+   markup tree switched by CSS, not two variants to keep in sync.
 
-   Not present on a tree page: the trees are not translated. See js/i18n.js.
+   Not present on a tree page: a skill tree is single-language and has its
+   own floating menu. See js/engine.js.
    -------------------------------------------------------------------------- */
 
-.lang-switch {
-  display: flex;
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  flex: 0 0 auto;
+.siteheader__inner {
+  gap: var(--space-2);
+  position: relative;
+  flex-wrap: wrap;
 }
 
-.lang-btn {
-  min-width: 44px;
+.sitenav-panel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-left: auto;
+}
+
+.sitenav {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--step-s);
+  font-weight: 500;
+}
+.sitenav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  padding: var(--space-1) 0;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.sitenav a:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+/* The current page is marked by weight AND a rule AND aria-current — the
+   colour is the least of the three signals. */
+.sitenav a.is-current {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--ink);
+}
+
+/* ---- Language dropdown --------------------------------------------------- */
+
+.lang-select { position: relative; flex: 0 0 auto; }
+
+.lang-select__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   min-height: 44px;
-  padding: 0 var(--space-1);
-  border: 0;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--rule);
   border-radius: 0;
   background: var(--paper);
   color: var(--ink-2);
@@ -90,17 +127,111 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   cursor: pointer;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
 }
+.lang-select__button:hover { background: var(--surface); color: var(--ink); border-color: var(--rule-strong); }
+.lang-select__globe { font-size: 1em; line-height: 1; }
+.lang-select__caret { font-size: 0.8em; color: var(--ink-3); }
+.lang-select__button[aria-expanded="true"] { background: var(--surface); color: var(--ink); border-color: var(--rule-strong); }
 
-.lang-btn:hover { background: var(--surface); color: var(--ink); }
-
-.lang-btn.is-active {
-  background: var(--primary);
-  color: var(--ink-inverse);
-  cursor: default;
+.lang-select__menu {
+  position: absolute;
+  top: calc(100% + 1px);
+  right: 0;
+  z-index: 40;
+  display: none;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
 }
-.lang-btn.is-active:hover { background: var(--primary); color: var(--ink-inverse); }
+.lang-select__menu.is-open { display: block; }
+
+.lang-select__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.lang-select__option:hover { background: var(--paper-2); color: var(--ink); }
+.lang-select__option[aria-selected="true"] { color: var(--ink); background: var(--primary-tint); }
+.lang-select__tick { width: 1em; color: var(--primary); }
+
+/* ---- Burger + drawer ------------------------------------------------------ */
+
+.navtoggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--paper);
+  cursor: pointer;
+}
+.navtoggle:hover { background: var(--surface); border-color: var(--rule-strong); }
+
+/* Three bars drawn from one element: the middle is the box, the outer two
+   are its pseudo-elements. */
+.navtoggle__bars,
+.navtoggle__bars::before,
+.navtoggle__bars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+}
+.navtoggle__bars { position: relative; }
+.navtoggle__bars::before,
+.navtoggle__bars::after { content: ''; position: absolute; left: 0; }
+.navtoggle__bars::before { top: -6px; }
+.navtoggle__bars::after  { top: 6px; }
+
+@media (max-width: 767px) {
+  .navtoggle { display: inline-flex; }
+
+  .sitenav-panel {
+    display: none;
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--rule);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .siteheader[data-open="true"] .sitenav-panel { display: flex; }
+
+  .sitenav { flex-direction: column; gap: 0; }
+  .sitenav a {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--rule);
+    border-left: 2px solid transparent;
+    font-size: var(--step-m);
+  }
+  .sitenav a.is-current { border-left-color: var(--ink); padding-left: var(--space-2); }
+  .sitenav a:hover { border-left-color: var(--primary); padding-left: var(--space-2); }
+
+  .lang-select { margin-top: var(--space-2); align-self: flex-start; }
+  .lang-select__menu { right: auto; left: 0; }
+}
 
 /* --------------------------------------------------------------------------
    Hero — full-bleed photograph, flat scrim, display type sitting on it.

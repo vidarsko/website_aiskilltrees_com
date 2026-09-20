@@ -12,6 +12,7 @@
 
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
 
   <!--
     The translation dictionary for THIS page. English is the source: the
@@ -30,9 +31,6 @@
       "no": "Et lærerskrevet kart over et fag, pluss instrukser som gjør hvilken som helst KI-chat til en øvingspartner — en som holder tilbake det den kunne røpet.",
       "sv": "En lärarskriven karta över ett ämne, plus instruktioner som gör vilken AI-chatt som helst till en övningspartner — en som håller inne med det den skulle kunna avslöja."
     },
-
-    "lang-switch-label": { "en": "Language", "no": "Språk", "sv": "Språk" },
-
     "hero-eyebrow": {
       "en": "An open method for teachers",
       "no": "En åpen metode for lærere",
@@ -63,8 +61,11 @@
       "no": "Les metoden",
       "sv": "Läs metoden"
     },
-
-    "what-eyebrow": { "en": "What this is", "no": "Hva dette er", "sv": "Vad det här är" },
+    "what-eyebrow": {
+      "en": "What this is",
+      "no": "Hva dette er",
+      "sv": "Vad det här är"
+    },
     "what-heading": {
       "en": "The graph is the interface, not the engine.",
       "no": "Grafen er grensesnittet, ikke motoren.",
@@ -80,9 +81,11 @@
       "no": "Ingenting her kaller en språkmodell. Verktøyet setter sammen en lærerskrevet instruks som du limer inn i den KI-chatten du allerede bruker. Ingen leverandøravhengighet, ingen kostnad per elev, ingen databehandleravtale — og hver eneste instruks er skrevet for å få modellen til å holde noe tilbake, slik at eleven fortsatt gjør tenkearbeidet.",
       "sv": "Ingenting här anropar en språkmodell. Verktyget sätter samman en lärarskriven instruktion som du klistrar in i den AI-chatt du redan använder. Ingen leverantörsinlåsning, ingen kostnad per elev, inget personuppgiftsbiträdesavtal — och varje instruktion är skriven för att få modellen att hålla något inne, så att eleven fortfarande gör tankearbetet."
     },
-
-    "start-eyebrow": { "en": "Start here", "no": "Start her", "sv": "Börja här" },
-
+    "start-eyebrow": {
+      "en": "Start here",
+      "no": "Start her",
+      "sv": "Börja här"
+    },
     "tile-1-title": {
       "en": "Existing skill trees",
       "no": "Ferdighetstrær som finnes",
@@ -93,24 +96,41 @@
       "no": "Bla i fagene som allerede er dekomponert — hvordan et ferdig tre ser ut, og hva en node faktisk inneholder.",
       "sv": "Bläddra bland ämnena som redan är nedbrutna — hur ett färdigt träd ser ut, och vad en nod faktiskt innehåller."
     },
-    "tile-1-go": { "en": "Browse →", "no": "Bla i dem →", "sv": "Bläddra →" },
-
-    "tile-2-title": { "en": "Make your own", "no": "Lag ditt eget", "sv": "Gör ditt eget" },
+    "tile-1-go": {
+      "en": "Browse →",
+      "no": "Bla i dem →",
+      "sv": "Bläddra →"
+    },
+    "tile-2-title": {
+      "en": "Make your own",
+      "no": "Lag ditt eget",
+      "sv": "Gör ditt eget"
+    },
     "tile-2-body": {
       "en": "The decomposition specification, the instructions, and a template for starting a new subject — in your language, for your syllabus.",
       "no": "Dekomponeringsspesifikasjonen, instruksene og en mal for å starte et nytt fag — på ditt språk, for din læreplan.",
       "sv": "Nedbrytningsspecifikationen, instruktionerna och en mall för att börja med ett nytt ämne — på ditt språk, för din läroplan."
     },
-    "tile-2-go": { "en": "Get the spec →", "no": "Hent spesifikasjonen →", "sv": "Hämta specifikationen →" },
-
-    "tile-3-title": { "en": "Research", "no": "Forskning", "sv": "Forskning" },
+    "tile-2-go": {
+      "en": "Get the spec →",
+      "no": "Hent spesifikasjonen →",
+      "sv": "Hämta specifikationen →"
+    },
+    "tile-3-title": {
+      "en": "Research",
+      "no": "Forskning",
+      "sv": "Forskning"
+    },
     "tile-3-body": {
       "en": "The cognitive grounding behind the design, and the paper describing why a visible, teacher-written graph is the point.",
       "no": "Det kognitive grunnlaget bak designet, og artikkelen som forklarer hvorfor en synlig, lærerskrevet graf er hele poenget.",
       "sv": "Den kognitiva grunden bakom designen, och artikeln som förklarar varför en synlig, lärarskriven graf är hela poängen."
     },
-    "tile-3-go": { "en": "Read the paper →", "no": "Les artikkelen →", "sv": "Läs artikeln →" },
-
+    "tile-3-go": {
+      "en": "Read the paper →",
+      "no": "Les artikkelen →",
+      "sv": "Läs artikeln →"
+    },
     "footer-line-1": {
       "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
       "no": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
@@ -126,25 +146,7 @@
 </head>
 <body>
 
-  <header class="siteheader">
-    <div class="siteheader__inner">
-      <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true">&#9679;</span>AI Skill Trees</a>
-      <!-- TODO: nav. Omitted entirely rather than shipped as an empty landmark
-           or as dead links — add <nav class="sitenav" aria-label="Main"> here
-           once there are real destinations. The language switch sits at the
-           far end of the bar and stays there when the nav arrives. -->
-
-      <!-- Language switch. The button labels are endonyms (EN / NO / SV), so
-           they read the same whichever language is active and need no
-           translating themselves. The trees are not translated — see
-           js/i18n.js for why this is a page-level control, not a site-wide one. -->
-      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang-switch-label">
-        <button class="lang-btn" type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button>
-        <button class="lang-btn" type="button" data-lang="no" lang="nb" aria-pressed="false" title="Norsk (bokmål)">NO</button>
-        <button class="lang-btn" type="button" data-lang="sv" lang="sv" aria-pressed="false" title="Svenska">SV</button>
-      </div>
-    </div>
-  </header>
+  <header class="siteheader" data-site-header></header>
 
   <main>
 
@@ -171,11 +173,10 @@
           into a practice partner — one that holds back what it could give away.
         </p>
         <div class="btn-row">
-          <!-- "Read the method" has no destination yet. data-track-cta reports
-               which of these gets pressed — including the dead one, which is
-               how we learn what to build next. See js/analytics.js. -->
+          <!-- data-track-cta reports which of these gets pressed. Both now
+               resolve, so cta_live is "yes" for each. See js/analytics.js. -->
           <a class="btn btn--primary" href="/trees/" data-track-cta="hero-see-a-tree" data-i18n="hero-cta-primary">See a tree</a>
-          <a class="btn btn--ghost" href="#" data-track-cta="hero-read-the-method" data-i18n="hero-cta-secondary">Read the method</a>
+          <a class="btn btn--ghost" href="/research/" data-track-cta="hero-read-the-method" data-i18n="hero-cta-secondary">Read the method</a>
         </div>
       </div>
     </section>
@@ -208,8 +209,8 @@
         <p class="eyebrow" data-i18n="start-eyebrow">Start here</p>
         <div class="tiles">
 
-          <!-- 01 now has a real destination: the tree catalogue. 02 and 03 are
-               still placeholders — see AGENTS.md, "Ikke avgjort ennå". -->
+          <!-- All three now have real destinations. 02 and 03 are placeholder
+               PAGES rather than dead links — the copy there says so. -->
           <a class="tile" href="/trees/" data-track-cta="tile-01-existing-trees">
             <span class="tile__index">01</span>
             <h3 class="tile__title" data-i18n="tile-1-title">Existing skill trees</h3>
@@ -220,7 +221,7 @@
             <span class="tile__go" aria-hidden="true" data-i18n="tile-1-go">Browse &rarr;</span>
           </a>
 
-          <a class="tile" href="#" data-track-cta="tile-02-make-your-own">
+          <a class="tile" href="/make-your-own/" data-track-cta="tile-02-make-your-own">
             <span class="tile__index">02</span>
             <h3 class="tile__title" data-i18n="tile-2-title">Make your own</h3>
             <p class="tile__body" data-i18n="tile-2-body">
@@ -230,7 +231,7 @@
             <span class="tile__go" aria-hidden="true" data-i18n="tile-2-go">Get the spec &rarr;</span>
           </a>
 
-          <a class="tile" href="#" data-track-cta="tile-03-research">
+          <a class="tile" href="/research/" data-track-cta="tile-03-research">
             <span class="tile__index">03</span>
             <h3 class="tile__title" data-i18n="tile-3-title">Research</h3>
             <p class="tile__body" data-i18n="tile-3-body">

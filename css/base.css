@@ -120,6 +120,13 @@ p:last-child, h1:last-child, h2:last-child, h3:last-child { margin-bottom: 0; }
   color: var(--ink-3);
 }
 
+/* A lead paragraph inside .prose — one step up, for the sentence that
+   carries the page. Distinct from .lede, which is hero-sized. */
+.prose .lede-p {
+  font-size: var(--step-l);
+  line-height: 1.45;
+}
+
 /* Links in prose: colored AND underlined — never color alone. */
 a {
   color: var(--primary);

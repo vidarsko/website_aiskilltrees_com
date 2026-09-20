@@ -37,6 +37,20 @@
   var HTML_LANG = { en: 'en', no: 'nb', sv: 'sv' };
 
   function detectLang() {
+    /* ?lang=no beats everything, and is then remembered like a click.
+       It exists so another domain can point at a language: ferdighetstre.no
+       redirects to aiskilltrees.com/?lang=no. Also makes a link shareable in
+       a chosen language. See AGENTS.md, "Domener". */
+    var fromUrl = null;
+    try {
+      fromUrl = new URLSearchParams(location.search).get('lang');
+      if (fromUrl === 'nb' || fromUrl === 'nn') fromUrl = 'no';
+    } catch (e) {}
+    if (fromUrl && SUPPORTED.indexOf(fromUrl) !== -1) {
+      try { localStorage.setItem(STORAGE_KEY, fromUrl); } catch (e) {}
+      return fromUrl;
+    }
+
     var stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
@@ -108,40 +122,29 @@
     var docTitle = dict['doc-title'];
     if (docTitle && docTitle[lang] != null) document.title = docTitle[lang];
 
-    var buttons = document.querySelectorAll('.lang-btn');
-    for (var b = 0; b < buttons.length; b++) {
-      var isActive = buttons[b].getAttribute('data-lang') === lang;
-      buttons[b].classList.toggle('is-active', isActive);
-      buttons[b].setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    }
-
     /* Anything that builds its own markup (catalog.js) redraws on this. */
     document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
   }
 
   /* Read by scripts that generate text. `lang` is a live getter, not a copy,
      so a handler registered before the first switch still sees the truth. */
+  /* The visible switcher lives in js/header.js, which renders the whole
+     header bar for every page. This file owns the language STATE and the
+     translation of page content; it renders no control of its own. */
   window.i18n = {
     t: t,
     get lang() { return current; },
     supported: SUPPORTED.slice(),
-    onChange: function (fn) { document.addEventListener('langchange', function (e) { fn(e.detail.lang); }); }
-  };
-
-  apply(current);
-
-  var switchEl = document.querySelector('.lang-switch');
-  if (switchEl) {
-    switchEl.addEventListener('click', function (event) {
-      var btn = event.target.closest('.lang-btn');
-      if (!btn) return;
-      var lang = btn.getAttribute('data-lang');
-      if (!lang || lang === current) return;
+    setLang: function (lang) {
+      if (!lang || SUPPORTED.indexOf(lang) === -1 || lang === current) return;
       var from = current;
       current = lang;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
       apply(current);
       if (window.aistTrack) window.aistTrack('language_switch', { language: lang, language_from: from });
-    });
-  }
+    },
+    onChange: function (fn) { document.addEventListener('langchange', function (e) { fn(e.detail.lang); }); }
+  };
+
+  apply(current);
 })();
