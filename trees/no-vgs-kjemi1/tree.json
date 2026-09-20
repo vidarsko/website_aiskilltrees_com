@@ -1,0 +1,32 @@
+{
+  "_comment": "Alt som varierer med FAGET, og ingenting annet. Rene data. Grensesnittspråket kommer fra /languages/<language>.json, pedagogikken fra /prompts/. Migrert fra skogvoll.com 2026-09-20.",
+  "schemaVersion": 1,
+  "title": "Kjemi 1",
+  "description": "Atombygning og periodesystemet, bindinger og molekylgeometri, navnsetting, støkiometri, redoks, termokjemi, reaksjonsfart og likevekt, syrer og baser, løselighet, kvantitativ analyse og organisk kjemi — dekomponert i det elevene faktisk må kunne gjøre.",
+  "subjectFamily": "natural-sciences",
+  "language": "nb",
+  "languageName": "Norwegian (bokmål)",
+  "storageKey": "kjemi1-ferdighetstre-fullfort",
+  "features": {
+    "motivation": false
+  },
+  "topicOrder": [
+    "Kjemi som fag",
+    "Atombygning og periodesystemet",
+    "Kjemiske bindinger og molekylgeometri",
+    "Kjemiske forbindelser og navnsetting",
+    "Støkiometri",
+    "Redoksreaksjoner",
+    "Termokjemi",
+    "Reaksjonsfart og likevekt",
+    "Syrer og baser",
+    "Løselighet",
+    "Kvantitativ analyse",
+    "Organisk kjemi",
+    "Grønn kjemi"
+  ],
+  "slots": {
+    "courseName": "kjemi 1 (norsk videregående skole)",
+    "expressionFocus": "glemmer å balansere reaksjonslikninger (inkludert ladning i redoksreaksjoner, ikke bare atomer), glemmer tilstandssymboler (s), (l), (g), (aq), blander sammen K og Ka/Kb, bruker enkeltpil (→) der likevektspil (⇌) er riktig eller omvendt, oppgir svar med feil antall gjeldende sifre eller glemmer enheter (spesielt mol/L, mol, g/mol, kJ/mol), blander sammen konsentrasjon (mol/L) og stoffmengde (mol) i en beregning, blander sammen atomnummer og massetall, eller bruker upresise dagligord (f.eks. \"stoffet forsvinner\" i stedet for å navngi hva det reagerer til)"
+  }
+}

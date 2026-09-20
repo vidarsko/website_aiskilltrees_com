@@ -1,0 +1,47 @@
+{
+  "_comment": "Alt som varierer med FAGET, og ingenting annet. Rene data. Grensesnittspråket kommer fra /languages/<language>.json, pedagogikken fra /prompts/. Migrert fra skogvoll.com 2026-09-20.",
+  "schemaVersion": 1,
+  "title": "Fysikk 2",
+  "description": "Kinematikk i to dimensjoner, krumlinjet bevegelse, gravitasjon, elektriske og magnetiske felt, induksjon, spesiell og generell relativitetsteori og kvantefysikk — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",
+  "subjectFamily": "natural-sciences",
+  "language": "nb",
+  "languageName": "Norwegian (bokmål)",
+  "storageKey": "fysikk2-ferdighetstre-fullfort",
+  "features": {
+    "motivation": false
+  },
+  "topicOrder": [
+    "Fysikk som fag",
+    "Programmering og numeriske metoder",
+    "Kinematikk i to dimensjoner",
+    "Krefter og krumlinjet bevegelse",
+    "Gravitasjon",
+    "Elektriske felt",
+    "Magnetiske felt",
+    "Elektromagnetisk induksjon",
+    "Spesiell relativitetsteori",
+    "Generell relativitetsteori",
+    "Kvantefysikk",
+    "Fordypningsemne"
+  ],
+  "slots": {
+    "courseName": "fysikk 2 (norsk videregående skole)",
+    "expressionFocus": "glemmer å oppgi enheter eller blander enheter, oppgir svar med feil antall gjeldende siffer, blander sammen absolutt og relativ usikkerhet eller runder mellomsvar for tidlig i en usikkerhetsberegning, glemmer å begrunne fortegn/retning på vektorstørrelser (krefter, felt, akselerasjon) i stedet for bare å oppgi en tallverdi, bruker \"=\" mellom en tilnærmet og en eksakt verdi der ≈ er riktig, eller blander sammen lignende symboler (f.eks. g for tyngdeakselerasjon og g for gravitasjonsfeltstyrke, eller v for fart og v for spenning i elektriske kretser - skriv alltid tydelig hvilken størrelse et symbol representerer)"
+  },
+  "aids": {
+    "_comment": "Nivåene i `aids`-kolonnen i noder.csv. `student` er teksten eleven leser; `model` er teksten KI-instruksen får, og er hentet ORDRETT fra fagets gamle composeHjelpemiddelContext() på skogvoll.com. Forskjellene mellom fagene er tilsiktede — ikke slå dem sammen.",
+    "label": "Del",
+    "levels": [
+      {
+        "level": 1,
+        "student": "Helt uten hjelpemidler — ikke engang kalkulator. Du har skrivesaker, passer, linjal, vinkelmåler og de trykte vedleggene.",
+        "model": "Hjelpemidler: Dette gjelder del 1 av eksamen, helt uten hjelpemidler - ikke engang kalkulator. Forvent at eleven regner for hånd, med kun skrivesaker, passer, linjal, vinkelmåler og de trykte vedleggene (faktavedlegg, formelvedlegg, programmeringsvedlegg) tilgjengelig. Eksamen tillater uansett ikke kunstig intelligens eller chatbot som hjelpemiddel i selve eksamensgjennomføringen - denne treningsøkten er forberedelse, ikke eksamen."
+      },
+      {
+        "level": 2,
+        "student": "Fra våren 2027 besvares denne delen for hånd. Du får bruke en enkel vitenskapelig kalkulator, egne notater på papir og trykte kilder — men ingen PC eller nettbrett, ingen programmering eller GeoGebra, og ingen grafisk, likningsløsende eller programmerbar kalkulator.",
+        "model": "Hjelpemidler: Dette gjelder del 2 av eksamen, som fra våren 2027 skal besvares for hånd - ingen datamaskin/nettbrett, programmering eller GeoGebra i det hele tatt. Forvent at eleven bruker en enkel vitenskapelig kalkulator (kan regne med kvadratrøtter, logaritmer, sinus/cosinus/tangens og standardavvik), egne notater på papir og trykte kilder. Grafiske kalkulatorer og kalkulatorer som kan løse likninger, er programmerbare eller kan kommunisere med andre enheter, er IKKE tillatt. Der noden i utgangspunktet forutsetter et digitalt verktøy (f.eks. numerisk simulering/programmering), er det per nå uklart hvordan dette skal løses på del 2 uten datamaskin - flagg dette til eleven fremfor å late som om kalkulatoren kan erstatte det. Eksamen tillater uansett ikke kunstig intelligens eller chatbot som hjelpemiddel i selve eksamensgjennomføringen - denne treningsøkten er forberedelse, ikke eksamen."
+      }
+    ]
+  }
+}

@@ -674,8 +674,10 @@ function facetValues(facet) {
     if (text) seen.set(key, text);
   });
 
+  /* `numeric` so «Trinn 8» sorts before «Trinn 10». Without it the facet
+     reads 10, 8, 9, because a plain string compare puts «1» before «8». */
   return Array.from(seen, ([key, text]) => ({ key: key, text: text }))
-    .sort((a, b) => a.text.localeCompare(b.text, collator()));
+    .sort((a, b) => a.text.localeCompare(b.text, collator(), { numeric: true }));
 }
 
 /* Overskriften over fasetten. `division` henter sin fra institusjonen som
@@ -799,10 +801,10 @@ function reflectControls() {
 /* Analytics                                                            */
 /*                                                                      */
 /* Det ENE spørsmålet katalogen kan svare på som ingenting annet kan:   */
-/* hvilke fag folk leter etter. Katalogen har i skrivende stund ett tre */
-/* av sytten, og resten ligger fortsatt på skogvoll.com — et søk uten   */
-/* treff er derfor ikke en feil, men den mest direkte beskjeden om hva  */
-/* som bør migreres eller skrives neste gang.                           */
+/* hvilke fag folk leter etter. Etter migreringen 2026-09-20 ligger alle */
+/* de norske trærne her, så et bomsøk er ikke lenger «ikke flyttet ennå» */
+/* — det er et fag som ikke finnes, og dermed den mest direkte beskjeden */
+/* om hva som bør skrives eller bidras neste gang.                       */
 /*                                                                      */
 /* Hendelsen sendes ETTER at skrivinga har lagt seg (900 ms), ikke per  */
 /* tastetrykk: ellers rapporteres «s», «st», «sta» … som fire søk.      */

@@ -1,0 +1,33 @@
+{
+  "_comment": "Katalogmetadata. country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
+  "schemaVersion": 2,
+  "slug": "no-vgs-naturfag-vg1",
+  "path": "/trees/no-vgs-naturfag-vg1/",
+  "title": "Naturfag Vg1",
+  "subtitle": "Fellesfag, Vg1 studieforberedende",
+  "summary": "Naturvitenskapelig metode, kjemiske bindinger, karbonkjemi og bærekraft, bølger og stråling, ernæring og helse, og arv, evolusjon og bioteknologi — dekomponert i det elevene faktisk må kunne gjøre.",
+  "country": "NO",
+  "institution": "vgs",
+  "division": "vg1",
+  "subjectArea": "science",
+  "language": "nb",
+  "curriculum": "LK20",
+  "courseCode": "",
+  "course": "Naturfag Vg1",
+  "topics": [
+    "Naturvitenskapelig metode",
+    "Kjemiske bindinger",
+    "Karbonkjemi og bærekraft",
+    "Bølger og stråling",
+    "Ernæring og helse",
+    "Arv, evolusjon og bioteknologi"
+  ],
+  "keywords": [],
+  "nodeCount": 123,
+  "skillCount": 45,
+  "conceptCount": 78,
+  "author": "Vidar Skogvoll",
+  "authorUrl": "https://skogvoll.com",
+  "license": "CC BY-SA 4.0",
+  "updated": "2026-09-20"
+}

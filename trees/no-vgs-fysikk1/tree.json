@@ -1,0 +1,31 @@
+{
+  "_comment": "Alt som varierer med FAGET, og ingenting annet. Rene data. Grensesnittspråket kommer fra /languages/<language>.json, pedagogikken fra /prompts/. Migrert fra skogvoll.com 2026-09-20.",
+  "schemaVersion": 1,
+  "title": "Fysikk 1",
+  "description": "Fysikk som fag, bevegelse, krefter, mekanisk energi, bevegelsesmengde, termofysikk, elektrisitet, atommodeller, stråling og klima, kjerner og stjerner — dekomponert i det elevene faktisk må kunne gjøre.",
+  "subjectFamily": "natural-sciences",
+  "language": "nb",
+  "languageName": "Norwegian (bokmål)",
+  "storageKey": "fysikk1-ferdighetstre-fullfort",
+  "features": {
+    "motivation": false
+  },
+  "topicOrder": [
+    "Fysikk som fag",
+    "Programmering og numeriske metoder",
+    "Bevegelse",
+    "Krefter",
+    "Mekanisk energi",
+    "Bevegelsesmengde",
+    "Termofysikk",
+    "Elektrisitet",
+    "Atommodeller",
+    "Stråling og klima",
+    "Kjerner og stjerner",
+    "Energi, klima og samfunn"
+  ],
+  "slots": {
+    "courseName": "fysikk 1 (norsk videregående skole)",
+    "expressionFocus": "glemmer å oppgi enheter eller blander enheter (f.eks. km/h og m/s), oppgir svar med feil antall gjeldende siffer, glemmer å velge og oppgi positiv retning i oppgaver med fortegn (bevegelse, krefter), eller bruker feil eller udefinerte symboler for størrelser"
+  }
+}

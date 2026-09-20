@@ -1,0 +1,30 @@
+{
+  "_comment": "Katalogmetadata. country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
+  "schemaVersion": 2,
+  "slug": "no-grunnskole-matte-9",
+  "path": "/trees/no-grunnskole-matte-9/",
+  "title": "Matematikk 9. trinn",
+  "subtitle": "Ungdomsskole, 9. trinn",
+  "summary": "Måling, geometri, statistikk og sannsynlighet — dekomponert i det elevene faktisk må kunne gjøre.",
+  "country": "NO",
+  "institution": "grunnskole",
+  "division": "9",
+  "subjectArea": "mathematics",
+  "language": "nb",
+  "curriculum": "LK20",
+  "courseCode": "",
+  "course": "Matematikk 9. trinn",
+  "topics": [
+    "Måling",
+    "Geometri",
+    "Statistikk og sannsynlighet"
+  ],
+  "keywords": [],
+  "nodeCount": 36,
+  "skillCount": 20,
+  "conceptCount": 16,
+  "author": "Vidar Skogvoll",
+  "authorUrl": "https://skogvoll.com",
+  "license": "CC BY-SA 4.0",
+  "updated": "2026-09-20"
+}

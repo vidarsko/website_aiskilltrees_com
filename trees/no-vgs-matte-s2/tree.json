@@ -1,0 +1,46 @@
+{
+  "_comment": "Alt som varierer med FAGET, og ingenting annet. Rene data. Grensesnittspråket kommer fra /languages/<language>.json, pedagogikken fra /prompts/. Migrert fra skogvoll.com 2026-09-20.",
+  "schemaVersion": 1,
+  "title": "Matematikk S2",
+  "description": "Rekker, integrasjon, funksjonsdrøfting, eksponentiell og logistisk vekst, økonomisk modellering, sannsynlighetsfordelinger, normalfordeling og hypotesetesting — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",
+  "subjectFamily": "mathematics",
+  "language": "nb",
+  "languageName": "Norwegian (bokmål)",
+  "storageKey": "s2-ferdighetstre-fullfort",
+  "features": {
+    "motivation": true
+  },
+  "topicOrder": [
+    "Rekker",
+    "Rekursjon og programmering",
+    "Integrasjonsteknikker",
+    "Det bestemte integralet og fundamentalteoremet",
+    "Funksjonsdrøfting med derivasjon og integrasjon",
+    "Eksponentiell og logistisk vekst",
+    "Økonomisk modellering: kostnad, inntekt og grensestørrelser",
+    "Sannsynlighetsfordelinger: forventningsverdi, varians og simulering",
+    "Normalfordeling og sentralgrensesetningen",
+    "Hypotesetesting"
+  ],
+  "slots": {
+    "courseName": "matematikk S2 (norsk videregående skole, programfag realfag)",
+    "expressionFocus": "blander sammen det ubestemte og det bestemte integralet (glemmer konstanten C i et ubestemt integral, eller tar den unødvendig med i et bestemt integral), bruker \"=\" mellom en tilnærmet og en eksakt verdi der \"≈\" er riktig (typisk ved digitalt bestemte modeller), glemmer å oppgi enhet ved tolkning av en deriverte eller et integral i en praktisk modell (f.eks. kr/uke, bakterier/dag), forveksler nullhypotese og alternativ hypotese eller formulerer dem upresist, skriver P(X = k) der de egentlig mener P(X ≥ k) eller omvendt, eller oppgir en forventningsverdi/varians/rentesats uten benevning",
+    "motivationSubject": "matte"
+  },
+  "aids": {
+    "_comment": "Nivåene i `aids`-kolonnen i noder.csv. `student` er teksten eleven leser; `model` er teksten KI-instruksen får, og er hentet ORDRETT fra fagets gamle composeHjelpemiddelContext() på skogvoll.com. Forskjellene mellom fagene er tilsiktede — ikke slå dem sammen.",
+    "label": "Del",
+    "levels": [
+      {
+        "level": 1,
+        "student": "Uten hjelpemidler. Du regner for hånd, uten kalkulator — men du får en oppgitt tabell for standard normalfordeling der det er relevant.",
+        "model": "Hjelpemidler: Dette gjelder del 1 av eksamen, uten hjelpemidler. Forvent at eleven regner for hånd, uten kalkulator (men med tilgang på en oppgitt tabell for standard normalfordeling der det er relevant). Treningen skal gjenspeile hvordan ferdigheten faktisk skal utføres på eksamen, med hjelpemiddelordningen fra våren 2027 (ingen datamaskin/nettbrett på del 2 i det hele tatt - kun en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler). Eksamen tillater uansett ikke kunstig intelligens til å generere innhold i besvarelsen - denne treningsøkten er forberedelse, ikke eksamensgjennomføring."
+      },
+      {
+        "level": 2,
+        "student": "Fra våren 2027 besvares denne delen for hånd. Du får bruke en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler — men ingen PC eller nettbrett, og ingen grafisk, likningsløsende eller programmerbar kalkulator.",
+        "model": "Hjelpemidler: Dette gjelder del 2 av eksamen, som fra våren 2027 skal besvares for hånd. Forvent at eleven bruker en enkel vitenskapelig kalkulator (kan regne med kvadratrøtter, logaritmer, sinus/cosinus/tangens og standardavvik), eventuelt egne notater/trykte hjelpemidler. Merk: grafiske kalkulatorer og kalkulatorer som kan løse likninger, er programmerbare eller kan kommunisere med andre enheter, er IKKE tillatt - og heller ikke CAS-programvare, regneark eller annen PC-programvare. Der noden i utgangspunktet forutsetter et digitalt verktøy som regresjon, en fordelingsfunksjon eller numerisk likningsløsning: dette går utover det en enkel vitenskapelig kalkulator er spesifisert til å klare, så la eleven regne det ut fra formel for hånd i stedet. Unntak: noder som spesifikt handler om å skrive og kjøre et program (rekursive følger, simulering) trenes fortsatt med et faktisk programmeringsspråk, siden dette er en egen kompetanse i S2 - men merk at det per nå er uklart hvordan denne kompetansen faktisk skal eksamineres på del 2 uten datamaskin tilgjengelig. Treningen skal gjenspeile hvordan ferdigheten faktisk skal utføres på eksamen, med hjelpemiddelordningen fra våren 2027 (ingen datamaskin/nettbrett på del 2 i det hele tatt - kun en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler). Eksamen tillater uansett ikke kunstig intelligens til å generere innhold i besvarelsen - denne treningsøkten er forberedelse, ikke eksamensgjennomføring."
+      }
+    ]
+  }
+}

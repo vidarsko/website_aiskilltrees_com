@@ -1,0 +1,46 @@
+{
+  "_comment": "Alt som varierer med FAGET, og ingenting annet. Rene data. Grensesnittspråket kommer fra /languages/<language>.json, pedagogikken fra /prompts/. Migrert fra skogvoll.com 2026-09-20.",
+  "schemaVersion": 1,
+  "title": "Matematikk R1",
+  "description": "Potenser og logaritmer, grenseverdier, derivasjon og funksjonsdrøfting, eksponentiell og logistisk vekst, omvendte funksjoner, vektorer i planet, parameterframstilling og numeriske metoder — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",
+  "subjectFamily": "mathematics",
+  "language": "nb",
+  "languageName": "Norwegian (bokmål)",
+  "storageKey": "r1-ferdighetstre-fullfort",
+  "features": {
+    "motivation": true
+  },
+  "topicOrder": [
+    "Potenser og logaritmer",
+    "Grenseverdier og kontinuitet",
+    "Derivasjon: grunnlag",
+    "Funksjonsdrøfting med derivasjon",
+    "Eksponentiell og logistisk vekst",
+    "Omvendte funksjoner",
+    "Vektorer i planet",
+    "Parameterframstilling",
+    "Programmering og numeriske metoder",
+    "Utforskende arbeid med data"
+  ],
+  "slots": {
+    "courseName": "matematikk R1 (norsk videregående skole)",
+    "expressionFocus": "blander sammen f(x) og f'(x) (eller skriver \"avledet\" i stedet for riktig notasjon), bruker \"=\" om uttrykk som ikke faktisk er like (f.eks. mellom en tilnærming og en eksakt verdi, der ≈ er riktig), glemmer å oppgi enhet ved fart/vekstfart (f.eks. m/s eller per år), oppgir vektorer uten pil eller uten koordinater, glemmer å oppgi definisjonsmengden til en omvendt funksjon, eller avrunder mellomsvar for tidlig i en flertrinnsoppgave med eksponentiell eller logistisk modellering",
+    "motivationSubject": "matte"
+  },
+  "aids": {
+    "_comment": "Nivåene i `aids`-kolonnen i noder.csv. `student` er teksten eleven leser; `model` er teksten KI-instruksen får, og er hentet ORDRETT fra fagets gamle composeHjelpemiddelContext() på skogvoll.com. Forskjellene mellom fagene er tilsiktede — ikke slå dem sammen.",
+    "label": "Del",
+    "levels": [
+      {
+        "level": 1,
+        "student": "Helt uten hjelpemidler — ikke engang kalkulator. Du har skrivesaker, passer og linjal.",
+        "model": "Hjelpemidler: Dette gjelder del 1 av eksamen, helt uten hjelpemidler - ikke engang kalkulator. Forvent at eleven regner for hånd, med kun vanlige skrivesaker, passer og linjal tilgjengelig. Treningen skal gjenspeile hvordan ferdigheten faktisk skal utføres på eksamen, med hjelpemiddelordningen fra våren 2027 (ingen datamaskin/nettbrett på del 2 i det hele tatt - kun en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler). Eksamen tillater uansett ikke kunstig intelligens til å generere innhold i besvarelsen - denne treningsøkten er forberedelse, ikke eksamensgjennomføring."
+      },
+      {
+        "level": 2,
+        "student": "Fra våren 2027 besvares denne delen for hånd. Du får bruke en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler — men ingen PC eller nettbrett, og ingen grafisk, likningsløsende eller programmerbar kalkulator.",
+        "model": "Hjelpemidler: Dette gjelder del 2 av eksamen, som fra våren 2027 skal besvares for hånd. Forvent at eleven bruker en enkel vitenskapelig kalkulator (kan regne med kvadratrøtter, logaritmer, sinus/cosinus/tangens og standardavvik), eventuelt egne notater/trykte hjelpemidler. Merk: grafiske kalkulatorer og kalkulatorer som kan løse likninger, er programmerbare eller kan kommunisere med andre enheter, er IKKE tillatt - og heller ikke CAS-programvare eller PC/nettbrett (f.eks. GeoGebra). Treningen skal gjenspeile hvordan ferdigheten faktisk skal utføres på eksamen, med hjelpemiddelordningen fra våren 2027 (ingen datamaskin/nettbrett på del 2 i det hele tatt - kun en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler). Eksamen tillater uansett ikke kunstig intelligens til å generere innhold i besvarelsen - denne treningsøkten er forberedelse, ikke eksamensgjennomføring."
+      }
+    ]
+  }
+}

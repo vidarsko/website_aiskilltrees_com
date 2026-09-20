@@ -1,0 +1,31 @@
+{
+  "_comment": "Katalogmetadata. country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
+  "schemaVersion": 2,
+  "slug": "no-grunnskole-matte-8",
+  "path": "/trees/no-grunnskole-matte-8/",
+  "title": "Matematikk 8. trinn",
+  "subtitle": "Ungdomsskole, 8. trinn",
+  "summary": "Tall og tallregning, algebra og mønstre, funksjoner og programmering — dekomponert i det elevene faktisk må kunne gjøre.",
+  "country": "NO",
+  "institution": "grunnskole",
+  "division": "8",
+  "subjectArea": "mathematics",
+  "language": "nb",
+  "curriculum": "LK20",
+  "courseCode": "",
+  "course": "Matematikk 8. trinn",
+  "topics": [
+    "Tall og tallregning",
+    "Algebra og mønstre",
+    "Funksjoner",
+    "Programmering"
+  ],
+  "keywords": [],
+  "nodeCount": 34,
+  "skillCount": 20,
+  "conceptCount": 14,
+  "author": "Vidar Skogvoll",
+  "authorUrl": "https://skogvoll.com",
+  "license": "CC BY-SA 4.0",
+  "updated": "2026-09-20"
+}
