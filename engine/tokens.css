@@ -1,0 +1,86 @@
+/* ==========================================================================
+   engine/tokens.css — the engine's DEFAULT palette and type.
+
+   Why this file exists
+   --------------------
+   `tree.css` styles the graph entirely through custom properties, and until
+   this file was written every one of them was defined by the website that
+   happened to host it. The engine therefore could not render anywhere else:
+   dropped into a folder on a teacher's laptop it came out unstyled, because
+   `--paper`, `--ink`, `--primary` and the rest lived in the site's own
+   `tokens.css`.
+
+   This file inverts that. The engine now ships a complete, working palette,
+   and a host site overrides whichever values it wants by loading its own
+   token file AFTER this one. The values below are the ones aiskilltrees.com
+   used when the engine was extracted, so nothing changed visually on that
+   site — it simply stopped being the only place the engine works.
+
+   Load order on a page that renders a tree:
+
+       engine/tokens.css     <- defaults (this file)
+       <host tokens, if any> <- optional overrides, later wins
+       engine/tree.css       <- consumes the tokens
+
+   Contrast: every pairing below was checked against its background at AA or
+   better. If you override a colour, check it again — the graph puts small
+   text on tinted fills in several places.
+   ========================================================================== */
+
+:root {
+  /* ---- Surfaces and ink ------------------------------------------------- */
+  --paper:         #F6F4EF;
+  --paper-2:       #EDEAE2;
+  --surface:       #FFFFFF;
+  --ink:           #1A1D1B;
+  --ink-3:         #646964;
+  --ink-inverse:   #F6F4EF;
+
+  /* ---- Rules and scrim -------------------------------------------------- */
+  --rule:          rgba(26, 29, 27, 0.14);
+  --rule-strong:   rgba(26, 29, 27, 0.30);
+  --scrim:         rgba(26, 29, 27, 0.62);
+
+  /* ---- Primary ---------------------------------------------------------- */
+  --primary:        #1F6F4A;
+  --primary-strong: #16543A;
+  --primary-tint:   #E3EFE8;
+
+  /* ---- Secondary accent, used for the "skill" node fill ----------------- */
+  --amber:         #C8801F;
+  --amber-tint:    #F7EBD9;
+
+  /* ---- Destructive ------------------------------------------------------ */
+  --danger:        #C2362F;
+  --danger-text:   #A32B24;
+  --danger-tint:   rgba(194, 54, 47, 0.10);
+
+  /* ---- Aid levels -------------------------------------------------------
+     Read from JavaScript, not from tree.css: engine.js composes
+     `var(--aid-N)` for the tag on a node, so these have to exist even
+     though a search of the stylesheet will not find them.
+
+     The colour is bound to the LEVEL, never to the subject: level 1 is
+     always --aid-1. Five are defined and the sequence wraps, so a course
+     with six levels reuses the first colour rather than falling back to
+     nothing. They differ in hue rather than lightness, which is why the tag
+     always carries a word as well — colour alone never carries meaning.
+     Each is AA or better against white text. */
+  --aid-1: #1F6F4A;   /* 6.12:1 */
+  --aid-2: #8A5A12;   /* 5.91:1 */
+  --aid-3: #1F5F7A;   /* 7.06:1 */
+  --aid-4: #5B3D8A;   /* 8.47:1 */
+  --aid-5: #8A2B4A;   /* 9.30:1 */
+
+  /* ---- Elevation --------------------------------------------------------
+     A deliberate, narrow exception to a flat design: the floating toolbar
+     and the modals sit above a scrolling canvas and need real height. */
+  --shadow-float: 0 4px 14px rgba(26, 29, 27, 0.18);
+  --shadow-modal: 0 12px 40px rgba(26, 29, 27, 0.28);
+
+  /* ---- Type -------------------------------------------------------------
+     A stack of system faces, so the engine has no webfont dependency and
+     works offline from a folder. A host site that wants its own face
+     overrides this one line. */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}

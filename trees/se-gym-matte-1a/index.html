@@ -12,12 +12,13 @@
     ett tre fra et annet ligger i tree.json ved siden av.
 
     Tittel, <h1>, ingress, tilbakelenke og <html lang> settes av
-    applyPageChrome() i /js/engine.js, fra tree.json + språkfila. Det er
+    applyPageChrome() i /engine/engine.js, fra tree.json + språkfila. Det er
     derfor teksten under er tomme plassholdere og ikke norsk: står det
     norsk her, blinker det norsk på et svensk tre før scriptet rekker å
     kjøre.
 
-    Sida laster tokens.css og tree.css, og IKKE base.css/components.css.
+    Sida laster motorens egne tokens, sidas tokens (som overstyrer dem) og
+    tree.css - og IKKE base.css/components.css.
     base.css har båndmodellen og prosastandardene for innholdssidene, og
     de krangler med appens eget layout. tree.css har derfor sin egen
     lille reset øverst.
@@ -29,8 +30,9 @@
   <title>AI Skill Trees</title>
   <meta name="description" content="">
 
+  <link rel="stylesheet" href="/engine/tokens.css">
   <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/tree.css">
+  <link rel="stylesheet" href="/engine/tree.css">
 
   <script src="/js/analytics.js"></script>
 </head>
@@ -75,6 +77,6 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <script src="/js/engine.js"></script>
+  <script src="/engine/engine.js"></script>
 </body>
 </html>
