@@ -1,0 +1,43 @@
+{
+  "_comment": "Alt som varierer med FAGET, og ingenting annet. Rene data — ingen funksjoner, som er grunnen til at denne kan være JSON og ikke config.js. Grensesnittspråket kommer fra /languages/<language>.json, pedagogikken fra /prompts/core.json. Se AGENTS.md.",
+  "schemaVersion": 1,
+  "title": "Mathematics 2P (English copy)",
+  "description": "Interactive skill tree for Mathematics 2P: tick off what you have mastered, and copy an AI instruction to practise further.",
+  "subjectFamily": "mathematics",
+  "language": "en",
+  "languageName": "English",
+  "storageKey": "2p-en-skill-tree-completed",
+  "features": {
+    "motivation": true
+  },
+  "topicOrder": [
+    "Percentages and growth factors",
+    "Loans and personal finance",
+    "Exponential functions",
+    "Statistics",
+    "Programming",
+    "Geometry",
+    "Equations and functions"
+  ],
+  "slots": {
+    "courseName": "Mathematics 2P (Norwegian upper secondary school)",
+    "motivationSubject": "maths",
+    "expressionFocus": "forgetting the per cent sign or other units, using the equals sign wrongly (e.g. chaining expressions together with \"=\" that are not in fact equal, or using \"=\" to mean \"next step\" rather than equality), or rounding too early or too imprecisely"
+  },
+  "aids": {
+    "_comment": "Nivåene i `aids`-kolonnen i noder.csv. `label` er substantivet faget bruker; merkelappen settes sammen som «Part 1» / «Part 1+2». En IB-variant setter bare label: \"Paper\" og de samme to nivåene. Farge velges IKKE her — nivå 1 får alltid --aid-1 osv., se tokens.css.\n`student` er teksten eleven leser i detaljpanelet; `model` er teksten KI-instruksen får. To lesere, to tekster: den gamle prosaen var skrevet til modellen («Forvent at eleven regner for hånd») og ga ingen mening for en elev.",
+    "label": "Part",
+    "levels": [
+      {
+        "level": 1,
+        "student": "No aids. You work by hand, without a calculator.",
+        "model": "Aids: This applies to Part 1 of the exam, where no aids are allowed. Expect the student to work by hand, without a calculator. The practice should reflect how the skill is actually to be carried out in the exam, under the aid rules that take effect in spring 2027 (no computer or tablet at all in Part 2 - only a simple scientific calculator, the student's own notes on paper, and printed aids)."
+      },
+      {
+        "level": 2,
+        "student": "From spring 2027 this part is answered by hand. You may use a simple scientific calculator, your own notes on paper and printed aids — but no computer or tablet, and no graphing, equation-solving or programmable calculator.",
+        "model": "Aids: This applies to Part 2 of the exam, which from spring 2027 is to be answered by hand. Expect the student to use a simple scientific calculator (able to handle square roots, logarithms, sine/cosine/tangent and standard deviation), possibly together with their own notes and printed aids. Note: graphing calculators, and calculators that can solve equations, be programmed or communicate with other devices, are NOT permitted - nor is CAS software or a computer/tablet (e.g. GeoGebra). The practice should reflect how the skill is actually to be carried out in the exam, under the aid rules that take effect in spring 2027."
+      }
+    ]
+  }
+}
