@@ -2938,8 +2938,15 @@ function renderGraph(columnMeta) {
       const d = `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`;
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', d);
-      if (isNodeMastered(dep, progress) && isNodeMastered(node, progress)) {
-        path.classList.add('edge-active');
+      path.dataset.from = dep.id;
+      path.dataset.to = node.id;
+      // Kantene er lyse som standard, fordi et stort tre ellers drukner i strek.
+      // To ting løfter en kant ut av bakgrunnen igjen: at den GÅR FRA en node
+      // eleven har huket av (da er den en vei videre, ikke bare en avhengighet),
+      // og at den hører til noden som er åpen i detaljpanelet (se
+      // updateEdgeHighlight).
+      if (isNodeMastered(dep, progress)) {
+        path.classList.add('edge-from-mastered');
       }
       svg.appendChild(path);
     });
@@ -2948,6 +2955,26 @@ function renderGraph(columnMeta) {
   // Noder
   allNodes.forEach(node => {
     nodesLayer.appendChild(createNodeElement(node, progress));
+  });
+
+  updateEdgeHighlight();
+}
+
+/* Marker kantene som hører til den åpne noden - både inn og ut - og flytt dem
+   bakerst i <svg>, slik at de tegnes OVER resten. SVG har ingen z-index; det er
+   dokumentrekkefølgen som bestemmer, så en grønn kant midt i en klase grå
+   strek blir usynlig med mindre den flyttes sist. Kalles både fra renderGraph
+   og fra openDetail/closeDetail, så valg av node ikke krever ny opptegning. */
+function updateEdgeHighlight() {
+  const svg = document.getElementById('edges');
+  if (!svg) return;
+  svg.querySelectorAll('path.edge-selected').forEach(p => p.classList.remove('edge-selected'));
+  if (!activeNodeId) return;
+  svg.querySelectorAll('path').forEach(p => {
+    if (p.dataset.from === activeNodeId || p.dataset.to === activeNodeId) {
+      p.classList.add('edge-selected');
+      svg.appendChild(p);
+    }
   });
 }
 
@@ -3167,6 +3194,7 @@ function openDetail(nodeId) {
     el.classList.toggle('active', el.dataset.nodeId === nodeId);
   });
   document.getElementById('detail-panel').classList.add('open');
+  updateEdgeHighlight();
   renderDetail(nodesById.get(nodeId));
 }
 
@@ -3174,6 +3202,7 @@ function closeDetail() {
   activeNodeId = null;
   document.getElementById('detail-panel').classList.remove('open');
   document.querySelectorAll('.node-box.active').forEach(el => el.classList.remove('active'));
+  updateEdgeHighlight();
 }
 
 function renderDetail(node) {

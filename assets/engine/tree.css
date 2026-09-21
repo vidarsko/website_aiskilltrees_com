@@ -928,11 +928,6 @@ main {
   stroke-width: 1.6;
 }
 
-#edges path.edge-active {
-  stroke: var(--accent);
-  stroke-width: 1.8;
-  opacity: 0.7;
-}
 
 .column-band {
   position: absolute;
@@ -1459,3 +1454,41 @@ body {
    skal skille seg fra definisjonen, ikke fra siden. Gjelder både avsnittet
    med én definisjon og punktlista med flere. */
 #detail-desc strong { color: var(--text); }
+
+
+/* KANTENE ER SVAKE SOM STANDARD - tre nivåer, ikke ett.
+
+   Et tre med hundre noder tegner flere hundre kurver, og i full styrke legger
+   de seg som et garnnøste over kolonnene (Vidar, 2026-09-21). Grunnfargen er
+   derfor lys nok til at strukturen anes uten å konkurrere med boksene, og to
+   tilstander henter en kant tilbake:
+
+     .edge-from-mastered  kanten GÅR FRA en node eleven har huket av. Det er
+                          kantene som peker videre inn i det eleven kan ta fatt
+                          på nå, så de er de eneste som er verdt å lese i en
+                          graf man ikke har valgt noe i.
+     .edge-selected       kanten hører til noden som er åpen i detaljpanelet,
+                          inn eller ut. Denne er grønn - den svarer på «hva
+                          henger sammen med DENNE?», som er et annet spørsmål
+                          enn «hvor er jeg», og skal kunne følges på tvers av
+                          hele kartet.
+
+   Grønn er aldri det eneste signalet: den valgte noden har også .active, og en
+   avhuket node har sin egen ring og avkryssede boks. Se updateEdgeHighlight()
+   i engine.js, som også flytter de valgte kantene sist i <svg> så de tegnes
+   øverst. Erstatter .edge-active, som lyste opp kanter der BEGGE endene var
+   mestret - en tilstand eleven ikke har bruk for å se. */
+#edges path {
+  stroke: color-mix(in srgb, var(--ink) 10%, transparent);
+  stroke-width: 1.3;
+}
+
+#edges path.edge-from-mastered {
+  stroke: color-mix(in srgb, var(--ink) 40%, transparent);
+  stroke-width: 1.7;
+}
+
+#edges path.edge-selected {
+  stroke: color-mix(in srgb, var(--accent) 85%, transparent);
+  stroke-width: 2.4;
+}
