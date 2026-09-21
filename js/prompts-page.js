@@ -54,8 +54,32 @@
     head.appendChild(meta);
     card.appendChild(head);
 
+    /* Hvor instruksen inngår. Teksten er SIDETEKST og bor i ordboka, ikke i
+       modulen: den skal finnes på alle tre språk, mens instruksene selv er
+       engelske med vilje. En modul uten nøkkel her får ingen beskrivelse
+       framfor en plassholder - det er bedre at den mangler synlig enn at
+       sida later som den vet noe. */
+    var about = t('about-' + id);
+    if (about && about !== 'about-' + id) {
+      card.appendChild(el('p', 'promptdoc__about', about));
+    }
+
+    /* Hele instruksen ligger sammenrullet. Sida ble uleselig lang med alt
+       åpent - seks moduler med tjuetalls seksjoner hver - og den som vil
+       LESE en instruks, vil som regel lese én. <details> framfor egen
+       JavaScript: det virker uten script, kan søkes i av nettleseren, og
+       har tastaturoppførselen gratis. */
+    var box = el('details', 'promptdoc__reveal');
+    var toggle = el('summary', 'promptdoc__toggle');
+    toggle.appendChild(el('span', 'promptdoc__toggle-show', t('show-prompt')));
+    toggle.appendChild(el('span', 'promptdoc__toggle-hide', t('hide-prompt')));
+    toggle.appendChild(el('span', 'promptdoc__count',
+      t('section-count').replace('{n}', countSections(module, extras))));
+    box.appendChild(toggle);
+    card.appendChild(box);
+
     if (module.intro) {
-      card.appendChild(el('p', 'promptdoc__intro', module.intro));
+      box.appendChild(el('p', 'promptdoc__intro', module.intro));
     }
 
     var list = el('dl', 'promptdoc__sections');
@@ -81,8 +105,16 @@
       appendSection(list, o.id, o.text, t('from-language-override'));
     });
 
-    card.appendChild(list);
+    box.appendChild(list);
     return card;
+  }
+
+  function countSections(module, extras) {
+    var ids = module.order || Object.keys(module.sections || {});
+    var n = ids.filter(function (sid) {
+      return (module.sections || {})[sid] != null || (extras.lang || {})[sid] != null;
+    }).length;
+    return n + (extras.family || []).length + (extras.overrides || []).length;
   }
 
   function appendSection(list, label, text, note) {

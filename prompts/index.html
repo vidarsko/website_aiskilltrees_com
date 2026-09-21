@@ -48,9 +48,9 @@
           "sv": "Allt AI:n blir ombedd"
       },
       "page-lede": {
-          "en": "These are the instructions themselves, read straight from the method repository — not a summary of them. A student's instruction is assembled from the pieces below, in the order they are listed.",
-          "nb": "Dette er instruksene selv, lest rett fra metode-repoet — ikke et sammendrag av dem. En elevs instruks settes sammen av bitene under, i den rekkefølgen de står.",
-          "sv": "Det här är instruktionerna själva, lästa direkt från metodrepot — inte en sammanfattning av dem. En elevs instruktion sätts ihop av delarna nedan, i den ordning de står."
+          "en": "These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full.",
+          "nb": "Dette er instruksene selv, lest rett fra metode-repoet — ikke et sammendrag av dem. Hver av dem sier hvor den brukes; åpne den for å lese den i sin helhet.",
+          "sv": "Det här är instruktionerna själva, lästa direkt från metodrepot — inte en sammanfattning av dem. Var och en säger var den används; öppna den för att läsa den i sin helhet."
       },
       "layers-note": {
           "en": "The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.",
@@ -116,6 +116,56 @@
           "en": "The instructions on this page are CC BY-SA 4.0. Rewrite them.",
           "nb": "Instruksene på denne sida er CC BY-SA 4.0. Skriv dem om.",
           "sv": "Instruktionerna på den här sidan är CC BY-SA 4.0. Skriv om dem."
+      },
+      "show-prompt": {
+          "en": "Show the instruction",
+          "nb": "Vis instruksen",
+          "sv": "Visa instruktionen"
+      },
+      "hide-prompt": {
+          "en": "Hide the instruction",
+          "nb": "Skjul instruksen",
+          "sv": "Dölj instruktionen"
+      },
+      "section-count": {
+          "en": "{n} sections",
+          "nb": "{n} seksjoner",
+          "sv": "{n} avsnitt"
+      },
+      "about-decomposition": {
+          "en": "How a subject is turned into a skill tree. It is not sent to a student: it is what a teacher hands an AI chat when building a tree, wrapped by the instruction below it.",
+          "nb": "Hvordan et fag gjøres om til et ferdighetstre. Den sendes ikke til en elev: det er den en lærer gir en KI-chat når hen bygger et tre, pakket inn av instruksen under.",
+          "sv": "Hur ett ämne görs om till ett färdighetsträd. Den skickas inte till en elev: det är den en lärare ger en AI-chatt när hen bygger ett träd, inramad av instruktionen nedan."
+      },
+      "about-node": {
+          "en": "The one a student copies from a node in the tree — the action the whole tool exists for. It has the model ask questions rather than hand over answers, and say clearly when the skill looks mastered.",
+          "nb": "Den eleven kopierer fra en node i treet — handlingen hele verktøyet finnes for. Den får modellen til å stille spørsmål framfor å gi svar, og si tydelig fra når ferdigheten ser ut til å sitte.",
+          "sv": "Den eleven kopierar från en nod i trädet — handlingen hela verktyget finns för. Den får modellen att ställa frågor i stället för att ge svar, och säga tydligt till när färdigheten verkar sitta."
+      },
+      "about-exam": {
+          "en": "Copied from the button at the bottom of a tree. It makes a written test across everything the student has ticked off, not just one node, and withholds the answers until they have tried.",
+          "nb": "Kopieres fra knappen nederst i et tre. Den lager en skriftlig prøve på tvers av alt eleven har huket av, ikke bare én node, og holder tilbake fasiten til eleven har prøvd.",
+          "sv": "Kopieras från knappen längst ner i ett träd. Den gör ett skriftligt prov tvärs över allt eleven kryssat i, inte bara en nod, och håller tillbaka facit tills eleven har försökt."
+      },
+      "about-motivation": {
+          "en": "An optional conversation a tree can offer, for the student who cannot see why the subject is worth learning at all. It is a conversation, not a lecture, and the tree decides whether to show it.",
+          "nb": "En valgfri samtale et tre kan tilby, for eleven som ikke ser hvorfor faget er verdt å lære i det hele tatt. Det er en samtale, ikke en formaning, og treet bestemmer selv om den vises.",
+          "sv": "Ett valfritt samtal ett träd kan erbjuda, för eleven som inte ser varför ämnet är värt att lära sig alls. Det är ett samtal, inte en föreläsning, och trädet avgör själv om det visas."
+      },
+      "about-lessonPlan": {
+          "en": "The one instruction here written for a teacher rather than a student: a lesson plan for a chosen part of the tree, with the prerequisites the class is assumed to have already.",
+          "nb": "Den ene instruksen her som er skrevet til en lærer framfor til en elev: et undervisningsopplegg for en valgt del av treet, med forutsetningene klassen antas å ha fra før.",
+          "sv": "Den enda instruktionen här som är skriven till en lärare i stället för en elev: ett lektionsupplägg för en vald del av trädet, med förkunskaperna klassen antas ha sedan tidigare."
+      },
+      "about-authoring": {
+          "en": "What a teacher pastes into an AI chat to build a tree of their own. It wraps the decomposition model above with what the model cannot guess: what the site does with the file, what may be changed, and what each error message means.",
+          "nb": "Den en lærer limer inn i en KI-chat for å lage sitt eget tre. Den pakker inn dekomponeringsmodellen over med det modellen ikke kan gjette: hva sida gjør med fila, hva som kan endres, og hva hver feilmelding betyr.",
+          "sv": "Den en lärare klistrar in i en AI-chatt för att göra sitt eget träd. Den ramar in nedbrytningsmodellen ovan med det modellen inte kan gissa: vad sidan gör med filen, vad som kan ändras, och vad varje felmeddelande betyder."
+      },
+      "about-shared": {
+          "en": "Sections that are word for word the same in more than one instruction, kept in one place so they cannot drift apart. They are pulled in wherever an instruction names them.",
+          "nb": "Seksjoner som er ord for ord like i flere instrukser, holdt ett sted så de ikke kan komme fra hverandre. De hentes inn der en instruks navngir dem.",
+          "sv": "Avsnitt som är ord för ord lika i flera instruktioner, hållna på ett ställe så att de inte kan glida isär. De hämtas in där en instruktion namnger dem."
       }
   }
   </script>
@@ -131,7 +181,7 @@
         <p class="eyebrow" data-i18n="page-eyebrow">The prompts</p>
         <h1 data-i18n="page-heading">Everything the AI is told</h1>
         <div class="prose">
-          <p class="lede-p" data-i18n="page-lede">These are the instructions themselves, read straight from the method repository — not a summary of them. A student's instruction is assembled from the pieces below, in the order they are listed.</p>
+          <p class="lede-p" data-i18n="page-lede">These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full.</p>
           <p class="note" data-i18n="layers-note">The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.</p>
           <p class="note" data-i18n="family-note">The subject-family additions shown are the ones for mathematics. Natural sciences and social studies add their own.</p>
         </div>
