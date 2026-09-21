@@ -229,8 +229,10 @@
   .sitenav a.is-current { border-left-color: var(--ink); padding-left: var(--space-2); }
   .sitenav a:hover { border-left-color: var(--primary); padding-left: var(--space-2); }
 
-  .lang-select { margin-top: var(--space-2); align-self: flex-start; }
-  .lang-select__menu { right: auto; left: 0; }
+  /* Skuffen, ikke komponenten: velgeren på /prompts/ står i en vanlig
+     tekstlinje og skal ikke arve skuffens marg. */
+  .sitenav-panel .lang-select { margin-top: var(--space-2); align-self: flex-start; }
+  .sitenav-panel .lang-select__menu { right: auto; left: 0; }
 }
 
 /* --------------------------------------------------------------------------
@@ -749,7 +751,7 @@
 }
 
 /* ==========================================================================
-   /the-prompts/ — instruksene lest rett fra maskineriet (2026-09-21)
+   /prompts/ — instruksene lest rett fra maskineriet (2026-09-21)
 
    Halvtabell: stikkordet til venstre, teksten til høyre. Stikkordet er
    seksjons-id-en fra JSON-en, altså det ledeteksten selv kaller delen —
@@ -767,16 +769,12 @@
   color: var(--ink-2);
 }
 
-.langpick select {
-  min-height: 44px;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: 0;
-  background: var(--surface);
-  font-family: var(--font-sans);
-  font-size: var(--step-s);
-  color: var(--ink);
-}
+/* Selve kontrollen er `.lang-select`, samme komponent som i toppbaren,
+   bygget av js/prompts-page.js. Det eneste som må snus: i toppbaren henger
+   lista fra knappens høyre kant, fordi knappen står helt til høyre. Her
+   står den til venstre i en tekstlinje, og en liste som henger fra høyre
+   kant ville stukket ut av skjermen på en telefon. */
+.langpick .lang-select__menu { right: auto; left: 0; }
 
 .promptdoc {
   margin-bottom: var(--space-4);

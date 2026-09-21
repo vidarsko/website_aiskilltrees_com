@@ -42,7 +42,7 @@
 
   var UI = {
     menu:     { en: 'Menu',            nb: 'Meny',        sv: 'Meny' },
-    language: { en: 'Language',        no: 'Språk',       sv: 'Språk' },
+    language: { en: 'Language',        nb: 'Språk',       sv: 'Språk' },
     chooseLanguage: { en: 'Choose language', nb: 'Velg språk', sv: 'Välj språk' },
     main:     { en: 'Main',            nb: 'Hovedmeny',   sv: 'Huvudmeny' }
   };

@@ -22,8 +22,11 @@
 
     Språkvelgeren øverst er IKKE sidas språkveksler (den ligger i
     toppbaren): den velger hvilket SPRÅKLAG som vises sammen med
-    instruksene. De to er ulike ting, og det er derfor den har en egen
-    etikett framfor bare tre bokstaver.
+    instruksene — både seksjonene som fylles inne i hver instruks, og
+    kortet som viser språklaget samlet. De to er ulike ting, og det er
+    derfor den har en egen etikett framfor bare tre bokstaver. Selve
+    kontrollen bygges av js/prompts-page.js, som samme komponent som
+    velgeren i toppbaren.
   -->
   <script type="application/json" id="i18n-dict">
   {
@@ -67,10 +70,10 @@
           "nb": "Vis språklaget for",
           "sv": "Visa språklagret för"
       },
-      "contribution": {
-          "en": "contribution",
-          "nb": "bidrag",
-          "sv": "bidrag"
+      "lang-choose": {
+          "en": "Choose a language layer",
+          "nb": "Velg et språklag",
+          "sv": "Välj ett språklager"
       },
       "audience-student": {
           "en": "used by a student",
@@ -96,6 +99,16 @@
           "en": "added by the subject family",
           "nb": "lagt til av fagfamilien",
           "sv": "tillagt av ämnesfamiljen"
+      },
+      "language-override-in": {
+          "en": "replaces a section in {x}",
+          "nb": "erstatter en seksjon i {x}",
+          "sv": "ersätter ett avsnitt i {x}"
+      },
+      "language-title": {
+          "en": "The language layer",
+          "nb": "Språklaget",
+          "sv": "Språklagret"
       },
       "shared-title": {
           "en": "Shared sections",
@@ -132,6 +145,11 @@
           "nb": "{n} seksjoner",
           "sv": "{n} avsnitt"
       },
+      "section-count-one": {
+          "en": "one section",
+          "nb": "én seksjon",
+          "sv": "ett avsnitt"
+      },
       "about-decomposition": {
           "en": "How a subject is turned into a skill tree. It is not sent to a student: it is what a teacher hands an AI chat when building a tree, wrapped by the instruction below it.",
           "nb": "Hvordan et fag gjøres om til et ferdighetstre. Den sendes ikke til en elev: det er den en lærer gir en KI-chat når hen bygger et tre, pakket inn av instruksen under.",
@@ -162,6 +180,11 @@
           "nb": "Den en lærer limer inn i en KI-chat for å lage sitt eget tre. Den pakker inn dekomponeringsmodellen over med det modellen ikke kan gjette: hva sida gjør med fila, hva som kan endres, og hva hver feilmelding betyr.",
           "sv": "Den en lärare klistrar in i en AI-chatt för att göra sitt eget träd. Den ramar in nedbrytningsmodellen ovan med det modellen inte kan gissa: vad sidan gör med filen, vad som kan ändras, och vad varje felmeddelande betyder."
       },
+      "about-language": {
+          "en": "One file per language, holding what the instructions above deliberately leave open: which language the conversation is held in, and what good prose looks like in that language. The same sections stand marked inside the instructions themselves; here the layer is gathered in one place, in the language picked at the top.",
+          "nb": "Én fil per språk, med det instruksene over bevisst lar stå åpent: hvilket språk samtalen føres på, og hva god prosa er på det språket. De samme seksjonene står merket inne i instruksene selv; her er laget samlet ett sted, på språket som er valgt øverst.",
+          "sv": "En fil per språk, med det instruktionerna ovan medvetet lämnar öppet: vilket språk samtalet förs på, och vad god prosa är på det språket. Samma avsnitt står märkta inne i instruktionerna själva; här är lagret samlat på ett ställe, på språket som valts högst upp."
+      },
       "about-shared": {
           "en": "Sections that are word for word the same in more than one instruction, kept in one place so they cannot drift apart. They are pulled in wherever an instruction names them.",
           "nb": "Seksjoner som er ord for ord like i flere instrukser, holdt ett sted så de ikke kan komme fra hverandre. De hentes inn der en instruks navngir dem.",
@@ -187,12 +210,8 @@
         </div>
 
         <p class="langpick">
-          <label for="prompt-language" data-i18n="lang-label">Show the language layer for</label>
-          <select id="prompt-language">
-            <option value="en">English</option>
-            <option value="nb">Norsk (bokmål)</option>
-            <option value="sv">Svenska</option>
-          </select>
+          <span class="langpick__label" data-i18n="lang-label">Show the language layer for</span>
+          <span id="prompt-language"></span>
         </p>
       </div>
     </section>
