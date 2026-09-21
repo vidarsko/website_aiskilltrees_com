@@ -24,6 +24,8 @@
     "errorUnknownExamNode": "exams.csv viser til node-id-en «{id}», som ikke finnes i tree.csv.",
     "errorCycle": "Disse nodene er forutsetninger for hverandre, i ring: {cycle}. En av koblingene må bort.",
     "errorUnknownConfig": "Ukjent innstilling «{key}» på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
+    "errorUnknownPromptSection": "Ukjent seksjon «{section}» i prompt-rada på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
+    "errorUnknownPromptTarget": "Prompt-rada på rad {row} i tree.csv peker på «{name}», som ikke er en instruks dette treet setter sammen. Ingenting ble tatt i bruk.",
     "errorDidYouMean": "Mente du «{key}»?",
     "errorMissingConfig": "tree.csv mangler en config-rad for «{key}», som er påkrevd.",
     "nodeType": {

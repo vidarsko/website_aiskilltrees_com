@@ -24,6 +24,8 @@
     "errorUnknownExamNode": "exams.csv refers to the node id «{id}», which does not exist in tree.csv.",
     "errorCycle": "These nodes are prerequisites for each other, in a circle: {cycle}. One of those links has to go.",
     "errorUnknownConfig": "Unknown setting «{key}» on row {row} of tree.csv. Nothing was applied.",
+    "errorUnknownPromptSection": "Unknown section «{section}» in the prompt row on row {row} of tree.csv. Nothing was applied.",
+    "errorUnknownPromptTarget": "The prompt row on row {row} of tree.csv is aimed at «{name}», which is not an instruction this tree composes. Nothing was applied.",
     "errorDidYouMean": "Did you mean «{key}»?",
     "errorMissingConfig": "tree.csv has no config row for «{key}», which is required.",
     "nodeType": {

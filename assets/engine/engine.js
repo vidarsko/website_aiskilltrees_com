@@ -90,6 +90,8 @@ let MANIFEST = null;        // /prompts/manifest.json - versjonene artikkelen si
 let NODE_ROWS = [];         // node-radene i ./tree.csv, satt av bootstrap()
 let PROMPT_ROWS = {};       // prompt-radene i ./tree.csv: { '<instruks>.<seksjon>': tekst }
                             //   '*' som instruks betyr «alle instrukser».
+let PROMPT_ROW_AT = {};     // samme nøkler → radnummeret i regnearket, så en
+                            //   prompt-rad som ikke treffer noe kan navngis.
 
 let STORAGE_KEY = null;
 let TOPIC_ORDER = [];
@@ -346,6 +348,7 @@ async function bootstrap() {
   const split = splitRows(rows);
   NODE_ROWS = split.nodes;
   PROMPT_ROWS = split.prompts;
+  PROMPT_ROW_AT = split.promptRows;
   CONFIG = buildConfig(split.config);
 
   const code = CONFIG.language || 'en';
@@ -392,6 +395,8 @@ async function bootstrap() {
   CORE = { prompts: {} };
   ids.forEach((id, i) => { CORE.prompts[id] = loaded[i + 1]; });
   FAMILY = famPath ? loaded[loaded.length - 1] : null;
+  /* Først her vet vi hvilke seksjoner som finnes. Se validatePromptRows(). */
+  validatePromptRows();
   /* meta.json eies av katalogen, og finnes bare for et tre som ligger DER.
      Et tre en lærer har laget selv har ingen katalogoppføring, så kursinfoen
      settes da sammen av config-radene i stedet - ellers ville «Om faget»
@@ -429,7 +434,7 @@ async function bootstrap() {
 /* ------------------------------------------------------------------ */
 
 function splitRows(rows) {
-  const out = { nodes: [], config: [], prompts: {} };
+  const out = { nodes: [], config: [], prompts: {}, promptRows: {} };
   rows.forEach((row, i) => {
     const kind = (row.type || '').trim().toLowerCase();
     if (kind === 'config') {
@@ -437,7 +442,12 @@ function splitRows(rows) {
     } else if (kind === 'prompt') {
       const which = (row.topic || '').trim() || '*';
       const section = (row.name || '').trim();
-      if (section) out.prompts[which + '.' + section] = (row.instruction || '').trim();
+      /* Radnummeret følger med: en prompt-rad som ikke treffer noe skal
+         kunne peke på seg selv, på samme måte som en ukjent config-nøkkel. */
+      if (section) {
+        out.prompts[which + '.' + section] = (row.instruction || '').trim();
+        out.promptRows[which + '.' + section] = i + 2;
+      }
     } else {
       out.nodes.push(row);
     }
@@ -469,13 +479,17 @@ function configKeyKnown(key) {
 
 /* Nærmeste kjente nøkkel, for «mente du ...?». Enkel redigeringsavstand,
    og bare når den er liten nok til at gjettet er verdt å trykke. */
-function nearestConfigKey(key) {
+function nearest(value, candidates) {
   let best = null, bestDist = Infinity;
-  CONFIG_KEYS.concat(['aids.1.student', 'aids.1.model', 'aids.1.name']).forEach(k => {
-    const d = editDistance(key.toLowerCase(), k.toLowerCase());
+  candidates.forEach(k => {
+    const d = editDistance(value.toLowerCase(), k.toLowerCase());
     if (d < bestDist) { bestDist = d; best = k; }
   });
-  return bestDist <= Math.max(2, Math.floor(key.length / 4)) ? best : null;
+  return bestDist <= Math.max(2, Math.floor(value.length / 4)) ? best : null;
+}
+
+function nearestConfigKey(key) {
+  return nearest(key, CONFIG_KEYS.concat(['aids.1.student', 'aids.1.model', 'aids.1.name']));
 }
 
 function editDistance(a, b) {
@@ -492,6 +506,44 @@ function editDistance(a, b) {
     }
   }
   return prev[b.length];
+}
+
+/* En prompt-rad som ikke treffer noe er en FEIL, av nøyaktig samme grunn
+   som en ukjent config-nøkkel: den blir lest, den blir vist tilbake som en
+   innstilling, og så gjør den aldri noe. Læreren som ba modellen «ikke bruk
+   emoji» tror den fikk viljen sin.
+
+   Kan bare kjøres ETTER at instruksmodulene og fagfamilien er lastet:
+   hvilke seksjoner som finnes, står i modulenes `order`, og fagfamilien
+   legger til sine egne. Derfor kalles den fra bootstrap og ikke fra
+   splitRows. */
+function validatePromptRows() {
+  const names = Object.keys(CORE.prompts);
+  Object.keys(PROMPT_ROWS).forEach(key => {
+    const dot = key.indexOf('.');
+    const which = key.slice(0, dot);
+    const id = key.slice(dot + 1);
+    const row = PROMPT_ROW_AT[key];
+
+    /* Tom `topic` ('*') gjelder alle instruksene og er alltid en gyldig
+       adresse. Et navn må derimot være en instruks treet faktisk setter
+       sammen — `decomposition` og `authoring` er lærerens egne og hentes
+       ikke her, så en rad som peker på dem gjør ingenting. */
+    if (which !== '*' && names.indexOf(which) === -1) {
+      pushError('errorUnknownPromptTarget',
+                { name: which, row: row, guess: nearest(which, names) });
+      return;
+    }
+
+    /* For en rad uten instruksnavn holder det at seksjonen finnes i én av
+       dem: den gjelder de instruksene som har den, og bare dem. */
+    const scope = which === '*' ? names : [which];
+    const known = scope.reduce((acc, n) => acc.concat(sectionOrder(n)), []);
+    if (known.indexOf(id) === -1) {
+      pushError('errorUnknownPromptSection',
+                { section: id, row: row, guess: nearest(id, known) });
+    }
+  });
 }
 
 function buildConfig(entries) {
