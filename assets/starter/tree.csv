@@ -10,10 +10,10 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.motivationSubject,maths,,,
 ,config,,slots.expressionFocus,"writes an answer with no units, or uses the equals sign to chain steps that are not actually equal",,,
 ,prompt,node,tone,"This row is here to show you that you can rewrite the teaching instructions themselves, not just the tree. It replaces one section of the practice tutor. Delete it and the default comes back.",,,"Be friendly and use a few emoji, but keep it professional. Keep your answers short unless the student asks for more."
-place-value,concept,Whole numbers,Place value,The position of a digit decides what the digit is worth: the 4 in 40 is worth ten times the 4 in 4.,,,
+place-value,concept,Whole numbers,Place value,Place value: the position of a digit decides what the digit is worth - the 4 in 40 is worth ten times the 4 in 4.,,,
 adding-whole,skill,Whole numbers,Adding whole numbers,"add two multi-digit numbers, including cases that carry.",place-value,,
 multiplying-whole,skill,Whole numbers,Multiplying whole numbers,"multiply a multi-digit number by a single digit, and explain the method in terms of place value.",adding-whole;place-value,,
-what-is-a-fraction,concept,Fractions,What a fraction is,A fraction is a number of equal parts of a whole: 3/4 is three of the four equal parts one whole is divided into.,place-value,,Ask the student to draw or describe a fraction before naming it. Getting to the picture first matters more here than getting the notation right.
+what-is-a-fraction,concept,Fractions,What a fraction is,Fraction: a number of equal parts of a whole. 3/4 is three of the four equal parts one whole is divided into.,place-value,,Ask the student to draw or describe a fraction before naming it. Getting to the picture first matters more here than getting the notation right.
 numerator-denominator,concept,Fractions,Numerator and denominator,"Numerator: the number above the line, which says how many parts are counted.
 Denominator: the number below the line, which says how many equal parts the whole is divided into.",what-is-a-fraction,,
 equivalent-fractions,skill,Fractions,Equivalent fractions,"decide whether two fractions are equal, and write a fraction in a different but equal form.",numerator-denominator;multiplying-whole,,

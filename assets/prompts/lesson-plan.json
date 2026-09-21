@@ -3,7 +3,7 @@
   "id": "lessonPlan",
   "title": "Lesson plan generator",
   "contribution": 5,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
   "order": [
@@ -11,6 +11,7 @@
     "noMemory",
     "outputLanguage",
     "languageSwitch",
+    "courseSpecifics",
     "goals",
     "prerequisites",
     "prerequisitesNone",

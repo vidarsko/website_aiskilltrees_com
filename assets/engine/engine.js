@@ -214,9 +214,11 @@ function descriptionInline(text) {
   return descriptionLines(text).join('; ');
 }
 
-/* «Term: definisjon» → termen, når linja ser sånn ut. Bare i en node med
-   FLERE linjer: en enkelt definisjon som tilfeldigvis har et kolon i seg
-   skal ikke få halve setningen satt i halvfeit. */
+/* «Term: definisjon» → termen, når linja ser sånn ut. Alle begreper skrives
+   på den forma, også de som definerer bare ett - ellers ser to nabonoder
+   helt ulike ut for leseren, og det var det som gjorde at regelen ble
+   utvidet (Vidar, 2026-09-21). En ferdighet har ingen term, og en linje
+   uten kolon settes som den er. */
 function definitionTerm(line) {
   const m = /^([^:]{1,60}):\s+(.+)$/.exec(line);
   return m ? { term: m[1], rest: m[2] } : null;
@@ -231,6 +233,13 @@ function definitionTerm(line) {
 /* ------------------------------------------------------------------ */
 
 const SECTION_WHEN = {
+  /* Lærerens egen tekst om kurset. Den står i alle fire instruksene og er
+     tom by default: et tre som ikke setter slotten skal se ut nøyaktig som
+     før. Se courseSpecificsApplies(). */
+  'node.courseSpecifics':       ctx => courseSpecificsApplies('node'),
+  'exam.courseSpecifics':       ctx => courseSpecificsApplies('exam'),
+  'motivation.courseSpecifics': ctx => courseSpecificsApplies('motivation'),
+  'lessonPlan.courseSpecifics': ctx => courseSpecificsApplies('lessonPlan'),
   'node.expression':         ctx => !!slot('expressionFocus'),
   'node.prerequisites':      ctx => ctx.ancestors && ctx.ancestors.length > 0,
   'node.prerequisitesNone':  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
@@ -259,6 +268,17 @@ const SECTION_WHEN = {
 
 function slot(name) {
   return (CONFIG.slots || {})[name];
+}
+
+/* Seksjonen vises når treet HAR noe å si: enten via `slots.courseSpecifics`,
+   som er den vanlige veien, eller via en prompt-rad som skriver om selve
+   seksjonen. Uten det andre leddet ville en slik rad blitt lest, vist tilbake
+   som en innstilling, og så aldri gjort noe - nøyaktig den stillheten
+   validatePromptRows() finnes for å hindre. */
+function courseSpecificsApplies(promptName) {
+  return !!slot('courseSpecifics') ||
+         PROMPT_ROWS[promptName + '.courseSpecifics'] != null ||
+         PROMPT_ROWS['*.courseSpecifics'] != null;
 }
 
 /* Tilleggene fagfamilien bidrar med til ÉN instruks, som en liste av
@@ -557,6 +577,7 @@ const CONFIG_KEYS = [
   'course', 'curriculum', 'author', 'authorUrl', 'license',
   'features.motivation', 'features.exams',
   'slots.courseName', 'slots.motivationSubject', 'slots.expressionFocus',
+  'slots.courseSpecifics',
   'aids.label',
 ];
 const CONFIG_KEY_PATTERNS = [
@@ -2899,30 +2920,26 @@ function renderDetail(node) {
 
   const desc = document.createElement('div');
   desc.id = 'detail-desc';
-  if (descLines.length > 1) {
-    /* Flere definisjoner i én node: én per linje, termen i halvfeit der
-       linja har en. Punktliste, fordi de er sidestilte - ikke én tekst. */
-    const ul = document.createElement('ul');
-    ul.className = 'definition-list';
-    descLines.forEach(line => {
-      const li = document.createElement('li');
-      const parts = definitionTerm(line);
-      if (parts) {
-        const term = document.createElement('strong');
-        term.textContent = parts.term;
-        li.appendChild(term);
-        li.appendChild(document.createTextNode(': ' + parts.rest));
-      } else {
-        li.textContent = line;
-      }
-      ul.appendChild(li);
-    });
-    desc.appendChild(ul);
-  } else {
-    const only = document.createElement('p');
-    only.textContent = descLines[0] || '';
-    desc.appendChild(only);
-  }
+  /* Termen i halvfeit, definisjonen etter - likt enten noden definerer ett
+     begrep eller fire. Flere blir en punktliste, fordi de da er sidestilte;
+     én blir et avsnitt, fordi et kulepunkt alene bare er et kulepunkt
+     alene. Typografien er den samme i begge tilfeller. */
+  const list = descLines.length > 1 ? document.createElement('ul') : null;
+  if (list) list.className = 'definition-list';
+  descLines.forEach(line => {
+    const holder = document.createElement(list ? 'li' : 'p');
+    const parts = definitionTerm(line);
+    if (parts) {
+      const term = document.createElement('strong');
+      term.textContent = parts.term;
+      holder.appendChild(term);
+      holder.appendChild(document.createTextNode(': ' + parts.rest));
+    } else {
+      holder.textContent = line;
+    }
+    (list || desc).appendChild(holder);
+  });
+  if (list) desc.appendChild(list);
   inner.appendChild(desc);
 
   /* Hjelpemiddelforklaringen ligger IKKE her, men i kursinfo-vinduet:

@@ -272,13 +272,13 @@ header {
 .made-with {
   flex: 0 0 auto;
   margin: 0;
-  /* 2px ned til den første emneoverskriften, og det er regnestykket under:
+  /* 5px ned til den første emneoverskriften, og det er regnestykket under:
      lerretet har 12px egen luft (LAYOUT.padding), den gjelder alle fire
      sidene og skal ikke krympes for å rette én av dem, så linja trekkes
-     10px opp igjen. line-height: 1 fjerner den halve linjeavstanden som
-     ellers ligger under teksten og gjør de 2px til noe annet enn 2px. */
+     7px opp igjen. line-height: 1 fjerner den halve linjeavstanden som
+     ellers ligger under teksten og gjør de 5px til noe annet enn 5px. */
   padding: 0.5rem 2rem 0;
-  margin-bottom: -10px;
+  margin-bottom: -7px;
   font-size: 0.7rem;
   line-height: 1;
   color: var(--text-muted);
@@ -1318,4 +1318,7 @@ body {
 
 #detail-desc .definition-list li { margin-bottom: 0.4rem; }
 #detail-desc .definition-list li:last-child { margin-bottom: 0; }
-#detail-desc .definition-list strong { color: var(--text); }
+/* Termen står i samme farge som brødteksten ellers, bare i halvfeit: den
+   skal skille seg fra definisjonen, ikke fra siden. Gjelder både avsnittet
+   med én definisjon og punktlista med flere. */
+#detail-desc strong { color: var(--text); }

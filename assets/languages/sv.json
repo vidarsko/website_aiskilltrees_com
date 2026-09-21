@@ -33,7 +33,7 @@
     "backLink": "← alla färdighetsträd",
     "pageTitle": "Färdighetsträd för {title}",
     "tagline": "En karta över hur färdigheter och begrepp bygger på varandra — kryssa i det du behärskar, och kopiera en AI-instruktion för att träna vidare.",
-    "makeYourOwn": "{subject}. Gillar du trädet? Gör ditt eget:",
+    "makeYourOwn": "{subject}. Gör ditt eget träd:",
     "progressLabel": "{done} av {total} färdigheter avklarade",
     "zoomIn": "Zooma in",
     "zoomOut": "Zooma ut",

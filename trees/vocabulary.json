@@ -23,7 +23,8 @@
     "chemistry":      { "en": "Chemistry",      "nb": "Kjemi",            "sv": "Kemi" },
     "biology":        { "en": "Biology",        "nb": "Biologi",          "sv": "Biologi" },
     "science":        { "en": "Science",        "nb": "Naturfag",         "sv": "Naturkunskap" },
-    "social-studies": { "en": "Social studies", "nb": "Samfunnskunnskap", "sv": "Samhällskunskap" }
+    "social-studies": { "en": "Social studies", "nb": "Samfunnskunnskap", "sv": "Samhällskunskap" },
+    "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" }
   },
 
   "institution": {
