@@ -272,7 +272,10 @@ header {
 .made-with {
   flex: 0 0 auto;
   margin: 0;
-  padding: 0.6rem 2rem 0.15rem;
+  /* Ingen bunnmarg: avstanden ned til den første emneoverskriften er
+     LAYOUT.padding inne i selve lerretet (12px), og la #graph-scroll legge
+     sine egne 12px oppå ble det dobbelte av det linja trenger. */
+  padding: 0.55rem 2rem 0;
   font-size: 0.7rem;
   line-height: 1.4;
   color: var(--text-muted);
@@ -300,11 +303,12 @@ main {
   flex: 1;
   min-width: 0;
   overflow: auto;
-  /* Lite padding-top - headeren er borte (se ensureActionMenu), så det er
-     ikke lenger noe å holde grafen klar av der. Resten av avstanden til
-     første kolonneoverskrift kommer fra LAYOUT.padding i selve
-     layout-algoritmen (se computeGlobalRowStarts/layoutColumn). */
-  padding: 0.75rem 2rem 2.4rem;
+  /* Ingen padding-top: over grafen står .made-with, som holder den klar av
+     skjermkanten, og avstanden derfra ned til første kolonneoverskrift er
+     LAYOUT.padding i selve layout-algoritmen (se
+     computeGlobalRowStarts/layoutColumn). To luftrom oppå hverandre ble
+     synlig for mye. */
+  padding: 0 2rem 2.4rem;
   position: relative;
   cursor: grab;
 }
