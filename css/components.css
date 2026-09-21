@@ -855,14 +855,6 @@
   color: var(--ink-3);
 }
 
-.promptdoc__intro {
-  margin: var(--space-2) 0 var(--space-3);
-  font-size: var(--step-s);
-  line-height: 1.6;
-  color: var(--ink-2);
-  white-space: pre-wrap;
-}
-
 .promptdoc__sections {
   display: grid;
   grid-template-columns: minmax(7rem, 12rem) 1fr;

@@ -102,8 +102,6 @@
     reveal.appendChild(toggle);
     box.appendChild(reveal);
 
-    if (opts.intro) reveal.appendChild(el('p', 'promptdoc__intro', opts.intro));
-
     var list = el('dl', 'promptdoc__sections');
     opts.rows.forEach(function (row) {
       var dt = el('dt', 'promptdoc__key');
@@ -124,7 +122,10 @@
 
     (module.order || Object.keys(module.sections || {})).forEach(function (sid) {
       var text = (module.sections || {})[sid];
-      var label = (module.titles && module.titles[sid]) || sid;
+      /* Stikkordet ER navnet. Ingen av modulene har en parallell
+         tittel-tabell lenger, og i den komponerte instruksen står det
+         samme ordet foran teksten — se composePrompt() i motoren. */
+      var label = sid;
       if (text == null) {
         /* En seksjon som står som null i modulen fylles av et annet lag —
            `outputLanguage` og `writingStyle` kommer fra språkfila. Det er
@@ -218,7 +219,6 @@
         meta: ['v' + (module.version || '?'),
                t('audience-' + (entry.audience || 'student'))].join(' · '),
         about: about(id),
-        intro: module.intro,
         rows: moduleRows(module, {
           lang: layer,
           family: familyAdds,

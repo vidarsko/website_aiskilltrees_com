@@ -252,7 +252,14 @@ function composePrompt(promptName, ctx) {
     if (!sectionApplies(promptName, id, ctx)) return;
     const text = sectionText(promptName, id, ctx);
     if (text == null || text === '') return;
-    out.push(fill(text, vars));
+    /* Stikkordet står foran teksten: «role: ...». Det gjør to ting på én
+       gang. Modellen får strukturen XML-tagger ville gitt den, uten at
+       instruksen ser ut som kode for den som limer den inn — og læreren
+       ser nøyaktig hvilket ord som skal stå i `name`-kolonnen den dagen
+       hen vil skrive om én del av den, med en `prompt`-rad i tree.csv.
+       Stikkordene er engelske, som alt annet i prompts/; teksten etter
+       kolonet er treets eget språk. */
+    out.push(id + ': ' + fill(text, vars));
   });
   return out.join('\n\n');
 }

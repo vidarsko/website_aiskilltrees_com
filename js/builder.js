@@ -462,19 +462,25 @@
     });
   }
 
+  /* Samme form som instruksene et tre setter sammen: stikkordet, kolon,
+     teksten. Ingen nummererte overskrifter, ingen egen intro-del — alle
+     instruksmodulene er `order` + `sections` og ingenting annet, og det som
+     står foran hver del er navnet en `prompt`-rad går etter. */
   function composeAuthoringPrompt(wrapper, decomposition) {
-    var out = wrapper.order.map(function (id) { return wrapper.sections[id]; })
-                           .filter(Boolean);
+    var out = sectionLines(wrapper);
     if (decomposition) {
       out.push('---');
       out.push('# ' + decomposition.title + '  (v' + decomposition.version + ')');
-      out.push(decomposition.intro);
-      decomposition.order.forEach(function (id, i) {
-        out.push('## ' + (i + 1) + '. ' + decomposition.titles[id]);
-        out.push(decomposition.sections[id]);
-      });
+      out = out.concat(sectionLines(decomposition));
     }
     return out.join('\n\n');
+  }
+
+  function sectionLines(module) {
+    return module.order.map(function (id) {
+      var text = module.sections[id];
+      return text ? id + ': ' + text : null;
+    }).filter(Boolean);
   }
 
   if (document.readyState === 'loading') {
