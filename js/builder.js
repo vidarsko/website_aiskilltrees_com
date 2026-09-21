@@ -102,13 +102,13 @@
   function loadAssets() {
     if (assets) return Promise.resolve(assets);
     return Promise.all([
-      getText('/engine/standalone.html'),
-      getText('/engine/engine.js'),
-      getText('/engine/vendor/papaparse.min.js'),
-      getText('/engine/tokens.css'),
+      getText('/assets/engine/standalone.html'),
+      getText('/assets/engine/engine.js'),
+      getText('/assets/engine/vendor/papaparse.min.js'),
+      getText('/assets/engine/tokens.css'),
       getText('/css/tokens.css'),
-      getText('/engine/tree.css'),
-      getJson('/prompts/manifest.json'),
+      getText('/assets/engine/tree.css'),
+      getJson('/assets/prompts/manifest.json'),
     ]).then(function (parts) {
       assets = {
         template: parts[0], engine: parts[1], papa: parts[2],
@@ -123,7 +123,7 @@
      hele avtalen mellom AIST_BUNDLE og fetchJson()/fetchText(). */
   function loadBundle(config) {
     var manifest = assets.manifest;
-    var files = ['/prompts/' + manifest.shared];
+    var files = ['/assets/prompts/' + manifest.shared];
     /* Bare elevens instrukser. Dekomponeringsmodellen og rammeteksten rundt
        den er lærerens verktøy, og ville lagt 27 kB til hver eneste
        nedlastede fil for tekst ingen elev åpner. Samme filter som motoren
@@ -131,12 +131,12 @@
     Object.keys(manifest.instructions).forEach(function (id) {
       var entry = manifest.instructions[id];
       if ((entry.audience || 'student') !== 'student') return;
-      files.push('/prompts/' + entry.file);
+      files.push('/assets/prompts/' + entry.file);
     });
     var family = config.subjectFamily
       ? (manifest.subjectFamilies || {})[config.subjectFamily] : null;
-    if (family) files.push('/prompts/' + family);
-    files.push('/languages/' + (config.language || 'en') + '.json');
+    if (family) files.push('/assets/prompts/' + family);
+    files.push('/assets/languages/' + (config.language || 'en') + '.json');
 
     return Promise.all(files.map(function (path) {
       return getJson(path).then(function (data) { return [path, data]; },
@@ -144,7 +144,7 @@
     })).then(function (pairs) {
       var bundle = {
         'tree.csv': source.tree,
-        '/prompts/manifest.json': manifest,
+        '/assets/prompts/manifest.json': manifest,
         /* Katalogens to filer finnes ikke for et tre en lærer har laget
            selv. De står som null framfor å mangle, slik at motoren får
            svaret sitt uten å gjøre et kall som feiler - en rød linje i
@@ -447,12 +447,12 @@
   function loadAuthoringPrompt() {
     var box = document.getElementById('authoring-prompt');
     if (!box) return;
-    getJson('/prompts/manifest.json').then(function (manifest) {
+    getJson('/assets/prompts/manifest.json').then(function (manifest) {
       var wrap = manifest.instructions.authoring;
       var appended = wrap && wrap.appends;
       return Promise.all([
-        getJson('/prompts/' + wrap.file),
-        appended ? getJson('/prompts/' + manifest.instructions[appended].file) : null,
+        getJson('/assets/prompts/' + wrap.file),
+        appended ? getJson('/assets/prompts/' + manifest.instructions[appended].file) : null,
       ]);
     }).then(function (parts) {
       box.textContent = composeAuthoringPrompt(parts[0], parts[1]);

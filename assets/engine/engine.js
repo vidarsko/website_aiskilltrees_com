@@ -26,12 +26,12 @@
 /*                                                   den. Begge har     */
 /*                                                   audience=teacher   */
 /*                                                   og leses ikke her  */
-/*   /prompts/subjects/       Alt som varierer med FAGFAMILIE, og som   */
+/*   /assets/prompts/subjects/Alt som varierer med FAGFAMILIE, og som   */
 /*     <familie>.json         altså er sant for matematikk men ikke for */
 /*                            samfunnsfag. Legger seksjoner TIL de      */
 /*                            generelle instruksene. Et tre velger med  */
 /*                            `subjectFamily` i tree.csv.               */
-/*   /languages/<kode>.json   Alt som varierer med SPRÅK: knappetekster,*/
+/*   /assets/languages/<kode>.jsonAlt som varierer med SPRÅK: knappetekster,*/
 /*                            hjelpeteksten, og språklaget i instruksen */
 /*                            (`outputLanguage` + `writingStyle`).      */
 /*   ./tree.csv               ALT som er dette treets eget, i ÉN fil:   */
@@ -63,6 +63,13 @@
 /* Punkt 5 gir fagfamilien to virkemåter med én mekanisme: en NY id     */
 /* flettes inn i `order` etter ankeret sitt, mens en id som allerede    */
 /* finnes i `order` overstyrer den generelle teksten på plassen sin.    */
+/*                                                                      */
+/* STIENE BEGYNNER MED /assets/ (fra 0.4.0). Maskineriet ligger samlet   */
+/* under ett prefiks på det publiserte nettstedet, fordi /prompts/ er en */
+/* SIDE der - og fordi et prefiks som sier «filer sidene laster, ikke    */
+/* sider man besøker» er det eneste som hindrer den kollisjonen i å      */
+/* skje igjen. Mappenavnene i dette repoet er uendret; det er bare       */
+/* URL-ene de publiseres på som har fått prefikset.                      */
 /* ------------------------------------------------------------------ */
 
 /* Fylles av bootstrap() før init(). Ingen av dem er `const`, fordi de
@@ -344,10 +351,10 @@ async function bootstrap() {
   const code = CONFIG.language || 'en';
   let lang;
   try {
-    lang = await fetchJson('/languages/' + code + '.json');
+    lang = await fetchJson('/assets/languages/' + code + '.json');
   } catch (err) {
     console.warn('Ingen språkfil for «' + code + '» - bruker engelsk grensesnitt.', err);
-    lang = await fetchJson('/languages/en.json');
+    lang = await fetchJson('/assets/languages/en.json');
   }
   LANG = lang;
 
@@ -362,7 +369,7 @@ async function bootstrap() {
      en ny modul eller en ny fagfamilie ikke koster en kodeendring. Hver
      modul har sitt eget `version`, fordi artikkelens appendiks siterer dem
      hver for seg. Manifestet først, så resten i parallell. */
-  MANIFEST = await fetchJson('/prompts/manifest.json');
+  MANIFEST = await fetchJson('/assets/prompts/manifest.json');
   const famPath = CONFIG.subjectFamily
     ? (MANIFEST.subjectFamilies || {})[CONFIG.subjectFamily]
     : null;
@@ -377,9 +384,9 @@ async function bootstrap() {
   const ids = Object.keys(MANIFEST.instructions)
     .filter(id => (MANIFEST.instructions[id].audience || 'student') === 'student');
   const loaded = await Promise.all(
-    [fetchJson('/prompts/' + MANIFEST.shared)]
-      .concat(ids.map(id => fetchJson('/prompts/' + MANIFEST.instructions[id].file)))
-      .concat(famPath ? [fetchJson('/prompts/' + famPath)] : []));
+    [fetchJson('/assets/prompts/' + MANIFEST.shared)]
+      .concat(ids.map(id => fetchJson('/assets/prompts/' + MANIFEST.instructions[id].file)))
+      .concat(famPath ? [fetchJson('/assets/prompts/' + famPath)] : []));
 
   SHARED = loaded[0].sections || {};
   CORE = { prompts: {} };

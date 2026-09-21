@@ -1,5 +1,5 @@
 /* ==========================================================================
-   prompts-page.js — /the-prompts/
+   prompts-page.js — /prompts/
 
    Viser instruksene slik de faktisk er skrevet, hentet fra maskineriet ved
    kjøring. Sida har med vilje ingen kopi av teksten: kilden er
@@ -125,8 +125,8 @@
 
   function loadLanguage(code) {
     return Promise.all([
-      getJson('/languages/' + code + '.json'),
-      getJson('/prompts/' + (state.manifest.subjectFamilies || {}).mathematics),
+      getJson('/assets/languages/' + code + '.json'),
+      getJson('/assets/prompts/' + (state.manifest.subjectFamilies || {}).mathematics),
     ]).then(function (parts) {
       state.lang = parts[0];
       state.family = parts[1] || {};
@@ -140,14 +140,14 @@
     langSelect = document.getElementById('prompt-language');
     if (!root) return;
 
-    getJson('/prompts/manifest.json').then(function (manifest) {
+    getJson('/assets/prompts/manifest.json').then(function (manifest) {
       state.manifest = manifest;
       var files = [manifest.shared].concat(
         Object.keys(manifest.instructions).map(function (id) {
           return manifest.instructions[id].file;
         }));
       return Promise.all(files.map(function (file) {
-        return getJson('/prompts/' + file).then(function (data) {
+        return getJson('/assets/prompts/' + file).then(function (data) {
           state.modules[file] = data;
         }, function () {});
       }));
