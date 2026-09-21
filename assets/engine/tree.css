@@ -1479,7 +1479,7 @@ body {
    øverst. Erstatter .edge-active, som lyste opp kanter der BEGGE endene var
    mestret - en tilstand eleven ikke har bruk for å se. */
 #edges path {
-  stroke: color-mix(in srgb, var(--ink) 10%, transparent);
+  stroke: color-mix(in srgb, var(--ink) 15%, transparent);
   stroke-width: 1.3;
 }
 
