@@ -31,7 +31,10 @@
     { code: 'sv', name: 'Svenska' }
   ];
 
-  var root, setPicked,
+  /* Velgeren bygges én gang og FLYTTES inn i språklag-kortet for hver
+     tegning, framfor å bygges på nytt: den har lyttere på `document` for
+     Escape og klikk utenfor, og de ville hopet seg opp for hvert bytte. */
+  var root, pickerRow, pickerLabel, setPicked,
       state = { manifest: null, modules: {}, family: {}, lang: null, code: 'en' };
 
   function t(key) {
@@ -71,6 +74,16 @@
        plassholder — det er bedre at den mangler synlig enn at sida later som
        den vet noe. */
     if (opts.about) box.appendChild(el('p', 'promptdoc__about', opts.about));
+
+    /* Språklagets kort har språkvelgeren i seg, rett under beskrivelsen av
+       hva laget er: det er der valget gir mening, framfor øverst på sida med
+       en etikett som må forklare hva et språklag er før leseren har sett et. */
+    if (opts.control) box.appendChild(opts.control);
+
+    /* Et kort uten seksjoner viser ingen rull. Det gjelder bare språklaget,
+       og bare hvis fila mangler begge feltene — men kortet må likevel stå,
+       for velgeren står i det. */
+    if (!opts.rows.length) return box;
 
     /* Hele teksten ligger sammenrullet. Sida ble uleselig lang med alt åpent
        — sju kort med tjuetalls seksjoner hver — og den som vil LESE en
@@ -168,12 +181,11 @@
       });
     });
 
-    if (!rows.length) return null;
-
     return card({
       title: t('language-title'),
       meta: (lang.name || state.code) + ' · languages/' + state.code + '.json',
       about: about('language'),
+      control: pickerRow,
       rows: rows
     });
   }
@@ -187,6 +199,10 @@
 
   function render() {
     if (!root || !state.manifest) return;
+    /* Velgeren står inne i kortet som tegnes om, så den rives ut og settes
+       inn igjen ved hvert bytte. Hadde den tastaturfokus, skal den ha det
+       etterpå også — ellers ender den som velger med å miste stedet sitt. */
+    var keepFocus = pickerRow.contains(document.activeElement);
     root.innerHTML = '';
     var m = state.manifest;
     var layer = (state.lang || {}).prompt || {};
@@ -213,8 +229,7 @@
       }));
     });
 
-    var language = languageCard();
-    if (language) root.appendChild(language);
+    root.appendChild(languageCard());
 
     var shared = state.modules[m.shared];
     if (shared) {
@@ -224,6 +239,11 @@
         about: about('shared'),
         rows: moduleRows(shared, { lang: layer })
       }));
+    }
+
+    if (keepFocus) {
+      var btn = pickerRow.querySelector('.lang-select__button');
+      if (btn) btn.focus();
     }
   }
 
@@ -347,9 +367,15 @@
 
   function init() {
     root = document.getElementById('prompt-list');
-    var host = document.getElementById('prompt-language');
-    if (!root || !host) return;
+    if (!root) return;
 
+    /* <div>, ikke <p>: raden inneholder selve velgeren, og et <div> inne i
+       et <p> er ugyldig markup den dagen noen ser på den. */
+    pickerRow = el('div', 'langpick');
+    pickerLabel = el('span', 'langpick__label', t('lang-label'));
+    var host = el('span');
+    pickerRow.appendChild(pickerLabel);
+    pickerRow.appendChild(host);
     setPicked = buildPicker(host, loadLanguage);
     setPicked(state.code);
 
@@ -374,6 +400,7 @@
        script — det har ingen `data-i18n` i18n.js kan nå. */
     if (window.i18n && window.i18n.onChange) {
       window.i18n.onChange(function () {
+        pickerLabel.textContent = t('lang-label');
         setPicked(state.code);
         render();
       });

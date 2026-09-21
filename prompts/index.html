@@ -20,13 +20,13 @@
     ved kjøring, fordi en gjengivelse her ville vært utdatert ved neste
     release uten at noen merket det. Se js/prompts-page.js.
 
-    Språkvelgeren øverst er IKKE sidas språkveksler (den ligger i
-    toppbaren): den velger hvilket SPRÅKLAG som vises sammen med
-    instruksene — både seksjonene som fylles inne i hver instruks, og
-    kortet som viser språklaget samlet. De to er ulike ting, og det er
-    derfor den har en egen etikett framfor bare tre bokstaver. Selve
-    kontrollen bygges av js/prompts-page.js, som samme komponent som
-    velgeren i toppbaren.
+    Språkvelgeren står INNE I språklag-kortet, ikke øverst på sida og ikke
+    i toppbaren. Den er ikke sidas språkveksler: den velger hvilket
+    SPRÅKLAG som vises — både seksjonene som fylles inne i hver instruks,
+    og kortet den selv står i. De to er ulike ting, og det er derfor den
+    har en egen etikett framfor bare tre bokstaver. Selve kontrollen
+    bygges av js/prompts-page.js, som samme komponent som velgeren i
+    toppbaren.
   -->
   <script type="application/json" id="i18n-dict">
   {
@@ -151,44 +151,44 @@
           "sv": "ett avsnitt"
       },
       "about-decomposition": {
-          "en": "How a subject is turned into a skill tree. It is not sent to a student: it is what a teacher hands an AI chat when building a tree, wrapped by the instruction below it.",
-          "nb": "Hvordan et fag gjøres om til et ferdighetstre. Den sendes ikke til en elev: det er den en lærer gir en KI-chat når hen bygger et tre, pakket inn av instruksen under.",
-          "sv": "Hur ett ämne görs om till ett färdighetsträd. Den skickas inte till en elev: det är den en lärare ger en AI-chatt när hen bygger ett träd, inramad av instruktionen nedan."
+          "en": "Appended to the authoring prompt below, so that a teacher building a tree hands the model the whole method — the concept/skill distinction, the data model and the prerequisite rules — before it writes a single row of the file. It is never sent to a student.",
+          "nb": "Legges ved forfatterinstruksen under, slik at en lærer som bygger et tre gir modellen hele metoden — skillet mellom begrep og ferdighet, datamodellen og reglene for forutsetninger — før den skriver en eneste rad i fila. Den sendes aldri til en elev.",
+          "sv": "Läggs till författarinstruktionen nedan, så att en lärare som bygger ett träd ger modellen hela metoden — skillnaden mellan begrepp och färdighet, datamodellen och reglerna för förkunskaper — innan den skriver en enda rad i filen. Den skickas aldrig till en elev."
       },
       "about-node": {
-          "en": "The one a student copies from a node in the tree — the action the whole tool exists for. It has the model ask questions rather than hand over answers, and say clearly when the skill looks mastered.",
-          "nb": "Den eleven kopierer fra en node i treet — handlingen hele verktøyet finnes for. Den får modellen til å stille spørsmål framfor å gi svar, og si tydelig fra når ferdigheten ser ut til å sitte.",
-          "sv": "Den eleven kopierar från en nod i trädet — handlingen hela verktyget finns för. Den får modellen att ställa frågor i stället för att ge svar, och säga tydligt till när färdigheten verkar sitta."
+          "en": "Added to the node a student picks in the tree, and pasted into an AI chat, so that the conversation trains that one skill and nothing else. This is the action the whole tool exists for. It has the model ask questions rather than hand over answers, and say clearly when the skill looks mastered.",
+          "nb": "Legges sammen med noden eleven velger i treet, og limes inn i en KI-chat, slik at samtalen øver akkurat den ene ferdigheten og ingenting annet. Dette er handlingen hele verktøyet finnes for. Den får modellen til å stille spørsmål framfor å gi svar, og si tydelig fra når ferdigheten ser ut til å sitte.",
+          "sv": "Läggs ihop med noden eleven väljer i trädet och klistras in i en AI-chatt, så att samtalet övar just den färdigheten och inget annat. Det här är handlingen hela verktyget finns för. Den får modellen att ställa frågor i stället för att ge svar, och säga tydligt till när färdigheten verkar sitta."
       },
       "about-exam": {
-          "en": "Copied from the button at the bottom of a tree. It makes a written test across everything the student has ticked off, not just one node, and withholds the answers until they have tried.",
-          "nb": "Kopieres fra knappen nederst i et tre. Den lager en skriftlig prøve på tvers av alt eleven har huket av, ikke bare én node, og holder tilbake fasiten til eleven har prøvd.",
-          "sv": "Kopieras från knappen längst ner i ett träd. Den gör ett skriftligt prov tvärs över allt eleven kryssat i, inte bara en nod, och håller tillbaka facit tills eleven har försökt."
+          "en": "Added to everything the student has ticked off, from the button at the bottom of a tree, so that the written test spans weeks of work rather than a single node. Spacing and retrieval follow from the design instead of being something the student has to remember to do. It withholds the answers until they have tried.",
+          "nb": "Legges sammen med alt eleven har huket av, fra knappen nederst i et tre, slik at den skriftlige prøven spenner over ukers arbeid framfor én enkelt node. Spacing og gjenhenting følger dermed av designet framfor å være noe eleven må huske å gjøre. Den holder tilbake fasiten til eleven har prøvd.",
+          "sv": "Läggs ihop med allt eleven kryssat i, från knappen längst ner i ett träd, så att det skriftliga provet spänner över veckors arbete i stället för en enda nod. Spacing och återhämtning följer därmed av designen i stället för att vara något eleven måste komma ihåg att göra. Det håller tillbaka facit tills eleven har försökt."
       },
       "about-motivation": {
-          "en": "An optional conversation a tree can offer, for the student who cannot see why the subject is worth learning at all. It is a conversation, not a lecture, and the tree decides whether to show it.",
-          "nb": "En valgfri samtale et tre kan tilby, for eleven som ikke ser hvorfor faget er verdt å lære i det hele tatt. Det er en samtale, ikke en formaning, og treet bestemmer selv om den vises.",
-          "sv": "Ett valfritt samtal ett träd kan erbjuda, för eleven som inte ser varför ämnet är värt att lära sig alls. Det är ett samtal, inte en föreläsning, och trädet avgör själv om det visas."
+          "en": "Added to the subject as a whole, from an optional button a tree can offer, for the student who cannot see why it is worth learning at all. It is a conversation that leads the student to state the value themselves, not a lecture that states it for them — and the tree decides whether to show it.",
+          "nb": "Legges sammen med faget som helhet, fra en valgfri knapp et tre kan tilby, for eleven som ikke ser hvorfor faget er verdt å lære i det hele tatt. Det er en samtale som leder eleven til å formulere verdien selv, ikke en formaning som gjør det for hen — og treet bestemmer selv om den vises.",
+          "sv": "Läggs ihop med ämnet som helhet, från en valfri knapp ett träd kan erbjuda, för eleven som inte ser varför ämnet är värt att lära sig alls. Det är ett samtal som leder eleven till att formulera värdet själv, inte en föreläsning som gör det åt hen — och trädet avgör själv om det visas."
       },
       "about-lessonPlan": {
-          "en": "The one instruction here written for a teacher rather than a student: a lesson plan for a chosen part of the tree, with the prerequisites the class is assumed to have already.",
-          "nb": "Den ene instruksen her som er skrevet til en lærer framfor til en elev: et undervisningsopplegg for en valgt del av treet, med forutsetningene klassen antas å ha fra før.",
-          "sv": "Den enda instruktionen här som är skriven till en lärare i stället för en elev: ett lektionsupplägg för en vald del av trädet, med förkunskaperna klassen antas ha sedan tidigare."
+          "en": "Added to the part of the tree a teacher selects, so that the lesson plan builds on what the class is assumed to know already. The teacher presses the button on the tree page and takes the result to an AI chat; this is the one instruction here whose reader is a teacher rather than a student.",
+          "nb": "Legges sammen med den delen av treet læreren velger, slik at undervisningsopplegget bygger på det klassen antas å kunne fra før. Læreren trykker på knappen på tresida og tar resultatet med i en KI-chat; dette er den ene instruksen her som leses av en lærer framfor av en elev.",
+          "sv": "Läggs ihop med den del av trädet läraren väljer, så att lektionsupplägget bygger på det klassen antas kunna sedan tidigare. Läraren trycker på knappen på trädsidan och tar med resultatet till en AI-chatt; det här är den enda instruktionen här som läses av en lärare i stället för av en elev."
       },
       "about-authoring": {
-          "en": "What a teacher pastes into an AI chat to build a tree of their own. It wraps the decomposition model above with what the model cannot guess: what the site does with the file, what may be changed, and what each error message means.",
-          "nb": "Den en lærer limer inn i en KI-chat for å lage sitt eget tre. Den pakker inn dekomponeringsmodellen over med det modellen ikke kan gjette: hva sida gjør med fila, hva som kan endres, og hva hver feilmelding betyr.",
-          "sv": "Den en lärare klistrar in i en AI-chatt för att göra sitt eget träd. Den ramar in nedbrytningsmodellen ovan med det modellen inte kan gissa: vad sidan gör med filen, vad som kan ändras, och vad varje felmeddelande betyder."
+          "en": "Pasted into an AI chat by a teacher who wants a tree of their own, so that the model asks for the subject, the level and the curriculum and hands back a file this site can read. It wraps the decomposition model above with what the model cannot guess: what the site does with the file, what may be changed, and what each error message means.",
+          "nb": "Limes inn i en KI-chat av en lærer som vil ha sitt eget tre, slik at modellen spør om fag, nivå og læreplan og gir tilbake en fil denne sida kan lese. Den pakker inn dekomponeringsmodellen over med det modellen ikke kan gjette: hva sida gjør med fila, hva som kan endres, og hva hver feilmelding betyr.",
+          "sv": "Klistras in i en AI-chatt av en lärare som vill ha ett eget träd, så att modellen frågar efter ämne, nivå och läroplan och lämnar tillbaka en fil den här sidan kan läsa. Den ramar in nedbrytningsmodellen ovan med det modellen inte kan gissa: vad sidan gör med filen, vad som kan ändras, och vad varje felmeddelande betyder."
       },
       "about-language": {
-          "en": "One file per language, holding what the instructions above deliberately leave open: which language the conversation is held in, and what good prose looks like in that language. The same sections stand marked inside the instructions themselves; here the layer is gathered in one place, in the language picked at the top.",
-          "nb": "Én fil per språk, med det instruksene over bevisst lar stå åpent: hvilket språk samtalen føres på, og hva god prosa er på det språket. De samme seksjonene står merket inne i instruksene selv; her er laget samlet ett sted, på språket som er valgt øverst.",
-          "sv": "En fil per språk, med det instruktionerna ovan medvetet lämnar öppet: vilket språk samtalet förs på, och vad god prosa är på det språket. Samma avsnitt står märkta inne i instruktionerna själva; här är lagret samlat på ett ställe, på språket som valts högst upp."
+          "en": "Added to every instruction the engine composes, so that a Norwegian tree is discussed in Norwegian and a Swedish one in Swedish. One file per language holds what the instructions deliberately leave open: which language the conversation is held in, and what good prose looks like in it. The same sections stand marked inside the instructions above, where they land.",
+          "nb": "Legges til i hver eneste instruks motoren setter sammen, slik at et norsk tre snakkes om på norsk og et svensk på svensk. Én fil per språk holder det instruksene bevisst lar stå åpent: hvilket språk samtalen føres på, og hva god prosa er på det språket. De samme seksjonene står merket inne i instruksene over, der de lander.",
+          "sv": "Läggs till i varenda instruktion motorn sätter samman, så att ett norskt träd talas om på norska och ett svenskt på svenska. En fil per språk håller det instruktionerna medvetet lämnar öppet: vilket språk samtalet förs på, och vad god prosa är på det språket. Samma avsnitt står märkta inne i instruktionerna ovan, där de landar."
       },
       "about-shared": {
-          "en": "Sections that are word for word the same in more than one instruction, kept in one place so they cannot drift apart. They are pulled in wherever an instruction names them.",
-          "nb": "Seksjoner som er ord for ord like i flere instrukser, holdt ett sted så de ikke kan komme fra hverandre. De hentes inn der en instruks navngir dem.",
-          "sv": "Avsnitt som är ord för ord lika i flera instruktioner, hållna på ett ställe så att de inte kan glida isär. De hämtas in där en instruktion namnger dem."
+          "en": "Added to each instruction that names one of these sections, so that text which must read the same everywhere is written once. Kept in one place so the copies cannot drift apart.",
+          "nb": "Legges inn i hver instruks som navngir en av disse seksjonene, slik at tekst som skal være lik overalt er skrevet én gang. Holdt ett sted så kopiene ikke kan komme fra hverandre.",
+          "sv": "Läggs in i varje instruktion som namnger ett av dessa avsnitt, så att text som ska vara lika överallt är skriven en gång. Hålls på ett ställe så att kopiorna inte kan glida isär."
       }
   }
   </script>
@@ -208,11 +208,6 @@
           <p class="note" data-i18n="layers-note">The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.</p>
           <p class="note" data-i18n="family-note">The subject-family additions shown are the ones for mathematics. Natural sciences and social studies add their own.</p>
         </div>
-
-        <p class="langpick">
-          <span class="langpick__label" data-i18n="lang-label">Show the language layer for</span>
-          <span id="prompt-language"></span>
-        </p>
       </div>
     </section>
 
