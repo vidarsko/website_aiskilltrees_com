@@ -481,6 +481,12 @@
 .sitefooter p { margin: 0; opacity: 0.8; }
 .sitefooter a { color: var(--ink-inverse); }
 
+/* The institutional affiliation gets its own row under the other two lines.
+   `.sitefooter__inner` is space-between, so a third item would otherwise be
+   pulled into the middle of a row where the two existing lines are already
+   pinned left and right. flex-basis: 100% wraps it instead. */
+.sitefooter__affiliation { flex-basis: 100%; }
+
 /* --------------------------------------------------------------------------
    Numbered steps — the contribution flow on /make-your-own/.
 

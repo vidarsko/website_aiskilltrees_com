@@ -4,6 +4,31 @@
   "name": "Norsk (bokmål)",
   "endonym": "Norsk",
   "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
+  "defaultLearner": "pupil",
+  "learners": {
+    "_comment": "Hva den som lærer HETER. En elev på skolen og en student på universitetet er det samme i treet og ulikt i teksten, så treet velger med config-raden «learner» hvilken av disse som gjelder - og BARE nøkkelen står i tree.csv. Bøyningen står her, fordi bøyning er noe som varierer med språk, og en lærer som lager sitt eget tre skal ikke måtte skrive grammatikk i et regneark. `leadIn` er ledeteksten panelet setter foran beskrivelsen: en ferdighet er en verbfrase («Eleven kan: legge sammen ...»), et begrep er en definisjon, og de to trenger derfor hver sin innledning. Trenger et tre et ord som ikke står her, er det denne fila som får en oppføring til - ikke motoren.",
+    "pupil": {
+      "word": "elev",
+      "definite": "eleven",
+      "plural": "elever",
+      "pluralDefinite": "elevene",
+      "leadIn": { "skill": "Eleven kan:", "concept": "Eleven kan forklare:" }
+    },
+    "student": {
+      "word": "student",
+      "definite": "studenten",
+      "plural": "studenter",
+      "pluralDefinite": "studentene",
+      "leadIn": { "skill": "Studenten kan:", "concept": "Studenten kan forklare:" }
+    },
+    "participant": {
+      "word": "deltaker",
+      "definite": "deltakeren",
+      "plural": "deltakere",
+      "pluralDefinite": "deltakerne",
+      "leadIn": { "skill": "Deltakeren kan:", "concept": "Deltakeren kan forklare:" }
+    }
+  },
   "ui": {
     "backLink": "← alle ferdighetstrær",
     "pageTitle": "Ferdighetstre for {title}",
@@ -25,6 +50,7 @@
     "errorUnknownExamNode": "exams.csv viser til node-id-en «{id}», som ikke finnes i tree.csv.",
     "errorCycle": "Disse nodene er forutsetninger for hverandre, i ring: {cycle}. En av koblingene må bort.",
     "errorUnknownConfig": "Ukjent innstilling «{key}» på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
+    "errorUnknownLearner": "Ukjent verdi «{value}» for innstillingen «learner» på rad {row} i tree.csv. Verdiene norsk har: {valid}.",
     "errorUnknownPromptSection": "Ukjent seksjon «{section}» i prompt-rada på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
     "errorUnknownPromptTarget": "Prompt-rada på rad {row} i tree.csv peker på «{name}», som ikke er en instruks dette treet setter sammen. Ingenting ble tatt i bruk.",
     "errorDidYouMean": "Mente du «{key}»?",
@@ -171,7 +197,7 @@
   },
   "prompt": {
     "_comment": "Språklaget i KI-instruksene. Fyller de to hullene prompts/ lar stå åpne. prompts/<instruks>.json sier HVA modellen skal gjøre; dette sier hvilket språk den skal gjøre det på, og gir norske eksempler på de generelle skriverådene i prompts/shared.json → writingStyleGeneral. Bare det som er SÆREGENT FOR NORSK hører hjemme her: selve prinsippene (aktiv form, unngå bokaktige ord) er språkuavhengige og bor i shared.json. Teksten her er på norsk, etter Vidars beslutning 2026-09-20 — et råd om hvordan man skriver god norsk gir lite mening formulert på engelsk. MERK: `outputLanguage` sier hvilket språk samtalen STARTER på — den skal ikke nekte eleven å be om et annet. At eleven kan be om et annet språk, og hva som da skjer, er språkuavhengig og bor i prompts/shared.json → languageSwitch. Ikke skriv et absolutt forbud her: de to ville motsagt hverandre, og modellen følger forbudet.",
-    "outputLanguage": "Før hele denne samtalen på norsk (bokmål). Alt som er sitert fra ferdighetstreet nedenfor — nodenavn, beskrivelser, forutsetninger — er skrevet på norsk, og det er språket eleven forventer å bli tiltalt på. Deler av instruksen du nå leser er på engelsk; det er ingen oppfordring til å svare på engelsk. Ikke bytt språk på eget initiativ, og ikke kommenter hvilket språk instruksen er skrevet på. Tiltal eleven som «du», og bruk «hen» framfor «han/hun» når du omtaler eleven i tredjeperson.",
+    "outputLanguage": "Før hele denne samtalen på norsk (bokmål). Alt som er sitert fra ferdighetstreet nedenfor — nodenavn, beskrivelser, forutsetninger — er skrevet på norsk, og det er språket {learnerDefinite} forventer å bli tiltalt på. Deler av instruksen du nå leser er på engelsk; det er ingen oppfordring til å svare på engelsk. Ikke bytt språk på eget initiativ, og ikke kommenter hvilket språk instruksen er skrevet på. Tiltal {learnerDefinite} som «du», og bruk «hen» framfor «han/hun» når du omtaler {learnerDefinite} i tredjeperson. Må rollen navngis, er ordet «{learnerDefinite}» - ikke et annet ord for det samme.",
     "writingStyle": "Norske eksempler på de to rådene over:\n- Aktiv form: skriv «vi kan skrive tallet som …», ikke «tallet kan bare skrives som …»; skriv «vi gjør dette ved å …» eller «du gjør dette ved å …», ikke «det gjøres ved å …». Unngå «blir gjort» og «kan gjøres» der du kan si hvem som gjør det.\n- Ord som er vanlige på norsk, men sjeldne i tale, bokaktige eller litt for voksne — og som du derfor skal bytte ut med et enklere ord: «vaklende», «fundament», «ferdigheter», «motivasjon». Vennetesten: ville du faktisk sagt ordet høyt til en venn?",
     "overrides": {}
   }

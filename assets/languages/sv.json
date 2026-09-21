@@ -4,6 +4,31 @@
   "name": "Svenska",
   "endonym": "Svenska",
   "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
+  "defaultLearner": "pupil",
+  "learners": {
+    "_comment": "Vad den som lär sig HETER. En elev i skolan och en student på universitetet är samma sak i trädet och olika i texten, så trädet väljer med config-raden »learner« vilken som gäller - och BARA nyckeln står i tree.csv. Böjningen står här, eftersom böjning varierar med språk, och en lärare som bygger ett eget träd ska inte behöva skriva grammatik i ett kalkylark. `leadIn` är ledtexten panelen sätter framför beskrivningen: en färdighet är en verbfras (»Eleven kan: addera två ...«), ett begrepp är en definition, och de två behöver därför var sin inledning.",
+    "pupil": {
+      "word": "elev",
+      "definite": "eleven",
+      "plural": "elever",
+      "pluralDefinite": "eleverna",
+      "leadIn": { "skill": "Eleven kan:", "concept": "Eleven kan förklara:" }
+    },
+    "student": {
+      "word": "student",
+      "definite": "studenten",
+      "plural": "studenter",
+      "pluralDefinite": "studenterna",
+      "leadIn": { "skill": "Studenten kan:", "concept": "Studenten kan förklara:" }
+    },
+    "participant": {
+      "word": "deltagare",
+      "definite": "deltagaren",
+      "plural": "deltagare",
+      "pluralDefinite": "deltagarna",
+      "leadIn": { "skill": "Deltagaren kan:", "concept": "Deltagaren kan förklara:" }
+    }
+  },
   "ui": {
     "backLink": "← alla färdighetsträd",
     "pageTitle": "Färdighetsträd för {title}",
@@ -25,6 +50,7 @@
     "errorUnknownExamNode": "exams.csv hänvisar till nod-id:t »{id}«, som inte finns i tree.csv.",
     "errorCycle": "De här noderna är förkunskaper för varandra, i en ring: {cycle}. En av länkarna måste bort.",
     "errorUnknownConfig": "Okänd inställning »{key}« på rad {row} i tree.csv. Ingenting tillämpades.",
+    "errorUnknownLearner": "Okänt värde »{value}« för inställningen »learner« på rad {row} i tree.csv. Värdena svenska har: {valid}.",
     "errorUnknownPromptSection": "Okänt avsnitt »{section}« i prompt-raden på rad {row} i tree.csv. Ingenting tillämpades.",
     "errorUnknownPromptTarget": "Prompt-raden på rad {row} i tree.csv pekar på »{name}«, som inte är en instruktion det här trädet sätter samman. Ingenting tillämpades.",
     "errorDidYouMean": "Menade du »{key}«?",
@@ -171,7 +197,7 @@
   },
   "prompt": {
     "_comment": "Språklagret i AI-instruktionerna. Samma roll som languages/nb.json → prompt. Endast det som är SÄRSKILT FÖR SVENSKA hör hemma här: själva principerna (aktiv form, undvik skriftspråkliga ord) är språkoberoende och bor i prompts/shared.json → writingStyleGeneral. Formuleringarna är hämtade från den svenska systermotorn på skogvoll.com, inte nyöversatta. OBS: `outputLanguage` säger vilket språk samtalet BÖRJAR på — den ska inte förbjuda eleven att be om ett annat. Att eleven kan be om ett annat språk, och vad som då händer, är språkoberoende och bor i prompts/shared.json → languageSwitch. Skriv inget absolut förbud här: de två skulle motsäga varandra, och modellen följer förbudet.",
-    "outputLanguage": "För hela detta samtal på svenska. Allt som citeras från färdighetsträdet nedan — nodnamn, beskrivningar, förkunskaper — är skrivet på svenska, och det är språket eleven förväntar sig att bli tilltalad på. Delar av instruktionen du nu läser är på engelska; det är ingen uppmaning att svara på engelska. Byt inte språk på eget initiativ, och kommentera inte vilket språk instruktionen är skriven på. Tilltala eleven som \"du\", och använd \"hen\" i stället för \"han/hon\" när du omtalar eleven i tredje person.",
+    "outputLanguage": "För hela detta samtal på svenska. Allt som citeras från färdighetsträdet nedan — nodnamn, beskrivningar, förkunskaper — är skrivet på svenska, och det är språket {learnerDefinite} förväntar sig att bli tilltalad på. Delar av instruktionen du nu läser är på engelska; det är ingen uppmaning att svara på engelska. Byt inte språk på eget initiativ, och kommentera inte vilket språk instruktionen är skriven på. Tilltala {learnerDefinite} som \"du\", och använd \"hen\" i stället för \"han/hon\" när du omtalar {learnerDefinite} i tredje person. Måste rollen namnges är ordet »{learnerDefinite}« - inte ett annat ord för samma sak.",
     "writingStyle": "Svenska exempel på de två råden ovan:\n- Aktiv form: skriv \"vi kan skriva talet som …\", inte \"talet kan skrivas som …\"; skriv \"vi gör detta genom att …\" eller \"du gör detta genom att …\", inte \"det görs genom att …\". Undvik \"görs\" och \"kan göras\" där du kan säga vem som gör det.\n- Ord som är vanliga på svenska men sällsynta i talspråk, skriftspråkliga eller lite för vuxna ska du byta ut mot ett enklare ord. Kompistestet: är det något du faktiskt skulle säga högt till en kompis?",
     "overrides": {}
   }

@@ -98,6 +98,12 @@ let TOPIC_ORDER = [];
 let FEATURES = {};
 let SHOW_MOTIVATION_BUTTON = false;
 let CONVERSATION_LANGUAGE = '';
+let LEARNER_KEY = '';       // nøkkelen treet valgte, eller språkets egen standard
+let LEARNER = null;         // hva den som lærer HETER, fra språkfila: { word, definite,
+                            //   plural, pluralDefinite, leadIn: { skill, concept } }.
+                            //   Treet velger nøkkelen med config-raden `learner`; selve
+                            //   bøyningen står i languages/<kode>.json, fordi bøyning er
+                            //   noe som varierer med språk.
 
 let LAYOUT = {
   nodeWidth: 210,
@@ -145,6 +151,77 @@ function typeLabelText(type) {
   return map[type] || type;
 }
 
+/* Hva den som lærer HETER, avgjort ETTER at språkfila er lastet: nøkkelen
+   står i tree.csv, ordene står i språkfila, og de to kan først møtes her.
+   En ukjent nøkkel er en FEIL av samme slag som en ukjent innstilling -
+   `learner: elev` på et norsk tre ville ellers stille gitt «Eleven kan:»,
+   sett helt riktig ut, og latt læreren tro at nøkkelen het det. */
+function resolveLearner(row) {
+  const learners = (LANG && LANG.learners) || {};
+  const keys = Object.keys(learners).filter(k => k.charAt(0) !== '_');
+  const asked = CONFIG.learner;
+  if (asked && !learners[asked]) {
+    pushError('errorUnknownLearner', {
+      value: asked, row: row, valid: keys.join(', '), guess: nearest(asked, keys),
+    });
+  }
+  LEARNER_KEY = learners[asked] ? asked
+    : (learners[LANG.defaultLearner] ? LANG.defaultLearner : (keys[0] || 'student'));
+  return learners[asked] || learners[LANG.defaultLearner] || learners[keys[0]] || {
+    word: 'student', definite: 'the student', plural: 'students', pluralDefinite: 'the students',
+    leadIn: { skill: 'The student can:', concept: 'The student can explain:' },
+  };
+}
+
+/* Ledeteksten panelet setter foran beskrivelsen. Den står IKKE i CSV-en:
+   «Eleven kan ...» gjentatt i hver eneste celle er presentasjon lagret som
+   data - den kan ikke oversettes, ikke styles, og stjeler oppmerksomheten
+   til den som leser kolonnen. Beskrivelsen er derfor en bar verbfrase for
+   en ferdighet og en bar definisjon for et begrep, og ledeteksten er det
+   ene stedet ordene står. De to typene trenger hver sin: en definisjon er
+   ingen verbfrase, og «Eleven kan: Posisjonen til et siffer bestemmer
+   verdien» går ikke opp. Vidars beslutning, 2026-09-21. */
+function learnerLeadIn(type) {
+  const lead = (LEARNER && LEARNER.leadIn) || {};
+  return lead[type] || lead.skill || '';
+}
+
+/* Ordene for den som lærer, som {learner}, {learnerDefinite}, {learners} og
+   {learnersDefinite}. De kan bare brukes i SPRÅKLAGET og i tree.csv, ikke i
+   prompts/: de står på treets språk, og limt inn i den engelske kjernen
+   ville de gitt «helping eleven practise». */
+function learnerVars() {
+  const l = LEARNER || {};
+  return {
+    learner: l.word, learnerDefinite: l.definite,
+    learners: l.plural, learnersDefinite: l.pluralDefinite,
+  };
+}
+
+/* En begrepsnode kan definere FLERE begreper - «Intron og ekson» er ett
+   element i kartet og to definisjoner. Konvensjonen er én linje per
+   definisjon, på forma «Term: definisjon», og motoren splitter bare på
+   linjeskift: det finnes ingen parsing som kan gå i stykker fordi en
+   definisjon inneholder et kolon eller et semikolon. Én linje betyr ett
+   begrep, og da bærer nodenavnet termen - den skal ikke gjentas i cella. */
+function descriptionLines(text) {
+  return String(text || '').split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+}
+
+/* Samme tekst på én linje, til listene i prøve- og øktinstruksen, der hver
+   node har nøyaktig én linje å stå på. */
+function descriptionInline(text) {
+  return descriptionLines(text).join('; ');
+}
+
+/* «Term: definisjon» → termen, når linja ser sånn ut. Bare i en node med
+   FLERE linjer: en enkelt definisjon som tilfeldigvis har et kolon i seg
+   skal ikke få halve setningen satt i halvfeit. */
+function definitionTerm(line) {
+  const m = /^([^:]{1,60}):\s+(.+)$/.exec(line);
+  return m ? { term: m[1], rest: m[2] } : null;
+}
+
 /* ------------------------------------------------------------------ */
 /* Komposisjon av KI-instruks                                           */
 /*                                                                      */
@@ -157,6 +234,12 @@ const SECTION_WHEN = {
   'node.expression':         ctx => !!slot('expressionFocus'),
   'node.prerequisites':      ctx => ctx.ancestors && ctx.ancestors.length > 0,
   'node.prerequisitesNone':  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
+  'node.goalSkill':          ctx => !ctx.node || ctx.node.type !== 'concept',
+  'node.goalConcept':        ctx => ctx.node && ctx.node.type === 'concept',
+  /* Bare når noden faktisk holder flere definisjoner: teksten forklarer
+     et format, og et format som ikke er der trenger ingen forklaring. */
+  'node.goalConceptMultiple': ctx => ctx.node && ctx.node.type === 'concept' &&
+                                     descriptionLines(ctx.node.description).length > 1,
   'node.conceptGuidance':    ctx => ctx.node && ctx.node.type === 'concept',
   'node.nodeInstruction':    ctx => !!(ctx.node && ctx.node.instruction),
   'node.aids':               ctx => treeUsesAids() && (ctx.node.aids || []).length > 0,
@@ -244,6 +327,7 @@ function composePrompt(promptName, ctx) {
 
   const vars = Object.assign(
     { conversationLanguage: CONVERSATION_LANGUAGE, examButtonLabel: t('exam.button') },
+    learnerVars(),
     CONFIG.slots || {},
     ctx.vars || {});
 
@@ -367,6 +451,8 @@ async function bootstrap() {
     lang = await fetchJson('/assets/languages/en.json');
   }
   LANG = lang;
+  /* Først her møtes nøkkelen fra tree.csv og ordene fra språkfila. */
+  LEARNER = resolveLearner((split.config.find(e => e.key === 'learner') || {}).row);
 
   /* Utledet framfor konfigurert. Samtalespråkets navn står i språkfila, og
      lagringsnøkkelen er et internt navn ingen lærer skal måtte finne på.
@@ -467,7 +553,7 @@ function splitRows(rows) {
    finnes - `aids.2.modell` ville ellers bare ikke gjort noen ting. */
 const CONFIG_KEYS = [
   'schemaVersion', 'title', 'description', 'language', 'languageName',
-  'subjectFamily', 'storageKey', 'topicOrder',
+  'subjectFamily', 'storageKey', 'topicOrder', 'learner',
   'course', 'curriculum', 'author', 'authorUrl', 'license',
   'features.motivation', 'features.exams',
   'slots.courseName', 'slots.motivationSubject', 'slots.expressionFocus',
@@ -676,11 +762,25 @@ function applyPageChrome() {
      språkfila. */
   const madeWith = document.getElementById('made-with');
   if (madeWith) {
-    madeWith.textContent = t('makeYourOwn', { subject: title }) + ' ';
+    /* Fagnavnet står i fet skrift, resten av setningen ikke. Setningen
+       hentes derfor UFYLT fra språkfila - `fill()` lar en plassholder uten
+       verdi stå - og deles på plassholderen. Det er bedre enn to nøkler:
+       språket beholder ordstillingen sin, og en oversettelse står fritt til
+       å legge fagnavnet et annet sted i setningen. */
+    madeWith.textContent = '';
+    t('makeYourOwn').split('{subject}').forEach((chunk, i) => {
+      if (i > 0) {
+        const strong = document.createElement('strong');
+        strong.textContent = title;
+        madeWith.appendChild(strong);
+      }
+      madeWith.appendChild(document.createTextNode(chunk));
+    });
     const link = document.createElement('a');
     link.href = 'https://aiskilltrees.com/make-your-own/';
     link.textContent = 'aiskilltrees.com';
     link.rel = 'noopener';
+    madeWith.appendChild(document.createTextNode(' '));
     madeWith.appendChild(link);
   }
 
@@ -1615,7 +1715,7 @@ function composeExamInstruction(nodes, count) {
   const list = nodes.map(n => {
     const tags = [promptTypeTag(n.type)];
     if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
-    return `- ${n.name} [${tags.join(', ')}]: ${n.description}`;
+    return `- ${n.name} [${tags.join(', ')}]: ${descriptionInline(n.description)}`;
   }).join('\n');
 
   return composePrompt('exam', {
@@ -1732,7 +1832,7 @@ function composeLessonPlanInstruction(nodes, totalMinutes) {
   const goalList = nodes.map((n, i) => {
     const tags = [promptTypeTag(n.type)];
     if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
-    return `${i + 1}. ${n.name} [${tags.join(', ')}]\n   ${n.description}`;
+    return `${i + 1}. ${n.name} [${tags.join(', ')}]\n   ${descriptionInline(n.description)}`;
   }).join('\n');
 
   // Forutsetningene utledes fra avhenger_av-kjeden, som i composeInstruction()
@@ -2232,6 +2332,9 @@ function publishEffectiveConfig() {
     language: CONFIG.language || '',
     languageName: CONVERSATION_LANGUAGE,
     subjectFamily: CONFIG.subjectFamily || '',
+    learner: LEARNER_KEY,
+    learnerWord: (LEARNER && LEARNER.definite) || '',
+    learnerDerived: !CONFIG.learner,
     storageKey: STORAGE_KEY,
     topicOrder: TOPIC_ORDER.slice(),
     topicOrderDerived: !(CONFIG.topicOrder && CONFIG.topicOrder.length),
@@ -2784,9 +2887,42 @@ function renderDetail(node) {
   toggles.appendChild(createMasteryToggle(t('node.markMastered'), entry.mastered, checked => setNodeProgress(node.id, 'mastered', checked)));
   inner.appendChild(toggles);
 
-  const desc = document.createElement('p');
+  /* Ledeteksten står FORAN beskrivelsen, ikke i den: «Eleven kan:» på egen
+     linje, og under den det noden faktisk krever. Se learnerLeadIn(). */
+  const descLines = descriptionLines(node.description);
+  if (descLines.length) {
+    const lead = document.createElement('p');
+    lead.id = 'detail-lead';
+    lead.textContent = learnerLeadIn(node.type);
+    inner.appendChild(lead);
+  }
+
+  const desc = document.createElement('div');
   desc.id = 'detail-desc';
-  desc.textContent = node.description;
+  if (descLines.length > 1) {
+    /* Flere definisjoner i én node: én per linje, termen i halvfeit der
+       linja har en. Punktliste, fordi de er sidestilte - ikke én tekst. */
+    const ul = document.createElement('ul');
+    ul.className = 'definition-list';
+    descLines.forEach(line => {
+      const li = document.createElement('li');
+      const parts = definitionTerm(line);
+      if (parts) {
+        const term = document.createElement('strong');
+        term.textContent = parts.term;
+        li.appendChild(term);
+        li.appendChild(document.createTextNode(': ' + parts.rest));
+      } else {
+        li.textContent = line;
+      }
+      ul.appendChild(li);
+    });
+    desc.appendChild(ul);
+  } else {
+    const only = document.createElement('p');
+    only.textContent = descLines[0] || '';
+    desc.appendChild(only);
+  }
   inner.appendChild(desc);
 
   /* Hjelpemiddelforklaringen ligger IKKE her, men i kursinfo-vinduet:

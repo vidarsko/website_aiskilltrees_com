@@ -308,6 +308,12 @@
     setting(t('set-title'), config.title);
     setting(t('set-language'), config.languageName + ' (' + config.language + ')');
     setting(t('set-family'), config.subjectFamily || '—');
+    /* Ordet står der læreren ser det: elev og student er samme node i
+       treet og to ulike setninger i panelet, og innstillingen har en
+       standard per språk - så den som ikke har satt den, skal likevel få
+       vite hvilken hen fikk. */
+    setting(t('set-learner'), config.learnerWord + ' (' + config.learner + ')',
+            config.learnerDerived ? t('set-derived') : '');
     setting(t('set-storage'), config.storageKey, t('set-derived'));
     setting(t('set-topicorder'), config.topicOrder.join(' → '),
             config.topicOrderDerived ? t('set-derived') : '');
