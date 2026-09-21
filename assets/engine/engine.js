@@ -668,6 +668,22 @@ function applyPageChrome() {
   set('#progress-label', t('progressLabel', { done: 0, total: 0 }));
   set('#detail-empty', t('detail.empty'));
 
+  /* Fagnavnet øverst, og veien videre for den som ser et tre og lurer på om
+     hen kan lage et selv. Adressen er ABSOLUTT med vilje: den samme linja
+     står i enkeltfil-utgaven en lærer laster ned, og der er den den eneste
+     veien tilbake til metoden. Domenet er ikke oversatt — det er en adresse,
+     ikke en tekst — så det legges på som et eget element framfor å ligge i
+     språkfila. */
+  const madeWith = document.getElementById('made-with');
+  if (madeWith) {
+    madeWith.textContent = t('makeYourOwn', { subject: title }) + ' ';
+    const link = document.createElement('a');
+    link.href = 'https://aiskilltrees.com/make-your-own/';
+    link.textContent = 'aiskilltrees.com';
+    link.rel = 'noopener';
+    madeWith.appendChild(link);
+  }
+
   const desc = document.querySelector('meta[name="description"]');
   if (desc && CONFIG.description) desc.setAttribute('content', CONFIG.description);
 }

@@ -263,6 +263,32 @@ header {
 
 #error-banner.visible { display: block; }
 
+/* Øverste linje: fagnavnet, og veien videre for den som vil lage sitt eget.
+   Den ligger i flex-kolonnen FØR <main>, så grafen mister nøyaktig høyden
+   linja tar og ingenting legger seg oppå noe annet. Venstremargen er den
+   samme som #graph-scroll har, slik at teksten står rett over den første
+   kolonneoverskriften. Størrelsen er kolonneoverskriftens, men uten
+   versalene og sperringen: dette er en setning, ikke en etikett. */
+.made-with {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.6rem 2rem 0.15rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.made-with a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.made-with a:hover,
+.made-with a:focus-visible {
+  border-bottom-color: var(--accent);
+}
+
 main {
   flex: 1;
   display: flex;

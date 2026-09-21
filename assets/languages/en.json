@@ -8,6 +8,7 @@
     "backLink": "← all skill trees",
     "pageTitle": "Skill tree for {title}",
     "tagline": "A map of how skills and concepts build on one another — tick off what you have mastered, and copy an AI instruction to practise what comes next.",
+    "makeYourOwn": "{subject}. Like the tree? Make your own:",
     "progressLabel": "{done} of {total} skills completed",
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out",
