@@ -95,6 +95,11 @@
           "body": "This button gives you a single systematic list of every learning goal in the course, sorted by topic - useful when you want an overview or want to read the whole list without clicking through the map. Each goal shows its status: ✓ means you have marked it as mastered, ◇ means you have everything you need to learn it now, and ⊘ shows which goals you should take first (with their code, e.g. C1)."
         },
         {
+          "id": "search",
+          "heading": "«Search»",
+          "body": "The search looks in the name, the description and the topic of every learning goal, and marks where the word occurs. It is the quickest way into the map when you remember a word from a learning goal but not which topic it sits under. Click a result to go to the node."
+        },
+        {
           "id": "lessonPlan",
           "heading": "«Build a lesson plan» (for teachers)",
           "body": "At the bottom of «Show all learning goals», teachers can tick the learning goals the next lesson should cover, set the length of the lesson, and get an AI instruction for a complete lesson plan: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. The mastery ticks are your own, in your own browser - they show what you personally have been through, not what the class actually knows."
@@ -124,6 +129,17 @@
       "heading": "All learning goals",
       "copyAll": "Copy all",
       "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. For teachers: tick the learning goals the next lesson should cover, and build a complete lesson plan at the bottom.",
+      "openNode": "Go to this node in the map"
+    },
+    "search": {
+      "button": "Search",
+      "title": "Search the learning goals by name and description",
+      "heading": "Search",
+      "placeholder": "Search the learning goals …",
+      "hint": "Type a word. The search looks in the name, the description and the topic of every learning goal, and you can click straight through to the node in the map.",
+      "noResults": "No learning goal contains «{query}».",
+      "countOne": "1 learning goal",
+      "countMany": "{n} learning goals",
       "openNode": "Go to this node in the map"
     },
     "motivation": {

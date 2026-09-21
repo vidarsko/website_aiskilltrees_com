@@ -95,6 +95,11 @@
           "body": "När du trycker på den här knappen får du en samlad, systematisk lista över alla lärandemålen i ämnet, sorterad efter tema - praktiskt när du vill ha överblick eller läsa igenom hela listan utan att klicka dig igenom kartan. Varje lärandemål visar status: ✓ betyder att du markerat det som avklarat, ◇ att du har allt du behöver för att lära dig det nu, och ⊘ visar vilka lärandemål du bör ta först (med deras kod, t.ex. C1)."
         },
         {
+          "id": "search",
+          "heading": "«Sök»",
+          "body": "Sökningen letar i namnet, beskrivningen och temat för varje lärandemål, och markerar var ordet står. Det är snabbaste vägen in i kartan när du minns ett ord från ett lärandemål men inte vilket tema det ligger under. Klicka på träffen för att gå till noden."
+        },
+        {
           "id": "lessonPlan",
           "heading": "«Skapa lektionsplanering» (för lärare)",
           "body": "Längst ner i «Visa alla lärandemål» kan lärare kryssa i de lärandemål nästa lektion ska täcka, ställa in lektionens längd, och få en AI-instruktion för en färdig lektionsplanering: starter, genomgång enligt example-problem pair-modellen, diagnostiska frågor och återkallning på slutet. Ikryssningarna för avklarat är dina egna, i din egen webbläsare - de visar vad du själv gått igenom, inte vad klassen faktiskt kan."
@@ -124,6 +129,17 @@
       "heading": "Alla lärandemål",
       "copyAll": "Kopiera alla",
       "intro": "Listan visar alla lärandemål i ämnet, sorterade efter tema, med status för vart och ett. För lärare: kryssa i de lärandemål nästa lektion ska täcka, och skapa en färdig lektionsplanering längst ner.",
+      "openNode": "Gå till den här noden i kartan"
+    },
+    "search": {
+      "button": "Sök",
+      "title": "Sök efter ett lärandemål i namn och beskrivningar",
+      "heading": "Sök",
+      "placeholder": "Sök i lärandemålen …",
+      "hint": "Skriv ett ord. Sökningen letar i namnet, beskrivningen och temat för varje lärandemål, och du kan klicka dig direkt till noden i kartan.",
+      "noResults": "Inget lärandemål innehåller «{query}».",
+      "countOne": "1 lärandemål",
+      "countMany": "{n} lärandemål",
       "openNode": "Gå till den här noden i kartan"
     },
     "motivation": {

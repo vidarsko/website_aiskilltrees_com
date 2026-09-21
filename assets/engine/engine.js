@@ -1668,6 +1668,317 @@ function closeGoalIndexModal() {
 }
 
 /* ------------------------------------------------------------------ */
+/* Søk: finn et læringsmål på navn, beskrivelse eller emne              */
+/* ------------------------------------------------------------------ */
+
+/* Søket er lokalt og trivielt - alle nodene ligger allerede i minnet, og
+   et fag har titalls, ikke titusener, av dem. Grunnen til at det finnes
+   likevel: lista over alle læringsmål er sortert etter tema, og den som
+   husker et ORD fra et læringsmål, men ikke hvilket tema det lå under,
+   har ingen vei inn i treet uten å lese seg gjennom hele lista. Søket
+   leter derfor i BESKRIVELSEN også, ikke bare i navnet - det er der
+   ordet man husker som oftest står. */
+
+function setupSearchButton() {
+  const panel = ensureActionMenu();
+  if (!panel) return;
+
+  const btn = document.createElement('button');
+  btn.id = 'search-btn';
+  btn.type = 'button';
+  btn.textContent = t('search.button');
+  btn.title = t('search.title');
+  btn.addEventListener('click', () => {
+    closeActionMenu();
+    openSearchModal();
+  });
+  panel.appendChild(btn);
+}
+
+/* Tegn som ikke brytes opp av NFD-normalisering, og som brukere skriver om
+   hverandre. «sok» skal finne «søk», «lare» skal finne «lære» - den som
+   søker skriver ikke nødvendigvis bokstaven riktig. */
+const SEARCH_CHAR_FOLD = { 'ø': 'o', 'æ': 'a', 'ð': 'd', 'þ': 't', 'đ': 'd', 'ł': 'l' };
+
+/* Normaliserer teksten OG holder rede på hvor hvert normaliserte tegn kom
+   fra i originalen. Kartet er poenget: uten det kan et treff i den
+   normaliserte strengen ikke markeres i den originale, og markeringen er
+   hele grunnen til at panelet er nyttigere enn en ren liste. */
+function searchIndex(text) {
+  const src = String(text == null ? '' : text);
+  let norm = '';
+  const map = [];
+  for (let i = 0; i < src.length; i++) {
+    const lower = src[i].toLowerCase();
+    const folded = SEARCH_CHAR_FOLD[lower] || lower.normalize('NFD')[0] || lower;
+    for (let k = 0; k < folded.length; k++) {
+      norm += folded[k];
+      map.push(i);
+    }
+  }
+  return { norm: norm, map: map };
+}
+
+function searchTerms(query) {
+  return searchIndex(query).norm.split(/\s+/).filter(Boolean);
+}
+
+/* Skriver teksten inn i `el` med hvert treff pakket i <mark>. Returnerer
+   om noe ble markert, slik at den som kaller kan sortere navnetreff først. */
+function renderHighlighted(el, text, terms) {
+  const source = String(text == null ? '' : text);
+  const indexed = searchIndex(source);
+  const norm = indexed.norm;
+  const map = indexed.map;
+
+  // Finn alle treffintervaller først, slå sammen overlappende, og skriv så
+  // teksten én gang. Å skrive den per term ville doble teksten når to
+  // termer treffer samme sted.
+  const spans = [];
+  terms.forEach(term => {
+    if (!term) return;
+    let from = 0;
+    for (;;) {
+      const j = norm.indexOf(term, from);
+      if (j < 0) break;
+      spans.push([map[j], map[j + term.length - 1] + 1]);
+      from = j + term.length;
+    }
+  });
+
+  if (!spans.length) {
+    el.appendChild(document.createTextNode(source));
+    return false;
+  }
+
+  spans.sort((a, b) => a[0] - b[0]);
+  const merged = [spans[0]];
+  for (let i = 1; i < spans.length; i++) {
+    const last = merged[merged.length - 1];
+    if (spans[i][0] <= last[1]) last[1] = Math.max(last[1], spans[i][1]);
+    else merged.push(spans[i]);
+  }
+
+  let cursor = 0;
+  merged.forEach(span => {
+    const start = span[0];
+    const end = span[1];
+    if (start > cursor) el.appendChild(document.createTextNode(source.slice(cursor, start)));
+    const mark = document.createElement('mark');
+    mark.textContent = source.slice(start, end);
+    el.appendChild(mark);
+    cursor = end;
+  });
+  if (cursor < source.length) el.appendChild(document.createTextNode(source.slice(cursor)));
+  return true;
+}
+
+/* Alle noder i temarekkefølge, med emnet og indeksnummeret de har i lista
+   over læringsmål - samme nummerering, slik at et søketreff og et oppslag
+   i lista viser det samme læringsmålet med det samme navnet. */
+function searchCorpus() {
+  const rows = [];
+  themeList.forEach(entry => {
+    entry.nodes.forEach(n => {
+      rows.push({
+        node: n,
+        topic: entry.topic,
+        label: entry.letter + ') ' + entry.topic,
+        name: n.name,
+        description: n.description || '',
+      });
+    });
+  });
+  return rows;
+}
+
+function searchMatches(query) {
+  const terms = searchTerms(query);
+  if (!terms.length) return { terms: terms, hits: [] };
+
+  const hits = [];
+  searchCorpus().forEach(row => {
+    const name = searchIndex(row.name).norm;
+    const description = searchIndex(row.description).norm;
+    const topic = searchIndex(row.topic).norm;
+    const hay = name + ' ' + description + ' ' + topic;
+    if (!terms.every(term => hay.indexOf(term) >= 0)) return;
+    // Navnetreff først: den som søker på et ord som STÅR i navnet, leter
+    // nesten alltid etter akkurat den noden.
+    hits.push({ row: row, inName: terms.some(term => name.indexOf(term) >= 0) });
+  });
+
+  hits.sort((a, b) => (b.inName ? 1 : 0) - (a.inName ? 1 : 0));
+  return { terms: terms, hits: hits };
+}
+
+// Modalen bygges lat, én gang, og gjenbrukes - som de andre vinduene.
+function ensureSearchModal() {
+  let overlay = document.getElementById('search-overlay');
+  if (overlay) return overlay;
+
+  overlay = document.createElement('div');
+  overlay.id = 'search-overlay';
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeSearchModal();
+  });
+
+  const modal = document.createElement('div');
+  modal.id = 'search-modal';
+
+  const header = document.createElement('div');
+  header.id = 'search-header';
+
+  const h2 = document.createElement('h2');
+  h2.textContent = t('search.heading');
+  header.appendChild(h2);
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'btn secondary';
+  closeBtn.textContent = t('close');
+  closeBtn.addEventListener('click', closeSearchModal);
+  header.appendChild(closeBtn);
+
+  modal.appendChild(header);
+
+  const field = document.createElement('div');
+  field.id = 'search-field';
+  const input = document.createElement('input');
+  input.type = 'search';
+  input.id = 'search-input';
+  input.autocomplete = 'off';
+  input.placeholder = t('search.placeholder');
+  input.setAttribute('aria-label', t('search.placeholder'));
+  input.addEventListener('input', () => renderSearchBody());
+  input.addEventListener('keydown', e => {
+    // Enter hopper til det øverste treffet, slik at man kan skrive et ord
+    // og trykke Enter uten å flytte hånda til musa.
+    if (e.key !== 'Enter') return;
+    const first = document.querySelector('#search-body .search-item-name');
+    if (first) first.click();
+  });
+  field.appendChild(input);
+  modal.appendChild(field);
+
+  const body = document.createElement('div');
+  body.id = 'search-body';
+  modal.appendChild(body);
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeSearchModal();
+  });
+
+  return overlay;
+}
+
+function renderSearchBody() {
+  const body = document.getElementById('search-body');
+  const input = document.getElementById('search-input');
+  if (!body || !input) return;
+  body.innerHTML = '';
+
+  const query = input.value.trim();
+  if (!query) {
+    const hint = document.createElement('p');
+    hint.className = 'search-note';
+    hint.textContent = t('search.hint');
+    body.appendChild(hint);
+    return;
+  }
+
+  const result = searchMatches(query);
+  const terms = result.terms;
+  const hits = result.hits;
+
+  if (!hits.length) {
+    const none = document.createElement('p');
+    none.className = 'search-note';
+    none.textContent = t('search.noResults', { query: query });
+    body.appendChild(none);
+    return;
+  }
+
+  const count = document.createElement('p');
+  count.className = 'search-note';
+  count.textContent = hits.length === 1 ? t('search.countOne') : t('search.countMany', { n: hits.length });
+  body.appendChild(count);
+
+  const progress = getProgress();
+  const ul = document.createElement('ul');
+  ul.id = 'search-results';
+
+  hits.forEach(hit => {
+    const row = hit.row;
+    const n = row.node;
+    const status = goalStatus(n, progress);
+
+    const li = document.createElement('li');
+    li.className = 'search-item status-' + status.kind;
+
+    const jump = document.createElement('button');
+    jump.type = 'button';
+    jump.className = 'search-item-name';
+    jump.title = t('search.openNode');
+    jump.appendChild(document.createTextNode(n.goalIndex + ') '));
+    renderHighlighted(jump, n.name, terms);
+    jump.addEventListener('click', () => {
+      closeSearchModal();
+      scrollNodeIntoView(n.id);
+      openDetail(n.id);
+    });
+    li.appendChild(jump);
+
+    const meta = document.createElement('div');
+    meta.className = 'search-item-meta';
+    const topic = document.createElement('span');
+    topic.className = 'search-item-topic';
+    renderHighlighted(topic, row.label, terms);
+    meta.appendChild(topic);
+    const badge = document.createElement('span');
+    badge.className = 'search-item-status';
+    badge.textContent = status.symbol + ' ' + status.text;
+    if (status.title) badge.title = status.title;
+    meta.appendChild(badge);
+    li.appendChild(meta);
+
+    if (row.description) {
+      const desc = document.createElement('div');
+      desc.className = 'search-item-description';
+      const lead = document.createElement('span');
+      lead.className = 'search-item-leadin';
+      lead.textContent = learnerLeadIn(n.type);
+      desc.appendChild(lead);
+      desc.appendChild(document.createTextNode(' '));
+      renderHighlighted(desc, row.description, terms);
+      li.appendChild(desc);
+    }
+
+    ul.appendChild(li);
+  });
+
+  body.appendChild(ul);
+}
+
+function openSearchModal() {
+  const overlay = ensureSearchModal();
+  overlay.classList.add('open');
+  renderSearchBody();
+  const input = document.getElementById('search-input');
+  if (input) {
+    input.select();
+    input.focus();
+  }
+}
+
+function closeSearchModal() {
+  const overlay = document.getElementById('search-overlay');
+  if (overlay) overlay.classList.remove('open');
+}
+
+/* ------------------------------------------------------------------ */
 /* Prøvegenerator: KI-instruks for en prøve basert på mestrede noder    */
 /* ------------------------------------------------------------------ */
 
@@ -1980,6 +2291,7 @@ async function init() {
   setupHelpButton();
   setupCourseInfoButton();
   setupGoalIndexButton();
+  setupSearchButton();
   setupExamButton();
   if (SHOW_MOTIVATION_BUTTON) setupMotivationButton();
   try {

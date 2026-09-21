@@ -95,6 +95,11 @@
           "body": "Når du trykker på denne knappen, får du en samlet, systematisk liste over alle læringsmålene i faget, sortert etter tema - nyttig når du vil ha oversikt eller lese gjennom hele lista uten å klikke deg gjennom kartet. Hvert læringsmål viser status: ✓ betyr at du har markert det som mestret, ◇ betyr at du har alt du trenger for å lære det nå, og ⊘ viser hvilke læringsmål du bør ta først (med koden deres, f.eks. C1)."
         },
         {
+          "id": "search",
+          "heading": "«Søk»",
+          "body": "Søket leter i navnet, beskrivelsen og temaet til hvert læringsmål, og markerer hvor ordet står. Det er raskeste veien inn i kartet når du husker et ord fra et læringsmål, men ikke hvilket tema det ligger under. Klikk på treffet for å gå til noden."
+        },
+        {
           "id": "lessonPlan",
           "heading": "«Lag undervisningsopplegg» (for lærere)",
           "body": "Nederst i «Vis alle læringsmål» kan lærere huke av de læringsmålene neste økt skal dekke, sette lengden på økta, og få en KI-instruks for et ferdig undervisningsopplegg: starter, gjennomgang etter example-problem pair-modellen, diagnostiske spørsmål og gjenhenting til slutt. Avkrysningene for mestret er dine egne, i din egen nettleser - de viser hva du selv har vært gjennom, ikke hva klassen faktisk kan."
@@ -124,6 +129,17 @@
       "heading": "Alle læringsmål",
       "copyAll": "Kopier alle",
       "intro": "Lista viser alle læringsmålene i faget, sortert etter tema, med status for hvert av dem. For lærere: huk av de læringsmålene neste økt skal dekke, og lag et ferdig undervisningsopplegg nederst.",
+      "openNode": "Gå til denne noden i kartet"
+    },
+    "search": {
+      "button": "Søk",
+      "title": "Søk etter et læringsmål i navn og beskrivelser",
+      "heading": "Søk",
+      "placeholder": "Søk i læringsmål …",
+      "hint": "Skriv et ord. Søket leter i navnet, beskrivelsen og temaet til hvert læringsmål, og du kan klikke deg rett til noden i kartet.",
+      "noResults": "Ingen læringsmål inneholder «{query}».",
+      "countOne": "1 læringsmål",
+      "countMany": "{n} læringsmål",
       "openNode": "Gå til denne noden i kartet"
     },
     "motivation": {
