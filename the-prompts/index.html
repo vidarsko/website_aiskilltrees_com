@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The prompts | AI Skill Trees</title>
+  <meta name="description" content="Every instruction the method gives an AI, in full, as it is actually written." data-i18n-attr="content:meta-description">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <script src="/js/analytics.js"></script>
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/prompts-page.js" defer></script>
+
+  <!--
+    INGEN INSTRUKSTEKST I DENNE FILA, med vilje. Sida henter `prompts/`
+    ved kjøring, fordi en gjengivelse her ville vært utdatert ved neste
+    release uten at noen merket det. Se js/prompts-page.js.
+
+    Språkvelgeren øverst er IKKE sidas språkveksler (den ligger i
+    toppbaren): den velger hvilket SPRÅKLAG som vises sammen med
+    instruksene. De to er ulike ting, og det er derfor den har en egen
+    etikett framfor bare tre bokstaver.
+  -->
+  <script type="application/json" id="i18n-dict">
+  {
+      "doc-title": {
+          "en": "The prompts | AI Skill Trees",
+          "nb": "Instruksene | AI Skill Trees",
+          "sv": "Instruktionerna | AI Skill Trees"
+      },
+      "meta-description": {
+          "en": "Every instruction the method gives an AI, in full, as it is actually written.",
+          "nb": "Hver eneste instruks metoden gir en KI, i sin helhet, slik den faktisk er skrevet.",
+          "sv": "Varenda instruktion metoden ger en AI, i sin helhet, så som den faktiskt är skriven."
+      },
+      "page-eyebrow": {
+          "en": "The prompts",
+          "nb": "Instruksene",
+          "sv": "Instruktionerna"
+      },
+      "page-heading": {
+          "en": "Everything the AI is told",
+          "nb": "Alt KI-en blir bedt om",
+          "sv": "Allt AI:n blir ombedd"
+      },
+      "page-lede": {
+          "en": "These are the instructions themselves, read straight from the method repository — not a summary of them. A student's instruction is assembled from the pieces below, in the order they are listed.",
+          "nb": "Dette er instruksene selv, lest rett fra metode-repoet — ikke et sammendrag av dem. En elevs instruks settes sammen av bitene under, i den rekkefølgen de står.",
+          "sv": "Det här är instruktionerna själva, lästa direkt från metodrepot — inte en sammanfattning av dem. En elevs instruktion sätts ihop av delarna nedan, i den ordning de står."
+      },
+      "layers-note": {
+          "en": "The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.",
+          "nb": "Instruksene er skrevet på engelsk og sier hva modellen skal gjøre, aldri på hvilket språk eller i hvilket fag. Tre andre lag fyller hullene de lar stå åpne: språklaget, fagfamilien, og treets egen fil. Seksjoner som kommer fra et lag framfor fra instruksen selv, er merket.",
+          "sv": "Instruktionerna är skrivna på engelska och säger vad modellen ska göra, aldrig på vilket språk eller i vilket ämne. Tre andra lager fyller hålen de lämnar öppna: språklagret, ämnesfamiljen och trädets egen fil. Avsnitt som kommer från ett lager i stället för från instruktionen själv är märkta."
+      },
+      "family-note": {
+          "en": "The subject-family additions shown are the ones for mathematics. Natural sciences and social studies add their own.",
+          "nb": "Fagfamilie-tilleggene som vises er matematikkens. Naturfag og samfunnsfag legger til sine egne.",
+          "sv": "Ämnesfamiljstilläggen som visas är matematikens. Naturvetenskap och samhällskunskap lägger till sina egna."
+      },
+      "lang-label": {
+          "en": "Show the language layer for",
+          "nb": "Vis språklaget for",
+          "sv": "Visa språklagret för"
+      },
+      "contribution": {
+          "en": "contribution",
+          "nb": "bidrag",
+          "sv": "bidrag"
+      },
+      "audience-student": {
+          "en": "used by a student",
+          "nb": "brukes av en elev",
+          "sv": "används av en elev"
+      },
+      "audience-teacher": {
+          "en": "used by a teacher building a tree",
+          "nb": "brukes av en lærer som bygger et tre",
+          "sv": "används av en lärare som bygger ett träd"
+      },
+      "from-language": {
+          "en": "from the language layer",
+          "nb": "fra språklaget",
+          "sv": "från språklagret"
+      },
+      "from-language-override": {
+          "en": "replaced by the language layer",
+          "nb": "erstattet av språklaget",
+          "sv": "ersatt av språklagret"
+      },
+      "from-family": {
+          "en": "added by the subject family",
+          "nb": "lagt til av fagfamilien",
+          "sv": "tillagt av ämnesfamiljen"
+      },
+      "shared-title": {
+          "en": "Shared sections",
+          "nb": "Delte seksjoner",
+          "sv": "Delade avsnitt"
+      },
+      "load-failed": {
+          "en": "The instructions could not be loaded:",
+          "nb": "Instruksene kunne ikke lastes:",
+          "sv": "Instruktionerna kunde inte laddas:"
+      },
+      "footer-line-1": {
+          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+      },
+      "footer-line-2": {
+          "en": "The instructions on this page are CC BY-SA 4.0. Rewrite them.",
+          "nb": "Instruksene på denne sida er CC BY-SA 4.0. Skriv dem om.",
+          "sv": "Instruktionerna på den här sidan är CC BY-SA 4.0. Skriv om dem."
+      }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="siteheader" data-site-header></header>
+
+  <main>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="page-eyebrow">The prompts</p>
+        <h1 data-i18n="page-heading">Everything the AI is told</h1>
+        <div class="prose">
+          <p class="lede-p" data-i18n="page-lede">These are the instructions themselves, read straight from the method repository — not a summary of them. A student's instruction is assembled from the pieces below, in the order they are listed.</p>
+          <p class="note" data-i18n="layers-note">The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.</p>
+          <p class="note" data-i18n="family-note">The subject-family additions shown are the ones for mathematics. Natural sciences and social studies add their own.</p>
+        </div>
+
+        <p class="langpick">
+          <label for="prompt-language" data-i18n="lang-label">Show the language layer for</label>
+          <select id="prompt-language">
+            <option value="en">English</option>
+            <option value="nb">Norsk (bokmål)</option>
+            <option value="sv">Svenska</option>
+          </select>
+        </p>
+      </div>
+    </section>
+
+    <section class="band band--alt">
+      <div class="band__inner">
+        <div id="prompt-list"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="band band--dark sitefooter">
+    <div class="band__inner sitefooter__inner">
+      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
+      <p data-i18n="footer-line-2">The instructions on this page are CC BY-SA 4.0. Rewrite them.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

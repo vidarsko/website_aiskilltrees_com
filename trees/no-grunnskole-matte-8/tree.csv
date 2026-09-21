@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Tall og tallregning;Algebra og mønstre;Funksjoner;Programmering,,,
 ,config,,title,Matematikk 8. trinn,,,
 ,config,,description,"Tall og tallregning, algebra og mønstre, funksjoner og programmering — dekomponert i det elevene faktisk må kunne gjøre.",,,
 ,config,,language,nb,,,

@@ -13,6 +13,7 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <script src="/js/random-tree.js" defer></script>
 
   <!--
     The translation dictionary for THIS page. English is the source: the
@@ -29,7 +30,7 @@
       "meta-description": {
           "en": "A skill tree is a graph of the skills and concepts in one school subject, written by a teacher. Each node carries an instruction you copy into an AI chat.",
           "nb": "Et ferdighetstre er en graf over ferdighetene og begrepene i ett skolefag, skrevet av en lærer. Hver node har en instruks du kopierer inn i en KI-chat.",
-          "sv": "Ett kunskapsträd är en graf över färdigheterna och begreppen i ett skolämne, skrivet av en lärare. Varje nod har en instruktion som du kopierar in i en AI-chatt."
+          "sv": "Ett färdighetsträd är en graf över färdigheterna och begreppen i ett skolämne, skrivet av en lärare. Varje nod har en instruktion som du kopierar in i en AI-chatt."
       },
       "hero-eyebrow": {
           "en": "An open method for teachers",
@@ -39,7 +40,7 @@
       "hero-title": {
           "en": "Skill trees for school subjects",
           "nb": "Ferdighetstrær for skolefag",
-          "sv": "Kunskapsträd för skolämnen"
+          "sv": "Färdighetsträd för skolämnen"
       },
       "hero-lede": {
           "en": "Each tree is a graph of the skills and concepts in one subject, written by a teacher. Every node carries an instruction you can copy into an AI chat to practise that skill.",
@@ -49,12 +50,17 @@
       "hero-img-alt": {
           "en": "A screen recording of the method in use: a skill tree on the left, one node's instruction in the middle, and an AI chat working through the answer on the right.",
           "nb": "Et skjermopptak av metoden i bruk: et ferdighetstre til venstre, instruksen til én node i midten, og en KI-chat som jobber seg gjennom svaret til høyre.",
-          "sv": "En skärminspelning av metoden i bruk: ett kunskapsträd till vänster, instruktionen för en nod i mitten, och en AI-chatt som arbetar sig genom svaret till höger."
+          "sv": "En skärminspelning av metoden i bruk: ett färdighetsträd till vänster, instruktionen för en nod i mitten, och en AI-chatt som arbetar sig genom svaret till höger."
       },
       "hero-cta-primary": {
-          "en": "See a tree",
-          "nb": "Se et ferdighetstre",
-          "sv": "Se ett kunskapsträd"
+          "en": "See a random tree",
+          "nb": "Se et tilfeldig tre",
+          "sv": "Se ett slumpmässigt träd"
+      },
+      "hero-cta-all": {
+          "en": "See all trees",
+          "nb": "Se alle trær",
+          "sv": "Se alla träd"
       },
       "hero-cta-secondary": {
           "en": "Read the method",
@@ -69,7 +75,7 @@
       "what-heading": {
           "en": "What a skill tree contains",
           "nb": "Hva et ferdighetstre inneholder",
-          "sv": "Vad ett kunskapsträd innehåller"
+          "sv": "Vad ett färdighetsträd innehåller"
       },
       "what-p1": {
           "en": "A tree lists the skills and concepts of a subject as nodes, with an arrow from each node to the ones it builds on. The whole subject is visible at once, so a student can choose where to start and see what a given skill depends on.",
@@ -89,7 +95,7 @@
       "tile-1-title": {
           "en": "Existing skill trees",
           "nb": "Ferdighetstrær som finnes",
-          "sv": "Kunskapsträd som finns"
+          "sv": "Färdighetsträd som finns"
       },
       "tile-1-body": {
           "en": "Browse the subjects that have a tree, and see what a finished tree and a single node look like.",
@@ -191,7 +197,13 @@
         <div class="btn-row">
           <!-- data-track-cta reports which of these gets pressed. Both now
                resolve, so cta_live is "yes" for each. See js/analytics.js. -->
-          <a class="btn btn--primary" href="/trees/" data-track-cta="hero-see-a-tree" data-i18n="hero-cta-primary">See a tree</a>
+          <!-- «Se et tilfeldig tre» er en ekte lenke til katalogen, ikke en
+               tom knapp som venter på JavaScript: slår scriptet feil, eller
+               er det ikke lastet ennå, havner du på /trees/ og kan velge
+               selv. js/random-tree.js bytter href-en når trees.json er
+               hentet. -->
+          <a class="btn btn--primary" href="/trees/" data-random-tree data-track-cta="hero-random-tree" data-i18n="hero-cta-primary">See a random tree</a>
+          <a class="btn btn--ghost" href="/trees/" data-track-cta="hero-all-trees" data-i18n="hero-cta-all">See all trees</a>
           <a class="btn btn--ghost" href="/research/" data-track-cta="hero-read-the-method" data-i18n="hero-cta-secondary">Read the method</a>
         </div>
       </div>

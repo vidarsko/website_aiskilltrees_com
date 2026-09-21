@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,"Tall, potenser og standardform;Prosent og vekstfaktor;Proporsjonalitet;Måleenheter og praktisk regning;Geometri: areal, volum og formler;Lineære modeller og funksjoner;Ikke-lineære funksjoner og modellering;Programmering",,,
 ,config,,title,Matematikk 1P,,,
 ,config,,description,"Tall og standardform, prosent og vekstfaktor, proporsjonalitet, måleenheter, geometri, lineære og ikke-lineære modeller og programmering — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,

@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,"Fysikk som fag;Programmering og numeriske metoder;Bevegelse;Krefter;Mekanisk energi;Bevegelsesmengde;Termofysikk;Elektrisitet;Atommodeller;Stråling og klima;Kjerner og stjerner;Energi, klima og samfunn",,,
 ,config,,title,Fysikk 1,,,
 ,config,,description,"Fysikk som fag, bevegelse, krefter, mekanisk energi, bevegelsesmengde, termofysikk, elektrisitet, atommodeller, stråling og klima, kjerner og stjerner — dekomponert i det elevene faktisk må kunne gjøre.",,,
 ,config,,language,nb,,,

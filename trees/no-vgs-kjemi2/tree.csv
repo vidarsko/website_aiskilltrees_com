@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,"Kjemi som fag;Redoks og elektrokjemi;Likevekt;Entropi, entalpi og spontanitet;Syrer, baser og buffere;Løselighet;Reaksjonshastighet og katalysatorer;Organisk reaksjonskjemi;Synteser;Kromatografi;Biologiske makromolekyler;Grønn kjemi og materialkretsløp;Fordypningsemne",,,
 ,config,,title,Kjemi 2,,,
 ,config,,description,"Redoks og elektrokjemi, likevekt, entropi og spontanitet, syrer, baser og buffere, løselighet, reaksjonshastighet, organisk reaksjonskjemi, synteser, kromatografi og biologiske makromolekyler — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,

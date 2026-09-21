@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Percentages and growth factors;Loans and personal finance;Exponential functions;Statistics;Programming;Geometry;Equations and functions,,,
 ,config,,title,Mathematics 2P (English copy),,,
 ,config,,description,"Interactive skill tree for Mathematics 2P: tick off what you have mastered, and copy an AI instruction to practise further.",,,
 ,config,,language,en,,,

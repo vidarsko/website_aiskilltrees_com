@@ -22,8 +22,10 @@
 
   /* The site's pages. Adding one is a line here — nothing else. */
   var NAV = [
-    { href: '/trees/',         label: { en: 'Trees',         nb: 'Ferdighetstrær', sv: 'Kunskapsträd' } },
+    { href: '/trees/',         label: { en: 'Trees',         nb: 'Ferdighetstrær', sv: 'Färdighetsträd' } },
     { href: '/make-your-own/', label: { en: 'Make your own', nb: 'Lag ditt eget',  sv: 'Gör ditt eget' } },
+    { href: '/the-prompts/',   label: { en: 'The prompts',   nb: 'Instruksene',    sv: 'Instruktionerna' } },
+    { href: '/about/',         label: { en: 'About',         nb: 'Om',             sv: 'Om' } },
     { href: '/research/',      label: { en: 'Research',      nb: 'Forskning',      sv: 'Forskning' } }
   ];
 

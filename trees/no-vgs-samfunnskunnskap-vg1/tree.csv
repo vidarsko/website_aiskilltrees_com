@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Samfunnsfaglig metode og kildekritikk;Demokrati og medborgerskap;Politikk og makt;Identitet og sosialisering;Mangfold og ulikhet;Arbeidsliv og samfunnsmodellen;Personlig økonomi og forbruk;Samfunnsøkonomi og bærekraft;Internasjonale forhold,,,
 ,config,,title,Samfunnskunnskap Vg1,,,
 ,config,,description,"Samfunnsfaglig metode og kildekritikk, demokrati og medborgerskap, politikk og makt, identitet og sosialisering, mangfold og ulikhet, arbeidsliv, personlig økonomi, samfunnsøkonomi og internasjonale forhold — dekomponert i det elevene faktisk må kunne gjøre.",,,
 ,config,,language,nb,,,

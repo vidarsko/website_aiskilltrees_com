@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Potenser og logaritmer;Grenseverdier og kontinuitet;Derivasjon;Derivasjon: modellering og optimering;Kombinatorikk;Sannsynlighet;Sannsynlighetsfordelinger og simulering,,,
 ,config,,title,Matematikk S1,,,
 ,config,,description,"Potenser og logaritmer, grenseverdier, derivasjon og optimering, kombinatorikk, sannsynlighet og sannsynlighetsfordelinger — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,

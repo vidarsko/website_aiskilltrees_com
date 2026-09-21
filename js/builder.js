@@ -124,8 +124,14 @@
   function loadBundle(config) {
     var manifest = assets.manifest;
     var files = ['/prompts/' + manifest.shared];
+    /* Bare elevens instrukser. Dekomponeringsmodellen og rammeteksten rundt
+       den er lærerens verktøy, og ville lagt 27 kB til hver eneste
+       nedlastede fil for tekst ingen elev åpner. Samme filter som motoren
+       bruker - se `audience` i prompts/manifest.json. */
     Object.keys(manifest.instructions).forEach(function (id) {
-      files.push('/prompts/' + manifest.instructions[id].file);
+      var entry = manifest.instructions[id];
+      if ((entry.audience || 'student') !== 'student') return;
+      files.push('/prompts/' + entry.file);
     });
     var family = config.subjectFamily
       ? (manifest.subjectFamilies || {})[config.subjectFamily] : null;
@@ -428,20 +434,47 @@
     });
   }
 
-  /* Ledeteksten for nivå 0 bor i maskineri-repoet, som alt annet i
-     metoden, og hentes derfra framfor å stå i to utgaver. Alt over den
-     første ---linja er forord til den som vedlikeholder fila; det som
-     skal kopieres, står under. */
+  /* Ledeteksten læreren limer inn er SATT SAMMEN av to moduler i
+     maskineri-repoet, på nøyaktig samme måte som elevens instruks settes
+     sammen av sine: `authoring` er rammen rundt (hva læreren vil, hva sida
+     gjør med fila, hva som kan endres, hva feilmeldingene betyr), og siste
+     seksjonen i den leder over i `decomposition`, som er bidrag 1 i
+     artikkelen.
+
+     Den bor derfor IKKE på denne sida. Læreren skal gjøre nøyaktig det
+     eleven gjør - lime inn én instruks i den chatten hen allerede bruker -
+     og da må teksten være versjonert metode, ikke nettsidetekst. */
   function loadAuthoringPrompt() {
     var box = document.getElementById('authoring-prompt');
     if (!box) return;
-    getText('/spec/authoring-prompt.md').then(function (md) {
-      var cut = md.indexOf('\n---\n');
-      box.textContent = (cut === -1 ? md : md.slice(cut + 5)).trim();
+    getJson('/prompts/manifest.json').then(function (manifest) {
+      var wrap = manifest.instructions.authoring;
+      var appended = wrap && wrap.appends;
+      return Promise.all([
+        getJson('/prompts/' + wrap.file),
+        appended ? getJson('/prompts/' + manifest.instructions[appended].file) : null,
+      ]);
+    }).then(function (parts) {
+      box.textContent = composeAuthoringPrompt(parts[0], parts[1]);
     }, function () {
-      /* Lar plassholderen stå. En tom boks er bedre enn en feilmelding
-         om en fil leseren ikke visste fantes. */
+      /* Lar plassholderen stå. En tom boks er bedre enn en feilmelding om
+         en fil leseren ikke visste fantes. */
     });
+  }
+
+  function composeAuthoringPrompt(wrapper, decomposition) {
+    var out = wrapper.order.map(function (id) { return wrapper.sections[id]; })
+                           .filter(Boolean);
+    if (decomposition) {
+      out.push('---');
+      out.push('# ' + decomposition.title + '  (v' + decomposition.version + ')');
+      out.push(decomposition.intro);
+      decomposition.order.forEach(function (id, i) {
+        out.push('## ' + (i + 1) + '. ' + decomposition.titles[id]);
+        out.push(decomposition.sections[id]);
+      });
+    }
+    return out.join('\n\n');
   }
 
   if (document.readyState === 'loading') {

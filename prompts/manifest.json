@@ -1,38 +1,51 @@
 {
-  "_comment": "The index the engine fetches first; everything else is reached from here, so no other prompt filename is hardcoded in js/engine.js. Each module carries its OWN `version`, because the paper cites them one by one in the appendix -- changing the lesson-plan wording must not invalidate a citation of the practice tutor. ENGLISH IS THE SOURCE OF RECORD in every file under prompts/: they say WHAT the model should do, never what language to say it in. `languages/<code>.json` fills that hole, and `prompts/subjects/<family>.json` adds what is true of one family of subjects but not of all.",
+  "_comment": "The index the engine fetches first; everything else is reached from here, so no other prompt filename is hardcoded in engine.js. Each module carries its OWN `version`, because the paper cites them one by one in the appendix -- changing the lesson-plan wording must not invalidate a citation of the practice tutor. ENGLISH IS THE SOURCE OF RECORD in every file under prompts/: they say WHAT the model should do, never what language to say it in. `languages/<code>.json` fills that hole, and `prompts/subjects/<family>.json` adds what is true of one family of subjects but not of all.\n`audience` says WHO an instruction is for. The four with audience `student` are composed by the engine and end up in a student's chat; the two with audience `teacher` are for the person BUILDING a tree, and the engine skips them when it loads a tree -- fetching them on every tree page would cost every reader 20 kB for text no student will ever see. All six are contributions in the same sense and are versioned the same way, which is the point: spec/decomposition.md was the odd one out until 0.3.0.",
   "schemaVersion": 2,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "sourceLanguage": "en",
   "shared": "shared.json",
   "instructions": {
+    "decomposition": {
+      "file": "decomposition.json",
+      "contribution": 1,
+      "title": "The decomposition model",
+      "audience": "teacher"
+    },
     "node": {
       "file": "practice-tutor.json",
       "contribution": 2,
-      "title": "Practice tutor"
+      "title": "Practice tutor",
+      "audience": "student"
     },
     "exam": {
       "file": "test-generator.json",
       "contribution": 3,
-      "title": "Test generator"
+      "title": "Test generator",
+      "audience": "student"
     },
     "motivation": {
       "file": "motivation.json",
       "contribution": 4,
-      "title": "Motivation dialogue"
+      "title": "Motivation dialogue",
+      "audience": "student"
     },
     "lessonPlan": {
       "file": "lesson-plan.json",
       "contribution": 5,
-      "title": "Lesson plan generator"
+      "title": "Lesson plan generator",
+      "audience": "student"
+    },
+    "authoring": {
+      "file": "authoring.json",
+      "title": "Authoring an own skill tree",
+      "audience": "teacher",
+      "appends": "decomposition"
     }
   },
   "subjectFamilies": {
     "mathematics": "subjects/mathematics.json",
     "natural-sciences": "subjects/natural-sciences.json",
     "social-sciences": "subjects/social-sciences.json"
-  },
-  "spec": {
-    "decomposition": "spec/decomposition.md"
   },
   "_conditions": "Sections whose id appears in an instruction's `order` but which only apply sometimes are switched on by the engine (SECTION_WHEN in js/engine.js): prerequisites/prerequisitesNone, expression (only when the tree sets that slot), conceptGuidance (only for type=concept), aids (only when the tree's data actually names a level), aidsMultiple (only when a node or selection spans more than one level), and the three conceptMix variants. Adding a section with no condition means it always renders. A section contributed by prompts/subjects/<family>.json inherits the condition of the section it is anchored after, so a maths-specific elaboration of conceptGuidance appears exactly when conceptGuidance does."
 }

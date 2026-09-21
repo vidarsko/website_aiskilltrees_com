@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Potenser og logaritmer;Grenseverdier og kontinuitet;Derivasjon: grunnlag;Funksjonsdrøfting med derivasjon;Eksponentiell og logistisk vekst;Omvendte funksjoner;Vektorer i planet;Parameterframstilling;Programmering og numeriske metoder;Utforskende arbeid med data,,,
 ,config,,title,Matematikk R1,,,
 ,config,,description,"Potenser og logaritmer, grenseverdier, derivasjon og funksjonsdrøfting, eksponentiell og logistisk vekst, omvendte funksjoner, vektorer i planet, parameterframstilling og numeriske metoder — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,

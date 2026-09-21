@@ -1,0 +1,32 @@
+{
+  "_comment": "The instruction a TEACHER pastes into an AI chat to build a tree. It wraps prompts/decomposition.json: this module is the context around the method -- what the teacher wants, what the site does with the file, what may be changed, how to come back and change it, and what the error messages mean -- and `leadIn` is the last section before the decomposition model itself is appended.\nThe point is that a teacher does exactly what a student does: paste one instruction into whichever AI chat they already use, and be taken through the work. That is why this lives here, versioned, rather than as text on one website.",
+  "id": "authoring",
+  "title": "Authoring an own skill tree",
+  "audience": "teacher",
+  "version": "1.0.0",
+  "schemaVersion": 2,
+  "sourceLanguage": "en",
+  "appends": "decomposition",
+  "order": [
+    "role",
+    "oneAtATime",
+    "whatIGetBack",
+    "howIUseIt",
+    "thingsIMayWantToChange",
+    "comingBack",
+    "whenSomethingIsWrong",
+    "beHonest",
+    "leadIn"
+  ],
+  "sections": {
+    "role": "I am a teacher, and I want to build a **skill tree** for my subject: a graph of the skills and concepts in it, where each node says what it means to master that one thing and names which other nodes have to come first. My students will see the whole structure, tick off what they have mastered, and copy an AI instruction for whatever they want to practise next.\n\nYou are going to take me through making one. I am not going to read a specification first — that is your job, and it is included at the end of this message.",
+    "oneAtATime": "**Ask me one thing at a time, and wait for the answer.** Do not send me a list of eight questions, and do not start listing nodes before I have told you what the subject is. If you need to explain something, explain it in a sentence or two and then ask the next question. I am a teacher with a spare afternoon, not a project manager.",
+    "whatIGetBack": "What I need at the end is **one spreadsheet**, a CSV file called `tree.csv`, with the settings at the top and one row per node below them. The exact columns and the settings are in the specification at the end. Give me the whole file in one code block so I can copy it into a text editor and save it — and give me the whole file again every time we change something, never a fragment or a diff, because I am going to save over the old one.",
+    "howIUseIt": "Here is what I do with the file, so you know what you are aiming at:\n- I open **aiskilltrees.com/make-your-own/** and drop the file in. Nothing is uploaded — the page reads it in my own browser.\n- The page draws my tree, tells me how it read my settings, and lists anything wrong with the file.\n- When it looks right, I download **one HTML file** that holds the whole tree. It opens by double-clicking, works without internet, and I can email it to a class or put it on a shared drive. There is no account and nothing to install, for me or for my students.\n- My students open that file, tick off what they have mastered, and copy an instruction into whichever AI chat they use. The tree itself never talks to an AI — it writes the instruction, and the student carries it across.",
+    "thingsIMayWantToChange": "Things I may ask you to change, so you know they are possible:\n- **The tree itself** — add, remove, rename, re-describe or re-order nodes, and change which nodes depend on which.\n- **The settings** — the title, the language, the everyday word for my subject, what my students get sloppy about in how they write.\n- **The teaching instructions themselves.** The default instruction my students get is written by the method, not by me, and I am allowed to overrule any single section of it with a `prompt` row in the same file. If I say \"tell it not to use emoji\" or \"it should be stricter about showing working\", that is a `prompt` row, not a change to every node. Only write the section I actually want changed; the rest of the default stays.",
+    "comingBack": "**I will come back to you with this file later**, possibly in a new conversation, and say what I want changed. When I do:\n- Read the file I paste before you propose anything. It is the truth about my tree; your memory of it is not.\n- Change only what I asked for. Do not quietly re-word my descriptions, re-order my topics or \"improve\" nodes I did not mention.\n- Give me the whole file back, not the changed rows.\n- If my change breaks something else — a node I removed that others depend on — say so and ask, rather than silently fixing it in a way I have not seen.",
+    "whenSomethingIsWrong": "**If the page shows me errors, I will paste them back to you.** They name the row and the node, so use them literally. The usual ones:\n- *Unknown setting* — a settings key is misspelled. The message guesses what I meant.\n- *A node lists a prerequisite that does not exist* — usually an id you invented in one row and spelled differently in another.\n- *These nodes are prerequisites for each other, in a circle* — one of those links has to go. Tell me which one you think is wrong and why, rather than cutting one at random.\n- *The first row must name the columns* — the file was saved in the wrong format. Give it to me again as plain CSV.\n\nOne kind of problem has no error message: **a tree where almost every node has no prerequisites**. The page shows me that count, and if it is high it means the prerequisite work was never really done. If I come back and say that number looks wrong, go back through the nodes and ask, for each one, what a student must already be able to do before it makes any sense.",
+    "beHonest": "Tell me what you are unsure about: which nodes you guessed at, where you suspect my curriculum says something you do not know, and which prerequisites you are least confident in. I would rather have that list than a confident file. You are a language model, and this is my subject — I can judge the content, but only if you tell me where to look.",
+    "leadIn": "Here is the specification for how a subject is decomposed into a skill tree. Follow it. Everything below this line is the method's own instruction, not mine."
+  }
+}

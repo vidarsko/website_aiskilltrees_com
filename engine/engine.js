@@ -21,8 +21,11 @@
 /*                              lesson-plan.json     bidrag 5           */
 /*                              shared.json          seksjoner brukt av */
 /*                                                   flere av dem       */
-/*                              spec/decomposition.md bidrag 1 (leses   */
-/*                                                   ikke av motoren)   */
+/*                              decomposition.json   bidrag 1          */
+/*                              authoring.json       rammeteksten rundt */
+/*                                                   den. Begge har     */
+/*                                                   audience=teacher   */
+/*                                                   og leses ikke her  */
 /*   /prompts/subjects/       Alt som varierer med FAGFAMILIE, og som   */
 /*     <familie>.json         altså er sant for matematikk men ikke for */
 /*                            samfunnsfag. Legger seksjoner TIL de      */
@@ -367,7 +370,12 @@ async function bootstrap() {
     console.warn('Ukjent subjectFamily «' + CONFIG.subjectFamily +
                  '» - treet får bare de generelle instruksene.');
   }
-  const ids = Object.keys(MANIFEST.instructions);
+  /* Bare instruksene en ELEV får. `audience: "teacher"` er dekomponerings-
+     modellen og rammeteksten rundt den, som byggersida bruker - å hente dem
+     på hver eneste tre-side ville kostet hver leser 20 kB for tekst ingen
+     elev noen gang ser. Se `audience` i prompts/manifest.json. */
+  const ids = Object.keys(MANIFEST.instructions)
+    .filter(id => (MANIFEST.instructions[id].audience || 'student') === 'student');
   const loaded = await Promise.all(
     [fetchJson('/prompts/' + MANIFEST.shared)]
       .concat(ids.map(id => fetchJson('/prompts/' + MANIFEST.instructions[id].file)))

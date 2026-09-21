@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | AI Skill Trees</title>
+  <meta name="description" content="What a skill tree is, what happens when a student copies an instruction, and who made this." data-i18n-attr="content:meta-description">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <script src="/js/analytics.js"></script>
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <script type="application/json" id="i18n-dict">
+  {
+      "footer-line-1": {
+          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+      },
+      "footer-line-2": {
+          "en": "The engine is MIT-licensed; the instructions and the trees are CC BY-SA 4.0.",
+          "nb": "Motoren er MIT-lisensiert; instruksene og trærne er CC BY-SA 4.0.",
+          "sv": "Motorn är MIT-licensierad; instruktionerna och träden är CC BY-SA 4.0."
+      },
+      "doc-title": {
+          "en": "About | AI Skill Trees",
+          "nb": "Om | AI Skill Trees",
+          "sv": "Om | AI Skill Trees"
+      },
+      "meta-description": {
+          "en": "What a skill tree is, what happens when a student copies an instruction, and who made this.",
+          "nb": "Hva et ferdighetstre er, hva som skjer når en elev kopierer en instruks, og hvem som har laget dette.",
+          "sv": "Vad ett färdighetsträd är, vad som händer när en elev kopierar en instruktion, och vem som gjort det här."
+      },
+      "page-eyebrow": {
+          "en": "About",
+          "nb": "Om",
+          "sv": "Om"
+      },
+      "page-heading": {
+          "en": "What this is",
+          "nb": "Hva dette er",
+          "sv": "Vad det här är"
+      },
+      "page-lede": {
+          "en": "A skill tree is a map of one school subject: every skill and concept as a node, with a line from each node to the ones it builds on. A teacher writes it. A student reads it, ticks off what they have mastered, and copies an instruction for whatever comes next.",
+          "nb": "Et ferdighetstre er et kart over ett skolefag: hver ferdighet og hvert begrep som en node, med en strek fra hver node til dem den bygger på. En lærer skriver det. En elev leser det, huker av det hen mestrer, og kopierer en instruks for det som kommer etterpå.",
+          "sv": "Ett färdighetsträd är en karta över ett skolämne: varje färdighet och begrepp som en nod, med en linje från varje nod till dem den bygger på. En lärare skriver det. En elev läser det, kryssar i det hen behärskar och kopierar en instruktion för det som kommer härnäst."
+      },
+      "theory-note": {
+          "en": "This page says what happens, not why it works. The reasoning, the references and the evidence belong in the paper.",
+          "nb": "Denne sida sier hva som skjer, ikke hvorfor det virker. Begrunnelsen, referansene og belegget hører hjemme i artikkelen.",
+          "sv": "Den här sidan säger vad som händer, inte varför det fungerar. Resonemanget, referenserna och belägget hör hemma i artikeln."
+      },
+      "theory-cta": {
+          "en": "Read the method",
+          "nb": "Les metoden",
+          "sv": "Läs metoden"
+      },
+      "flow-eyebrow": {
+          "en": "What actually happens",
+          "nb": "Hva som faktisk skjer",
+          "sv": "Vad som faktiskt händer"
+      },
+      "flow-1-title": {
+          "en": "The student picks a node",
+          "nb": "Eleven velger en node",
+          "sv": "Eleven väljer en nod"
+      },
+      "flow-1-body": {
+          "en": "The whole subject is on screen at once, so the student can see what a skill rests on and choose where to start. Nothing is hidden and nothing decides on their behalf.",
+          "nb": "Hele faget står på skjermen samtidig, så eleven kan se hva en ferdighet hviler på og velge hvor hen vil begynne. Ingenting er skjult, og ingenting bestemmer på elevens vegne.",
+          "sv": "Hela ämnet syns på skärmen samtidigt, så eleven kan se vad en färdighet vilar på och välja var hen vill börja. Ingenting är dolt och ingenting bestämmer åt eleven."
+      },
+      "flow-2-title": {
+          "en": "The page writes an instruction",
+          "nb": "Sida skriver en instruks",
+          "sv": "Sidan skriver en instruktion"
+      },
+      "flow-2-body": {
+          "en": "It is assembled from the teacher's text for that node, the subject's own settings, the teaching instructions shared by every tree, and a language layer. No language model is involved in writing it.",
+          "nb": "Den settes sammen av lærerens tekst for den noden, fagets egne innstillinger, undervisningsinstruksene alle trær deler, og et språklag. Ingen språkmodell er involvert i å skrive den.",
+          "sv": "Den sätts ihop av lärarens text för den noden, ämnets egna inställningar, undervisningsinstruktionerna som alla träd delar, och ett språklager. Ingen språkmodell är inblandad i att skriva den."
+      },
+      "flow-3-title": {
+          "en": "The student carries it across",
+          "nb": "Eleven bærer den over",
+          "sv": "Eleven bär över den"
+      },
+      "flow-3-body": {
+          "en": "They paste it into whichever AI chat they already use. That is the whole integration: no account to create, no cost per student, no data processing agreement, and no dependence on one vendor.",
+          "nb": "Hen limer den inn i den KI-chatten hen allerede bruker. Det er hele integrasjonen: ingen konto å opprette, ingen kostnad per elev, ingen databehandleravtale, og ingen avhengighet av én leverandør.",
+          "sv": "Hen klistrar in den i den AI-chatt hen redan använder. Det är hela integrationen: inget konto att skapa, ingen kostnad per elev, inget personuppgiftsbiträdesavtal och inget beroende av en leverantör."
+      },
+      "prompts-eyebrow": {
+          "en": "The teaching is readable",
+          "nb": "Didaktikken er lesbar",
+          "sv": "Didaktiken är läsbar"
+      },
+      "prompts-heading": {
+          "en": "You can read every instruction",
+          "nb": "Du kan lese hver eneste instruks",
+          "sv": "Du kan läsa varenda instruktion"
+      },
+      "prompts-body": {
+          "en": "What the AI is told to do is not hidden in a product. It is a handful of text files, versioned and open, and a teacher who disagrees with a line can overrule it for their own tree. That is the point rather than a side effect: teaching you cannot read is teaching you cannot argue with.",
+          "nb": "Det KI-en blir bedt om å gjøre, er ikke gjemt inne i et produkt. Det er en håndfull tekstfiler, versjonert og åpne, og en lærer som er uenig i en linje kan overstyre den for sitt eget tre. Det er poenget, ikke en bivirkning: didaktikk du ikke kan lese, er didaktikk du ikke kan være uenig i.",
+          "sv": "Det AI:n ombeds göra är inte gömt inne i en produkt. Det är en handfull textfiler, versionerade och öppna, och en lärare som är oenig om en rad kan överstyra den för sitt eget träd. Det är poängen, inte en bieffekt: didaktik du inte kan läsa är didaktik du inte kan invända mot."
+      },
+      "prompts-cta": {
+          "en": "Read the instructions",
+          "nb": "Les instruksene",
+          "sv": "Läs instruktionerna"
+      },
+      "not-eyebrow": {
+          "en": "What it does not do",
+          "nb": "Hva det ikke gjør",
+          "sv": "Vad det inte gör"
+      },
+      "not-1": {
+          "en": "It does not store what a student ticks off anywhere but in their own browser. Nothing about a student's progress reaches this site, or me.",
+          "nb": "Det lagrer ikke hva en elev huker av noe annet sted enn i elevens egen nettleser. Ingenting om en elevs framdrift når denne sida, eller meg.",
+          "sv": "Det lagrar inte vad en elev kryssar i någon annanstans än i elevens egen webbläsare. Ingenting om en elevs framsteg når den här sidan, eller mig."
+      },
+      "not-2": {
+          "en": "It does not call a language model, so it cannot know what the student then asked, or what they were told.",
+          "nb": "Det kaller ingen språkmodell, så det kan ikke vite hva eleven deretter spurte om, eller hva hen fikk vite.",
+          "sv": "Det anropar ingen språkmodell, så det kan inte veta vad eleven sedan frågade om, eller vad hen fick veta."
+      },
+      "not-3": {
+          "en": "It does not mark anything, and it is not a syllabus. A tree is one teacher's reading of a subject, and may be missing something yours needs.",
+          "nb": "Det setter ingen karakter, og det er ingen læreplan. Et tre er én lærers lesning av et fag, og kan mangle noe ditt fag trenger.",
+          "sv": "Det sätter inga betyg och är ingen läroplan. Ett träd är en lärares läsning av ett ämne och kan sakna något ditt ämne behöver."
+      },
+      "who-eyebrow": {
+          "en": "Who made this",
+          "nb": "Hvem som har laget dette",
+          "sv": "Vem som gjort det här"
+      },
+      "who-draft": {
+          "en": "Draft — Vidar has not rewritten this in his own words yet.",
+          "nb": "Utkast — Vidar har ikke skrevet dette om til sine egne ord ennå.",
+          "sv": "Utkast — Vidar har inte skrivit om det här med egna ord ännu."
+      },
+      "who-body": {
+          "en": "I am Vidar Skogvoll, a senior lecturer at the University of Oslo, where I work on teaching and on how AI is used in science education. I trained as a physicist and taught for two years in an Oslo high school before that. The trees here started as something I built for teaching I was doing myself, and they are published as an open method because the interesting part is the approach, not my particular subjects.",
+          "nb": "Jeg heter Vidar Skogvoll og er førstelektor ved Universitetet i Oslo, der jeg jobber med undervisning og med hvordan KI brukes i realfagsundervisning. Jeg er utdannet fysiker og underviste to år på en videregående skole i Oslo før det. Trærne her startet som noe jeg lagde til undervisning jeg selv holdt, og de er publisert som åpen metode fordi det interessante er framgangsmåten, ikke akkurat mine fag.",
+          "sv": "Jag heter Vidar Skogvoll och är förstelektor vid Universitetet i Oslo, där jag arbetar med undervisning och med hur AI används i naturvetenskaplig undervisning. Jag är utbildad fysiker och undervisade två år på en gymnasieskola i Oslo innan dess. Träden här började som något jag byggde till undervisning jag själv höll, och de publiceras som öppen metod eftersom det intressanta är tillvägagångssättet, inte just mina ämnen."
+      },
+      "open-eyebrow": {
+          "en": "Open",
+          "nb": "Åpent",
+          "sv": "Öppet"
+      },
+      "open-body": {
+          "en": "The engine, the instructions and the trees are on GitHub. The engine is MIT-licensed and the written material is CC BY-SA 4.0, so you may use, change and republish it as long as you say where it came from and keep it open.",
+          "nb": "Motoren, instruksene og trærne ligger på GitHub. Motoren er MIT-lisensiert og det skrevne materialet er CC BY-SA 4.0, så du kan bruke, endre og publisere det videre så lenge du sier hvor det kommer fra og holder det åpent.",
+          "sv": "Motorn, instruktionerna och träden finns på GitHub. Motorn är MIT-licensierad och det skrivna materialet är CC BY-SA 4.0, så du får använda, ändra och publicera det vidare så länge du säger var det kommer ifrån och håller det öppet."
+      },
+      "open-cta": {
+          "en": "The method repository",
+          "nb": "Metode-repoet",
+          "sv": "Metodrepot"
+      }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="siteheader" data-site-header></header>
+
+  <main>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="page-eyebrow">About</p>
+        <h1 data-i18n="page-heading">What this is</h1>
+        <div class="prose">
+          <p class="lede-p" data-i18n="page-lede">A skill tree is a map of one school subject: every skill and concept as a node, with a line from each node to the ones it builds on. A teacher writes it. A student reads it, ticks off what they have mastered, and copies an instruction for whatever comes next.</p>
+          <p class="note" data-i18n="theory-note">This page says what happens, not why it works. The reasoning, the references and the evidence belong in the paper.</p>
+        </div>
+        <a class="btn btn--ghost" href="/research/" data-i18n="theory-cta">Read the method</a>
+      </div>
+    </section>
+
+    <section class="band band--alt">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="flow-eyebrow">What actually happens</p>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__index" aria-hidden="true">01</span>
+            <h2 class="step__title" data-i18n="flow-1-title">The student picks a node</h2>
+            <p class="step__body" data-i18n="flow-1-body">The whole subject is on screen at once, so the student can see what a skill rests on and choose where to start. Nothing is hidden and nothing decides on their behalf.</p>
+          </li>
+          <li class="step">
+            <span class="step__index" aria-hidden="true">02</span>
+            <h2 class="step__title" data-i18n="flow-2-title">The page writes an instruction</h2>
+            <p class="step__body" data-i18n="flow-2-body">It is assembled from the teacher's text for that node, the subject's own settings, the teaching instructions shared by every tree, and a language layer. No language model is involved in writing it.</p>
+          </li>
+          <li class="step">
+            <span class="step__index" aria-hidden="true">03</span>
+            <h2 class="step__title" data-i18n="flow-3-title">The student carries it across</h2>
+            <p class="step__body" data-i18n="flow-3-body">They paste it into whichever AI chat they already use. That is the whole integration: no account to create, no cost per student, no data processing agreement, and no dependence on one vendor.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="prompts-eyebrow">The teaching is readable</p>
+        <h2 data-i18n="prompts-heading">You can read every instruction</h2>
+        <div class="prose">
+          <p data-i18n="prompts-body">What the AI is told to do is not hidden in a product. It is a handful of text files, versioned and open, and a teacher who disagrees with a line can overrule it for their own tree. That is the point rather than a side effect: teaching you cannot read is teaching you cannot argue with.</p>
+        </div>
+        <a class="btn btn--primary" href="/the-prompts/" data-i18n="prompts-cta">Read the instructions</a>
+      </div>
+    </section>
+
+    <section class="band band--alt">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="not-eyebrow">What it does not do</p>
+        <ul class="checklist">
+          <li data-i18n="not-1">It does not store what a student ticks off anywhere but in their own browser. Nothing about a student's progress reaches this site, or me.</li>
+          <li data-i18n="not-2">It does not call a language model, so it cannot know what the student then asked, or what they were told.</li>
+          <li data-i18n="not-3">It does not mark anything, and it is not a syllabus. A tree is one teacher's reading of a subject, and may be missing something yours needs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="who-eyebrow">Who made this</p>
+        <!-- UTKAST. Vidar skal skrive denne om til sine egne ord; fjern
+             .draft-flag-linja når han har gjort det. -->
+        <p class="note draft-flag" data-i18n="who-draft">Draft — Vidar has not rewritten this in his own words yet.</p>
+        <div class="prose">
+          <p data-i18n="who-body">I am Vidar Skogvoll, a senior lecturer at the University of Oslo, where I work on teaching and on how AI is used in science education. I trained as a physicist and taught for two years in an Oslo high school before that. The trees here started as something I built for teaching I was doing myself, and they are published as an open method because the interesting part is the approach, not my particular subjects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint band--tight">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="open-eyebrow">Open</p>
+        <div class="prose">
+          <p data-i18n="open-body">The engine, the instructions and the trees are on GitHub. The engine is MIT-licensed and the written material is CC BY-SA 4.0, so you may use, change and republish it as long as you say where it came from and keep it open.</p>
+        </div>
+        <a class="btn btn--ghost" href="https://github.com/vidarsko/ai-skill-trees" data-i18n="open-cta">The method repository</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="band band--dark sitefooter">
+    <div class="band__inner sitefooter__inner">
+      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
+      <p data-i18n="footer-line-2">The engine is MIT-licensed; the instructions and the trees are CC BY-SA 4.0.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

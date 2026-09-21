@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,"Algebra: likninger og ulikheter;Andregradsfunksjoner;Polynom- og rasjonale funksjoner;Potens- og eksponentialfunksjoner;Derivasjon og vekstfart;Trigonometri;Tallfølger, mønster og programmering;Modellering og anvendelser",,,
 ,config,,title,Matematikk 1T,,,
 ,config,,description,"Algebra, andregradsfunksjoner, polynom- og rasjonale funksjoner, potens- og eksponentialfunksjoner, derivasjon, trigonometri, tallfølger og modellering — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,

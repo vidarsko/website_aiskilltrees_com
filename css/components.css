@@ -489,6 +489,7 @@
 
 .steps {
   list-style: none;
+  min-width: 0;
   margin: 0;
   padding: 0;
   display: grid;
@@ -504,6 +505,7 @@
   gap: var(--space-2);
   padding: var(--space-4);
   background: var(--surface);
+  min-width: 0;   /* se .promptbox — uten denne sprenger et bredt barn kolonnen */
 }
 
 .step__index {
@@ -554,7 +556,17 @@
 
 /* Where the copyable setup prompt will sit. Monospace and scrollable,
    because it will be long and people will select all of it. */
+/* `min-width: 0` og `max-width: 100%` er det som holder den inne på en
+   telefon: et grid- eller flex-element har `min-width: auto` som standard,
+   så en <pre> med lange linjer presser sporet bredere enn skjermen framfor
+   å bryte. Uten dem blødde instruksboksen ut over høyre marg på
+   /make-your-own/ (meldt av Vidar 2026-09-21). `overflow-wrap: anywhere`
+   tar den siste resten: en URL eller en lang `identifikator_uten_mellomrom`
+   som ikke har noe sted å brekke. */
 .promptbox {
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
   margin: var(--space-3) 0 0;
   padding: var(--space-3);
   max-height: 22rem;
@@ -734,4 +746,125 @@
 .note {
   font-size: var(--step-s);
   color: var(--ink-3);
+}
+
+/* ==========================================================================
+   /the-prompts/ — instruksene lest rett fra maskineriet (2026-09-21)
+
+   Halvtabell: stikkordet til venstre, teksten til høyre. Stikkordet er
+   seksjons-id-en fra JSON-en, altså det ledeteksten selv kaller delen —
+   ikke en inndeling laget for visningens skyld.
+   ========================================================================== */
+
+.langpick {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  color: var(--ink-2);
+}
+
+.langpick select {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  background: var(--surface);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  color: var(--ink);
+}
+
+.promptdoc {
+  margin-bottom: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  min-width: 0;
+}
+
+.promptdoc__head { margin-bottom: var(--space-2); }
+
+.promptdoc__title {
+  margin: 0;
+  font-size: var(--step-l);
+}
+
+.promptdoc__meta {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--ink-3);
+}
+
+.promptdoc__intro {
+  margin: 0 0 var(--space-3);
+  font-size: var(--step-s);
+  line-height: 1.6;
+  color: var(--ink-2);
+  white-space: pre-wrap;
+}
+
+.promptdoc__sections {
+  display: grid;
+  grid-template-columns: minmax(7rem, 12rem) 1fr;
+  gap: 1px;
+  margin: 0;
+  background: var(--rule);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.promptdoc__key,
+.promptdoc__text {
+  margin: 0;
+  padding: var(--space-2);
+  background: var(--surface);
+  min-width: 0;
+}
+
+.promptdoc__key code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--step-xs);
+  color: var(--primary);
+  overflow-wrap: anywhere;
+}
+
+.promptdoc__note {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  line-height: 1.4;
+  color: var(--amber-text);
+}
+
+.promptdoc__text {
+  font-size: var(--step-s);
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* På en telefon faller stikkordet over teksten framfor ved siden av — to
+   kolonner på 360px gir fire ord i bredden i høyre spor. */
+@media (max-width: 40rem) {
+  .promptdoc { padding: var(--space-3); }
+  .promptdoc__sections { grid-template-columns: 1fr; gap: 0; }
+  .promptdoc__key { padding-bottom: 0; }
+  .promptdoc__text { padding-top: 0.35rem; border-bottom: 1px solid var(--rule); }
+}
+
+/* En markert utkast-linje. Skal være lett å få øye på, og lett å fjerne. */
+.draft-flag {
+  padding: var(--space-1) var(--space-2);
+  border-left: 3px solid var(--amber);
+  background: var(--amber-tint);
+  color: var(--amber-text);
 }

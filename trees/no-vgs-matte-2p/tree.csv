@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Prosent og vekstfaktor;Lån og økonomi;Eksponentialfunksjoner;Statistikk;Programmering;Geometri;Likninger og funksjoner,,,
 ,config,,title,Matematikk 2P,,,
 ,config,,description,"Interaktivt ferdighetstre for matematikk 2P: huk av det du mestrer, og kopier en KI-instruks for å trene videre.",,,
 ,config,,language,nb,,,

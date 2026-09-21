@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Aritmetik och procent;Geometri och skala;Algebra och funktioner;Ekonomi och digitala verktyg;Sannolikhet och statistik;Problemlösning och modeller,,,
 ,config,,title,Matematik 1a,,,
 ,config,,description,"Interaktivt färdighetsträd för matematik 1a: kryssa i det du behärskar, och kopiera en AI-instruktion för att träna vidare.",,,
 ,config,,language,sv,,,

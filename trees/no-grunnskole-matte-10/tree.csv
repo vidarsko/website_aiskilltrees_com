@@ -1,5 +1,6 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
+,config,,topicOrder,Tall og algebra;Ligningssett og modellering;Funksjoner;Personlig økonomi;Statistikk og sannsynlighet;Geometri;Programmering,,,
 ,config,,title,Matematikk 10. trinn,,,
 ,config,,description,"Tall og algebra, likningssett og modellering, funksjoner, personlig økonomi, statistikk, geometri og programmering — dekomponert i det elevene faktisk må kunne gjøre, med eksamens to deler lagt til grunn.",,,
 ,config,,language,nb,,,
