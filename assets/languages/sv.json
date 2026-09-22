@@ -192,6 +192,12 @@
     "menu": {
       "label": "Meny"
     },
+    "download": {
+      "button": "Ladda ner det här trädet",
+      "title": "Ladda ner trädet i två former: kalkylarket du kan redigera, och en enda fil som fungerar utan nät",
+      "working": "Bygger enkelfilen …",
+      "failed": "Enkelfilen kunde inte byggas"
+    },
     "courseInfo": {
       "button": "Om ämnet",
       "heading": "Om ämnet",

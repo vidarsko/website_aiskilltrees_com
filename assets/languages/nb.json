@@ -192,6 +192,12 @@
     "menu": {
       "label": "Meny"
     },
+    "download": {
+      "button": "Last ned dette treet",
+      "title": "Last ned treet i to former: regnearket du kan redigere, og én fil som virker uten nett",
+      "working": "Bygger enkeltfila …",
+      "failed": "Enkeltfila kunne ikke bygges"
+    },
     "courseInfo": {
       "button": "Om faget",
       "heading": "Om faget",

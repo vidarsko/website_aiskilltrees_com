@@ -1,5 +1,13 @@
 'use strict';
 
+/* Motorens egen adresse, lest MENS fila kjører - `document.currentScript`
+   er bare gyldig der, ikke senere inne i en funksjon. Nedlastingsknappen
+   bruker den til å finne mappa resten av maskineriet ligger i, framfor å
+   hardkode «/assets/engine/»: motoren skal kunne serveres fra hvilken som
+   helst sti, og gjør det allerede i enkeltfil-utgaven. */
+const ENGINE_SRC = (typeof document !== 'undefined' && document.currentScript)
+  ? document.currentScript.src : '';
+
 /* ------------------------------------------------------------------ */
 /* Delt motor for ferdighetstre-appene.                                */
 /*                                                                      */
@@ -88,6 +96,12 @@ let SHARED = {};            // /prompts/shared.json → sections (delt mellom in
 let FAMILY = null;          // /prompts/subjects/<familie>.json, eller null
 let MANIFEST = null;        // /prompts/manifest.json - versjonene artikkelen siterer
 let NODE_ROWS = [];         // node-radene i ./tree.csv, satt av bootstrap()
+/* Ordrett kildetekst, ikke de parsede radene. Nedlastingsknappen gir
+   læreren tilbake NØYAKTIG fila treet ble bygget av - et regneark satt
+   sammen fra NODE_ROWS igjen ville mistet radrekkefølge, tomme kolonner
+   og alt annet motoren ikke bryr seg om. */
+let TREE_CSV_TEXT = '';     // ./tree.csv slik den står
+let EXAMS_CSV_TEXT = null;  // ./exams.csv slik den står, eller null
 let PROMPT_ROWS = {};       // prompt-radene i ./tree.csv: { '<instruks>.<seksjon>': tekst }
                             //   '*' som instruks betyr «alle instrukser».
 let PROMPT_ROW_AT = {};     // samme nøkler → radnummeret i regnearket, så en
@@ -449,7 +463,8 @@ async function bootstrap() {
      språk treet er på. */
   let rows;
   try {
-    rows = parseCsv(await fetchText('tree.csv'));
+    TREE_CSV_TEXT = await fetchText('tree.csv');
+    rows = parseCsv(TREE_CSV_TEXT);
   } catch (err) {
     console.error(err);
     document.body.textContent = 'Fant ikke tree.csv for dette ferdighetstreet: ' + err.message;
@@ -1039,6 +1054,166 @@ function setupMotivationButton() {
     });
   });
   actions.appendChild(btn);
+}
+
+/* ------------------------------------------------------------------ */
+/* Nedlasting: ta treet med deg                                         */
+/*                                                                      */
+/* ÉN knapp, TO filer - regnearket og enkeltfil-utgaven - fordi de to    */
+/* svarer på hvert sitt spørsmål og den som vil ha det ene som regel     */
+/* vil ha det andre også. `tree.csv` er kilden man REDIGERER; HTML-fila  */
+/* er treet man DELER, og den virker ved dobbeltklikk uten nett.        */
+/*                                                                      */
+/* HTML-fila bygges av nøyaktig samme deler som byggeren på             */
+/* /make-your-own/ bruker: standalone.html med motoren, stilene,        */
+/* instruksene, språkfila og treet lagt inn i seg. Forskjellen er hvor   */
+/* delene kommer fra - der en lærerfil, her sida du står på.            */
+/*                                                                      */
+/* INGEN STIER ER HARDKODET. Motoren finner sine egne filer ut fra sin   */
+/* egen `src` (ENGINE_SRC), og stilene fra de <link>-ene dokumentet      */
+/* faktisk har. Det er det som gjør at knappen virker i en hvilken som   */
+/* helst utrulling, ikke bare på aiskilltrees.com - og at en side som    */
+/* legger til et stilark får det med uten at noen må huske det her.     */
+/* ------------------------------------------------------------------ */
+
+function setupDownloadButton() {
+  /* I enkeltfil-utgaven gir knappen ingen mening: HTML-fila ER fila du
+     allerede har, og regnearket står ordrett inne i den (se kommentaren
+     øverst i standalone.html). Da er «last ned» bare en omvei rundt
+     «lagre som». */
+  if (window.AIST_BUNDLE) return;
+
+  const panel = ensureActionMenu();
+  if (!panel) return;
+
+  const btn = document.createElement('button');
+  btn.id = 'download-btn';
+  btn.type = 'button';
+  btn.textContent = t('download.button');
+  btn.title = t('download.title');
+  btn.addEventListener('click', async () => {
+    if (btn.disabled) return;
+    const original = btn.textContent;
+    const slug = treeSlug();
+
+    /* Regnearket først, og uten å vente på noe: det er alt i minnet, og
+       den som bare ville ha CSV-en har den før bygget er i gang. */
+    saveFile(slug + '.csv', TREE_CSV_TEXT, 'text/csv');
+    if (EXAMS_CSV_TEXT) saveFile(slug + '-exams.csv', EXAMS_CSV_TEXT, 'text/csv');
+
+    btn.disabled = true;
+    btn.textContent = t('download.working');
+    try {
+      const html = await buildStandaloneHtml();
+      saveFile(slug + '.html', html, 'text/html');
+      if (window.aistTrack) {
+        window.aistTrack('tree_download', {
+          tree_slug: slug, size_kb: Math.round(html.length / 1024)
+        });
+      }
+      btn.textContent = original;
+    } catch (err) {
+      console.error('Kunne ikke bygge enkeltfil-utgaven:', err);
+      /* Feilen blir stående til neste klikk framfor å forsvinne etter et
+         par sekunder: den som nettopp fikk én fil av to skal ikke måtte
+         gjette på om den andre kommer. */
+      btn.textContent = t('download.failed');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+  panel.appendChild(btn);
+}
+
+function saveFile(name, text, type) {
+  const url = URL.createObjectURL(new Blob([text], { type: type + ';charset=utf-8' }));
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  /* Gi nettleseren et øyeblikk til å lese blob-en før den frigjøres. */
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+
+/* Mappa resten av maskineriet ligger i, utledet av motorens egen adresse.
+   Tom streng hvis vi ikke fikk vite den - da feiler hentingen under med en
+   lesbar feil framfor å gjette på en sti. */
+function engineDir() {
+  if (!ENGINE_SRC) throw new Error('Vet ikke hvor engine.js ligger');
+  return ENGINE_SRC.slice(0, ENGINE_SRC.lastIndexOf('/') + 1);
+}
+
+/* Alle filene motoren HAR lastet for dette treet, med NØYAKTIG de stiene
+   den ba om dem på - det er hele avtalen mellom AIST_BUNDLE og
+   fetchJson()/fetchText(). De ligger i nettleserens cache, så dette koster
+   i praksis ingenting.
+
+   Filene hentes på nytt framfor å settes sammen av MANIFEST/CORE/LANG i
+   minnet, og det er med vilje: da kan en nøkkel ikke bli feil, fordi den
+   er den samme strengen begge veier. */
+async function bundleForDownload() {
+  const famPath = CONFIG.subjectFamily
+    ? (MANIFEST.subjectFamilies || {})[CONFIG.subjectFamily] : null;
+  /* Bare elevens instrukser. Dekomponeringsmodellen og forfatterinstruksen
+     er lærerens verktøy og ville lagt ~27 kB til fila for tekst ingen elev
+     åpner - samme filter som bootstrap() bruker. */
+  const paths = ['/assets/prompts/' + MANIFEST.shared]
+    .concat(Object.keys(MANIFEST.instructions)
+      .filter(id => (MANIFEST.instructions[id].audience || 'student') === 'student')
+      .map(id => '/assets/prompts/' + MANIFEST.instructions[id].file))
+    .concat(famPath ? ['/assets/prompts/' + famPath] : [])
+    .concat(['/assets/languages/' + LANG.code + '.json']);
+
+  const bundle = {
+    'tree.csv': TREE_CSV_TEXT,
+    '/assets/prompts/manifest.json': MANIFEST,
+    /* Katalogens to filer blir med når treet ligger i en katalog, slik at
+       «Om faget» står i den nedlastede fila også. Står de som null, faller
+       motoren tilbake på config-radene - se metaFromConfig(). */
+    'meta.json': META,
+    '/trees/vocabulary.json': VOCAB
+  };
+  if (EXAMS_CSV_TEXT) bundle['exams.csv'] = EXAMS_CSV_TEXT;
+
+  const loaded = await Promise.all(paths.map(path =>
+    fetchJson(path).then(data => [path, data], () => null)));
+  loaded.forEach(pair => { if (pair) bundle[pair[0]] = pair[1]; });
+  return bundle;
+}
+
+async function buildStandaloneHtml() {
+  const dir = engineDir();
+  /* Stilarkene tas fra dokumentet framfor fra en liste her: da får fila
+     nøyaktig det utseendet leseren ser, og en utrulling som legger til
+     eller bytter et stilark trenger ikke endre motoren. Rekkefølgen er
+     dokumentets egen, som er den som avgjør hvilke tokens som vinner. */
+  const sheets = [].slice.call(document.querySelectorAll('link[rel="stylesheet"][href]'))
+    .map(link => link.href);
+
+  const [template, engine, papa, ...css] = await Promise.all(
+    [dir + 'standalone.html', ENGINE_SRC, dir + 'vendor/papaparse.min.js']
+      .concat(sheets)
+      .map(url => fetch(url).then(res => {
+        if (!res.ok) throw new Error('Fant ikke ' + url + ' (status ' + res.status + ')');
+        return res.text();
+      })));
+
+  const bundle = await bundleForDownload();
+
+  /* Erstatningen gjøres med en FUNKSJON som andre argument. Et vanlig
+     strengargument ville latt `$&` og `$1` i instrukstekstene bety noe for
+     String.replace, og en lærer som skriver `$&` i en prompt-rad skal ikke
+     få fila si sabotert av det. */
+  return template
+    .replace('/*AIST:STYLES*/', () => css.join('\n'))
+    .replace('/*AIST:PAPAPARSE*/', () => papa)
+    /* `</` inne i en streng ville avsluttet script-taggen som omslutter
+       den. Gjelder all tekst som kommer fra treet. */
+    .replace('/*AIST:BUNDLE*/', () => 'window.AIST_BUNDLE = ' +
+      JSON.stringify(bundle).replace(/<\//g, '<\\/') + ';')
+    .replace('/*AIST:ENGINE*/', () => engine);
 }
 
 // Hjelp-knapp («Hvordan bruker jeg denne siden?»), alle fag. Åpner en popup
@@ -2294,6 +2469,9 @@ async function init() {
   setupSearchButton();
   setupExamButton();
   if (SHOW_MOTIVATION_BUTTON) setupMotivationButton();
+  /* Sist i panelet: «ta treet med deg» er det sjeldneste av valgene, og
+     det eneste som ikke handler om å bruke treet her og nå. */
+  setupDownloadButton();
   try {
     /* Nodene er allerede lest av bootstrap() - tree.csv er ÉN fil, og den
        måtte leses først for å finne treets språk. Eksamensoppgaver er en
@@ -2305,6 +2483,7 @@ async function init() {
        rød linje i konsollen for en fil som er valgfri, og det er nettopp
        den slags støy som får en lærer til å tro at noe er i stykker. */
     const exams = FEATURES.exams ? await fetchText('exams.csv').catch(() => null) : null;
+    EXAMS_CSV_TEXT = exams;
     buildExamIndex(exams ? parseCsv(exams) : []);
     validateReferences();
     validateDag();

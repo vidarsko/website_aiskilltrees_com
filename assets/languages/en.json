@@ -192,6 +192,12 @@
     "menu": {
       "label": "Menu"
     },
+    "download": {
+      "button": "Download this tree",
+      "title": "Download the tree twice over: the spreadsheet you can edit, and a single file that works offline",
+      "working": "Building the single file…",
+      "failed": "The single file could not be built"
+    },
     "courseInfo": {
       "button": "About the course",
       "heading": "About the course",

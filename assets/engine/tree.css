@@ -197,7 +197,8 @@ header {
 #action-menu-panel #motivation-btn,
 #action-menu-panel #goal-index-btn,
 #action-menu-panel #course-info-btn,
-#action-menu-panel #help-btn {
+#action-menu-panel #help-btn,
+#action-menu-panel #download-btn {
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -216,9 +217,17 @@ header {
 #action-menu-panel #motivation-btn:hover,
 #action-menu-panel #goal-index-btn:hover,
 #action-menu-panel #course-info-btn:hover,
-#action-menu-panel #help-btn:hover {
+#action-menu-panel #help-btn:hover,
+#action-menu-panel #download-btn:hover {
   border-color: var(--border-strong);
   background: var(--surface-hover);
+}
+
+/* Enkeltfil-utgaven tar et par sekunder å sette sammen. Knappen sier det
+   med teksten sin; dette er bare for at den ikke skal se trykkbar ut imens. */
+#action-menu-panel #download-btn[disabled] {
+  opacity: 0.6;
+  cursor: progress;
 }
 
 .progress-row {
