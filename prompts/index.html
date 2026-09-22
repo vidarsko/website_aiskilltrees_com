@@ -20,13 +20,13 @@
     ved kjøring, fordi en gjengivelse her ville vært utdatert ved neste
     release uten at noen merket det. Se js/prompts-page.js.
 
-    Språkvelgeren står INNE I språklag-kortet, ikke øverst på sida og ikke
-    i toppbaren. Den er ikke sidas språkveksler: den velger hvilket
-    SPRÅKLAG som vises — både seksjonene som fylles inne i hver instruks,
-    og kortet den selv står i. De to er ulike ting, og det er derfor den
-    har en egen etikett framfor bare tre bokstaver. Selve kontrollen
-    bygges av js/prompts-page.js, som samme komponent som velgeren i
-    toppbaren.
+    SIDA HAR TO VELGERE, og ingen av dem er sidas språkveksler. Den ene
+    velger hvilket SPRÅKLAG som vises, den andre hvilken FAGFAMILIE. Begge
+    står INNE I kortet for sitt eget lag, ikke øverst på sida og ikke i
+    toppbaren, og begge styrer to ting samtidig: seksjonene som fylles inne
+    i hver instruks, og kortet velgeren selv står i. Derfor har de hver sin
+    egen etikett framfor bare tre bokstaver. Selve kontrollene bygges av
+    js/prompts-page.js, som samme komponent som velgeren i toppbaren.
   -->
   <script type="application/json" id="i18n-dict">
   {
@@ -60,10 +60,10 @@
           "nb": "Instruksene er skrevet på engelsk og sier hva modellen skal gjøre, aldri på hvilket språk eller i hvilket fag. Tre andre lag fyller hullene de lar stå åpne: språklaget, fagfamilien, og treets egen fil. Seksjoner som kommer fra et lag framfor fra instruksen selv, er merket.",
           "sv": "Instruktionerna är skrivna på engelska och säger vad modellen ska göra, aldrig på vilket språk eller i vilket ämne. Tre andra lager fyller hålen de lämnar öppna: språklagret, ämnesfamiljen och trädets egen fil. Avsnitt som kommer från ett lager i stället för från instruktionen själv är märkta."
       },
-      "family-note": {
-          "en": "The subject-family additions shown are the ones for mathematics. Natural sciences and social studies add their own.",
-          "nb": "Fagfamilie-tilleggene som vises er matematikkens. Naturfag og samfunnsfag legger til sine egne.",
-          "sv": "Ämnesfamiljstilläggen som visas är matematikens. Naturvetenskap och samhällskunskap lägger till sina egna."
+      "pickers-note": {
+          "en": "The language layer and the subject family each have a card of their own further down, with a picker in it. Both choices also decide which marked sections stand inside the instructions above them.",
+          "nb": "Språklaget og fagfamilien har hvert sitt kort lenger nede, med en velger i seg. Begge valgene bestemmer samtidig hvilke merkede seksjoner som står inne i instruksene over dem.",
+          "sv": "Språklagret och ämnesfamiljen har var sitt kort längre ner, med en väljare i sig. Båda valen avgör samtidigt vilka märkta avsnitt som står inne i instruktionerna ovanför dem."
       },
       "lang-label": {
           "en": "Show the language layer for",
@@ -74,6 +74,16 @@
           "en": "Choose a language layer",
           "nb": "Velg et språklag",
           "sv": "Välj ett språklager"
+      },
+      "family-label": {
+          "en": "Show the additions for",
+          "nb": "Vis tilleggene for",
+          "sv": "Visa tilläggen för"
+      },
+      "family-choose": {
+          "en": "Choose a subject family",
+          "nb": "Velg en fagfamilie",
+          "sv": "Välj en ämnesfamilj"
       },
       "audience-student": {
           "en": "used by a student",
@@ -104,6 +114,21 @@
           "en": "replaces a section in {x}",
           "nb": "erstatter en seksjon i {x}",
           "sv": "ersätter ett avsnitt i {x}"
+      },
+      "family-add-in": {
+          "en": "adds a section to {x}",
+          "nb": "legger til en seksjon i {x}",
+          "sv": "lägger till ett avsnitt i {x}"
+      },
+      "family-authoring": {
+          "en": "read when a tree is written",
+          "nb": "leses når et tre skrives",
+          "sv": "läses när ett träd skrivs"
+      },
+      "family-title": {
+          "en": "The subject family",
+          "nb": "Fagfamilien",
+          "sv": "Ämnesfamiljen"
       },
       "language-title": {
           "en": "The language layer",
@@ -190,6 +215,11 @@
           "nb": "Legges til i hver eneste instruks motoren setter sammen, slik at et norsk tre snakkes om på norsk og et svensk på svensk. Én fil per språk holder det instruksene bevisst lar stå åpent: hvilket språk samtalen føres på, og hva god prosa er på det språket. De samme seksjonene står merket inne i instruksene over, der de lander.",
           "sv": "Läggs till i varenda instruktion motorn sätter samman, så att ett norskt träd talas om på norska och ett svenskt på svenska. En fil per språk håller det instruktionerna medvetet lämnar öppet: vilket språk samtalet förs på, och vad god prosa är på det språket. Samma avsnitt står märkta inne i instruktionerna ovan, där de landar."
       },
+      "about-family": {
+          "en": "Added to four of the instructions above, and read once more when a tree is built, so that what holds for mathematics but not for history does not have to be written into every instruction. One file per family holds both halves: the sections it splices into the student's instructions, where they stand marked above, and the decomposition rules a teacher or an agent reads before writing a single row of the file. A tree names its family in its own file; one that names none gets the general instructions only.",
+          "nb": "Legges inn i fire av instruksene over, og leses en gang til når et tre bygges, slik at det som gjelder for matematikk men ikke for historie slipper å stå skrevet inn i hver eneste instruks. Én fil per familie holder begge halvdelene: seksjonene den skyter inn i elevinstruksene, der de står merket over, og dekomponeringsreglene en lærer eller en agent leser før en eneste rad i fila er skrevet. Et tre navngir familien sin i sin egen fil; et tre som ikke navngir noen, får bare de generelle instruksene.",
+          "sv": "Läggs in i fyra av instruktionerna ovan, och läses en gång till när ett träd byggs, så att det som gäller för matematik men inte för historia slipper skrivas in i varenda instruktion. En fil per familj håller båda halvorna: avsnitten den skjuter in i elevinstruktionerna, där de står märkta ovan, och nedbrytningsreglerna en lärare eller en agent läser innan en enda rad i filen är skriven. Ett träd namnger sin familj i sin egen fil; ett träd som inte namnger någon får bara de generella instruktionerna."
+      },
       "about-shared": {
           "en": "Added to each instruction that names one of these sections, so that text which must read the same everywhere is written once. Kept in one place so the copies cannot drift apart.",
           "nb": "Legges inn i hver instruks som navngir en av disse seksjonene, slik at tekst som skal være lik overalt er skrevet én gang. Holdt ett sted så kopiene ikke kan komme fra hverandre.",
@@ -211,7 +241,7 @@
         <div class="prose">
           <p class="lede-p" data-i18n="page-lede">These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full.</p>
           <p class="note" data-i18n="layers-note">The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.</p>
-          <p class="note" data-i18n="family-note">The subject-family additions shown are the ones for mathematics. Natural sciences and social studies add their own.</p>
+          <p class="note" data-i18n="pickers-note">The language layer and the subject family each have a card of their own further down, with a picker in it. Both choices also decide which marked sections stand inside the instructions above them.</p>
         </div>
       </div>
     </section>

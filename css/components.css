@@ -130,7 +130,11 @@
   transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
 }
 .lang-select__button:hover { background: var(--surface); color: var(--ink); border-color: var(--rule-strong); }
-.lang-select__globe { font-size: 1em; line-height: 1; }
+/* Ikonslissa foran navnet. `__globe` er toppbarens klode; `__icon` er det
+   generelle navnet, som /prompts/ bruker for begge velgerne sine — der er
+   den andre en bokstabel, ikke en klode. */
+.lang-select__globe,
+.lang-select__icon { font-size: 1em; line-height: 1; }
 .lang-select__caret { font-size: 0.8em; color: var(--ink-3); }
 .lang-select__button[aria-expanded="true"] { background: var(--surface); color: var(--ink); border-color: var(--rule-strong); }
 
@@ -764,9 +768,10 @@
    ikke en inndeling laget for visningens skyld.
    ========================================================================== */
 
-/* Språkvelgeren står inne i språklag-kortet, rett under beskrivelsen — ikke
-   øverst på sida. Derfor marger som hører til et kort, ikke til et bånd. */
-.langpick {
+/* Velgeren for et LAG — språket eller fagfamilien — står inne i kortet som
+   viser laget, rett under beskrivelsen, ikke øverst på sida. Derfor marger
+   som hører til et kort, ikke til et bånd. */
+.layerpick {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -782,7 +787,13 @@
    lista fra knappens høyre kant, fordi knappen står helt til høyre. Her
    står den til venstre i en tekstlinje, og en liste som henger fra høyre
    kant ville stukket ut av skjermen på en telefon. */
-.langpick .lang-select__menu { right: auto; left: 0; }
+.layerpick .lang-select__menu { right: auto; left: 0; min-width: 14rem; }
+
+/* Et fagfamilienavn er lengre enn et språknavn — «Social sciences and
+   humanities» brekkes over to linjer. De 44 pikslene i `.lang-select__option`
+   er en MINSTEhøyde, så raden vokser; den trenger bare litt luft over og
+   under for å ikke klemme teksten mot kanten. */
+.layerpick .lang-select__option { padding-top: 0.4rem; padding-bottom: 0.4rem; }
 
 .promptdoc {
   margin-bottom: var(--space-4);

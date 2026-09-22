@@ -11,11 +11,12 @@
    siden av. Det er den samme inndelingen som ligger i JSON-en, framfor en
    inndeling vi har funnet på for visningens skyld.
 
-   SPRÅKLAGET VELGES I EN NEDTREKKSMENY, fordi det ellers blir for mye:
-   hvert språk legger til sin egen `outputLanguage` og `writingStyle`, og
-   alle tre på én gang drukner instruksene de hører til. Valget styrer to
-   ting samtidig — seksjonene som fylles inne i hver instruks, og kortet
-   som viser språklaget samlet.
+   TO LAG VELGES I HVER SIN NEDTREKKSMENY — språket og fagfamilien — fordi
+   det ellers blir for mye: hvert språk legger til sin egen `outputLanguage`
+   og `writingStyle`, og hver fagfamilie sine egne tillegg i fire av
+   instruksene. Alle på én gang drukner instruksene de hører til. Hvert valg
+   styrer to ting samtidig: seksjonene som fylles inne i hver instruks, og
+   kortet som viser laget samlet.
    ========================================================================== */
 
 (function () {
@@ -31,11 +32,29 @@
     { code: 'sv', name: 'Svenska' }
   ];
 
-  /* Velgeren bygges én gang og FLYTTES inn i språklag-kortet for hver
-     tegning, framfor å bygges på nytt: den har lyttere på `document` for
+  /* Fagfamiliene står IKKE i en liste her. De er oppført i
+     `prompts/manifest.json` under `subjectFamilies`, og navnet på hver av
+     dem i familiefila selv — så en ny familie i maskineriet dukker opp her
+     av seg selv, uten en kodeendring. Det er den samme regelen manifestet
+     er skrevet etter: bare manifestets eget filnavn er hardkodet. */
+  var DEFAULT_FAMILY = 'mathematics';
+
+  /* De to velgerne bygges én gang og FLYTTES inn i hvert sitt kort for hver
+     tegning, framfor å bygges på nytt: de har lyttere på `document` for
      Escape og klikk utenfor, og de ville hopet seg opp for hvert bytte. */
-  var root, pickerRow, pickerLabel, setPicked,
-      state = { manifest: null, modules: {}, family: {}, lang: null, code: 'en' };
+  var root,
+      langRow, langLabel, setLang,
+      familyRow, familyLabel, setFamily,
+      state = {
+        manifest: null, modules: {}, families: {},
+        lang: null, code: 'en', familyCode: DEFAULT_FAMILY
+      };
+
+  /* Ikonet og etikettene er det eneste som skiller de to velgerne. */
+  var PICKERS = {
+    lang: { icon: '🌐', label: 'lang-label', choose: 'lang-choose' },
+    family: { icon: '📚', label: 'family-label', choose: 'family-choose' }
+  };
 
   function t(key) {
     return (window.i18n && window.i18n.t) ? window.i18n.t(key) : key;
@@ -56,9 +75,9 @@
   }
 
   /* ---- ett kort --------------------------------------------------------
-     Instruksene, språklaget og de delte seksjonene har samme form:
-     overskrift, metalinje, en setning om hvor teksten brukes, og selve
-     teksten sammenrullet. Derfor én byggefunksjon, ikke tre. */
+     Instruksene, språklaget, fagfamilien og de delte seksjonene har samme
+     form: overskrift, metalinje, en setning om hvor teksten brukes, og
+     selve teksten sammenrullet. Derfor én byggefunksjon, ikke fire. */
 
   function card(opts) {
     var box = el('section', 'promptdoc');
@@ -75,9 +94,10 @@
        den vet noe. */
     if (opts.about) box.appendChild(el('p', 'promptdoc__about', opts.about));
 
-    /* Språklagets kort har språkvelgeren i seg, rett under beskrivelsen av
-       hva laget er: det er der valget gir mening, framfor øverst på sida med
-       en etikett som må forklare hva et språklag er før leseren har sett et. */
+    /* Kortene for språklaget og fagfamilien har hver sin velger i seg, rett
+       under beskrivelsen av hva laget er: det er der valget gir mening,
+       framfor øverst på sida med en etikett som må forklare hva et språklag
+       eller en fagfamilie er før leseren har sett en. */
     if (opts.control) box.appendChild(opts.control);
 
     /* Et kort uten seksjoner viser ingen rull. Det gjelder bare språklaget,
@@ -86,7 +106,7 @@
     if (!opts.rows.length) return box;
 
     /* Hele teksten ligger sammenrullet. Sida ble uleselig lang med alt åpent
-       — sju kort med tjuetalls seksjoner hver — og den som vil LESE en
+       — åtte kort med tjuetalls seksjoner hver — og den som vil LESE en
        instruks, vil som regel lese én. <details> framfor egen JavaScript:
        det virker uten script, kan søkes i av nettleseren, og har
        tastaturoppførselen gratis. */
@@ -186,7 +206,54 @@
       title: t('language-title'),
       meta: (lang.name || state.code) + ' · languages/' + state.code + '.json',
       about: about('language'),
-      control: pickerRow,
+      control: langRow,
+      rows: rows
+    });
+  }
+
+  /* ---- fagfamilien som sitt eget kort -----------------------------------
+     Samme grep som språklaget, og av samme grunn: tilleggene står markert
+     der de lander, inne i fire av instruksene, men det er først samlet man
+     ser hva det vil si at et tre er et MATEMATIKK-tre.
+
+     Kortet har med BEGGE halvdelene av familiefila, ikke bare den motoren
+     bruker. `instructions` skytes inn i elevinstruksene ved kjøring;
+     `decomposition` leses av læreren eller agenten som skriver treet, og
+     dekomponeringsmodellen over sender dem hit for å finne den. Det er
+     tekst en KI faktisk får — og sida heter «alt KI-en blir bedt om». */
+
+  function familyCard() {
+    var code = state.familyCode;
+    var fam = state.families[code] || {};
+    var path = (state.manifest.subjectFamilies || {})[code] || '';
+    var rows = [];
+
+    /* Instruksenes rekkefølge tas fra manifestet, ikke fra familiefila, slik
+       at radene her står i samme rekkefølge som kortene over. */
+    var instructions = fam.instructions || {};
+    Object.keys(state.manifest.instructions || {}).forEach(function (id) {
+      var module = state.modules[(state.manifest.instructions[id] || {}).file] || {};
+      ((instructions[id] || {}).add || []).forEach(function (add) {
+        rows.push({
+          label: add.id,
+          text: add.text,
+          note: t('family-add-in').replace('{x}', module.title || id)
+        });
+      });
+    });
+
+    var decomposition = fam.decomposition || {};
+    Object.keys(decomposition).forEach(function (sid) {
+      /* `_comment` er en merknad til den som åpner fila, ikke en seksjon. */
+      if (sid.charAt(0) === '_') return;
+      rows.push({ label: sid, text: decomposition[sid], note: t('family-authoring') });
+    });
+
+    return card({
+      title: t('family-title'),
+      meta: [(fam.title || code), 'v' + (fam.version || '?'), 'prompts/' + path].join(' · '),
+      about: about('family'),
+      control: familyRow,
       rows: rows
     });
   }
@@ -200,20 +267,23 @@
 
   function render() {
     if (!root || !state.manifest) return;
-    /* Velgeren står inne i kortet som tegnes om, så den rives ut og settes
-       inn igjen ved hvert bytte. Hadde den tastaturfokus, skal den ha det
+    /* Velgerne står inne i kort som tegnes om, så de rives ut og settes inn
+       igjen ved hvert bytte. Hadde en av dem tastaturfokus, skal den ha det
        etterpå også — ellers ender den som velger med å miste stedet sitt. */
-    var keepFocus = pickerRow.contains(document.activeElement);
+    var focusRow = [langRow, familyRow].filter(function (r) {
+      return r && r.contains(document.activeElement);
+    })[0];
     root.innerHTML = '';
     var m = state.manifest;
     var layer = (state.lang || {}).prompt || {};
+    var family = state.families[state.familyCode] || {};
 
     Object.keys(m.instructions).forEach(function (id) {
       var entry = m.instructions[id];
       var module = state.modules[entry.file];
       if (!module) return;
       var overrides = (layer.overrides || {})[id] || {};
-      var familyAdds = ((state.family.instructions || {})[id] || {}).add || [];
+      var familyAdds = ((family.instructions || {})[id] || {}).add || [];
       root.appendChild(card({
         title: module.title || id,
         meta: ['v' + (module.version || '?'),
@@ -230,6 +300,7 @@
     });
 
     root.appendChild(languageCard());
+    root.appendChild(familyCard());
 
     var shared = state.modules[m.shared];
     if (shared) {
@@ -241,58 +312,67 @@
       }));
     }
 
-    if (keepFocus) {
-      var btn = pickerRow.querySelector('.lang-select__button');
+    if (focusRow) {
+      var btn = focusRow.querySelector('.lang-select__button');
       if (btn) btn.focus();
     }
   }
 
   function loadLanguage(code) {
     state.code = code;
-    if (setPicked) setPicked(code);
-    return Promise.all([
-      getJson('/assets/languages/' + code + '.json'),
-      getJson('/assets/prompts/' + (state.manifest.subjectFamilies || {}).mathematics)
-    ]).then(function (parts) {
-      state.lang = parts[0];
-      state.family = parts[1] || {};
+    if (setLang) setLang(code);
+    return getJson('/assets/languages/' + code + '.json').then(function (data) {
+      state.lang = data;
       render();
       if (window.aistTrack) window.aistTrack('prompts_language', { prompt_language: code });
     });
   }
 
-  /* ---- språkvelgeren ----------------------------------------------------
+  /* Familiefilene er alt hentet, så et bytte koster ingen runde til
+     serveren — og hendelsen sendes bare når noen faktisk VELGER noe, ikke
+     ved første tegning. (Merk at `prompts_language` sendes ved hver
+     sidelasting også, siden språkfila må hentes. De to tallene er derfor
+     ikke sammenliknbare slik de står.) */
+  function pickFamily(code) {
+    state.familyCode = code;
+    if (setFamily) setFamily(code);
+    render();
+    if (window.aistTrack) window.aistTrack('prompts_family', { prompt_family: code });
+  }
+
+  /* ---- velgerne ---------------------------------------------------------
      Samme komponent som velgeren i toppbaren — samme klasser, samme
      tastaturoppførsel — men bygget her, fordi header.js eier nettstedets
-     ramme og denne hører til sidas innhold. Det delte er CSS-en
+     ramme og disse hører til sidas innhold. Det delte er CSS-en
      (`.lang-select` i css/components.css); to kontroller som skal se like ut
      skal ikke gjøre det ved et sammentreff. */
 
-  function buildPicker(host, onPick) {
+  function buildPicker(host, items, kind, onPick) {
+    var conf = PICKERS[kind];
     var wrap = el('div', 'lang-select');
 
     var btn = el('button', 'lang-select__button');
     btn.type = 'button';
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
-    var globe = el('span', 'lang-select__globe', '🌐');
-    globe.setAttribute('aria-hidden', 'true');
+    var icon = el('span', 'lang-select__icon', conf.icon);
+    icon.setAttribute('aria-hidden', 'true');
     var name = el('span', 'lang-select__code');
     var caret = el('span', 'lang-select__caret', '▾');
     caret.setAttribute('aria-hidden', 'true');
-    btn.appendChild(globe);
+    btn.appendChild(icon);
     btn.appendChild(name);
     btn.appendChild(caret);
     wrap.appendChild(btn);
 
     var menu = el('ul', 'lang-select__menu');
     menu.setAttribute('role', 'listbox');
-    var options = LANGS.map(function (item) {
+    var options = items.map(function (item) {
       var li = el('li');
       var opt = el('button', 'lang-select__option');
       opt.type = 'button';
       opt.setAttribute('role', 'option');
-      opt.setAttribute('data-lang', item.code);
+      opt.setAttribute('data-value', item.code);
       var tick = el('span', 'lang-select__tick');
       tick.setAttribute('aria-hidden', 'true');
       opt.appendChild(tick);
@@ -319,8 +399,8 @@
         o.tick.textContent = on ? '✓' : '';
         if (on) name.textContent = o.item.name;
       });
-      btn.setAttribute('aria-label', t('lang-label') + ': ' + name.textContent);
-      menu.setAttribute('aria-label', t('lang-choose'));
+      btn.setAttribute('aria-label', t(conf.label) + ': ' + name.textContent);
+      menu.setAttribute('aria-label', t(conf.choose));
     }
 
     btn.addEventListener('click', function (e) {
@@ -332,7 +412,7 @@
       if (!opt) return;
       setMenu(false);
       btn.focus();
-      onPick(opt.getAttribute('data-lang'));
+      onPick(opt.getAttribute('data-value'));
     });
 
     /* Piltaster inne i den åpne lista, Escape ut av den. */
@@ -365,22 +445,34 @@
     return picked;
   }
 
+  /* <div>, ikke <p>: raden inneholder selve velgeren, og et <div> inne i et
+     <p> er ugyldig markup den dagen noen ser på den. */
+  function pickerRow(labelKey) {
+    var row = el('div', 'layerpick');
+    var label = el('span', 'layerpick__label', t(labelKey));
+    var host = el('span');
+    row.appendChild(label);
+    row.appendChild(host);
+    return { row: row, label: label, host: host };
+  }
+
   function init() {
     root = document.getElementById('prompt-list');
     if (!root) return;
 
-    /* <div>, ikke <p>: raden inneholder selve velgeren, og et <div> inne i
-       et <p> er ugyldig markup den dagen noen ser på den. */
-    pickerRow = el('div', 'langpick');
-    pickerLabel = el('span', 'langpick__label', t('lang-label'));
-    var host = el('span');
-    pickerRow.appendChild(pickerLabel);
-    pickerRow.appendChild(host);
-    setPicked = buildPicker(host, loadLanguage);
-    setPicked(state.code);
+    var lp = pickerRow('lang-label');
+    langRow = lp.row;
+    langLabel = lp.label;
+    setLang = buildPicker(lp.host, LANGS, 'lang', loadLanguage);
+    setLang(state.code);
 
     getJson('/assets/prompts/manifest.json').then(function (manifest) {
       state.manifest = manifest;
+      var families = manifest.subjectFamilies || {};
+      var codes = Object.keys(families);
+      if (codes.indexOf(state.familyCode) === -1 && codes.length) {
+        state.familyCode = codes[0];
+      }
       var files = [manifest.shared].concat(
         Object.keys(manifest.instructions).map(function (id) {
           return manifest.instructions[id].file;
@@ -389,8 +481,27 @@
         return getJson('/assets/prompts/' + file).then(function (data) {
           state.modules[file] = data;
         }, function () {});
-      }));
+      }).concat(codes.map(function (code) {
+        /* Alle familiene hentes med én gang. Til sammen er de rundt 22 kB,
+           og til gjengjeld koster et bytte ingen venting — og lista i
+           velgeren kan ta navnene fra filene selv framfor fra en kopi her. */
+        return getJson('/assets/prompts/' + families[code]).then(function (data) {
+          state.families[code] = data;
+        }, function () {});
+      })));
     }).then(function () {
+      var fp = pickerRow('family-label');
+      familyRow = fp.row;
+      familyLabel = fp.label;
+      /* Rekkefølgen tas fra manifestet, ikke fra hvilken fil som kom først
+         tilbake fra serveren — ellers står lista i en ny rekkefølge for hver
+         lasting. */
+      setFamily = buildPicker(fp.host, Object.keys(state.manifest.subjectFamilies || {})
+        .filter(function (code) { return state.families[code]; })
+        .map(function (code) {
+          return { code: code, name: state.families[code].title || code };
+        }), 'family', pickFamily);
+      setFamily(state.familyCode);
       return loadLanguage(state.code);
     }).catch(function (err) {
       root.appendChild(el('p', 'note', t('load-failed') + ' ' + err.message));
@@ -400,8 +511,10 @@
        script — det har ingen `data-i18n` i18n.js kan nå. */
     if (window.i18n && window.i18n.onChange) {
       window.i18n.onChange(function () {
-        pickerLabel.textContent = t('lang-label');
-        setPicked(state.code);
+        langLabel.textContent = t('lang-label');
+        setLang(state.code);
+        if (familyLabel) familyLabel.textContent = t('family-label');
+        if (setFamily) setFamily(state.familyCode);
         render();
       });
     }
