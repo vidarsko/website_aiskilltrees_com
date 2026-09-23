@@ -923,10 +923,3 @@
   .promptdoc__text { padding-top: 0.35rem; border-bottom: 1px solid var(--rule); }
 }
 
-/* En markert utkast-linje. Skal være lett å få øye på, og lett å fjerne. */
-.draft-flag {
-  padding: var(--space-1) var(--space-2);
-  border-left: 3px solid var(--amber);
-  background: var(--amber-tint);
-  color: var(--amber-text);
-}
