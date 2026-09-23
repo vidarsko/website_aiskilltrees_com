@@ -1,0 +1,42 @@
+{
+  "_comment": "Katalogmetadata for dette treet. Feltene country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst — teksten slås opp der, på leserens språk. En nøkkel som ikke finnes der er en feil og stopper treet i katalogen.",
+  "schemaVersion": 2,
+  "slug": "no-vgs-matte-2p-en-demo",
+  "path": "/trees/no-vgs-matte-2p-en-demo/",
+  "title": "Mathematics 2P (decomposition demo)",
+  "subtitle": "Practical mathematics, Vg2 general studies",
+  "summary": "What the decomposition prompt returns in a single run, before a teacher has revised anything: the first draft for Mathematics 2P from one conversation with a language model, published unedited so that the method can be judged on what it actually produces. The revised tree for this subject is the English copy of Mathematics 2P.",
+  "country": "NO",
+  "institution": "vgs",
+  "division": "vg2",
+  "subjectArea": "mathematics",
+  "language": "en",
+  "curriculum": "LK20",
+  "courseCode": "",
+  "course": "Mathematics 2P (decomposition demo)",
+  "topics": [
+    "Percentages and growth",
+    "Personal finance",
+    "Equations",
+    "Statistics",
+    "Geometry"
+  ],
+  "keywords": [
+    "growth factor",
+    "price index",
+    "real wage",
+    "annuity loan",
+    "standard deviation",
+    "similarity",
+    "scale",
+    "draft",
+    "demo"
+  ],
+  "nodeCount": 83,
+  "skillCount": 50,
+  "conceptCount": 33,
+  "author": "Vidar Skogvoll",
+  "authorUrl": "https://skogvoll.com",
+  "license": "CC BY-SA 4.0",
+  "updated": "2026-09-23"
+}

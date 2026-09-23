@@ -1,0 +1,117 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Mathematics 2P,,,
+,config,,description,"The skills and concepts in Mathematics 2P, from percentages and personal finance to equations, statistics and geometry.",,,
+,config,,language,en,,,
+,config,,learner,student,,,
+,config,,subjectFamily,mathematics,,,
+,config,,features.motivation,true,,,
+,config,,features.exams,false,,,
+,config,,slots.courseName,Mathematics 2P,,,
+,config,,slots.motivationSubject,maths,,,
+,config,,slots.expressionFocus,"leaves out units, rounds too early in a calculation, and gives a number as the answer without saying in words what it means",,,
+,config,,slots.courseSpecifics,"The students are in Norway and their textbooks and exams are in Norwegian: use kroner and Norwegian conditions in examples, and give the Norwegian term in brackets the first time a subject term is used. The digital tools in this course are a spreadsheet and GeoGebra.",,,
+fraction-decimal-percent,concept,Percentages and growth,"Fraction, decimal and percentage","Fraction: a number written as a numerator divided by a denominator, such as 3/4.
+Decimal: a number written with a decimal point, such as 0.75.
+Percentage: a number of hundredths, so 75 % means 75 out of 100.",,,
+convert-fraction-decimal-percent,skill,Percentages and growth,"Convert between fractions, decimals and percentages","convert a number between fraction, decimal and percentage form in every direction, including percentages above 100 % and below 1 %",fraction-decimal-percent,,
+percentage-of-amount,skill,Percentages and growth,Calculate a percentage of an amount,"calculate a given percentage of an amount, by hand for simple percentages and with a calculator for the rest",convert-fraction-decimal-percent,,
+percentage-of-whole,skill,Percentages and growth,Find what percentage one amount is of another,"calculate what percentage a part is of a whole, and say clearly which quantity is the whole",convert-fraction-decimal-percent,,
+percentage-change,concept,Percentages and growth,Percentage change,Percentage change: the size of a change given as a percentage of the value before the change.,fraction-decimal-percent,,
+calculate-percentage-change,skill,Percentages and growth,Calculate a percentage change,"calculate the percentage increase or decrease from one value to another, using the value before the change as the base",percentage-change;percentage-of-whole,,
+percentage-point,concept,Percentages and growth,Percentage point,"Percentage point: the unit for the difference between two percentages, so a rise from 20 % to 25 % is 5 percentage points.",percentage-change,,
+percentage-points-vs-percent,skill,Percentages and growth,Explain the difference between percentage points and per cent,"calculate both the change in percentage points and the percentage change for the same situation, and explain why the two numbers differ",percentage-point;calculate-percentage-change,,
+power,concept,Percentages and growth,Power,"Power: a product of equal factors written with an exponent, so 1.05^3 means 1.05 · 1.05 · 1.05.",,,
+growth-factor,concept,Percentages and growth,Growth factor,"Growth factor: the number a value is multiplied by to give the value after a percentage change, such as 1.25 for an increase of 25 % and 0.75 for a decrease of 25 %.",percentage-change,,
+use-growth-factor,skill,Percentages and growth,Calculate a new value with a growth factor,"find the growth factor for a given percentage increase or decrease, use it to calculate the new value, and find the percentage change from a given growth factor",growth-factor;convert-fraction-decimal-percent,,
+find-original-value,skill,Percentages and growth,Find the value before a percentage change,"calculate the original value when the new value and the percentage change are known, by dividing by the growth factor",use-growth-factor,,
+repeated-percentage-change,skill,Percentages and growth,Calculate repeated percentage changes,"calculate the result of several percentage changes in a row, including changes of different sizes, and explain why an increase of 10 % followed by a decrease of 10 % does not give the starting value",use-growth-factor;power,,
+linear-exponential-growth,concept,Percentages and growth,Linear and exponential growth,"Linear growth: growth in which a quantity changes by the same amount in each period.
+Exponential growth: growth in which a quantity changes by the same percentage in each period, so it is multiplied by the same growth factor each time; with a growth factor below 1 it is called exponential decay.",growth-factor;power,,
+model-exponential-growth,skill,Percentages and growth,Model exponential growth with a formula,"write an expression of the form start value · growth factor^n for a practical situation, use it to calculate values, and say what n stands for",linear-exponential-growth;repeated-percentage-change,,
+linear-vs-exponential,skill,Percentages and growth,Explain the difference between linear and exponential growth,"decide from a description or a table whether a situation shows linear or exponential growth, and explain what makes the difference",linear-exponential-growth,,
+spreadsheet-formulas,skill,Percentages and growth,Write formulas in a spreadsheet,"write a formula that refers to other cells, copy it down a column so that it works in every row, and lock a cell reference with $ where it must not move",,,
+growth-in-spreadsheet,skill,Percentages and growth,Model growth in a spreadsheet,"set up a spreadsheet that calculates a value period by period with a growth factor, and use it or a graph to find when the value passes a given level",model-exponential-growth;spreadsheet-formulas,,
+price-index,concept,Personal finance,Price index,"Price index: a number that shows the price level in a given year compared with a base year, where the base year is set to 100; in Norway the usual one is the consumer price index (konsumprisindeks, KPI).",fraction-decimal-percent,,
+calculate-with-index,skill,Personal finance,Calculate with a price index,"use index numbers to convert a price or an amount from one year to another, and find the percentage price change between two years",price-index;solve-proportion;calculate-percentage-change,,
+krone-value,concept,Personal finance,Value of the krone,"Value of the krone (kroneverdi): how much one krone buys compared with the base year, calculated as 100 divided by the price index.",price-index,,
+real-wage,concept,Personal finance,Real wage and purchasing power,"Purchasing power: how much a sum of money can buy.
+Real wage (reallønn): the wage as paid, converted to the price level of a chosen base year so that wages from different years can be compared.",price-index,,
+calculate-krone-value-real-wage,skill,Personal finance,Calculate the value of the krone and real wage,"calculate the value of the krone for a given year, and calculate the real wage from a wage and the price index",krone-value;real-wage;calculate-with-index,,
+compare-purchasing-power,skill,Personal finance,Compare purchasing power across years,"decide whether purchasing power has risen or fallen between two years by comparing real wages, and explain the conclusion in words",calculate-krone-value-real-wage,,
+gross-net-income,concept,Personal finance,Gross and net income,"Gross income: pay before tax and other deductions.
+Net income: the amount paid out after tax and other deductions.",,,
+withholding-tax,concept,Personal finance,Tax card and withholding tax,"Tax card (skattekort): the notice from the Tax Administration that tells the employer how much tax to deduct.
+Withholding tax (forskuddstrekk): tax deducted from each payment of wages according to the tax card, either as a fixed percentage or from a tax table.",fraction-decimal-percent,,
+calculate-gross-pay,skill,Personal finance,Calculate gross pay,"calculate gross pay from hourly wage, hours worked and overtime supplements given as percentages",percentage-of-amount,,
+calculate-net-pay,skill,Personal finance,Calculate net pay,"calculate net pay from gross pay, withholding tax by percentage or tax table, and other deductions such as pension contributions or union fees, and check the figures on a payslip",calculate-gross-pay;gross-net-income;withholding-tax,,
+make-budget,skill,Personal finance,Make a budget,"set up a monthly budget with income and expenses in a spreadsheet, find out whether it balances, and suggest realistic changes if it does not",calculate-net-pay;spreadsheet-formulas,,
+interest,concept,Personal finance,Interest and interest rate,"Interest: what you pay for borrowing money, or are paid for saving it.
+Interest rate: the interest for one year given as a percentage of the amount.",fraction-decimal-percent,,
+compound-interest,skill,Personal finance,Calculate savings with compound interest,"calculate how an amount grows over several years when interest is added each year, using a growth factor and a power",interest;model-exponential-growth,,
+loan-types,concept,Personal finance,"Instalment, serial loan and annuity loan","Instalment (avdrag): the part of a loan payment that pays down the debt itself.
+Serial loan (serielån): a loan where the instalment is the same every period, so the payment falls as the interest falls.
+Annuity loan (annuitetslån): a loan where the total payment is the same every period, so the interest share falls and the instalment share rises.",interest,,
+repayment-plan,skill,Personal finance,Set up a repayment plan for a loan,"set up a repayment plan in a spreadsheet for a serial loan and for an annuity loan, and find the total interest paid over the loan period",loan-types;spreadsheet-formulas,,
+effective-interest-rate,concept,Personal finance,Effective interest rate,"Effective interest rate: the total yearly cost of a loan including fees, given as a percentage of the amount borrowed; it is the figure to use when comparing loans.",interest,,
+compare-loans,skill,Personal finance,Compare loan offers,"compare two or more loan offers using effective interest rate, total cost and monthly payment, and argue for which one suits a given situation",effective-interest-rate;repayment-plan,,
+credit-card,concept,Personal finance,Credit card,"Credit card: a card that lets you borrow up to a set limit, usually with an interest-free period followed by a high interest rate on any amount not paid back.",interest,,
+consequences-of-credit,skill,Personal finance,Evaluate the consequences of loans and credit cards,"calculate what a credit card debt or consumer loan grows to over time when only small payments are made, and use the numbers to argue for or against a financial choice",credit-card;effective-interest-rate;compound-interest;make-budget,,
+equation,concept,Equations,Equation and solution,"Equation: a statement that two expressions are equal, containing at least one unknown.
+Solution: a value of the unknown that makes both sides equal.",,,
+solve-linear-equation,skill,Equations,Solve a linear equation,"solve a linear equation by doing the same operation on both sides, including equations with brackets and fractions, and check the answer by substituting it back",equation,,
+proportionality,concept,Equations,Proportional quantities,"Proportional quantities: two quantities whose ratio is always the same, so that doubling one doubles the other.",fraction-decimal-percent,,
+solve-proportion,skill,Equations,Solve a proportion,set up an equation of the form a/b = x/d from a practical situation and solve it,proportionality;solve-linear-equation,,
+equation-from-text,skill,Equations,Set up an equation from a text,"translate a practical problem into an equation, solve it, and answer in a sentence with the correct unit",solve-linear-equation,,
+system-of-equations,concept,Equations,System of equations,"System of equations: two or more equations with the same unknowns that must be true at the same time; its solution is the set of values that makes every equation true.",equation,,
+solve-system-algebraically,skill,Equations,Solve a system of equations by calculation,"solve a system of two linear equations with two unknowns by substitution or elimination, and check the solution in both equations",system-of-equations;solve-linear-equation,,
+coordinate-system,concept,Equations,Coordinate system,"Coordinate system: two number lines at right angles, the x-axis and the y-axis, where each point is given by a pair (x, y).",,,
+straight-line,concept,Equations,Slope and constant term,"Slope: how much y changes when x increases by 1 on a straight line y = ax + b; it is the number a.
+Constant term: the value of y when x is 0, where the line crosses the y-axis; it is the number b.",coordinate-system,,
+solve-system-graphically,skill,Equations,Solve a system of equations graphically,"draw both lines of a system of two linear equations with a digital tool, read off the point where they cross, and explain why that point is the solution",system-of-equations;straight-line,,
+system-from-text,skill,Equations,Set up a system of equations from a text,"translate a practical problem with two unknowns into a system of equations, solve it, and answer in words",solve-system-algebraically;equation-from-text,,
+inequality,concept,Equations,Inequality,"Inequality: a statement that one expression is greater than or less than another, written with <, >, ≤ or ≥; its solution is usually a whole range of values.",equation,,
+solve-inequality,skill,Equations,Solve a linear inequality,"solve a linear inequality, turning the inequality sign when multiplying or dividing by a negative number, and show the solution on a number line",inequality;solve-linear-equation,,
+compare-solution-strategies,skill,Equations,Compare strategies for solving equations,"solve the same equation or system in more than one way, such as by calculation, from a graph, by trial and improvement or with a digital tool, and argue for which method suits which problem",solve-linear-equation;solve-system-algebraically;solve-system-graphically,,
+data-types,concept,Statistics,Categorical and numerical data,"Categorical data: observations that are categories, such as favourite sport.
+Numerical data: observations that are numbers from counting or measuring, such as height.",,,
+frequency,concept,Statistics,Frequency,"Frequency: how many times a value occurs in a dataset.
+Relative frequency: the frequency as a fraction or percentage of all the observations.
+Cumulative frequency: the sum of the frequencies up to and including a value.",fraction-decimal-percent,,
+frequency-table,skill,Statistics,Make a frequency table,"sort raw data into a frequency table with columns for frequency, relative frequency and cumulative frequency",frequency,,
+draw-diagram,skill,Statistics,Present data in a suitable diagram,"draw bar charts, pie charts and line charts by hand and with a digital tool, and choose a type that suits the data and the message",frequency-table;data-types,,
+grouped-data,concept,Statistics,Class interval and class midpoint,"Class interval: a range of values that observations are grouped into, such as 10-20 minutes.
+Class midpoint: the value halfway between the ends of a class interval.",frequency,,
+group-data,skill,Statistics,Group data and draw a histogram,"group numerical data into class intervals, make a frequency table for the groups, and draw a histogram",grouped-data;frequency-table,,
+central-tendency,concept,Statistics,"Mean, median and mode","Mean: the sum of all the observations divided by the number of observations.
+Median: the middle value when the observations are sorted, or the mean of the two middle values.
+Mode: the value that occurs most often.",,,
+calculate-central-tendency,skill,Statistics,"Calculate mean, median and mode","calculate mean, median and mode from a list of observations and from a frequency table",central-tendency;frequency-table,,
+grouped-mean,skill,Statistics,Estimate the mean of grouped data,"estimate the mean of grouped data using class midpoints, and explain why the result is only an estimate",calculate-central-tendency;group-data,,
+outlier,concept,Statistics,Outlier,Outlier: an observation that lies far from the rest of the data.,,,
+spread-quartiles,concept,Statistics,Range and interquartile range,"Range: the difference between the largest and the smallest observation.
+Quartiles: the three values that split the sorted observations into four equal parts; the middle one is the median.
+Interquartile range: the difference between the upper and the lower quartile.",central-tendency,,
+calculate-range-iqr,skill,Statistics,Calculate range and interquartile range,"find the range, the quartiles and the interquartile range of a dataset",spread-quartiles;calculate-central-tendency,,
+standard-deviation,concept,Statistics,Standard deviation,"Standard deviation: a measure of how far the observations typically lie from the mean; a small value means the data are gathered close to the mean.",central-tendency,,
+calculate-standard-deviation,skill,Statistics,Find the standard deviation with a digital tool,"find the standard deviation of a dataset with a spreadsheet or other digital tool, and explain what a large or small value says about the data",standard-deviation;spreadsheet-formulas,,
+choose-measures,skill,Statistics,Choose suitable measures for a dataset,"decide which measure of central tendency and which measure of spread best describe a given dataset, including when it has outliers, and justify the choice",calculate-central-tendency;calculate-range-iqr;calculate-standard-deviation;outlier,,
+analyse-dataset,skill,Statistics,Analyse and present a real dataset,"find or collect a dataset from the local community or the media, summarise it with suitable measures and diagrams, and present the conclusions together with their limitations",choose-measures;draw-diagram,,
+evaluate-media-statistics,skill,Statistics,Evaluate statistics in the media,"spot misleading statistics in the media, such as cut axes, percentages without a stated base, percentage points confused with per cent, or a mean pulled by outliers, and explain what an honest presentation would show",draw-diagram;choose-measures;percentage-points-vs-percent,,
+convert-units,skill,Geometry,Convert between units,"convert between units of length, area and volume, including between litres and cubic decimetres",,,
+area-perimeter,concept,Geometry,Perimeter and area,"Perimeter: the length of the boundary around a figure.
+Area: the size of the surface a figure covers, measured in square units.",,,
+calculate-area-perimeter,skill,Geometry,Calculate perimeter and area,"calculate the perimeter and area of rectangles, triangles, parallelograms, trapeziums, circles and figures made up of these",area-perimeter,,
+volume-surface-area,concept,Geometry,Volume and surface area,"Volume: the amount of space a solid takes up, measured in cubic units.
+Surface area: the total area of all the faces of a solid.",area-perimeter,,
+calculate-volume,skill,Geometry,Calculate volume and surface area,"calculate the volume and surface area of prisms and cylinders, and the volume of pyramids, cones and spheres, giving the answer in a suitable unit",volume-surface-area;calculate-area-perimeter;convert-units,,
+pythagoras,concept,Geometry,Pythagoras' theorem,"Pythagoras' theorem: in a right-angled triangle, the square of the longest side (the hypotenuse) equals the sum of the squares of the two other sides.",power,,
+use-pythagoras,skill,Geometry,Use Pythagoras' theorem,"calculate an unknown side in a right-angled triangle, and use the theorem to check whether a corner is square in practical work",pythagoras,,
+similar-figures,concept,Geometry,Similar figures,"Similar figures: figures with the same shape, where corresponding angles are equal and corresponding sides are in the same ratio.",proportionality,,
+identify-similar,skill,Geometry,Decide whether two figures are similar,"decide whether two triangles or other figures are similar, and pair up their corresponding sides and angles",similar-figures,,
+calculate-similar,skill,Geometry,Calculate sides in similar figures,"calculate an unknown side in similar figures by setting up a proportion, including in practical situations such as finding the height of a tree from its shadow",identify-similar;solve-proportion,,
+scale,concept,Geometry,Scale,"Scale: the ratio between a length on a map or drawing and the corresponding length in reality, written for example as 1 : 50 000.",proportionality,,
+calculate-with-scale,skill,Geometry,Calculate with scale,"convert between lengths on a map or drawing and lengths in reality, and find the scale from a pair of corresponding lengths",scale;convert-units,,
+scale-drawing,skill,Geometry,Make a scale drawing,choose a suitable scale and make an accurate scale drawing of a real object or room,calculate-with-scale,,
+scaling-area-volume,skill,Geometry,Explain how area and volume change when a figure is enlarged,"explain and use the fact that when all lengths are multiplied by k, the area is multiplied by k^2 and the volume by k^3",calculate-similar;calculate-area-perimeter;calculate-volume;power,,
+practical-geometry,skill,Geometry,Solve a practical geometry problem,"plan and carry out a practical task, such as working out the materials for a building or garden project, using scale, area, volume and Pythagoras' theorem, and judge whether the answer is reasonable",calculate-with-scale;calculate-area-perimeter;calculate-volume;use-pythagoras,,
