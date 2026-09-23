@@ -5,7 +5,7 @@
   "path": "/trees/no-vgs-matte-2p-en-demo/",
   "title": "Mathematics 2P (decomposition demo)",
   "subtitle": "Practical mathematics, Vg2 general studies",
-  "summary": "What the decomposition prompt returns in a single run, before a teacher has revised anything: the first draft for Mathematics 2P from one conversation with a language model, published unedited so that the method can be judged on what it actually produces. The revised tree for this subject is the English copy of Mathematics 2P.",
+  "summary": "What the decomposition prompt returns in a single run, before a teacher has revised anything: the first draft for Mathematics 2P from one conversation with a language model, published unedited so that the method can be judged on what it actually produces. The Norwegian tree for the same subject is the revised one to compare it against.",
   "country": "NO",
   "institution": "vgs",
   "division": "vg2",
