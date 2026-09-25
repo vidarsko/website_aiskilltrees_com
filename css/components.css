@@ -396,7 +396,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Tiles — the three entry points. Square, hairline border, no shadow.
+   Tiles — the entry points on the front page. Square, hairline border, no shadow.
    Reflow with auto-fit rather than breakpoints.
    -------------------------------------------------------------------------- */
 
@@ -406,6 +406,19 @@
   gap: 1px;                      /* the hairline IS the gap: tiles sit flush */
   background: var(--rule);       /* shows through the 1px gaps as the rule */
   border: 1px solid var(--rule);
+}
+
+/* Four tiles (the front page since 2026-09-25). auto-fit alone would leave
+   three across and one orphan at the widest content width (4 × 18rem does
+   not fit in 1280px minus the gutters), so this grid steps on the system's
+   two breakpoints instead: stacked on a phone, 2 × 2 from 768px, 4 across
+   from 1024px. */
+.tiles--four { grid-template-columns: 1fr; }
+@media (min-width: 768px) {
+  .tiles--four { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .tiles--four { grid-template-columns: repeat(4, 1fr); }
 }
 
 .tile {

@@ -123,16 +123,31 @@
           "sv": "Hämta specifikationen →"
       },
       "tile-3-title": {
+          "en": "Submit your tree",
+          "nb": "Send inn treet ditt",
+          "sv": "Skicka in ditt träd"
+      },
+      "tile-3-body": {
+          "en": "Send in a tree you have made, to have it published in the catalogue here under your name.",
+          "nb": "Send inn et tre du har laget, og få det publisert i katalogen her under ditt navn.",
+          "sv": "Skicka in ett träd du har gjort och få det publicerat i katalogen här under ditt namn."
+      },
+      "tile-3-go": {
+          "en": "How to submit →",
+          "nb": "Slik sender du inn →",
+          "sv": "Så skickar du in →"
+      },
+      "tile-4-title": {
           "en": "Research",
           "nb": "Forskning",
           "sv": "Forskning"
       },
-      "tile-3-body": {
+      "tile-4-body": {
           "en": "Background reading on the design, and the paper describing the method.",
           "nb": "Bakgrunnslesning om designet, og artikkelen som beskriver metoden.",
           "sv": "Bakgrundsläsning om designen, och artikeln som beskriver metoden."
       },
-      "tile-3-go": {
+      "tile-4-go": {
           "en": "Read the paper →",
           "nb": "Les artikkelen →",
           "sv": "Läs artikeln →"
@@ -235,14 +250,17 @@
       </div>
     </section>
 
-    <!-- Three entry points -->
+    <!-- Four entry points -->
     <section class="band band--alt">
       <div class="band__inner">
         <p class="eyebrow" data-i18n="start-eyebrow">Start here</p>
-        <div class="tiles">
+        <div class="tiles tiles--four">
 
-          <!-- All three now have real destinations. 02 and 03 are placeholder
-               PAGES rather than dead links — the copy there says so. -->
+          <!-- All four have real destinations. 04 (/research/) is still a
+               placeholder PAGE rather than a dead link — the copy there says
+               so. 03 was added 2026-09-25; research moved from 03 to 04, and
+               its data-track-cta id moved with it (tile-03-research ->
+               tile-04-research). See CHANGELOG-landing-page.md. -->
           <a class="tile" href="/trees/" data-track-cta="tile-01-existing-trees">
             <span class="tile__index">01</span>
             <h3 class="tile__title" data-i18n="tile-1-title">Existing skill trees</h3>
@@ -263,13 +281,23 @@
             <span class="tile__go" aria-hidden="true" data-i18n="tile-2-go">Get the spec &rarr;</span>
           </a>
 
-          <a class="tile" href="/research/" data-track-cta="tile-03-research">
+          <a class="tile" href="/contribute/" data-track-cta="tile-03-submit-your-tree">
             <span class="tile__index">03</span>
-            <h3 class="tile__title" data-i18n="tile-3-title">Research</h3>
+            <h3 class="tile__title" data-i18n="tile-3-title">Submit your tree</h3>
             <p class="tile__body" data-i18n="tile-3-body">
+              Send in a tree you have made, to have it published in the catalogue here
+              under your name.
+            </p>
+            <span class="tile__go" aria-hidden="true" data-i18n="tile-3-go">How to submit &rarr;</span>
+          </a>
+
+          <a class="tile" href="/research/" data-track-cta="tile-04-research">
+            <span class="tile__index">04</span>
+            <h3 class="tile__title" data-i18n="tile-4-title">Research</h3>
+            <p class="tile__body" data-i18n="tile-4-body">
               Background reading on the design, and the paper describing the method.
             </p>
-            <span class="tile__go" aria-hidden="true" data-i18n="tile-3-go">Read the paper &rarr;</span>
+            <span class="tile__go" aria-hidden="true" data-i18n="tile-4-go">Read the paper &rarr;</span>
           </a>
 
         </div>

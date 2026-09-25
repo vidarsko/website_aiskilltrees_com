@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit your tree | AI Skill Trees</title>
+  <meta name="description" content="How to submit a skill tree you have made to the catalogue on this site." data-i18n-attr="content:meta-description">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <script src="/js/analytics.js"></script>
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/mail-link.js" defer></script>
+
+  <!--
+    INNSENDING, FORELØPIG PÅ E-POST. Sida beskriver med vilje ingen
+    detaljert prosess: bidragsmodellen er ikke avgjort, og det eneste som
+    er lovet er at man kan sende tree.csv på e-post. Se
+    contribute_private/CHANGELOG.md.
+
+    Adressen står ikke hel noe sted i denne fila. Den settes sammen av
+    js/mail-link.js fra data-mail-user og data-mail-domain, og <noscript>
+    viser en omskrevet utgave uten JavaScript. Ikke skriv adressen inn i
+    ordboka eller markupen.
+
+    Sida ligger ikke i navigasjonen (js/header.js). Den nås fra flis 03 på
+    forsida og fra /make-your-own/.
+  -->
+  <script type="application/json" id="i18n-dict">
+  {
+      "doc-title": {
+          "en": "Submit your tree | AI Skill Trees",
+          "nb": "Send inn treet ditt | AI Skill Trees",
+          "sv": "Skicka in ditt träd | AI Skill Trees"
+      },
+      "meta-description": {
+          "en": "How to submit a skill tree you have made to the catalogue on this site.",
+          "nb": "Slik sender du inn et ferdighetstre du har laget, til katalogen på denne sida.",
+          "sv": "Så skickar du in ett färdighetsträd du har gjort till katalogen på den här sidan."
+      },
+      "page-eyebrow": {
+          "en": "For teachers",
+          "nb": "For lærere",
+          "sv": "För lärare"
+      },
+      "page-heading": {
+          "en": "Submit your tree",
+          "nb": "Send inn treet ditt",
+          "sv": "Skicka in ditt träd"
+      },
+      "page-lede": {
+          "en": "If you have made a skill tree for your subject, you can send it in to have it added to the catalogue on this site.",
+          "nb": "Har du laget et ferdighetstre for faget ditt, kan du sende det inn og få det lagt til i katalogen på denne sida.",
+          "sv": "Har du gjort ett färdighetsträd för ditt ämne kan du skicka in det och få det tillagt i katalogen på den här sidan."
+      },
+      "how-body": {
+          "en": "For now, email your tree.csv to me:",
+          "nb": "Foreløpig sender du tree.csv-fila di til meg på e-post:",
+          "sv": "Tills vidare mejlar du din tree.csv-fil till mig:"
+      },
+      "terms-eyebrow": {
+          "en": "Before you send it",
+          "nb": "Før du sender",
+          "sv": "Innan du skickar"
+      },
+      "terms-1": {
+          "en": "I read every tree before it is published.",
+          "nb": "Jeg leser hvert tre før det publiseres.",
+          "sv": "Jag läser varje träd innan det publiceras."
+      },
+      "terms-2": {
+          "en": "A tree is published under the name of the person who made it.",
+          "nb": "Et tre publiseres under navnet til den som har laget det.",
+          "sv": "Ett träd publiceras under namnet på den som har gjort det."
+      },
+      "terms-3": {
+          "en": "The trees and the instructions on this site are licensed CC BY 4.0: anyone may use and adapt them, as long as they credit the author. A tree you submit is published under that licence.",
+          "nb": "Trærne og instruksene på denne sida er lisensiert CC BY 4.0: hvem som helst kan bruke og bearbeide dem, så lenge de oppgir hvem som har laget dem. Et tre du sender inn, publiseres under den lisensen.",
+          "sv": "Träden och instruktionerna på den här sidan är licensierade CC BY 4.0: vem som helst får använda och bearbeta dem, så länge de anger vem som har gjort dem. Ett träd du skickar in publiceras under den licensen."
+      },
+      "terms-4": {
+          "en": "Contributions through pull requests on GitHub are not open.",
+          "nb": "Bidrag via pull requests på GitHub er ikke åpnet.",
+          "sv": "Bidrag via pull requests på GitHub är inte öppnade."
+      },
+      "own-body": {
+          "en": "You do not need to submit anything to use the method. The builder gives you your own file, to use and share as you like.",
+          "nb": "Du trenger ikke sende inn noe for å bruke metoden. Byggeren gir deg din egen fil, som du kan bruke og dele som du vil.",
+          "sv": "Du behöver inte skicka in något för att använda metoden. Byggaren ger dig din egen fil, som du kan använda och dela som du vill."
+      },
+      "own-cta": {
+          "en": "Make your own",
+          "nb": "Lag ditt eget",
+          "sv": "Gör ditt eget"
+      },
+      "footer-affiliation": {
+          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
+          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
+          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
+      },
+      "footer-line-1": {
+          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+      },
+      "footer-line-2": {
+          "en": "The engine is MIT-licensed; the instructions and the trees are CC BY 4.0.",
+          "nb": "Motoren er MIT-lisensiert; instruksene og trærne er CC BY 4.0.",
+          "sv": "Motorn är MIT-licensierad; instruktionerna och träden är CC BY 4.0."
+      }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="siteheader" data-site-header></header>
+
+  <main>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="page-eyebrow">For teachers</p>
+        <h1 data-i18n="page-heading">Submit your tree</h1>
+        <div class="prose">
+          <p class="lede-p" data-i18n="page-lede">If you have made a skill tree for your subject, you can send it in to have it added to the catalogue on this site.</p>
+          <p data-i18n="how-body">For now, email your tree.csv to me:</p>
+          <!-- The address is assembled by js/mail-link.js; see the comment in <head>. -->
+          <p class="lede-p"><a data-mail-user="vidarsko" data-mail-domain="uio.no" hidden></a></p>
+          <noscript><p class="lede-p">vidarsko [at] uio [dot] no</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--alt">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="terms-eyebrow">Before you send it</p>
+        <ul class="checklist">
+          <li data-i18n="terms-1">I read every tree before it is published.</li>
+          <li data-i18n="terms-2">A tree is published under the name of the person who made it.</li>
+          <li data-i18n="terms-3">The trees and the instructions on this site are licensed CC BY 4.0: anyone may use and adapt them, as long as they credit the author. A tree you submit is published under that licence.</li>
+          <li data-i18n="terms-4">Contributions through pull requests on GitHub are not open.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band band--tint band--tight">
+      <div class="band__inner">
+        <div class="prose">
+          <p data-i18n="own-body">You do not need to submit anything to use the method. The builder gives you your own file, to use and share as you like.</p>
+        </div>
+        <a class="btn btn--ghost" href="/make-your-own/" data-i18n="own-cta">Make your own</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="band band--dark sitefooter">
+    <div class="band__inner sitefooter__inner">
+      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
+      <p data-i18n="footer-line-2">The engine is MIT-licensed; the instructions and the trees are CC BY 4.0.</p>
+      <p class="sitefooter__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
