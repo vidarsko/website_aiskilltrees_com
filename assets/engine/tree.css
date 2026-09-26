@@ -54,14 +54,17 @@
   --radius-pill:   9999px;
 
   /* ---- Node types --------------------------------------------------------
-     Begrep (a concept) and ferdighet (a skill) are told apart by fill and by
-     the label on the node itself, never by fill alone. Both fills are pale
-     tints so that the edge lines behind a node never read through the card. */
+     Begrep (a concept) is green and ferdighet (a skill) is orange, and the
+     two are also told apart by the label on the node itself, never by fill
+     alone. Both fills are opaque, so the edge lines behind a node never read
+     through the card. The skill fill is 40% amber rather than the pale
+     --amber-tint: at the tint it read as beige beside the green, and the two
+     types stopped looking like two colours (Vidar, 2026-09-26). */
   --begrep-bg:        var(--primary-tint);
   --begrep-border:    color-mix(in srgb, var(--primary) 55%, transparent);
 
-  --ferdighet-bg:     var(--amber-tint);
-  --ferdighet-border: color-mix(in srgb, var(--amber) 60%, transparent);
+  --ferdighet-bg:     color-mix(in srgb, var(--amber) 40%, var(--surface));
+  --ferdighet-border: var(--amber);
 
   --locked-opacity: 0.45;
 
@@ -1023,7 +1026,11 @@ main {
   border-color: var(--border-strong);
 }
 
-.node-box.type-ferdighet {
+/* The class is `type-${node.type}`, and the type is the English data enum
+   `skill` | `concept` in every language (schema 3). Until 0.16.1 this rule
+   said `.type-ferdighet`, the Norwegian name from before the enum, so no node
+   ever matched it and every skill was drawn as a concept. */
+.node-box.type-skill {
   border-radius: 8px;
   background: var(--ferdighet-bg);
   border-color: var(--ferdighet-border);
