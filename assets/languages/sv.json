@@ -208,6 +208,7 @@
       "country": "Land",
       "language": "Språk",
       "size": "Omfattning",
+      "decompositionVersion": "Nedbrytningsmodell",
       "credits": "Skapad av",
       "author": "Författare",
       "updated": "Senast uppdaterad",

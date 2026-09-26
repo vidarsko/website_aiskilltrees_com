@@ -2,16 +2,16 @@
   "_comment": "Everything that is true of the social sciences and humanities but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"social-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats another family file, that is deliberate: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. Covers social studies, history, religious education and literature. Carries its own `version`, cited separately in the paper's appendix.",
   "family": "social-sciences",
   "title": "Social sciences and humanities",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
 
   "decomposition": {
-    "_comment": "Read at authoring time, not by the engine. See prompts/spec/decomposition.md.",
+    "_comment": "Read at authoring time, not by the engine: the builder appends every family's block to the authoring prompt, after prompts/decomposition.json (its `subjectFamilies` section tells the model so). Every key here that does not start with `_` is text the model reads.",
     "nodeTypeCharacter": "In a subject that is more qualitative than quantitative, mastery is usually a matter of showing successively higher QUALITATIVE command of the material, not of executing a procedure. Skill nodes are therefore formulated with the verbs of the SOLO taxonomy rather than with computational verbs.",
     "soloTaxonomy": {
-      "_comment": "The level NAMES are for reference in this spec only. They must NEVER appear in a tree's own node name, description or instruction — only the verbs are used to formulate node text.",
-      "guidance": "The two lowest levels are in practice already covered by the concept nodes: to recall, identify, describe or give examples of something is exactly what a concept node tests. The point of the taxonomy here is therefore mainly to identify and formulate skill nodes at the HIGHER levels — skills that require the student to connect several concepts into something more than the sum of its parts. The full table is kept because the lower levels are useful as contrast and for placing the upper ones in a whole.",
+      "_comment": "The rule that level names stay out of the tree lived in this comment until 1.1.0, where the model never saw it. It is now the last sentence of `guidance`.",
+      "guidance": "The two lowest levels are in practice already covered by the concept nodes: to recall, identify, describe or give examples of something is exactly what a concept node tests. The point of the taxonomy here is therefore mainly to identify and formulate skill nodes at the HIGHER levels — skills that require the student to connect several concepts into something more than the sum of its parts. The full table is kept because the lower levels are useful as contrast and for placing the upper ones in a whole. The level NAMES are for reference only. They must NEVER appear in a tree's own node name, description or instruction — only the verbs are used to formulate node text.",
       "levels": [
         { "level": 1, "name": "Pre-structural", "description": "The student has not understood the task. The answer is irrelevant, merely restates the question, or rests on guessing.", "verbs": [] },
         { "level": 2, "name": "Uni-structural", "description": "The student focuses on one relevant aspect of the task. The understanding is literal and simple.", "verbs": ["recall", "identify", "reproduce"] },
@@ -23,7 +23,7 @@
     },
     "skillVerbs": "Name a skill node with a verb phrase taken from SOLO level 4 or 5 where the node is a genuine higher-order skill: \"Compare how two sources present the same event\", \"Argue for a position on a conflict of interest, using evidence\". Level 2–3 material usually belongs in a concept node instead.",
     "loadBearingExamples": "Load-bearing vocabulary in these subjects is typically a word that names a contested or technical distinction later nodes depend on — sovereignty, separation of powers, welfare state, source criticism. An everyday political or social word used in its ordinary sense earns no node.",
-    "assessmentContext": "Subjects in this family are often assessed orally or by coursework rather than by a written examination split into parts. Where that is so, turn the aids field off in the subject's configuration and leave it empty for every row."
+    "assessmentContext": "Subjects in this family are often assessed orally or by coursework rather than by a written examination split into parts. Where that is so, leave the `aids` column empty on every row and write no `aids.*` settings — that is all it takes to switch the field off (see `aidsField`)."
   },
 
   "instructions": {

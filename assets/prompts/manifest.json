@@ -1,7 +1,7 @@
 {
-  "_comment": "The index the engine fetches first; everything else is reached from here, so no other prompt filename is hardcoded in engine.js. Each module carries its OWN `version`, because the paper cites them one by one in the appendix -- changing the lesson-plan wording must not invalidate a citation of the practice tutor. ENGLISH IS THE SOURCE OF RECORD in every file under prompts/: they say WHAT the model should do, never what language to say it in. `languages/<code>.json` fills that hole, and `prompts/subjects/<family>.json` adds what is true of one family of subjects but not of all.\n`audience` says WHO an instruction is for. The four with audience `student` are composed by the engine and end up in a student's chat; the two with audience `teacher` are for the person BUILDING a tree, and the engine skips them when it loads a tree -- fetching them on every tree page would cost every reader 20 kB for text no student will ever see. All six are contributions in the same sense and are versioned the same way, which is the point: spec/decomposition.md was the odd one out until 0.3.0.",
+  "_comment": "The index the engine fetches first; everything else is reached from here, so no other prompt filename is hardcoded in engine.js. Each module carries its OWN `version`, because the paper cites them one by one in the appendix -- changing the lesson-plan wording must not invalidate a citation of the practice tutor. ENGLISH IS THE SOURCE OF RECORD in every file under prompts/: they say WHAT the model should do, never what language to say it in. `languages/<code>.json` fills that hole, and `prompts/subjects/<family>.json` adds what is true of one family of subjects but not of all.\n`audience` says WHO an instruction is for. The four with audience `student` are composed by the engine and end up in a student's chat; the two with audience `teacher` are for the person BUILDING a tree, and the engine skips them when it loads a tree -- fetching them on every tree page would cost every reader 20 kB for text no student will ever see. All six are contributions in the same sense and are versioned the same way, which is the point: spec/decomposition.md was the odd one out until 0.3.0.\n`appendsSubjectFamilies` on `authoring` means the composed authoring prompt ends with the `decomposition` block of EVERY family in `subjectFamilies`, headed by its key: a teacher copying the prompt has not told anyone the subject yet, and a chat model cannot fetch the file itself. See the `subjectFamilies` section of decomposition.json.",
   "schemaVersion": 2,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "sourceLanguage": "en",
   "shared": "shared.json",
   "instructions": {
@@ -39,7 +39,8 @@
       "file": "authoring.json",
       "title": "Authoring an own skill tree",
       "audience": "teacher",
-      "appends": "decomposition"
+      "appends": "decomposition",
+      "appendsSubjectFamilies": true
     }
   },
   "subjectFamilies": {

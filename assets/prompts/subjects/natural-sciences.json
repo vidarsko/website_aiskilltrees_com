@@ -2,12 +2,12 @@
   "_comment": "Everything that is true of the natural sciences but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"natural-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats mathematics.json, that is deliberate: the sciences are quantitative too, and a physics teacher should not have to read the maths file to find out what applies to them. Covers physics, chemistry, biology and general science. Carries its own `version`, cited separately in the paper's appendix.",
   "family": "natural-sciences",
   "title": "Natural sciences",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
 
   "decomposition": {
-    "_comment": "Read at authoring time, not by the engine. See prompts/spec/decomposition.md.",
+    "_comment": "Read at authoring time, not by the engine: the builder appends every family's block to the authoring prompt, after prompts/decomposition.json (its `subjectFamilies` section tells the model so). Every key here that does not start with `_` is text the model reads.",
     "nodeTypeCharacter": "The sciences carry two kinds of skill node, and both need representing. The first is the quantitative skill — a calculation or a procedure on symbols — and it decomposes exactly as mathematics does. The second is the investigative skill: planning an investigation, controlling a variable, estimating uncertainty, judging a source of error, arguing from evidence to a conclusion. These are genuine skills with their own prerequisites, and a decomposition that records only the quantitative ones will misrepresent the subject, because the curriculum usually states the investigative ones explicitly.",
     "skillVerbs": "Name a skill node with a verb phrase for what the student does: \"Calculate the concentration of a solution after dilution\", \"Plan an investigation that controls one variable\", \"Judge the sources of error in a measurement\".",
     "loadBearingExamples": "Load-bearing scientific vocabulary typically earns a node when the subject gives an everyday word a precise technical meaning that later nodes depend on — work, energy, power, current, mole, species. The everyday word itself does not: \"energy\" in the sense of feeling energetic earns no node, while energy as a conserved quantity with a unit does. Watch for the word whose technical sense actively CONTRADICTS the everyday one (work, weight, theory); these are load-bearing almost by definition, because the everyday meaning will otherwise be carried forward silently.",

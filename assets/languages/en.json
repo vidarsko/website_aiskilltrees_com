@@ -42,19 +42,19 @@
     "close": "✕ Close",
     "closeLower": "✕ close",
     "copied": "Copied!",
-    "copyFallback": "Could not copy automatically - copy the text below manually:",
+    "copyFallback": "Could not copy automatically — copy the text below manually:",
     "errorBanner": "⚠ {n} problem(s) found in the data files (see console for details):",
     "errorCsv": "The spreadsheet could not be read on row {row}: {message}",
-    "errorUnknownDep": "Node «{id}» lists «{dep}» as a prerequisite, but no node has that id.",
-    "errorNoTopic": "Node «{id}» has no topic, and ends up in the catch-all column «{topic}».",
-    "errorUnknownExamNode": "exams.csv refers to the node id «{id}», which does not exist in tree.csv.",
+    "errorUnknownDep": "Node “{id}” lists “{dep}” as a prerequisite, but no node has that id.",
+    "errorNoTopic": "Node “{id}” has no topic, and ends up in the catch-all column “{topic}”.",
+    "errorUnknownExamNode": "exams.csv refers to the node id “{id}”, which does not exist in tree.csv.",
     "errorCycle": "These nodes are prerequisites for each other, in a circle: {cycle}. One of those links has to go.",
-    "errorUnknownConfig": "Unknown setting «{key}» on row {row} of tree.csv. Nothing was applied.",
-    "errorUnknownLearner": "Unknown value «{value}» for the setting «learner» on row {row} of tree.csv. The values this language has: {valid}.",
-    "errorUnknownPromptSection": "Unknown section «{section}» in the prompt row on row {row} of tree.csv. Nothing was applied.",
-    "errorUnknownPromptTarget": "The prompt row on row {row} of tree.csv is aimed at «{name}», which is not an instruction this tree composes. Nothing was applied.",
-    "errorDidYouMean": "Did you mean «{key}»?",
-    "errorMissingConfig": "tree.csv has no config row for «{key}», which is required.",
+    "errorUnknownConfig": "Unknown setting “{key}” on row {row} of tree.csv. Nothing was applied.",
+    "errorUnknownLearner": "Unknown value “{value}” for the setting “learner” on row {row} of tree.csv. The values this language has: {valid}.",
+    "errorUnknownPromptSection": "Unknown section “{section}” in the prompt row on row {row} of tree.csv. Nothing was applied.",
+    "errorUnknownPromptTarget": "The prompt row on row {row} of tree.csv is aimed at “{name}”, which is not an instruction this tree composes. Nothing was applied.",
+    "errorDidYouMean": "Did you mean “{key}”?",
+    "errorMissingConfig": "tree.csv has no config row for “{key}”, which is required.",
     "nodeType": {
       "skill": "skill",
       "concept": "concept"
@@ -77,36 +77,36 @@
         {
           "id": "menuButton",
           "heading": "The menu button",
-          "body": "Press the ☰ button at the bottom left, next to this help button, to open a menu with the back link, light/dark mode, your progress and the other buttons on the page - explained below."
+          "body": "Press the ☰ button at the bottom left, next to this help button, to open a menu with the back link, light/dark mode, your progress and the other buttons on the page — explained below."
         },
         {
           "id": "map",
           "heading": "The map",
-          "body": "The map shows how skills and concepts build on one another, from the most basic on the left to the most composite on the right. Boxes you do not have the prerequisites for yet appear grey and locked - tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
+          "body": "The map shows how skills and concepts build on one another, from the most basic on the left to the most composite on the right. Boxes you do not have the prerequisites for yet appear grey and locked — tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
         },
         {
           "id": "clickBox",
           "heading": "Click a box",
-          "body": "When you click a box you get the prerequisites, a full description of the learning goal, and an AI instruction you can copy and paste into an AI chat to practise that particular skill. Mark the box as mastered when you know it - your progress is saved in your browser, and you can remove the mark again whenever you like."
+          "body": "When you click a box you get the prerequisites, a full description of the learning goal, and an AI instruction you can copy and paste into an AI chat to practise that particular skill. Mark the box as mastered when you know it — your progress is saved in your browser, and you can remove the mark again whenever you like."
         },
         {
           "id": "goalIndex",
-          "heading": "«Show all learning goals»",
-          "body": "This button gives you a single systematic list of every learning goal in the course, sorted by topic - useful when you want an overview or want to read the whole list without clicking through the map. Each goal shows its status: ✓ means you have marked it as mastered, ◇ means you have everything you need to learn it now, and ⊘ shows which goals you should take first (with their code, e.g. C1)."
+          "heading": "“Show all learning goals”",
+          "body": "This button gives you a single systematic list of every learning goal in the course, sorted by topic — useful when you want an overview or want to read the whole list without clicking through the map. Each goal shows its status: ✓ means you have marked it as mastered, ◇ means you have everything you need to learn it now, and ⊘ shows which goals you should take first (with their code, e.g. C1)."
         },
         {
           "id": "search",
-          "heading": "«Search»",
+          "heading": "“Search”",
           "body": "The search looks in the name, the description and the topic of every learning goal, and marks where the word occurs. It is the quickest way into the map when you remember a word from a learning goal but not which topic it sits under. Click a result to go to the node."
         },
         {
           "id": "lessonPlan",
-          "heading": "«Build a lesson plan» (for teachers)",
-          "body": "At the bottom of «Show all learning goals», teachers can tick the learning goals the next lesson should cover, set the length of the lesson, and get an AI instruction for a complete lesson plan: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. The mastery ticks are your own, in your own browser - they show what you personally have been through, not what the class actually knows."
+          "heading": "“Build a lesson plan” (for teachers)",
+          "body": "At the bottom of “Show all learning goals”, teachers can tick the learning goals the next lesson should cover, set the length of the lesson, and get an AI instruction for a complete lesson plan: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. The mastery ticks are your own, in your own browser — they show what you personally have been through, not what the class actually knows."
         },
         {
           "id": "exam",
-          "heading": "«Make a test from mastered skills»",
+          "heading": "“Make a test from mastered skills”",
           "body": "This button gives you an AI instruction for a test covering a selection of what you have already marked as mastered. Paste it into an AI chat to test yourself across several skills at once."
         },
         {
@@ -117,7 +117,7 @@
         },
         {
           "id": "motivation",
-          "heading": "«Why should I learn this?»",
+          "heading": "“Why should I learn this?”",
           "body": "This button gives you an AI instruction for a short conversation about why the subject is worth learning at all. Paste it into an AI chat if you need a nudge in the right direction.",
           "when": "feature:motivation"
         }
@@ -137,7 +137,7 @@
       "heading": "Search",
       "placeholder": "Search the learning goals …",
       "hint": "Type a word. The search looks in the name, the description and the topic of every learning goal, and you can click straight through to the node in the map.",
-      "noResults": "No learning goal contains «{query}».",
+      "noResults": "No learning goal contains “{query}”.",
       "countOne": "1 learning goal",
       "countMany": "{n} learning goals",
       "openNode": "Go to this node in the map"
@@ -150,7 +150,7 @@
       "button": "Build a lesson plan (for teachers)",
       "title": "Copy an AI instruction for a complete lesson covering the goals you have ticked",
       "minutesAria": "Length of the lesson in minutes",
-      "includeAria": "Include «{name}» in the lesson plan",
+      "includeAria": "Include “{name}” in the lesson plan",
       "selectedNone": "No learning goals selected",
       "selectedOne": "1 learning goal selected",
       "selectedMany": "{n} learning goals selected"
@@ -166,8 +166,8 @@
       "markMastered": "Mark as mastered"
     },
     "column": {
-      "markAll": "Mark every skill in «{topic}» as mastered",
-      "clearAll": "Remove the mastered mark from every skill in «{topic}»"
+      "markAll": "Mark every skill in “{topic}” as mastered",
+      "clearAll": "Remove the mastered mark from every skill in “{topic}”"
     },
     "detail": {
       "show": "Show AI instruction",
@@ -208,6 +208,7 @@
       "country": "Country",
       "language": "Language",
       "size": "Size",
+      "decompositionVersion": "Decomposition model",
       "credits": "Made by",
       "author": "Author",
       "updated": "Last updated",
@@ -219,7 +220,7 @@
   },
   "prompt": {
     "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. `writingStyle` is necessarily empty here: it holds examples in a specific language, and this file serves every language that has no file of its own. The language-independent half of that advice is NOT missing — it lives in prompts/shared.json → writingStyleGeneral and applies to every tree regardless. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. The student's right to ask for a different language, and what happens when they do, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
-    "outputLanguage": "Conduct this entire conversation in {conversationLanguage}. Everything quoted from the skill tree below — node names, descriptions, prerequisites — is written in {conversationLanguage}, and that is the language {learnerDefinite} expects to be addressed in. Do not drift into another language on your own initiative, and do not comment on the language these instructions are written in. Address {learnerDefinite} as \"you\", and where the role has to be named, the word is «{learnerDefinite}» - not another word for the same thing.",
+    "outputLanguage": "Conduct this entire conversation in {conversationLanguage}. Everything quoted from the skill tree below — node names, descriptions, prerequisites — is written in {conversationLanguage}, and that is the language {learnerDefinite} expects to be addressed in. Do not drift into another language on your own initiative, and do not comment on the language these instructions are written in. Address {learnerDefinite} as \"you\", and where the role has to be named, the word is “{learnerDefinite}” — not another word for the same thing.",
     "writingStyle": "",
     "overrides": {}
   }

@@ -246,7 +246,7 @@
     Object.keys(decomposition).forEach(function (sid) {
       /* `_comment` er en merknad til den som åpner fila, ikke en seksjon. */
       if (sid.charAt(0) === '_') return;
-      rows.push({ label: sid, text: decomposition[sid], note: t('family-authoring') });
+      rows.push({ label: sid, text: plainText(decomposition[sid]), note: t('family-authoring') });
     });
 
     return card({
@@ -256,6 +256,28 @@
       control: familyRow,
       rows: rows
     });
+  }
+
+  /* SOLO-tabellen i samfunnsfagfamilien er et objekt, ikke en tekst, og
+     sto som «[object Object]» her fram til 2026-09-26. Samme utskrift som
+     `plainText` i js/builder.js, som setter blokken inn i ledeteksten. */
+  function plainText(value) {
+    if (value == null) return '';
+    if (typeof value !== 'object') return String(value);
+    if (Array.isArray(value)) {
+      return value.map(function (item) {
+        if (item && typeof item === 'object' && !Array.isArray(item)) {
+          return '- ' + Object.keys(item).filter(function (k) {
+            return k.charAt(0) !== '_' && !(Array.isArray(item[k]) && !item[k].length);
+          }).map(function (k) {
+            return k + ': ' + (Array.isArray(item[k]) ? item[k].join(', ') : item[k]);
+          }).join('; ');
+        }
+        return '- ' + plainText(item);
+      }).join('\n');
+    }
+    return Object.keys(value).filter(function (k) { return k.charAt(0) !== '_'; })
+      .map(function (k) { return k + ':\n' + plainText(value[k]); }).join('\n');
   }
 
   function about(id) {

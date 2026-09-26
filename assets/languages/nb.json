@@ -208,6 +208,7 @@
       "country": "Land",
       "language": "Språk",
       "size": "Omfang",
+      "decompositionVersion": "Dekomponeringsmodell",
       "credits": "Laget av",
       "author": "Forfatter",
       "updated": "Sist oppdatert",

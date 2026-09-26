@@ -308,6 +308,9 @@
     setting(t('set-title'), config.title);
     setting(t('set-language'), config.languageName + ' (' + config.language + ')');
     setting(t('set-family'), config.subjectFamily || '—');
+    setting(t('set-decomposition'),
+            config.decompositionVersion ? 'v' + String(config.decompositionVersion).replace(/^v/, '') : '—',
+            config.decompositionVersion ? '' : t('set-decomposition-missing'));
     /* Ordet står der læreren ser det: elev og student er samme node i
        treet og to ulike setninger i panelet, og innstillingen har en
        standard per språk - så den som ikke har satt den, skal likevel få
@@ -456,12 +459,21 @@
     getJson('/assets/prompts/manifest.json').then(function (manifest) {
       var wrap = manifest.instructions.authoring;
       var appended = wrap && wrap.appends;
+      /* Alle fagfamiliene, ikke bare én: læreren som kopierer ledeteksten
+         har ikke sagt hvilket fag det gjelder ennå, og en chatmodell kan
+         ikke hente fila selv. Se `appendsSubjectFamilies` i manifestet. */
+      var families = (wrap && wrap.appendsSubjectFamilies) ? manifest.subjectFamilies || {} : {};
       return Promise.all([
         getJson('/assets/prompts/' + wrap.file),
         appended ? getJson('/assets/prompts/' + manifest.instructions[appended].file) : null,
+        Promise.all(Object.keys(families).map(function (key) {
+          return getJson('/assets/prompts/' + families[key]).then(function (fam) {
+            return { key: key, fam: fam };
+          });
+        })),
       ]);
     }).then(function (parts) {
-      box.textContent = composeAuthoringPrompt(parts[0], parts[1]);
+      box.textContent = composeAuthoringPrompt(parts[0], parts[1], parts[2]);
     }, function () {
       /* Lar plassholderen stå. En tom boks er bedre enn en feilmelding om
          en fil leseren ikke visste fantes. */
@@ -472,14 +484,47 @@
      teksten. Ingen nummererte overskrifter, ingen egen intro-del — alle
      instruksmodulene er `order` + `sections` og ingenting annet, og det som
      står foran hver del er navnet en `prompt`-rad går etter. */
-  function composeAuthoringPrompt(wrapper, decomposition) {
+  function composeAuthoringPrompt(wrapper, decomposition, families) {
     var out = sectionLines(wrapper);
     if (decomposition) {
       out.push('---');
       out.push('# ' + decomposition.title + '  (v' + decomposition.version + ')');
       out = out.concat(sectionLines(decomposition));
     }
+    (families || []).forEach(function (item) {
+      var block = (item.fam && item.fam.decomposition) || {};
+      out.push('---');
+      out.push('# subjectFamilies: ' + item.key + '  (' + (item.fam.title || item.key) +
+               ', v' + (item.fam.version || '?') + ')');
+      Object.keys(block).forEach(function (id) {
+        if (id.charAt(0) === '_') return;
+        out.push(id + ': ' + plainText(block[id]));
+      });
+    });
     return out.join('\n\n');
+  }
+
+  /* En familieblokk er stort sett tekst, men SOLO-tabellen i
+     samfunnsfagfamilien er et objekt med en liste i seg. Den skrives ut som
+     linjer modellen kan lese, framfor som JSON. Nøkler som starter med `_`
+     er merknader til den som åpner fila, og tas ikke med. */
+  function plainText(value) {
+    if (value == null) return '';
+    if (typeof value !== 'object') return String(value);
+    if (Array.isArray(value)) {
+      return value.map(function (item) {
+        if (item && typeof item === 'object' && !Array.isArray(item)) {
+          return '- ' + Object.keys(item).filter(function (k) {
+            return k.charAt(0) !== '_' && !(Array.isArray(item[k]) && !item[k].length);
+          }).map(function (k) {
+            return k + ': ' + (Array.isArray(item[k]) ? item[k].join(', ') : item[k]);
+          }).join('; ');
+        }
+        return '- ' + plainText(item);
+      }).join('\n');
+    }
+    return Object.keys(value).filter(function (k) { return k.charAt(0) !== '_'; })
+      .map(function (k) { return k + ':\n' + plainText(value[k]); }).join('\n');
   }
 
   function sectionLines(module) {

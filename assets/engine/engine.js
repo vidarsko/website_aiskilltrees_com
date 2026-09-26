@@ -594,11 +594,16 @@ const CONFIG_KEYS = [
   'slots.courseName', 'slots.motivationSubject', 'slots.expressionFocus',
   'slots.courseSpecifics',
   'aids.label',
-];
+  'decompositionVersion',
+].concat(Object.keys(LAYOUT).map(k => 'layout.' + k));
+/* Bare `aids.<n>.*` er et mønster, fordi nivåene er lærerens egne tall.
+   `slots.*` og `layout.*` var mønstre fram til 0.14.0, og da gikk
+   `slots.expresionFocus` gjennom uten feil og gjorde ingenting — nøyaktig
+   den stillheten lista over finnes for å hindre. En plassholder som ingen
+   instruks spør etter er ikke en innstilling, så de er nå oppført én for
+   én: `slots.*` over, `layout.*` fra LAYOUT selv. */
 const CONFIG_KEY_PATTERNS = [
   /^aids\.\d+\.(name|student|model)$/,
-  /^layout\.[A-Za-z][A-Za-z0-9]*$/,
-  /^slots\.[A-Za-z][A-Za-z0-9]*$/,
 ];
 const CONFIG_REQUIRED = ['title', 'language'];
 
@@ -646,6 +651,24 @@ function editDistance(a, b) {
    hvilke seksjoner som finnes, står i modulenes `order`, og fagfamilien
    legger til sine egne. Derfor kalles den fra bootstrap og ikke fra
    splitRows. */
+/* «Mente du ...?» for en instruks. Redigeringsavstand alene treffer ikke
+   det vanligste feilgrepet: å skrive det instruksen HETER i artikkelen og
+   på /prompts/ — «tutor», «test generator», «lesson planner» — framfor
+   nøkkelen `node`, `exam`, `lessonPlan`. Filnavnet og tittelen i
+   manifestet er derfor med som kjennetegn, sammenliknet uten mellomrom og
+   bindestreker, og et treff den ene eller andre veien gir nøkkelen. */
+function nearestInstruction(value, names) {
+  const squash = x => String(x || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const v = squash(value);
+  const hit = v.length >= 3 && names.find(id => {
+    const entry = (MANIFEST && MANIFEST.instructions && MANIFEST.instructions[id]) || {};
+    return [id, (entry.file || '').replace(/\.json$/, ''), entry.title]
+      .map(squash).filter(Boolean)
+      .some(k => k.indexOf(v) !== -1 || v.indexOf(k) !== -1);
+  });
+  return hit || nearest(value, names);
+}
+
 function validatePromptRows() {
   const names = Object.keys(CORE.prompts);
   Object.keys(PROMPT_ROWS).forEach(key => {
@@ -660,7 +683,7 @@ function validatePromptRows() {
        ikke her, så en rad som peker på dem gjør ingenting. */
     if (which !== '*' && names.indexOf(which) === -1) {
       pushError('errorUnknownPromptTarget',
-                { name: which, row: row, guess: nearest(which, names) });
+                { name: which, row: row, guess: nearestInstruction(which, names) });
       return;
     }
 
@@ -1374,6 +1397,11 @@ function renderCourseInfoBody(body) {
     [t('courseInfo.country'),     vocabText('country', m.country)],
     [t('courseInfo.language'),    vocabText('language', m.language)],
     [t('courseInfo.size'),        nodeCountText(m)],
+    /* Hvilken utgave av dekomponeringsmodellen treet ble laget etter. Står
+       i tree.csv, ikke i katalogen: det er et faktum om fila, og det skal
+       følge med den nedlastede utgaven. */
+    [t('courseInfo.decompositionVersion'),
+                                  CONFIG.decompositionVersion ? 'v' + String(CONFIG.decompositionVersion).replace(/^v/, '') : null],
   ].filter(row => row[1]);
 
   if (facts.length) {
@@ -2844,6 +2872,7 @@ function publishEffectiveConfig() {
     language: CONFIG.language || '',
     languageName: CONVERSATION_LANGUAGE,
     subjectFamily: CONFIG.subjectFamily || '',
+    decompositionVersion: CONFIG.decompositionVersion || '',
     learner: LEARNER_KEY,
     learnerWord: (LEARNER && LEARNER.definite) || '',
     learnerDerived: !CONFIG.learner,

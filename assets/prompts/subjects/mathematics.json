@@ -2,12 +2,12 @@
   "_comment": "Everything that is true of mathematics but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"mathematics\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Duplication BETWEEN family files is deliberate and accepted: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. This file carries its own `version`, cited separately from the instruction modules in the paper's appendix.",
   "family": "mathematics",
   "title": "Mathematics",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
 
   "decomposition": {
-    "_comment": "Read at authoring time, not by the engine. See prompts/spec/decomposition.md.",
+    "_comment": "Read at authoring time, not by the engine: the builder appends every family's block to the authoring prompt, after prompts/decomposition.json (its `subjectFamilies` section tells the model so). Every key here that does not start with `_` is text the model reads.",
     "nodeTypeCharacter": "In mathematics the skill/concept split is usually clean: a concept is a definition, a named quantity or a rule stated in words, and a skill is a procedure carried out on numbers or symbols. Where understanding a concept in practice demands extensive calculation before anyone would say it had been practised, that calculation does NOT belong in the concept node. Split it into its own skill node listing the concept among its prerequisites.",
     "skillVerbs": "Name a skill node with a verb phrase for what the student does with numbers or symbols: \"Calculate the growth factor from a percentage\", \"Draw the graph of a linear function\", \"Solve a quadratic equation by factorising\". A noun-phrase name on a skill node is a sign the node needs reconsidering.",
     "loadBearingExamples": "Load-bearing mathematical vocabulary that typically earns a node: coordinate system, term, factor, growth factor, function, variable. Ordinary words used in their everyday sense do not: \"speed\" in a sentence about a car earns no node, while \"average speed\" as a defined quantity does.",
