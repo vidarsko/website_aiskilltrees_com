@@ -5,7 +5,7 @@
   "path": "/trees/no-vgs-matte-2p-en-demo/",
   "title": "Mathematics 2P (decomposition demo)",
   "subtitle": "Practical mathematics, Vg2 general studies",
-  "summary": "What the decomposition prompt returns in a single run, before a teacher has revised anything: the first draft for Mathematics 2P from one conversation with a language model, published unedited so that the method can be judged on what it actually produces. The Norwegian tree for the same subject is the revised one to compare it against.",
+  "summary": "What the decomposition prompt returns in a single run, before a teacher has revised anything: the first draft for Mathematics 2P from one conversation with a language model that had no web access and was given the seven competence aims, published unedited so that the method can be judged on what it actually produces. The Norwegian tree for the same subject is the revised one to compare it against.",
   "country": "NO",
   "institution": "vgs",
   "division": "vg2",
@@ -15,28 +15,30 @@
   "courseCode": "",
   "course": "Mathematics 2P (decomposition demo)",
   "topics": [
-    "Percentages and growth",
-    "Personal finance",
+    "Percentages",
     "Equations",
+    "Personal finance",
     "Statistics",
     "Geometry"
   ],
   "keywords": [
     "growth factor",
+    "percentage point",
     "price index",
     "real wage",
     "annuity loan",
+    "system of equations",
     "standard deviation",
     "similarity",
     "scale",
     "draft",
     "demo"
   ],
-  "nodeCount": 83,
-  "skillCount": 50,
-  "conceptCount": 33,
+  "nodeCount": 80,
+  "skillCount": 48,
+  "conceptCount": 32,
   "author": "Vidar Skogvoll",
   "authorUrl": "https://skogvoll.com",
   "license": "CC BY 4.0",
-  "updated": "2026-09-23"
+  "updated": "2026-09-26"
 }
