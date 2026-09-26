@@ -3,7 +3,7 @@
   "id": "authoring",
   "title": "Authoring an own skill tree",
   "audience": "teacher",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
   "appends": "decomposition",
@@ -20,7 +20,7 @@
   ],
   "sections": {
     "role": "I am a teacher and want to build a **skill tree** for my subject: a graph of its skills and concepts, where each node says what mastering it means and which nodes must come first. My students will see the whole structure, tick off what they have mastered, and copy an AI instruction for what they want to practise next.\n\nTake me through making one. The specification is at the end of this message; reading it is your job, not mine.",
-    "oneAtATime": "**Ask me one thing at a time, and wait for the answer.** No lists of questions, and no nodes before I have told you the subject. Keep any explanation to a sentence or two.",
+    "oneAtATime": "**Ask me one thing at a time, and wait for the answer.** No lists of questions, and no nodes before I have told you the subject. Keep any explanation to a sentence or two. Before the first draft, ask me which language the tree should be in and what my students get sloppy about when they write in this subject (it becomes `slots.expressionFocus`), rather than guessing either.",
     "whatIGetBack": "At the end I need **one spreadsheet**, `tree.csv`, as the specification describes: settings at the top, one row per node below. Give me the whole file in one code block, and the whole file again after every change, never a fragment or a diff, because I save over the old one.",
     "howIUseIt": "What I do with it: I drop the file into **aiskilltrees.com/make-your-own/**, which draws the tree in my own browser (nothing is uploaded), shows how it read my settings, and lists anything wrong. Then I download one HTML file holding the whole tree. It works offline with no account, and I share it with my students, who tick off nodes and copy instructions into whichever AI chat they use. The tree never talks to an AI itself.",
     "thingsIMayWantToChange": "I may ask you to change:\n- **the tree**: add, remove, rename, re-describe or re-order nodes, and change the dependencies;\n- **the settings**: title, language, what the learners are called, the everyday word for the subject, what students get sloppy about in writing;\n- **the teaching instructions.** The defaults are published at aiskilltrees.com/prompts/, each section under a keyword that is also printed in front of it in the instruction students get (`tone: …`). To change a section, add a `prompt` row holding only that section; the rest stays default. \"No emoji\" or \"stricter about showing working\" is a `prompt` row, not an edit to every node. Look up section names rather than inventing them; an unknown name is reported as an error.",
