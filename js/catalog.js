@@ -850,6 +850,11 @@ function syncUrl() {
     if (set.size) params.set(f.key, Array.from(set).join('|'));
   });
   if (sort !== 'relevans') params.set('sort', sort);
+  // ?lang= belongs to i18n.js, which keeps the language choice in the URL
+  // rather than on the visitor's device. Keep it, or a filter click resets
+  // the language on the next page.
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  if (urlLang) params.set('lang', urlLang);
 
   const qs = params.toString();
   history.replaceState(null, '', qs ? '?' + qs : location.pathname);

@@ -27,8 +27,6 @@
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'lang';
-
   /* BCP 47 codes, so there is room for 'nn' (nynorsk) beside 'nb' (bokmål)
      later without renaming anything. The catalogue and the tree engine now
      agree: languages/nb.json was already called nb, while the page
@@ -57,32 +55,44 @@
      kept as the one place to diverge if a language ever needs to. */
   var HTML_LANG = { en: 'en', nb: 'nb', sv: 'sv' };
 
-  function detectLang() {
-    /* ?lang=no beats everything, and is then remembered like a click.
-       It exists so another domain can point at a language: ferdighetstre.no
-       redirects to aiskilltrees.com/?lang=no. Also makes a link shareable in
-       a chosen language. See AGENTS.md, "Domener". */
-    var fromUrl = null;
-    try { fromUrl = normalise(new URLSearchParams(location.search).get('lang')); } catch (e) {}
-    if (fromUrl) {
-      try { localStorage.setItem(STORAGE_KEY, fromUrl); } catch (e) {}
-      return fromUrl;
-    }
+  /* NOTHING IS STORED. Until 2026-09-26 the choice was kept in localStorage;
+     it now lives in the URL instead, so the site writes nothing to the
+     visitor's device (see /privacy/). The order is:
 
-    var stored = null;
-    try { stored = normalise(localStorage.getItem(STORAGE_KEY)); } catch (e) {}
-    if (stored) {
-      // Rewrite a legacy 'no' in place, so it is normalised once, not forever.
-      try { localStorage.setItem(STORAGE_KEY, stored); } catch (e) {}
-      return stored;
-    }
+       1. ?lang=xx   — a chosen language, or a link shared in one. It is also
+                       what ferdighetstre.no redirects to (?lang=no).
+       2. the browser's own language list
+       3. English
 
+     A choice made in the switcher is written into the address bar as
+     ?lang=xx, and carried to the next page by the link handler at the bottom
+     of this file. Close the tab and it is gone — that is the trade. */
+  function browserLang() {
     var browserLangs = navigator.languages || [navigator.language || ''];
     for (var i = 0; i < browserLangs.length; i++) {
       var hit = normalise(browserLangs[i]);
       if (hit) return hit;
     }
     return DEFAULT_LANG;
+  }
+
+  function urlLang() {
+    try { return normalise(new URLSearchParams(location.search).get('lang')); } catch (e) { return null; }
+  }
+
+  function detectLang() {
+    return urlLang() || browserLang();
+  }
+
+  /* Puts ?lang=xx in the address bar, or takes it out when the choice is
+     what the browser would have picked anyway — a clean URL where possible. */
+  function writeUrl(lang) {
+    try {
+      var url = new URL(location.href);
+      if (lang === browserLang()) url.searchParams.delete('lang');
+      else url.searchParams.set('lang', lang);
+      history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+    } catch (e) {}
   }
 
   function loadDict() {
@@ -160,12 +170,30 @@
       if (!lang || lang === current) return;
       var from = current;
       current = lang;
-      try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+      writeUrl(lang);
       apply(current);
       if (window.aistTrack) window.aistTrack('language_switch', { language: lang, language_from: from });
     },
     onChange: function (fn) { document.addEventListener('langchange', function (e) { fn(e.detail.lang); }); }
   };
+
+  /* Carry an explicit ?lang= to the next page on this site. Only links
+     between the site's own content pages: a tree under /trees/<slug>/ has
+     no switcher and is in its own language whatever the URL says, and an
+     outside link is none of our business. */
+  document.addEventListener('click', function (e) {
+    var lang = urlLang();
+    if (!lang) return;
+    var a = e.target && e.target.closest && e.target.closest('a[href]');
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+    var url;
+    try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+    if (url.origin !== location.origin) return;
+    if (/^\/trees\/[^\/]+\//.test(url.pathname) || url.pathname.indexOf('/assets/') === 0) return;
+    if (url.searchParams.has('lang')) return;
+    url.searchParams.set('lang', lang);
+    a.setAttribute('href', url.pathname + url.search + url.hash);
+  });
 
   apply(current);
 })();

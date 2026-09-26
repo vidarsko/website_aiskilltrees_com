@@ -8,7 +8,7 @@
    one variable to change rather than a find-and-replace across the site.
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap");
+@import url("fonts.css");   /* self-hosted since 2026-09-26 — see css/fonts.css */
 
 :root {
   /* ---- Grounds ---------------------------------------------------------- */
