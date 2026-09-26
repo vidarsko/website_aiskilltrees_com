@@ -2,7 +2,7 @@
   "_comment": "Everything that is true of the natural sciences but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"natural-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats mathematics.json, that is deliberate: the sciences are quantitative too, and a physics teacher should not have to read the maths file to find out what applies to them. Covers physics, chemistry, biology and general science. Carries its own `version`, cited separately in the paper's appendix.",
   "family": "natural-sciences",
   "title": "Natural sciences",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
 
@@ -21,17 +21,17 @@
         {
           "id": "leadInExample",
           "after": "leadIn",
-          "text": "A worked example of that lead-in, in this subject: do not open with \"The ampere is the SI unit of electric current, defined as charge per unit time\". Start with something the student can picture instead — \"Imagine you measure how much charge passes through a wire. In 3 seconds you measure that 6 coulombs have passed. That is 6/3 = 2 coulombs per second — we call that 2 amperes. So the ampere is the unit we use for…\" — and let the definition arrive as the conclusion. Where the topic allows it, reach for a phenomenon the student has already seen for themselves before you reach for a definition."
+          "text": "The lead-in in this subject: not \"The ampere is the SI unit of electric current, defined as charge per unit time\", but something the student can picture: \"In 3 seconds, 6 coulombs of charge pass through a wire. That's 6/3 = 2 coulombs per second, and we call that 2 amperes.\" Where possible, start from a phenomenon the student has seen for themselves."
         },
         {
           "id": "conceptGuidanceCalculation",
           "after": "conceptGuidance",
-          "text": "Concretely, in this subject: do not use extensive calculation problems to test a concept, and do not ask for a full experimental write-up either — both belong to separate skill nodes. If a test does involve numbers, keep the calculation minimal and subordinate. Asking the student to predict what would happen in a described situation, and to say why, tests the concept far better than asking them to compute something."
+          "text": "In this subject: test a concept with neither extensive calculation nor a full experimental write-up; both belong to skill nodes. Asking the student to predict what would happen in a described situation, and why, tests a concept better than a computation."
         },
         {
           "id": "everydayMeaning",
           "after": "vocabulary",
-          "text": "Several words in this subject mean something different in ordinary speech from what they mean here, and the everyday meaning is what the student will bring by default. Where this node's vocabulary includes such a word, name the difference explicitly the first time you use it — say what the word does NOT mean here as well as what it does — rather than assuming the technical sense will be picked up from context."
+          "text": "Several words in this subject mean something different in everyday speech, and the student brings the everyday meaning by default. When this node uses such a word, name the difference the first time: say what the word does NOT mean here as well as what it does."
         }
       ]
     },
@@ -41,12 +41,12 @@
         {
           "id": "conceptMixCalculation",
           "after": "conceptMix",
-          "text": "Concretely, in this subject: a [skill] point becomes a calculation problem or a task about planning, interpreting or judging an investigation, depending on which kind of skill it is. A [concept] point must not become either. Where numbers appear in a [concept] task, keep the calculation minimal and subordinate to the understanding being tested."
+          "text": "In this subject, a [skill] point becomes a calculation problem, or a task about planning, interpreting or judging an investigation, depending on the skill. A [concept] point must be neither; if numbers appear, keep the calculation minimal."
         },
         {
           "id": "practicalTasks",
           "after": "task",
-          "text": "Where the selection includes skills about investigation — planning, controlling variables, uncertainty, sources of error, arguing from evidence — test them on paper rather than dropping them: give the student a described experiment, a set of results or a stated conclusion, and ask them to find the flaw, propose the control, judge the uncertainty, or say what the data does and does not support."
+          "text": "Test investigation skills (planning, controlling variables, uncertainty, sources of error, arguing from evidence) on paper rather than dropping them: give a described experiment, a set of results or a stated conclusion, and ask the student to find the flaw, propose the control, judge the uncertainty, or say what the data does and does not support."
         }
       ]
     },
@@ -56,17 +56,17 @@
         {
           "id": "starterExample",
           "after": "starter",
-          "text": "An example of the FORM the starter should take (not of its content): \"Here are four things from the kitchen. Which of them do you think would float in water, and why? Write down your guess for each one before we test them.\" Note what makes it work — anyone can commit to an answer without knowing today's material, every student has something to compare afterwards, and the lesson's explanation has something to explain. A demonstration the students predict the outcome of makes a good starter in this subject, provided they commit to a prediction in writing first."
+          "text": "An example of the FORM of a starter (not its content): \"Here are four things from the kitchen. Which will float in water, and why? Write down your guess for each before we test them.\" Anyone can commit to an answer, and the lesson then has something to explain. A demonstration works well, provided students write down a prediction first."
         },
         {
           "id": "mainPartPhenomenon",
           "after": "examplePair",
-          "text": "IN THIS SUBJECT, anchor each learning goal in something observable BEFORE you explain it. Open the goal with a demonstration, a short investigation the students carry out themselves, or a phenomenon they already know, and have them predict what will happen and why before they see it. The explanation then arrives as the answer to what they observed, rather than ahead of it.\nWhere the learning goal is quantitative, the rounds above run as written, with the teacher's turn a worked calculation and the students' turn a set of corresponding problems. Where the learning goal is investigative — planning, controlling a variable, judging uncertainty or arguing from evidence — the teacher's turn becomes working through the reasoning from an observation to a conclusion aloud, and the students' turn becomes doing the same for a new observation or a new set of results.\nIf the practical work is impractical for reasons of equipment, time or safety, say so plainly and give the teacher a demonstration or a described real case instead — and say which one it is, so the teacher can choose knowing what is being substituted."
+          "text": "IN THIS SUBJECT, anchor each goal in something observable BEFORE explaining it: a demonstration, a short investigation, or a phenomenon the students know. Have them predict what will happen and why; the explanation then answers what they saw.\nFor a quantitative goal, the rounds run as written, with worked calculations. For an investigative goal (planning, controlling a variable, judging uncertainty, arguing from evidence), the teacher's turn is reasoning aloud from an observation to a conclusion, and the students' turn is doing the same with new observations or results.\nIf practical work is impractical (equipment, time, safety), say so and offer a demonstration or a described real case instead, saying which it is."
         },
         {
           "id": "conceptAdaptationCalculation",
           "after": "conceptAdaptation",
-          "text": "Concretely, in this subject: keep calculation minimal and subordinate in the blocks for a [concept] learning goal. Asking students to predict and justify what would happen in a described situation works well as the students' turn for a concept, because a prediction commits them to an understanding in a way that restating a definition does not."
+          "text": "In this subject: keep calculation minimal in the blocks for a [concept] goal. Having students predict and justify what would happen works well as their turn, because a prediction commits them to an understanding."
         }
       ]
     },
@@ -76,12 +76,12 @@
         {
           "id": "argumentsPracticeExample",
           "after": "argumentsPractice",
-          "text": "A concrete instance of the automaticity argument in this subject: once you know what the common units and symbols mean without stopping to look them up, you don't spend any of your attention on them — that leaves room in your head for what is actually going on in the problem."
+          "text": "The automaticity argument in this subject: once you know the common units and symbols without looking them up, they cost no attention, which leaves room for what is actually going on in the problem."
         },
         {
           "id": "argumentsLongTermSubject",
           "after": "argumentsLongTerm",
-          "text": "- Understanding how your own body and the world around you actually work means you can judge a claim somebody makes to you — about a diet, a treatment, a product, or how risky something is — instead of having to take their word for it or guess who to trust. People will try to sell you things on the strength of what you don't know here."
+          "text": "- Understanding how your body and the world work lets you judge claims about a diet, a treatment, a product or a risk yourself, instead of taking someone's word for it. People will try to sell you things on the strength of what you don't know here."
         }
       ]
     }

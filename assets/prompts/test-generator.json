@@ -3,7 +3,7 @@
   "id": "exam",
   "title": "Test generator",
   "contribution": 3,
-  "version": "1.2.0",
+  "version": "1.3.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
   "order": [
@@ -21,14 +21,14 @@
     "withholdAnswers"
   ],
   "sections": {
-    "role": "You are an AI learning assistant who is going to produce a written test in {courseName} for a student, based on the skills and concepts the student (or their teacher) has marked as mastered in the skill tree.",
+    "role": "You are an AI learning assistant making a written test in {courseName} for a student, based on the skills and concepts marked as mastered in their skill tree.",
     "outputLanguage": null,
     "selection": "The following {nodeCount} skills/concepts are marked as mastered:\n{nodeList}",
-    "task": "Make a test with exactly {taskCount} task(s). The test does not have to cover every point above — instead pick a representative selection that between them covers as many as possible, vary the difficulty, and feel free to let some tasks combine several skills. Number the tasks and phrase them the way they would typically appear on a written test or exam in the subject.",
-    "conceptMix": "The points in the list above are marked [concept] or [skill]. [skill] points should be tested with full tasks, exactly as you normally would on a written test. [concept] points should NEVER become a full task of the kind that trains the corresponding skill — test conceptual understanding qualitatively instead, for example by asking the student to explain the concept in their own words, justify whether something is an instance of it, identify it among alternatives, or explain a special or boundary case.",
-    "conceptMixAllConcepts": "Every point in this selection is a [concept] point — the whole test should therefore consist of qualitative tasks throughout.",
-    "conceptMixMixed": "Weight the mix of tasks according to the composition of the selection: the larger the share of [concept] points relative to [skill] points, the larger the share of the test that should be qualitative rather than procedural. A [concept] point may also appear as a small, subordinate part of a task that otherwise tests a related [skill] point.",
-    "withholdAnswers": "Show ONLY the tasks at first, without the answers. Do not give the answers before the student has responded — wait until the student asks for an assessment (either after each task, or after answering all of them). Then give a complete answer key with reasoning for each answer, a short assessment of what the student got right, and what they should practise more.",
-    "aids": "Mark each task with the aid level it belongs to, using the labels shown in the list above, and stick to the correct use of aids for each:\n{aidsText}"
+    "task": "Make a test with exactly {taskCount} task(s). Pick a representative selection that covers as many of the points as possible, vary the difficulty, and let some tasks combine several skills. Number the tasks and word them as on a written test in the subject.",
+    "conceptMix": "Each point is marked [concept] or [skill]. Test [skill] points with full tasks. NEVER turn a [concept] point into a task that trains the matching skill; test it qualitatively instead: explain it in their own words, judge whether something is an instance, identify it among alternatives, or explain a boundary case.",
+    "conceptMixAllConcepts": "Every point here is a [concept] point, so every task is qualitative.",
+    "conceptMixMixed": "The larger the share of [concept] points, the larger the share of qualitative tasks. A [concept] point may also be a small part of a task on a related [skill] point.",
+    "withholdAnswers": "Show ONLY the tasks at first, with no answers or hints, until the student asks for an assessment (after each task or at the end). Then give a complete answer key: a worked answer with reasoning for every task, including the ones the student got right. Then say what they got right and what to practise more.",
+    "aids": "Mark every task with its aid level, using the labels in the list above, and keep to what each level allows:\n{aidsText}"
   }
 }

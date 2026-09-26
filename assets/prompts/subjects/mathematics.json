@@ -2,7 +2,7 @@
   "_comment": "Everything that is true of mathematics but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"mathematics\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Duplication BETWEEN family files is deliberate and accepted: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. This file carries its own `version`, cited separately from the instruction modules in the paper's appendix.",
   "family": "mathematics",
   "title": "Mathematics",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
 
@@ -20,12 +20,12 @@
         {
           "id": "leadInExample",
           "after": "leadIn",
-          "text": "A worked example of that lead-in, in this subject: do not open with a general, abstract statement of the rule. Start with a concrete calculation using real numbers instead — \"Imagine multiplying 2 by itself 6 times: 2×2×2×2×2×2. That quickly becomes tedious to write — so we write 2⁶ instead. We call this a power.\" — and let the rule arrive as the conclusion."
+          "text": "The lead-in in this subject: instead of stating the rule, start with numbers. \"Imagine multiplying 2 by itself 6 times: 2×2×2×2×2×2. That's tedious to write, so we write 2⁶ instead. We call this a power.\""
         },
         {
           "id": "conceptGuidanceCalculation",
           "after": "conceptGuidance",
-          "text": "Concretely, in this subject: do not use extensive calculation problems to test a concept. If a test does involve numbers, keep the calculation minimal and subordinate — the point is whether the student understands the concept, not whether they can calculate."
+          "text": "In this subject: no extensive calculation when testing a concept. If numbers appear, keep the calculation minimal."
         }
       ]
     },
@@ -35,7 +35,7 @@
         {
           "id": "conceptMixCalculation",
           "after": "conceptMix",
-          "text": "Concretely, in this subject: a [skill] point becomes a calculation problem, and a [concept] point must not. Where numbers do appear in a [concept] task, keep the calculation minimal and subordinate to the understanding being tested."
+          "text": "In this subject, a [skill] point becomes a calculation problem and a [concept] point must not; if numbers appear in a [concept] task, keep the calculation minimal."
         }
       ]
     },
@@ -45,17 +45,17 @@
         {
           "id": "starterExample",
           "after": "starter",
-          "text": "An example of the FORM the starter should take (not of its content): \"Look at these fractions: 1/2, 1/3, 1/4, 1/6, 1/8. Add some of them together so that you get as close to 1 as possible.\" Note what makes it work — anyone can start, there is no single right answer, and a student can keep going for several minutes without being finished."
+          "text": "An example of the FORM of a starter (not its content): \"Look at these fractions: 1/2, 1/3, 1/4, 1/6, 1/8. Add some of them together to get as close to 1 as possible.\" Anyone can start, there is no single right answer, and students can keep going for minutes."
         },
         {
           "id": "mainPartExamplePair",
           "after": "examplePair",
-          "text": "IN THIS SUBJECT the rounds above are the example–problem pair model, and you may call it that in the plan. The teacher's turn is one problem worked on the board with every intermediate step shown. The students' turn is a set of corresponding problems — the same kind of problem with different numbers or a new wrapping. The independent practice is three problem sets. Give a complete worked answer to every problem you write, not just the final number."
+          "text": "IN THIS SUBJECT the rounds above are the example–problem pair model, and you may call it that. The teacher's turn is one problem worked on the board with every step shown; the students' turn is the same kind of problem with different numbers or a new wrapping; the independent practice is three problem sets. Give a complete worked answer to every problem, not just the final number."
         },
         {
           "id": "conceptAdaptationCalculation",
           "after": "conceptAdaptation",
-          "text": "Concretely, in this subject: keep calculation minimal and subordinate in the blocks for a [concept] learning goal. The computational skill that goes with the concept belongs to a separate learning goal further down the skill tree, and the students will practise it thoroughly there."
+          "text": "In this subject: keep calculation minimal in the blocks for a [concept] goal; the matching computational skill is a separate goal later in the tree."
         }
       ]
     },
@@ -65,12 +65,12 @@
         {
           "id": "argumentsPracticeExample",
           "after": "argumentsPractice",
-          "text": "A concrete instance of the automaticity argument in this subject: if you know your times tables by heart, you don't have to spend effort working them out every time — that leaves room in your head for what is actually hard and interesting in the problem."
+          "text": "The automaticity argument in this subject: if you know your times tables by heart, you don't spend effort on them, which leaves room for the hard and interesting part of the problem."
         },
         {
           "id": "argumentsLongTermSubject",
           "after": "argumentsLongTerm",
-          "text": "- Understanding numbers and percentages gives you control over your own money and agreements as an adult — you can see for yourself whether something is a good deal, instead of just trusting that other people are being honest with you. For example, you understand what an insurance salesperson is actually offering you, or how you and the people you live with can split costs fairly."
+          "text": "- Understanding numbers and percentages gives you control over your own money and agreements: you can see for yourself whether something is a good deal, such as what an insurance salesperson is really offering, or how to split costs fairly with the people you live with."
         }
       ]
     }

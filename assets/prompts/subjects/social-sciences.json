@@ -2,7 +2,7 @@
   "_comment": "Everything that is true of the social sciences and humanities but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"social-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats another family file, that is deliberate: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. Covers social studies, history, religious education and literature. Carries its own `version`, cited separately in the paper's appendix.",
   "family": "social-sciences",
   "title": "Social sciences and humanities",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
 
@@ -32,7 +32,7 @@
         {
           "id": "conceptGuidanceCalculation",
           "after": "conceptGuidance",
-          "text": "Concretely, in this subject: do not test a concept by asking for a long written argument or a full source analysis — that is the work of a separate skill node further down the tree. A couple of sentences in the student's own words, a judgement about a borderline case, or asking which of two cases the concept actually covers is enough."
+          "text": "In this subject: do not test a concept with a long written argument or a full source analysis; that belongs to a skill node. A couple of sentences in the student's own words, a judgement on a borderline case, or which of two cases the concept covers is enough."
         }
       ]
     },
@@ -44,7 +44,7 @@
         {
           "id": "mainPartCase",
           "after": "examplePair",
-          "text": "IN THIS SUBJECT, anchor each learning goal in a concrete case, source or example before generalising from it. The teacher's turn is working through one case aloud — what it shows, what it does not show, and which idea it is an instance of. The students' turn is doing the same with a fresh case. Where the learning goal is a higher-order skill — analysing, comparing, arguing, discussing — the students' turn must require connecting several ideas rather than recalling them one at a time; if the task can be answered in a single sentence, it is pitched too low for the goal."
+          "text": "IN THIS SUBJECT, anchor each goal in a concrete case, source or example before generalising. The teacher's turn works through one case aloud: what it shows, what it does not, and which idea it is an instance of. The students' turn does the same with a new case. For a higher-order goal (analysing, comparing, arguing, discussing), the students' task must connect several ideas; if one sentence answers it, it is pitched too low."
         }
       ]
     },
