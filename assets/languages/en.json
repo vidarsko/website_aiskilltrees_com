@@ -82,7 +82,7 @@
         {
           "id": "map",
           "heading": "The map",
-          "body": "The map shows how skills and concepts build on one another, from the most basic on the left to the most composite on the right. Boxes you do not have the prerequisites for yet appear grey and locked — tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
+          "body": "The map shows how skills and concepts build on one another, from the most basic at the top to the most composite at the bottom. Boxes you do not have the prerequisites for yet appear grey and locked — tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
         },
         {
           "id": "clickBox",

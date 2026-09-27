@@ -82,7 +82,7 @@
         {
           "id": "map",
           "heading": "Kartet",
-          "body": "Kartet viser hvordan ferdigheter og begreper bygger på hverandre, fra det mest grunnleggende til venstre til det mest sammensatte til høyre. Boksene du ikke har forutsetningene for ennå, ser du som grå og låste - huk av dem du mangler først. Dra for å panorere kartet, og bruk +/- eller musehjulet for å zoome."
+          "body": "Kartet viser hvordan ferdigheter og begreper bygger på hverandre, fra det mest grunnleggende øverst til det mest sammensatte nederst. Boksene du ikke har forutsetningene for ennå, ser du som grå og låste - huk av dem du mangler først. Dra for å panorere kartet, og bruk +/- eller musehjulet for å zoome."
         },
         {
           "id": "clickBox",

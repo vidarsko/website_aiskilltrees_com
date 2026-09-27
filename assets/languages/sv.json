@@ -82,7 +82,7 @@
         {
           "id": "map",
           "heading": "Kartan",
-          "body": "Kartan visar hur färdigheter och begrepp bygger på varandra, från det mest grundläggande till vänster till det mest sammansatta till höger. Rutorna du inte har förkunskaperna för än ser du som grå och låsta - kryssa i det som saknas först. Dra för att panorera kartan, och använd +/- eller mushjulet för att zooma."
+          "body": "Kartan visar hur färdigheter och begrepp bygger på varandra, från det mest grundläggande högst upp till det mest sammansatta längst ner. Rutorna du inte har förkunskaperna för än ser du som grå och låsta - kryssa i det som saknas först. Dra för att panorera kartan, och använd +/- eller mushjulet för att zooma."
         },
         {
           "id": "clickBox",
