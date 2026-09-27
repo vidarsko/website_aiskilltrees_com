@@ -15,12 +15,12 @@
   "courseCode": "",
   "course": "Mathematics 2P (decomposition demo)",
   "topics": [
-    "Algebra",
     "Percentages",
+    "Money and prices",
     "Personal finance",
+    "Equations",
     "Statistics",
-    "Geometry",
-    "Digital tools"
+    "Geometry"
   ],
   "keywords": [
     "growth factor",
@@ -38,11 +38,11 @@
     "draft",
     "demo"
   ],
-  "nodeCount": 76,
-  "skillCount": 47,
-  "conceptCount": 29,
+  "nodeCount": 67,
+  "skillCount": 45,
+  "conceptCount": 22,
   "author": "Vidar Skogvoll",
   "authorUrl": "https://skogvoll.com",
   "license": "CC BY 4.0",
-  "updated": "2026-09-26"
+  "updated": "2026-09-27"
 }
