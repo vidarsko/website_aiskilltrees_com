@@ -605,6 +605,11 @@
   white-space: pre-wrap;
 }
 
+/* A short citation block on /research/: shown whole, not scrolled, and kept
+   off the buttons below it. */
+.promptbox--full { max-height: none; }
+.promptbox + .btn-row { margin-top: var(--space-3); }
+
 /* A band that is a short aside rather than a section of content. */
 .band--tight { padding-block: var(--space-4); }
 
