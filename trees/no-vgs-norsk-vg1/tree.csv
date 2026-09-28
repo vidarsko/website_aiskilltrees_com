@@ -1,0 +1,131 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Språk og grammatikk;Språkmøter og samiske språk;Retorikk og argumentasjon;Skjønnlitteratur;Sjangre og skriving;Kilder, analyse og drøfting",,,
+,config,,title,Norsk Vg1,,,
+,config,,description,"Grunnleggende begreper i retorikk, skjønnlitteratur og språk, de viktigste sjangrene, og det å skrive, analysere og drøfte — for Vg1 studieforberedende.",,,
+,config,,language,nb,,,
+,config,,languageName,Norwegian (bokmål),,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,norskvg1-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"norsk Vg1 (studieforberedende, norsk videregående skole)",,,
+,config,,slots.motivationSubject,norsk,,,
+,config,,slots.expressionFocus,"skriver «og» der det skal stå «å», særskriver sammensatte ord, setter komma på måfå, gjenforteller handlingen i stedet for å analysere den, eller kaller en tekst drøftende når den bare legger fram ett syn",,,
+,config,,decompositionVersion,2.9.0,,,
+ordklasser,concept,Språk og grammatikk,Ordklasser,"Ordklasse: en gruppe ord med samme grammatiske oppførsel. Norsk har ti: substantiv, verb, adjektiv, pronomen, determinativ, adverb, preposisjon, konjunksjon, subjunksjon og interjeksjon.",,,
+verbal,concept,Språk og grammatikk,Verbal,"Verbal: setningsleddet som sier hva som skjer eller hvordan noe er, alltid med et bøyd (finitt) verb, eventuelt fulgt av ubøyde verb, som i «har skrevet».",ordklasser,,
+subjekt-objekt,concept,Språk og grammatikk,Subjekt og objekt,"Subjekt: den eller det som gjør handlingen eller er i tilstanden verbalet uttrykker.
+Direkte objekt: den eller det handlingen går ut over.
+Indirekte objekt: den eller det som får eller mottar noe.",verbal,,
+adverbial,concept,Språk og grammatikk,Adverbial,"Adverbial: setningsledd som sier noe om når, hvor, hvordan eller hvorfor noe skjer, eller om hvor sikkert det er («kanskje», «ikke»).",verbal,,
+ta-ut-setningsledd,skill,Språk og grammatikk,Ta ut setningsledd,"finne verbal, subjekt, objekt og adverbial i en setning, og bruke de riktige fagbegrepene om dem.",subjekt-objekt;adverbial,,
+konjunksjon-subjunksjon,concept,Språk og grammatikk,Konjunksjon og subjunksjon,"Konjunksjon: binder sammen ledd eller setninger som er sidestilt, som «og», «men», «eller», «for» og «så».
+Subjunksjon: innleder en leddsetning og gjør den underordnet, som «at», «fordi», «hvis», «når» og «selv om».",ordklasser,,
+helsetning-leddsetning,concept,Språk og grammatikk,Helsetning og leddsetning,"Helsetning: en setning som kan stå alene, med eget subjekt og bøyd verb.
+Leddsetning: en setning som fungerer som ett ledd i en annen setning og ikke kan stå alene, som regel innledet med en subjunksjon.",verbal;konjunksjon-subjunksjon,,
+skille-setninger,skill,Språk og grammatikk,Skille helsetninger fra leddsetninger,"avgjøre hvilke deler av en periode som er helsetninger og hvilke som er leddsetninger, og forklare hvilken rolle leddsetningen har i helsetningen.",helsetning-leddsetning;ta-ut-setningsledd,,
+bindeord,concept,Språk og grammatikk,Bindeord,"Bindeord: ord og uttrykk som viser forholdet mellom setninger eller avsnitt — tillegg («dessuten»), motsetning («likevel»), årsak («derfor»), følge («dermed») og tid («deretter»).",konjunksjon-subjunksjon,,
+tekstbinding,concept,Språk og grammatikk,Tekstbinding,"Tekstbinding: språklige midler som knytter setninger og avsnitt sammen til en helhet: bindeord, gjentakelse, synonymer og pronomen som viser tilbake til noe som er nevnt før.",bindeord,,
+beskrive-sammenheng,skill,Språk og grammatikk,Beskrive sammenhengen mellom setninger,"vise med fagbegreper hvordan setningene og avsnittene i en gitt tekst er bundet sammen, og hva slags forhold bindeordene uttrykker.",tekstbinding;skille-setninger,,
+sette-komma,skill,Språk og grammatikk,Sette komma riktig,"sette komma mellom helsetninger bundet sammen med konjunksjon, etter en leddsetning som står først, og rundt innskutte ledd.",skille-setninger,,
+rettskriving,skill,Språk og grammatikk,Rette vanlige rettskrivingsfeil,"finne og rette de vanligste rettskrivingsfeilene i egen tekst: «og» og «å», enkel og dobbel konsonant, særskriving av sammensatte ord og «da» og «når».",ordklasser,,
+hovedmal-sidemal,concept,Språk og grammatikk,Hovedmål og sidemål,"Hovedmål: den skriftlige målformen, bokmål eller nynorsk, eleven bruker mest.
+Sidemål: den andre målformen, som eleven også skal kunne skrive.",bokmal-nynorsk,,
+skrive-sidemal,skill,Språk og grammatikk,Skrive korrekt på sidemål,"skrive en sammenhengende tekst på sidemålet med riktig bøyning av vanlige substantiv, verb og pronomen, uten å blande inn former fra hovedmålet.",hovedmal-sidemal;rettskriving,,
+bokmal-nynorsk,concept,Språkmøter og samiske språk,Bokmål og nynorsk,"Bokmål: skriftspråk som har utviklet seg fra dansk skriftspråk gjennom gradvis fornorsking.
+Nynorsk: skriftspråk bygd på norske dialekter, satt sammen av Ivar Aasen på 1800-tallet.",,,
+sprakfamilie,concept,Språkmøter og samiske språk,Språkfamilie,Språkfamilie: en gruppe språk som har utviklet seg fra et felles opphavsspråk. Norsk er et germansk språk i den indoeuropeiske familien; samisk og finsk hører til den uralske (finsk-ugriske) familien.,,,
+saertrekk,concept,Språkmøter og samiske språk,Språklig særtrekk,"Språklig særtrekk: et trekk ved uttalen, bøyningen, ordstillingen eller ordforrådet i et språk som skiller det fra andre språk, for eksempel at verbalet står på andreplass i norske helsetninger.",verbal,,
+sammenligne-sprak,skill,Språkmøter og samiske språk,Sammenligne norsk med andre språk,"sammenligne særtrekk ved norsk med et annet språk, for eksempel ordstilling, bøyning eller uttale, og forklare likheter og forskjeller ut fra slektskap.",saertrekk;sprakfamilie;ta-ut-setningsledd,,
+sprakmote,concept,Språkmøter og samiske språk,Språkmøte,"Språkmøte: en situasjon der språk kommer i kontakt, gjennom handel, innvandring, makt, medier eller internett, og påvirker hverandre.",,,
+lanord,concept,Språkmøter og samiske språk,Lånord,"Lånord: et ord som er hentet fra et annet språk og har blitt en del av norsk, ofte tilpasset norsk skrivemåte og bøyning, som «bank», «sjåfør» og «streame».",sprakmote,,
+sprakendring,concept,Språkmøter og samiske språk,Språkendring,"Språkendring: at uttale, ordforråd, bøyning eller skrivemåte i et språk endrer seg over tid.",,,
+vise-sprakendring,skill,Språkmøter og samiske språk,Vise hvordan språkmøter skaper språkendring,"vise med eksempler fra ulike tider hvordan møter mellom språk har endret norsk, som plattyske ord i middelalderen, dansk som skriftspråk og engelsk påvirkning i dag.",lanord;sprakendring;bokmal-nynorsk,,
+samiske-sprak,concept,Språkmøter og samiske språk,Samiske språk,"Samiske språk: en gruppe beslektede språk i den uralske språkfamilien, som snakkes i Norge, Sverige, Finland og Russland. I Norge brukes særlig nordsamisk, lulesamisk og sørsamisk.",sprakfamilie,,
+urfolk,concept,Språkmøter og samiske språk,Urfolk,"Urfolk: en folkegruppe som bodde i et område før dagens statsgrenser ble trukket, og som har bevart eget språk, egen kultur og egne samfunnsordninger. Samene er urfolk i Norge.",,,
+fornorsking,concept,Språkmøter og samiske språk,Fornorskingspolitikken,"Fornorskingspolitikken: den norske statens politikk fra midten av 1800-tallet til etter andre verdenskrig for å få samer og kvener til å gå over til norsk språk og kultur, særlig gjennom skolen.",,,
+samiske-rettigheter,concept,Språkmøter og samiske språk,Samiske språkrettigheter,"Samiske språkrettigheter: rettigheter samene har som urfolk etter Grunnloven, sameloven og internasjonale avtaler, blant annet rett til opplæring i samisk og til å bruke samisk overfor offentlige kontorer i forvaltningsområdet for samisk språk.",urfolk,,
+redegjore-samisk,skill,Språkmøter og samiske språk,Gjøre rede for samiske språk i Norge,"gjøre rede for hvor de samiske språkene brukes i Norge i dag, hvordan fornorskingspolitikken svekket dem, og hvilke språklige rettigheter samer har som urfolk.",samiske-sprak;fornorsking;samiske-rettigheter,,
+retorikk,concept,Retorikk og argumentasjon,Retorikk,Retorikk: læren om hvordan man bruker språket for å overbevise eller påvirke andre.,,,
+retorisk-situasjon,concept,Retorikk og argumentasjon,Retorisk situasjon,"Retorisk situasjon: det som former en tekst: hvem avsenderen er, hvem mottakerne er, hva formålet er, og i hvilken sammenheng og hvilket medium teksten blir til.
+Kairos: å si det rette på rett tidspunkt og på en måte som passer situasjonen.",retorikk,,
+appellformer,concept,Retorikk og argumentasjon,Appellformene,"Etos: å overbevise gjennom avsenderens troverdighet, kunnskap og gode vilje.
+Patos: å overbevise ved å vekke følelser hos mottakeren.
+Logos: å overbevise gjennom fakta, fornuft og logiske argumenter.",retorikk,,
+retoriske-virkemidler,concept,Retorikk og argumentasjon,Retoriske virkemidler,"Retorisk virkemiddel: et språklig grep som skal gjøre et budskap mer overbevisende eller lettere å huske, som gjentakelse, kontrast, retoriske spørsmål, tretall, overdrivelse og ironi.",retorikk,,
+finne-appellformer,skill,Retorikk og argumentasjon,Finne appellformer i en sakprosatekst,"finne eksempler på etos, patos og logos i en sakprosatekst, og forklare hvordan hvert eksempel skal påvirke mottakeren.",appellformer,,
+analysere-retorikk,skill,Retorikk og argumentasjon,Analysere retorikken i en sakprosatekst,"gjøre rede for hvilke appellformer og språklige virkemidler en sakprosatekst bruker, og vurdere hvor godt de passer til formålet og mottakerne i den retoriske situasjonen.",finne-appellformer;retoriske-virkemidler;retorisk-situasjon;sprakbilder,,
+pastand-argument,concept,Retorikk og argumentasjon,Påstand og argument,"Påstand: det avsenderen vil at mottakeren skal godta.
+Argument: en begrunnelse som skal få mottakeren til å godta påstanden.
+Motargument: en begrunnelse for det motsatte synet.",,,
+saklig-usaklig,concept,Retorikk og argumentasjon,Saklig og usaklig argumentasjon,"Saklig argumentasjon: argumenter som er relevante for saken og bygger på holdbare opplysninger.
+Usaklig argumentasjon: grep som flytter oppmerksomheten bort fra saken, som stråmann, personangrep og hersketeknikker.",pastand-argument,,
+bygge-argumentasjon,skill,Retorikk og argumentasjon,Bygge opp saklig argumentasjon,"formulere en tydelig påstand, støtte den med relevante argumenter og belegg, og imøtegå et motargument.",saklig-usaklig,,
+avslore-usaklig,skill,Retorikk og argumentasjon,Avsløre usaklig argumentasjon,"kjenne igjen stråmann, personangrep og andre usaklige grep i en debatt, og forklare hvorfor de ikke svarer på saken.",saklig-usaklig,,
+delta-diskusjon,skill,Retorikk og argumentasjon,Delta i en diskusjon,"lytte til og gjengi andres argumenter riktig, svare saklig på dem, og bruke appellformene bevisst i egne innlegg.",bygge-argumentasjon;avslore-usaklig;finne-appellformer,,
+sprakbilder,concept,Skjønnlitteratur,Språklige bilder,"Sammenligning: å beskrive noe ved å sammenligne det med noe annet med et «som» eller «lik»: «sint som en tyr».
+Metafor: å beskrive noe ved å kalle det noe annet, uten «som»: «livet er en reise».
+Besjeling: å gi ting, dyr eller naturen menneskelige egenskaper: «vinden hvisket».",,,
+symbol,concept,Skjønnlitteratur,Symbol,"Symbol: en konkret ting, handling eller person i en tekst som også står for noe større, som en lukket dør for utestengelse.",sprakbilder,,
+litterare-virkemidler,concept,Skjønnlitteratur,Litterære virkemidler,"Litterært virkemiddel: et grep forfatteren bruker for å skape mening og virkning, som språklige bilder, symboler, kontrast, gjentakelse, ironi og tidshopp.",symbol,,
+forteller,concept,Skjønnlitteratur,Forteller,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren. En førstepersonsforteller er selv med i handlingen («jeg»); en tredjepersonsforteller står utenfor («hun», «han»).",,,
+synsvinkel,concept,Skjønnlitteratur,Synsvinkel,Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom. En allvitende forteller vet alt om alle; en personal forteller følger én persons tanker; en ytre forteller viser bare det som kan ses og høres.,forteller,,
+komposisjon,concept,Skjønnlitteratur,Komposisjon,"Komposisjon: hvordan handlingen i en tekst er bygd opp og ordnet — kronologisk eller med tilbakeblikk, med en start (ofte rett inn i handlingen), en konflikt, et vendepunkt og en slutt.",,,
+personkarakteristikk,concept,Skjønnlitteratur,Direkte og indirekte karakteristikk,"Direkte karakteristikk: fortelleren sier rett ut hvordan en person er.
+Indirekte karakteristikk: leseren forstår hvordan en person er gjennom det personen sier, gjør og tenker.",,,
+tema-budskap,concept,Skjønnlitteratur,Tema og budskap,"Tema: hva teksten handler om på et overordnet plan, sagt med ett eller noen få ord, som ensomhet eller identitet.
+Budskap: hva teksten sier om temaet, en innsikt leseren tolker seg fram til.",,,
+rytme-rim,concept,Skjønnlitteratur,"Rytme, rim og strofe","Rytme: vekslingen mellom trykktunge og trykklette stavelser i et dikt.
+Rim: ord som klinger likt, som enderim på slutten av verselinjene.
+Strofe: en gruppe verselinjer som hører sammen, skilt fra de andre med en tom linje.",,,
+oversettelse,concept,Skjønnlitteratur,Oversatt litteratur,"Oversettelse: en tekst som er overført fra et annet språk. Oversetteren må velge ord, rytme og kulturelle referanser, så teksten blir aldri helt den samme som originalen.",,,
+kulturmote,concept,Skjønnlitteratur,Kulturmøte,"Kulturmøte: en situasjon der mennesker med ulik kulturell bakgrunn, språk eller verdier møtes, og der forskjellene kan føre til konflikt, forståelse eller endring.",,,
+analysere-fortellerteknikk,skill,Skjønnlitteratur,Analysere fortellerteknikken,"bestemme hvem som forteller og fra hvilken synsvinkel i en novelle eller et romanutdrag, og forklare hva valget gjør med det leseren får vite og føler.",synsvinkel,,
+analysere-person,skill,Skjønnlitteratur,Analysere en litterær person,"karakterisere en person i en fortelling ut fra direkte og indirekte karakteristikk, og vise med sitater hvordan personen endrer seg.",personkarakteristikk,,
+tolke-tema,skill,Skjønnlitteratur,Tolke tema og budskap,formulere tema og budskap i en tekst og begrunne tolkningen med eksempler og sitater fra teksten.,tema-budskap,,
+forklare-virkemidler,skill,Skjønnlitteratur,Forklare virkningen av litterære virkemidler,"finne litterære virkemidler i en tekst, og forklare hvilken virkning de har og hvordan de støtter opp om tema og budskap.",litterare-virkemidler;tolke-tema,,
+analysere-dikt,skill,Skjønnlitteratur,Analysere et dikt,"analysere oppbygning, språklige bilder og rytme i et nyere dikt, og tolke hva diktet uttrykker.",rytme-rim;sprakbilder;tolke-tema,,
+analysere-fortelling,skill,Skjønnlitteratur,Analysere og tolke en fortelling,"lese en nyere novelle eller et romanutdrag og sette sammen fortellerteknikk, komposisjon, personer og virkemidler til en helhetlig tolkning.",analysere-fortellerteknikk;analysere-person;forklare-virkemidler;komposisjon,,
+lese-nynorsk-oversatt,skill,Skjønnlitteratur,Lese litteratur på nynorsk og i oversettelse,"lese og tolke nyere skjønnlitteratur på nynorsk og i oversettelse fra samisk eller andre språk, og kommentere hva som kan endre seg når en tekst blir oversatt.",analysere-fortelling;oversettelse;bokmal-nynorsk,,
+kulturmote-litteratur,skill,Skjønnlitteratur,Reflektere over kulturmøter i litteraturen,"vise hvordan en tekst framstiller et møte mellom kulturer — hvem sitt perspektiv leseren får, hvordan de andre blir framstilt — og reflektere over hva teksten sier om møtet.",kulturmote;analysere-fortellerteknikk;tolke-tema,,
+sjanger,concept,Sjangre og skriving,Sjanger,"Sjanger: en type tekst med kjente trekk i formål, innhold, oppbygning og språk, som leseren kjenner igjen, som novelle, leserinnlegg og fagartikkel.",,,
+skjonn-sakprosa,concept,Sjangre og skriving,Skjønnlitteratur og sakprosa,"Skjønnlitteratur: diktede tekster som skaper en egen verden, som noveller, romaner, dikt og skuespill.
+Sakprosa: tekster som handler om virkeligheten og skal informere, forklare eller påvirke, som artikler, taler, reklame og leserinnlegg.",sjanger,,
+hovedsjangre,concept,Sjangre og skriving,"Epikk, lyrikk og dramatikk","Epikk: fortellende skjønnlitteratur, som noveller og romaner.
+Lyrikk: dikt, ofte med rytme, bilder og et konsentrert språk.
+Dramatikk: tekster skrevet for å spilles, med replikker og sceneanvisninger.",skjonn-sakprosa,,
+novelle,concept,Sjangre og skriving,Novelle,"Novelle: en kort fortelling med få personer og ett hovedhendelsesforløp, som ofte begynner midt i handlingen, har et vendepunkt og en åpen slutt.",hovedsjangre,,
+sakprosasjangre,concept,Sjangre og skriving,Sakprosasjangre,"Leserinnlegg: en argumenterende tekst der avsenderen tar stilling i en aktuell sak.
+Kåseri: en personlig og humoristisk tekst om et hverdagslig tema.
+Tale: en tekst skrevet for å framføres muntlig for et publikum.
+Fagartikkel: en saklig tekst som greier ut om og drøfter et faglig tema og bygger på kilder.",skjonn-sakprosa,,
+multimodal,concept,Sjangre og skriving,Multimodal tekst,"Multimodal tekst: en tekst som kombinerer flere uttrykksformer — skrift, bilde, lyd, film eller grafikk — slik at de sammen skaper mening.",,,
+avsnitt,concept,Sjangre og skriving,Avsnitt,"Avsnitt: en del av en tekst som handler om én hovedtanke, ofte innledet med en temasetning, fulgt av setninger som utdyper, begrunner eller gir eksempler.",,,
+tekststruktur,concept,Sjangre og skriving,"Innledning, hoveddel og avslutning","Innledning: presenterer temaet og det teksten skal svare på.
+Hoveddel: utdyper temaet i ett avsnitt per hovedtanke.
+Avslutning: samler trådene og svarer på det innledningen lovet, uten nye argumenter.",avsnitt,,
+skrive-avsnitt,skill,Sjangre og skriving,Skrive gode avsnitt,"skrive avsnitt med en tydelig temasetning, utdypende setninger og god tekstbinding innad og over til neste avsnitt.",avsnitt;tekstbinding,,
+skrive-leserinnlegg,skill,Sjangre og skriving,Skrive et leserinnlegg,"skrive et leserinnlegg med en tydelig påstand, saklige argumenter og bevisst bruk av appellformene, tilpasset leserne.",sakprosasjangre;bygge-argumentasjon;finne-appellformer;skrive-avsnitt,,
+skrive-kaseri,skill,Sjangre og skriving,Skrive et kåseri,"skrive et kåseri med personlig stemme, humor og en uventet vri, der retoriske og språklige virkemidler brukes bevisst.",sakprosasjangre;retoriske-virkemidler;sprakbilder,,
+skrive-novelle,skill,Sjangre og skriving,Skrive en novelle,"skrive en novelle med bevisst valgt forteller og synsvinkel, et tydelig vendepunkt og indirekte karakteristikk av personene.",novelle;synsvinkel;personkarakteristikk;komposisjon,,
+kreativ-tekst,skill,Sjangre og skriving,Kombinere virkemidler og uttrykksformer kreativt,"lage en egen tekst som kombinerer språklige virkemidler med andre uttrykksformer som bilde eller lyd, og forklare hvilke valg som er gjort og hvorfor.",multimodal;litterare-virkemidler;retoriske-virkemidler,,
+vurderingskriterier,concept,Sjangre og skriving,Vurderingskriterier,"Vurderingskriterier: en beskrivelse av hva som kjennetegner en god tekst i en bestemt sjanger — innhold, oppbygning, språk og kildebruk — som en tekst kan vurderes og forbedres ut fra.",sjanger,,
+bearbeide-tekst,skill,Sjangre og skriving,Bearbeide egen tekst,"vurdere en egen tekst opp mot faglige kriterier og tilbakemeldinger, og gjøre konkrete endringer i innhold, oppbygning og språk.",vurderingskriterier;skrive-avsnitt;sette-komma;rettskriving,,
+kilde,concept,"Kilder, analyse og drøfting",Kilde,"Kilde: det en opplysning eller et synspunkt er hentet fra — en bok, en artikkel, en nettside, en video eller en person.",,,
+kildekritikk,concept,"Kilder, analyse og drøfting",Kildekritikk,"Kildekritikk: å vurdere om en kilde er troverdig og relevant, ut fra hvem som står bak, hvilket formål den har, når den ble laget, og om opplysningene kan bekreftes andre steder.",kilde,,
+sitat-parafrase,concept,"Kilder, analyse og drøfting",Sitat og parafrase,"Sitat: ordrett gjengivelse av en kilde, markert med anførselstegn.
+Parafrase: gjengivelse av innholdet i en kilde med egne ord.",kilde,,
+kildehenvisning,concept,"Kilder, analyse og drøfting",Kildehenvisning og plagiat,"Kildehenvisning: en opplysning i teksten om hvor noe er hentet fra, knyttet til en litteraturliste der kilden er fullstendig oppgitt.
+Plagiat: å framstille andres tekst eller ideer som sine egne.",kilde,,
+vurdere-kilde,skill,"Kilder, analyse og drøfting",Vurdere en kilde kritisk,"vurdere hvor troverdig og relevant en kilde er for et bestemt formål, og begrunne vurderingen.",kildekritikk,,
+bruke-kilder,skill,"Kilder, analyse og drøfting",Bruke kilder etterrettelig,"flette sitater og parafraser inn i egen tekst med riktige kildehenvisninger og litteraturliste, og holde egne vurderinger atskilt fra kildenes.",sitat-parafrase;kildehenvisning;vurdere-kilde,,
+redegjore-drofte,concept,"Kilder, analyse og drøfting",Redegjøre og drøfte,"Redegjøre: å legge fram et fagstoff saklig og ordnet, slik at leseren forstår det.
+Drøfte: å undersøke et spørsmål fra flere sider ved å veie argumenter mot hverandre, før man kommer fram til en begrunnet konklusjon.",,,
+problemstilling,concept,"Kilder, analyse og drøfting",Problemstilling,Problemstilling: et avgrenset spørsmål som en tekst eller presentasjon skal undersøke og svare på.,,,
+formulere-problemstilling,skill,"Kilder, analyse og drøfting",Formulere en problemstilling,gjøre et vidt tema om til en avgrenset problemstilling som lar seg drøfte.,problemstilling;redegjore-drofte,,
+drofte,skill,"Kilder, analyse og drøfting",Drøfte et spørsmål,"drøfte et norskfaglig spørsmål ved å legge fram flere synspunkter, veie dem mot hverandre og komme fram til en begrunnet konklusjon.",redegjore-drofte;bygge-argumentasjon,,
+skrive-fagartikkel,skill,"Kilder, analyse og drøfting",Skrive en fagartikkel,"skrive en fagartikkel som greier ut om og drøfter et norskfaglig eller tverrfaglig tema, med en problemstilling, tydelig struktur og etterrettelig kildebruk.",drofte;formulere-problemstilling;bruke-kilder;tekststruktur;skrive-avsnitt;sakprosasjangre,,
+skrive-litterar-analyse,skill,"Kilder, analyse og drøfting",Skrive en litterær analyse,"skrive en analyse av en novelle eller et romanutdrag der tolkningen bygges opp avsnitt for avsnitt, og der påstandene støttes med sitater.",analysere-fortelling;tekststruktur;skrive-avsnitt;sitat-parafrase,,
+skrive-retorisk-analyse,skill,"Kilder, analyse og drøfting",Skrive en retorisk analyse,"skrive en analyse av en sakprosatekst som knytter virkemidlene til appellformene og formålet, og som ender i en vurdering av hvor godt teksten virker.",analysere-retorikk;tekststruktur;skrive-avsnitt;sitat-parafrase,,
+sammenligne-tekster,skill,"Kilder, analyse og drøfting",Sammenligne to tekster,"sammenligne to tekster med felles tema, for eksempel en novelle og en sakprosatekst, og drøfte hvordan de framstiller temaet på ulike måter.",analysere-fortelling;analysere-retorikk;drofte,,
+muntlig-drofting,skill,"Kilder, analyse og drøfting",Greie ut om og drøfte et tema muntlig,"holde en muntlig presentasjon som greier ut om og drøfter et norskfaglig eller tverrfaglig tema, med tydelig struktur, kildebruk og tilpasning til tilhørerne.",drofte;retorisk-situasjon;bruke-kilder,,
