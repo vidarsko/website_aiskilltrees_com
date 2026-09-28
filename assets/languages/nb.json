@@ -119,7 +119,7 @@
         },
         {
           "id": "motivation",
-          "heading": "«Hvorfor skal jeg lære matte?»",
+          "heading": "«Hvorfor skal jeg lære dette?»",
           "body": "Når du trykker på denne knappen, får du en KI-instruks for en kort samtale om hvorfor det er verdt å lære faget i det hele tatt. Lim den inn i en KI-chat hvis du trenger et dytt i riktig retning.",
           "when": "feature:motivation"
         }
@@ -145,7 +145,7 @@
       "openNode": "Gå til denne noden i kartet"
     },
     "motivation": {
-      "button": "Hvorfor skal jeg lære matte?",
+      "button": "Hvorfor skal jeg lære dette?",
       "title": "Kopier en KI-instruks for en samtale om hvorfor det er verdt å lære faget"
     },
     "lesson": {

@@ -119,7 +119,7 @@
         },
         {
           "id": "motivation",
-          "heading": "«Varför ska jag lära mig matte?»",
+          "heading": "«Varför ska jag lära mig det här?»",
           "body": "När du trycker på den här knappen får du en AI-instruktion för ett kort samtal om varför det är värt att lära sig ämnet överhuvudtaget. Klistra in den i en AI-chatt om du behöver en knuff i rätt riktning.",
           "when": "feature:motivation"
         }
@@ -145,7 +145,7 @@
       "openNode": "Gå till den här noden i kartan"
     },
     "motivation": {
-      "button": "Varför ska jag lära mig matte?",
+      "button": "Varför ska jag lära mig det här?",
       "title": "Kopiera en AI-instruktion för ett samtal om varför det är värt att lära sig ämnet"
     },
     "lesson": {

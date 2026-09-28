@@ -1167,7 +1167,7 @@ function closeActionMenu() {
   if (toggle) toggle.setAttribute('aria-expanded', 'false');
 }
 
-// Motivasjonsknapp («Hvorfor skal jeg lære matte?»). Instruksen er generell
+// Motivasjonsknapp («Hvorfor skal jeg lære dette?»). Instruksen er generell
 // (samme uansett hvor i treet eleven er), ikke knyttet til én enkelt node -
 // se buildMotivationInstructionTemplate.
 function setupMotivationButton() {
