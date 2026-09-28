@@ -106,6 +106,7 @@ let PROMPT_ROWS = {};       // prompt-radene i ./tree.csv: { '<instruks>.<seksjo
                             //   '*' som instruks betyr «alle instrukser».
 let PROMPT_ROW_AT = {};     // samme nøkler → radnummeret i regnearket, så en
                             //   prompt-rad som ikke treffer noe kan navngis.
+let CONFIG_ROW_AT = {};     // config-nøkkel → radnummeret, av samme grunn.
 
 let STORAGE_KEY = null;
 let TOPIC_ORDER = [];
@@ -543,6 +544,7 @@ async function bootstrap() {
   SHOW_MOTIVATION_BUTTON = FEATURES.motivation === true;
   Object.assign(LAYOUT, CONFIG.layout || {});
 
+  applyStyle();
   applyPageChrome();
   init();
 }
@@ -595,6 +597,7 @@ const CONFIG_KEYS = [
   'slots.courseSpecifics',
   'aids.label',
   'decompositionVersion',
+  'style.conceptColor', 'style.skillColor', 'style.font',
 ].concat(Object.keys(LAYOUT).map(k => 'layout.' + k));
 /* Bare `aids.<n>.*` er et mønster, fordi nivåene er lærerens egne tall.
    `slots.*` og `layout.*` var mønstre fram til 0.14.0, og da gikk
@@ -709,6 +712,7 @@ function buildConfig(entries) {
       return;
     }
     seen.add(entry.key);
+    CONFIG_ROW_AT[entry.key] = entry.row;
     setByPath(cfg, entry.key, coerceConfigValue(entry.key, entry.value));
   });
   CONFIG_REQUIRED.forEach(key => {
@@ -764,6 +768,116 @@ function deriveStorageKey(title) {
     .replace(/[æäà]/g, 'a').replace(/[øö]/g, 'o').replace(/å/g, 'a')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   return (slug || 'skill-tree') + '-progress';
+}
+
+/* ------------------------------------------------------------------ */
+/* Utseende: `style.*`-radene                                           */
+/*                                                                      */
+/* Tre innstillinger, og bare tre, med vilje: fargen på et begrep,      */
+/* fargen på en ferdighet, og skrifta. Fargene er fortsatt bundet til    */
+/* TYPEN - et tre kan gjøre begrepene blå, men ikke gi to begreper ulik  */
+/* farge - så fargen fortsetter å bety det den betyr, og typen står i    */
+/* tillegg som ord på hver node.                                        */
+/*                                                                      */
+/* Skrifta er et valg fra en lukket liste, ikke et fontnavn: enkeltfila */
+/* skal virke uten nett, så en skrift må enten bygges inn (tungt) eller */
+/* komme fra maskinen (da må det være en stabel som finnes overalt).     */
+/* Stablene står i tokens.css som --font-<navn>, ikke her.              */
+/*                                                                      */
+/* Blandingsforholdene er de samme som tree.css bruker for standard-    */
+/* fargene, så en rad som oppgir standardfargen gir samme tre som ingen */
+/* rad i det hele tatt.                                                 */
+/* ------------------------------------------------------------------ */
+
+const STYLE_FONTS = ['system', 'humanist', 'rounded', 'serif', 'mono'];
+
+function applyStyle() {
+  const style = CONFIG.style || {};
+  const row = key => (CONFIG_ROW_AT[key] || '?');
+  const root = document.documentElement.style;
+  const hex = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+
+  if (style.conceptColor != null) {
+    if (hex.test(style.conceptColor)) {
+      root.setProperty('--begrep-bg', `color-mix(in srgb, ${style.conceptColor} 12%, var(--surface))`);
+      root.setProperty('--begrep-border', `color-mix(in srgb, ${style.conceptColor} 55%, transparent)`);
+    } else {
+      pushError('errorStyleColor', { key: 'style.conceptColor', value: style.conceptColor, row: row('style.conceptColor') });
+    }
+  }
+  if (style.skillColor != null) {
+    if (hex.test(style.skillColor)) {
+      root.setProperty('--ferdighet-bg', `color-mix(in srgb, ${style.skillColor} 40%, var(--surface))`);
+      root.setProperty('--ferdighet-border', style.skillColor);
+    } else {
+      pushError('errorStyleColor', { key: 'style.skillColor', value: style.skillColor, row: row('style.skillColor') });
+    }
+  }
+  if (style.font != null) {
+    if (STYLE_FONTS.indexOf(style.font) !== -1) {
+      root.setProperty('--font-sans', `var(--font-${style.font})`);
+    } else {
+      pushError('errorStyleFont', { value: style.font, row: row('style.font'),
+                                    valid: STYLE_FONTS.join(', '), guess: nearest(style.font, STYLE_FONTS) });
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Instruksene slik et verktøy trenger å se dem                         */
+/*                                                                      */
+/* Redigeringsverktøyet på /make-your-own/ viser hver seksjon av hver instruks */
+/* med teksten treet ville fått UTEN sine egne prompt-rader, og ved     */
+/* siden av den raden som eventuelt overstyrer den. Det kunne lest      */
+/* modulfilene selv, men da ville det hatt sin egen kopi av             */
+/* oppslagsrekkefølgen i filhodet over - og den dagen de to ble uenige, */
+/* ville verktøyet vist en standardtekst eleven aldri får. Motoren slår */
+/* derfor opp, og legger resultatet fram.                               */
+/* ------------------------------------------------------------------ */
+
+/* Seksjoner motoren fyller fra selve treet (kolonnen `instruction` på  */
+/* noden, hjelpemiddelradene). De går foran en prompt-rad, så en rad    */
+/* for dem ville ikke gjort noe. Se composeInstruction(). */
+const RUNTIME_SECTIONS = { node: ['nodeInstruction', 'aids'] };
+
+function sectionDefault(promptName, id) {
+  const langPrompt = (LANG.prompt || {});
+  const fromLangOverride = ((langPrompt.overrides || {})[promptName] || {})[id];
+  if (fromLangOverride != null) return { text: fromLangOverride, source: 'language' };
+  if (langPrompt[id] != null) return { text: langPrompt[id], source: 'language' };
+  const fromFamily = familyAdds(promptName).find(a => a.id === id);
+  if (fromFamily && fromFamily.text != null) return { text: fromFamily.text, source: 'family' };
+  const spec = CORE.prompts[promptName];
+  if (spec && spec.sections[id] != null) return { text: spec.sections[id], source: 'module' };
+  if (SHARED[id] != null) return { text: SHARED[id], source: 'shared' };
+  return { text: '', source: 'none' };
+}
+
+function describeInstructions() {
+  return Object.keys(CORE.prompts).map(name => {
+    const spec = CORE.prompts[name];
+    const entry = (MANIFEST.instructions || {})[name] || {};
+    const runtime = RUNTIME_SECTIONS[name] || [];
+    return {
+      id: name,
+      title: entry.title || spec.title || name,
+      version: spec.version || '',
+      sections: sectionOrder(name).map(id => {
+        const def = sectionDefault(name, id);
+        const add = familyAdds(name).find(a => a.id === id);
+        return {
+          id: id,
+          text: def.text,
+          source: def.source,
+          override: PROMPT_ROWS[name + '.' + id] != null ? PROMPT_ROWS[name + '.' + id] : null,
+          overrideAll: PROMPT_ROWS['*.' + id] != null ? PROMPT_ROWS['*.' + id] : null,
+          runtime: runtime.indexOf(id) !== -1,
+          conditional: !!SECTION_WHEN[name + '.' + id] ||
+                       !!(add && add.after && SECTION_WHEN[name + '.' + add.after]),
+        };
+      }),
+    };
+  });
 }
 
 /* «Om faget» for et tre uten katalogoppføring. Bare fritekstfeltene:
@@ -2888,6 +3002,13 @@ function publishEffectiveConfig() {
     rootCount: allNodes.filter(n => !n.depends_on.length).length,
     depth: allNodes.reduce((m, n) => Math.max(m, n.nivaa), 0) + 1,
     promptOverrides: Object.keys(PROMPT_ROWS),
+    /* Til redigeringsverktøyet på /make-your-own/: hva hver instruks ville sagt
+       uten treets egne prompt-rader, og hvilke valg style.font har. */
+    instructions: describeInstructions(),
+    style: Object.assign({}, CONFIG.style || {}),
+    styleFonts: STYLE_FONTS.slice(),
+    learners: Object.keys(LANG.learners || {}).filter(k => k.charAt(0) !== '_'),
+    subjectFamilies: Object.keys((MANIFEST && MANIFEST.subjectFamilies) || {}),
     errors: validationErrors.map(errorText),
   };
   window.dispatchEvent(new CustomEvent('aist:ready', { detail: window.AIST_EFFECTIVE_CONFIG }));

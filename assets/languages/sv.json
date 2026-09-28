@@ -55,6 +55,8 @@
     "errorUnknownPromptTarget": "Prompt-raden på rad {row} i tree.csv pekar på »{name}«, som inte är en instruktion det här trädet sätter samman. Ingenting tillämpades.",
     "errorDidYouMean": "Menade du »{key}«?",
     "errorMissingConfig": "tree.csv saknar en config-rad för »{key}«, som krävs.",
+    "errorStyleColor": "Inställningen »{key}« på rad {row} i tree.csv måste vara en färg skriven som en hexkod, som #1F6F4A. »{value}« är inte det, så standardfärgen behölls.",
+    "errorStyleFont": "Okänt typsnitt »{value}« på rad {row} i tree.csv. Typsnitten ett träd kan använda: {valid}. Standardtypsnittet behölls.",
     "nodeType": {
       "skill": "färdighet",
       "concept": "begrepp"

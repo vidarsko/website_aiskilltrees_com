@@ -83,4 +83,14 @@
      works offline from a folder. A host site that wants its own face
      overrides this one line. */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* The choices a tree can make with a `style.font` row. engine.js points
+     --font-sans at one of these; the names are the values the row takes.
+     Every stack is system faces only, for the reason above: the single-file
+     edition has to look the same on a laptop with no network. */
+  --font-system:   system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-humanist: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+  --font-rounded:  ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri, source-sans-pro, sans-serif;
+  --font-serif:    Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --font-mono:     ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }

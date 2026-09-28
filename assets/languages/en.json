@@ -55,6 +55,8 @@
     "errorUnknownPromptTarget": "The prompt row on row {row} of tree.csv is aimed at “{name}”, which is not an instruction this tree composes. Nothing was applied.",
     "errorDidYouMean": "Did you mean “{key}”?",
     "errorMissingConfig": "tree.csv has no config row for “{key}”, which is required.",
+    "errorStyleColor": "The setting “{key}” on row {row} of tree.csv must be a colour written as a hex code, like #1F6F4A. “{value}” is not one, so the default colour was kept.",
+    "errorStyleFont": "Unknown font “{value}” on row {row} of tree.csv. The fonts a tree can use: {valid}. The default font was kept.",
     "nodeType": {
       "skill": "skill",
       "concept": "concept"
