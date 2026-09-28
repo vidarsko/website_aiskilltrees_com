@@ -3254,9 +3254,12 @@ function renderGraph(columnMeta) {
 
   const progress = getProgress();
 
-  // Kanter
+  // Kanter. Bare de direkte kantene tegnes: en avhengighet som allerede følger
+  // av en lengre vei (A→C når A→B→C finnes) utelates fra tegningen. Fila,
+  // detaljpanelet og instruksene er uberørt — de bruker hele kjeden via
+  // getAllAncestors.
   allNodes.forEach(node => {
-    node.depends_on.forEach(depId => {
+    drawnDependencies(node).forEach(depId => {
       const dep = nodesById.get(depId);
       if (!dep) return;
       const x1 = LAYOUT.padding + dep.x + LAYOUT.nodeWidth / 2;
@@ -3287,6 +3290,19 @@ function renderGraph(columnMeta) {
   });
 
   updateEdgeHighlight();
+}
+
+/* Transitiv reduksjon av én nodes avhengigheter, for tegningen: en
+   avhengighet utelates hvis den allerede er en forfar til en av nodens andre
+   avhengigheter. Grafen er validert asyklisk før dette kalles. */
+function drawnDependencies(node) {
+  const deps = node.depends_on.filter(id => nodesById.has(id));
+  if (deps.length < 2) return deps;
+  const implied = new Set();
+  deps.forEach(id => {
+    getAllAncestors(nodesById.get(id)).forEach(a => implied.add(a.id));
+  });
+  return deps.filter(id => !implied.has(id));
 }
 
 /* Marker kantene som hører til den åpne noden - både inn og ut - og flytt dem
