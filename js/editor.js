@@ -353,6 +353,62 @@
     });
   }
 
+  /* Regnearket kommer oftest som tekst i en KI-chat. Det som limes inn,
+     kan ha prat rundt seg, et ```csv-gjerde, eller - kopiert fra en tabell
+     chatten har tegnet - tabulatorer eller markdown-streker i stedet for
+     komma. Alt det ryddes bort her; resten er det samme som en sluppet fil. */
+  var HEADER_LINE = /^\s*\|?\s*"?id"?\s*[,\t|;]\s*"?type"?\s*[,\t|;]/i;
+
+  function treeFromPasted(text) {
+    text = String(text || '').replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
+    var lines = text.split('\n');
+    var start = -1;
+    for (var i = 0; i < lines.length; i++) {
+      if (HEADER_LINE.test(lines[i])) { start = i; break; }
+    }
+    if (start === -1) return null;
+    lines = lines.slice(start);
+    /* Et gjerde etter tabellen avslutter den, og det som står etter, er prat. */
+    var end = lines.findIndex(function (l) { return /^\s*(```|~~~)/.test(l); });
+    if (end !== -1) lines = lines.slice(0, end);
+    while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+    var header = lines[0];
+    var rows;
+    if (/^\s*\|/.test(header)) {
+      rows = lines.filter(function (l) { return /^\s*\|/.test(l) && !/^\s*\|[\s:|-]+\|?\s*$/.test(l); })
+        .map(function (l) {
+          return l.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(function (c) {
+            return c.trim().replace(/\\\|/g, '|');
+          });
+        });
+    } else if (header.indexOf('\t') !== -1) {
+      rows = window.Papa.parse(lines.join('\n'), { delimiter: '\t' }).data;
+    } else if (header.indexOf(',') === -1 && header.indexOf(';') !== -1) {
+      rows = window.Papa.parse(lines.join('\n'), { delimiter: ';' }).data;
+    }
+    if (rows) {
+      rows = rows.filter(function (r) { return r.length && !isBlankCells(r); });
+      return window.Papa.unparse(rows, { newline: '\n' }) + '\n';
+    }
+    return lines.join('\n') + '\n';
+  }
+
+  function acceptPasted(text) {
+    var tree = treeFromPasted(text);
+    if (!tree) { showStartError(t('paste-not-tree')); return false; }
+    if (!confirmDiscard()) return false;
+    showStartError('');
+    el.pasteArea.value = '';
+    el.paste.hidden = true;
+    openText(tree, null, 'tree.csv');
+    return true;
+  }
+
+  function showPasteBox() {
+    el.paste.hidden = false;
+    el.pasteArea.focus();
+  }
+
   function openUrl(treeUrl, examsUrl, background, name) {
     if (!background && !confirmDiscard()) return;
     fetch(treeUrl).then(function (res) {
@@ -1753,6 +1809,8 @@
     el.input = document.getElementById('ed-file');
     el.catalogue = document.getElementById('ed-catalogue');
     el.startError = document.getElementById('ed-start-error');
+    el.paste = document.getElementById('ed-paste');
+    el.pasteArea = document.getElementById('ed-paste-area');
 
     el.modeButtons.forEach(function (b) {
       b.addEventListener('click', function () { setMode(b.getAttribute('data-mode')); });
@@ -1830,6 +1888,37 @@
       el.drop.addEventListener(type, function (e) { e.preventDefault(); el.drop.classList.remove('is-over'); });
     });
     el.drop.addEventListener('drop', function (e) { acceptFiles(e.dataTransfer && e.dataTransfer.files); });
+
+    /* «Lim inn» viser et felt å lime inn i, og leser samtidig utklippstavla
+       der nettleseren lar oss. Ligger et tre der, åpnes det med en gang.
+       Feltet vises først, fordi en nettleser som spør om lov, kan la
+       spørsmålet stå ubesvart. */
+    document.getElementById('ed-paste-button').addEventListener('click', function () {
+      showPasteBox();
+      if (!navigator.clipboard || !navigator.clipboard.readText) return;
+      navigator.clipboard.readText().then(function (text) {
+        if (treeFromPasted(text)) acceptPasted(text);
+      }, function () {});
+    });
+    el.pasteArea.addEventListener('paste', function () {
+      /* Verdien er på plass først etter at hendelsen er ferdig. */
+      setTimeout(function () {
+        if (treeFromPasted(el.pasteArea.value)) acceptPasted(el.pasteArea.value);
+      }, 0);
+    });
+    document.getElementById('ed-paste-open').addEventListener('click', function () {
+      acceptPasted(el.pasteArea.value);
+    });
+    /* Ctrl+V mens vinduet er framme og ingen felt har fokus: da er det
+       regnearket læreren limer inn. */
+    document.addEventListener('paste', function (e) {
+      if (el.overlay.hidden) return;
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement || {}).tagName || '')) return;
+      var text = e.clipboardData && e.clipboardData.getData('text/plain');
+      if (!text) return;
+      e.preventDefault();
+      if (!acceptPasted(text)) { showPasteBox(); el.pasteArea.value = text; }
+    });
 
     document.getElementById('ed-start-example').addEventListener('click', function () {
       /* Står eksempelet allerede urørt bak vinduet, er det bare å lukke. */

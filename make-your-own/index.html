@@ -86,6 +86,26 @@
           "nb": "Det var ikke et tre. Velg en tree.csv, eller en .html-fil lastet ned fra denne siden.",
           "sv": "Det var inget träd. Välj en tree.csv, eller en .html-fil nedladdad från den här sidan."
       },
+      "paste-cta": {
+          "en": "Paste from the AI chat",
+          "nb": "Lim inn fra KI-chatten",
+          "sv": "Klistra in från AI-chatten"
+      },
+      "paste-placeholder": {
+          "en": "Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)",
+          "nb": "Lim inn regnearket chatten ga deg her (Ctrl+V eller ⌘V)",
+          "sv": "Klistra in kalkylarket chatten gav dig här (Ctrl+V eller ⌘V)"
+      },
+      "paste-open": {
+          "en": "Open",
+          "nb": "Åpne",
+          "sv": "Öppna"
+      },
+      "paste-not-tree": {
+          "en": "That does not look like a skill tree. Copy the whole spreadsheet from the chat, from the line that starts with id,type,topic down to the last row.",
+          "nb": "Det ser ikke ut som et ferdighetstre. Kopier hele regnearket fra chatten, fra linja som begynner med id,type,topic til og med siste rad.",
+          "sv": "Det ser inte ut som ett färdighetsträd. Kopiera hela kalkylarket från chatten, från raden som börjar med id,type,topic till och med sista raden."
+      },
       "start-html-bad": {
           "en": "{name} does not contain a skill tree. Only files downloaded from this site can be opened here.",
           "nb": "{name} inneholder ikke et ferdighetstre. Bare filer lastet ned fra denne siden kan åpnes her.",
@@ -1062,9 +1082,9 @@
           "sv": "inte angiven — lägg till en decompositionVersion-rad, så att du senare kan se vilken version av metoden trädet byggdes efter"
       },
       "l1-body": {
-          "en": "Drop it here, or a tree you downloaded from this site earlier. It opens in the editor, where you can change it and download it again.",
-          "nb": "Slipp det her, eller et tre du har lastet ned fra denne siden før. Det åpnes i redigeringen, der du kan endre det og laste det ned igjen.",
-          "sv": "Släpp det här, eller ett träd du har laddat ner från den här sidan tidigare. Det öppnas i redigeringen, där du kan ändra det och ladda ner det igen."
+          "en": "Drop it here, or paste it if you copied it from the chat. A tree you downloaded from this site earlier works too. It opens in the editor, where you can change it and download it again.",
+          "nb": "Slipp det her, eller lim det inn hvis du kopierte det fra chatten. Et tre du har lastet ned fra denne siden før, går også. Det åpnes i redigeringen, der du kan endre det og laste det ned igjen.",
+          "sv": "Släpp det här, eller klistra in det om du kopierade det från chatten. Ett träd du har laddat ner från den här sidan tidigare går också. Det öppnas i redigeringen, där du kan ändra det och ladda ner det igen."
       },
       "l0-show": {
           "en": "Show the prompt",
@@ -1077,9 +1097,9 @@
           "sv": "Dölj instruktionen"
       },
       "l0-next": {
-          "en": "Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one.",
-          "nb": "Kopiert. Lim den inn i KI-chatten. Når chatten gir deg regnearket, slipper du det i boksen ved siden av.",
-          "sv": "Kopierat. Klistra in den i AI-chatten. När chatten ger dig kalkylarket släpper du det i rutan bredvid."
+          "en": "Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one, or copy it and paste it there.",
+          "nb": "Kopiert. Lim den inn i KI-chatten. Når chatten gir deg regnearket, slipper du det i boksen ved siden av, eller kopierer det og limer det inn der.",
+          "sv": "Kopierat. Klistra in den i AI-chatten. När chatten ger dig kalkylarket släpper du det i rutan bredvid, eller kopierar det och klistrar in det där."
       },
       "l3-title": {
           "en": "You want to start from something",
@@ -1241,16 +1261,23 @@
               <button type="button" class="btn btn--primary" id="ed-copy-prompt" data-i18n="l0-cta">Copy the prompt</button>
               <button type="button" class="ed-btn ed-btn--link" id="ed-show-prompt" aria-expanded="false" aria-controls="authoring-prompt" data-i18n="l0-show">Show the prompt</button>
             </div>
-            <p class="ed-way__next" id="ed-prompt-next" role="status" hidden data-i18n="l0-next">Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one.</p>
+            <p class="ed-way__next" id="ed-prompt-next" role="status" hidden data-i18n="l0-next">Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one, or copy it and paste it there.</p>
             <pre class="promptbox" id="authoring-prompt" hidden data-i18n="l0-placeholder">[ Loading the prompt… ]</pre>
           </li>
           <li class="ed-way">
             <span class="step__index" aria-hidden="true">02</span>
             <h2 class="ed-way__title" data-i18n="l1-title">You have a spreadsheet</h2>
-            <p class="ed-way__body" data-i18n="l1-body">Drop it here, or a tree you downloaded from this site earlier. It opens in the editor, where you can change it and download it again.</p>
+            <p class="ed-way__body" data-i18n="l1-body">Drop it here, or paste it if you copied it from the chat. A tree you downloaded from this site earlier works too. It opens in the editor, where you can change it and download it again.</p>
             <div class="builder__drop" id="ed-drop" tabindex="0" role="button">
               <span class="builder__droplabel" data-i18n="start-drop">Drop tree.csv or a downloaded tree (.html) here, or click to choose</span>
               <input type="file" id="ed-file" accept=".csv,text/csv,.html,.htm,text/html" multiple hidden>
+            </div>
+            <!-- Lim inn: regnearket kommer oftest som tekst i en KI-chat, ikke som
+                 fil. Knappen prøver utklippstavla, og viser ellers et felt å lime i. -->
+            <button type="button" class="btn btn--ghost ed-way__paste" id="ed-paste-button" data-i18n="paste-cta">Paste from the AI chat</button>
+            <div class="ed-paste" id="ed-paste" hidden>
+              <textarea class="ed-input ed-paste__area" id="ed-paste-area" rows="6" spellcheck="false" placeholder="Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)" aria-label="Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)" data-i18n-attr="placeholder:paste-placeholder,aria-label:paste-placeholder"></textarea>
+              <button type="button" class="btn btn--primary" id="ed-paste-open" data-i18n="paste-open">Open</button>
             </div>
             <a class="ed-btn ed-btn--link" href="/assets/starter/tree.csv" download data-i18n="l1-cta">Download an example spreadsheet</a>
           </li>

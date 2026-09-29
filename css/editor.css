@@ -158,6 +158,17 @@ html.ed-has-overlay .siteheader { position: relative; z-index: 60; }
 }
 .ed-way__next[hidden] { display: none; }
 
+.ed-paste { display: grid; gap: var(--space-1); align-self: stretch; }
+.ed-paste[hidden] { display: none; }
+.ed-paste__area {
+  width: 100%;
+  min-width: 0;
+  resize: vertical;
+  font-size: var(--step-xs);
+  white-space: pre;
+}
+.ed-paste .btn { justify-self: start; }
+
 .ed-way__stack { display: grid; gap: var(--space-1); align-self: stretch; }
 .ed-way__stack .btn { width: 100%; }
 
