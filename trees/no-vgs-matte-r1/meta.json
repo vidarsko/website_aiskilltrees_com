@@ -28,11 +28,12 @@
     "Utforskende arbeid med data"
   ],
   "keywords": [],
-  "nodeCount": 84,
+  "nodeCount": 85,
   "skillCount": 65,
   "conceptCount": 19,
+  "factCount": 1,
   "author": "Vidar Skogvoll",
   "authorUrl": "https://skogvoll.com",
   "license": "CC BY 4.0",
-  "updated": "2026-09-21"
+  "updated": "2026-09-30"
 }

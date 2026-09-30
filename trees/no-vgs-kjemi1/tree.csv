@@ -66,11 +66,39 @@ kb-svake-bindinger-oversikt,concept,Kjemiske bindinger og molekylgeometri,Svake 
 kb-identifisere-svak-binding,skill,Kjemiske bindinger og molekylgeometri,Identifisere hvilken svak binding som virker mellom molekyler,"avgjøre hvilken type svak binding (van der Waalske krefter, dipol-dipolbinding eller hydrogenbinding) som virker mellom molekylene i et gitt stoff.",kb-svake-bindinger-oversikt,0,"Gi eleven noen stoffer med ulik struktur og polaritet, og be dem avgjøre hvilken type svak binding som virker mellom molekylene i hvert av dem."
 kb-forklare-smelte-kokepunkt,skill,Kjemiske bindinger og molekylgeometri,Forklare og sammenligne smelte- og kokepunkt ut fra bindingstype og bindingsstyrke,"sammenligne smelte- eller kokepunktet til to stoffer, og forklare forskjellen ut fra hvilken type binding (sterk eller svak) som må brytes, og hvor sterk denne bindingen er.",kb-identifisere-svak-binding;kb-forklare-ionebinding-styrke;kb-metallbinding-begrep,0,"Gi eleven to stoffer med kjent binding (f.eks. to salter, to metaller, eller to molekylære stoffer med ulik svak binding), og be dem avgjøre og begrunne hvilket av dem som har høyest smelte- eller kokepunkt."
 kb-krystallvann-begrep,concept,Kjemiske bindinger og molekylgeometri,Krystallvann (hydrat),"Krystallvann (hydrat): noen salter binder til seg vannmolekyler i krystallgitteret sitt (krystallvann/hydrat), og dette vannet kan drives ut ved oppvarming.",kb-ionebinding-begrep,0,
-kn-polyatomart-ion-begrep,concept,Kjemiske forbindelser og navnsetting,Vanlige polyatomære ioner,"Vanlige polyatomære ioner: et polyatomært ion er en gruppe atomer som til sammen bærer en ladning og opptrer som én enhet i reaksjoner. De vanligste er hydroksid OH⁻, nitrat NO₃⁻, sulfat SO₄²⁻, karbonat CO₃²⁻, fosfat PO₄³⁻ og ammonium NH₄⁺.",,0,
-kn-navngi-ioniske-forbindelser,skill,Kjemiske forbindelser og navnsetting,Navngi og skrive formelen til ioniske forbindelser (salter),"gå fra navnet på et salt til den kjemiske formelen, og omvendt, ved å kombinere ladningen til kation og anion.",kn-polyatomart-ion-begrep;at-bestemme-ionladning,0,"Gi eleven en liste med salter, noen som navn og noen som formel, og be dem finne det som mangler for hvert salt."
+kn-polyatomart-ion-begrep,concept,Kjemiske forbindelser og navnsetting,Polyatomært ion,Polyatomært ion: en gruppe atomer som til sammen bærer en ladning og opptrer som én enhet i reaksjoner.,,0,
+kn-polyatomare-ioner,fact,Kjemiske forbindelser og navnsetting,Vanlige polyatomære ioner,"hydroksid: OH⁻
+nitrat: NO₃⁻
+nitritt: NO₂⁻
+sulfat: SO₄²⁻
+sulfitt: SO₃²⁻
+karbonat: CO₃²⁻
+hydrogenkarbonat: HCO₃⁻
+fosfat: PO₄³⁻
+acetat: CH₃COO⁻
+permanganat: MnO₄⁻
+ammonium: NH₄⁺",kn-polyatomart-ion-begrep,,
+kn-navngi-ioniske-forbindelser,skill,Kjemiske forbindelser og navnsetting,Navngi og skrive formelen til ioniske forbindelser (salter),"gå fra navnet på et salt til den kjemiske formelen, og omvendt, ved å kombinere ladningen til kation og anion.",kn-polyatomare-ioner;at-bestemme-ionladning,0,"Gi eleven en liste med salter, noen som navn og noen som formel, og be dem finne det som mangler for hvert salt."
 kn-romertall-begrep,concept,Kjemiske forbindelser og navnsetting,Romertall for metaller med variabel ladning,"Romertall for metaller med variabel ladning: enkelte metaller (f.eks. jern, kobber, krom, mangan) kan danne ioner med ulik ladning, og romertall i navnet angir hvilken ladning metallet har i akkurat den forbindelsen.",kn-navngi-ioniske-forbindelser,0,
-kn-navngi-molekylare-forbindelser,skill,Kjemiske forbindelser og navnsetting,Navngi og skrive formelen til molekylære forbindelser,"gå fra navnet på en molekylær (kovalent) forbindelse mellom to ikke-metaller til formelen, og omvendt, ved å bruke greske tallprefikser (mono-, di-, tri- osv.).",kb-kovalent-binding-begrep,0,"Gi eleven noen molekylære forbindelser mellom to ikke-metaller, noen som navn og noen som formel, og be dem finne det som mangler."
-kn-syrer-begrep,concept,Kjemiske forbindelser og navnsetting,Vanlige syrer,"Vanlige syrer: saltsyre HCl, salpetersyre HNO₃, svovelsyre H₂SO₄, fosforsyre H₃PO₄ og eddiksyre CH₃COOH. De tre første er sterke syrer, som er fullstendig protolysert i vann.",,0,
+kn-greske-tallprefikser,fact,Kjemiske forbindelser og navnsetting,Greske tallprefikser,"mono-: 1
+di-: 2
+tri-: 3
+tetra-: 4
+penta-: 5
+heksa-: 6
+hepta-: 7
+okta-: 8
+nona-: 9
+deka-: 10",,,
+kn-navngi-molekylare-forbindelser,skill,Kjemiske forbindelser og navnsetting,Navngi og skrive formelen til molekylære forbindelser,"gå fra navnet på en molekylær (kovalent) forbindelse mellom to ikke-metaller til formelen, og omvendt, ved å bruke de greske tallprefiksene.",kb-kovalent-binding-begrep;kn-greske-tallprefikser,0,"Gi eleven noen molekylære forbindelser mellom to ikke-metaller, noen som navn og noen som formel, og be dem finne det som mangler."
+kn-syrer-begrep,fact,Kjemiske forbindelser og navnsetting,Vanlige syrer og baser,"saltsyre: HCl, sterk syre
+salpetersyre: HNO₃, sterk syre
+svovelsyre: H₂SO₄, sterk syre
+fosforsyre: H₃PO₄, svak syre
+eddiksyre: CH₃COOH, svak syre
+natriumhydroksid: NaOH, sterk base
+kaliumhydroksid: KOH, sterk base
+ammoniakk: NH₃, svak base",,,
 kn-syrerest-begrep,concept,Kjemiske forbindelser og navnsetting,Syrerest,"Syrerest: det som er igjen når syren har avgitt ett eller flere H⁺-ioner, og denne resten er anionet i saltene til syren.",kn-syrer-begrep,0,
 kn-navngi-salter-av-syrer,skill,Kjemiske forbindelser og navnsetting,Navngi salter ut fra hvilken syre de stammer fra,"finne navnet på syreresten til en gitt syre, og bruke det til å navngi salter som inneholder denne syreresten.",kn-syrerest-begrep;kn-navngi-ioniske-forbindelser,0,"Gi eleven navnet eller formelen til en syre, og be dem finne syreresten og navnet på salter som inneholder den."
 kn-dissosiasjon-begrep,concept,Kjemiske forbindelser og navnsetting,Dissosiasjon (ionespalting) av salter i vann,Dissosiasjon (ionespalting) av salter i vann: et salt spaltes i sine bestanddelende ioner (dissosierer) når det løses i vann.,kn-navngi-ioniske-forbindelser,0,
@@ -86,7 +114,14 @@ st-massprosent-begrep,concept,Støkiometri,Masseprosent av grunnstoff i en forbi
 st-beregne-massprosent,skill,Støkiometri,Beregne masseprosenten av hvert grunnstoff i en forbindelse,bruke molar masse til å beregne hvor mange prosent av massen til en forbindelse som kommer fra hvert av grunnstoffene i den.,st-massprosent-begrep,0,"Gi eleven en kjemisk formel, og be dem beregne masseprosenten av hvert grunnstoff i forbindelsen."
 st-gjeldende-sifre-begrep,concept,Støkiometri,Gjeldende sifre,"Gjeldende sifre: sifrene i et tall som bærer informasjon om målingen. Alle sifre fra det første sifferet som ikke er null og ut telles med, inkludert nuller mellom sifre og etterfølgende nuller etter et desimalkomma; nuller foran det første betydelige sifferet gjør det ikke.",,0,
 st-runde-av-gjeldende-sifre,skill,Støkiometri,Runde av et svar til riktig antall gjeldende sifre,"runde av resultatet av en beregning til et rimelig antall gjeldende sifre, ut fra hvor mange gjeldende sifre som var oppgitt i inngangsverdiene.",st-gjeldende-sifre-begrep,0,"Gi eleven noen enkle regnestykker med tall som har ulikt antall gjeldende sifre, og be dem oppgi svaret med riktig antall gjeldende sifre."
-st-balansere-reaksjonslikning,skill,Støkiometri,Balansere kjemiske reaksjonslikninger,"balansere en gitt kjemisk reaksjonslikning ved å justere koeffisientene foran hver formel, slik at det er like mange atomer av hvert grunnstoff på begge sider.",,0,"Gi eleven noen ubalanserte reaksjonslikninger av økende vanskelighetsgrad, og be dem balansere hver av dem."
+st-toatomige-grunnstoffer,fact,Støkiometri,Toatomige grunnstoffer,"hydrogen: H₂
+nitrogen: N₂
+oksygen: O₂
+fluor: F₂
+klor: Cl₂
+brom: Br₂
+jod: I₂",,,
+st-balansere-reaksjonslikning,skill,Støkiometri,Balansere kjemiske reaksjonslikninger,"balansere en gitt kjemisk reaksjonslikning ved å justere koeffisientene foran hver formel, slik at det er like mange atomer av hvert grunnstoff på begge sider.",st-toatomige-grunnstoffer,0,"Gi eleven noen ubalanserte reaksjonslikninger av økende vanskelighetsgrad, og be dem balansere hver av dem."
 st-tilstandssymbol-begrep,concept,Støkiometri,Tilstandssymboler,"Tilstandssymboler: tilstandssymbolene (s), (l), (g) og (aq) i en reaksjonslikning viser om et stoff er fast, flytende, en gass, eller løst i vann.",,0,
 st-konsentrasjon-begrep,concept,Støkiometri,Konsentrasjon (stoffmengdekonsentrasjon),Konsentrasjon (stoffmengdekonsentrasjon): stoffmengdekonsentrasjonen (mol/L) til en løsning er stoffmengden av det oppløste stoffet delt på volumet av løsningen.,st-mol-begrep,0,
 st-beregne-konsentrasjon,skill,Støkiometri,Beregne konsentrasjonen til en løsning,"beregne konsentrasjonen til en løsning ut fra massen eller stoffmengden av det oppløste stoffet og volumet av løsningen, eller regne den andre veien for å finne hvor mye som må veies inn.",st-konsentrasjon-begrep;st-omregning-mol-masse,0,"Gi eleven massen av et stoff løst i et gitt volum, og be dem beregne konsentrasjonen - eller gi en ønsket konsentrasjon og volum, og be dem beregne hvor mye stoff som må veies inn."
@@ -154,7 +189,7 @@ Svak syre eller base: protolyserer bare delvis, slik at det innstiller seg en li
 sb-syre-base-reaksjon-begrep,concept,Syrer og baser,Syre-base-reaksjon,Syre-base-reaksjon: en reaksjon der et H⁺-ion overføres fra en syre til en base.,sb-bronsted-lowry-begrep,0,
 sb-ph-begrep,concept,Syrer og baser,pH og pOH,"pH: -log[H₃O⁺], et mål på hvor sur en løsning er. Lav pH betyr høy konsentrasjon av H₃O⁺.
 pOH: -log[OH⁻], det tilsvarende målet for basiske løsninger. I vann ved 25 °C er pH + pOH = 14.",sb-bronsted-lowry-begrep,0,
-sb-beregne-ph-sterk-syre-base,skill,Syrer og baser,Beregne pH i en løsning av en sterk syre eller sterk base,"bruke konsentrasjonen til en sterk syre eller sterk base til å beregne [H₃O⁺] eller [OH⁻], og videre pH i løsningen.",sb-ph-begrep;sb-sterk-svak-begrep,0,"Gi eleven konsentrasjonen til en sterk syre eller sterk base, og be dem beregne pH i løsningen."
+sb-beregne-ph-sterk-syre-base,skill,Syrer og baser,Beregne pH i en løsning av en sterk syre eller sterk base,"bruke konsentrasjonen til en sterk syre eller sterk base til å beregne [H₃O⁺] eller [OH⁻], og videre pH i løsningen.",sb-ph-begrep;sb-sterk-svak-begrep;kn-syrer-begrep,0,"Gi eleven konsentrasjonen til en sterk syre eller sterk base, og be dem beregne pH i løsningen."
 sb-syrekonstant-begrep,concept,Syrer og baser,Syrekonstanten Ka og basekonstanten Kb,"Syrekonstanten Ka: likevektskonstanten for protolysen av en svak syre. Jo større Ka, jo sterkere syre.
 Basekonstanten Kb: det samme for en svak base.",sb-sterk-svak-begrep,0,
 sb-beregne-ph-svak-syre-base,skill,Syrer og baser,Beregne pH i en løsning av en svak syre eller svak base,"bruke konsentrasjonen og Ka (eller Kb) til en svak syre (eller base) til å beregne [H₃O⁺] eller [OH⁻] ved likevekt, og videre pH i løsningen.",sb-syrekonstant-begrep;sb-beregne-ph-sterk-syre-base,0,"Gi eleven konsentrasjonen og Ka (eller Kb) til en svak syre eller base, og be dem beregne pH i løsningen."
@@ -200,7 +235,17 @@ ka-vurdere-vann-luftkvalitet,skill,Kvantitativ analyse,Bruke stoffkonsentrasjon 
 ok-organisk-forbindelse-begrep,concept,Organisk kjemi,Organisk forbindelse,"Organisk forbindelse: en karbonholdig forbindelse (med noen unntak, som CO₂ og karbonater), og karbonatomer kan binde seg til hverandre i lange kjeder og ringer.",,0,
 ok-hydrokarbon-begrep,concept,Organisk kjemi,Hydrokarbon,"Hydrokarbon: inneholder karbon og hydrogen, og det er mettet hvis det bare har enkeltbindinger mellom karbonatomene, og umettet hvis det har minst én dobbelt- eller trippelbinding.",ok-organisk-forbindelse-begrep,0,
 ok-alkan-begrep,concept,Organisk kjemi,Alkan,Alkan: et mettet hydrokarbon med den generelle formelen CₙH₂ₙ₊₂.,ok-hydrokarbon-begrep,0,
-ok-navngi-alkan,skill,Organisk kjemi,Navngi og tegne strukturformelen til en alkan,"navngi en (eventuelt forgrenet) alkan ut fra strukturformelen, og tegne strukturformelen ut fra navnet, ved å finne lengste karbonkjede og navngi eventuelle sidegrener med riktig lokant.",ok-alkan-begrep,0,"Gi eleven noen strukturformler til (forgrenede) alkaner, og be dem navngi hver av dem - eller gi navnet og be dem tegne strukturformelen."
+ok-stammenavn,fact,Organisk kjemi,Stammenavn for karbonkjeder,"1 karbonatom: met-
+2 karbonatomer: et-
+3 karbonatomer: prop-
+4 karbonatomer: but-
+5 karbonatomer: pent-
+6 karbonatomer: heks-
+7 karbonatomer: hept-
+8 karbonatomer: okt-
+9 karbonatomer: non-
+10 karbonatomer: dek-",,,
+ok-navngi-alkan,skill,Organisk kjemi,Navngi og tegne strukturformelen til en alkan,"navngi en (eventuelt forgrenet) alkan ut fra strukturformelen, og tegne strukturformelen ut fra navnet, ved å finne lengste karbonkjede og navngi eventuelle sidegrener med riktig lokant.",ok-alkan-begrep;ok-stammenavn,0,"Gi eleven noen strukturformler til (forgrenede) alkaner, og be dem navngi hver av dem - eller gi navnet og be dem tegne strukturformelen."
 ok-alken-alkyn-begrep,concept,Organisk kjemi,Alken og alkyn,"Alken: et umettet hydrokarbon med minst én dobbeltbinding mellom karbonatomer.
 Alkyn: et umettet hydrokarbon med minst én trippelbinding.",ok-hydrokarbon-begrep,0,
 ok-navngi-alken,skill,Organisk kjemi,Navngi og tegne strukturformelen til et alken,"navngi et alken ut fra strukturformelen (inkludert riktig lokant for dobbeltbindingen), og tegne strukturformelen ut fra navnet.",ok-alken-alkyn-begrep;ok-navngi-alkan,0,"Gi eleven noen strukturformler til alkener, og be dem navngi hver av dem - eller gi navnet og be dem tegne strukturformelen."

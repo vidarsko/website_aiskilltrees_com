@@ -31,11 +31,12 @@
     "Matematiske bevis"
   ],
   "keywords": [],
-  "nodeCount": 108,
+  "nodeCount": 109,
   "skillCount": 83,
   "conceptCount": 25,
+  "factCount": 1,
   "author": "Vidar Skogvoll",
   "authorUrl": "https://skogvoll.com",
   "license": "CC BY 4.0",
-  "updated": "2026-09-21"
+  "updated": "2026-09-30"
 }
