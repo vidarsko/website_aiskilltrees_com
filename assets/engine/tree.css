@@ -66,6 +66,12 @@
   --ferdighet-bg:     color-mix(in srgb, var(--amber) 40%, var(--surface));
   --ferdighet-border: var(--amber);
 
+  /* Fakta (a fact node, from 0.21.0) is blue: a third hue, and a fill
+     between the two others in strength, so it differs from the pale green
+     in lightness as well as in hue. */
+  --fakta-bg:         color-mix(in srgb, var(--blue) 24%, var(--surface));
+  --fakta-border:     var(--blue);
+
   --locked-opacity: 0.45;
 
   --column-alt: color-mix(in srgb, var(--ink) 4%, transparent);
@@ -1034,6 +1040,14 @@ main {
   border-radius: 8px;
   background: var(--ferdighet-bg);
   border-color: var(--ferdighet-border);
+}
+
+/* A fact node gets a third corner as well as a third colour, so the three
+   types differ in shape too, not only in fill. */
+.node-box.type-fact {
+  border-radius: 3px;
+  background: var(--fakta-bg);
+  border-color: var(--fakta-border);
 }
 
 .node-box.locked {

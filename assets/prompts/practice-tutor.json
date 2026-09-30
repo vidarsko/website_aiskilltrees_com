@@ -3,7 +3,7 @@
   "id": "node",
   "title": "Practice tutor",
   "contribution": 2,
-  "version": "1.7.0",
+  "version": "1.8.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
   "order": [
@@ -34,6 +34,8 @@
     "goalConcept",
     "goalConceptMultiple",
     "conceptGuidance",
+    "goalFact",
+    "factGuidance",
     "nodeInstruction",
     "aids",
     "aidsMultiple"
@@ -63,6 +65,8 @@
     "goalConcept": "The student can explain:\n{nodeDescription}",
     "goalConceptMultiple": "Each line above is a separate concept, written \"term: definition\". Cover all of them.",
     "conceptGuidance": "This is a CONCEPT, not a skill. Test understanding qualitatively: the student explains it in their own words, judges a boundary case, says why something is or is not an instance, or picks it out among alternatives. Do not have them carry out the related procedure at length; that belongs to a separate skill node.",
+    "goalFact": "The student can recall:\n{nodeDescription}",
+    "factGuidance": "These are FACTS to know by heart, not to understand. Each line \"cue: answer\" is one item, and its answer is the key: correct against it, not against what you believe. A line without that form is a rule: make the items from it and work out the answers yourself. Drill: give one side, wait for the other, and bring back what the student misses later in the session. Ask both ways unless one way makes no sense (7 × 8 → 56, but not 56 → 7 × 8). You remember nothing between conversations, so at the end offer the list for a flashcard app, or suggest the student comes back in a couple of days.",
     "aids": "The following applies to the aids the student may use:\n{aidsText}"
   }
 }

@@ -38,7 +38,7 @@
   'use strict';
 
   var LANGUAGES = ['en', 'nb', 'sv'];   // språkfilene maskineriet har i dag
-  var NODE_TYPES = ['skill', 'concept'];
+  var NODE_TYPES = ['skill', 'concept', 'fact'];
 
   /* ---------------------------------------------------------------- */
   /* Tekst                                                              */
@@ -928,7 +928,8 @@
       h('p', { class: 'ed-note', text: t('view-intro') }),
       eff.nodeCount != null ? h('dl', { class: 'ed-stats' }, [
         stat(eff.nodeCount, t('stat-nodes')),
-        stat(eff.skillCount + ' / ' + eff.conceptCount, t('stat-skills')),
+        eff.factCount ? stat(eff.skillCount + ' / ' + eff.conceptCount + ' / ' + eff.factCount, t('stat-skills-facts'))
+          : stat(eff.skillCount + ' / ' + eff.conceptCount, t('stat-skills')),
         stat((eff.topicOrder || []).length, t('stat-topics')),
         stat(eff.depth, t('stat-depth')),
         stat(eff.rootCount, t('stat-roots')),
@@ -1006,7 +1007,7 @@
         var id = get(r, 'id').trim();
         ul.appendChild(h('li', {}, [
           h('button', { type: 'button', class: 'ed-nodeitem', onclick: function () { selectNode(id, false); } }, [
-            h('span', { class: 'ed-typedot ed-typedot--' + (kind(r) === 'concept' ? 'concept' : 'skill'),
+            h('span', { class: 'ed-typedot ed-typedot--' + (NODE_TYPES.indexOf(kind(r)) !== -1 ? kind(r) : 'skill'),
                         'aria-hidden': 'true' }),
             h('span', { class: 'ed-nodeitem__name', text: get(r, 'name').trim() || id }),
             h('span', { class: 'ed-nodeitem__type', text: typeLabel(kind(r)) }),
@@ -1020,8 +1021,18 @@
     return list;
   }
 
+  /* Visningsnavnet på en fagfamilie står i /trees/vocabulary.json, som
+     katalogen filtrerer på — ett sted for begge sidene (fra 2026-09-30).
+     Til fila er lastet, eller for en familie som mangler der, vises
+     nøkkelen. */
+  function familyName(key) {
+    var entry = (state.familyNames || {})[key];
+    var lang = (window.i18n && window.i18n.lang) || 'en';
+    return (entry && (entry[lang] || entry.en)) || key;
+  }
+
   function typeLabel(type) {
-    return type === 'concept' ? t('type-concept') : type === 'skill' ? t('type-skill') : type;
+    return NODE_TYPES.indexOf(type) !== -1 ? t('type-' + type) : type;
   }
 
   /* ---- Noden ------------------------------------------------------- */
@@ -1065,7 +1076,7 @@
 
     wrap.appendChild(field(t('node-description'), textArea(get(row, 'description'), function (v) {
       change(key('description'), function () { set(row, 'description', v); }, { quiet: true });
-    }), kind(row) === 'concept' ? t('node-description-concept') : t('node-description-skill')));
+    }), t('node-description-' + (NODE_TYPES.indexOf(kind(row)) !== -1 ? kind(row) : 'skill'))));
 
     wrap.appendChild(prereqEditor(row, id));
 
@@ -1343,7 +1354,7 @@
 
   function renderSettings() {
     var wrap = h('div', { class: 'ed-section' });
-    var covered = ['topicOrder', 'aids.label', 'style.conceptColor', 'style.skillColor', 'style.font'];
+    var covered = ['topicOrder', 'aids.label', 'style.conceptColor', 'style.skillColor', 'style.factColor', 'style.font'];
     SETTINGS.forEach(function (group) {
       var fs = h('fieldset', { class: 'ed-group' }, [h('legend', { text: t(group.group) })]);
       if (group.note) fs.appendChild(h('p', { class: 'ed-note', text: t(group.note) }));
@@ -1413,8 +1424,7 @@
       control = select(opts, value, onPick);
     } else if (f.kind === 'family') {
       var fams = [{ value: '', label: t('set-family-none') }].concat((eff.subjectFamilies || []).map(function (k) {
-        var label = t('family-' + k);
-        return { value: k, label: label === 'family-' + k ? k : label };
+        return { value: k, label: familyName(k) };
       }));
       control = select(fams, value, onPick);
     } else if (f.area) {
@@ -1478,6 +1488,7 @@
     wrap.appendChild(h('p', { class: 'ed-note', text: t('look-intro') }));
     wrap.appendChild(colourField('style.conceptColor', t('look-concept'), '--primary', 12));
     wrap.appendChild(colourField('style.skillColor', t('look-skill'), '--amber', 40));
+    wrap.appendChild(colourField('style.factColor', t('look-fact'), '--blue', 24));
 
     var eff = state.eff || {};
     var fonts = eff.styleFonts || ['system'];
@@ -1799,6 +1810,10 @@
     el.status = document.getElementById('ed-status');
     el.errorCount = document.getElementById('ed-error-count');
     el.errorList = document.getElementById('ed-error-list');
+    window.AistStandalone.getJson('/trees/vocabulary.json').then(function (v) {
+      state.familyNames = (v && v.subjectFamily) || {};
+      if (state.tab === 'settings' && state.doc) renderPanel();
+    }, function () { /* nøklene vises */ });
     el.errorDetails = document.getElementById('ed-error-details');
     el.errorSummary = document.getElementById('ed-error-count-summary');
     el.copyErrors = document.getElementById('ed-copy-errors');

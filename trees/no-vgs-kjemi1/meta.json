@@ -1,5 +1,5 @@
 {
-  "_comment": "Katalogmetadata. country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
+  "_comment": "Katalogmetadata. country, institution, division, subjectFamily, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
   "schemaVersion": 2,
   "slug": "no-vgs-kjemi1",
   "path": "/trees/no-vgs-kjemi1/",
@@ -9,6 +9,7 @@
   "country": "NO",
   "institution": "vgs",
   "division": "vg2",
+  "subjectFamily": "natural-sciences",
   "subjectArea": "chemistry",
   "language": "nb",
   "curriculum": "LK20",

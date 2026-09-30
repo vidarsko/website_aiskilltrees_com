@@ -1,7 +1,7 @@
 {
   "_comment": "The index the engine fetches first; everything else is reached from here, so no other prompt filename is hardcoded in engine.js. Each module carries its OWN `version`, because the paper cites them one by one in the appendix -- changing the lesson-plan wording must not invalidate a citation of the practice tutor. ENGLISH IS THE SOURCE OF RECORD in every file under prompts/: they say WHAT the model should do, never what language to say it in. `languages/<code>.json` fills that hole, and `prompts/subjects/<family>.json` adds what is true of one family of subjects but not of all.\n`audience` says WHO an instruction is for. The four with audience `student` are composed by the engine and end up in a student's chat; the two with audience `teacher` are for the person BUILDING a tree, and the engine skips them when it loads a tree -- fetching them on every tree page would cost every reader 20 kB for text no student will ever see. All six are contributions in the same sense and are versioned the same way, which is the point: spec/decomposition.md was the odd one out until 0.3.0.\n`appendsSubjectFamilies` on `authoring` means the composed authoring prompt ends with the `decomposition` block of EVERY family in `subjectFamilies`, headed by its key: a teacher copying the prompt has not told anyone the subject yet, and a chat model cannot fetch the file itself. See the `subjectFamilies` section of decomposition.json.",
   "schemaVersion": 2,
-  "version": "2.1.0",
+  "version": "2.2.0",
   "sourceLanguage": "en",
   "shared": "shared.json",
   "instructions": {
@@ -46,7 +46,10 @@
   "subjectFamilies": {
     "mathematics": "subjects/mathematics.json",
     "natural-sciences": "subjects/natural-sciences.json",
-    "social-sciences": "subjects/social-sciences.json"
+    "social-sciences": "subjects/social-sciences.json",
+    "practical-aesthetic": "subjects/practical-aesthetic.json",
+    "language-and-literature": "subjects/language-and-literature.json",
+    "language-acquisition": "subjects/language-acquisition.json"
   },
-  "_conditions": "Sections whose id appears in an instruction's `order` but which only apply sometimes are switched on by the engine (SECTION_WHEN in js/engine.js): prerequisites/prerequisitesNone, expression (only when the tree sets that slot), conceptGuidance (only for type=concept), aids (only when the tree's data actually names a level), aidsMultiple (only when a node or selection spans more than one level), and the three conceptMix variants. Adding a section with no condition means it always renders. A section contributed by prompts/subjects/<family>.json inherits the condition of the section it is anchored after, so a maths-specific elaboration of conceptGuidance appears exactly when conceptGuidance does."
+  "_conditions": "Sections whose id appears in an instruction's `order` but which only apply sometimes are switched on by the engine (SECTION_WHEN in js/engine.js): prerequisites/prerequisitesNone, expression (only when the tree sets that slot), conceptGuidance (only for type=concept), goalFact and factGuidance (only for type=fact), factMix and factAdaptation (only when a fact node is among the points or goals), aids (only when the tree's data actually names a level), aidsMultiple (only when a node or selection spans more than one level), and the three conceptMix variants. Adding a section with no condition means it always renders. A section contributed by prompts/subjects/<family>.json inherits the condition of the section it is anchored after, so a maths-specific elaboration of conceptGuidance appears exactly when conceptGuidance does."
 }

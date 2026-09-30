@@ -5,7 +5,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,description,"Grunnleggende begreper i retorikk, skjønnlitteratur og språk, de viktigste sjangrene, og det å skrive, analysere og drøfte — for Vg1 studieforberedende.",,,
 ,config,,language,nb,,,
 ,config,,languageName,Norwegian (bokmål),,,
-,config,,subjectFamily,social-sciences,,,
+,config,,subjectFamily,language-and-literature,,,
 ,config,,storageKey,norskvg1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
 ,config,,slots.courseName,"norsk Vg1 (studieforberedende, norsk videregående skole)",,,

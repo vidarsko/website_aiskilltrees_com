@@ -1,5 +1,5 @@
 {
-  "_comment": "Katalogmetadata. country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
+  "_comment": "Katalogmetadata. country, institution, division, subjectFamily, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
   "schemaVersion": 2,
   "slug": "no-uio-profag-ki-matematikk",
   "path": "/trees/no-uio-profag-ki-matematikk/",
@@ -9,6 +9,7 @@
   "country": "NO",
   "institution": "uio",
   "division": "mn",
+  "subjectFamily": "social-sciences",
   "subjectArea": "teaching",
   "language": "nb",
   "curriculum": "Profag:KI-matematikk, fire samlinger (2026)",

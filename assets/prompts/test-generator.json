@@ -3,7 +3,7 @@
   "id": "exam",
   "title": "Test generator",
   "contribution": 3,
-  "version": "1.3.0",
+  "version": "1.4.0",
   "schemaVersion": 2,
   "sourceLanguage": "en",
   "order": [
@@ -16,6 +16,7 @@
     "conceptMix",
     "conceptMixAllConcepts",
     "conceptMixMixed",
+    "factMix",
     "aids",
     "aidsMultiple",
     "withholdAnswers"
@@ -28,6 +29,7 @@
     "conceptMix": "Each point is marked [concept] or [skill]. Test [skill] points with full tasks. NEVER turn a [concept] point into a task that trains the matching skill; test it qualitatively instead: explain it in their own words, judge whether something is an instance, identify it among alternatives, or explain a boundary case.",
     "conceptMixAllConcepts": "Every point here is a [concept] point, so every task is qualitative.",
     "conceptMixMixed": "The larger the share of [concept] points, the larger the share of qualitative tasks. A [concept] point may also be a small part of a task on a related [skill] point.",
+    "factMix": "A [fact] point is a list to know by heart: one item per \"cue: answer\", or a rule without a colon that generates the items. Test it with short recall tasks drawn from the list, both ways where that makes sense. The answers in the list are the key.",
     "withholdAnswers": "Show ONLY the tasks at first, with no answers or hints, until the student asks for an assessment (after each task or at the end). Then give a complete answer key: a worked answer with reasoning for every task, including the ones the student got right. Then say what they got right and what to practise more.",
     "aids": "Mark every task with its aid level, using the labels in the list above, and keep to what each level allows:\n{aidsText}"
   }

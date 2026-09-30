@@ -12,21 +12,21 @@
       "definite": "eleven",
       "plural": "elever",
       "pluralDefinite": "elevene",
-      "leadIn": { "skill": "Eleven kan:", "concept": "Eleven kan forklare:" }
+      "leadIn": { "skill": "Eleven kan:", "concept": "Eleven kan forklare:", "fact": "Eleven kan gjengi:" }
     },
     "student": {
       "word": "student",
       "definite": "studenten",
       "plural": "studenter",
       "pluralDefinite": "studentene",
-      "leadIn": { "skill": "Studenten kan:", "concept": "Studenten kan forklare:" }
+      "leadIn": { "skill": "Studenten kan:", "concept": "Studenten kan forklare:", "fact": "Studenten kan gjengi:" }
     },
     "participant": {
       "word": "deltaker",
       "definite": "deltakeren",
       "plural": "deltakere",
       "pluralDefinite": "deltakerne",
-      "leadIn": { "skill": "Deltakeren kan:", "concept": "Deltakeren kan forklare:" }
+      "leadIn": { "skill": "Deltakeren kan:", "concept": "Deltakeren kan forklare:", "fact": "Deltakeren kan gjengi:" }
     }
   },
   "ui": {
@@ -51,6 +51,7 @@
     "errorCycle": "Disse nodene er forutsetninger for hverandre, i ring: {cycle}. En av koblingene må bort.",
     "errorUnknownConfig": "Ukjent innstilling «{key}» på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
     "errorUnknownLearner": "Ukjent verdi «{value}» for innstillingen «learner» på rad {row} i tree.csv. Verdiene norsk har: {valid}.",
+    "errorUnknownNodeType": "Noden «{id}» har typen «{type}», som ikke finnes. Typene er: {valid}.",
     "errorUnknownPromptSection": "Ukjent seksjon «{section}» i prompt-rada på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
     "errorUnknownPromptTarget": "Prompt-rada på rad {row} i tree.csv peker på «{name}», som ikke er en instruks dette treet setter sammen. Ingenting ble tatt i bruk.",
     "errorDidYouMean": "Mente du «{key}»?",
@@ -59,7 +60,8 @@
     "errorStyleFont": "Ukjent skrift «{value}» på rad {row} i tree.csv. Skriftene et tre kan bruke: {valid}. Standardskrifta ble beholdt.",
     "nodeType": {
       "skill": "ferdighet",
-      "concept": "begrep"
+      "concept": "begrep",
+      "fact": "fakta"
     },
     "badges": {
       "del1": "Del 1",
@@ -217,6 +219,7 @@
       "license": "Lisens",
       "skills": "{n} ferdigheter",
       "concepts": "{n} begreper",
+      "facts": "{n} faktalister",
       "nodes": "{n} noder"
     }
   },

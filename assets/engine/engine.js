@@ -115,7 +115,7 @@ let SHOW_MOTIVATION_BUTTON = false;
 let CONVERSATION_LANGUAGE = '';
 let LEARNER_KEY = '';       // nøkkelen treet valgte, eller språkets egen standard
 let LEARNER = null;         // hva den som lærer HETER, fra språkfila: { word, definite,
-                            //   plural, pluralDefinite, leadIn: { skill, concept } }.
+                            //   plural, pluralDefinite, leadIn: { skill, concept, fact } }.
                             //   Treet velger nøkkelen med config-raden `learner`; selve
                             //   bøyningen står i languages/<kode>.json, fordi bøyning er
                             //   noe som varierer med språk.
@@ -184,7 +184,7 @@ function resolveLearner(row) {
     : (learners[LANG.defaultLearner] ? LANG.defaultLearner : (keys[0] || 'student'));
   return learners[asked] || learners[LANG.defaultLearner] || learners[keys[0]] || {
     word: 'student', definite: 'the student', plural: 'students', pluralDefinite: 'the students',
-    leadIn: { skill: 'The student can:', concept: 'The student can explain:' },
+    leadIn: { skill: 'The student can:', concept: 'The student can explain:', fact: 'The student can recall:' },
   };
 }
 
@@ -239,6 +239,22 @@ function definitionTerm(line) {
   return m ? { term: m[1], rest: m[2] } : null;
 }
 
+/* En faktanode er en SAMLING, én linje per element: «stikkord: svar»,
+   samme form og samme splitting som begrepenes «Term: definisjon» - bare
+   det før det første kolonet er venstresiden. Uten grensen på 60 tegn,
+   fordi et stikkord kan være lengre enn en term («året Norge ble med i
+   NATO»), og en for lang venstreside ellers ville blitt lest som en regel
+   uten at noen merket det. En linje UTEN kolon er en REGEL som elementene
+   lages fra («alle produkter a × b der a og b er fra 1 til 10»), og settes
+   som den er. Vidars beslutning, 2026-09-30. */
+function factItem(line) {
+  const m = /^([^:]+):\s+(.+)$/.exec(line);
+  return m ? { term: m[1], rest: m[2] } : null;
+}
+
+/* Typene en node kan ha. Verdien er et engelsk dataenum i alle språk. */
+const NODE_TYPES = ['skill', 'concept', 'fact'];
+
 /* ------------------------------------------------------------------ */
 /* Komposisjon av KI-instruks                                           */
 /*                                                                      */
@@ -258,13 +274,18 @@ const SECTION_WHEN = {
   'node.expression':         ctx => !!slot('expressionFocus'),
   'node.prerequisites':      ctx => ctx.ancestors && ctx.ancestors.length > 0,
   'node.prerequisitesNone':  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
-  'node.goalSkill':          ctx => !ctx.node || ctx.node.type !== 'concept',
+  /* «Alt som ikke er et begrep» fram til fakta-typen kom (0.21.0). En
+     faktanode skal ikke få ferdighetsseksjonene, og heller ikke det
+     fagfamiliene har forankret etter dem. */
+  'node.goalSkill':          ctx => !ctx.node || (ctx.node.type !== 'concept' && ctx.node.type !== 'fact'),
   'node.goalConcept':        ctx => ctx.node && ctx.node.type === 'concept',
   /* Bare når noden faktisk holder flere definisjoner: teksten forklarer
      et format, og et format som ikke er der trenger ingen forklaring. */
   'node.goalConceptMultiple': ctx => ctx.node && ctx.node.type === 'concept' &&
                                      descriptionLines(ctx.node.description).length > 1,
   'node.conceptGuidance':    ctx => ctx.node && ctx.node.type === 'concept',
+  'node.goalFact':           ctx => ctx.node && ctx.node.type === 'fact',
+  'node.factGuidance':       ctx => ctx.node && ctx.node.type === 'fact',
   'node.nodeInstruction':    ctx => !!(ctx.node && ctx.node.instruction),
   'node.aids':               ctx => treeUsesAids() && (ctx.node.aids || []).length > 0,
   'node.aidsMultiple':       ctx => !!ctx.multipleAids,
@@ -273,11 +294,13 @@ const SECTION_WHEN = {
   'exam.conceptMix':             ctx => !!ctx.hasConcepts,
   'exam.conceptMixAllConcepts':  ctx => !!ctx.allConcepts,
   'exam.conceptMixMixed':        ctx => !!ctx.hasConcepts && !ctx.allConcepts,
+  'exam.factMix':                ctx => !!ctx.hasFacts,
   'exam.aids':                   ctx => treeUsesAids() && !!ctx.aidsText,
   'lessonPlan.prerequisites':     ctx => ctx.ancestors && ctx.ancestors.length > 0,
   'lessonPlan.prerequisitesNone': ctx => !ctx.ancestors || ctx.ancestors.length === 0,
   'lessonPlan.tightWarning':      ctx => !!ctx.tight,
   'lessonPlan.conceptAdaptation': ctx => !!ctx.hasConcepts,
+  'lessonPlan.factAdaptation':    ctx => !!ctx.hasFacts,
   'lessonPlan.aids':              ctx => treeUsesAids() && !!ctx.aidsText,
 };
 
@@ -597,7 +620,7 @@ const CONFIG_KEYS = [
   'slots.courseSpecifics',
   'aids.label',
   'decompositionVersion',
-  'style.conceptColor', 'style.skillColor', 'style.font',
+  'style.conceptColor', 'style.skillColor', 'style.factColor', 'style.font',
 ].concat(Object.keys(LAYOUT).map(k => 'layout.' + k));
 /* Bare `aids.<n>.*` er et mønster, fordi nivåene er lærerens egne tall.
    `slots.*` og `layout.*` var mønstre fram til 0.14.0, og da gikk
@@ -811,6 +834,14 @@ function applyStyle() {
       root.setProperty('--ferdighet-border', style.skillColor);
     } else {
       pushError('errorStyleColor', { key: 'style.skillColor', value: style.skillColor, row: row('style.skillColor') });
+    }
+  }
+  if (style.factColor != null) {
+    if (hex.test(style.factColor)) {
+      root.setProperty('--fakta-bg', `color-mix(in srgb, ${style.factColor} 24%, var(--surface))`);
+      root.setProperty('--fakta-border', style.factColor);
+    } else {
+      pushError('errorStyleColor', { key: 'style.factColor', value: style.factColor, row: row('style.factColor') });
     }
   }
   if (style.font != null) {
@@ -1611,6 +1642,7 @@ function nodeCountText(m) {
   const parts = [];
   if (m.skillCount) parts.push(fmtCount('courseInfo.skills', m.skillCount));
   if (m.conceptCount) parts.push(fmtCount('courseInfo.concepts', m.conceptCount));
+  if (m.factCount) parts.push(fmtCount('courseInfo.facts', m.factCount));
   if (!parts.length && m.nodeCount) parts.push(fmtCount('courseInfo.nodes', m.nodeCount));
   return parts.join(' · ');
 }
@@ -2370,6 +2402,7 @@ function composeExamInstruction(nodes, count) {
   return composePrompt('exam', {
     hasConcepts: nodes.some(n => n.type === 'concept'),
     allConcepts: nodes.length > 0 && nodes.every(n => n.type === 'concept'),
+    hasFacts: nodes.some(n => n.type === 'fact'),
     aidsText: aidsTextFor(nodes),
     multipleAids: nodes.some(n => (n.aids || []).length > 1),
     vars: {
@@ -2500,6 +2533,7 @@ function composeLessonPlanInstruction(nodes, totalMinutes) {
   return composePrompt('lessonPlan', {
     ancestors: prerequisites,
     hasConcepts: nodes.some(n => n.type === 'concept'),
+    hasFacts: nodes.some(n => n.type === 'fact'),
     tight: schedule.tight,
     aidsText: aidsTextFor(nodes),
     multipleAids: nodes.some(n => (n.aids || []).length > 1),
@@ -2809,6 +2843,12 @@ function buildExamIndex(rows) {
 
 function validateReferences() {
   allNodes.forEach(node => {
+    /* En ukjent type ville ellers blitt tegnet som et begrep og fått
+       ferdighetsseksjonene i instruksen - stillhet, igjen. */
+    if (NODE_TYPES.indexOf(node.type) === -1) {
+      pushError('errorUnknownNodeType', { id: node.id, type: node.type, valid: NODE_TYPES.join(', '),
+                                          guess: nearest(node.type.toLowerCase(), NODE_TYPES) });
+    }
     node.depends_on.forEach(depId => {
       if (!nodesById.has(depId)) {
         pushError('errorUnknownDep', { id: node.id, dep: depId });
@@ -2999,6 +3039,7 @@ function publishEffectiveConfig() {
     nodeCount: allNodes.length,
     skillCount: allNodes.filter(n => n.type === 'skill').length,
     conceptCount: allNodes.filter(n => n.type === 'concept').length,
+    factCount: allNodes.filter(n => n.type === 'fact').length,
     rootCount: allNodes.filter(n => !n.depends_on.length).length,
     depth: allNodes.reduce((m, n) => Math.max(m, n.nivaa), 0) + 1,
     promptOverrides: Object.keys(PROMPT_ROWS),
@@ -3677,7 +3718,7 @@ function renderDetail(node) {
   if (list) list.className = 'definition-list';
   descLines.forEach(line => {
     const holder = document.createElement(list ? 'li' : 'p');
-    const parts = definitionTerm(line);
+    const parts = node.type === 'fact' ? factItem(line) : definitionTerm(line);
     if (parts) {
       const term = document.createElement('strong');
       term.textContent = parts.term;

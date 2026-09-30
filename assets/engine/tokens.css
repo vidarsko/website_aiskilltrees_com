@@ -50,6 +50,13 @@
   --amber:         #C8801F;
   --amber-tint:    #F7EBD9;
 
+  /* ---- Third accent, used for the "fact" node fill ---------------------
+     A clear mid blue; a darker, greyer blue read as a locked node. Blue beside
+     orange is the pair most people with a colour-vision deficiency still
+     tell apart; blue beside green is closer, so the fact fill is mixed
+     stronger than the pale concept tint and differs in lightness too. */
+  --blue:          #2563A8;   /* 6.12:1 against white */
+
   /* ---- Destructive ------------------------------------------------------ */
   --danger:        #C2362F;
   --danger-text:   #A32B24;

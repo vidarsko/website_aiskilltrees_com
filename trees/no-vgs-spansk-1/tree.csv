@@ -1,0 +1,228 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Uttale og rettskriving;Ordforråd;Grammatikk;Kommunikasjon;Kultur og samfunn;Språklæring,,,
+,config,,title,Spansk I,,,
+,config,,description,"Uttale, ordforråd, grammatikk og kommunikasjon for spansk nivå I, med kultur og strategier for språklæring. Et første forslag.",,,
+,config,,language,nb,,,
+,config,,learner,pupil,,,
+,config,,subjectFamily,language-acquisition,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"spansk nivå I (Vg1, videregående skole)",,,
+,config,,slots.motivationSubject,spansk,,,
+,config,,slots.expressionFocus,"glemmer aksenttegn og de omvendte tegnene ¿ og ¡, lar være å bøye adjektivet etter substantivet, eller bruker ser der det skal være estar",,,
+,config,,decompositionVersion,2.10.0,,,
+alfabetet,fact,Uttale og rettskriving,Det spanske alfabetet,"a: a
+b: be
+c: ce
+d: de
+e: e
+f: efe
+g: ge
+h: hache
+i: i
+j: jota
+k: ka
+l: ele
+m: eme
+n: ene
+ñ: eñe
+o: o
+p: pe
+q: cu
+r: erre
+s: ese
+t: te
+u: u
+v: uve
+w: uve doble
+x: equis
+y: ye
+z: zeta",,,
+uttaleregler,fact,Uttale og rettskriving,Bokstaver som uttales annerledes enn på norsk,"h: er stum (hola uttales «ola»)
+j: en hard h-lyd bak i halsen (jamón)
+g foran e og i: samme lyd som j (gente)
+ll og y: omtrent som norsk j (llamo, yo)
+ñ: som «nj» (año)
+v: som b (vino)
+z, og c foran e og i: som engelsk «th» i store deler av Spania, som s i Latin-Amerika (cerveza)
+qu foran e og i: som k, u-en høres ikke (queso)
+r: en kort tungespiss-r; rr, og r først i ordet, rulles (pero, perro, rojo)",,,
+uttale,skill,Uttale og rettskriving,Lese høyt med riktig uttale,"lese en kort tekst høyt slik at h er stum, j og g foran e og i får riktig lyd, og r og rr skilles, sjekket ved å sammenligne et opptak av deg selv med en innlest versjon",uttaleregler,,
+trykk-aksent,concept,Uttale og rettskriving,Trykk og aksenttegn,"Trykkregel: et ord som ender på vokal, n eller s har trykk på nest siste stavelse, og andre ord har trykk på siste stavelse
+Aksenttegn: viser at trykket bryter med regelen (café, lápiz), eller skiller to ord som ellers skrives likt (tú og tu, sí og si)",,,
+rettskriving,skill,Uttale og rettskriving,Skrive aksenttegn og spanske tegn riktig,"sette aksenttegn, ñ og de omvendte tegnene ¿ og ¡ riktig i ord og korte setninger du skriver",trykk-aksent;alfabetet,,
+hilsener,fact,Ordforråd,Hilsener og høflighetsfraser,"hola: hei
+buenos días: god morgen
+buenas tardes: god ettermiddag
+buenas noches: god kveld, god natt
+adiós: ha det
+hasta luego: vi ses
+¿qué tal?: hvordan går det?
+bien, gracias: bra, takk
+por favor: vær så snill
+gracias: takk
+de nada: ingen årsak
+lo siento: beklager
+perdón: unnskyld",,,
+tall,fact,Ordforråd,Tallene fra 0 til 100,"cero: 0
+uno: 1
+dos: 2
+tres: 3
+cuatro: 4
+cinco: 5
+seis: 6
+siete: 7
+ocho: 8
+nueve: 9
+diez: 10
+once: 11
+doce: 12
+trece: 13
+catorce: 14
+quince: 15
+16 til 19 skrives dieci- og eneren i ett ord, som dieciséis, diecisiete, dieciocho og diecinueve
+veinte: 20
+21 til 29 skrives veinti- og eneren i ett ord, med aksent på veintidós, veintitrés og veintiséis
+treinta: 30
+cuarenta: 40
+cincuenta: 50
+sesenta: 60
+setenta: 70
+ochenta: 80
+noventa: 90
+cien: 100
+fra 31 til 99 skrives et tall som ikke er en tier som tieren, y og eneren, for eksempel treinta y cuatro for 34",,,
+dager-maneder,fact,Ordforråd,Ukedager og måneder,"lunes: mandag
+martes: tirsdag
+miércoles: onsdag
+jueves: torsdag
+viernes: fredag
+sábado: lørdag
+domingo: søndag
+enero: januar
+febrero: februar
+marzo: mars
+abril: april
+mayo: mai
+junio: juni
+julio: juli
+agosto: august
+septiembre: september
+octubre: oktober
+noviembre: november
+diciembre: desember",,,
+familie,fact,Ordforråd,Familien,"la madre: moren
+el padre: faren
+los padres: foreldrene
+el hermano: broren
+la hermana: søsteren
+el abuelo: bestefaren
+la abuela: bestemoren
+el hijo: sønnen
+la hija: datteren
+el tío: onkelen
+la tía: tanten
+el primo: fetteren
+la prima: kusinen",,,
+beskrivende-ord,fact,Ordforråd,"Utseende, personlighet og farger","alto: høy
+bajo: lav
+rubio: lyshåret
+moreno: mørkhåret
+joven: ung
+mayor: eldre
+simpático: hyggelig
+divertido: morsom
+tímido: sjenert
+inteligente: smart
+rojo: rød
+azul: blå
+verde: grønn
+amarillo: gul
+negro: svart
+blanco: hvit",,,
+mat,fact,Ordforråd,Mat og drikke,"el pan: brødet
+el agua: vannet
+la leche: melken
+el queso: osten
+la fruta: frukten
+la manzana: eplet
+el pollo: kyllingen
+el pescado: fisken
+la carne: kjøttet
+el arroz: risen
+el café: kaffen
+el zumo: juicen (i Spania; el jugo i Latin-Amerika)",,,
+skole-fritid,fact,Ordforråd,Skole og fritid,"el instituto: den videregående skolen
+la clase: timen, klassen
+los deberes: leksene
+el profesor, la profesora: læreren
+jugar al fútbol: spille fotball
+escuchar música: høre på musikk
+leer: lese
+ver la tele: se på TV
+salir con amigos: gå ut med venner
+bailar: danse
+nadar: svømme",,,
+sporreord,fact,Ordforråd,Spørreord,"¿qué?: hva?
+¿quién?: hvem?
+¿dónde?: hvor?
+¿cuándo?: når?
+¿cómo?: hvordan?
+¿por qué?: hvorfor?
+¿cuánto?: hvor mye?
+¿cuántos?: hvor mange?
+¿cuál?: hvilken?",,,
+pronomen,fact,Ordforråd,Personlige pronomen,"yo: jeg
+tú: du
+él: han
+ella: hun
+usted: De (høflig)
+nosotros, nosotras: vi
+vosotros, vosotras: dere (i Spania)
+ellos, ellas: de
+ustedes: dere (høflig i Spania, vanlig i Latin-Amerika)",,,
+kjonn,concept,Grammatikk,Grammatisk kjønn,"Grammatisk kjønn: at hvert substantiv er hankjønn eller hunkjønn, og at artikkelen og adjektivet må bøyes etter det. De fleste ord på -o er hankjønn, og de fleste på -a er hunkjønn.",,,
+artikler,skill,Grammatikk,Bruke riktig artikkel,"sette riktig bestemt og ubestemt artikkel (el, la, los, las, un, una, unos, unas) foran et substantiv",kjonn,,
+adjektiv,skill,Grammatikk,Bøye adjektiv etter substantivet,"bøye adjektiv i kjønn og tall etter substantivet de beskriver, og sette dem etter substantivet (una casa blanca, dos perros negros)",kjonn;beskrivende-ord,,
+tu-usted,concept,Grammatikk,Tú og usted,"Tú: «du», brukt til venner, familie og jevnaldrende
+Usted: høflig «De», brukt til eldre og fremmede, og bøyd som tredje person entall",,,
+presens,skill,Grammatikk,Bøye regelrette verb i presens,"bøye regelrette verb på -ar, -er og -ir i alle personer i presens (hablo, comes, vivimos)",pronomen,,
+uregelrette-verb,fact,Grammatikk,Uregelrette verb i presens,"ser: soy, eres, es, somos, sois, son
+estar: estoy, estás, está, estamos, estáis, están
+tener: tengo, tienes, tiene, tenemos, tenéis, tienen
+ir: voy, vas, va, vamos, vais, van
+hacer: hago, haces, hace, hacemos, hacéis, hacen",pronomen,,
+ser-estar,concept,Grammatikk,Ser og estar,"Ser: «å være» om hva noe eller noen er: identitet, yrke, opphav og egenskaper
+Estar: «å være» om hvor noe er, og om hvordan noe eller noen har det akkurat nå",,,
+bruke-ser-estar,skill,Grammatikk,Velge mellom ser og estar,velge mellom ser og estar og bøye dem riktig i enkle setninger om deg selv og andre,ser-estar;uregelrette-verb,,
+gustar,concept,Grammatikk,Gustar,"Gustar: «like», men bygd omvendt av norsk: det man liker er subjektet, og den som liker står som me, te, le, nos, os eller les (me gusta el chocolate, me gustan los perros)",,,
+bruke-gustar,skill,Grammatikk,Si hva du liker og ikke liker,"si og skrive hva du og andre liker og ikke liker, med riktig form av gustar (me gusta, me gustan, no me gusta)",gustar;skole-fritid,,
+sporsmal-nekting,skill,Grammatikk,Stille spørsmål og nekte,"lage spørsmål med spørreord og ¿?, og nekte med no foran verbet (no hablo francés)",sporreord;presens,,
+refleksive,skill,Grammatikk,Bruke refleksive verb om dagliglivet,"bøye refleksive verb som llamarse, levantarse og ducharse i presens (me llamo, te levantas)",presens,,
+ir-a,skill,Grammatikk,Snakke om framtid med ir a,"fortelle hva du skal gjøre, med ir a og infinitiv (voy a estudiar, vamos a viajar)",uregelrette-verb,,
+perfecto,skill,Grammatikk,Fortelle om noe du har gjort,"bruke haber og partisipp for å fortelle hva du har gjort (he comido, hemos visitado Madrid)",presens,,
+klokka,skill,Kommunikasjon,Si hva klokka er,spørre og svare på hva klokka er (¿Qué hora es? Son las tres y media.),tall,,
+presentere-seg,skill,Kommunikasjon,Presentere deg selv,"si og skrive navn, alder, hvor du bor og hva du liker, i fem eller seks setninger",hilsener;tall;bruke-ser-estar;bruke-gustar;refleksive,,
+bestille,skill,Kommunikasjon,Bestille mat og drikke,"bestille mat og drikke på en kafé og spørre hva det koster (quisiera un café, ¿cuánto cuesta?)",mat;tall;hilsener;tu-usted,,
+samtale,skill,Kommunikasjon,Delta i en enkel samtale,"spørre og svare i en kort samtale om deg selv, familie, skole og fritid",presentere-seg;sporsmal-nekting;familie,,
+lytte,skill,Kommunikasjon,Forstå enkel og tydelig tale,"fange opp hovedinnholdet og viktige detaljer som tall, tid og sted når noen snakker langsomt og tydelig om kjente emner, sjekket mot en transkripsjon",uttaleregler;tall;dager-maneder,,
+muntlig,skill,Kommunikasjon,Fortelle muntlig om dagliglivet,"fortelle i ett minutt uten manus om en vanlig dag og si hva du mener om noe, slik at du på et opptak av deg selv hører at verbene er bøyd og setningene henger sammen",refleksive;klokka;bruke-gustar,,
+lese,skill,Kommunikasjon,Lese en enkel tekst om dagligliv,lese en tilpasset tekst om et kjent emne og svare på spørsmål om hovedinnhold og detaljer,presens;sporreord,,
+beskrive-person,skill,Kommunikasjon,Beskrive en person,"beskrive utseendet og personligheten til en du kjenner, med adjektiv som samsvarer med substantivet",adjektiv;familie;bruke-ser-estar,,
+skrive,skill,Kommunikasjon,Skrive en kort tekst om dagligliv og opplevelser,"skrive en tekst på 80 til 120 ord som forteller om en dag eller en opplevelse, med riktig bøyde verb og riktig rettskriving",refleksive;perfecto;adjektiv;rettskriving,,
+land,fact,Kultur og samfunn,Spansktalende land og hovedsteder,"España: Madrid
+México: Ciudad de México
+Argentina: Buenos Aires
+Colombia: Bogotá
+Chile: Santiago
+Perú: Lima
+Cuba: La Habana
+Venezuela: Caracas
+Ecuador: Quito
+Uruguay: Montevideo
+Paraguay: Asunción
+Bolivia: Sucre (grunnlovsfestet hovedstad) og La Paz (regjeringssete)",,,
+tradisjon,skill,Kultur og samfunn,Beskrive en tradisjon,"beskrive en høytid eller tradisjon fra et spansktalende land, som Día de los Muertos eller Semana Santa, og sammenligne den med en tradisjon du kjenner",land;presens,,
+kunst,skill,Kultur og samfunn,Presentere et kunstnerisk uttrykk,"presentere en sang, et bilde, en film eller en tekst fra et spansktalende område, og si hva du synes om det og hvorfor",land;bruke-gustar,,
+ordbok,skill,Språklæring,Bruke ordbok og oversettelsesverktøy kritisk,"slå opp ord i en ordbok og bruke oversettelsesverktøy, og vurdere om forslaget passer i setningen din",,,
+tidligere-sprak,skill,Språklæring,Bruke det du kan fra andre språk,"gjette betydningen av nye ord ut fra engelsk og norsk (información, universidad), og kjenne igjen ord som ligner uten å bety det samme (embarazada betyr gravid)",,,

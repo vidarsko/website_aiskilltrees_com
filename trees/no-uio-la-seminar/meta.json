@@ -1,5 +1,5 @@
 {
-  "_comment": "Katalogmetadata. country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
+  "_comment": "Katalogmetadata. country, institution, division, subjectFamily, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst.",
   "schemaVersion": 2,
   "slug": "no-uio-la-seminar",
   "path": "/trees/no-uio-la-seminar/",
@@ -9,6 +9,7 @@
   "country": "NO",
   "institution": "uio",
   "division": "mn",
+  "subjectFamily": "social-sciences",
   "subjectArea": "teaching",
   "language": "en",
   "curriculum": "The LA seminar curriculum, v3 (2026)",

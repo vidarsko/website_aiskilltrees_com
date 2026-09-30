@@ -12,21 +12,21 @@
       "definite": "the pupil",
       "plural": "pupils",
       "pluralDefinite": "the pupils",
-      "leadIn": { "skill": "The pupil can:", "concept": "The pupil can explain:" }
+      "leadIn": { "skill": "The pupil can:", "concept": "The pupil can explain:", "fact": "The pupil can recall:" }
     },
     "student": {
       "word": "student",
       "definite": "the student",
       "plural": "students",
       "pluralDefinite": "the students",
-      "leadIn": { "skill": "The student can:", "concept": "The student can explain:" }
+      "leadIn": { "skill": "The student can:", "concept": "The student can explain:", "fact": "The student can recall:" }
     },
     "participant": {
       "word": "participant",
       "definite": "the participant",
       "plural": "participants",
       "pluralDefinite": "the participants",
-      "leadIn": { "skill": "The participant can:", "concept": "The participant can explain:" }
+      "leadIn": { "skill": "The participant can:", "concept": "The participant can explain:", "fact": "The participant can recall:" }
     }
   },
   "ui": {
@@ -51,6 +51,7 @@
     "errorCycle": "These nodes are prerequisites for each other, in a circle: {cycle}. One of those links has to go.",
     "errorUnknownConfig": "Unknown setting “{key}” on row {row} of tree.csv. Nothing was applied.",
     "errorUnknownLearner": "Unknown value “{value}” for the setting “learner” on row {row} of tree.csv. The values this language has: {valid}.",
+    "errorUnknownNodeType": "The node “{id}” has the type “{type}”, which does not exist. The types are: {valid}.",
     "errorUnknownPromptSection": "Unknown section “{section}” in the prompt row on row {row} of tree.csv. Nothing was applied.",
     "errorUnknownPromptTarget": "The prompt row on row {row} of tree.csv is aimed at “{name}”, which is not an instruction this tree composes. Nothing was applied.",
     "errorDidYouMean": "Did you mean “{key}”?",
@@ -59,7 +60,8 @@
     "errorStyleFont": "Unknown font “{value}” on row {row} of tree.csv. The fonts a tree can use: {valid}. The default font was kept.",
     "nodeType": {
       "skill": "skill",
-      "concept": "concept"
+      "concept": "concept",
+      "fact": "facts"
     },
     "badges": {
       "del1": "Part 1",
@@ -217,6 +219,7 @@
       "license": "Licence",
       "skills": "{n} skills",
       "concepts": "{n} concepts",
+      "facts": "{n} fact lists",
       "nodes": "{n} nodes"
     }
   },

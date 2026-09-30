@@ -1,0 +1,52 @@
+{
+  "_comment": "Everything that is true of foreign-language subjects but NOT of every subject, in one place. The key follows the IB (Language acquisition). A tree opts in with `subjectFamily` = `language-acquisition` in its tree.csv. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by the engine, and `decomposition` is appended to the authoring prompt when a new subject is built. The engine ignores `decomposition` entirely. The tree's `language` is the language the explanations are in; the language being learned is carried by the words in the fact lists and the node descriptions. Carries its own `version`, cited separately in the paper's appendix.",
+  "family": "language-acquisition",
+  "title": "Foreign languages",
+  "version": "1.0.0",
+  "schemaVersion": 2,
+  "sourceLanguage": "en",
+
+  "decomposition": {
+    "_comment": "Read at authoring time, not by the engine: the builder appends every family's block to the authoring prompt, after prompts/decomposition.json (its `subjectFamilies` section tells the model so). Every key here that does not start with `_` is text the model reads.",
+    "nodeTypeCharacter": "A foreign-language subject separates vocabulary from grammar. Grammar is skills: applying a rule. Vocabulary is fact nodes, one per group of words (kitchen words, numbers, days of the week). A concept node is for a distinction the student's own language lacks, not for a word: *ser* and *estar*, the subjunctive. Write the tree in the student's language, and the words of the language being learned in the fact lists and the node descriptions.",
+    "skillVerbs": "Name a skill node with a verb phrase for what the student does in the language: \"Conjugate regular -ar verbs in the present tense\", \"Ask for and give directions in writing\", \"Write a short message about your weekend\".",
+    "loadBearingExamples": "Load-bearing vocabulary is the grammatical terms the student needs to follow an explanation: verb, conjugation, gender, article, tense. Many students meet them first in this subject.",
+    "oralSkills": "The AI cannot judge pronunciation or listening, even in a voice conversation. Such skills still earn nodes, and their descriptions must name something the student can check alone. Written conversation is something the AI does well."
+  },
+
+  "instructions": {
+    "node": {
+      "add": [
+        {
+          "id": "practiceLanguage",
+          "after": "outputLanguage",
+          "text": "This is a foreign-language subject. Explain in the conversation language, but practise in the language the student is learning: the language of the words and examples in the node's description. Keep your sentences in that language at the student's level."
+        },
+        {
+          "id": "oralSkill",
+          "after": "goalSkill",
+          "text": "If this skill is spoken or heard (pronunciation, speaking, listening), you cannot judge it, even in a voice conversation. Say so, and never give feedback as if you had. Explain what to aim for, give the student phrases to say aloud or record, and ask how it went. A written conversation in the language is something you can practise fully."
+        }
+      ]
+    },
+
+    "exam": {
+      "add": [
+        {
+          "id": "practiceLanguage",
+          "after": "outputLanguage",
+          "text": "This is a foreign-language subject. Write the task instructions in the conversation language, and the material the student works on in the language being learned: the language of the words and examples in the list below."
+        },
+        {
+          "id": "oralTasks",
+          "after": "task",
+          "text": "Set no task on pronunciation, speaking or listening. If such a skill is in the list, say at the top of the test that it is assessed outside the chat."
+        }
+      ]
+    },
+
+    "lessonPlan": { "add": [] },
+
+    "motivation": { "add": [] }
+  }
+}

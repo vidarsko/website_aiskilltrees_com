@@ -16,8 +16,18 @@
     "en": { "en": "English", "nb": "Engelsk", "sv": "Engelska" }
   },
 
+  "subjectFamily": {
+    "_comment": "Fagfamilien, grovere enn fagområdet: den styrer hvilken pedagogikk-fil instruksen henter (`subjectFamily` i tree.csv, fila i maskineriets prompts/subjects/). I katalogen er den fasetten over fagområdet, slik landet er over institusjonen. Nøklene er de samme som i maskineriets manifest; et tre som oppgir en familie som ikke står her, utelates fra katalogen. Dette er også stedet byggeren på /make-your-own/ henter visningsnavnene fra.",
+    "mathematics":             { "en": "Mathematics",                     "nb": "Matematikk",               "sv": "Matematik" },
+    "natural-sciences":        { "en": "Natural sciences",                "nb": "Naturvitenskap",           "sv": "Naturvetenskap" },
+    "social-sciences":         { "en": "Social sciences and humanities",  "nb": "Samfunnsfag og humaniora", "sv": "Samhällsvetenskap och humaniora" },
+    "practical-aesthetic":     { "en": "Practical and aesthetic subjects", "nb": "Praktisk-estetiske fag",  "sv": "Praktisk-estetiska ämnen" },
+    "language-and-literature": { "en": "Language and literature",         "nb": "Språk og litteratur",      "sv": "Språk och litteratur" },
+    "language-acquisition":    { "en": "Foreign languages",               "nb": "Fremmedspråk",             "sv": "Moderna språk" }
+  },
+
   "subjectArea": {
-    "_comment": "Fagområdet, grovere enn kurset selv: «Matematikk», ikke «Matematikk 2P». Nøklene er engelske fordi engelsk er kildespråket i metoden.\n\nIkke å forveksle med `subjectFamily` i tree.json, som er grovere igjen (mathematics / natural-sciences / social-sciences) og styrer hvilken pedagogikk-fil instruksen henter. Dette feltet styrer bare filtrering i katalogen.",
+    "_comment": "Fagområdet, grovere enn kurset selv: «Matematikk», ikke «Matematikk 2P». Nøklene er engelske fordi engelsk er kildespråket i metoden.\n\nIkke å forveksle med `subjectFamily` i tree.json, som er grovere igjen (mathematics / natural-sciences / social-sciences / practical-aesthetic / language-and-literature / language-acquisition) og styrer hvilken pedagogikk-fil instruksen henter. Dette feltet styrer bare filtrering i katalogen.",
     "mathematics":    { "en": "Mathematics",    "nb": "Matematikk",       "sv": "Matematik" },
     "physics":        { "en": "Physics",        "nb": "Fysikk",           "sv": "Fysik" },
     "chemistry":      { "en": "Chemistry",      "nb": "Kjemi",            "sv": "Kemi" },
@@ -25,6 +35,7 @@
     "science":        { "en": "Science",        "nb": "Naturfag",         "sv": "Naturkunskap" },
     "social-studies": { "en": "Social studies", "nb": "Samfunnskunnskap", "sv": "Samhällskunskap" },
     "norwegian":      { "en": "Norwegian",      "nb": "Norsk",            "sv": "Norska" },
+    "spanish":        { "en": "Spanish",        "nb": "Spansk",           "sv": "Spanska" },
     "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" }
   },
 

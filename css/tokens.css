@@ -33,6 +33,7 @@
   --amber:         #C8801F;   /* fills and marks only — 5.3:1 against --ink */
   --amber-text:    #8A5A12;   /* the same signal as words — 5.4:1 on --paper */
   --amber-tint:    #F7EBD9;
+  --blue:          #2563A8;   /* fact nodes — 6.12:1 against white */
 
   /* ---- Rules and elevation ----------------------------------------------
      --rule-strong is the hairline at hover/active strength.

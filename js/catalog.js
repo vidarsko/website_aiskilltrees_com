@@ -35,6 +35,7 @@
 /* `parent` gjør fasetten AVHENGIG: den vises ikke før foreldrefasetten  */
 /* har et valg, og viser da bare verdiene som hører til det valget.      */
 /* Kjeden er land → institusjon → inndeling, og den tømmer seg nedover:  */
+/* (Fra 2026-09-30 er det to kjeder: også fagfamilie → fagområde.)       */
 /* fjernes landet, forsvinner både institusjonen og inndelingen, og      */
 /* valgene i dem nullstilles. Det fungerer fordi FACETS står i den       */
 /* rekkefølgen og buildFacets() går gjennom lista ovenfra og ned.        */
@@ -50,14 +51,15 @@ const FACETS = [
   { key: 'country',     labelKey: 'facet-country' },
   { key: 'institution', labelKey: 'facet-institution', parent: 'country' },
   { key: 'division',    labelKey: 'facet-division',    parent: 'institution' },
-  { key: 'subjectArea', labelKey: 'facet-subjectArea' },
+  { key: 'subjectFamily', labelKey: 'facet-subjectFamily' },
+  { key: 'subjectArea', labelKey: 'facet-subjectArea',  parent: 'subjectFamily' },
   { key: 'language',    labelKey: 'facet-language' },
 ];
 
 /* Feltene som slår opp direkte i vocabulary.json. `division` står ikke
    her fordi verdiene ligger nøstet under sin institusjon og trenger et
    eget oppslag — se divisionText() og divisionLegend(). */
-const VOCAB_FIELDS = ['country', 'language', 'subjectArea', 'institution'];
+const VOCAB_FIELDS = ['country', 'language', 'subjectFamily', 'subjectArea', 'institution'];
 
 let VOCAB = null;   // trees/vocabulary.json, lastet før trærne
 
@@ -561,6 +563,7 @@ function card(tree, position) {
   const counts = [];
   if (tree.skillCount) counts.push(fmt('card-skills', { n: tree.skillCount }));
   if (tree.conceptCount) counts.push(fmt('card-concepts', { n: tree.conceptCount }));
+  if (tree.factCount) counts.push(fmt('card-facts', { n: tree.factCount }));
   left.textContent = counts.join(' · ') || (tree.nodeCount ? fmt('card-nodes', { n: tree.nodeCount }) : '');
   foot.appendChild(left);
 
@@ -869,5 +872,22 @@ function readUrl() {
     set.clear();
     const raw = params.get(f.key);
     if (raw) raw.split('|').filter(Boolean).forEach(v => set.add(v));
+  });
+  fillParents();
+}
+
+/* En lenke kan ha et valg i en avhengig fasett uten valg i foreldrefasetten
+   — typisk `?subjectArea=physics`, delt før fagfamilien ble en fasett over
+   fagområdet (2026-09-30). buildFacets() ville ellers nullstilt valget. I
+   stedet huker vi av foreldreverdiene til trærne som har det valgte, så
+   lenken fortsatt viser det den viste. Nedenfra og opp, så en inndeling
+   alene fyller både institusjonen og landet. */
+function fillParents() {
+  FACETS.slice().reverse().forEach(f => {
+    if (!f.parent) return;
+    const chosen = selected.get(f.key);
+    const parent = selected.get(f.parent);
+    if (!chosen.size || parent.size) return;
+    TREES.forEach(tree => { if (chosen.has(tree[f.key]) && tree[f.parent]) parent.add(tree[f.parent]); });
   });
 }

@@ -1,5 +1,5 @@
 {
-  "_comment": "Katalogmetadata for dette treet. Feltene country, institution, division, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst — teksten slås opp der, på leserens språk. En nøkkel som ikke finnes der er en feil og stopper treet i katalogen.",
+  "_comment": "Katalogmetadata for dette treet. Feltene country, institution, division, subjectFamily, subjectArea og language lagrer NØKLER fra ../vocabulary.json, ikke ferdig tekst — teksten slås opp der, på leserens språk. En nøkkel som ikke finnes der er en feil og stopper treet i katalogen.",
   "schemaVersion": 2,
   "slug": "no-vgs-matte-2p-en-demo",
   "path": "/trees/no-vgs-matte-2p-en-demo/",
@@ -9,6 +9,7 @@
   "country": "NO",
   "institution": "vgs",
   "division": "vg2",
+  "subjectFamily": "mathematics",
   "subjectArea": "mathematics",
   "language": "en",
   "curriculum": "LK20",
