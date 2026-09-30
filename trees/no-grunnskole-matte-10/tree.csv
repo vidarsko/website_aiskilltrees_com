@@ -18,7 +18,15 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,aids.2.student,"Del 2 av eksamen. Du får bruke håndholdt kalkulator, eventuelt egne notater og trykte hjelpemidler — men ikke PC, nettbrett eller CAS-/graftegnerprogramvare.",,,
 ,config,,aids.2.model,"Hjelpemidler: Dette gjelder del 2 av eksamen. Forvent at eleven bruker håndholdt (vitenskapelig) kalkulator, eventuelt egne notater/trykte hjelpemidler. En slik kalkulator kan godt ha innebygd graftegning - det er ikke i seg selv et problem. Ikke legg opp til fri bruk av PC, nettbrett eller CAS-/graftegnerprogramvare (f.eks. GeoGebra) - lag heller oppgaver som kan løses med en håndholdt kalkulator. Treningen skal gjenspeile hvordan ferdigheten faktisk skal utføres på eksamen, med kalkulator-basert hjelpemiddelordning (ikke fri PC-/CAS-bruk) lagt til grunn for del 2.",,,
 prosent-begrep-10,concept,Tall og algebra,Prosent,"Prosent betyr hundredeler: 40 % er 40 av 100, altså 40/100 eller 0,40 - samme tall i tre skrivemåter. Prosent læres normalt på barnetrinnet, men står som en rot-node her fordi det ikke inngår eksplisitt i kompetansemålene etter 8. eller 9. trinn, og eksamen forutsetter det godt innøvd.",,0,
-finne-prosentdel-av-tall-10,skill,Tall og algebra,Finne prosentdel og totalen av et tall,"regne ut hvor mye en gitt prosentandel av et tall utgjør, og regne baklengs for å finne totalen når en prosentdel og delmengden er kjent.",prosent-begrep-10,1,"Gi eleven et tall og en prosentsats og be dem finne prosentdelen for hånd, uten kalkulator. Gi også en baklengs oppgave: en kjent delmengde og hvor mange prosent den utgjør, der eleven skal finne totalen."
+prosent-brok-desimal,fact,Tall og algebra,"Prosent, brøk og desimaltall som hører sammen","1 %: 1/100 = 0,01
+10 %: 1/10 = 0,1
+12,5 %: 1/8 = 0,125
+20 %: 1/5 = 0,2
+25 %: 1/4 = 0,25
+33⅓ %: 1/3
+50 %: 1/2 = 0,5
+75 %: 3/4 = 0,75",prosent-begrep-10,,
+finne-prosentdel-av-tall-10,skill,Tall og algebra,Finne prosentdel og totalen av et tall,"regne ut hvor mye en gitt prosentandel av et tall utgjør, og regne baklengs for å finne totalen når en prosentdel og delmengden er kjent.",prosent-begrep-10;prosent-brok-desimal,1,"Gi eleven et tall og en prosentsats og be dem finne prosentdelen for hånd, uten kalkulator. Gi også en baklengs oppgave: en kjent delmengde og hvor mange prosent den utgjør, der eleven skal finne totalen."
 finne-prosentvis-endring-10,skill,Tall og algebra,Finne prosentvis endring og opprinnelig verdi,"regne ut hvor mange prosent en verdi har økt eller blitt redusert med gitt to verdier, og regne baklengs for å finne opprinnelig verdi når prosentvis endring og ny verdi er kjent.",finne-prosentdel-av-tall-10,1,"Gi eleven en opprinnelig og en ny pris og be dem finne den prosentvise endringen for hånd. Gi også den motsatte oppgaven: en kjent rabatt i prosent og den nye prisen, der eleven skal finne prisen før rabatten."
 vurdere-annen-losning-prosent,skill,Tall og algebra,Vurdere en gitt løsning på et prosentproblem,"vurdere om en annen persons løsning på et prosentproblem er riktig, oppdage en typisk feil (f.eks. å regne prosentvis endring ut fra feil grunnlag), og begrunne svaret.",finne-prosentvis-endring-10,1,"Vis eleven en fullstendig, men feil utregning av en prosentvis endring (f.eks. der differansen deles på den nye verdien i stedet for den opprinnelige), og be eleven vurdere om løsningen er riktig, forklare hva som eventuelt er feil, og vise riktig framgangsmåte."
 potensregler-repetisjon-10,concept,Tall og algebra,Potenser og kvadratrøtter,"Potens: et grunntall opphøyd i en eksponent, der eksponenten sier hvor mange ganger grunntallet multipliseres med seg selv.
@@ -30,11 +38,26 @@ Assosiativ egenskap: tallene kan grupperes om. (a + b) + c = a + (b + c), og det
 Distributiv egenskap: en faktor kan ganges inn i hvert ledd. a·(b + c) = a·b + a·c.",,0,
 bruke-regneregler-og-generalisere,skill,Tall og algebra,Bruke regneregler til å generalisere algebraisk,"bruke kommutativ, assosiativ og distributiv egenskap til å forenkle et algebraisk uttrykk og til å generalisere en tallmessig sammenheng til et algebraisk uttrykk.",algebraisk-uttrykk-repetisjon-10;kommutativ-assosiativ-distributiv,1,"Gi eleven et regnestykke eller en tallsammenheng som blir enklere å se med en smart omskrivning (f.eks. et produkt av flere tall, eller en tallfølge), og be dem bruke regnereglene til å forenkle og skrive sammenhengen som et generelt algebraisk uttrykk."
 generalisere-og-bevise-tallmonster,skill,Tall og algebra,Generalisere og bevise et tall- eller figurmønster,"finne senere ledd i et tall- eller figurmønster, sette opp en algebraisk formel for ledd n, og vise at formelen stemmer for et gitt ledd.",bruke-regneregler-og-generalisere,1,"Gi eleven de første leddene i et tallmønster eller figurmønster (f.eks. 2, 6, 12, 20, ...) og be dem finne de to neste leddene, sette opp en formel for ledd n, og vise at formelen gir riktig verdi for et oppgitt ledd."
+kvadrattall,fact,Tall og algebra,Kvadrattallene opp til 15²,"1²: 1
+2²: 4
+3²: 9
+4²: 16
+5²: 25
+6²: 36
+7²: 49
+8²: 64
+9²: 81
+10²: 100
+11²: 121
+12²: 144
+13²: 169
+14²: 196
+15²: 225",potensregler-repetisjon-10,,
 kvadratsetninger-begrep,concept,Tall og algebra,Kvadratsetningene,"Første kvadratsetning: (a + b)² = a² + 2ab + b².
 Andre kvadratsetning: (a - b)² = a² - 2ab + b².
 Konjugatsetningen: (a + b)(a - b) = a² - b². Alle tre kan leses begge veier: brukt forlengs utvider de et uttrykk, brukt baklengs faktoriserer de det.",algebraisk-uttrykk-repetisjon-10,0,
 utforske-kvadratsetning-geometrisk,skill,Tall og algebra,Utforske en kvadratsetning geometrisk,"forklare og vise en kvadratsetning geometrisk, f.eks. ved å dele opp arealet av et kvadrat eller rektangel i delfigurer med sidelengder a og b.",kvadratsetninger-begrep,1,"Vis eleven en figur (f.eks. et kvadrat med et hjørne kuttet bort, med sidelengder markert med a og b) og be dem forklare hvorfor det gjenværende arealet kan skrives som et gitt algebraisk uttrykk (f.eks. a²+2ab), ved å dele figuren opp i delfigurer og summere arealene deres."
-bruke-kvadratsetninger-som-regnestrategi,skill,Tall og algebra,Bruke kvadratsetningene som regnestrategi,"bruke kvadratsetningene til å regne ut kvadratet av tall for hånd (f.eks. 99² som (100-1)²), og til å faktorisere eller forenkle algebraiske uttrykk.",kvadratsetninger-begrep,1,"Gi eleven noen tall som er praktiske å kvadrere ved hjelp av en kvadratsetning (f.eks. 99², 51²) og be dem regne dem ut for hånd uten kalkulator ved å skrive tallet som en sum eller differanse. Gi også et algebraisk uttrykk som skal faktoriseres ved hjelp av en av kvadratsetningene."
+bruke-kvadratsetninger-som-regnestrategi,skill,Tall og algebra,Bruke kvadratsetningene som regnestrategi,"bruke kvadratsetningene til å regne ut kvadratet av tall for hånd (f.eks. 99² som (100-1)²), og til å faktorisere eller forenkle algebraiske uttrykk.",kvadratsetninger-begrep;kvadrattall,1,"Gi eleven noen tall som er praktiske å kvadrere ved hjelp av en kvadratsetning (f.eks. 99², 51²) og be dem regne dem ut for hånd uten kalkulator ved å skrive tallet som en sum eller differanse. Gi også et algebraisk uttrykk som skal faktoriseres ved hjelp av en av kvadratsetningene."
 generalisere-tallpuslespill-algebraisk,skill,Tall og algebra,Generalisere et talleksperiment algebraisk,"følge en gitt tallprosedyre med selvvalgte tall, og deretter generalisere prosedyren algebraisk (med variabler) for å vise hvorfor resultatet alltid blir det samme.",bruke-regneregler-og-generalisere,2,"Gi eleven en tallprosedyre beskrevet i steg (f.eks. velg to tall, kombiner dem på en bestemt måte, og del på summen) og be dem først prøve med egenvalgte tall, og deretter erstatte tallene med variabler (f.eks. a og b) og forenkle uttrykket algebraisk for å vise at resultatet alltid blir det samme."
 sette-opp-arealuttrykk-med-variabler,skill,Tall og algebra,Sette opp et algebraisk arealuttrykk fra en figur,sette opp og forenkle et algebraisk uttrykk for arealet eller omkretsen av en figur der noen mål er oppgitt som variable uttrykk.,bruke-regneregler-og-generalisere,1,"Gi eleven en figur (f.eks. et trapes) der noen sidelengder er oppgitt med tall og andre med et uttrykk som inneholder en variabel (f.eks. x-2), og be dem sette opp og forenkle et algebraisk uttrykk for arealet."
 lose-ligning-repetisjon-10,skill,Ligningssett og modellering,Løse en ligning med én ukjent,løse en ligning med én ukjent ved å utføre den samme operasjonen på begge sider av likhetstegnet.,,1,
@@ -83,9 +106,12 @@ sannsynlighet-uten-tilbakelegging,skill,Statistikk og sannsynlighet,Beregne sann
 formlikhet-repetisjon-10,concept,Geometri,Formlikhet og skalering,"Formlikhet: to figurer har samme form, men ikke nødvendigvis samme størrelse - vinklene er parvis like, og forholdet mellom tilsvarende sider er det samme hele veien rundt.
 Skalering: det forholdet er skaleringsfaktoren. Arealet skaleres med kvadratet av den, og volumet med tredje potens.",,0,
 bruke-formlikhet-ukjent-lengde-10,skill,Geometri,Bruke formlikhet til å finne en ukjent lengde,"bruke formlikhet (samme forhold mellom tilsvarende sider) til å regne ut en ukjent lengde, f.eks. ved forstørring eller forminskning av et bilde.",formlikhet-repetisjon-10,1,"Gi eleven mål på et originalbilde og målene på en forstørret eller forminsket versjon av det (f.eks. et fotografi som skal males i et annet format), og en kjent lengde på originalen, og be dem finne den tilsvarende lengden i den skalerte versjonen."
-volum-formel-repetisjon-10,concept,Geometri,Formler for overflateareal og volum,"Volum: hvor mye figuren rommer. For et prisme og en sylinder er det grunnflaten ganger høyden; for en kule 4/3·π·r³.
+volum-formel-repetisjon-10,concept,Geometri,Formler for overflateareal og volum,"Volum: hvor mye figuren rommer, målt i kubikkenheter.
 Overflateareal: summen av arealene av alle flatene figuren er avgrenset av - for en sylinder bunn, topp og den utbrettede mantelen.",,0,
-foresla-mal-og-beregne-volum,skill,Geometri,Foreslå realistiske mål og beregne volumet av en figur,"foreslå realistiske mål for en gjenstand med en gitt geometrisk form, begrunne valgene, og bruke målene til å regne ut volumet.",volum-formel-repetisjon-10,1,"Vis eleven et bilde av en gjenstand med en enkel geometrisk form (f.eks. en matboks formet som et prisme), og be dem foreslå realistiske mål på sidekantene, begrunne valgene, og bruke målene til å regne ut volumet."
+volumformler,fact,Geometri,Volumformlene,"prisme: V = G · h
+sylinder: V = π · r² · h
+kule: V = 4/3 · π · r³",volum-formel-repetisjon-10,,
+foresla-mal-og-beregne-volum,skill,Geometri,Foreslå realistiske mål og beregne volumet av en figur,"foreslå realistiske mål for en gjenstand med en gitt geometrisk form, begrunne valgene, og bruke målene til å regne ut volumet.",volum-formel-repetisjon-10;volumformler,1,"Vis eleven et bilde av en gjenstand med en enkel geometrisk form (f.eks. en matboks formet som et prisme), og be dem foreslå realistiske mål på sidekantene, begrunne valgene, og bruke målene til å regne ut volumet."
 omraderelasjon-ved-skalering,skill,Geometri,Finne hvordan arealet endres når sidene skaleres ulikt,"finne hvor mange ganger arealet av en figur endres når sidelengdene skaleres med hver sin faktor, f.eks. når lengden dobles og bredden økes 1,5 ganger.",formlikhet-repetisjon-10;bruke-regneregler-og-generalisere,1,"Gi eleven en figur (f.eks. et kvadrat) og to ulike skaleringsfaktorer for lengde og bredde, og be dem regne ut hvor mange ganger større arealet av den nye figuren blir, og vise utregningen."
 python-syntaks-begrep,concept,Programmering,Grunnleggende Python-syntaks,"Variabeltilordning: å gi en variabel en verdi, som x = 5.
 While-løkke: gjentar en blokk med kode så lenge en betingelse er sann.

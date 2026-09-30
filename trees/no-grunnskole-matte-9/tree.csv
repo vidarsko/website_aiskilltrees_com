@@ -13,9 +13,34 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.motivationSubject,matte,,,
 sammensatt-maleenhet-begrep-9,concept,Måling,Sammensatte måleenheter,"Sammensatt måleenhet: en enhet som er forholdet mellom to andre, som km/h, kr/kg eller personer/km². Skråstreken leses «per», og enheten sier dermed hvor mye av det første som kommer på hver enhet av det andre.",,0,
 regne-med-sammensatte-enheter,skill,Måling,Regne ut en sammensatt størrelse,"regne ut en sammensatt størrelse (f.eks. fart, tetthet eller pris per enhet) når de to grunnleggende størrelsene er kjent.",sammensatt-maleenhet-begrep-9,0,"Gi eleven to grunnleggende størrelser fra en praktisk situasjon (f.eks. en strekning og en tid, eller en masse og et volum) og be dem regne ut den sammensatte størrelsen (fart, tetthet), og forklare hva svaret betyr."
-omregne-mellom-enheter-i-sammensatt-storrelse,skill,Måling,Regne om enheter før en sammensatt beregning,"gjøre om mellom ulike måleenheter (f.eks. minutter og timer, eller gram og kilogram) før en sammensatt størrelse regnes ut, slik at enhetene stemmer overens.",regne-med-sammensatte-enheter,0,"Gi eleven en praktisk situasjon der størrelsene er oppgitt i enheter som ikke passer direkte sammen (f.eks. en strekning i meter og en tid i minutter, der svaret skal være i km/h), og be dem gjøre om enhetene riktig før de regner ut den sammensatte størrelsen."
+maleenheter,fact,Måling,Sammenhenger mellom måleenheter,"1 km: 1000 m
+1 m: 100 cm
+1 cm: 10 mm
+1 kg: 1000 g
+1 tonn: 1000 kg
+1 time: 60 minutter
+1 minutt: 60 sekunder
+1 L: 10 dL = 100 cL = 1000 mL
+1 dm³: 1 L
+1 m/s: 3,6 km/h",,,
+omregne-mellom-enheter-i-sammensatt-storrelse,skill,Måling,Regne om enheter før en sammensatt beregning,"gjøre om mellom ulike måleenheter (f.eks. minutter og timer, eller gram og kilogram) før en sammensatt størrelse regnes ut, slik at enhetene stemmer overens.",regne-med-sammensatte-enheter;maleenheter,0,"Gi eleven en praktisk situasjon der størrelsene er oppgitt i enheter som ikke passer direkte sammen (f.eks. en strekning i meter og en tid i minutter, der svaret skal være i km/h), og be dem gjøre om enhetene riktig før de regner ut den sammensatte størrelsen."
 lage-og-lose-praktisk-problem-sammensatt-enhet,skill,Måling,Lage og løse et sammensatt problem med måleenheter,"lage og løse et sammensatt, praktisk problem som krever flere regnesteg med sammensatte måleenheter, og vurdere om svaret er rimelig.",omregne-mellom-enheter-i-sammensatt-storrelse,0,"Gi eleven en åpen, praktisk situasjon som krever flere steg og enhetsomregninger (f.eks. å sammenligne strømforbruket til to apparater over en gitt periode, eller regne ut hvor lang tid en tur tar gitt en gjennomsnittsfart og noen stopp), og be dem løse problemet og begrunne hvert steg."
 kvadratrot-repetisjon-9,concept,Geometri,Kvadratrøtter,Kvadratrøtter: kvadratroten av et tall er det positive tallet som ganget med seg selv gir tallet: √49 = 7. Den er grunnlaget for å regne ut en side i en rettvinklet trekant med Pytagoras' læresetning.,,0,
+kvadrattall,fact,Geometri,Kvadrattallene opp til 15²,"1²: 1
+2²: 4
+3²: 9
+4²: 16
+5²: 25
+6²: 36
+7²: 49
+8²: 64
+9²: 81
+10²: 100
+11²: 121
+12²: 144
+13²: 169
+14²: 196
+15²: 225",kvadratrot-repetisjon-9,,
 vinkel-begrep,concept,Geometri,Vinkel,"Vinkel: åpningen mellom to stråler som går ut fra samme punkt. Den måles i grader, der et helt omdreining er 360° og en rett vinkel er 90°.",,0,
 egenskaper-2d-figurer,concept,Geometri,Egenskaper ved todimensjonale figurer,"Egenskaper ved todimensjonale figurer: antall sider og hvor lange de er, størrelsen på vinklene, diagonalene og symmetriene. Det er disse egenskapene figurene klassifiseres etter - et kvadrat er et rektangel med fire like sider, og et rektangel er et parallellogram med rette vinkler.",vinkel-begrep,0,
 formlikhet-begrep,concept,Geometri,Formlikhet,"Formlikhet: to figurer er formlike når de har samme form, men ikke nødvendigvis samme størrelse: vinklene er parvis like store, og forholdet mellom tilsvarende sider er det samme hele veien rundt.",egenskaper-2d-figurer;vinkel-begrep,0,
@@ -26,16 +51,21 @@ Buttvinklet trekant: har én vinkel større enn 90°. Mer enn én er umulig, sid
 avgjore-formlikhet-kongruens,skill,Geometri,Avgjøre om figurer er formlike eller kongruente,"avgjøre og begrunne om to gitte figurer er formlike, kongruente, eller ingen av delene.",kongruens-begrep,0,"Vis eleven flere par av figurer (noen formlike, noen kongruente, noen ingen av delene, med sidelengder og/eller vinkler oppgitt) og be dem avgjøre hvilken kategori hvert par tilhører, og begrunne svaret med hva som er likt og ulikt."
 bruke-formlikhet-til-ukjent-lengde,skill,Geometri,Bruke formlikhet til å finne en ukjent lengde,"bruke formlikhet (forholdet mellom tilsvarende sider) til å regne ut en ukjent lengde i en praktisk situasjon, f.eks. skalering av et bilde eller høydemåling ved hjelp av skygger.",avgjore-formlikhet-kongruens,0,"Gi eleven en praktisk situasjon med to formlike figurer der noen mål er kjent og én lengde er ukjent (f.eks. et fotografi som skal forstørres til en gitt bredde, eller høyden på et tre funnet ved å sammenligne skyggen med skyggen til en kjent stav), og be dem sette opp forholdet og finne den ukjente lengden."
 pytagoras-begrep,concept,Geometri,Pytagoras' læresetning,"Pytagoras' læresetning: i en rettvinklet trekant er a² + b² = c², der c er hypotenusen - den lengste siden, den som ligger rett overfor den rette vinkelen. Setningen gjelder bare i rettvinklede trekanter.",kvadratrot-repetisjon-9;trekanttyper-vinkel-begrep,0,
-bruke-pytagoras-til-ukjent-side,skill,Geometri,Bruke Pytagoras til å finne en ukjent side,bruke Pytagoras' læresetning til å regne ut en ukjent side i en rettvinklet trekant i en praktisk situasjon.,pytagoras-begrep,0,"Gi eleven en praktisk, rettvinklet situasjon (f.eks. en stige mot en vegg, eller en snarvei over et rektangulært jorde) med to kjente lengder, og be dem bruke Pytagoras' læresetning til å finne den tredje lengden."
+bruke-pytagoras-til-ukjent-side,skill,Geometri,Bruke Pytagoras til å finne en ukjent side,bruke Pytagoras' læresetning til å regne ut en ukjent side i en rettvinklet trekant i en praktisk situasjon.,pytagoras-begrep;kvadrattall,0,"Gi eleven en praktisk, rettvinklet situasjon (f.eks. en stige mot en vegg, eller en snarvei over et rektangulært jorde) med to kjente lengder, og be dem bruke Pytagoras' læresetning til å finne den tredje lengden."
 bruke-pytagoras-og-formlikhet-sammen,skill,Geometri,Kombinere Pytagoras og formlikhet,"kombinere Pytagoras' læresetning og formlikhet til å løse en sammensatt, praktisk problemstilling.",bruke-pytagoras-til-ukjent-side;bruke-formlikhet-til-ukjent-lengde,0,"Gi eleven en sammensatt praktisk situasjon der både formlikhet og Pytagoras trengs (f.eks. to formlike, rettvinklede trekanter der bare noen mål i den ene er kjent), og be dem løse oppgaven steg for steg og forklare hvilket verktøy de bruker når."
 undersoke-sammenhenger-sidelengder-trekant,skill,Geometri,Utforske sammenhenger mellom sidelengder i en trekant,"utforske, beskrive og argumentere for sammenhenger mellom sidelengdene i en trekant, f.eks. at summen av to sider alltid må være større enn den tredje, eller hvordan man kan avgjøre om en trekant er rettvinklet ut fra sidelengdene.",pytagoras-begrep,0,"Gi eleven tre sidelengder og be dem avgjøre om de kan danne en trekant, og eventuelt om trekanten er rettvinklet, butt- eller spissvinklet - basert på sammenhengen mellom kvadratene av sidelengdene. Be dem begrunne svaret, ikke bare tegne."
 endre-forutsetning-geometrisk-praktisk,skill,Geometri,Endre en forutsetning i et geometrisk problem,"utforske og forklare hvordan det å endre en forutsetning i et geometrisk problem (f.eks. en lengde eller en vinkel) påvirker løsningen, praktisk og med konkrete tall.",bruke-pytagoras-til-ukjent-side,0,"Gi eleven et løst geometrisk problem (f.eks. lengden på en stige mot en vegg) og be dem regne ut på nytt hva som skjer med svaret hvis én forutsetning endres (f.eks. avstanden fra veggen økes med 50 cm), og forklare hvorfor svaret endrer seg som det gjør."
 algebraisk-uttrykk-repetisjon-9,concept,Geometri,Variabler og algebraiske uttrykk,"Variabel: en bokstav som står for et tall som kan variere, eller som ennå ikke er kjent.
 Algebraisk uttrykk: tall, variabler og konstanter satt sammen med regnetegn, som 3x + 5. Et uttrykk har ikke likhetstegn, og får en verdi først når variabelen får et tall.",,0,
 endre-forutsetning-geometrisk-algebraisk,skill,Geometri,Uttrykke en geometrisk endring algebraisk,"uttrykke hvordan en løsning i et geometrisk problem endres algebraisk når en forutsetning erstattes med en variabel, og sette opp et generelt uttrykk for løsningen.",endre-forutsetning-geometrisk-praktisk;algebraisk-uttrykk-repetisjon-9,0,"Gi eleven det samme geometriske problemet som i forrige ferdighet, men be dem denne gangen erstatte den forutsetningen som endres med en variabel (f.eks. avstanden fra veggen kalt x), og sette opp et algebraisk uttrykk for den ukjente lengden som funksjon av x."
-overflate-volum-formel-begrep,concept,Geometri,Formler for overflateareal og volum,"Volum: hvor mye figuren rommer. For et prisme og en sylinder er det grunnflaten ganger høyden; for en kjegle og en pyramide en tredel av det samme; for en kule 4/3·π·r³.
+overflate-volum-formel-begrep,concept,Geometri,Formler for overflateareal og volum,"Volum: hvor mye figuren rommer, målt i kubikkenheter.
 Overflateareal: summen av arealene av alle flatene figuren er avgrenset av - for en sylinder bunn, topp og den utbrettede mantelen.",,0,
-bruke-formel-overflate-volum,skill,Geometri,Bruke og begrunne formler for overflateareal og volum,bruke og argumentere for formler for overflateareal og volum til å regne ut disse størrelsene for ulike tredimensjonale figurer.,overflate-volum-formel-begrep,0,"Gi eleven målene til en tredimensjonal figur (f.eks. radius og høyde på en sylinder, eller kantlengden på en kube) og be dem regne ut overflatearealet og volumet, og kort begrunne hvorfor formelen de bruker gir riktig areal eller volum."
+volumformler,fact,Geometri,Volumformlene,"prisme: V = G · h
+sylinder: V = π · r² · h
+pyramide: V = G · h / 3
+kjegle: V = π · r² · h / 3
+kule: V = 4/3 · π · r³",overflate-volum-formel-begrep,,
+bruke-formel-overflate-volum,skill,Geometri,Bruke og begrunne formler for overflateareal og volum,bruke og argumentere for formler for overflateareal og volum til å regne ut disse størrelsene for ulike tredimensjonale figurer.,overflate-volum-formel-begrep;volumformler,0,"Gi eleven målene til en tredimensjonal figur (f.eks. radius og høyde på en sylinder, eller kantlengden på en kube) og be dem regne ut overflatearealet og volumet, og kort begrunne hvorfor formelen de bruker gir riktig areal eller volum."
 sammensatt-3d-figur-volum-overflate,skill,Geometri,Regne ut volum og overflate av en sammensatt figur,regne ut volum og overflateareal av en sammensatt tredimensjonal figur satt sammen av kjente delfigurer.,bruke-formel-overflate-volum,0,"Gi eleven en beskrivelse eller skisse av en sammensatt gjenstand (f.eks. et hus formet som et prisme med en pyramide som tak, eller en beholder formet som en sylinder med en halvkule i bunnen), med nok mål, og be dem regne ut det totale volumet og eventuelt overflatearealet ved å dele figuren opp i kjente delfigurer."
 statistisk-fremstilling-begrep,concept,Statistikk og sannsynlighet,Statistiske framstillinger,"Søylediagram: sammenligner størrelser mellom kategorier.
 Linjediagram: viser utvikling over tid.

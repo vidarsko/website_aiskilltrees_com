@@ -22,11 +22,12 @@
     "Programmering"
   ],
   "keywords": [],
-  "nodeCount": 34,
+  "nodeCount": 37,
   "skillCount": 20,
   "conceptCount": 14,
+  "factCount": 3,
   "author": "Vidar Skogvoll",
   "authorUrl": "https://skogvoll.com",
   "license": "CC BY 4.0",
-  "updated": "2026-09-21"
+  "updated": "2026-09-30"
 }

@@ -14,15 +14,41 @@ id,type,topic,name,description,depends_on,aids,instruction
 potens-begrep,concept,Tall og tallregning,Potens,"Potens: et grunntall opphøyd i en eksponent. Grunntallet er tallet som multipliseres med seg selv, og eksponenten sier hvor mange ganger: 2⁵ betyr 2·2·2·2·2.",,0,
 regne-med-potenser,skill,Tall og tallregning,Regne ut potenser,"regne ut verdien av potenser med naturlige eksponenter for hånd, og forklare framgangsmåten.",potens-begrep,0,"Gi eleven et sett potensuttrykk med naturlige eksponenter (f.eks. 3^4, 2^5, 10^3) og be dem regne ut verdien for hånd, og forklare hva grunntallet og eksponenten betyr i hvert uttrykk."
 kvadratrot-begrep,concept,Tall og tallregning,Kvadratrot,Kvadratrot: det positive tallet som multiplisert med seg selv gir tallet under rottegnet.,potens-begrep,0,
-regne-med-kvadratrotter,skill,Tall og tallregning,Regne ut og anslå kvadratrøtter,"regne ut kvadratroten av kvadrattall for hånd, og anslå kvadratroten av andre tall ved å finne hvilke to hele tall den ligger mellom.",kvadratrot-begrep,0,"Gi eleven noen kvadrattall (f.eks. 49, 121) og be dem finne kvadratroten for hånd. Gi også noen tall som ikke er kvadrattall (f.eks. 40) og be dem anslå kvadratroten ved å si hvilke to hele tall den ligger mellom, og begrunne hvilket av dem den ligger nærmest."
+kvadrattall,fact,Tall og tallregning,Kvadrattallene opp til 15²,"1²: 1
+2²: 4
+3²: 9
+4²: 16
+5²: 25
+6²: 36
+7²: 49
+8²: 64
+9²: 81
+10²: 100
+11²: 121
+12²: 144
+13²: 169
+14²: 196
+15²: 225",potens-begrep,,
+regne-med-kvadratrotter,skill,Tall og tallregning,Regne ut og anslå kvadratrøtter,"regne ut kvadratroten av kvadrattall for hånd, og anslå kvadratroten av andre tall ved å finne hvilke to hele tall den ligger mellom.",kvadratrot-begrep;kvadrattall,0,"Gi eleven noen kvadrattall (f.eks. 49, 121) og be dem finne kvadratroten for hånd. Gi også noen tall som ikke er kvadrattall (f.eks. 40) og be dem anslå kvadratroten ved å si hvilke to hele tall den ligger mellom, og begrunne hvilket av dem den ligger nærmest."
 regneregler-kommutativ-assosiativ-distributiv-begrep,concept,Tall og tallregning,"Kommutativ, assosiativ og distributiv egenskap","Kommutativ egenskap: rekkefølgen kan byttes om. a + b = b + a, og a·b = b·a.
 Assosiativ egenskap: tallene kan grupperes på en annen måte. (a + b) + c = a + (b + c), og det samme for multiplikasjon.
 Distributiv egenskap: en faktor kan ganges inn i hvert ledd. a·(b + c) = a·b + a·c.",,0,
-bruke-regneregler-hoderegning,skill,Tall og tallregning,Bruke smarte strategier til effektiv hoderegning,"gjøre et regnestykke enklere å regne ut ved å bytte om rekkefølgen på tallene, gruppere dem på en annen måte eller dele et tall opp i mindre deler før man ganger, og forklare hvorfor omregningen gir samme svar som det opprinnelige stykket.",,0,"Gi eleven regnestykker som blir enklere med en smart strategi (f.eks. 25·17·4, eller 98·6 regnet som (100-2)·6), og be dem regne ut svaret i hodet eller på papir ved å bytte om rekkefølgen, gruppere tallene annerledes, eller dele opp et tall, og forklare hvorfor strategien gir samme svar."
+bruke-regneregler-hoderegning,skill,Tall og tallregning,Bruke smarte strategier til effektiv hoderegning,"gjøre et regnestykke enklere å regne ut ved å bytte om rekkefølgen på tallene, gruppere dem på en annen måte eller dele et tall opp i mindre deler før man ganger, og forklare hvorfor omregningen gir samme svar som det opprinnelige stykket.",gangetabellen,0,"Gi eleven regnestykker som blir enklere med en smart strategi (f.eks. 25·17·4, eller 98·6 regnet som (100-2)·6), og be dem regne ut svaret i hodet eller på papir ved å bytte om rekkefølgen, gruppere tallene annerledes, eller dele opp et tall, og forklare hvorfor strategien gir samme svar."
+gangetabellen,fact,Tall og tallregning,Gangetabellen,"hvert produkt a · b der a og b er hele tall fra 1 til 10
+6 · 7: 42
+6 · 8: 48
+7 · 8: 56
+7 · 9: 63
+8 · 9: 72",,,
 faktor-begrep,concept,Tall og tallregning,Faktor,Faktor: et av tallene som multipliseres sammen i et produkt. I 2 · 6 = 12 er 2 og 6 faktorene.,,0,
 primtall-begrep,concept,Tall og tallregning,Primtall,Primtall: et helt tall større enn 1 som bare har seg selv og 1 som faktorer.,faktor-begrep,0,
+primtall-under-50,fact,Tall og tallregning,Primtallene under 50,"primtallene under 10: 2, 3, 5, 7
+primtallene fra 10 til 20: 11, 13, 17, 19
+primtallene fra 20 til 30: 23, 29
+primtallene fra 30 til 40: 31, 37
+primtallene fra 40 til 50: 41, 43, 47",primtall-begrep,,
 faktorisering-begrep,concept,Tall og tallregning,Primtallsfaktorisering,"Primtallsfaktorisering: Å primtallsfaktorisere et tall er å skrive det som et produkt der alle faktorene er primtall. Ethvert sammensatt tall kan skrives på nøyaktig én slik måte, bortsett fra rekkefølgen på faktorene.",faktor-begrep;primtall-begrep,0,
-primtallsfaktorisering,skill,Tall og tallregning,Finne primtallsfaktoriseringen til et tall,"finne primtallsfaktoriseringen til et helt tall, f.eks. ved hjelp av et faktortre.",faktorisering-begrep,0,"Gi eleven noen sammensatte tall (f.eks. 84, 150, 216) og be dem finne primtallsfaktoriseringen ved å bruke et faktortre eller gjentatt divisjon med primtall."
+primtallsfaktorisering,skill,Tall og tallregning,Finne primtallsfaktoriseringen til et tall,"finne primtallsfaktoriseringen til et helt tall, f.eks. ved hjelp av et faktortre.",faktorisering-begrep;gangetabellen;primtall-under-50,0,"Gi eleven noen sammensatte tall (f.eks. 84, 150, 216) og be dem finne primtallsfaktoriseringen ved å bruke et faktortre eller gjentatt divisjon med primtall."
 finne-fellesnevner-med-faktorisering,skill,Tall og tallregning,Bruke faktorisering til å finne fellesnevner og forkorte brøker,"bruke primtallsfaktorisering til å finne minste felles multiplum (fellesnevner) og største felles faktor, og bruke dette til å forkorte brøker.",primtallsfaktorisering,0,"Gi eleven to brøker med ulike nevnere (f.eks. 12/18 og 5/8) og be dem finne fellesnevneren ved hjelp av primtallsfaktorisering, og forkorte 12/18 til enklest mulig form ved å faktorisere teller og nevner."
 brokregning-med-faktorisering,skill,Tall og tallregning,Regne med brøk ved hjelp av faktorisering,"addere, subtrahere, multiplisere og dividere brøker ved å bruke faktorisering til å finne fellesnevner og forkorte underveis og i svaret.",finne-fellesnevner-med-faktorisering,0,"Gi eleven et regnestykke med to eller tre brøker og et av regneartene (f.eks. 5/6 + 7/9, eller 3/4 · 8/15), og be dem løse det for hånd ved å bruke faktorisering til fellesnevner eller forkorting, og skrive svaret i enklest mulig form."
 tallmonster-begrep,concept,Algebra og mønstre,Tallmønster og geometrisk mønster,"Tallmønster: en tallrekke der det finnes en regel som gir neste tall, som 2, 5, 8, 11 …
