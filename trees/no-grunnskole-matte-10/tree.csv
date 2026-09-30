@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,matte10-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"matematikk 10. trinn (norsk ungdomsskole, MAT0015)",,,
 ,config,,slots.expressionFocus,"glemmer å vise mellomregning eller definere variabler før de brukes i en ligning/et ligningssett, blander sammen prosentvis endring og prosentpoeng, eller runder av for tidlig i en flerstegs beregning (f.eks. i en rente- eller vekstfaktorberegning)",,,
 ,config,,slots.motivationSubject,matte,,,

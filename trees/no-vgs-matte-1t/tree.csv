@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,1t-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,matematikk 1T (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"blander sammen likhetstegn og pil/derav-tegn i en utregningskjede, bytter om på definisjonsområde og verdimengde, skriver et bevis eller en utledning som bare viser ett spesialtilfelle i stedet for det generelle argumentet, glemmer å ta med alle løsninger av en likning eller ulikhet (f.eks. bare positiv rot), eller runder av mellomresultater for tidlig i en flerstegs utregning",,,
 ,config,,slots.motivationSubject,matte,,,

@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,fysikk2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,fysikk 2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"glemmer å oppgi enheter eller blander enheter, oppgir svar med feil antall gjeldende siffer, blander sammen absolutt og relativ usikkerhet eller runder mellomsvar for tidlig i en usikkerhetsberegning, glemmer å begrunne fortegn/retning på vektorstørrelser (krefter, felt, akselerasjon) i stedet for bare å oppgi en tallverdi, bruker ""="" mellom en tilnærmet og en eksakt verdi der ≈ er riktig, eller blander sammen lignende symboler (f.eks. g for tyngdeakselerasjon og g for gravitasjonsfeltstyrke, eller v for fart og v for spenning i elektriske kretser - skriv alltid tydelig hvilken størrelse et symbol representerer)",,,
 ,config,,aids.label,Del,,,

@@ -224,7 +224,7 @@
 
   var state = {
     doc: null,
-    exams: null,
+    resources: null,
     fileName: 'tree.csv',
     mode: 'edit',          // 'edit' | 'view'
     tab: 'tree',           // 'tree' | 'node' | 'instructions' | 'settings' | 'look'
@@ -292,10 +292,10 @@
   /* Å åpne et tre                                                      */
   /* ---------------------------------------------------------------- */
 
-  function openText(tree, exams, name, background) {
+  function openText(tree, resources, name, background) {
     state.isExample = name === 'example';
     state.doc = parseDoc(tree);
-    state.exams = exams || null;
+    state.resources = resources || null;
     state.fileName = name || 'tree.csv';
     state.history = [];
     state.future = [];
@@ -330,15 +330,18 @@
     Promise.all(list.map(function (f) {
       return readFile(f).then(function (text) { return { file: f, text: text }; });
     })).then(function (loaded) {
-      var tree = null, exams = null, name = 'tree.csv', bad = null;
+      var tree = null, resources = null, name = 'tree.csv', bad = null;
       loaded.forEach(function (item) {
         var lower = item.file.name.toLowerCase();
         if (/\.html?$/.test(lower)) {
           var got = window.AistStandalone.extractFromHtml(item.text);
-          if (got) { tree = got.tree; exams = got.exams || exams; name = 'tree.csv'; }
+          if (got) { tree = got.tree; resources = got.resources || resources; name = 'tree.csv'; }
           else bad = item.file.name;
-        } else if (lower.indexOf('exam') === 0 || lower.indexOf('eksamen') === 0) {
-          exams = item.text;
+        } else if (/^(resource|ressurs|resurs|exam|eksamen)/.test(lower)) {
+          /* exams.csv er det gamle navnet (før maskineri 0.22.0). Den tas
+             imot her så den ikke blir lest som treet; motoren sier fra om
+             at features.exams har fått nytt navn. */
+          resources = item.text;
         } else {
           tree = item.text;
           name = item.file.name;
@@ -349,7 +352,7 @@
         return;
       }
       if (!confirmDiscard()) return;
-      openText(tree, exams, name);
+      openText(tree, resources, name);
     });
   }
 
@@ -409,20 +412,20 @@
     el.pasteArea.focus();
   }
 
-  function openUrl(treeUrl, examsUrl, background, name) {
+  function openUrl(treeUrl, resourcesUrl, background, name) {
     if (!background && !confirmDiscard()) return;
     fetch(treeUrl).then(function (res) {
       if (!res.ok) throw new Error(treeUrl);
       return res.text();
     }).then(function (tree) {
-      /* exams.csv hentes bare når treet sier at den finnes, som motoren gjør:
+      /* resources.csv hentes bare når treet sier at den finnes, som motoren gjør:
          en 404 for en valgfri fil er en rød linje i konsollen og ingenting
          annet. */
-      var wantsExams = /^[^\n]*,config,[^,\n]*,features\.exams,\s*true/m.test(tree);
-      var exams = examsUrl && wantsExams
-        ? fetch(examsUrl).then(function (r) { return r.ok ? r.text() : null; }, function () { return null; })
+      var wantsResources = /^[^\n]*,config,[^,\n]*,features\.resources,\s*true/m.test(tree);
+      var resources = resourcesUrl && wantsResources
+        ? fetch(resourcesUrl).then(function (r) { return r.ok ? r.text() : null; }, function () { return null; })
         : Promise.resolve(null);
-      return exams.then(function (ex) { openText(tree, ex, name || 'tree.csv', background); });
+      return resources.then(function (res) { openText(tree, res, name || 'tree.csv', background); });
     }).catch(function () {
       showStartError(t('start-fetch-failed'));
     });
@@ -477,7 +480,7 @@
     var seq = ++buildSeq;
     var csv = serialize(state.doc);
     el.stage.setAttribute('data-busy', 'true');
-    window.AistStandalone.build(csv, state.exams).then(function (html) {
+    window.AistStandalone.build(csv, state.resources).then(function (html) {
       if (seq !== buildSeq) return null;
       state.html = html;
       var next = 1 - live;
@@ -1342,7 +1345,7 @@
     ] },
     { group: 'set-group-buttons', fields: [
       { key: 'features.motivation', label: 'set-motivation', kind: 'bool', hint: 'set-motivation-hint' },
-      { key: 'features.exams', label: 'set-exams', kind: 'bool', hint: 'set-exams-hint' },
+      { key: 'features.resources', label: 'set-resources', kind: 'bool', hint: 'set-resources-hint' },
     ] },
     { group: 'set-group-slots', note: 'set-group-slots-note', fields: [
       { key: 'slots.courseName', label: 'set-slot-course' },
@@ -1609,7 +1612,7 @@
     el.errorDetails.hidden = !errors.length;
     el.downloadCsv.disabled = !state.doc;
     el.downloadHtml.disabled = !state.html;
-    el.downloadExams.hidden = !state.exams;
+    el.downloadResources.hidden = !state.resources;
   }
 
   function fileBase() {
@@ -1782,7 +1785,7 @@
       var slugs = index.trees || [];
       return Promise.all(slugs.map(function (slug) {
         return window.AistStandalone.getJson('/trees/' + slug + '/meta.json').then(function (m) {
-          return { slug: slug, title: m.title || slug, exams: !!(m.features && m.features.exams) };
+          return { slug: slug, title: m.title || slug };
         }, function () { return { slug: slug, title: slug }; });
       }));
     }).then(function (list) {
@@ -1819,7 +1822,7 @@
     el.copyErrors = document.getElementById('ed-copy-errors');
     el.downloadCsv = document.getElementById('ed-download-csv');
     el.downloadHtml = document.getElementById('ed-download-html');
-    el.downloadExams = document.getElementById('ed-download-exams');
+    el.downloadResources = document.getElementById('ed-download-resources');
     el.drop = document.getElementById('ed-drop');
     el.input = document.getElementById('ed-file');
     el.catalogue = document.getElementById('ed-catalogue');
@@ -1858,8 +1861,8 @@
       state.dirty = false;
       track('builder_download', {});
     });
-    el.downloadExams.addEventListener('click', function () {
-      if (state.exams) save(fileBase() + '-exams.csv', state.exams, 'text/csv');
+    el.downloadResources.addEventListener('click', function () {
+      if (state.resources) save(fileBase() + '-resources.csv', state.resources, 'text/csv');
     });
     el.copyErrors.addEventListener('click', function () {
       var errors = (state.eff && state.eff.errors) || [];
@@ -1944,7 +1947,7 @@
     el.catalogue.addEventListener('change', function () {
       var slug = el.catalogue.value;
       if (!slug) return;
-      openUrl('/trees/' + slug + '/tree.csv', '/trees/' + slug + '/exams.csv');
+      openUrl('/trees/' + slug + '/tree.csv', '/trees/' + slug + '/resources.csv');
       el.catalogue.value = '';
     });
     loadCatalogue();
@@ -1962,7 +1965,7 @@
     var params = new URLSearchParams(location.search);
     var slug = params.get('tree');
     if (slug && /^[a-z0-9-]+$/.test(slug)) {
-      openUrl('/trees/' + slug + '/tree.csv', '/trees/' + slug + '/exams.csv', true);
+      openUrl('/trees/' + slug + '/tree.csv', '/trees/' + slug + '/resources.csv', true);
       el.overlay.hidden = true;
     } else {
       /* Eksempeltreet åpnes bak vinduet, slik at læreren ser hva hen skal

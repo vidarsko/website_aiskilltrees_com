@@ -6,7 +6,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,learner,participant,,,
 ,config,,subjectFamily,practical-aesthetic,,,
 ,config,,features.motivation,true,,,
-,config,,features.exams,false,,,
+,config,,features.resources,false,,,
 ,config,,slots.courseName,musikkteori for korsangere,,,
 ,config,,slots.motivationSubject,musikkteori,,,
 ,config,,slots.expressionFocus,"forenkler rytmer til noe som ligner i stedet for å telle det som faktisk står, og venter på at andre i koret skal ta ansvar for tonen og innsatsen",,,

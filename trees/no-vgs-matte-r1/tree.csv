@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,r1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,matematikk R1 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"blander sammen f(x) og f'(x) (eller skriver ""avledet"" i stedet for riktig notasjon), bruker ""="" om uttrykk som ikke faktisk er like (f.eks. mellom en tilnærming og en eksakt verdi, der ≈ er riktig), glemmer å oppgi enhet ved fart/vekstfart (f.eks. m/s eller per år), oppgir vektorer uten pil eller uten koordinater, glemmer å oppgi definisjonsmengden til en omvendt funksjon, eller avrunder mellomsvar for tidlig i en flertrinnsoppgave med eksponentiell eller logistisk modellering",,,
 ,config,,slots.motivationSubject,matte,,,

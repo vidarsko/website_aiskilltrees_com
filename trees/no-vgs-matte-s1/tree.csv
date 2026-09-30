@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,s1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"matematikk S1 (norsk videregående skole, programfag realfag)",,,
 ,config,,slots.expressionFocus,"blander sammen grenseverdien til en funksjon i et punkt med funksjonsverdien i punktet (særlig ved diskontinuitet eller hull), skriver f(x) der de mener f'(x) (eller omvendt), bruker likhetstegn feil (f.eks. kjeder sammen uttrykk med ""="" som ikke faktisk er like), oppgir et kombinatorikkuttrykk (nCr, nPr, fakultet) uten å forklare hva det teller, eller skriver P(X = k) der de egentlig mener P(X ≥ k) eller omvendt",,,
 ,config,,slots.motivationSubject,matte,,,

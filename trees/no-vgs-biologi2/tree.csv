@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,biologi2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,biologi 2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"blander sammen ord som ligner hverandre men betyr noe helt ulikt (f.eks. gen og allel, genotype og fenotype, transkripsjon og translasjon, mitose og meiose, art og populasjon), bruker ""genene endres"" eller ""arvestoffet muterer"" upresist der det er snakk om at en bestemt DNA-sekvens endres, skriver ""prosentandel"" der det egentlig menes en frekvens eller sannsynlighet (eller omvendt), oppgir et svar om dominant/recessiv arv uten å vise til et konkret krysningsskjema eller stamtre, eller bruker forkortelser (ATP, DNA, CRISPR osv.) uten å ha forklart hva de står for i teksten",,,
 ,config,,aids.label,Del,,,

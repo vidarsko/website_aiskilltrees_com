@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,kjemi2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,kjemi 2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"glemmer å balansere reaksjonslikninger (inkludert ladning i halvreaksjoner, ikke bare atomer), glemmer tilstandssymboler (s), (l), (g), (aq), blander sammen K og Kc/Ksp/Ka/Kb uten å si hvilken likevektskonstant som menes, oppgir svar med feil antall gjeldende siffer eller glemmer enheter (spesielt mol/L, mol, C, J, kJ/mol), blander sammen fortegnskonvensjonen for entalpi/entropi/fri energi ved endoterme og eksoterme prosesser, bruker enkeltpil (→) der likevektspil (⇌) er riktig eller omvendt, glemmer å oppgi hvilket stoff som er oksidasjonsmiddel og hvilket som er reduksjonsmiddel eksplisitt i stedet for bare å si ""oksidasjon skjer"", eller blander sammen konsentrasjon (mol/L) og stoffmengde (mol) i en beregning",,,
 ,config,,aids.label,Del,,,

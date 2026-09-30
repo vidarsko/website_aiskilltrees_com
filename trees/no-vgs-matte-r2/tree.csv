@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,r2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,matematikk R2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"glemmer +C i et ubestemt integral, eller dx i selve integraluttrykket, skriver ""="" der ≈ er riktig (f.eks. mellom en numerisk tilnærming og en eksakt verdi), oppgir vektorer uten pil eller uten koordinater i klammer, glemmer å oppgi enhet ved banefart/akselerasjon (f.eks. m/s eller m/s²), oppgir en parameterframstilling uten å angi hvilket intervall parameteren er gyldig for, avrunder mellomsvar for tidlig i en flertrinnsoppgave med regresjon eller numerisk løsning, eller blander sammen det bestemte og det ubestemte integralet (glemmer grensene, eller setter på en integrasjonskonstant i et bestemt integral)",,,
 ,config,,slots.motivationSubject,matte,,,

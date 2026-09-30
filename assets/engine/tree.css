@@ -1345,20 +1345,20 @@ main {
 
 #instruction-text.visible { display: block; }
 
-.exam-list {
+.resource-list {
   list-style: none;
   font-size: 0.86rem;
 }
 
-.exam-list li {
+.resource-list li {
   padding: 0.5rem 0;
   border-top: 1px solid var(--border);
 }
 
-.exam-list li:first-child { border-top: none; }
+.resource-list li:first-child { border-top: none; }
 
-.exam-list a { text-decoration: none; }
-.exam-list a:hover, .exam-list a:focus-visible { text-decoration: underline; }
+.resource-list a { text-decoration: none; }
+.resource-list a:hover, .resource-list a:focus-visible { text-decoration: underline; }
 
 #detail-empty {
   color: var(--text-muted);

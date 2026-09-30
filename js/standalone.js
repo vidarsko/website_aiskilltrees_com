@@ -11,7 +11,7 @@
    eneste som hentes over nettet er maskineriet fra dette nettstedet.
 
    API:
-     AistStandalone.build(treeCsv, examsCsv) -> Promise<html>
+     AistStandalone.build(treeCsv, resourcesCsv) -> Promise<html>
      AistStandalone.peekConfig(treeCsv)      -> { language, subjectFamily, title }
      AistStandalone.waitForEngine(iframe)    -> Promise<AIST_EFFECTIVE_CONFIG>
    ========================================================================== */
@@ -60,7 +60,7 @@
 
   /* Nøklene her må være NØYAKTIG de stiene motoren spør etter - det er
      hele avtalen mellom AIST_BUNDLE og fetchJson()/fetchText(). */
-  function loadBundle(config, treeCsv, examsCsv) {
+  function loadBundle(config, treeCsv, resourcesCsv) {
     var manifest = assets.manifest;
     var files = ['/assets/prompts/' + manifest.shared];
     /* Bare elevens instrukser. Dekomponeringsmodellen og rammeteksten rundt
@@ -92,7 +92,7 @@
         'meta.json': null,
         '/trees/vocabulary.json': null,
       };
-      if (examsCsv) bundle['exams.csv'] = examsCsv;
+      if (resourcesCsv) bundle['resources.csv'] = resourcesCsv;
       pairs.forEach(function (pair) { if (pair) bundle[pair[0]] = pair[1]; });
       return bundle;
     });
@@ -128,9 +128,9 @@
       .replace('/*AIST:ENGINE*/', function () { return assets.engine; });
   }
 
-  function build(treeCsv, examsCsv) {
+  function build(treeCsv, resourcesCsv) {
     return loadAssets()
-      .then(function () { return loadBundle(peekConfig(treeCsv), treeCsv, examsCsv); })
+      .then(function () { return loadBundle(peekConfig(treeCsv), treeCsv, resourcesCsv); })
       .then(assemble);
   }
 
@@ -173,7 +173,7 @@
     try {
       var bundle = JSON.parse(json);
       if (typeof bundle['tree.csv'] !== 'string') return null;
-      return { tree: bundle['tree.csv'], exams: bundle['exams.csv'] || null };
+      return { tree: bundle['tree.csv'], resources: bundle['resources.csv'] || null };
     } catch (e) {
       return null;
     }

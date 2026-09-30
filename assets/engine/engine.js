@@ -48,7 +48,8 @@ const ENGINE_SRC = (typeof document !== 'undefined' && document.currentScript)
 /*                            (prompt-rader). `type`-kolonnen sier hva  */
 /*                            raden er. tree.json og noder.csv er       */
 /*                            borte fra og med 0.2.0.                   */
-/*   ./exams.csv               Valgfri: eksamensoppgaver per node.      */
+/*   ./resources.csv           Valgfri: ressurser per node (eksamens-   */
+/*                            oppgaver, lærebok, video ...).           */
 /*                                                                      */
 /* Bakgrunnen: fram til 2026-09-20 fantes motoren i to eksemplarer,     */
 /* ferdighetstre/engine.js og fardighetstrad/engine.js på skogvoll.com  */
@@ -101,7 +102,7 @@ let NODE_ROWS = [];         // node-radene i ./tree.csv, satt av bootstrap()
    sammen fra NODE_ROWS igjen ville mistet radrekkefølge, tomme kolonner
    og alt annet motoren ikke bryr seg om. */
 let TREE_CSV_TEXT = '';     // ./tree.csv slik den står
-let EXAMS_CSV_TEXT = null;  // ./exams.csv slik den står, eller null
+let RESOURCES_CSV_TEXT = null;  // ./resources.csv slik den står, eller null
 let PROMPT_ROWS = {};       // prompt-radene i ./tree.csv: { '<instruks>.<seksjon>': tekst }
                             //   '*' som instruks betyr «alle instrukser».
 let PROMPT_ROW_AT = {};     // samme nøkler → radnummeret i regnearket, så en
@@ -414,7 +415,7 @@ function composePrompt(promptName, ctx) {
 
 let nodesById = new Map();
 let allNodes = [];
-let examsByNode = new Map();
+let resourcesByNode = new Map();
 let activeNodeId = null;
 const validationErrors = [];
 
@@ -615,7 +616,7 @@ const CONFIG_KEYS = [
   'schemaVersion', 'title', 'description', 'language', 'languageName',
   'subjectFamily', 'storageKey', 'topicOrder', 'learner',
   'course', 'curriculum', 'author', 'authorUrl', 'license',
-  'features.motivation', 'features.exams',
+  'features.motivation', 'features.resources',
   'slots.courseName', 'slots.motivationSubject', 'slots.expressionFocus',
   'slots.courseSpecifics',
   'aids.label',
@@ -729,6 +730,12 @@ function buildConfig(entries) {
   const seen = new Set();
   entries.forEach(entry => {
     if (!entry.key) return;
+    /* exams.csv ble resources.csv i 0.22.0. Et tre fra før det får en
+       beskjed om hva som skal endres, ikke bare «ukjent innstilling». */
+    if (entry.key === 'features.exams') {
+      pushError('errorExamsRenamed', { row: entry.row });
+      return;
+    }
     if (!configKeyKnown(entry.key)) {
       const guess = nearestConfigKey(entry.key);
       pushError('errorUnknownConfig', { key: entry.key, row: entry.row, guess: guess });
@@ -1267,7 +1274,7 @@ function setupDownloadButton() {
     /* Regnearket først, og uten å vente på noe: det er alt i minnet, og
        den som bare ville ha CSV-en har den før bygget er i gang. */
     saveFile(slug + '.csv', TREE_CSV_TEXT, 'text/csv');
-    if (EXAMS_CSV_TEXT) saveFile(slug + '-exams.csv', EXAMS_CSV_TEXT, 'text/csv');
+    if (RESOURCES_CSV_TEXT) saveFile(slug + '-resources.csv', RESOURCES_CSV_TEXT, 'text/csv');
 
     btn.disabled = true;
     btn.textContent = t('download.working');
@@ -1343,7 +1350,7 @@ async function bundleForDownload() {
     'meta.json': META,
     '/trees/vocabulary.json': VOCAB
   };
-  if (EXAMS_CSV_TEXT) bundle['exams.csv'] = EXAMS_CSV_TEXT;
+  if (RESOURCES_CSV_TEXT) bundle['resources.csv'] = RESOURCES_CSV_TEXT;
 
   const loaded = await Promise.all(paths.map(path =>
     fetchJson(path).then(data => [path, data], () => null)));
@@ -2650,17 +2657,17 @@ async function init() {
   setupDownloadButton();
   try {
     /* Nodene er allerede lest av bootstrap() - tree.csv er ÉN fil, og den
-       måtte leses først for å finne treets språk. Eksamensoppgaver er en
-       egen, valgfri fil: de fleste trær har dem ikke, og kolonnene deres
-       ligner ikke nodenes nok til at de hører hjemme i samme tabell. */
+       måtte leses først for å finne treets språk. Ressursene er en egen,
+       valgfri fil: de fleste trær har dem ikke, og kolonnene deres ligner
+       ikke nodenes nok til at de hører hjemme i samme tabell. */
     buildNodeIndex(NODE_ROWS);
-    /* exams.csv hentes bare når treet sier at den finnes. Alternativet -
+    /* resources.csv hentes bare når treet sier at den finnes. Alternativet -
        å prøve og ta imot en 404 - virker like godt, men legger igjen en
        rød linje i konsollen for en fil som er valgfri, og det er nettopp
        den slags støy som får en lærer til å tro at noe er i stykker. */
-    const exams = FEATURES.exams ? await fetchText('exams.csv').catch(() => null) : null;
-    EXAMS_CSV_TEXT = exams;
-    buildExamIndex(exams ? parseCsv(exams) : []);
+    const resources = FEATURES.resources ? await fetchText('resources.csv').catch(() => null) : null;
+    RESOURCES_CSV_TEXT = resources;
+    buildResourceIndex(resources ? parseCsv(resources) : []);
     validateReferences();
     validateDag();
 
@@ -2821,18 +2828,23 @@ function buildNodeIndex(rows) {
   });
 }
 
-function buildExamIndex(rows) {
-  examsByNode = new Map();
+/* resources.csv: node_id, group, label, url. Med vilje løst: `group` og
+   `label` er fritekst, så en eksamensoppgave, et kapittel i en lærebok og
+   en video får plass i samme fil uten egne kolonner. Fram til 0.22.0 het
+   fila exams.csv og hadde kolonner for år, sesong, del og oppgavenummer -
+   det passet bare den norske todelte eksamenen. */
+function buildResourceIndex(rows) {
+  resourcesByNode = new Map();
   rows.forEach(row => {
     const nodeId = (row.node_id || '').trim();
-    if (!nodeId) return;
-    if (!examsByNode.has(nodeId)) examsByNode.set(nodeId, []);
-    examsByNode.get(nodeId).push({
-      year: (row.year || '').trim(),
-      season: (row.season || '').trim(),
-      aids: (row.aids || '').trim(),
-      number: (row.number || '').trim(),
-      url: (row.url || '').trim(),
+    const label = (row.label || '').trim();
+    const url = (row.url || '').trim();
+    if (!nodeId || !(label || url)) return;
+    if (!resourcesByNode.has(nodeId)) resourcesByNode.set(nodeId, []);
+    resourcesByNode.get(nodeId).push({
+      group: (row.group || '').trim(),
+      label: label || url,
+      url: url,
     });
   });
 }
@@ -2858,9 +2870,9 @@ function validateReferences() {
       pushError('errorNoTopic', { id: node.id, topic: t('defaultTopic') });
     }
   });
-  examsByNode.forEach((rows, nodeId) => {
+  resourcesByNode.forEach((rows, nodeId) => {
     if (!nodesById.has(nodeId)) {
-      pushError('errorUnknownExamNode', { id: nodeId });
+      pushError('errorUnknownResourceNode', { id: nodeId });
     }
   });
 }
@@ -3662,7 +3674,7 @@ function renderDetail(node) {
   const mastered = isNodeMastered(node, progress);
   const available = isAvailable(node, progress);
   const ancestors = getAllAncestors(node);
-  const exams = examsByNode.get(node.id) || [];
+  const resources = resourcesByNode.get(node.id) || [];
 
   inner.innerHTML = '';
 
@@ -3808,39 +3820,38 @@ function renderDetail(node) {
     });
   });
 
-  if (exams.length) {
+  /* Én overskrift per gruppe, i den rekkefølgen gruppene først står i
+     fila. En rad uten gruppe havner under «Ressurser». */
+  const groups = new Map();
+  resources.forEach(res => {
+    const key = res.group || t('detail.resources');
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(res);
+  });
+  groups.forEach((items, heading) => {
     const h3 = document.createElement('div');
     h3.className = 'badge-type';
     h3.style.margin = '1.4rem 0 0.4rem';
-    h3.textContent = t('detail.examTasks');
+    h3.textContent = heading;
     inner.appendChild(h3);
 
     const ul = document.createElement('ul');
-    ul.className = 'exam-list';
-    exams.forEach(exam => {
+    ul.className = 'resource-list';
+    items.forEach(res => {
       const li = document.createElement('li');
-      const label = t('detail.examLabel', {
-        season: capitalize(exam.season),
-        year: exam.year,
-        part: aidsTagText(parseAids(exam.aids)) || exam.aids,
-        number: exam.number,
-      });
-      if (exam.url) {
+      if (res.url) {
         const a = document.createElement('a');
-        a.href = exam.url;
+        a.href = res.url;
         a.target = '_blank';
         a.rel = 'noopener noreferrer';
-        a.textContent = label;
+        a.textContent = res.label;
         li.appendChild(a);
       } else {
-        li.textContent = label;
+        li.textContent = res.label;
       }
       ul.appendChild(li);
     });
     inner.appendChild(ul);
-  }
+  });
 }
 
-function capitalize(s) {
-  return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
-}

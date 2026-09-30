@@ -8,7 +8,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,s2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
-,config,,features.exams,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"matematikk S2 (norsk videregående skole, programfag realfag)",,,
 ,config,,slots.expressionFocus,"blander sammen det ubestemte og det bestemte integralet (glemmer konstanten C i et ubestemt integral, eller tar den unødvendig med i et bestemt integral), bruker ""="" mellom en tilnærmet og en eksakt verdi der ""≈"" er riktig (typisk ved digitalt bestemte modeller), glemmer å oppgi enhet ved tolkning av en deriverte eller et integral i en praktisk modell (f.eks. kr/uke, bakterier/dag), forveksler nullhypotese og alternativ hypotese eller formulerer dem upresist, skriver P(X = k) der de egentlig mener P(X ≥ k) eller omvendt, eller oppgir en forventningsverdi/varians/rentesats uten benevning",,,
 ,config,,slots.motivationSubject,matte,,,
