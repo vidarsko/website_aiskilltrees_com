@@ -1,0 +1,126 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Musikkteori for korsangere,,,
+,config,,description,"Fra noter og rytme til tonearter, intonasjon og bladlesing av egen stemme",,,
+,config,,language,nb,,,
+,config,,learner,participant,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,features.motivation,true,,,
+,config,,features.exams,false,,,
+,config,,slots.courseName,musikkteori for korsangere,,,
+,config,,slots.motivationSubject,musikkteori,,,
+,config,,slots.expressionFocus,"forenkler rytmer til noe som ligner i stedet for å telle det som faktisk står, og venter på at andre i koret skal ta ansvar for tonen og innsatsen",,,
+,config,,topicOrder,Notesystemet;Rytme;Intervaller;Tonearter;Dur og moll;Bladlesing,,,
+,config,,decompositionVersion,2.10.0,,,
+notelinjer,concept,Notesystemet,Notelinjer,"Notelinjer: de fem linjene notene skrives på; jo høyere en note står, jo lysere klinger den.
+Hjelpelinje: en kort ekstra linje over eller under notelinjene for toner som ligger utenfor dem.",,,
+notenavn,concept,Notesystemet,Stamtoner og oktav,"Stamtoner: de sju tonene c, d, e, f, g, a og h, som gjentas oppover og nedover.
+Oktav: avstanden fra en tone til neste tone med samme navn.",,,
+nokler,concept,Notesystemet,Notenøkler,"G-nøkkel: nøkkelen som viser at andre linje nedenfra er g; brukt av sopran og alt.
+Oktaverende G-nøkkel: G-nøkkel med et lite 8-tall under, brukt av tenor; den klinger en oktav lavere enn den står.
+F-nøkkel: nøkkelen som viser at fjerde linje nedenfra er f; brukt av bass.",notelinjer,,
+finn-notenavn,skill,Notesystemet,Finne notenavnet til en note,"navngi enhver note i egen stemmes nøkkel, også på hjelpelinjer, uten å telle seg opp fra bunnen hver gang.",notelinjer;notenavn;nokler,,
+korpartitur,concept,Notesystemet,Korpartitur,"Korpartitur: notebildet der korets stemmer står over hverandre og leses samtidig, gjerne sopran, alt, tenor og bass ovenfra og ned.
+Delt system: to stemmer på de samme notelinjene, der den øverste har halsene opp og den nederste halsene ned.",nokler,,
+folg-stemme,skill,Notesystemet,Følge egen stemme i et korpartitur,"finne og følge egen stemme gjennom et korpartitur, også over sideskift og der to stemmer deler system.",korpartitur,,
+dynamikk,fact,Notesystemet,Dynamikkbetegnelsene,"pp: pianissimo, svært svakt
+p: piano, svakt
+mp: mezzo piano, middels svakt
+mf: mezzo forte, middels sterkt
+f: forte, sterkt
+ff: fortissimo, svært sterkt
+cresc.: crescendo, gradvis sterkere
+dim.: diminuendo, gradvis svakere",,,
+puls-tempo,concept,Rytme,Puls og tempo,"Puls: de jevne, underliggende slagene i musikken.
+Tempo: hvor raskt pulsen går.",,,
+tempobetegnelser,fact,Rytme,Tempobetegnelsene,"Largo: svært langsomt
+Adagio: langsomt
+Andante: gående, rolig
+Moderato: moderat
+Allegro: raskt
+Presto: svært raskt
+rit.: ritardando, gradvis langsommere
+accel.: accelerando, gradvis raskere
+a tempo: tilbake til tempoet fra før",puls-tempo,,
+noteverdier,fact,Rytme,Noteverdiene,"helnote: fire fjerdedeler
+halvnote: to fjerdedeler
+fjerdedelsnote: én fjerdedel, ett slag i de fleste taktarter
+åttendedelsnote: en halv fjerdedel
+sekstendedelsnote: en kvart fjerdedel",,,
+pauser,concept,Rytme,Pauser,"Pause: et tegn for stillhet med en bestemt lengde; hver noteverdi har en pause som varer like lenge.",noteverdier,,
+taktart,concept,Rytme,Takt og taktart,"Takt: slagene mellom to taktstreker.
+Taktart: tallene i starten av stykket, der det øverste sier hvor mange slag det er i takten og det nederste hvilken noteverdi som får ett slag.",puls-tempo;noteverdier,,
+punktering,concept,Rytme,Punktering,"Punktering: et punkt etter en note som forlenger den med halvparten av dens egen verdi, så en punktert fjerdedel varer tre åttendeler.",noteverdier,,
+bindebuer,concept,Rytme,Overbinding og legatobue,"Overbinding: en bue mellom to noter med samme tonehøyde, som gjør dem til én tone som holdes.
+Legatobue: en bue over noter med ulik tonehøyde, som betyr at de synges bundet sammen, ofte på én stavelse.",noteverdier,,
+opptakt,concept,Rytme,Opptakt,"Opptakt: noter før første hele takt, slik at melodien begynner før første slag.",taktart,,
+tell-rytme,skill,Rytme,Telle en enkel rytme,"telle og klappe en rytme med hel-, halv- og fjerdedelsnoter og pauser i en gitt taktart, med jevn puls.",noteverdier;pauser;taktart,,
+underdeling,skill,Rytme,Telle åttendeler og sekstendeler,"dele pulsen i åttendeler og sekstendeler, telle underdelingen høyt og plassere hver note på riktig underslag.",tell-rytme,,
+punkterte-rytmer,skill,Rytme,Telle punkterte rytmer presist,"telle og klappe punkterte rytmer slik at den korte noten kommer på riktig underslag, uten å jevne dem ut til to like noter eller en triol.",underdeling;punktering,,
+synkope,concept,Rytme,Synkope,"Synkope: en tone som begynner mellom slagene eller på et svakt slag og holdes over det neste sterke, så betoningen flytter seg.",taktart,,
+tell-synkoper,skill,Rytme,Telle synkoperte rytmer,"telle og klappe synkoper, holde tonen gjennom slaget den er bundet over og kjenne pulsen videre inni seg.",underdeling;synkope;bindebuer,,
+triol,concept,Rytme,Triol,"Triol: tre like noter som til sammen varer like lenge som to av samme verdi, markert med et 3-tall.",noteverdier,,
+sammensatt-taktart,concept,Rytme,Sammensatt taktart,"Sammensatt taktart: en taktart der hvert slag deles i tre, som 6/8, som slås i to slag med en punktert fjerdedel på hvert.",taktart;punktering,,
+tredeling,skill,Rytme,Telle trioler og sammensatt taktart,"telle og klappe trioler og rytmer i 6/8 med tredeling av slaget, og veksle mellom to- og tredeling uten å miste pulsen.",underdeling;triol;sammensatt-taktart,,
+halvtone-heltone,concept,Intervaller,Halvtone og heltone,"Halvtone: den minste avstanden mellom to toner, som mellom e og f eller mellom h og c.
+Heltone: to halvtoner, som mellom c og d.",notenavn,,
+fortegn,concept,Intervaller,Fortegn,"Kryss (♯): hever tonen en halvtone.
+B (♭): senker tonen en halvtone.
+Oppløsningstegn (♮): opphever et kryss eller en b, slik at stamtonen gjelder igjen.",halvtone-heltone,,
+intervall,concept,Intervaller,Intervall,"Intervall: avstanden mellom to toner, navngitt etter hvor mange stamtoner den spenner over med begge endepunktene medregnet, så c–e er en ters fordi den spenner over c, d og e.",notenavn,,
+intervallnavn,fact,Intervaller,Intervallnavnene,"prim: 1 stamtone, samme tone
+sekund: 2 stamtoner
+ters: 3 stamtoner
+kvart: 4 stamtoner
+kvint: 5 stamtoner
+sekst: 6 stamtoner
+septim: 7 stamtoner
+oktav: 8 stamtoner",intervall,,
+stor-liten-ters,concept,Intervaller,Stor og liten ters,"Stor ters: en ters på fire halvtoner, som c–e.
+Liten ters: en ters på tre halvtoner, som a–c.",intervall;halvtone-heltone,,
+intervall-halvtoner,fact,Intervaller,Intervallene i halvtoner,"liten sekund: 1 halvtone
+stor sekund: 2 halvtoner
+liten ters: 3 halvtoner
+stor ters: 4 halvtoner
+ren kvart: 5 halvtoner
+tritonus: 6 halvtoner
+ren kvint: 7 halvtoner
+liten sekst: 8 halvtoner
+stor sekst: 9 halvtoner
+liten septim: 10 halvtoner
+stor septim: 11 halvtoner
+ren oktav: 12 halvtoner",intervallnavn;stor-liten-ters,,
+bestem-intervall,skill,Intervaller,Bestemme intervallet mellom to noter,"navngi intervallet mellom to noter i egen stemme ved å telle stamtoner, og avgjøre om det er stort, lite eller rent ved å telle halvtoner.",finn-notenavn;intervallnavn;intervall-halvtoner;fortegn,,
+syng-intervall,skill,Intervaller,Synge et intervall fra en gitt tone,"treffe tonen et gitt intervall over eller under en anslått tone, med en kjent melodi eller en skala som støtte.",intervallnavn,,
+skala-grunntone,concept,Tonearter,Skala og grunntone,"Skala: tonene i en toneart ordnet trinnvis fra grunntonen opp til oktaven.
+Grunntone: tonen tonearten er bygget på, der musikken hviler.
+Trinn: en tones nummer i skalaen, fra 1 (grunntonen) til 7.",notenavn,,
+durskala,concept,Tonearter,Durskala,"Durskala: en skala med halvtone mellom trinn 3 og 4 og mellom trinn 7 og 8, og heltoner ellers.",skala-grunntone;halvtone-heltone,,
+mollskala,concept,Tonearter,Mollskala,"Naturlig moll: en skala med halvtone mellom trinn 2 og 3 og mellom trinn 5 og 6, og heltoner ellers.
+Harmonisk moll: naturlig moll med hevet 7. trinn, så det ligger en halvtone under grunntonen.",skala-grunntone;halvtone-heltone,,
+ledetone,concept,Tonearter,Ledetone,"Ledetone: 7. trinn når det ligger en halvtone under grunntonen og trekker mot den; i dur alltid, i moll bare når 7. trinn er hevet.",durskala;mollskala,,
+faste-fortegn,concept,Tonearter,Faste og løse fortegn,"Faste fortegn: kryss eller b-er rett etter nøkkelen, som gjelder alle toner med det navnet i hele stykket.
+Løse fortegn: fortegn foran en enkelt note, som gjelder den tonen ut takten.",fortegn,,
+parallelltoneart,concept,Tonearter,Parallelltoneart,"Parallelltoneart: en dur- og en molltoneart med de samme faste fortegnene; molltonearten har grunntonen en liten ters under durtonearten, som a-moll under C-dur.",durskala;mollskala;stor-liten-ters;faste-fortegn,,
+finn-toneart,skill,Tonearter,Finne tonearten ut fra faste fortegn,"bestemme hvilken durtoneart og hvilken molltoneart de faste fortegnene peker på, med én huskeregel for kryss og én for b-er.",faste-fortegn;parallelltoneart;finn-notenavn,,
+toneart-fortegn,fact,Tonearter,Tonearter og faste fortegn,"ingen fortegn: C-dur og a-moll
+1 ♯ (fiss): G-dur og e-moll
+2 ♯ (fiss, ciss): D-dur og h-moll
+3 ♯ (fiss, ciss, giss): A-dur og fiss-moll
+4 ♯ (fiss, ciss, giss, diss): E-dur og ciss-moll
+1 ♭ (b): F-dur og d-moll
+2 ♭ (b, ess): B-dur og g-moll
+3 ♭ (b, ess, ass): Ess-dur og c-moll
+4 ♭ (b, ess, ass, dess): Ass-dur og f-moll",finn-toneart,,
+treklang,concept,Dur og moll,Treklang,"Treklang: tre toner stablet i terser, kalt akkordens grunntone, ters og kvint.
+Durtreklang: stor ters mellom grunntonen og tersen.
+Molltreklang: liten ters mellom grunntonen og tersen.",stor-liten-ters,,
+hore-dur-moll,skill,Dur og moll,Høre forskjell på dur og moll,"høre om en treklang eller en kort melodi er i dur eller moll, og forklare forskjellen ut fra tersen over grunntonen.",treklang,,
+dur-eller-moll,skill,Dur og moll,Avgjøre om et stykke står i dur eller moll,"avgjøre om et stykke står i dur eller i parallell moll ved å se på de faste fortegnene, sluttakkorden og om 7. trinn i moll får et løst fortegn.",finn-toneart;ledetone;treklang,,
+rolle-i-akkord,skill,Dur og moll,Finne egen tones plass i akkorden,"avgjøre om egen tone er grunntone, ters eller kvint i akkorden koret synger, ut fra tonene i de andre stemmene.",treklang;bestem-intervall;folg-stemme,,
+intoner-ters,skill,Dur og moll,Intonere tersen i dur og moll,"legge en durters litt lavere og en mollters litt høyere enn på et piano, mens grunntone og kvint holdes stødige.",rolle-i-akkord;hore-dur-moll,,
+intoner-ledetone,skill,Dur og moll,Intonere ledetonen,"holde ledetonen høy nok til at den trekker mot grunntonen, både i dur og i moll med hevet 7. trinn.",ledetone;dur-eller-moll,,
+finn-starttone,skill,Bladlesing,Finne starttonen fra en anslått tone,"finne egen starttone ut fra en tone eller akkord som anslås, ved å bestemme intervallet i notene og synge det, uten å vente på de andre stemmene.",bestem-intervall;syng-intervall;folg-stemme,,
+bladles-rytme,skill,Bladlesing,Bladlese rytmen i egen stemme,"si eller klappe rytmen i egen stemme i et ukjent stykke i riktig tempo, uten å forenkle punkteringer, synkoper eller trioler.",punkterte-rytmer;tell-synkoper;tredeling;opptakt;bindebuer;folg-stemme;tempobetegnelser,,
+bladles-toner,skill,Bladlesing,Bladlese tonene i egen stemme,"følge melodilinjen i egen stemme i et ukjent stykke, se om den går trinnvis eller i sprang, og treffe tonene ut fra toneart og intervaller.",finn-notenavn;bestem-intervall;syng-intervall;toneart-fortegn,,
+bladles-stemme,skill,Bladlesing,Bladlese egen stemme i et nytt stykke,"synge egen stemme i et ukjent stykke med riktig rytme, tonehøyde og dynamikk, og finne tilbake etter en feil uten å vente på de andre.",bladles-rytme;bladles-toner;finn-starttone;dynamikk,,

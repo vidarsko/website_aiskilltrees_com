@@ -36,7 +36,8 @@
     "social-studies": { "en": "Social studies", "nb": "Samfunnskunnskap", "sv": "Samhällskunskap" },
     "norwegian":      { "en": "Norwegian",      "nb": "Norsk",            "sv": "Norska" },
     "spanish":        { "en": "Spanish",        "nb": "Spansk",           "sv": "Spanska" },
-    "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" }
+    "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" },
+    "music":          { "en": "Music",          "nb": "Musikk",           "sv": "Musik" }
   },
 
   "institution": {
@@ -80,6 +81,11 @@
       "divisions": {
         "mn": { "en": "Faculty of Mathematics and Natural Sciences", "nb": "Det matematisk-naturvitenskapelige fakultet", "sv": "Matematisk-naturvetenskapliga fakulteten" }
       }
+    },
+    "kor": {
+      "_comment": "Første institusjon som ikke er en skole eller et universitet: et kor. Ingen inndeling, så `division` står tom i meta.json.",
+      "label": "Kor",
+      "divisions": {}
     }
   }
 }
