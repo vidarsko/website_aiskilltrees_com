@@ -37,7 +37,8 @@
     "norwegian":      { "en": "Norwegian",      "nb": "Norsk",            "sv": "Norska" },
     "spanish":        { "en": "Spanish",        "nb": "Spansk",           "sv": "Spanska" },
     "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" },
-    "music":          { "en": "Music",          "nb": "Musikk",           "sv": "Musik" }
+    "music":          { "en": "Music",          "nb": "Musikk",           "sv": "Musik" },
+    "wine":           { "en": "Wine",           "nb": "Vin",              "sv": "Vin" }
   },
 
   "institution": {
@@ -85,6 +86,11 @@
     "kor": {
       "_comment": "Første institusjon som ikke er en skole eller et universitet: et kor. Ingen inndeling, så `division` står tom i meta.json.",
       "label": "Kor",
+      "divisions": {}
+    },
+    "hobby": {
+      "_comment": "Kurs og selvstudium på fritida, utenfor skole og universitet. Ingen inndeling, så `division` står tom i meta.json.",
+      "label": "Hobby",
       "divisions": {}
     }
   }

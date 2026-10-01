@@ -1,0 +1,135 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Portugisisk vin for nybegynnere,,,
+,config,,description,"Fra gjæring og smaking til portugisiske regioner, druer, portvin og vin til mat. Et første forslag.",,,
+,config,,language,nb,,,
+,config,,learner,participant,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,portugisisk vin for nybegynnere,,,
+,config,,slots.motivationSubject,vin,,,
+,config,,slots.expressionFocus,"bruker vage ord som «god», «myk» og «fruktig» om alt, i stedet for å si hva de faktisk kjenner av syre, tannin, sødme og fylde",,,
+,config,,slots.courseSpecifics,"Du kan verken lukte eller smake vinen deltakeren har i glasset. Spør hva de kjenner, og bekreft aldri en lukt eller smak som om du hadde kjent den selv. Kurset handler om å smake og forstå vin, ikke om å drikke mye: foreslå små smaksprøver, og spytting når flere viner smakes.",,,
+,config,,topicOrder,Grunnleggende om vin;Smaking;Regioner og druer;Portvin og madeira;Etiketten;Servering og mat,,,
+,config,,decompositionVersion,2.10.1,,,
+gjaering,concept,Grunnleggende om vin,Gjæring (fermentation),"Gjæring (fermentation): gjærsopp omdanner sukkeret i druesaften til alkohol og karbondioksid.
+Restsukker (residual sugar): sukker som er igjen i vinen når gjæringen stopper.",,,
+torr-sot,concept,Grunnleggende om vin,Tørr og søt vin,"Tørr vin (dry): vin med så lite restsukker at den ikke kjennes søt.
+Søt vin (sweet): vin med så mye restsukker at sødmen kjennes tydelig.",gjaering,,
+vintyper,concept,Grunnleggende om vin,"Rødvin, hvitvin og rosévin","Rødvin: vin av blå druer der skallene ligger i saften under gjæringen og gir farge og tannin.
+Hvitvin: vin der saften presses fra skallene før gjæringen; kan lages av både grønne og blå druer.
+Rosévin: vin av blå druer der skallene ligger i saften bare noen timer, slik at den får lite farge.",gjaering,,
+musserende,concept,Grunnleggende om vin,Musserende vin (sparkling wine),"Musserende vin (sparkling wine): vin med kullsyre fra en andre gjæring i lukket flaske eller tank, slik at karbondioksidet ikke slipper ut.",gjaering,,
+sterkvin,concept,Grunnleggende om vin,Sterkvin (fortified wine),"Sterkvin (fortified wine): vin tilsatt druebrennevin, slik at alkoholen blir omtrent 15–22 %.
+Forsterking (fortification): å tilsette brennevinet; skjer det midt i gjæringen, dør gjæren, og sukkeret som er igjen gjør vinen søt.",gjaering;torr-sot,,
+syre,concept,Grunnleggende om vin,Syre (acidity),"Syre (acidity): de naturlige syrene fra druene, som gjør vinen frisk og får munnen til å vannes. Vinmonopolet kaller det friskhet.",,,
+tannin,concept,Grunnleggende om vin,Tannin,"Tannin: stoffer fra skall, kjerner og eikefat som gir en tørr, ru følelse på tannkjøttet og tunga; finnes nesten bare i rødvin. Vinmonopolet kaller det garvestoffer.",vintyper,,
+fylde,concept,Grunnleggende om vin,Fylde (body) og alkohol,"Fylde (body): hvor tung og tykk vinen kjennes i munnen, fra lett som skummet melk til fyldig som helmelk; øker med alkohol og restsukker.
+Alkohol: kjennes som varme i munnen og halsen.",gjaering,,
+klima,concept,Grunnleggende om vin,Klima og modenhet,"Modenhet (ripeness): hvor mye sukker druene har samlet når de høstes; mer sol og varme gir mer sukker og mindre syre.
+Kjølig klima (cool climate): gir lettere viner med mer syre og lavere alkohol.
+Varmt klima (warm climate): gir fyldigere viner med modnere frukt og høyere alkohol.",syre;fylde,,
+eikefat,concept,Grunnleggende om vin,Eikefat (oak),"Eikefat (oak): tønne av eik som vinen lagres i; nye fat gir aromaer av vanilje, toast og krydder, og litt luft slipper inn gjennom treet.",,,
+oksidasjon,concept,Grunnleggende om vin,Oksidasjon,"Oksidasjon (oxidation): endringen når vin har kontakt med luft over tid; fargen blir brunere, og aromaene går fra frisk frukt mot nøtter, karamell og tørket frukt.",,,
+druesort,concept,Grunnleggende om vin,"Druesort og blanding (grape variety, blend)","Druesort (grape variety): én bestemt sort av vinranken, som Touriga Nacional eller Alvarinho, med sin egen typiske farge, aroma og struktur.
+Blanding (blend): vin laget av flere druesorter; svært vanlig i Portugal.",,,
+smak-aroma,concept,Smaking,Smak og aroma,"Smak (taste): det tunga kjenner: søtt, surt, salt, bittert og umami.
+Aroma (nose): det nesa kjenner, både når du lukter i glasset og bakfra gjennom munnen når du svelger.",,,
+aromagrupper,fact,Smaking,Aromagruppene,"sitrus: sitron, lime, grapefrukt
+grønn frukt: eple, pære
+steinfrukt: fersken, aprikos
+tropisk frukt: ananas, mango, pasjonsfrukt
+rød frukt: jordbær, bringebær, kirsebær
+mørk frukt: bjørnebær, solbær, plomme
+tørket frukt: rosin, sviske, fiken
+blomster: fiol, rose, appelsinblomst
+urter og grønt: gress, mynte, paprika
+krydder: pepper, nellik, kanel
+eik: vanilje, toast, kokos
+lagring og oksidasjon: nøtter, karamell, kaffe, lær",smak-aroma,,
+aromalag,concept,Smaking,"Primær-, sekundær- og tertiæraroma","Primæraroma (primary aroma): aroma fra selve druen, som frukt og blomster.
+Sekundæraroma (secondary aroma): aroma fra framstillingen, som gjær, brød og vanilje fra eikefat.
+Tertiæraroma (tertiary aroma): aroma fra lagring over tid, som nøtter, lær, tørket frukt og sopp.",smak-aroma;gjaering;eikefat;oksidasjon,,
+balanse-lengde,concept,Smaking,"Balanse og lengde (balance, finish)","Balanse (balance): at syre, sødme, tannin, alkohol og frukt holder hverandre i sjakk, slik at ingen av dem stikker seg ut.
+Lengde (finish): hvor lenge smaken sitter igjen etter at du har svelget eller spyttet.",syre;tannin;fylde;torr-sot,,
+korkskade,concept,Smaking,Korkskade (cork taint),Korkskade (cork taint): en vinfeil fra et stoff i korken (TCA) som gir lukt av vått papp eller muggen kjeller og demper fruktaromaene.,smak-aroma,,
+se-pa-vin,skill,Smaking,Vurdere fargen på en vin,"beskrive farge og fargedybde mot et hvitt underlag, og si om fargen tyder på en ung vin eller en eldre eller oksidert vin.",vintyper;oksidasjon,,
+lukte,skill,Smaking,Lukte på en vin og sette ord på aromaene,"virvle vinen i glasset, lukte i korte drag og navngi minst tre aromaer fra hver sin aromagruppe.",smak-aroma;aromagrupper,,
+kjenne-struktur,skill,Smaking,"Bedømme syre, tannin, sødme og fylde","plassere en vin som lav, middels eller høy på syre, tannin, sødme og fylde, slik at plasseringen stemmer med Vinmonopolets beskrivelse av den samme vinen.",syre;tannin;torr-sot;fylde;smak-aroma,,
+fruktig-sot,skill,Smaking,Forklare forskjellen på fruktig og søt,"forklare hvorfor en tørr vin kan lukte og smake av moden frukt uten å inneholde sukker, og avgjøre om en gitt vin er fruktig, søt eller begge deler.",torr-sot;smak-aroma,,
+korket-vin,skill,Smaking,Kjenne igjen en korket vin (corked wine),"avgjøre om en vin lukter av vått papp eller muggen kjeller, og si fra slik at flasken kan byttes.",korkskade;lukte,,
+smake-systematisk,skill,Smaking,Smake en vin systematisk,"gå gjennom utseende, lukt, smak og ettersmak i fast rekkefølge, og skrive ned minst én observasjon på hvert trinn.",se-pa-vin;lukte;kjenne-struktur;balanse-lengde,,
+smaksnotat,skill,Smaking,Skrive et smaksnotat (tasting note),"skrive et kort smaksnotat med farge, aromaer, syre, tannin, sødme, fylde, lengde og en samlet vurdering, der hvert ord som «god» eller «myk» er forklart med hva du faktisk kjenner.",smake-systematisk;aromalag,,
+regioner,fact,Regioner og druer,Vinregionene i Portugal,"Vinho Verde: nordvest i landet, kjølig og regnfullt; lette, friske hvitviner, ofte med litt kullsyre
+Douro: dalen langs elva Douro i nord; portvin og kraftige tørre rødviner
+Dão: innlandet midt i landet; elegante rødviner og friske hvitviner
+Bairrada: mellom Dão og kysten; syrlige rødviner av Baga og musserende vin
+Lisboa: kysten nord for Lisboa; mange stiler, ofte rimelige viner
+Península de Setúbal: sør for Lisboa; rødvin av Castelão og søt Moscatel de Setúbal
+Alentejo: det varme sørlandet; modne, fruktige rødviner
+Madeira: øy i Atlanterhavet; sterkvinen madeira",,,
+druer,fact,Regioner og druer,Portugisiske druesorter,"Touriga Nacional: blå drue; Douro og Dão; mørk frukt, fiol og mye tannin
+Touriga Franca: blå drue; den mest plantede i Douro; rød frukt og blomster
+Tinta Roriz: blå drue; samme drue som spanske Tempranillo, i Alentejo kalt Aragonez
+Baga: blå drue; Bairrada; høy syre og mye tannin
+Castelão: blå drue; Setúbal; rød frukt
+Alicante Bouschet: blå drue med rødt fruktkjøtt; Alentejo; mørk og fyldig
+Alvarinho: grønn drue; Vinho Verde; fersken og sitrus; samme drue som spanske Albariño
+Loureiro: grønn drue; Vinho Verde; blomster og sitrus
+Arinto: grønn drue; mange regioner; høy syre og sitron
+Encruzado: grønn drue; Dão; fyldig hvitvin som tåler eikefat",druesort,,
+kart,skill,Regioner og druer,Plassere vinregionene på kartet,"plassere de åtte regionene riktig på et blankt kart over Portugal, med Madeira for seg i havet.",regioner,,
+klima-region,skill,Regioner og druer,Forklare hvorfor Vinho Verde og Alentejo smaker ulikt,"forklare med klima og modenhet hvorfor viner fra Vinho Verde ofte er lette og syrlige, mens viner fra Alentejo ofte er fyldige og modne.",klima;regioner,,
+velge-stil,skill,Regioner og druer,Velge en portugisisk vin ut fra ønsket stil,"foreslå region og druesort når man får beskrevet en ønsket stil, som en frisk og lett hvitvin eller en kraftig rødvin med mye tannin, og begrunne valget.",klima-region;druer;tannin,,
+portvin,concept,Portvin og madeira,Portvin (port),"Portvin (port): sterkvin fra Douro, forsterket midt i gjæringen slik at den blir søt med rundt 20 % alkohol; lagres og tappes tradisjonelt i Vila Nova de Gaia ved Porto.",sterkvin;regioner,,
+portvinstyper,fact,Portvin og madeira,Portvinstypene,"ruby: ung og fruktig, lagret kort tid i store fat
+tawny: lagret lenge i små fat; brunlig farge, nøtter og karamell
+tawny med aldersangivelse: 10, 20, 30 eller 40 år angir preget av alder, ikke nøyaktig alder
+colheita: tawny fra én årgang
+LBV (Late Bottled Vintage): ruby fra én årgang, lagret fire til seks år på fat før tapping
+vintage: fra de beste årgangene, tappet etter to år og laget for å modnes mange år på flaske
+hvit portvin: laget av grønne druer, fra tørr til søt; ofte servert med tonic",portvin,,
+ruby-tawny,skill,Portvin og madeira,Forklare forskjellen på ruby og tawny,forklare hvordan lagring i store og små fat gir ruby og tawny ulik farge og ulike aromaer.,portvinstyper;oksidasjon;aromalag,,
+madeira,concept,Portvin og madeira,Madeira,"Madeira: sterkvin fra øya Madeira som varmes opp under lagringen og oksideres med vilje, slik at den tåler å stå åpen i lang tid.",sterkvin;oksidasjon,,
+madeira-druer,fact,Portvin og madeira,Druene og sødmen i madeira,"Sercial: tørrest
+Verdelho: halvtørr
+Boal: halvsøt
+Malvasia (Malmsey): søtest",madeira,,
+servere-portvin,skill,Portvin og madeira,Servere og oppbevare portvin,"velge temperatur for ruby, tawny og vintage, avgjøre om flasken må dekanteres, og si omtrent hvor lenge en åpnet flaske holder seg.",portvinstyper;temperaturer;dekantering,,
+opprinnelse,concept,Etiketten,Opprinnelsesbetegnelse (appellation),"DOC (DOP): vin fra en avgrenset region med faste regler for druer, avling og framstilling.
+Vinho Regional (IGP): vin fra et større område med friere regler.
+Vinho: vin uten opprinnelsesbetegnelse.",regioner,,
+etikettord,fact,Etiketten,Ord på etiketten,"tinto: rød
+branco: hvit
+rosado: rosé
+espumante: musserende
+seco: tørr
+meio seco: halvtørr
+doce: søt
+colheita: årgang; på portvin en tawny fra én årgang
+casta: druesort
+quinta: vingård
+herdade: stor gård, særlig i Alentejo
+adega: vinkjeller eller vinprodusent
+reserva: vin som oppfyller strengere krav enn vanlig vin fra samme område
+garrafeira: lagret lenge før salg; rødvin minst 30 måneder, hvorav minst 12 på flaske
+engarrafado na origem: tappet der den er laget",,,
+lese-etikett,skill,Etiketten,Lese en portugisisk vinetikett,"finne region, opprinnelsesbetegnelse, druesorter, årgang, farge og sødme på en portugisisk etikett, og si hva det forteller om vinen.",opprinnelse;etikettord;druer,,
+temperaturer,fact,Servering og mat,Serveringstemperaturer (serving temperatures),"musserende vin: 6–8 °C
+lett hvitvin og rosé: 8–10 °C
+fyldig hvitvin: 10–13 °C
+lett rødvin: 13–15 °C
+fyldig rødvin: 16–18 °C
+tawny og hvit portvin: 10–14 °C
+ruby og vintage portvin: 16–18 °C
+madeira: 12–16 °C",,,
+servere-temp,skill,Servering og mat,Servere vin ved riktig temperatur,"velge serveringstemperatur ut fra vintype og fylde, og bruke kjøleskap eller is og vann for å nå den, slik at et termometer i glasset viser riktig temperatur.",temperaturer;fylde,,
+dekantering,concept,Servering og mat,Dekantering (decanting),"Dekantering (decanting): å helle vinen over i en karaffel, enten for å skille den fra bunnfall eller for å gi en ung vin luft.
+Bunnfall (sediment): fast stoff som felles ut når en vin lagres lenge på flaske, særlig rødvin og vintage portvin.",,,
+dekantere,skill,Servering og mat,Dekantere en vin med bunnfall,"la flasken stå oppreist et døgn, helle vinen langsomt over i en karaffel mot et lys, og stoppe før bunnfallet kommer med.",dekantering,,
+mat-prinsipper,concept,Servering og mat,Vin og mat (food pairing),"Syre og fett: syrlig vin skjærer gjennom fet mat og frisker opp munnen.
+Tannin og protein: fett og protein i kjøtt demper tanninet, så en vin med mye tannin passer til rødt kjøtt.
+Sødme: desserten bør ikke være søtere enn vinen, ellers smaker vinen sur og tynn.
+Sterk mat: alkohol forsterker brenningen fra chili, så viner med lite alkohol og litt sødme passer best.",syre;tannin;torr-sot;fylde,,
+velge-mat,skill,Servering og mat,Velge en portugisisk vin til en rett,"foreslå en portugisisk vin til en gitt rett, som bacalhau, grillede sardiner eller lammestek, og begrunne valget med syre, tannin, sødme og fylde.",mat-prinsipper;velge-stil,,
+velge-dessert,skill,Servering og mat,Velge sterkvin til dessert og ost,"foreslå en portvin eller madeira til en gitt dessert eller ost, og begrunne valget med sødme og aromaer.",mat-prinsipper;portvinstyper;madeira-druer,,
