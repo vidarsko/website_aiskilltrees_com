@@ -1824,8 +1824,8 @@
     return out.join('\n\n');
   }
 
-  /* SOLO-tabellen i samfunnsfagfamilien er et objekt med en liste i seg.
-     Den skrives ut som linjer modellen kan lese, framfor som JSON. Nøkler
+  /* En familieverdi kan være et objekt med en liste i seg, slik SOLO-tabellen
+     i samfunnsfag var fram til v0.24.0. Den skrives ut som linjer modellen kan lese, framfor som JSON. Nøkler
      som starter med `_` er merknader, og tas ikke med. */
   function plainText(value) {
     if (value == null) return '';
