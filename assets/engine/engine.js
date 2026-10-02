@@ -1,3 +1,4 @@
+/*! AI Skill Trees engine · Copyright (c) 2026 Vidar Skogvoll · MIT License · https://github.com/vidarsko/ai-skill-trees */
 'use strict';
 
 /* Motorens egen adresse, lest MENS fila kjører - `document.currentScript`
