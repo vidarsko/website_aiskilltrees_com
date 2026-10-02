@@ -8,13 +8,19 @@
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/components.css?v=2026-10-02c">
 
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <script src="/js/prompts-page.js" defer></script>
+  <script src="/js/prompts-page.js?v=2026-10-02c" defer></script>
 
+  <!--
+    `?v=` på components.css og prompts-page.js tvinger nettleseren til å
+    hente begge på nytt når de endres. Uten det fikk Safari 2026-10-02 ny
+    HTML med gammelt script fra cachen, og sida viste en blanding av to
+    utgaver. Bytt verdien hver gang en av de to filene endres.
+  -->
   <!--
     INGEN INSTRUKSTEKST I DENNE FILA, med vilje. Sida henter `prompts/`
     ved kjøring, fordi en gjengivelse her ville vært utdatert ved neste
