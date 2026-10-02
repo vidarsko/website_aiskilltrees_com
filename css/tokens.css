@@ -54,6 +54,10 @@
   --danger-text:   #A32B24;
   --danger-tint:   rgba(194, 54, 47, 0.10);
 
+  /* /prompts/ i sammenlikning: det som skiller to versjoner, understreket.
+     Mørk oransje, egen fra --amber-text så den ikke leses som en merknad. */
+  --diff-mark:     #B4510A;   /* 5.0:1 on white */
+
   /* ---- Aid levels --------------------------------------------------------
      An ORDERED palette for the `aids` column. A subject picks LEVELS, never
      colours: level 1 always gets --aid-1, level 2 --aid-2, and so on. That is

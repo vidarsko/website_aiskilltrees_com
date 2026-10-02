@@ -983,7 +983,9 @@
   border: 1px solid var(--rule-strong);
 }
 
-.promptdoc__version { margin-top: var(--space-1); }
+/* Lukket viser velgeren bare versjonsnummeret; uten `field-sizing` ville
+   den hatt bredden til det lengste alternativet i lista. */
+.promptdoc__version { margin-top: var(--space-1); field-sizing: content; }
 
 .promptbar__select:focus-visible,
 .promptdoc__version:focus-visible {
@@ -1003,23 +1005,18 @@
   border-style: dashed;
 }
 
-/* Grønt for det som er lagt til, med en tynn understrek i tillegg, slik at
-   det skiller seg fra svart tekst også uten farge. Det som er borte står
-   strøket, i rødt og halvt gjennomsiktig. */
+/* Det som skiller to versjoner står understreket i mørk oransje, i begge
+   kolonnene, slik at begge tekstene kan leses i sin helhet. <ins> i den
+   nyere, <del> i den eldre — men samme utseende, og ingen gjennomstreking. */
 .promptdoc ins,
-.promptcompare__legend ins {
-  color: var(--primary);
-  background: var(--primary-tint);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
 .promptdoc del,
-.promptcompare__legend del {
-  color: var(--danger-text);
-  opacity: 0.55;
-  text-decoration: line-through;
+.promptcompare__legend ins {
+  color: var(--diff-mark);
+  background: none;
+  text-decoration: underline;
+  text-decoration-color: var(--diff-mark);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 .promptdoc ins code,
@@ -1049,17 +1046,16 @@
 .promptcompare__head p { margin: 0; }
 
 .promptcompare__legend {
-  display: flex;
-  gap: var(--space-2);
-  margin-top: 0.25rem !important;
-  font-weight: 400;
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-sans);
   font-size: var(--step-xs);
+  color: var(--ink-2);
 }
 
-/* På en telefon står bare den nyere kolonnen. Det som er fjernet står
-   strøket der, så ingenting går tapt; teksten i sin helhet er den samme
-   som uten sammenlikning. */
+/* På en telefon står de to kortene under hverandre: det nyere først, så
+   det eldre. Kolonneoverskriftene gir ingen mening da, så de skjules;
+   metalinja i hvert kort begynner med releasen. */
 @media (max-width: 48rem) {
-  .promptcompare__row { grid-template-columns: 1fr; }
-  .promptcompare__row > :first-child { display: none; }
+  .promptcompare__row { grid-template-columns: 1fr; gap: 0; }
+  .promptcompare__head { display: none; }
 }

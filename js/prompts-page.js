@@ -24,8 +24,8 @@
    setter den også — å velge practice tutor 1.6.0 flytter hele sida til en
    release som hadde 1.6.0. Slik kan sida aldri vise en kombinasjon av
    moduler som aldri ble sluppet sammen. Sammenlikning legger til en andre
-   kolonne: den eldre releasen til venstre i sin helhet, den nyere til høyre
-   med endringene merket. Se prompts_private/CLAUDE.md.
+   kolonne: den nyere releasen til venstre, den eldre til høyre, begge i sin
+   helhet, med det som skiller dem understreket i oransje i begge. Se prompts_private/CLAUDE.md.
    ========================================================================== */
 
 (function () {
@@ -233,8 +233,13 @@
       var dd = el('dd', 'promptdoc__text');
       if (row.parts) {
         row.parts.forEach(function (p) {
-          if (p.t === '=') dd.appendChild(document.createTextNode(p.s));
-          else dd.appendChild(el(p.t === '+' ? 'ins' : 'del', null, p.s));
+          if (p.t === '=') { dd.appendChild(document.createTextNode(p.s)); return; }
+          /* Mellomrom før og etter står utenfor understrekingen, så streken
+             bare går under ordene som faktisk er ulike. */
+          var m = p.s.match(/^(\s*)([\s\S]*?)(\s*)$/);
+          if (m[1]) dd.appendChild(document.createTextNode(m[1]));
+          if (m[2]) dd.appendChild(el(p.t === '+' ? 'ins' : 'del', null, m[2]));
+          if (m[3]) dd.appendChild(document.createTextNode(m[3]));
         });
       } else {
         dd.textContent = row.text;
@@ -462,20 +467,42 @@
     var sel = el('select', 'promptdoc__version');
     sel.setAttribute('aria-label', fill('version-of', { x: title }));
     var chosen = -1;
-    groups.forEach(function (g, i) {
+    /* Lukket viser velgeren bare versjonen, «v2.10.1». Åpen viser hver
+       linje releasene som hadde den, «v2.10.1 (release v0.22.0 – v0.23.0)».
+       En <select> viser teksten til det valgte alternativet, så den teksten
+       byttes når lista åpnes og lukkes. Språkfilene har ikke eget
+       versjonsnummer; der er releaseløpet det eneste som kan stå. */
+    var labels = groups.map(function (g) {
       var range = g.tags.length > 1
         ? g.tags[0] + ' – ' + g.tags[g.tags.length - 1]
         : g.tags[0];
-      var label = !g.hash
-        ? fill('not-in-range', { r: range })
-        : (g.version ? 'v' + g.version + ' · ' : '') + range;
-      var opt = el('option', null, label);
+      var name = !g.hash ? t('not-present') : (g.version ? 'v' + g.version : '');
+      var long = name
+        ? fill('version-option', { v: name, r: range })
+        : fill('release-range', { r: range });
+      return { short: name || long, long: long };
+    });
+    groups.forEach(function (g, i) {
+      var opt = el('option', null, labels[i].long);
       opt.value = String(i);
       if (g.tags.indexOf(current) !== -1) chosen = i;
       sel.appendChild(opt);
     });
     sel.value = String(chosen);
+    function closed() {
+      [].forEach.call(sel.options, function (o, i) {
+        o.textContent = o.selected ? labels[i].short : labels[i].long;
+      });
+    }
+    function opened() {
+      [].forEach.call(sel.options, function (o, i) { o.textContent = labels[i].long; });
+    }
+    closed();
+    sel.addEventListener('mousedown', opened);
+    sel.addEventListener('keydown', opened);
+    sel.addEventListener('blur', closed);
     sel.addEventListener('change', function () {
+      closed();
       var g = groups[+sel.value];
       if (!g || g.tags.indexOf(current) !== -1) return;
       onTag(g.tags[g.tags.length - 1]);
@@ -487,7 +514,7 @@
      To trinn, slik at en lang modul ikke koster mye: først linje mot linje,
      så ord mot ord innenfor de linjene som er byttet ut. Algoritmen er
      Myers' O(ND), med et tak på hvor forskjellige to tekster får være før
-     den gir opp og viser den gamle som strøket og den nye som lagt til —
+     den gir opp og merker hele den gamle og hele den nye teksten —
      det er også det riktige svaret for to tekster som ikke ligner. */
 
   function myers(a, b, maxD) {
@@ -606,23 +633,27 @@
     return out;
   }
 
+  /* Én sammenlikning, delt i to: den nyere kolonnen får det som er felles
+     og det som bare står der, den eldre det som er felles og det som bare
+     står der. Begge leses dermed som hele tekster. En seksjon som bare
+     finnes på én side, står bare der, i sin helhet understreket. */
+  function sides(oldRows, newRows) {
+    var merged = diffRows(oldRows, newRows);
+    function pick(keep, drop) {
+      return merged.filter(function (r) { return r.change !== drop; }).map(function (r) {
+        return { label: r.label, note: r.note, change: r.change,
+                 parts: r.parts.filter(function (p) { return p.t === '=' || p.t === keep; }) };
+      });
+    }
+    return { newer: pick('+', '-'), older: pick('-', '+') };
+  }
+
   function sameRows(a, b) {
     if (a.length !== b.length) return false;
     for (var i = 0; i < a.length; i++) {
       if (a[i].label !== b[i].label || a[i].note !== b[i].note || a[i].text !== b[i].text) return false;
     }
     return true;
-  }
-
-  /* Før v0.3.0 var dekomponeringsmodellen og forfatterinstruksen Markdown,
-     med andre seksjoner enn JSON-modulene som tok over. Å stille dem opp
-     seksjon mot seksjon ville gitt bare røde og grønne rader, så de
-     sammenliknes som én tekst. */
-  function asWhole(rows) {
-    return [{
-      label: t('whole-text'), note: '',
-      text: rows.map(function (r) { return r.label + '\n\n' + r.text; }).join('\n\n')
-    }];
   }
 
   /* ---- hele sida -------------------------------------------------------- */
@@ -678,46 +709,45 @@
       var older = view(rels[0], id), newer = view(rels[1], id);
       var title = (newer || older).title;
       var row = el('div', 'promptcompare__row');
+      var newerVersions = versionSelect(id, title, rels[1].tag, function (tag) { setPair(state.compare, tag); });
+      var olderVersions = versionSelect(id, title, rels[0].tag, function (tag) { setPair(tag, state.release); });
 
-      /* Venstre: den eldre releasen, i sin helhet, akkurat som uten
-         sammenlikning. */
-      row.appendChild(card(older ? {
-        id: id, title: older.title, meta: older.meta, about: older.about, rows: older.rows,
-        versions: versionSelect(id, title, rels[0].tag, function (tag) { setPair(tag, state.release); })
-      } : {
-        id: id, title: title, missing: true,
-        status: fill('not-in', { tag: rels[0].tag }),
-        versions: versionSelect(id, title, rels[0].tag, function (tag) { setPair(tag, state.release); })
-      }));
-
-      /* Høyre: den nyere, med det som er nytt i grønt og det som er borte
-         strøket i rødt. Er ingenting endret, sier kortet bare det; teksten
-         står til venstre. Lagvelgerne står her, fordi det er denne kolonnen
-         som vises alene på en telefon. */
-      var rightVersions = versionSelect(id, title, rels[1].tag, function (tag) { setPair(state.compare, tag); });
-      var right;
+      /* Venstre: den nyere releasen. Høyre: den eldre. Begge står i sin
+         helhet, så en leser kan lese begge formuleringene fra start til
+         slutt; det som skiller dem, er understreket i oransje i begge. Er
+         ingenting endret, sier det høyre kortet bare det. Mellom Markdown og
+         JSON (før og etter v0.3.0) merkes ingenting, fordi seksjonene ikke
+         svarer til hverandre. */
+      var left, right;
       if (!newer) {
-        right = { id: id, title: title, missing: true, rows: diffRows(older.rows, []),
-                  status: fill('not-in', { tag: rels[1].tag }) };
+        left = { id: id, title: title, missing: true, status: fill('not-in', { tag: rels[1].tag }) };
+        right = { id: id, title: older.title, meta: older.meta, about: older.about, rows: older.rows };
       } else if (!older) {
-        right = { id: id, title: newer.title, meta: newer.meta, about: newer.about,
-                  rows: diffRows([], newer.rows), status: fill('not-in', { tag: rels[0].tag }) };
+        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: newer.rows };
+        right = { id: id, title: title, missing: true, status: fill('not-in', { tag: rels[0].tag }) };
       } else if (sameRows(older.rows, newer.rows)) {
-        right = { id: id, title: newer.title, meta: newer.meta,
-                  status: noChange(rels[1].tag, id) };
+        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: newer.rows };
+        right = { id: id, title: older.title, meta: older.meta, status: noChange(rels[0].tag, id) };
       } else if (older.format !== newer.format) {
-        right = { id: id, title: newer.title, meta: newer.meta, about: newer.about,
-                  rows: diffRows(asWhole(older.rows), asWhole(newer.rows)),
+        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: newer.rows,
+                 status: t('format-changed') };
+        right = { id: id, title: older.title, meta: older.meta, about: older.about, rows: older.rows,
                   status: t('format-changed') };
       } else {
-        right = { id: id, title: newer.title, meta: newer.meta, about: newer.about,
-                  rows: diffRows(older.rows, newer.rows) };
+        var marked = sides(older.rows, newer.rows);
+        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: marked.newer };
+        right = { id: id, title: older.title, meta: older.meta, about: older.about, rows: marked.older };
       }
-      right.control = controls;
-      right.versions = rightVersions;
-      var rightCard = card(right);
-      rightCard.classList.add('promptdoc--diff');
-      row.appendChild(rightCard);
+      /* Releasen står først i metalinja, fordi kolonneoverskriftene
+         skjules på en telefon, der kortene står under hverandre. */
+      left.meta = rels[1].tag + (left.meta ? ' · ' + left.meta : '');
+      right.meta = rels[0].tag + (right.meta ? ' · ' + right.meta : '');
+      /* Lagvelgerne står i den nyere kolonnen, som er den første. */
+      left.control = controls;
+      left.versions = newerVersions;
+      right.versions = olderVersions;
+      row.appendChild(card(left));
+      row.appendChild(card(right));
       pairDetails(row);
       root.appendChild(row);
     });
@@ -744,17 +774,17 @@
   }
 
   function compareHead(oldTag, newTag) {
-    var head = el('div', 'promptcompare__row promptcompare__head');
-    head.appendChild(el('p', 'promptcompare__col', fill('col-older', { tag: oldTag })));
-    var right = el('div', 'promptcompare__col');
-    right.appendChild(el('p', null, fill('col-newer', { tag: newTag, old: oldTag })));
+    var wrapper = el('div', 'promptcompare__headwrap');
     var legend = el('p', 'promptcompare__legend');
-    legend.appendChild(el('ins', null, t('legend-added')));
-    legend.appendChild(document.createTextNode(' '));
-    legend.appendChild(el('del', null, t('legend-removed')));
-    right.appendChild(legend);
-    head.appendChild(right);
-    return head;
+    legend.appendChild(document.createTextNode(t('legend-before') + ' '));
+    legend.appendChild(el('ins', null, t('legend-marked')));
+    legend.appendChild(document.createTextNode(t('legend-after')));
+    wrapper.appendChild(legend);
+    var head = el('div', 'promptcompare__row promptcompare__head');
+    head.appendChild(el('p', 'promptcompare__col', fill('col-newer', { tag: newTag })));
+    head.appendChild(el('p', 'promptcompare__col', fill('col-older', { tag: oldTag })));
+    wrapper.appendChild(head);
+    return wrapper;
   }
 
   /* ---- release-linja øverst ---------------------------------------------- */
@@ -786,11 +816,11 @@
       document.activeElement.getAttribute('data-focus-key');
     bar.innerHTML = '';
     if (state.compare) {
-      bar.appendChild(field('older-label', releaseSelect(state.compare, 'older', function (tag) {
-        setPair(tag, state.release);
-      })));
       bar.appendChild(field('newer-label', releaseSelect(state.release, 'newer', function (tag) {
         setPair(state.compare, tag);
+      })));
+      bar.appendChild(field('older-label', releaseSelect(state.compare, 'older', function (tag) {
+        setPair(tag, state.release);
       })));
     } else {
       bar.appendChild(field('release-label', releaseSelect(state.release, 'release', setRelease)));
@@ -833,8 +863,8 @@
     render();
   }
 
-  /* Høyre kolonne er alltid den nyere. Velger noen en eldre release der,
-     bytter kolonnene plass, slik at grønt alltid betyr lagt til. Samme
+  /* Venstre kolonne er alltid den nyere. Velger noen en eldre release der,
+     bytter kolonnene plass. Samme
      release på begge sider er lov — da står det «ingen endring» overalt. */
   function setPair(older, newer) {
     if (!releaseOf(older) || !releaseOf(newer)) return;
