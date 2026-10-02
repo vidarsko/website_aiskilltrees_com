@@ -2,14 +2,14 @@
   "_comment": "Everything that is true of the social sciences and humanities but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"social-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats another family file, that is deliberate: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. Covers social studies, history, religious education and philosophy; the first-language subject and its literature are in language-and-literature. Carries its own `version`, cited separately in the paper's appendix.",
   "family": "social-sciences",
   "title": "Social sciences and humanities",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "schemaVersion": 2,
   "sourceLanguage": "en",
 
   "decomposition": {
     "_comment": "Read at authoring time, not by the engine: the builder appends every family's block to the authoring prompt, after prompts/decomposition.json (its `subjectFamilies` section tells the model so). Every key here that does not start with `_` is text the model reads.",
     "nodeTypeCharacter": "In a subject that is more qualitative than quantitative, mastery is usually shown as successively higher qualitative command of the material, not as a procedure carried out. Most skill nodes here therefore sit at the upper SOLO levels (`soloTaxonomy`): they connect several concepts into a whole.",
-    "skillVerbs": "Name a skill node with a relational or extended-abstract verb where it is a genuine higher-order skill: \"Compare how two sources present the same event\", \"Argue for a position on a conflict of interest, using evidence\". Understanding a single term belongs in a concept node, and a list to know by heart, such as the dates of key events, in a fact node.",
+    "skillVerbs": "Name a skill node with a verb that connects several ideas where it is a genuine higher-order skill: \"Compare how two sources present the same event\", \"Argue for a position on a conflict of interest, using evidence\". Understanding a single term belongs in a concept node, and a list to know by heart, such as the dates of key events, in a fact node.",
     "loadBearingExamples": "Load-bearing vocabulary in these subjects is typically a word that names a contested or technical distinction later nodes depend on — sovereignty, separation of powers, welfare state, source criticism. An everyday political or social word used in its ordinary sense earns no node.",
     "assessmentContext": "Subjects in this family are often assessed orally or by coursework rather than by a written examination split into parts. Where that is so, leave the `aids` column empty on every row and write no `aids.*` settings — that is all it takes to switch the field off (see `aidsField`)."
   },
