@@ -46,6 +46,9 @@
 /*                                                                      */
 /* Rekkefølgen under er rekkefølgen i filterlista, fra det som deler    */
 /* utvalget grovest (land) til det som deler det finest (språk).        */
+/*                                                                      */
+/* Plukkeren på /make-your-own/ (js/tree-picker.js) har sin egen kopi   */
+/* av denne lista. Endres den her, endres den der også.                 */
 /* ------------------------------------------------------------------ */
 const FACETS = [
   { key: 'country',     labelKey: 'facet-country' },

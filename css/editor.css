@@ -181,6 +181,40 @@ html.ed-has-overlay .siteheader { position: relative; z-index: 60; }
 }
 .ed-start__error[hidden] { display: none; }
 
+/* ---- Plukkeren for katalogtrærne ----------------------------------------
+   Et vindu over vinduet med veiene inn (js/tree-picker.js). Søkefeltet,
+   filterlista og kortene er katalogens egne (css/catalog.css); her står
+   bare det som skal til for at de står i et vindu. */
+
+.ed-picker { z-index: 55; background: color-mix(in srgb, var(--paper) 60%, transparent); }
+.ed-picker__dialog { width: min(100%, 76rem); display: grid; gap: var(--space-2); }
+.ed-picker__title { font-size: var(--step-xl); padding-right: 44px; }
+.ed-picker__search { margin-top: var(--space-1); }
+.ed-picker__catalog { margin-top: var(--space-2); gap: var(--space-4); }
+.ed-picker__catalog .filters { top: 0; }
+.ed-picker__catalog .filters__head h3 { font-size: var(--step-l); margin: 0; }
+.ed-picker__catalog .treegrid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+
+/* Kortet er en knapp her, ikke en lenke: det åpner en kopi i verktøyet. */
+.ed-picker__card {
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  padding: var(--space-2);
+}
+.ed-picker__card .treecard__title { display: block; font-family: var(--font-sans); font-weight: 600; line-height: 1.2; }
+.ed-picker__card .treecard__subtitle { display: block; }
+.ed-picker__card .treecard__summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--step-xs);
+  margin-bottom: var(--space-2);
+}
+.ed-picker__card:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
 /* ---- Rapporten under «Vis» --------------------------------------------- */
 
 .ed-subhead { margin: var(--space-1) 0 0; font-family: var(--font-sans); font-size: var(--step-s); font-weight: 600; }

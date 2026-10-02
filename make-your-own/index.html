@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/catalog.css">
   <link rel="stylesheet" href="/css/editor.css">
 
   <script src="/js/analytics.js"></script>
@@ -17,6 +18,7 @@
   <!-- Samme lokale kopi av PapaParse som ferdighetstrærne bruker - ingen CDN. -->
   <script src="/assets/engine/vendor/papaparse.min.js" defer></script>
   <script src="/js/standalone.js" defer></script>
+  <script src="/js/tree-picker.js" defer></script>
   <script src="/js/editor.js" defer></script>
 
   <!--
@@ -72,9 +74,139 @@
           "sv": "Börja från början"
       },
       "start-catalogue": {
-          "en": "Choose a tree from the catalogue…",
-          "nb": "Velg et tre fra katalogen …",
-          "sv": "Välj ett träd från katalogen …"
+          "en": "Find a tree in the catalogue",
+          "nb": "Finn et tre i katalogen",
+          "sv": "Hitta ett träd i katalogen"
+      },
+      "picker-heading": {
+          "en": "Start from a tree in the catalogue",
+          "nb": "Start fra et tre i katalogen",
+          "sv": "Börja från ett träd i katalogen"
+      },
+      "picker-close": {
+          "en": "Back",
+          "nb": "Tilbake",
+          "sv": "Tillbaka"
+      },
+      "picker-open": {
+          "en": "Open a copy →",
+          "nb": "Åpne en kopi →",
+          "sv": "Öppna en kopia →"
+      },
+      "picker-load-error": {
+          "en": "Could not load the catalogue. Try again, or start another way.",
+          "nb": "Klarte ikke å laste katalogen. Prøv igjen, eller start på en annen måte.",
+          "sv": "Kunde inte ladda katalogen. Försök igen, eller börja på ett annat sätt."
+      },
+      "search-label": {
+          "en": "Search",
+          "nb": "Søk",
+          "sv": "Sök"
+      },
+      "search-placeholder": {
+          "en": "Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”",
+          "nb": "Fag, trinn, emne eller stikkord — f.eks. «2P», «statistikk», «vekstfaktor»",
+          "sv": "Ämne, nivå, område eller nyckelord — t.ex. ”2P”, ”statistik”, ”förändringsfaktor”"
+      },
+      "filters-heading": {
+          "en": "Filters",
+          "nb": "Filtre",
+          "sv": "Filter"
+      },
+      "reset-all": {
+          "en": "Clear all filters",
+          "nb": "Nullstill alle filtre",
+          "sv": "Rensa alla filter"
+      },
+      "loading": {
+          "en": "Loading skill trees …",
+          "nb": "Laster ferdighetstrær …",
+          "sv": "Laddar färdighetsträd …"
+      },
+      "facet-country": {
+          "en": "Country",
+          "nb": "Land",
+          "sv": "Land"
+      },
+      "facet-subjectArea": {
+          "en": "Subject area",
+          "nb": "Fagområde",
+          "sv": "Ämnesområde"
+      },
+      "facet-subjectFamily": {
+          "en": "Subject family",
+          "nb": "Fagfamilie",
+          "sv": "Ämnesfamilj"
+      },
+      "facet-institution": {
+          "en": "Institution",
+          "nb": "Institusjon",
+          "sv": "Institution"
+      },
+      "facet-division": {
+          "en": "Year or faculty",
+          "nb": "Trinn eller fakultet",
+          "sv": "Årskurs eller fakultet"
+      },
+      "facet-language": {
+          "en": "Language",
+          "nb": "Språk",
+          "sv": "Språk"
+      },
+      "results-one": {
+          "en": "{n} skill tree",
+          "nb": "{n} ferdighetstre",
+          "sv": "{n} färdighetsträd"
+      },
+      "results-many": {
+          "en": "{n} skill trees",
+          "nb": "{n} ferdighetstrær",
+          "sv": "{n} färdighetsträd"
+      },
+      "results-of": {
+          "en": " of {total}",
+          "nb": " av {total}",
+          "sv": " av {total}"
+      },
+      "empty-title": {
+          "en": "No skill trees match",
+          "nb": "Ingen ferdighetstrær passer",
+          "sv": "Inga färdighetsträd matchar"
+      },
+      "empty-body": {
+          "en": "Try fewer filters or a broader search.",
+          "nb": "Prøv færre filtre eller et bredere søk.",
+          "sv": "Prova färre filter eller en bredare sökning."
+      },
+      "empty-reset": {
+          "en": "Clear everything",
+          "nb": "Nullstill alt",
+          "sv": "Rensa allt"
+      },
+      "card-skills": {
+          "en": "{n} skills",
+          "nb": "{n} ferdigheter",
+          "sv": "{n} färdigheter"
+      },
+      "card-concepts": {
+          "en": "{n} concepts",
+          "nb": "{n} begreper",
+          "sv": "{n} begrepp"
+      },
+      "card-facts": {
+          "en": "{n} fact lists",
+          "nb": "{n} faktalister",
+          "sv": "{n} faktalistor"
+      },
+      "card-nodes": {
+          "en": "{n} nodes",
+          "nb": "{n} noder",
+          "sv": "{n} noder"
+      },
+      "chip-remove-aria": {
+          "en": "Remove the filter {facet}: {value}",
+          "nb": "Fjern filteret {facet}: {value}",
+          "sv": "Ta bort filtret {facet}: {value}"
       },
       "start-catalogue-hint": {
           "en": "You get your own copy to change. The published tree is not affected.",
@@ -1292,9 +1424,7 @@
             <div class="ed-way__stack">
               <button type="button" class="btn btn--ghost" id="ed-start-example" data-i18n="start-example">Open the example tree</button>
               <button type="button" class="btn btn--ghost" id="ed-start-blank" data-i18n="start-blank">Start from scratch</button>
-              <select class="ed-input" id="ed-catalogue" disabled aria-label="Choose a tree from the catalogue…" data-i18n-attr="aria-label:start-catalogue">
-                <option value="" data-i18n="start-catalogue">Choose a tree from the catalogue…</option>
-              </select>
+              <button type="button" class="btn btn--ghost" id="ed-catalogue" aria-haspopup="dialog" aria-controls="ed-picker" data-i18n="start-catalogue">Find a tree in the catalogue</button>
             </div>
             <p class="ed-way__body ed-way__body--quiet" data-i18n="start-catalogue-hint">You get your own copy to change. The published tree is not affected.</p>
           </li>
@@ -1306,6 +1436,51 @@
           <p><span data-i18n="ov-foot-l2">Maintaining trees for years, or for a whole department? Work in an editor with an AI agent instead:</span> <a href="https://github.com/vidarsko/ai-skill-trees" data-i18n="l2-cta">Open the method repository</a></p>
           <p class="ed-overlay__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
           <p><span data-i18n="ov-foot-contribute">Made a tree other teachers could use?</span> <a href="/contribute/" data-track-cta="make-your-own-contribute" data-i18n="contribute-cta">Submit your tree</a> · <a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      Plukkeren for katalogtrærne: søk og filtre som på /trees/, i et vindu
+      over vinduet med veiene inn. Innholdet bygges av js/tree-picker.js, og
+      stilen er katalogens egen (css/catalog.css).
+    -->
+    <div class="ed-overlay ed-picker" id="ed-picker" role="dialog" aria-modal="true" aria-labelledby="picker-heading" hidden>
+      <div class="ed-overlay__card ed-picker__dialog">
+        <button type="button" class="ed-overlay__close" id="picker-close" title="Back" aria-label="Back" data-i18n-attr="title:picker-close,aria-label:picker-close">×</button>
+        <h2 class="ed-overlay__title ed-picker__title" id="picker-heading" data-i18n="picker-heading">Start from a tree in the catalogue</h2>
+        <p class="ed-way__body ed-way__body--quiet" data-i18n="start-catalogue-hint">You get your own copy to change. The published tree is not affected.</p>
+
+        <div class="ed-picker__search">
+          <label class="field-label" for="picker-search" data-i18n="search-label">Search</label>
+          <input class="input" type="search" id="picker-search" autocomplete="off"
+                 placeholder="Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”"
+                 data-i18n-attr="placeholder:search-placeholder">
+        </div>
+
+        <div class="catalog ed-picker__catalog">
+          <form class="filters" id="picker-filters" data-collapsed="true" onsubmit="return false;">
+            <button class="filters__toggle" type="button" id="picker-filters-toggle" aria-expanded="false" aria-controls="picker-filters-body">
+              <span data-i18n="filters-heading">Filters</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+            <div class="filters__body" id="picker-filters-body">
+              <div class="filters__head">
+                <h3 data-i18n="filters-heading">Filters</h3>
+              </div>
+              <div id="picker-facets"></div>
+            </div>
+          </form>
+
+          <div class="results">
+            <div class="results__head">
+              <p class="results__count" id="picker-count" role="status" aria-live="polite"></p>
+              <button class="linkbtn" type="button" id="picker-reset" hidden data-i18n="reset-all">Clear all filters</button>
+            </div>
+            <div class="chips" id="picker-chips"></div>
+            <p class="loading" id="picker-status" data-i18n="loading">Loading skill trees …</p>
+            <ul class="treegrid" id="picker-grid"></ul>
+          </div>
         </div>
       </div>
     </div>

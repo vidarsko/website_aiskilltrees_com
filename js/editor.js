@@ -1780,23 +1780,6 @@
     document.body.removeChild(area);
   }
 
-  function loadCatalogue() {
-    window.AistStandalone.getJson('/trees/trees.json').then(function (index) {
-      var slugs = index.trees || [];
-      return Promise.all(slugs.map(function (slug) {
-        return window.AistStandalone.getJson('/trees/' + slug + '/meta.json').then(function (m) {
-          return { slug: slug, title: m.title || slug };
-        }, function () { return { slug: slug, title: slug }; });
-      }));
-    }).then(function (list) {
-      list.sort(function (a, b) { return a.title.localeCompare(b.title); });
-      list.forEach(function (item) {
-        el.catalogue.appendChild(h('option', { value: item.slug, text: item.title }));
-      });
-      el.catalogue.disabled = false;
-    }, function () { /* uten katalog står bare de to andre veiene inn */ });
-  }
-
   function init() {
     el.app = document.getElementById('editor');
     if (!el.app) return;
@@ -1825,7 +1808,6 @@
     el.downloadResources = document.getElementById('ed-download-resources');
     el.drop = document.getElementById('ed-drop');
     el.input = document.getElementById('ed-file');
-    el.catalogue = document.getElementById('ed-catalogue');
     el.startError = document.getElementById('ed-start-error');
     el.paste = document.getElementById('ed-paste');
     el.pasteArea = document.getElementById('ed-paste-area');
@@ -1944,13 +1926,17 @@
       openUrl('/assets/starter/tree.csv', null, false, 'example');
     });
     document.getElementById('ed-start-blank').addEventListener('click', startBlank);
-    el.catalogue.addEventListener('change', function () {
-      var slug = el.catalogue.value;
-      if (!slug) return;
-      openUrl('/trees/' + slug + '/tree.csv', '/trees/' + slug + '/resources.csv');
-      el.catalogue.value = '';
+    /* Katalogtrærne velges i et eget vindu med søk og filtre som på
+       /trees/ (js/tree-picker.js), ikke i en nedtrekksliste. */
+    document.getElementById('ed-catalogue').addEventListener('click', function () {
+      if (!window.AistTreePicker) return;
+      window.AistTreePicker.open({
+        behind: el.overlay,
+        onPick: function (slug) {
+          openUrl('/trees/' + slug + '/tree.csv', '/trees/' + slug + '/resources.csv');
+        },
+      });
     });
-    loadCatalogue();
 
     window.addEventListener('beforeunload', function (e) {
       if (!state.dirty) return;
