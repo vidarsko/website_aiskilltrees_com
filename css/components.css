@@ -1005,57 +1005,111 @@
   border-style: dashed;
 }
 
-/* Det som skiller to versjoner står understreket i mørk oransje, i begge
-   kolonnene, slik at begge tekstene kan leses i sin helhet. <ins> i den
-   nyere, <del> i den eldre — men samme utseende, og ingen gjennomstreking. */
-.promptdoc ins,
-.promptdoc del,
+/* Det som er lagt til i den nyere står i grønt med en tynn understrek, så
+   det skiller seg fra svart tekst også uten farge. Det som er fjernet, står
+   i den eldre kolonnen, strøket, i rødt og halvt gjennomsiktig. */
+.promptcmp ins,
 .promptcompare__legend ins {
-  color: var(--diff-mark);
-  background: none;
+  color: var(--primary);
+  background: var(--primary-tint);
   text-decoration: underline;
-  text-decoration-color: var(--diff-mark);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
-.promptdoc ins code,
-.promptdoc del code { color: inherit; }
+.promptcmp del,
+.promptcompare__legend del {
+  color: var(--danger-text);
+  opacity: 0.55;
+  text-decoration: line-through;
+}
 
-.promptcompare__row {
+.promptcompare__legend {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-2);
+}
+
+/* Sammenlikningen: ÉN tabell per kort — stikkord, nyere, eldre — så hver
+   seksjon står ved siden av seg selv. Overskriftsraden med
+   versjonsvelgerne har de samme kolonnene og står utenfor rullen. */
+.promptcmp {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3);
-  align-items: start;
+  grid-template-columns: minmax(7rem, 11rem) 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
 }
 
-.promptcompare__row > .promptdoc { padding: var(--space-3); }
-
-.promptcompare__row .promptdoc__sections { grid-template-columns: 1fr; gap: 0; }
-.promptcompare__row .promptdoc__key { padding-bottom: 0; }
-.promptcompare__row .promptdoc__text { padding-top: 0.35rem; border-bottom: 1px solid var(--rule); }
-
-.promptcompare__head {
+.promptcmp--head {
   margin-bottom: var(--space-2);
+  background: transparent;
+  border-color: transparent;
+}
+
+.promptcmp__corner { min-width: 0; }
+
+.promptcmp__colhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-2);
   font-family: var(--font-sans);
   font-size: var(--step-s);
   font-weight: 600;
   color: var(--ink);
 }
 
-.promptcompare__head p { margin: 0; }
+.promptcmp__colhead .promptdoc__version { margin-top: 0; font-weight: 400; }
 
-.promptcompare__legend {
-  margin: 0 0 var(--space-2);
-  font-family: var(--font-sans);
-  font-size: var(--step-xs);
-  color: var(--ink-2);
+.promptcmp__key,
+.promptcmp__text {
+  padding: var(--space-2);
+  background: var(--surface);
+  min-width: 0;
 }
 
-/* På en telefon står de to kortene under hverandre: det nyere først, så
-   det eldre. Kolonneoverskriftene gir ingen mening da, så de skjules;
-   metalinja i hvert kort begynner med releasen. */
+.promptcmp__key code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--step-xs);
+  color: var(--primary);
+}
+
+.promptcmp__text {
+  font-size: var(--step-s);
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.promptcmp__none {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-style: italic;
+  color: var(--ink-3);
+}
+
+.promptdoc--compare .promptdoc__reveal { margin-top: var(--space-1); }
+
+/* På en telefon står cellene under hverandre: stikkordet, så den nyere
+   teksten, så den eldre, hver med releasen over seg. */
 @media (max-width: 48rem) {
-  .promptcompare__row { grid-template-columns: 1fr; gap: 0; }
-  .promptcompare__head { display: none; }
+  .promptcmp { grid-template-columns: 1fr; }
+  .promptcmp--head { display: flex; flex-direction: column; gap: var(--space-1); }
+  .promptcmp__corner { display: none; }
+  .promptcmp__colhead { padding: 0; }
+  .promptcmp__key { padding-bottom: 0.25rem; background: var(--paper-2); }
+  .promptcmp__text::before {
+    content: attr(data-tag);
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-sans);
+    font-size: var(--step-xs);
+    font-style: normal;
+    font-weight: 600;
+    color: var(--ink-3);
+  }
 }

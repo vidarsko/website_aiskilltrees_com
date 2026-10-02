@@ -23,9 +23,9 @@
    den viser. Velgeren øverst setter den, og versjonsvelgeren i hvert kort
    setter den også — å velge practice tutor 1.6.0 flytter hele sida til en
    release som hadde 1.6.0. Slik kan sida aldri vise en kombinasjon av
-   moduler som aldri ble sluppet sammen. Sammenlikning legger til en andre
-   kolonne: den nyere releasen til venstre, den eldre til høyre, begge i sin
-   helhet, med det som skiller dem understreket i oransje i begge. Se prompts_private/CLAUDE.md.
+   moduler som aldri ble sluppet sammen. Sammenlikning gjør hvert kort til
+   én tabell: stikkordet, den nyere teksten og den eldre, rad for rad, med
+   det som er lagt til i grønt og det som er fjernet strøket i rødt. Se prompts_private/CLAUDE.md.
    ========================================================================== */
 
 (function () {
@@ -200,8 +200,7 @@
     if (opts.status) box.appendChild(el('p', 'promptdoc__status', opts.status));
 
     /* Et kort uten seksjoner viser ingen rull. Det gjelder et kort som ikke
-       finnes i releasen, et uendret kort i sammenlikningens høyre kolonne,
-       og språklaget hvis fila mangler begge feltene. */
+       finnes i releasen og språklaget hvis fila mangler begge feltene. */
     if (!opts.rows || !opts.rows.length) return box;
 
     /* Hele teksten ligger sammenrullet. Sida ble uleselig lang med alt åpent
@@ -224,37 +223,15 @@
     var list = el('dl', 'promptdoc__sections');
     opts.rows.forEach(function (row) {
       var dt = el('dt', 'promptdoc__key');
-      var code = el('code', null, row.label);
-      if (row.change === '+') code = wrap('ins', code);
-      if (row.change === '-') code = wrap('del', code);
-      dt.appendChild(code);
+      dt.appendChild(el('code', null, row.label));
       if (row.note) dt.appendChild(el('span', 'promptdoc__note', row.note));
       list.appendChild(dt);
-      var dd = el('dd', 'promptdoc__text');
-      if (row.parts) {
-        row.parts.forEach(function (p) {
-          if (p.t === '=') { dd.appendChild(document.createTextNode(p.s)); return; }
-          /* Mellomrom før og etter står utenfor understrekingen, så streken
-             bare går under ordene som faktisk er ulike. */
-          var m = p.s.match(/^(\s*)([\s\S]*?)(\s*)$/);
-          if (m[1]) dd.appendChild(document.createTextNode(m[1]));
-          if (m[2]) dd.appendChild(el(p.t === '+' ? 'ins' : 'del', null, m[2]));
-          if (m[3]) dd.appendChild(document.createTextNode(m[3]));
-        });
-      } else {
-        dd.textContent = row.text;
-      }
+      var dd = el('dd', 'promptdoc__text', row.text);
       list.appendChild(dd);
     });
     reveal.appendChild(list);
 
     return box;
-  }
-
-  function wrap(tag, child) {
-    var w = el(tag);
-    w.appendChild(child);
-    return w;
   }
 
   /* ---- seksjonene i én instruksmodul ------------------------------------ */
@@ -633,19 +610,113 @@
     return out;
   }
 
-  /* Én sammenlikning, delt i to: den nyere kolonnen får det som er felles
-     og det som bare står der, den eldre det som er felles og det som bare
-     står der. Begge leses dermed som hele tekster. En seksjon som bare
-     finnes på én side, står bare der, i sin helhet understreket. */
-  function sides(oldRows, newRows) {
-    var merged = diffRows(oldRows, newRows);
-    function pick(keep, drop) {
-      return merged.filter(function (r) { return r.change !== drop; }).map(function (r) {
-        return { label: r.label, note: r.note, change: r.change,
-                 parts: r.parts.filter(function (p) { return p.t === '=' || p.t === keep; }) };
+  /* Radene i sammenlikningstabellen: én rad per seksjon, med den nyere
+     teksten i midtre kolonne og den eldre i høyre. `null` er en seksjon som
+     ikke finnes i den releasen; `'same'` er en seksjon som er lik i begge.
+     Mellom Markdown og JSON (før og etter v0.3.0) svarer seksjonene ikke
+     til hverandre, så der står hele teksten i én rad, umerket. */
+  function tableRows(older, newer) {
+    function plain(rows, side) {
+      return rows.map(function (r) {
+        var cell = [{ t: '=', s: r.text }];
+        return { label: r.label, note: r.note,
+                 newer: side === 'newer' ? cell : null, older: side === 'older' ? cell : null };
       });
     }
-    return { newer: pick('+', '-'), older: pick('-', '+') };
+    if (!older) return plain(newer.rows, 'newer');
+    if (!newer) return plain(older.rows, 'older');
+    if (older.format !== newer.format) {
+      var whole = function (rows) {
+        return [{ t: '=', s: rows.map(function (r) { return r.label + '\n\n' + r.text; }).join('\n\n') }];
+      };
+      return [{ label: t('whole-text'), note: '', newer: whole(newer.rows), older: whole(older.rows) }];
+    }
+    return diffRows(older.rows, newer.rows).map(function (r) {
+      var keep = function (type) {
+        return r.parts.filter(function (p) { return p.t === '=' || p.t === type; });
+      };
+      var same = r.parts.every(function (p) { return p.t === '='; });
+      return {
+        label: r.label, note: r.note,
+        newer: r.change === '-' ? null : keep('+'),
+        older: r.change === '+' ? null : (same ? 'same' : keep('-'))
+      };
+    });
+  }
+
+  function textCell(parts) {
+    var cell = el('div', 'promptcmp__text');
+    parts.forEach(function (p) {
+      if (p.t === '=') { cell.appendChild(document.createTextNode(p.s)); return; }
+      /* Mellomrom før og etter står utenfor merkingen, så den bare går
+         over ordene som faktisk er ulike. */
+      var m = p.s.match(/^(\s*)([\s\S]*?)(\s*)$/);
+      if (m[1]) cell.appendChild(document.createTextNode(m[1]));
+      if (m[2]) cell.appendChild(el(p.t === '+' ? 'ins' : 'del', null, m[2]));
+      if (m[3]) cell.appendChild(document.createTextNode(m[3]));
+    });
+    return cell;
+  }
+
+  /* Sammenlikningen som ÉN tabell per kort (Vidar, 2026-10-02): stikkordet
+     til venstre, den nyere teksten i midten, den eldre til høyre, rad for
+     rad — slik at `tone` står ved siden av `tone` og ikke forskjøvet av det
+     som står over den. Kolonneoverskriftene, med versjonsvelgerne, står
+     utenfor rullen og er alltid synlige. */
+  function compareCard(opts) {
+    var box = el('section', 'promptdoc promptdoc--compare');
+    box.setAttribute('data-card', opts.id);
+
+    var head = el('header', 'promptdoc__head');
+    head.appendChild(el('h3', 'promptdoc__title', opts.title));
+    if (opts.meta) head.appendChild(el('p', 'promptdoc__meta', opts.meta));
+    box.appendChild(head);
+    if (opts.about) box.appendChild(el('p', 'promptdoc__about', opts.about));
+    if (opts.control) box.appendChild(opts.control);
+
+    var cols = el('div', 'promptcmp promptcmp--head');
+    cols.appendChild(el('div', 'promptcmp__corner'));
+    [[opts.newTag, 'col-newer', opts.newVersions], [opts.oldTag, 'col-older', opts.oldVersions]]
+      .forEach(function (c) {
+        var cell = el('div', 'promptcmp__colhead');
+        cell.appendChild(el('span', null, fill(c[1], { tag: c[0] })));
+        if (c[2]) cell.appendChild(c[2]);
+        cols.appendChild(cell);
+      });
+    box.appendChild(cols);
+
+    if (opts.status) box.appendChild(el('p', 'promptdoc__status', opts.status));
+    if (!opts.rows.length) return box;
+
+    var reveal = el('details', 'promptdoc__reveal');
+    var toggle = el('summary', 'promptdoc__toggle');
+    toggle.appendChild(el('span', 'promptdoc__toggle-show', t('show-prompt')));
+    toggle.appendChild(el('span', 'promptdoc__toggle-hide', t('hide-prompt')));
+    toggle.appendChild(el('span', 'promptdoc__count', opts.rows.length === 1
+      ? t('section-count-one')
+      : t('section-count').replace('{n}', opts.rows.length)));
+    reveal.appendChild(toggle);
+    box.appendChild(reveal);
+
+    var grid = el('div', 'promptcmp');
+    opts.rows.forEach(function (row) {
+      var key = el('div', 'promptcmp__key');
+      key.appendChild(el('code', null, row.label));
+      if (row.note) key.appendChild(el('span', 'promptdoc__note', row.note));
+      grid.appendChild(key);
+      [[row.newer, opts.newTag], [row.older, opts.oldTag]].forEach(function (c) {
+        var cell;
+        if (c[0] === null) cell = el('div', 'promptcmp__text promptcmp__none', fill('not-in', { tag: c[1] }));
+        else if (c[0] === 'same') cell = el('div', 'promptcmp__text promptcmp__none', t('no-change-plain'));
+        else cell = textCell(c[0]);
+        /* På en telefon står cellene under hverandre; da sier denne hvilken
+           release teksten er fra. */
+        cell.setAttribute('data-tag', c[1]);
+        grid.appendChild(cell);
+      });
+    });
+    reveal.appendChild(grid);
+    return box;
   }
 
   function sameRows(a, b) {
@@ -690,7 +761,7 @@
     root.classList.toggle('promptcompare', rels.length === 2);
 
     if (rels.length === 2) {
-      root.appendChild(compareHead(rels[0].tag, rels[1].tag));
+      root.appendChild(compareHead());
     }
 
     cardIds(rels).forEach(function (id) {
@@ -707,49 +778,20 @@
       }
 
       var older = view(rels[0], id), newer = view(rels[1], id);
-      var title = (newer || older).title;
-      var row = el('div', 'promptcompare__row');
-      var newerVersions = versionSelect(id, title, rels[1].tag, function (tag) { setPair(state.compare, tag); });
-      var olderVersions = versionSelect(id, title, rels[0].tag, function (tag) { setPair(tag, state.release); });
-
-      /* Venstre: den nyere releasen. Høyre: den eldre. Begge står i sin
-         helhet, så en leser kan lese begge formuleringene fra start til
-         slutt; det som skiller dem, er understreket i oransje i begge. Er
-         ingenting endret, sier det høyre kortet bare det. Mellom Markdown og
-         JSON (før og etter v0.3.0) merkes ingenting, fordi seksjonene ikke
-         svarer til hverandre. */
-      var left, right;
-      if (!newer) {
-        left = { id: id, title: title, missing: true, status: fill('not-in', { tag: rels[1].tag }) };
-        right = { id: id, title: older.title, meta: older.meta, about: older.about, rows: older.rows };
-      } else if (!older) {
-        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: newer.rows };
-        right = { id: id, title: title, missing: true, status: fill('not-in', { tag: rels[0].tag }) };
-      } else if (sameRows(older.rows, newer.rows)) {
-        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: newer.rows };
-        right = { id: id, title: older.title, meta: older.meta, status: noChange(rels[0].tag, id) };
-      } else if (older.format !== newer.format) {
-        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: newer.rows,
-                 status: t('format-changed') };
-        right = { id: id, title: older.title, meta: older.meta, about: older.about, rows: older.rows,
-                  status: t('format-changed') };
-      } else {
-        var marked = sides(older.rows, newer.rows);
-        left = { id: id, title: newer.title, meta: newer.meta, about: newer.about, rows: marked.newer };
-        right = { id: id, title: older.title, meta: older.meta, about: older.about, rows: marked.older };
-      }
-      /* Releasen står først i metalinja, fordi kolonneoverskriftene
-         skjules på en telefon, der kortene står under hverandre. */
-      left.meta = rels[1].tag + (left.meta ? ' · ' + left.meta : '');
-      right.meta = rels[0].tag + (right.meta ? ' · ' + right.meta : '');
-      /* Lagvelgerne står i den nyere kolonnen, som er den første. */
-      left.control = controls;
-      left.versions = newerVersions;
-      right.versions = olderVersions;
-      row.appendChild(card(left));
-      row.appendChild(card(right));
-      pairDetails(row);
-      root.appendChild(row);
+      var main = newer || older;
+      root.appendChild(compareCard({
+        id: id, title: main.title, meta: main.meta, about: main.about,
+        control: controls,
+        newTag: rels[1].tag, oldTag: rels[0].tag,
+        newVersions: versionSelect(id, main.title, rels[1].tag, function (tag) { setPair(state.compare, tag); }),
+        oldVersions: versionSelect(id, main.title, rels[0].tag, function (tag) { setPair(tag, state.release); }),
+        status: !newer ? fill('not-in', { tag: rels[1].tag })
+          : !older ? fill('not-in', { tag: rels[0].tag })
+          : sameRows(older.rows, newer.rows) ? noChange(rels[0].tag, id)
+          : older.format !== newer.format ? t('format-changed')
+          : '',
+        rows: tableRows(older, newer)
+      }));
     });
 
     if (focusRow) {
@@ -761,30 +803,14 @@
     }
   }
 
-  /* De to kortene i en rad åpnes og lukkes sammen, så teksten og
-     endringene i den alltid står side om side. */
-  function pairDetails(row) {
-    var ds = row.querySelectorAll('details');
-    if (ds.length !== 2) return;
-    [0, 1].forEach(function (i) {
-      ds[i].addEventListener('toggle', function () {
-        if (ds[1 - i].open !== ds[i].open) ds[1 - i].open = ds[i].open;
-      });
-    });
-  }
-
-  function compareHead(oldTag, newTag) {
-    var wrapper = el('div', 'promptcompare__headwrap');
+  function compareHead() {
     var legend = el('p', 'promptcompare__legend');
     legend.appendChild(document.createTextNode(t('legend-before') + ' '));
-    legend.appendChild(el('ins', null, t('legend-marked')));
+    legend.appendChild(el('ins', null, t('legend-added')));
+    legend.appendChild(document.createTextNode(t('legend-middle') + ' '));
+    legend.appendChild(el('del', null, t('legend-removed')));
     legend.appendChild(document.createTextNode(t('legend-after')));
-    wrapper.appendChild(legend);
-    var head = el('div', 'promptcompare__row promptcompare__head');
-    head.appendChild(el('p', 'promptcompare__col', fill('col-newer', { tag: newTag })));
-    head.appendChild(el('p', 'promptcompare__col', fill('col-older', { tag: oldTag })));
-    wrapper.appendChild(head);
-    return wrapper;
+    return legend;
   }
 
   /* ---- release-linja øverst ---------------------------------------------- */
