@@ -217,6 +217,7 @@
       "author": "Author",
       "updated": "Last updated",
       "license": "Licence",
+      "basedOn": "Based on",
       "skills": "{n} skills",
       "concepts": "{n} concepts",
       "facts": "{n} fact lists",

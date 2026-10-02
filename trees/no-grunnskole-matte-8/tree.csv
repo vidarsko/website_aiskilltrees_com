@@ -11,6 +11,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.courseName,matematikk 8. trinn (norsk ungdomsskole),,,
 ,config,,slots.expressionFocus,"bytter om på ledd eller regnearter uten å endre svaret riktig (f.eks. ved feil bruk av den distributive egenskapen), glemmer å vise mellomregning, eller bruker likhetstegnet feil (f.eks. til å bety ""neste steg"" i stedet for faktisk likhet)",,,
 ,config,,slots.motivationSubject,matte,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 potens-begrep,concept,Tall og tallregning,Potens,"Potens: et grunntall opphøyd i en eksponent. Grunntallet er tallet som multipliseres med seg selv, og eksponenten sier hvor mange ganger: 2⁵ betyr 2·2·2·2·2.",,0,
 regne-med-potenser,skill,Tall og tallregning,Regne ut potenser,"regne ut verdien av potenser med naturlige eksponenter for hånd, og forklare framgangsmåten.",potens-begrep,0,"Gi eleven et sett potensuttrykk med naturlige eksponenter (f.eks. 3^4, 2^5, 10^3) og be dem regne ut verdien for hånd, og forklare hva grunntallet og eksponenten betyr i hvert uttrykk."
 kvadratrot-begrep,concept,Tall og tallregning,Kvadratrot,Kvadratrot: det positive tallet som multiplisert med seg selv gir tallet under rottegnet.,potens-begrep,0,

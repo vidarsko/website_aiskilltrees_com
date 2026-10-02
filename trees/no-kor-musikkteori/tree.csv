@@ -12,6 +12,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.expressionFocus,"forenkler rytmer til noe som ligner i stedet for å telle det som faktisk står, og venter på at andre i koret skal ta ansvar for tonen og innsatsen",,,
 ,config,,topicOrder,Notesystemet;Rytme;Intervaller;Tonearter;Dur og moll;Bladlesing,,,
 ,config,,decompositionVersion,2.10.0,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 notelinjer,concept,Notesystemet,Notelinjer,"Notelinjer: de fem linjene notene skrives på; jo høyere en note står, jo lysere klinger den.
 Hjelpelinje: en kort ekstra linje over eller under notelinjene for toner som ligger utenfor dem.",,,
 notenavn,concept,Notesystemet,Stamtoner og oktav,"Stamtoner: de sju tonene c, d, e, f, g, a og h, som gjentas oppover og nedover.

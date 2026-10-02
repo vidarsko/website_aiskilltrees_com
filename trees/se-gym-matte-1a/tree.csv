@@ -11,6 +11,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.courseName,"matematik 1a (svenskt gymnasium, yrkesprogram, Gy25)",,,
 ,config,,slots.motivationSubject,matte,,,
 ,config,,slots.expressionFocus,"glömmer enhet eller %-tecken, blandar ihop area och omkrets, avrundar för tidigt eller onoggrant, eller använder likhetstecknet fel (t.ex. kedjar samman uttryck med ""="" som inte faktiskt är lika, eller använder ""="" för att betyda ""nästa steg"" istället för likhet)",,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 brak-decimal-begrepp,concept,Aritmetik och procent,Bråk och decimaltal,"Bråkform: ett tal skrivet som en täljare delad med en nämnare, till exempel 3/4.
 Decimalform: samma tal skrivet med decimaler, 0,75. Varje bråk har en decimalform, och divisionen täljare delat med nämnare är vägen mellan dem.",,0,
 procent-begrepp,concept,Aritmetik och procent,Procent och andelar,"Andel: hur stor del något utgör av en helhet.

@@ -217,6 +217,7 @@
       "author": "Författare",
       "updated": "Senast uppdaterad",
       "license": "Licens",
+      "basedOn": "Bygger på",
       "skills": "{n} färdigheter",
       "concepts": "{n} begrepp",
       "facts": "{n} faktalistor",

@@ -12,6 +12,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.motivationSubject,norsk,,,
 ,config,,slots.expressionFocus,"skriver «og» der det skal stå «å», særskriver sammensatte ord, setter komma på måfå, gjenforteller handlingen i stedet for å analysere den, eller kaller en tekst drøftende når den bare legger fram ett syn",,,
 ,config,,decompositionVersion,2.9.0,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 ordklasser,concept,Språk og grammatikk,Ordklasser,"Ordklasse: en gruppe ord med samme grammatiske oppførsel. Norsk har ti: substantiv, verb, adjektiv, pronomen, determinativ, adverb, preposisjon, konjunksjon, subjunksjon og interjeksjon.",,,
 verbal,concept,Språk og grammatikk,Verbal,"Verbal: setningsleddet som sier hva som skjer eller hvordan noe er, alltid med et bøyd (finitt) verb, eventuelt fulgt av ubøyde verb, som i «har skrevet».",ordklasser,,
 subjekt-objekt,concept,Språk og grammatikk,Subjekt og objekt,"Subjekt: den eller det som gjør handlingen eller er i tilstanden verbalet uttrykker.

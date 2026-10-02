@@ -10,6 +10,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,features.motivation,false,,,
 ,config,,slots.courseName,fysikk 1 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"glemmer å oppgi enheter eller blander enheter (f.eks. km/h og m/s), oppgir svar med feil antall gjeldende siffer, glemmer å velge og oppgi positiv retning i oppgaver med fortegn (bevegelse, krefter), eller bruker feil eller udefinerte symboler for størrelser",,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 fag-modell-og-naturlov,concept,Fysikk som fag,Modeller og naturlover,"Naturvitenskapelig modell: en forenklet beskrivelse av en del av virkeligheten, laget for å forutsi noe - ikke en påstand om at virkeligheten er slik.
 Gyldighetsområde: de forholdene modellen gir brukbare svar under, og utenfor hvilke den ikke skal brukes.
 Falsifisering: en observasjon innenfor gyldighetsområdet som modellen ikke kan forklare, og som derfor feller den.

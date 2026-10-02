@@ -11,6 +11,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.courseName,matematikk 9. trinn (norsk ungdomsskole),,,
 ,config,,slots.expressionFocus,"glemmer å begrunne hvorfor to figurer er formlike eller kongruente (ikke bare påstå det), blander sammen areal og volum, eller glemmer å runde av eller oppgi riktig benevning i et praktisk svar",,,
 ,config,,slots.motivationSubject,matte,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 sammensatt-maleenhet-begrep-9,concept,Måling,Sammensatte måleenheter,"Sammensatt måleenhet: en enhet som er forholdet mellom to andre, som km/h, kr/kg eller personer/km². Skråstreken leses «per», og enheten sier dermed hvor mye av det første som kommer på hver enhet av det andre.",,0,
 regne-med-sammensatte-enheter,skill,Måling,Regne ut en sammensatt størrelse,"regne ut en sammensatt størrelse (f.eks. fart, tetthet eller pris per enhet) når de to grunnleggende størrelsene er kjent.",sammensatt-maleenhet-begrep-9,0,"Gi eleven to grunnleggende størrelser fra en praktisk situasjon (f.eks. en strekning og en tid, eller en masse og et volum) og be dem regne ut den sammensatte størrelsen (fart, tetthet), og forklare hva svaret betyr."
 maleenheter,fact,Måling,Sammenhenger mellom måleenheter,"1 km: 1000 m

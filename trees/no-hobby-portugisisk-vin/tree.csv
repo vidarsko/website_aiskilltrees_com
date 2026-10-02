@@ -12,6 +12,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.courseSpecifics,"Du kan verken lukte eller smake vinen deltakeren har i glasset. Spør hva de kjenner, og bekreft aldri en lukt eller smak som om du hadde kjent den selv. Kurset handler om å smake og forstå vin, ikke om å drikke mye: foreslå små smaksprøver, og spytting når flere viner smakes.",,,
 ,config,,topicOrder,Grunnleggende om vin;Smaking;Regioner og druer;Portvin og madeira;Etiketten;Servering og mat,,,
 ,config,,decompositionVersion,2.10.1,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 gjaering,concept,Grunnleggende om vin,Gjæring (fermentation),"Gjæring (fermentation): gjærsopp omdanner sukkeret i druesaften til alkohol og karbondioksid.
 Restsukker (residual sugar): sukker som er igjen i vinen når gjæringen stopper.",,,
 torr-sot,concept,Grunnleggende om vin,Tørr og søt vin,"Tørr vin (dry): vin med så lite restsukker at den ikke kjennes søt.

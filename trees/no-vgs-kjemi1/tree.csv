@@ -10,6 +10,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,features.motivation,false,,,
 ,config,,slots.courseName,kjemi 1 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"glemmer å balansere reaksjonslikninger (inkludert ladning i redoksreaksjoner, ikke bare atomer), glemmer tilstandssymboler (s), (l), (g), (aq), blander sammen K og Ka/Kb, bruker enkeltpil (→) der likevektspil (⇌) er riktig eller omvendt, oppgir svar med feil antall gjeldende sifre eller glemmer enheter (spesielt mol/L, mol, g/mol, kJ/mol), blander sammen konsentrasjon (mol/L) og stoffmengde (mol) i en beregning, blander sammen atomnummer og massetall, eller bruker upresise dagligord (f.eks. ""stoffet forsvinner"" i stedet for å navngi hva det reagerer til)",,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 kf-fagsprak,concept,Kjemi som fag,Kjemisk fagspråk og notasjon,"Kjemisk fagspråk og notasjon: den faste notasjonen faget bruker for å si presist hva som skjer - kjemiske formler, navnsetting av forbindelser, tilstandsformene (s), (l), (g) og (aq), og reaksjonspiler som skiller en fullstendig reaksjon fra en likevekt.",,0,
 kf-bruke-fagsprak,skill,Kjemi som fag,Bruke kjemisk fagspråk i faglig kommunikasjon,"bruke kjemisk fagspråk og fagbegreper presist når hen forklarer, begrunner eller presenterer kjemifaglig innhold, i stedet for upresist eller hverdagslig språk.",kf-fagsprak,0,"Gi eleven en kort kjemifaglig forklaring skrevet med upresist eller hverdagslig språk, og be dem omformulere den med presist kjemisk fagspråk."
 kf-sikkerhetsdatablad-begrep,concept,Kjemi som fag,Sikkerhetsdatablad og faresymboler,"Sikkerhetsdatablad: dokumentet som følger et kjemikalie, med opplysninger om egenskaper, farer, håndtering, verneutstyr, førstehjelp og avfallsbehandling.

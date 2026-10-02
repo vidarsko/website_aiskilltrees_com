@@ -11,6 +11,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.motivationSubject,spansk,,,
 ,config,,slots.expressionFocus,"glemmer aksenttegn og de omvendte tegnene ¿ og ¡, lar være å bøye adjektivet etter substantivet, eller bruker ser der det skal være estar",,,
 ,config,,decompositionVersion,2.10.0,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
 alfabetet,fact,Uttale og rettskriving,Det spanske alfabetet,"a: a
 b: be
 c: ce

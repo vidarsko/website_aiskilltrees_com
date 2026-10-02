@@ -217,6 +217,7 @@
       "author": "Forfatter",
       "updated": "Sist oppdatert",
       "license": "Lisens",
+      "basedOn": "Bygger på",
       "skills": "{n} ferdigheter",
       "concepts": "{n} begreper",
       "facts": "{n} faktalister",

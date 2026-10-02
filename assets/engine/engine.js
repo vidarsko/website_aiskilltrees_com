@@ -631,6 +631,7 @@ const CONFIG_KEYS = [
    én: `slots.*` over, `layout.*` fra LAYOUT selv. */
 const CONFIG_KEY_PATTERNS = [
   /^aids\.\d+\.(name|student|model)$/,
+  /^basedOn\.\d+\.(author|title|url)$/,
 ];
 const CONFIG_REQUIRED = ['title', 'language'];
 
@@ -650,7 +651,8 @@ function nearest(value, candidates) {
 }
 
 function nearestConfigKey(key) {
-  return nearest(key, CONFIG_KEYS.concat(['aids.1.student', 'aids.1.model', 'aids.1.name']));
+  return nearest(key, CONFIG_KEYS.concat(['aids.1.student', 'aids.1.model', 'aids.1.name',
+                                          'basedOn.1.author', 'basedOn.1.title', 'basedOn.1.url']));
 }
 
 function editDistance(a, b) {
@@ -749,7 +751,26 @@ function buildConfig(entries) {
     if (!seen.has(key)) pushError('errorMissingConfig', { key: key });
   });
   normaliseAids(cfg);
+  normaliseBasedOn(cfg);
   return cfg;
+}
+
+/* `basedOn.1.author`, `basedOn.1.title` og `basedOn.1.url` blir til en
+   liste `[{ n, author, title, url }]`, sortert på tallet. 1 er treet dette
+   er laget fra, 2 treet DET bygget på, og så videre. Rekken står i
+   tree.csv og ikke i meta.json, slik at den følger fila når noen laster
+   den ned: CC BY krever at den som bearbeider et tre krediterer
+   opphavet, og det er lettere når navnene allerede står i fila. */
+function normaliseBasedOn(cfg) {
+  const src = cfg.basedOn;
+  if (!src || typeof src !== 'object') { delete cfg.basedOn; return; }
+  const list = Object.keys(src)
+    .filter(key => /^\d+$/.test(key))
+    .map(key => Object.assign({ n: parseInt(key, 10) }, src[key]))
+    .filter(entry => entry.author || entry.title)
+    .sort((a, b) => a.n - b.n);
+  if (list.length) cfg.basedOn = list;
+  else delete cfg.basedOn;
 }
 
 /* `aids.1.student` og `aids.2.model` blir til `{ label, levels: [...] }`,
@@ -1618,8 +1639,11 @@ function renderCourseInfoBody(body) {
     ['courseInfo.updated', m.updated],
     ['courseInfo.license', m.license],
   ].filter(row => row[1]);
+  /* «Bygger på» leses alltid fra tree.csv, også når treet har en
+     meta.json: rekken følger fila, og katalogen fører den ikke. */
+  const basedOn = (CONFIG && CONFIG.basedOn) || [];
 
-  if (credits.length) {
+  if (credits.length || basedOn.length) {
     const h3 = document.createElement('h3');
     h3.textContent = t('courseInfo.credits');
     body.appendChild(h3);
@@ -1641,6 +1665,26 @@ function renderCourseInfoBody(body) {
       }
       dl.append(dt, dd);
     });
+    if (basedOn.length) {
+      const dt = document.createElement('dt');
+      dt.textContent = t('courseInfo.basedOn');
+      const dd = document.createElement('dd');
+      basedOn.forEach(entry => {
+        const line = document.createElement('div');
+        const text = [entry.title, entry.author].filter(Boolean).join(' — ');
+        if (entry.url && /^https?:\/\//i.test(entry.url)) {
+          const a = document.createElement('a');
+          a.href = entry.url;
+          a.textContent = text;
+          a.rel = 'noopener';
+          line.appendChild(a);
+        } else {
+          line.textContent = text;
+        }
+        dd.appendChild(line);
+      });
+      dl.append(dt, dd);
+    }
     body.appendChild(dl);
   }
 }

@@ -197,6 +197,71 @@
     return state.doc.rows.filter(isConfig).map(function (r) { return get(r, 'name').trim(); });
   }
 
+  /* ---- Bygger på ---------------------------------------------------- */
+  /* Trærne er CC BY: den som bearbeider et tre, skal kreditere opphavet.  */
+  /* Rekken står i fila som `basedOn.<n>.author|title|url`, 1 nærmest.    */
+  /* Åpnes et tre som har en forfatter, huskes den forfatteren og rekken  */
+  /* slik den sto. Skriver læreren inn sitt eget navn, flyttes opphavet   */
+  /* til `basedOn.1` og resten ett hakk ned. Tømmes feltet igjen, eller   */
+  /* skrives opphavets eget navn, står fila som den var. Læreren trenger  */
+  /* aldri å røre radene selv.                                            */
+
+  function basedOnList() {
+    var by = {};
+    configKeys().forEach(function (k) {
+      var m = /^basedOn\.(\d+)\.(author|title|url)$/.exec(k);
+      if (!m) return;
+      (by[m[1]] = by[m[1]] || {})[m[2]] = configValue(k);
+    });
+    return Object.keys(by).map(Number).sort(function (a, b) { return a - b; })
+      .map(function (n) { return by[n]; })
+      .filter(function (e) { return e.author || e.title; });
+  }
+
+  function writeBasedOn(list) {
+    configKeys().filter(function (k) { return /^basedOn\./.test(k); })
+      .forEach(function (k) { setConfig(k, ''); });
+    list.forEach(function (e, i) {
+      ['author', 'title', 'url'].forEach(function (p) {
+        if (e[p]) setConfig('basedOn.' + (i + 1) + '.' + p, e[p]);
+      });
+    });
+  }
+
+  /* Et tre fra katalogen får lenken til sin egen side. Byggeren er en del
+     av aiskilltrees.com, og lenken skal virke der fila havner, så den
+     skrives med det kanoniske domenet, ikke med location.origin. */
+  function originOf(sourceUrl) {
+    var author = configValue('author');
+    if (!author) return null;
+    var m = /^\/trees\/([a-z0-9-]+)\/tree\.csv$/.exec(sourceUrl || '');
+    return {
+      author: author,
+      authorUrl: configValue('authorUrl'),
+      title: configValue('title'),
+      url: m ? 'https://aiskilltrees.com/trees/' + m[1] + '/' : configValue('authorUrl'),
+      basedOn: basedOnList(),
+    };
+  }
+
+  function inheritedAuthor() {
+    return !!state.origin && configValue('author') === state.origin.author;
+  }
+
+  function claimAuthor(name) {
+    var o = state.origin;
+    name = String(name || '').trim();
+    if (!name || name === o.author) {
+      setConfig('author', o.author);
+      setConfig('authorUrl', o.authorUrl);
+      writeBasedOn(o.basedOn);
+      return;
+    }
+    setConfig('author', name);
+    setConfig('authorUrl', '');
+    writeBasedOn([{ author: o.author, title: o.title, url: o.url }].concat(o.basedOn));
+  }
+
   function promptRow(topic, section) {
     return state.doc.rows.filter(function (r) {
       return isPrompt(r) && get(r, 'topic').trim() === topic && get(r, 'name').trim() === section;
@@ -292,9 +357,10 @@
   /* Å åpne et tre                                                      */
   /* ---------------------------------------------------------------- */
 
-  function openText(tree, resources, name, background) {
+  function openText(tree, resources, name, background, sourceUrl) {
     state.isExample = name === 'example';
     state.doc = parseDoc(tree);
+    state.origin = state.isExample ? null : originOf(sourceUrl);
     state.resources = resources || null;
     state.fileName = name || 'tree.csv';
     state.history = [];
@@ -425,7 +491,7 @@
       var resources = resourcesUrl && wantsResources
         ? fetch(resourcesUrl).then(function (r) { return r.ok ? r.text() : null; }, function () { return null; })
         : Promise.resolve(null);
-      return resources.then(function (res) { openText(tree, res, name || 'tree.csv', background); });
+      return resources.then(function (res) { openText(tree, res, name || 'tree.csv', background, treeUrl); });
     }).catch(function () {
       showStartError(t('start-fetch-failed'));
     });
@@ -1358,12 +1424,16 @@
   function renderSettings() {
     var wrap = h('div', { class: 'ed-section' });
     var covered = ['topicOrder', 'aids.label', 'style.conceptColor', 'style.skillColor', 'style.factColor', 'style.font'];
+    var inherited = inheritedAuthor();
     SETTINGS.forEach(function (group) {
       var fs = h('fieldset', { class: 'ed-group' }, [h('legend', { text: t(group.group) })]);
       if (group.note) fs.appendChild(h('p', { class: 'ed-note', text: t(group.note) }));
       group.fields.forEach(function (f) {
         covered.push(f.key);
+        if (inherited && f.key === 'author') { fs.appendChild(inheritedAuthorField(f)); return; }
+        if (inherited && f.key === 'authorUrl') return;
         fs.appendChild(settingField(f));
+        if (f.key === 'license') { var b = basedOnField(); if (b) fs.appendChild(b); }
       });
       wrap.appendChild(fs);
     });
@@ -1373,7 +1443,7 @@
        som måtte komme. Det vises som det er, slik at ingenting i fila er
        usynlig her, og så kan det endres eller fjernes. */
     var rest = configKeys().filter(function (k) {
-      return covered.indexOf(k) === -1 && !/^aids\.\d+\./.test(k);
+      return covered.indexOf(k) === -1 && !/^aids\.\d+\./.test(k) && !/^basedOn\.\d+\./.test(k);
     });
     var fs = h('fieldset', { class: 'ed-group' }, [
       h('legend', { text: t('set-group-other') }),
@@ -1398,6 +1468,29 @@
     }, 'ed-btn--small'));
     wrap.appendChild(fs);
     return wrap;
+  }
+
+  /* Forfatterfeltet for et tre noen andre har laget: tomt, med opphavet
+     nevnt under. Se claimAuthor(). */
+  function inheritedAuthorField(f) {
+    var input = textInput('', function (v) {
+      change('cfg:author', function () { claimAuthor(v); }, { quiet: true });
+    }, { placeholder: t('set-author-yours') });
+    return field(t(f.label), input, t('set-author-inherited', { author: state.origin.author }));
+  }
+
+  /* Rekken vises, men redigeres ikke her: den er krediteringen CC BY
+     krever, og den holder seg riktig av seg selv. */
+  function basedOnField() {
+    var list = basedOnList();
+    if (!list.length) return null;
+    return h('div', { class: 'ed-field' }, [
+      h('span', { class: 'ed-field__label', text: t('set-based-on') }),
+      h('ol', { class: 'ed-basedon' }, list.map(function (e) {
+        return h('li', { text: [e.title, e.author].filter(Boolean).join(' — ') });
+      })),
+      h('span', { class: 'ed-field__hint', text: t('set-based-on-hint') }),
+    ]);
   }
 
   function settingField(f) {
