@@ -3,8 +3,9 @@
 
    Viser instruksene slik de faktisk er skrevet, hentet fra maskineriet ved
    kjøring. Sida har med vilje ingen kopi av teksten: kilden er
-   `assets/prompts/`-filene, og en side som gjengir dem ville vært utdatert
-   ved neste release uten at noen merket det.
+   `assets/prompt-history/`, som deployen bygger fra taggene i
+   maskineri-repoet (tools/build-prompt-history.py), og en side som gjengir
+   dem ville vært utdatert ved neste release uten at noen merket det.
 
    Formen er en halvtabell: stikkordet (seksjons-id-en, som er det
    ledeteksten selv kaller delen) til venstre, teksten under eller ved
@@ -17,10 +18,20 @@
    instruksene. Alle på én gang drukner instruksene de hører til. Hvert valg
    styrer to ting samtidig: seksjonene som fylles inne i hver instruks, og
    kortet som viser laget samlet.
+
+   VERSJONER (2026-10-02). Sida har ÉN tilstand for versjon: hvilken release
+   den viser. Velgeren øverst setter den, og versjonsvelgeren i hvert kort
+   setter den også — å velge practice tutor 1.6.0 flytter hele sida til en
+   release som hadde 1.6.0. Slik kan sida aldri vise en kombinasjon av
+   moduler som aldri ble sluppet sammen. Sammenlikning legger til en andre
+   kolonne: den eldre releasen til venstre i sin helhet, den nyere til høyre
+   med endringene merket. Se prompts_private/CLAUDE.md.
    ========================================================================== */
 
 (function () {
   'use strict';
+
+  var BASE = '/assets/prompt-history/';
 
   /* Samme tre språk som `LANGS` i js/header.js, men et annet spørsmål: der
      velger man hvilket språk SIDA leses på, her hvilket SPRÅKLAG som vises
@@ -32,25 +43,28 @@
     { code: 'sv', name: 'Svenska' }
   ];
 
-  /* Fagfamiliene står IKKE i en liste her. De er oppført i
-     `prompts/manifest.json` under `subjectFamilies`, og navnet på hver av
-     dem i familiefila selv — så en ny familie i maskineriet dukker opp her
-     av seg selv, uten en kodeendring. Det er den samme regelen manifestet
-     er skrevet etter: bare manifestets eget filnavn er hardkodet. */
+  /* Fagfamiliene står IKKE i en liste her. De leses av historikken, som
+     leser dem av `subjectFamilies` i hver releases manifest — så en ny
+     familie i maskineriet dukker opp her av seg selv. */
   var DEFAULT_FAMILY = 'mathematics';
 
-  /* De to velgerne bygges én gang og FLYTTES inn i hvert sitt kort for hver
-     tegning, framfor å bygges på nytt: de har lyttere på `document` for
-     Escape og klikk utenfor, og de ville hopet seg opp for hvert bytte. */
-  var root,
+  /* De to lagvelgerne bygges én gang og FLYTTES inn i hvert sitt kort for
+     hver tegning, framfor å bygges på nytt: de har lyttere på `document` for
+     Escape og klikk utenfor, og de ville hopet seg opp for hvert bytte.
+     Versjonsvelgerne er vanlige <select>, som kan bygges på nytt fritt. */
+  var root, bar,
       langRow, langLabel, setLang,
       familyRow, familyLabel, setFamily,
+      blobs = {},
+      drawn = 0,
       state = {
-        manifest: null, modules: {}, families: {},
-        lang: null, code: 'en', familyCode: DEFAULT_FAMILY
+        history: null,
+        release: null,   // taggen sida viser; i sammenlikning den NYERE
+        compare: null,   // den eldre taggen, eller null
+        code: 'en', familyCode: DEFAULT_FAMILY
       };
 
-  /* Ikonet og etikettene er det eneste som skiller de to velgerne. */
+  /* Ikonet og etikettene er det eneste som skiller de to lagvelgerne. */
   var PICKERS = {
     lang: { icon: '🌐', label: 'lang-label', choose: 'lang-choose' },
     family: { icon: '📚', label: 'family-label', choose: 'family-choose' }
@@ -58,6 +72,12 @@
 
   function t(key) {
     return (window.i18n && window.i18n.t) ? window.i18n.t(key) : key;
+  }
+
+  function fill(key, vars) {
+    var s = t(key);
+    Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); });
+    return s;
   }
 
   function getJson(path) {
@@ -74,17 +94,94 @@
     return node;
   }
 
+  /* ---- historikken -------------------------------------------------------
+     index.json har én oppføring per release, nyeste først, og peker på hver
+     tekst med en hash. En modul som ikke endret seg mellom to releaser er
+     samme fil, så den hentes én gang. */
+
+  function releaseOf(tag) {
+    var list = state.history.releases;
+    for (var i = 0; i < list.length; i++) if (list[i].tag === tag) return list[i];
+    return null;
+  }
+
+  function releaseIndex(tag) {
+    var list = state.history.releases;
+    for (var i = 0; i < list.length; i++) if (list[i].tag === tag) return i;
+    return -1;
+  }
+
+  function blob(hash) {
+    if (!blobs[hash]) blobs[hash] = getJson(BASE + 'blobs/' + hash + '.json');
+    return blobs[hash];
+  }
+
+  /* Alt én release trenger, hentet og lagt i et objekt sida kan tegne fra
+     uten mer venting. */
+  function loadRelease(tag) {
+    var r = releaseOf(tag);
+    var out = { tag: tag, instructions: [], modules: {}, shared: null, families: {}, languages: {} };
+    var jobs = [];
+    r.instructions.forEach(function (entry) {
+      out.instructions.push(entry.id);
+      jobs.push(blob(entry.blob).then(function (d) { out.modules[entry.id] = d; }));
+    });
+    if (r.shared) jobs.push(blob(r.shared.blob).then(function (d) { out.shared = d; }));
+    r.families.forEach(function (f) {
+      jobs.push(blob(f.blob).then(function (d) { out.families[f.code] = d; }));
+    });
+    r.languages.forEach(function (l) {
+      jobs.push(blob(l.blob).then(function (d) { out.languages[l.code] = d; }));
+    });
+    return Promise.all(jobs).then(function () { return out; });
+  }
+
+  /* Hvert kort har en id som er den samme i alle releaser, slik at kortene
+     kan stilles opp mot hverandre og versjonene av ett kort kan listes. */
+  function entryFor(r, id) {
+    if (id === 'shared') return r.shared;
+    if (id === 'language') return find(r.languages, 'code', state.code);
+    if (id === 'family') return find(r.families, 'code', state.familyCode);
+    return find(r.instructions, 'id', id);
+  }
+
+  function find(list, key, value) {
+    for (var i = 0; i < (list || []).length; i++) if (list[i][key] === value) return list[i];
+    return null;
+  }
+
+  /* Versjonene av ett kort, som sammenhengende løp av releaser med samme
+     tekst. Det er disse versjonsvelgeren i kortet lister: én linje per
+     versjon med hvilke releaser som hadde den, framfor én linje per release. */
+  function versionsOf(id) {
+    var groups = [];
+    var list = state.history.releases.slice().reverse();   // eldste først
+    list.forEach(function (r) {
+      var e = entryFor(r, id);
+      var hash = e ? e.blob : null;
+      var last = groups[groups.length - 1];
+      if (last && last.hash === hash) {
+        last.tags.push(r.tag);
+      } else {
+        groups.push({ hash: hash, version: e ? (e.version || null) : null, tags: [r.tag] });
+      }
+    });
+    return groups.reverse();   // nyeste først, som release-velgeren
+  }
+
   /* ---- ett kort --------------------------------------------------------
      Instruksene, språklaget, fagfamilien og de delte seksjonene har samme
      form: overskrift, metalinje, en setning om hvor teksten brukes, og
      selve teksten sammenrullet. Derfor én byggefunksjon, ikke fire. */
 
   function card(opts) {
-    var box = el('section', 'promptdoc');
+    var box = el('section', 'promptdoc' + (opts.missing ? ' promptdoc--missing' : ''));
+    box.setAttribute('data-card', opts.id);
 
     var head = el('header', 'promptdoc__head');
     head.appendChild(el('h3', 'promptdoc__title', opts.title));
     if (opts.meta) head.appendChild(el('p', 'promptdoc__meta', opts.meta));
+    if (opts.versions) head.appendChild(opts.versions);
     box.appendChild(head);
 
     /* Setningen om hvor teksten brukes er SIDETEKST og bor i ordboka, ikke i
@@ -100,10 +197,12 @@
        eller en fagfamilie er før leseren har sett en. */
     if (opts.control) box.appendChild(opts.control);
 
-    /* Et kort uten seksjoner viser ingen rull. Det gjelder bare språklaget,
-       og bare hvis fila mangler begge feltene — men kortet må likevel stå,
-       for velgeren står i det. */
-    if (!opts.rows.length) return box;
+    if (opts.status) box.appendChild(el('p', 'promptdoc__status', opts.status));
+
+    /* Et kort uten seksjoner viser ingen rull. Det gjelder et kort som ikke
+       finnes i releasen, et uendret kort i sammenlikningens høyre kolonne,
+       og språklaget hvis fila mangler begge feltene. */
+    if (!opts.rows || !opts.rows.length) return box;
 
     /* Hele teksten ligger sammenrullet. Sida ble uleselig lang med alt åpent
        — åtte kort med tjuetalls seksjoner hver — og den som vil LESE en
@@ -125,14 +224,32 @@
     var list = el('dl', 'promptdoc__sections');
     opts.rows.forEach(function (row) {
       var dt = el('dt', 'promptdoc__key');
-      dt.appendChild(el('code', null, row.label));
+      var code = el('code', null, row.label);
+      if (row.change === '+') code = wrap('ins', code);
+      if (row.change === '-') code = wrap('del', code);
+      dt.appendChild(code);
       if (row.note) dt.appendChild(el('span', 'promptdoc__note', row.note));
       list.appendChild(dt);
-      list.appendChild(el('dd', 'promptdoc__text', row.text));
+      var dd = el('dd', 'promptdoc__text');
+      if (row.parts) {
+        row.parts.forEach(function (p) {
+          if (p.t === '=') dd.appendChild(document.createTextNode(p.s));
+          else dd.appendChild(el(p.t === '+' ? 'ins' : 'del', null, p.s));
+        });
+      } else {
+        dd.textContent = row.text;
+      }
+      list.appendChild(dd);
     });
     reveal.appendChild(list);
 
     return box;
+  }
+
+  function wrap(tag, child) {
+    var w = el(tag);
+    w.appendChild(child);
+    return w;
   }
 
   /* ---- seksjonene i én instruksmodul ------------------------------------ */
@@ -157,7 +274,7 @@
         rows.push({ label: label, text: filler, note: t('from-language') });
         return;
       }
-      rows.push({ label: label, text: text, note: '' });
+      rows.push({ label: label, text: plainText(text), note: '' });
     });
 
     (extras.family || []).forEach(function (add) {
@@ -170,13 +287,40 @@
     return rows;
   }
 
-  /* ---- språklaget som sitt eget kort ------------------------------------
-     Seksjonene over står markert der de lander, inne i hver instruks. Her
-     står laget samlet, fordi det er det som er hele forskjellen mellom en
-     norsk og en svensk samtale, og det er verdt å kunne lese under ett. */
+  /* ---- hva hvert kort inneholder i én release ----------------------------
+     Én funksjon per slags kort, som gir tittel, metalinje og rader — eller
+     null når kortet ikke finnes i releasen. Tegningen og sammenlikningen
+     bruker de samme, så de to kolonnene kan ikke komme til å vise teksten
+     forskjellig. */
 
-  function languageCard() {
-    var lang = state.lang || {};
+  function instructionView(rel, id) {
+    var module = rel.modules[id];
+    if (!module) return null;
+    var lang = rel.languages[state.code] || {};
+    var layer = lang.prompt || {};
+    var family = rel.families[state.familyCode] || {};
+    var overrides = (layer.overrides || {})[id] || {};
+    return {
+      title: module.title || id,
+      meta: [module.path, t('audience-' + (module.audience || 'student'))].join(' · '),
+      about: about(id),
+      format: module.format || 'json',
+      rows: moduleRows(module, {
+        lang: layer,
+        family: ((family.instructions || {})[id] || {}).add || [],
+        overrides: Object.keys(overrides).map(function (k) {
+          return { id: k, text: overrides[k] };
+        })
+      })
+    };
+  }
+
+  /* Språklaget som sitt eget kort. Seksjonene står markert der de lander,
+     inne i hver instruks. Her står laget samlet, fordi det er det som er
+     hele forskjellen mellom en norsk og en svensk samtale. */
+  function languageView(rel) {
+    var lang = rel.languages[state.code];
+    if (!lang) return null;
     var layer = lang.prompt || {};
     var rows = [];
 
@@ -191,8 +335,7 @@
        bruk. */
     var overrides = layer.overrides || {};
     Object.keys(overrides).forEach(function (id) {
-      var entry = (state.manifest.instructions || {})[id] || {};
-      var module = state.modules[entry.file] || {};
+      var module = rel.modules[id] || {};
       Object.keys(overrides[id]).forEach(function (sid) {
         rows.push({
           label: sid,
@@ -202,37 +345,28 @@
       });
     });
 
-    return card({
+    return {
       title: t('language-title'),
-      meta: (lang.name || state.code) + ' · languages/' + state.code + '.json',
+      meta: (lang.name || state.code) + ' · ' + (lang.path || 'languages/' + state.code + '.json'),
       about: about('language'),
-      control: langRow,
       rows: rows
-    });
+    };
   }
 
-  /* ---- fagfamilien som sitt eget kort -----------------------------------
-     Samme grep som språklaget, og av samme grunn: tilleggene står markert
-     der de lander, inne i fire av instruksene, men det er først samlet man
-     ser hva det vil si at et tre er et MATEMATIKK-tre.
-
-     Kortet har med BEGGE halvdelene av familiefila, ikke bare den motoren
-     bruker. `instructions` skytes inn i elevinstruksene ved kjøring;
-     `decomposition` leses av læreren eller agenten som skriver treet, og
-     dekomponeringsmodellen over sender dem hit for å finne den. Det er
-     tekst en KI faktisk får — og sida heter «alt KI-en blir bedt om». */
-
-  function familyCard() {
-    var code = state.familyCode;
-    var fam = state.families[code] || {};
-    var path = (state.manifest.subjectFamilies || {})[code] || '';
+  /* Fagfamilien som sitt eget kort. Kortet har med BEGGE halvdelene av
+     familiefila: `instructions` skytes inn i elevinstruksene ved kjøring;
+     `decomposition` leses av læreren eller agenten som skriver treet. Det
+     er tekst en KI faktisk får — og sida heter «alt KI-en blir bedt om». */
+  function familyView(rel) {
+    var fam = rel.families[state.familyCode];
+    if (!fam) return null;
     var rows = [];
 
-    /* Instruksenes rekkefølge tas fra manifestet, ikke fra familiefila, slik
-       at radene her står i samme rekkefølge som kortene over. */
+    /* Instruksenes rekkefølge, slik at radene her står i samme rekkefølge
+       som kortene over. */
     var instructions = fam.instructions || {};
-    Object.keys(state.manifest.instructions || {}).forEach(function (id) {
-      var module = state.modules[(state.manifest.instructions[id] || {}).file] || {};
+    rel.instructions.forEach(function (id) {
+      var module = rel.modules[id] || {};
       ((instructions[id] || {}).add || []).forEach(function (add) {
         rows.push({
           label: add.id,
@@ -244,18 +378,49 @@
 
     var decomposition = fam.decomposition || {};
     Object.keys(decomposition).forEach(function (sid) {
-      /* `_comment` er en merknad til den som åpner fila, ikke en seksjon. */
-      if (sid.charAt(0) === '_') return;
       rows.push({ label: sid, text: plainText(decomposition[sid]), note: t('family-authoring') });
     });
 
-    return card({
+    return {
       title: t('family-title'),
-      meta: [(fam.title || code), 'v' + (fam.version || '?'), 'prompts/' + path].join(' · '),
+      meta: [(fam.title || state.familyCode), fam.path].join(' · '),
       about: about('family'),
-      control: familyRow,
       rows: rows
+    };
+  }
+
+  function sharedView(rel) {
+    if (!rel.shared) return null;
+    var layer = ((rel.languages[state.code] || {}).prompt) || {};
+    return {
+      title: t('shared-title'),
+      meta: rel.shared.path,
+      about: about('shared'),
+      rows: moduleRows(rel.shared, { lang: layer })
+    };
+  }
+
+  function view(rel, id) {
+    if (id === 'language') return languageView(rel);
+    if (id === 'family') return familyView(rel);
+    if (id === 'shared') return sharedView(rel);
+    return instructionView(rel, id);
+  }
+
+  /* Kortene i rekkefølge: instruksene slik releasen har dem, så språklaget,
+     fagfamilien og de delte seksjonene. I sammenlikning kommer en instruks
+     som bare finnes i den eldre releasen inn der den sto. */
+  function cardIds(rels) {
+    var ids = [];
+    rels.forEach(function (rel) {
+      var prev = -1;
+      rel.instructions.forEach(function (id) {
+        var at = ids.indexOf(id);
+        if (at === -1) { ids.splice(prev + 1, 0, id); at = prev + 1; }
+        prev = at;
+      });
     });
+    return ids.concat(['language', 'family', 'shared']);
   }
 
   /* SOLO-tabellen i samfunnsfagfamilien er et objekt, ikke en tekst, og
@@ -285,76 +450,434 @@
     return text === 'about-' + id ? '' : text;
   }
 
+  /* ---- versjonsvelgeren i et kort ----------------------------------------
+     Én linje per versjon av kortet, med releasene som hadde den. Å velge en
+     flytter HELE sida (eller hele kolonnen, i sammenlikning): står sida
+     allerede på en release med den versjonen, skjer ingenting; ellers går
+     den til den nyeste releasen som hadde den. */
+
+  function versionSelect(id, title, current, onTag) {
+    var groups = versionsOf(id);
+    if (groups.length < 2 && groups[0] && groups[0].hash) return null;
+    var sel = el('select', 'promptdoc__version');
+    sel.setAttribute('aria-label', fill('version-of', { x: title }));
+    var chosen = -1;
+    groups.forEach(function (g, i) {
+      var range = g.tags.length > 1
+        ? g.tags[0] + ' – ' + g.tags[g.tags.length - 1]
+        : g.tags[0];
+      var label = !g.hash
+        ? fill('not-in-range', { r: range })
+        : (g.version ? 'v' + g.version + ' · ' : '') + range;
+      var opt = el('option', null, label);
+      opt.value = String(i);
+      if (g.tags.indexOf(current) !== -1) chosen = i;
+      sel.appendChild(opt);
+    });
+    sel.value = String(chosen);
+    sel.addEventListener('change', function () {
+      var g = groups[+sel.value];
+      if (!g || g.tags.indexOf(current) !== -1) return;
+      onTag(g.tags[g.tags.length - 1]);
+    });
+    return sel;
+  }
+
+  /* ---- ordvis sammenlikning ----------------------------------------------
+     To trinn, slik at en lang modul ikke koster mye: først linje mot linje,
+     så ord mot ord innenfor de linjene som er byttet ut. Algoritmen er
+     Myers' O(ND), med et tak på hvor forskjellige to tekster får være før
+     den gir opp og viser den gamle som strøket og den nye som lagt til —
+     det er også det riktige svaret for to tekster som ikke ligner. */
+
+  function myers(a, b, maxD) {
+    var n = a.length, m = b.length, max = n + m, off = max + 1;
+    var v = new Int32Array(2 * max + 3);
+    var trace = [];
+    for (var d = 0; d <= max && d <= maxD; d++) {
+      trace.push({ base: -d - 1, arr: v.slice(off - d - 1, off + d + 2) });
+      for (var k = -d; k <= d; k += 2) {
+        var x = (k === -d || (k !== d && v[off + k - 1] < v[off + k + 1]))
+          ? v[off + k + 1] : v[off + k - 1] + 1;
+        var y = x - k;
+        while (x < n && y < m && a[x] === b[y]) { x++; y++; }
+        v[off + k] = x;
+        if (x >= n && y >= m) return backtrack(trace, n, m);
+      }
+    }
+    return null;
+  }
+
+  function backtrack(trace, n, m) {
+    var ops = [], x = n, y = m;
+    for (var d = trace.length - 1; d > 0; d--) {
+      var snap = trace[d];
+      var get = function (k) { return snap.arr[k - snap.base]; };
+      var k = x - y;
+      var prevK = (k === -d || (k !== d && get(k - 1) < get(k + 1))) ? k + 1 : k - 1;
+      var px = get(prevK), py = px - prevK;
+      while (x > px && y > py) { ops.push(['=', x - 1, y - 1]); x--; y--; }
+      if (prevK === k + 1) ops.push(['+', -1, py]);
+      else ops.push(['-', px, -1]);
+      x = px; y = py;
+    }
+    while (x > 0 && y > 0) { ops.push(['=', x - 1, y - 1]); x--; y--; }
+    return ops.reverse();
+  }
+
+  /* Ord med mellomrommet etter seg som ett token; likhet på ordet alene,
+     slik at et linjeskift som ble et mellomrom ikke teller som endring. */
+  function words(s) { return s.match(/\s+|\S+\s*/g) || []; }
+  function lines(s) { return s.match(/[^\n]*\n|[^\n]+$/g) || []; }
+
+  function push(parts, type, s) {
+    if (!s) return;
+    var last = parts[parts.length - 1];
+    if (last && last.t === type) last.s += s; else parts.push({ t: type, s: s });
+  }
+
+  function diffTokens(a, b, key, maxD, parts, inner) {
+    /* Felles start og slutt skrelles av først; det er der det meste av en
+       typisk endring ligger, og Myers får mindre å gjøre. */
+    var s = 0;
+    while (s < a.length && s < b.length && key(a[s]) === key(b[s])) push(parts, '=', b[s++]);
+    var ea = a.length, eb = b.length, tail = [];
+    while (ea > s && eb > s && key(a[ea - 1]) === key(b[eb - 1])) { ea--; eb--; tail.unshift(b[eb]); }
+    var ma = a.slice(s, ea), mb = b.slice(s, eb);
+    var ops = myers(ma.map(key), mb.map(key), maxD);
+    if (!ops) {
+      push(parts, '-', ma.join(''));
+      push(parts, '+', mb.join(''));
+    } else {
+      var del = [], add = [];
+      var flush = function () {
+        if (!del.length && !add.length) return;
+        if (inner && del.length && add.length) inner(del.join(''), add.join(''), parts);
+        else { push(parts, '-', del.join('')); push(parts, '+', add.join('')); }
+        del = []; add = [];
+      };
+      ops.forEach(function (op) {
+        if (op[0] === '=') { flush(); push(parts, '=', mb[op[2]]); }
+        else if (op[0] === '-') del.push(ma[op[1]]);
+        else add.push(mb[op[2]]);
+      });
+      flush();
+    }
+    tail.forEach(function (tok) { push(parts, '=', tok); });
+    return parts;
+  }
+
+  function trimKey(tok) { return tok.replace(/\s+$/, ''); }
+
+  function diffText(oldText, newText) {
+    return diffTokens(lines(oldText), lines(newText), trimKey, 400, [], function (o, n, parts) {
+      diffTokens(words(o), words(n), trimKey, 1500, parts, null);
+    });
+  }
+
+  /* Radene i to versjoner av samme kort, stilt opp mot hverandre etter
+     stikkord og merknad. En rad som bare finnes i den gamle, kommer inn
+     der den sto, strøket. */
+  function diffRows(oldRows, newRows) {
+    var keyOf = function (r) { return r.label + '\u0000' + r.note; };
+    var oldBy = {}, newKeys = {};
+    oldRows.forEach(function (r, i) { oldBy[keyOf(r)] = i; });
+    newRows.forEach(function (r) { newKeys[keyOf(r)] = true; });
+    var out = [], next = 0;
+    var flushRemoved = function (upto) {
+      for (; next < upto; next++) {
+        var r = oldRows[next];
+        if (!newKeys[keyOf(r)]) {
+          out.push({ label: r.label, note: r.note, change: '-', parts: [{ t: '-', s: r.text }] });
+        }
+      }
+    };
+    newRows.forEach(function (r) {
+      var i = oldBy[keyOf(r)];
+      if (i == null) {
+        out.push({ label: r.label, note: r.note, change: '+', parts: [{ t: '+', s: r.text }] });
+        return;
+      }
+      if (i >= next) flushRemoved(i + 1);
+      out.push({ label: r.label, note: r.note,
+                 parts: r.text === oldRows[i].text ? [{ t: '=', s: r.text }] : diffText(oldRows[i].text, r.text) });
+    });
+    flushRemoved(oldRows.length);
+    return out;
+  }
+
+  function sameRows(a, b) {
+    if (a.length !== b.length) return false;
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].label !== b[i].label || a[i].note !== b[i].note || a[i].text !== b[i].text) return false;
+    }
+    return true;
+  }
+
+  /* Før v0.3.0 var dekomponeringsmodellen og forfatterinstruksen Markdown,
+     med andre seksjoner enn JSON-modulene som tok over. Å stille dem opp
+     seksjon mot seksjon ville gitt bare røde og grønne rader, så de
+     sammenliknes som én tekst. */
+  function asWhole(rows) {
+    return [{
+      label: t('whole-text'), note: '',
+      text: rows.map(function (r) { return r.label + '\n\n' + r.text; }).join('\n\n')
+    }];
+  }
+
   /* ---- hele sida -------------------------------------------------------- */
 
+  /* Språkfilene har ikke eget versjonsnummer, så der sier kortet bare at
+     ingenting er endret. */
+  function noChange(tag, id) {
+    var e = entryFor(releaseOf(tag), id);
+    return e && e.version ? fill('no-change', { v: 'v' + e.version }) : t('no-change-plain');
+  }
+
   function render() {
-    if (!root || !state.manifest) return;
-    /* Velgerne står inne i kort som tegnes om, så de rives ut og settes inn
-       igjen ved hvert bytte. Hadde en av dem tastaturfokus, skal den ha det
-       etterpå også — ellers ender den som velger med å miste stedet sitt. */
+    if (!root || !state.history) return;
+    var ticket = ++drawn;
+    var tags = state.compare ? [state.compare, state.release] : [state.release];
+    Promise.all(tags.map(loadRelease)).then(function (rels) {
+      if (ticket !== drawn) return;
+      draw(rels);
+    }).catch(failed);
+  }
+
+  function draw(rels) {
+    /* Lagvelgerne står inne i kort som tegnes om, så de rives ut og settes
+       inn igjen ved hvert bytte. Hadde en av dem tastaturfokus, skal den ha
+       det etterpå også — ellers ender den som velger med å miste stedet sitt. */
     var focusRow = [langRow, familyRow].filter(function (r) {
       return r && r.contains(document.activeElement);
     })[0];
+    var focusSel = document.activeElement && document.activeElement.getAttribute &&
+      document.activeElement.getAttribute('data-focus-key');
+
+    drawBar();
     root.innerHTML = '';
-    var m = state.manifest;
-    var layer = (state.lang || {}).prompt || {};
-    var family = state.families[state.familyCode] || {};
+    root.classList.toggle('promptcompare', rels.length === 2);
 
-    Object.keys(m.instructions).forEach(function (id) {
-      var entry = m.instructions[id];
-      var module = state.modules[entry.file];
-      if (!module) return;
-      var overrides = (layer.overrides || {})[id] || {};
-      var familyAdds = ((family.instructions || {})[id] || {}).add || [];
-      root.appendChild(card({
-        title: module.title || id,
-        meta: ['v' + (module.version || '?'),
-               t('audience-' + (entry.audience || 'student'))].join(' · '),
-        about: about(id),
-        rows: moduleRows(module, {
-          lang: layer,
-          family: familyAdds,
-          overrides: Object.keys(overrides).map(function (k) {
-            return { id: k, text: overrides[k] };
-          })
-        })
-      }));
-    });
-
-    root.appendChild(languageCard());
-    root.appendChild(familyCard());
-
-    var shared = state.modules[m.shared];
-    if (shared) {
-      root.appendChild(card({
-        title: t('shared-title'),
-        meta: 'v' + (shared.version || '?'),
-        about: about('shared'),
-        rows: moduleRows(shared, { lang: layer })
-      }));
+    if (rels.length === 2) {
+      root.appendChild(compareHead(rels[0].tag, rels[1].tag));
     }
+
+    cardIds(rels).forEach(function (id) {
+      var controls = { language: langRow, family: familyRow }[id] || null;
+      if (rels.length === 1) {
+        var v = view(rels[0], id);
+        if (!v) return;
+        root.appendChild(card({
+          id: id, title: v.title, meta: v.meta, about: v.about, rows: v.rows,
+          control: controls,
+          versions: versionSelect(id, v.title, rels[0].tag, function (tag) { setRelease(tag); })
+        }));
+        return;
+      }
+
+      var older = view(rels[0], id), newer = view(rels[1], id);
+      var title = (newer || older).title;
+      var row = el('div', 'promptcompare__row');
+
+      /* Venstre: den eldre releasen, i sin helhet, akkurat som uten
+         sammenlikning. */
+      row.appendChild(card(older ? {
+        id: id, title: older.title, meta: older.meta, about: older.about, rows: older.rows,
+        versions: versionSelect(id, title, rels[0].tag, function (tag) { setPair(tag, state.release); })
+      } : {
+        id: id, title: title, missing: true,
+        status: fill('not-in', { tag: rels[0].tag }),
+        versions: versionSelect(id, title, rels[0].tag, function (tag) { setPair(tag, state.release); })
+      }));
+
+      /* Høyre: den nyere, med det som er nytt i grønt og det som er borte
+         strøket i rødt. Er ingenting endret, sier kortet bare det; teksten
+         står til venstre. Lagvelgerne står her, fordi det er denne kolonnen
+         som vises alene på en telefon. */
+      var rightVersions = versionSelect(id, title, rels[1].tag, function (tag) { setPair(state.compare, tag); });
+      var right;
+      if (!newer) {
+        right = { id: id, title: title, missing: true, rows: diffRows(older.rows, []),
+                  status: fill('not-in', { tag: rels[1].tag }) };
+      } else if (!older) {
+        right = { id: id, title: newer.title, meta: newer.meta, about: newer.about,
+                  rows: diffRows([], newer.rows), status: fill('not-in', { tag: rels[0].tag }) };
+      } else if (sameRows(older.rows, newer.rows)) {
+        right = { id: id, title: newer.title, meta: newer.meta,
+                  status: noChange(rels[1].tag, id) };
+      } else if (older.format !== newer.format) {
+        right = { id: id, title: newer.title, meta: newer.meta, about: newer.about,
+                  rows: diffRows(asWhole(older.rows), asWhole(newer.rows)),
+                  status: t('format-changed') };
+      } else {
+        right = { id: id, title: newer.title, meta: newer.meta, about: newer.about,
+                  rows: diffRows(older.rows, newer.rows) };
+      }
+      right.control = controls;
+      right.versions = rightVersions;
+      var rightCard = card(right);
+      rightCard.classList.add('promptdoc--diff');
+      row.appendChild(rightCard);
+      pairDetails(row);
+      root.appendChild(row);
+    });
 
     if (focusRow) {
       var btn = focusRow.querySelector('.lang-select__button');
       if (btn) btn.focus();
+    } else if (focusSel) {
+      var again = document.querySelector('[data-focus-key="' + focusSel + '"]');
+      if (again) again.focus();
     }
   }
 
-  function loadLanguage(code) {
-    state.code = code;
-    if (setLang) setLang(code);
-    return getJson('/assets/languages/' + code + '.json').then(function (data) {
-      state.lang = data;
-      render();
-      if (window.aistTrack) window.aistTrack('prompts_language', { prompt_language: code });
+  /* De to kortene i en rad åpnes og lukkes sammen, så teksten og
+     endringene i den alltid står side om side. */
+  function pairDetails(row) {
+    var ds = row.querySelectorAll('details');
+    if (ds.length !== 2) return;
+    [0, 1].forEach(function (i) {
+      ds[i].addEventListener('toggle', function () {
+        if (ds[1 - i].open !== ds[i].open) ds[1 - i].open = ds[i].open;
+      });
     });
   }
 
-  /* Familiefilene er alt hentet, så et bytte koster ingen runde til
-     serveren — og hendelsen sendes bare når noen faktisk VELGER noe, ikke
-     ved første tegning. (Merk at `prompts_language` sendes ved hver
-     sidelasting også, siden språkfila må hentes. De to tallene er derfor
-     ikke sammenliknbare slik de står.) */
+  function compareHead(oldTag, newTag) {
+    var head = el('div', 'promptcompare__row promptcompare__head');
+    head.appendChild(el('p', 'promptcompare__col', fill('col-older', { tag: oldTag })));
+    var right = el('div', 'promptcompare__col');
+    right.appendChild(el('p', null, fill('col-newer', { tag: newTag, old: oldTag })));
+    var legend = el('p', 'promptcompare__legend');
+    legend.appendChild(el('ins', null, t('legend-added')));
+    legend.appendChild(document.createTextNode(' '));
+    legend.appendChild(el('del', null, t('legend-removed')));
+    right.appendChild(legend);
+    head.appendChild(right);
+    return head;
+  }
+
+  /* ---- release-linja øverst ---------------------------------------------- */
+
+  function releaseSelect(current, key, onPick) {
+    var sel = el('select', 'promptbar__select');
+    sel.setAttribute('data-focus-key', key);
+    state.history.releases.forEach(function (r, i) {
+      var label = r.tag + ' · ' + r.date + (i === 0 ? ' · ' + t('release-current') : '');
+      var opt = el('option', null, label);
+      opt.value = r.tag;
+      sel.appendChild(opt);
+    });
+    sel.value = current;
+    sel.addEventListener('change', function () { onPick(sel.value); });
+    return sel;
+  }
+
+  function field(labelKey, control) {
+    var lab = el('label', 'promptbar__field');
+    lab.appendChild(el('span', 'promptbar__label', t(labelKey)));
+    lab.appendChild(control);
+    return lab;
+  }
+
+  function drawBar() {
+    if (!bar) return;
+    var focusKey = document.activeElement && bar.contains(document.activeElement) &&
+      document.activeElement.getAttribute('data-focus-key');
+    bar.innerHTML = '';
+    if (state.compare) {
+      bar.appendChild(field('older-label', releaseSelect(state.compare, 'older', function (tag) {
+        setPair(tag, state.release);
+      })));
+      bar.appendChild(field('newer-label', releaseSelect(state.release, 'newer', function (tag) {
+        setPair(state.compare, tag);
+      })));
+    } else {
+      bar.appendChild(field('release-label', releaseSelect(state.release, 'release', setRelease)));
+    }
+    var btn = el('button', 'btn btn--ghost promptbar__compare', t(state.compare ? 'compare-off' : 'compare-on'));
+    btn.type = 'button';
+    btn.setAttribute('data-focus-key', 'compare');
+    btn.setAttribute('aria-pressed', state.compare ? 'true' : 'false');
+    btn.addEventListener('click', toggleCompare);
+    bar.appendChild(btn);
+    if (focusKey) {
+      var again = bar.querySelector('[data-focus-key="' + focusKey + '"]');
+      if (again) again.focus();
+    }
+  }
+
+  /* ---- tilstanden ---------------------------------------------------------
+     Står i adressefeltet (`?release=` og `?compare=`), slik at en lenke kan
+     peke rett på en release eller på forskjellen mellom to — artikkelen
+     siterer 0.18.2 og 0.20.0. Uten parametre viser sida releasen som er
+     publisert nå. */
+
+  function writeUrl() {
+    try {
+      var url = new URL(location.href);
+      var newest = state.history.releases[0].tag;
+      if (state.release === newest && !state.compare) url.searchParams.delete('release');
+      else url.searchParams.set('release', state.release);
+      if (state.compare) url.searchParams.set('compare', state.compare);
+      else url.searchParams.delete('compare');
+      history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+    } catch (e) { /* en side uten adresse-API tegner likevel */ }
+  }
+
+  function setRelease(tag) {
+    if (!releaseOf(tag)) return;
+    state.release = tag;
+    state.compare = null;
+    writeUrl();
+    render();
+  }
+
+  /* Høyre kolonne er alltid den nyere. Velger noen en eldre release der,
+     bytter kolonnene plass, slik at grønt alltid betyr lagt til. Samme
+     release på begge sider er lov — da står det «ingen endring» overalt. */
+  function setPair(older, newer) {
+    if (!releaseOf(older) || !releaseOf(newer)) return;
+    if (releaseIndex(older) < releaseIndex(newer)) { var x = older; older = newer; newer = x; }
+    state.compare = older;
+    state.release = newer;
+    writeUrl();
+    render();
+  }
+
+  /* Når sammenlikningen slås på, er den andre releasen den nærmeste eldre
+     der noe sida viser faktisk er annerledes — den rett før er ofte en
+     release som bare endret motoren. */
+  function toggleCompare() {
+    if (state.compare) { setRelease(state.release); return; }
+    var list = state.history.releases;
+    var i = releaseIndex(state.release);
+    if (i === list.length - 1) i--;   // den eldste: sammenlikn med den neste
+    var sig = signature(list[i]);
+    var j = i + 1;
+    while (j < list.length - 1 && signature(list[j]) === sig) j++;
+    if (j >= list.length) j = list.length - 1;
+    setPair(list[j].tag, list[i].tag);
+  }
+
+  function signature(r) {
+    var parts = r.instructions.map(function (e) { return e.blob; });
+    parts.push(r.shared ? r.shared.blob : '');
+    r.families.forEach(function (f) { parts.push(f.blob); });
+    r.languages.forEach(function (l) { parts.push(l.blob); });
+    return parts.join(',');
+  }
+
+  function pickLanguage(code) {
+    state.code = code;
+    if (setLang) setLang(code);
+    render();
+    if (window.aistTrack) window.aistTrack('prompts_language', { prompt_language: code });
+  }
+
+  /* Hendelsen sendes bare når noen faktisk VELGER noe, ikke ved første
+     tegning. (Merk at `prompts_language` sendes ved hver sidelasting også.
+     De to tallene er derfor ikke sammenliknbare slik de står.) */
   function pickFamily(code) {
     state.familyCode = code;
     if (setFamily) setFamily(code);
@@ -362,7 +885,12 @@
     if (window.aistTrack) window.aistTrack('prompts_family', { prompt_family: code });
   }
 
-  /* ---- velgerne ---------------------------------------------------------
+  function failed(err) {
+    root.innerHTML = '';
+    root.appendChild(el('p', 'note', t('load-failed') + ' ' + err.message));
+  }
+
+  /* ---- lagvelgerne ------------------------------------------------------
      Samme komponent som velgeren i toppbaren — samme klasser, samme
      tastaturoppførsel — men bygget her, fordi header.js eier nettstedets
      ramme og disse hører til sidas innhold. Det delte er CSS-en
@@ -371,7 +899,7 @@
 
   function buildPicker(host, items, kind, onPick) {
     var conf = PICKERS[kind];
-    var wrap = el('div', 'lang-select');
+    var wrapper = el('div', 'lang-select');
 
     var btn = el('button', 'lang-select__button');
     btn.type = 'button';
@@ -385,7 +913,7 @@
     btn.appendChild(icon);
     btn.appendChild(name);
     btn.appendChild(caret);
-    wrap.appendChild(btn);
+    wrapper.appendChild(btn);
 
     var menu = el('ul', 'lang-select__menu');
     menu.setAttribute('role', 'listbox');
@@ -403,10 +931,10 @@
       menu.appendChild(li);
       return { item: item, node: opt, tick: tick };
     });
-    wrap.appendChild(menu);
+    wrapper.appendChild(menu);
 
     host.innerHTML = '';
-    host.appendChild(wrap);
+    host.appendChild(wrapper);
 
     function setMenu(open) {
       menu.classList.toggle('is-open', open);
@@ -461,7 +989,7 @@
       }
     });
     document.addEventListener('click', function (e) {
-      if (!wrap.contains(e.target)) setMenu(false);
+      if (!wrapper.contains(e.target)) setMenu(false);
     });
 
     return picked;
@@ -480,54 +1008,49 @@
 
   function init() {
     root = document.getElementById('prompt-list');
+    bar = document.getElementById('prompt-bar');
     if (!root) return;
 
     var lp = pickerRow('lang-label');
     langRow = lp.row;
     langLabel = lp.label;
-    setLang = buildPicker(lp.host, LANGS, 'lang', loadLanguage);
+    setLang = buildPicker(lp.host, LANGS, 'lang', pickLanguage);
     setLang(state.code);
 
-    getJson('/assets/prompts/manifest.json').then(function (manifest) {
-      state.manifest = manifest;
-      var families = manifest.subjectFamilies || {};
-      var codes = Object.keys(families);
-      if (codes.indexOf(state.familyCode) === -1 && codes.length) {
-        state.familyCode = codes[0];
+    getJson(BASE + 'index.json').then(function (history) {
+      state.history = history;
+      var params = new URLSearchParams(location.search);
+      var newest = history.releases[0].tag;
+      state.release = releaseOf(params.get('release')) ? params.get('release') : newest;
+      if (releaseOf(params.get('compare'))) {
+        var older = params.get('compare'), newer = state.release;
+        if (releaseIndex(older) < releaseIndex(newer)) { state.release = older; older = newer; }
+        state.compare = older;
       }
-      var files = [manifest.shared].concat(
-        Object.keys(manifest.instructions).map(function (id) {
-          return manifest.instructions[id].file;
-        }));
-      return Promise.all(files.map(function (file) {
-        return getJson('/assets/prompts/' + file).then(function (data) {
-          state.modules[file] = data;
-        }, function () {});
-      }).concat(codes.map(function (code) {
-        /* Alle familiene hentes med én gang. Til sammen er de rundt 22 kB,
-           og til gjengjeld koster et bytte ingen venting — og lista i
-           velgeren kan ta navnene fra filene selv framfor fra en kopi her. */
-        return getJson('/assets/prompts/' + families[code]).then(function (data) {
-          state.families[code] = data;
-        }, function () {});
-      })));
-    }).then(function () {
+
+      /* Familiene i velgeren er alle som har funnets i en release, nyeste
+         releases rekkefølge først. En familie som ikke finnes i releasen
+         som vises, gir kortet «finnes ikke i». */
+      var families = [], titles = {};
+      history.releases.forEach(function (r) {
+        r.families.forEach(function (f) {
+          if (families.indexOf(f.code) === -1) families.push(f.code);
+          if (!titles[f.code]) titles[f.code] = f.title || f.code;
+        });
+      });
+      if (families.indexOf(state.familyCode) === -1 && families.length) state.familyCode = families[0];
+
       var fp = pickerRow('family-label');
       familyRow = fp.row;
       familyLabel = fp.label;
-      /* Rekkefølgen tas fra manifestet, ikke fra hvilken fil som kom først
-         tilbake fra serveren — ellers står lista i en ny rekkefølge for hver
-         lasting. */
-      setFamily = buildPicker(fp.host, Object.keys(state.manifest.subjectFamilies || {})
-        .filter(function (code) { return state.families[code]; })
-        .map(function (code) {
-          return { code: code, name: state.families[code].title || code };
-        }), 'family', pickFamily);
+      setFamily = buildPicker(fp.host, families.map(function (code) {
+        return { code: code, name: titles[code] };
+      }), 'family', pickFamily);
       setFamily(state.familyCode);
-      return loadLanguage(state.code);
-    }).catch(function (err) {
-      root.appendChild(el('p', 'note', t('load-failed') + ' ' + err.message));
-    });
+
+      render();
+      if (window.aistTrack) window.aistTrack('prompts_language', { prompt_language: state.code });
+    }).catch(failed);
 
     /* Sidespråket kan byttes mens sida står åpen, og alt over er bygget i
        script — det har ingen `data-i18n` i18n.js kan nå. */

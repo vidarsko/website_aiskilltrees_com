@@ -941,3 +941,125 @@
   .promptdoc__text { padding-top: 0.35rem; border-bottom: 1px solid var(--rule); }
 }
 
+
+/* --------------------------------------------------------------------------
+   /prompts/ — versjoner og sammenlikning (2026-10-02)
+
+   Linja øverst velger releasen; i sammenlikning to. Versjonsvelgeren i
+   hvert kort er en vanlig <select>, ikke `.lang-select`: kortene tegnes om
+   ved hvert bytte, og den egenbygde velgeren har lyttere på `document`.
+   -------------------------------------------------------------------------- */
+
+.promptbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.promptbar__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.promptbar__label {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-2);
+}
+
+.promptbar__select,
+.promptdoc__version {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.4rem 0.6rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+}
+
+.promptdoc__version { margin-top: var(--space-1); }
+
+.promptbar__select:focus-visible,
+.promptdoc__version:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.promptdoc__status {
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  color: var(--ink-2);
+}
+
+.promptdoc--missing {
+  background: transparent;
+  border-style: dashed;
+}
+
+/* Grønt for det som er lagt til, med en tynn understrek i tillegg, slik at
+   det skiller seg fra svart tekst også uten farge. Det som er borte står
+   strøket, i rødt og halvt gjennomsiktig. */
+.promptdoc ins,
+.promptcompare__legend ins {
+  color: var(--primary);
+  background: var(--primary-tint);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.promptdoc del,
+.promptcompare__legend del {
+  color: var(--danger-text);
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+
+.promptdoc ins code,
+.promptdoc del code { color: inherit; }
+
+.promptcompare__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.promptcompare__row > .promptdoc { padding: var(--space-3); }
+
+.promptcompare__row .promptdoc__sections { grid-template-columns: 1fr; gap: 0; }
+.promptcompare__row .promptdoc__key { padding-bottom: 0; }
+.promptcompare__row .promptdoc__text { padding-top: 0.35rem; border-bottom: 1px solid var(--rule); }
+
+.promptcompare__head {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.promptcompare__head p { margin: 0; }
+
+.promptcompare__legend {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: 0.25rem !important;
+  font-weight: 400;
+  font-size: var(--step-xs);
+}
+
+/* På en telefon står bare den nyere kolonnen. Det som er fjernet står
+   strøket der, så ingenting går tapt; teksten i sin helhet er den samme
+   som uten sammenlikning. */
+@media (max-width: 48rem) {
+  .promptcompare__row { grid-template-columns: 1fr; }
+  .promptcompare__row > :first-child { display: none; }
+}

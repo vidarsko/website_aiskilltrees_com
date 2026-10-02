@@ -229,6 +229,96 @@
           "en": "Added to each instruction that names one of these sections, so that text which must read the same everywhere is written once. Kept in one place so the copies cannot drift apart.",
           "nb": "Legges inn i hver instruks som navngir en av disse seksjonene, slik at tekst som skal være lik overalt er skrevet én gang. Holdt ett sted så kopiene ikke kan komme fra hverandre.",
           "sv": "Läggs in i varje instruktion som namnger ett av dessa avsnitt, så att text som ska vara lika överallt är skriven en gång. Hålls på ett ställe så att kopiorna inte kan glida isär."
+      },
+      "versions-note": {
+          "en": "Every release of the method is here, back to the first. Choosing a version of one instruction moves the whole page to a release that had that version, so the page only shows instructions that were released together. Compare puts an older release beside a newer one: what was added is green, what was removed is struck through in red.",
+          "nb": "Hver utgivelse av metoden ligger her, helt tilbake til den første. Velger du en versjon av én instruks, flyttes hele sida til en utgivelse som hadde den versjonen, så sida viser bare instrukser som ble utgitt sammen. Sammenlikning setter en eldre utgivelse ved siden av en nyere: det som er lagt til, er grønt, og det som er fjernet, er strøket i rødt.",
+          "sv": "Varje utgåva av metoden finns här, ända tillbaka till den första. Väljer du en version av en instruktion flyttas hela sidan till en utgåva som hade den versionen, så sidan visar bara instruktioner som gavs ut tillsammans. Jämförelse ställer en äldre utgåva bredvid en nyare: det som lagts till är grönt, och det som tagits bort är struket i rött."
+      },
+      "release-label": {
+          "en": "Release",
+          "nb": "Utgivelse",
+          "sv": "Utgåva"
+      },
+      "release-current": {
+          "en": "published now",
+          "nb": "publisert nå",
+          "sv": "publicerad nu"
+      },
+      "older-label": {
+          "en": "Older release",
+          "nb": "Eldre utgivelse",
+          "sv": "Äldre utgåva"
+      },
+      "newer-label": {
+          "en": "Newer release",
+          "nb": "Nyere utgivelse",
+          "sv": "Nyare utgåva"
+      },
+      "compare-on": {
+          "en": "Compare with an earlier release",
+          "nb": "Sammenlikn med en tidligere utgivelse",
+          "sv": "Jämför med en tidigare utgåva"
+      },
+      "compare-off": {
+          "en": "Stop comparing",
+          "nb": "Slutt å sammenlikne",
+          "sv": "Sluta jämföra"
+      },
+      "col-older": {
+          "en": "{tag}, in full",
+          "nb": "{tag}, i sin helhet",
+          "sv": "{tag}, i sin helhet"
+      },
+      "col-newer": {
+          "en": "{tag}, compared with {old}",
+          "nb": "{tag}, sammenliknet med {old}",
+          "sv": "{tag}, jämförd med {old}"
+      },
+      "legend-added": {
+          "en": "added",
+          "nb": "lagt til",
+          "sv": "tillagt"
+      },
+      "legend-removed": {
+          "en": "removed",
+          "nb": "fjernet",
+          "sv": "borttaget"
+      },
+      "no-change": {
+          "en": "No change ({v} in both).",
+          "nb": "Ingen endring ({v} i begge).",
+          "sv": "Ingen ändring ({v} i båda)."
+      },
+      "no-change-plain": {
+          "en": "No change.",
+          "nb": "Ingen endring.",
+          "sv": "Ingen ändring."
+      },
+      "not-in": {
+          "en": "Not in {tag}.",
+          "nb": "Finnes ikke i {tag}.",
+          "sv": "Finns inte i {tag}."
+      },
+      "not-in-range": {
+          "en": "not present · {r}",
+          "nb": "finnes ikke · {r}",
+          "sv": "finns inte · {r}"
+      },
+      "version-of": {
+          "en": "Version of {x}",
+          "nb": "Versjon av {x}",
+          "sv": "Version av {x}"
+      },
+      "format-changed": {
+          "en": "The format changed between these releases, from Markdown to JSON, so the text is compared as a whole.",
+          "nb": "Formatet ble endret mellom disse utgivelsene, fra Markdown til JSON, så teksten sammenliknes i sin helhet.",
+          "sv": "Formatet ändrades mellan dessa utgåvor, från Markdown till JSON, så texten jämförs i sin helhet."
+      },
+      "whole-text": {
+          "en": "whole text",
+          "nb": "hele teksten",
+          "sv": "hela texten"
       }
   }
   </script>
@@ -246,6 +336,7 @@
         <div class="prose">
           <p class="lede-p" data-i18n="page-lede">These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full.</p>
           <p class="note" data-i18n="layers-note">The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.</p>
+          <p class="note" data-i18n="versions-note">Every release of the method is here, back to the first. Choosing a version of one instruction moves the whole page to a release that had that version, so the page only shows instructions that were released together. Compare puts an older release beside a newer one: what was added is green, what was removed is struck through in red.</p>
           <p class="note" data-i18n="pickers-note">The language layer and the subject family each have a card of their own further down, with a picker in it. Both choices also decide which marked sections stand inside the instructions above them.</p>
         </div>
       </div>
@@ -253,6 +344,7 @@
 
     <section class="band band--alt">
       <div class="band__inner">
+        <div id="prompt-bar" class="promptbar"></div>
         <div id="prompt-list"></div>
         <noscript>
           <div class="prose">
