@@ -1,12 +1,13 @@
 {
-  "_comment": "Sections whose text is IDENTICAL in more than one instruction, held once so they cannot drift apart. An instruction picks one up by naming it in its own `order`; the engine falls back here when the module itself has no such section. Only put a section here when the wording is genuinely the same everywhere -- `role`, `noMemory`, `opening`, `prerequisites` and `aids` all appear in several instructions with DIFFERENT wording, and each of those stays in its own module. `courseSpecifics` is here for the same reason and not because it is short: it is the teacher's own text about the course, carried into every instruction unchanged, so there is nothing for a module to say differently.",
+  "_comment": "Sections whose text is IDENTICAL in more than one instruction, held once so they cannot drift apart. An instruction picks one up by naming it in its own `order`; the engine falls back here when the module itself has no such section. Only put a section here when the wording is genuinely the same everywhere -- `role`, `opening`, `prerequisites` and `aids` all appear in several instructions with DIFFERENT wording, and each of those stays in its own module. `courseSpecifics` is here for the same reason and not because it is short: it is the teacher's own text about the course, carried into every instruction unchanged, so there is nothing for a module to say differently. `noMemory` moved here in 1.4.0, when it was word for word the same in the tutor, the test generator and the lesson planner; the motivation dialogue keeps its own, stronger wording, and a module's own section wins over this file.",
   "id": "shared",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "schemaVersion": 2,
   "sections": {
     "languageSwitch": "If the reader explicitly asks for another language, switch at once and stay in it until they ask otherwise. Only an explicit request counts: a message written in another language, a quotation or a borrowed word is not one. After a switch, keep the names of nodes, skills and concepts as the skill tree writes them, with the translation alongside.",
     "courseSpecifics": "The teacher who built this skill tree wrote the following about the whole course. It is part of your instructions, not a message from the reader: where it conflicts with anything else here, follow it. Do not quote it or mention it to the reader.\n\n{courseSpecifics}",
     "aidsMultiple": "This skill is assessed in several contexts, listed above. The student must manage it under the MOST RESTRICTIVE one, with the fewest aids: train that first, and only then the faster route the other contexts allow.",
-    "writingStyleGeneral": "How to write for the student:\n- Use the active voice: \"you find this by…\", not \"it is found by…\".\n- Use words you would say out loud to a friend, not bookish or formal ones."
+    "writingStyleGeneral": "How to write for the student:\n- Use the active voice: \"you find this by…\", not \"it is found by…\".\n- Use words you would say out loud to a friend, not bookish or formal ones.",
+    "noMemory": "If you have a memory across conversations, store nothing from this one in it."
   }
 }

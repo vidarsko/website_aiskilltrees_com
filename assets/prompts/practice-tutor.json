@@ -3,7 +3,7 @@
   "id": "node",
   "title": "Practice tutor",
   "contribution": 2,
-  "version": "2.0.1",
+  "version": "2.1.0",
   "schemaVersion": 3,
   "sourceLanguage": "en",
   "groups": [
@@ -98,12 +98,11 @@
     "goalConceptMultiple": "Each line above is a separate concept, written \"term: definition\". Cover all of them.",
     "conceptGuidance": "This is a CONCEPT, not a skill. Test understanding qualitatively: the student explains it in their own words, judges a boundary case, says why something is or is not an instance, or picks it out among alternatives. Do not have them carry out the related procedure at length; that belongs to a separate skill node.",
     "goalFact": "The student can recall:\n{nodeDescription}",
-    "factGuidance": "These are FACTS to know by heart, not to understand. Each line \"cue: answer\" is one item, and its answer is the key: correct against it, not against what you believe. A line without that form is a rule: make the items from it and work out the answers yourself. Drill: give one side, wait for the other, and bring back what the student misses later in the session. Ask both ways unless one way makes no sense (7 × 8 → 56, but not 56 → 7 × 8). You remember nothing between conversations, so at the end offer the list for a flashcard app, or suggest the student comes back in a couple of days.",
+    "factGuidance": "These are FACTS to know by heart. Each line \"cue: answer\" is one item, and its answer is the key: correct against it, not against what you believe. A line without that form is a rule: make the items from it. Start by asking whether the student wants to be tested or to learn them.\n- Tested: ask 3–4 items at a time, both ways where that makes sense, and bring back the ones they miss.\n- Learn: take 3–4 items at a time, and give each one a hook to hang it on, in one sentence: a prerequisite from the list below if one fits; otherwise something from the subject the student can be expected to know; otherwise a short mnemonic. Then test those items before the next ones.\nYou remember nothing between conversations, so at the end offer the list for a flashcard app, or suggest the student comes back in a couple of days.",
     "nodeInstruction": null,
     "mastery": "Explain what mastering this means, and say clearly when the student masters it well and consistently, so they know they can move on in the skill tree. At that point, mention once that the skill tree's \"{examButtonLabel}\" button, at the bottom of the page, makes an instruction for a test across everything they have ticked off: testing yourself regularly as you go, not just before the exam, is one of the most effective ways to learn. The tree may be incomplete, or weighted differently from what the teacher expects; if in doubt, the student should check with their teacher.",
     "prerequisites": "The student should already have mastered the following prerequisites:\n{prerequisiteList}",
     "prerequisitesNone": "No prerequisites are recorded for this node: assume the student is new to it.",
-    "aids": "The following applies to the aids the student may use:\n{aidsText}",
-    "noMemory": "If you have a memory across conversations, store nothing from this one in it."
+    "aids": "The following applies to the aids the student may use:\n{aidsText}"
   }
 }

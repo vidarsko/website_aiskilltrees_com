@@ -3,7 +3,7 @@
   "id": "lessonPlan",
   "title": "Lesson plan generator",
   "contribution": 5,
-  "version": "3.0.0",
+  "version": "3.0.1",
   "schemaVersion": 3,
   "sourceLanguage": "en",
   "groups": [
@@ -64,7 +64,6 @@
     "recall": "THE END: RETRIEVAL\nStudents close their books and notes and write down everything they remember learning today. Give the exact instruction for the board, 2–3 prompt questions for students who cannot get started, and one sentence the teacher can say about why: pulling something from memory is what makes it stick, not reading it again.",
     "prerequisites": "The students already know the following, which today's goals build on. Use these words freely and draw on them in the starter and the examples.\n{prerequisiteList}",
     "prerequisitesNone": "No prerequisites are recorded for today's goals: assume the topic is new to the students.",
-    "aids": "Keep to the correct aids in the problems you write, by each goal's level (shown in the list above):\n{aidsText}",
-    "noMemory": "If you have a memory across conversations, store nothing from this one in it."
+    "aids": "Keep to the correct aids in the problems you write, by each goal's level (shown in the list above):\n{aidsText}"
   }
 }
