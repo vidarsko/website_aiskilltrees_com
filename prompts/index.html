@@ -8,12 +8,12 @@
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css?v=2026-10-03f">
+  <link rel="stylesheet" href="/css/components.css?v=2026-10-03g">
 
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <script src="/js/prompts-page.js?v=2026-10-03f" defer></script>
+  <script src="/js/prompts-page.js?v=2026-10-03g" defer></script>
 
   <!--
     `?v=` på components.css og prompts-page.js tvinger nettleseren til å
@@ -101,41 +101,6 @@
           "nb": "brukes av en lærer som bygger et tre",
           "sv": "används av en lärare som bygger ett träd"
       },
-      "from-language": {
-          "en": "from the language layer",
-          "nb": "fra språklaget",
-          "sv": "från språklagret"
-      },
-      "from-language-override": {
-          "en": "replaced by the language layer",
-          "nb": "erstattet av språklaget",
-          "sv": "ersatt av språklagret"
-      },
-      "from-family": {
-          "en": "from the subject family",
-          "nb": "fra fagfamilien",
-          "sv": "från ämnesfamiljen"
-      },
-      "from-language-link": {
-          "en": "Taken from the language layer, shown below.",
-          "nb": "Hentes fra språklaget, vist lenger ned.",
-          "sv": "Hämtas från språklagret, som visas längre ned."
-      },
-      "family-can-replace": {
-          "en": "Replaced in some subject families: {list}",
-          "nb": "Erstattes i noen fagfamilier: {list}",
-          "sv": "Ersätts i vissa ämnesfamiljer: {list}"
-      },
-      "from-shared-link": {
-          "en": "Shared with the other instructions, shown below.",
-          "nb": "Felles med de andre instruksene, vist lenger ned.",
-          "sv": "Gemensam med de andra instruktionerna, visas längre ned."
-      },
-      "family-replaces-all": {
-          "en": "Replaced by the subject family",
-          "nb": "Erstattes av fagfamilien",
-          "sv": "Ersätts av ämnesfamiljen"
-      },
       "family-same-as-general": {
           "en": "Same as the general text",
           "nb": "Samme som den generelle teksten",
@@ -147,9 +112,9 @@
           "sv": "Nyckelord i instruktionerna"
       },
       "about-keywords": {
-          "en": "Words in {braces} are filled in when an instruction is composed for one tree. Some come from the tree's own settings, some from the language layer, where a tree can override the default, and the rest from the tree's nodes. The defaults below are for the language layer chosen further down.",
-          "nb": "Ord i {klammer} fylles inn når en instruks settes sammen for ett tre. Noen kommer fra treets egne innstillinger, noen fra språklaget, der treet kan overstyre standardverdien, og resten fra treets noder. Standardverdiene under gjelder språklaget som er valgt lenger ned.",
-          "sv": "Ord inom {klammer} fylls i när en instruktion sätts ihop för ett träd. Vissa kommer från trädets egna inställningar, vissa från språklagret, där trädet kan ersätta standardvärdet, och resten från trädets noder. Standardvärdena nedan gäller språklagret som är valt längre ned."
+          "en": "Words in {braces} are filled in when an instruction is composed for one tree. Some come from the tree's own settings, some from the language layer, where a tree can override the default, and the rest from the tree's nodes.",
+          "nb": "Ord i {klammer} fylles inn når en instruks settes sammen for ett tre. Noen kommer fra treets egne innstillinger, noen fra språklaget, der treet kan overstyre standardverdien, og resten fra treets noder.",
+          "sv": "Ord inom {klammer} fylls i när en instruktion sätts ihop för ett träd. Vissa kommer från trädets egna inställningar, vissa från språklagret, där trädet kan ersätta standardvärdet, och resten från trädets noder."
       },
       "kw-group-tree": {
           "en": "Set by the tree",
@@ -165,11 +130,6 @@
           "en": "Filled in from the tree's nodes and choices",
           "nb": "Fylles inn fra treets noder og valg",
           "sv": "Fylls i från trädets noder och val"
-      },
-      "kw-default": {
-          "en": "Default with the {lang} language layer: “{value}”",
-          "nb": "Standard med språklaget {lang}: «{value}»",
-          "sv": "Standard med språklagret {lang}: ”{value}”"
       },
       "kw-courseName": {
           "en": "The course's name as it reads in a sentence. Setting slots.courseName. No default: without it the braces stay in the text.",
@@ -301,11 +261,6 @@
           "nb": "{n} nøkkelord",
           "sv": "{n} nyckelord"
       },
-      "family-link-named": {
-          "en": "{family} family",
-          "nb": "fagfamilien {family}",
-          "sv": "ämnesfamiljen {family}"
-      },
       "subject-family-link": {
           "en": "subject family",
           "nb": "fagfamilien",
@@ -376,21 +331,6 @@
           "nb": "Argumenter for hvorfor faget betyr noe senere, brukt bare hvis eleven spør",
           "sv": "Argument för varför ämnet spelar roll senare, används bara om eleven frågar"
       },
-      "from-family-named": {
-          "en": "from the {family} family",
-          "nb": "fra fagfamilien {family}",
-          "sv": "från ämnesfamiljen {family}"
-      },
-      "from-family-add": {
-          "en": "added by the subject family",
-          "nb": "lagt til av fagfamilien",
-          "sv": "tillagt av ämnesfamiljen"
-      },
-      "from-family-add-named": {
-          "en": "added by the {family} family",
-          "nb": "lagt til av fagfamilien {family}",
-          "sv": "tillagt av ämnesfamiljen {family}"
-      },
       "family-replaces-in": {
           "en": "replaces the general text in {x}",
           "nb": "erstatter den generelle teksten i {x}",
@@ -407,9 +347,9 @@
           "sv": "Ingen ämnesfamilj"
       },
       "family-none-status": {
-          "en": "A tree without a subject family gets the general text in every section. That is what the instructions above show now.",
-          "nb": "Et tre uten fagfamilie får den generelle teksten i hver seksjon. Det er det instruksene over viser nå.",
-          "sv": "Ett träd utan ämnesfamilj får den allmänna texten i varje avsnitt. Det är vad instruktionerna ovan visar nu."
+          "en": "A tree without a subject family gets these default texts. A tree in a subject family gets that family's own version of each.",
+          "nb": "Et tre uten fagfamilie får disse standardtekstene. Et tre i en fagfamilie får familiens egen versjon av hver av dem.",
+          "sv": "Ett träd utan ämnesfamilj får dessa standardtexter. Ett träd i en ämnesfamilj får familjens egen version av var och en."
       },
       "cond-hasPrerequisites": {
           "en": "With prerequisites",
@@ -500,6 +440,26 @@
           "en": "read when a tree is written",
           "nb": "leses når et tre skrives",
           "sv": "läses när ett träd skrivs"
+      },
+      "fdesc-practiceLanguage": {
+          "en": "Which language the student practises in",
+          "nb": "Hvilket språk eleven øver på",
+          "sv": "Vilket språk eleven övar på"
+      },
+      "family-only-in": {
+          "en": "Only in: {list}",
+          "nb": "Bare i: {list}",
+          "sv": "Bara i: {list}"
+      },
+      "family-default-in": {
+          "en": "default in {x}",
+          "nb": "standard i {x}",
+          "sv": "standard i {x}"
+      },
+      "kw-defaults": {
+          "en": "Default from each language layer:",
+          "nb": "Standard fra hvert språklag:",
+          "sv": "Standard från varje språklager:"
       },
       "family-title": {
           "en": "The subject family",
@@ -597,9 +557,9 @@
           "sv": "Läggs till i varenda instruktion motorn sätter samman, så att ett norskt träd talas om på norska och ett svenskt på svenska. En fil per språk håller det instruktionerna medvetet lämnar öppet: vilket språk samtalet förs på, och vad god prosa är på det språket. Samma avsnitt står märkta inne i instruktionerna ovan, där de landar."
       },
       "about-family": {
-          "en": "Some sections need different text for different subjects: how to lead in to a topic in mathematics is not how to do it in history. A subject family replaces those sections with versions written for its subjects, so every section has one text, and the instructions above show it in place, marked with the family's name. Every family has the same sections, copying the general text where it has nothing of its own, so two subjects can be compared section by section. Choose \u201cNo subject family\u201d to see the general text instead. The same file holds the decomposition rules a teacher or an agent reads before writing a single row of the tree. A tree names its family in its own file.",
-          "nb": "Noen seksjoner trenger ulik tekst for ulike fag: å lede inn til et tema i matematikk gjøres ikke som i historie. En fagfamilie erstatter de seksjonene med versjoner skrevet for sine fag, så hver seksjon har én tekst, og instruksene over viser den på plassen sin, merket med familiens navn. Alle familiene har de samme seksjonene, med en kopi av den generelle teksten der de ikke har noe eget, så to fag kan sammenliknes seksjon for seksjon. Velg \u00abIngen fagfamilie\u00bb for å se den generelle teksten. Den samme fila har dekomponeringsreglene en lærer eller en agent leser før den skriver en eneste rad i treet. Et tre oppgir familien sin i sin egen fil.",
-          "sv": "Vissa avsnitt behöver olika text för olika ämnen: att leda in i ett område i matematik görs inte som i historia. En ämnesfamilj ersätter de avsnitten med versioner skrivna för sina ämnen, så varje avsnitt har en text, och instruktionerna ovan visar den på sin plats, märkt med familjens namn. Alla familjer har samma avsnitt, med en kopia av den allmänna texten där de inte har något eget, så två ämnen kan jämföras avsnitt för avsnitt. Välj \u201dIngen ämnesfamilj\u201d för att se den allmänna texten. Samma fil har nedbrytningsreglerna en lärare eller en agent läser innan den skriver en enda rad i trädet. Ett träd anger sin familj i sin egen fil."
+          "en": "Some sections need different text for different subjects: how to lead in to a topic in mathematics is not how to do it in history. The instructions above refer to this card for those sections. Every subject family has its own version of each of them, copying the default where it has nothing of its own, so two subjects can be compared section by section; “No subject family” shows the defaults, which a tree without a family gets. The same file holds the decomposition rules a teacher or an agent reads before writing a single row of the tree. A tree names its family in its own file.",
+          "nb": "Noen seksjoner trenger ulik tekst for ulike fag: å lede inn til et tema i matematikk gjøres ikke som i historie. Instruksene over viser hit for de seksjonene. Hver fagfamilie har sin egen versjon av hver av dem, med en kopi av standardteksten der den ikke har noe eget, så to fag kan sammenliknes seksjon for seksjon; «Ingen fagfamilie» viser standardtekstene, som et tre uten familie får. Den samme fila har dekomponeringsreglene en lærer eller en agent leser før den skriver en eneste rad i treet. Et tre oppgir familien sin i sin egen fil.",
+          "sv": "Vissa avsnitt behöver olika text för olika ämnen: att leda in i ett område i matematik görs inte som i historia. Instruktionerna ovan hänvisar hit för de avsnitten. Varje ämnesfamilj har sin egen version av vart och ett, med en kopia av standardtexten där den inte har något eget, så två ämnen kan jämföras avsnitt för avsnitt; ”Ingen ämnesfamilj” visar standardtexterna, som ett träd utan familj får. Samma fil har nedbrytningsreglerna en lärare eller en agent läser innan den skriver en enda rad i trädet. Ett träd anger sin familj i sin egen fil."
       },
       "about-shared": {
           "en": "Added to each instruction that names one of these sections, so that text which must read the same everywhere is written once. Kept in one place so the copies cannot drift apart.",

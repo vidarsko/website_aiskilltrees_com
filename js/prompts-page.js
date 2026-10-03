@@ -336,10 +336,26 @@
     return text === key ? name : text;
   }
 
+  /* Raden for en seksjon som fylles et annet sted: en kort beskrivelse i
+     kursiv og «, taken from the <lenke>.», med lenke bare rundt laget. */
+  function pointer(row, descKey, ref, linkText) {
+    var d = t(descKey);
+    row.desc = d === descKey ? row.label : d;
+    row.ref = ref;
+    row.linkText = linkText || '';
+    row.text = row.desc + (ref ? fill('taken-from', { link: linkText }) : t('filled-from-tree'));
+    return row;
+  }
+
+  /* Instrukskortene ser LIKE ut uansett hva som er valgt i språk- og
+     familiekortet lenger ned (Vidar, 2026-10-03): «valget lenger ned på
+     siden skal ikke bestemme hva som står andre steder». En seksjon som en
+     fagfamilie eller språklaget fyller, står derfor alltid som en henvisning
+     dit; teksten står i det kortet. */
   function moduleRows(module, extras) {
     var rows = [];
     var when = module.when || {};
-    var famSections = extras.familySections || {};
+    var byFamily = extras.familyReplaced || {};
     var groups = module.groups ||
       [{ title: '', sections: module.order || Object.keys(module.sections || {}) }];
 
@@ -349,63 +365,32 @@
         /* Stikkordet ER navnet. I den komponerte instruksen står det samme
            ordet foran teksten — se composePrompt() i motoren. */
         var row = { label: sid, group: g.title || '', when: whenLabel(when[sid]), note: '' };
-        var replacers = (extras.replacers || {})[sid] || [];
-        if (famSections[sid] != null) {
-          /* Fra 0.25.0 ERSTATTER fagfamilien seksjonen: dette er teksten et
-             tre i familien får, og den generelle vises når «ingen
-             fagfamilie» er valgt. */
-          /* Samme form som en seksjon fra språklaget (Vidar, 2026-10-03): en
-             kort beskrivelse i kursiv og hvor teksten kommer fra, med lenke
-             rundt familiens navn. Familiens tekst står i familiekortet; den
-             generelle står her når «ingen fagfamilie» er valgt. */
-          row.desc = t('fdesc-' + sid) === 'fdesc-' + sid ? sid : t('fdesc-' + sid);
-          row.ref = 'family';
-          row.linkText = extras.familyLink || t('subject-family-link');
-          row.text = row.desc + fill('taken-from', { link: row.linkText });
-        } else if (text == null) {
-          /* En seksjon som står som null i modulen fylles av språklaget —
-             `outputLanguage` og `writingStyle`. Teksten står i språklagets
-             eget kort lenger ned, så her står bare en lenke dit (Vidar,
-             2026-10-03): å vise det valgte språkets tekst her så ut som om
-             instruksen selv var skrevet på det språket. Tom teller ikke:
-             en.json har `writingStyle: ""` med vilje. */
-          var filler = (extras.lang || {})[sid];
-          var filled = FILLED[sid];
-          if ((extras.shared || {})[sid] != null) {
-            /* En seksjon fra shared.json (languageSwitch, courseSpecifics ...)
-               står med teksten sin, merket i stikkordkolonnen. */
-            row.text = plainText(extras.shared[sid]);
-            row.tag = t('shared-tag');
-          } else if (filled && (filled.ref !== 'language' || filler || extras.lang)) {
-            /* Fylles av språklaget eller treet: en kort beskrivelse i kursiv
-               og hvor teksten kommer fra, med lenke bare rundt «språklaget»
-               (Vidar, 2026-10-03). Teksten selv står i språklagets kort. */
-            row.desc = t(filled.desc);
-            row.ref = filled.ref;
-            row.linkText = filled.ref ? t('language-layer-link') : '';
-            row.text = row.desc + (filled.ref ? fill('taken-from', { link: row.linkText }) : t('filled-from-tree'));
-          } else {
-            return;
-          }
-        } else {
+        var filled = FILLED[sid];
+        if (byFamily[sid]) {
+          pointer(row, 'fdesc-' + sid, 'family', t('subject-family-link'));
+        } else if (text != null) {
           row.text = plainText(text);
-          /* Den generelle teksten, men noen fagfamilier har sin egen: si
-             hvilke, med lenke til familiekortet. */
-          if (replacers.length) {
-            row.alt = replacers.length === (extras.familyCount || 0)
-              ? t('family-replaces-all')
-              : fill('family-can-replace', { list: replacers.join(', ') });
-          }
+        } else if ((extras.shared || {})[sid] != null) {
+          /* En seksjon fra shared.json står med teksten sin, merket i
+             stikkordkolonnen. */
+          row.text = plainText(extras.shared[sid]);
+          row.tag = t('shared-tag');
+        } else if (filled) {
+          pointer(row, filled.desc, filled.ref, filled.ref ? t('language-layer-link') : '');
+        } else {
+          return;
         }
         rows.push(row);
       });
     });
 
-    /* En seksjon fagfamilien LEGGER TIL står etter ankeret sitt, i gruppa
-       til ankeret, som i instruksen. Uten anker (eller i en eldre release
-       der ankeret ikke finnes) står den sist. */
-    (extras.family || []).forEach(function (add) {
-      var row = { label: add.id, text: add.text, note: extras.familyAddNote || t('from-family-add'), group: '', when: '' };
+    /* En seksjon bare noen fagfamilier LEGGER TIL (fremmedspråkenes
+       practiceLanguage) står etter ankeret sitt, også som henvisning, og
+       sier hvilke familier som har den. */
+    (extras.familyAdds || []).forEach(function (add) {
+      var row = pointer({ label: add.id, group: '', when: '', note: '' },
+                        'fdesc-' + add.id, 'family', t('subject-family-link'));
+      row.alt = fill('family-only-in', { list: add.families.join(', ') });
       var at = -1;
       rows.forEach(function (r, i) { if (r.label === add.after) at = i; });
       if (at === -1) {
@@ -417,10 +402,6 @@
         rows.splice(at + 1, 0, row);
       }
     });
-    (extras.overrides || []).forEach(function (o) {
-      rows.push({ label: o.id, text: o.text, note: t('from-language-override'),
-                  group: rows.length ? rows[rows.length - 1].group : '', when: '' });
-    });
 
     return rows;
   }
@@ -431,49 +412,34 @@
      bruker de samme, så de to kolonnene kan ikke komme til å vise teksten
      forskjellig. */
 
-  /* For hver seksjon i en instruks: hvilke fagfamilier i releasen som
-     erstatter den, ved navn. */
-  function replacersOf(rel, id) {
-    var out = {};
-    Object.keys(rel.families || {}).forEach(function (code) {
-      var fam = rel.families[code] || {};
-      var secs = (((fam.instructions || {})[id]) || {}).sections || {};
-      Object.keys(secs).forEach(function (sid) {
-        (out[sid] = out[sid] || []).push(fam.title || code);
-      });
-    });
-    return out;
-  }
-
   function instructionView(rel, id) {
     var module = rel.modules[id];
     if (!module) return null;
-    var lang = rel.languages[state.code] || {};
-    var layer = lang.prompt || {};
-    var family = (state.familyCode && rel.families[state.familyCode]) || {};
-    var famPart = (family.instructions || {})[id] || {};
-    var overrides = (layer.overrides || {})[id] || {};
+    /* Hva fagfamiliene i denne releasen gjør med instruksen — alle sammen,
+       ikke bare den som er valgt i familiekortet. */
+    var replaced = {}, adds = {};
+    Object.keys(rel.families || {}).forEach(function (code) {
+      var fam = rel.families[code] || {};
+      var part = (fam.instructions || {})[id] || {};
+      Object.keys(part.sections || {}).forEach(function (sid) { replaced[sid] = true; });
+      (part.add || []).forEach(function (a) {
+        var e = adds[a.id] = adds[a.id] || { id: a.id, after: a.after, families: [] };
+        e.families.push(fam.title || code);
+      });
+    });
     return {
       title: module.title || id,
       meta: [module.path, t('audience-' + (module.audience || 'student'))].join(' · '),
       about: about(id),
       format: module.format || 'json',
       rows: moduleRows(module, {
-        lang: layer,
-        family: famPart.add || [],
-        familySections: famPart.sections || {},
-        replacers: replacersOf(rel, id),
-        shared: (rel.shared || {}).sections || {},
-        familyCount: Object.keys(rel.families || {}).length,
-        familyNote: fill('from-family-named', { family: family.title || state.familyCode }),
-        familyLink: fill('family-link-named', { family: family.title || state.familyCode }),
-        familyAddNote: fill('from-family-add-named', { family: family.title || state.familyCode }),
-        overrides: Object.keys(overrides).map(function (k) {
-          return { id: k, text: overrides[k] };
-        })
+        familyReplaced: replaced,
+        familyAdds: Object.keys(adds).map(function (k) { return adds[k]; }),
+        shared: (rel.shared || {}).sections || {}
       })
     };
   }
+
 
   /* Språklaget som sitt eget kort. Seksjonene står markert der de lander,
      inne i hver instruks. Her står laget samlet, fordi det er det som er
@@ -522,8 +488,31 @@
        generelle teksten i en seksjon en familie erstatter, kan leses. Kortet
        står likevel, for velgeren står i det. */
     if (!state.familyCode) {
+      /* «Ingen fagfamilie» viser standardtekstene: den generelle teksten i
+         hver seksjon familiene erstatter, som et tre uten familie får. */
+      var drows = [];
+      rel.instructions.forEach(function (id) {
+        var module = rel.modules[id] || {};
+        var seen = {};
+        Object.keys(rel.families || {}).forEach(function (code) {
+          var part = (((rel.families[code] || {}).instructions || {})[id]) || {};
+          Object.keys(part.sections || {}).forEach(function (sid) { seen[sid] = true; });
+        });
+        var order = (module.groups || []).reduce(function (acc, g) { return acc.concat(g.sections); },
+                                                 module.order || []);
+        order.filter(function (sid) { return seen[sid]; }).forEach(function (sid) {
+          drows.push({
+            label: sid,
+            text: plainText((module.sections || {})[sid]),
+            group: module.title || id,
+            when: whenLabel((module.when || {})[sid]),
+            note: t('family-default-in').replace('{x}', module.title || id),
+            noteRef: id
+          });
+        });
+      });
       return { title: t('family-title'), meta: t('family-none'), about: about('family'),
-               status: t('family-none-status'), rows: [] };
+               status: t('family-none-status'), rows: drows };
     }
     var fam = rel.families[state.familyCode];
     if (!fam) return null;
@@ -590,20 +579,28 @@
     };
   }
 
+  /* Standardverdiene for ALLE språklagene, side om side, så kortet ikke
+     avhenger av hva som er valgt i språkkortet. */
   function keywordsView() {
-    var lang = state.liveLang[state.code] || null;
-    var learner = lang && (lang.learners || {})[lang.defaultLearner];
-    var defaults = lang ? {
-      conversationLanguage: (lang.prompt || {}).conversationLanguage || lang.name,
-      learnerDefinite: learner && learner.definite,
-      examButtonLabel: ((lang.ui || {}).exam || {}).button
-    } : {};
+    var defaults = LANGS.map(function (l) {
+      var lang = state.liveLang[l.code];
+      if (!lang) return null;
+      var learner = (lang.learners || {})[lang.defaultLearner];
+      return { name: lang.name || l.name, values: {
+        conversationLanguage: (lang.prompt || {}).conversationLanguage || lang.name,
+        learnerDefinite: learner && learner.definite,
+        examButtonLabel: ((lang.ui || {}).exam || {}).button
+      } };
+    }).filter(Boolean);
     var rows = [];
     KEYWORDS.forEach(function (g) {
       g.keys.forEach(function (k) {
         var text = t('kw-' + k);
-        if (defaults[k]) {
-          text += '\n' + fill('kw-default', { lang: (lang && lang.name) || state.code, value: defaults[k] });
+        var vals = defaults.filter(function (d) { return d.values[k]; });
+        if (vals.length) {
+          text += '\n' + t('kw-defaults') + '\n' + vals.map(function (d) {
+            return '- ' + d.name + ': “' + d.values[k] + '”';
+          }).join('\n');
         }
         rows.push({ label: '{' + k + '}', text: text, group: t(g.group), note: '', when: '' });
       });
@@ -1009,9 +1006,10 @@
     if (!root || !state.history) return;
     var ticket = ++drawn;
     var tags = state.compare ? [state.compare, state.release] : [state.release];
-    var code = state.code;
-    var live = state.liveLang[code] ? Promise.resolve() :
-      getJson('/assets/languages/' + code + '.json').then(function (d) { state.liveLang[code] = d; }, function () {});
+    var live = Promise.all(LANGS.map(function (l) {
+      return state.liveLang[l.code] ? null :
+        getJson('/assets/languages/' + l.code + '.json').then(function (d) { state.liveLang[l.code] = d; }, function () {});
+    }));
     Promise.all(tags.map(loadRelease).concat([live])).then(function (rels) {
       rels = rels.slice(0, tags.length);
       if (ticket !== drawn) return;
@@ -1060,7 +1058,7 @@
       var main = newer || older;
       if (id === 'family' && !state.familyCode) {
         root.appendChild(card({ id: id, title: main.title, meta: main.meta, about: main.about,
-                                control: controls, status: main.status, rows: [] }));
+                                control: controls, status: main.status, rows: newer ? newer.rows : [] }));
         return;
       }
       root.appendChild(compareCard({
