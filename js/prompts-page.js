@@ -204,6 +204,7 @@
   function keyParts(cell, row) {
     cell.appendChild(el('code', null, row.label));
     if (row.when) cell.appendChild(el('span', 'promptdoc__when', row.when));
+    if (row.same) cell.appendChild(el('span', 'promptdoc__when', t('family-same-as-general')));
     if (row.note) {
       cell.appendChild(row.noteRef ? cardLink('promptdoc__note', row.note, row.noteRef)
                                    : el('span', 'promptdoc__note', row.note));
@@ -341,7 +342,11 @@
           row.text = plainText(text);
           /* Den generelle teksten, men noen fagfamilier har sin egen: si
              hvilke, med lenke til familiekortet. */
-          if (replacers.length) row.alt = fill('family-can-replace', { list: replacers.join(', ') });
+          if (replacers.length) {
+            row.alt = replacers.length === (extras.familyCount || 0)
+              ? t('family-replaces-all')
+              : fill('family-can-replace', { list: replacers.join(', ') });
+          }
         }
         rows.push(row);
       });
@@ -410,6 +415,7 @@
         familySections: famPart.sections || {},
         replacers: replacersOf(rel, id),
         shared: (rel.shared || {}).sections || {},
+        familyCount: Object.keys(rel.families || {}).length,
         familyNote: fill('from-family-named', { family: family.title || state.familyCode }),
         familyAddNote: fill('from-family-add-named', { family: family.title || state.familyCode }),
         overrides: Object.keys(overrides).map(function (k) {
@@ -479,12 +485,24 @@
     rel.instructions.forEach(function (id) {
       var module = rel.modules[id] || {};
       var part = instructions[id] || {};
-      Object.keys(part.sections || {}).forEach(function (sid) {
+      /* I instruksens egen rekkefølge, ikke filens: historikken lagrer
+         nøklene sortert, og da kom `conceptGuidance` før `leadIn`. */
+      var order = (module.groups || []).reduce(function (acc, g) { return acc.concat(g.sections); },
+                                               module.order || []);
+      var pos = function (sid) { var i = order.indexOf(sid); return i === -1 ? 1e6 : i; };
+      Object.keys(part.sections || {}).sort(function (a, b) { return pos(a) - pos(b); }).forEach(function (sid) {
+        /* Fra 0.26.0 har alle familiene de samme seksjonene, og en familie
+           uten noe eget å si har en ordrett kopi av den generelle teksten.
+           Det sies her, så den som sammenlikner fag ser hvor forskjellen
+           faktisk er. Merknaden lenker til instruksen seksjonen står i. */
+        var general = (module.sections || {})[sid];
         rows.push({
           label: sid,
           text: plainText(part.sections[sid]),
           group: module.title || id,
-          note: t('family-replaces-in').replace('{x}', module.title || id)
+          note: t('family-replaces-in').replace('{x}', module.title || id),
+          noteRef: id,
+          same: general != null && plainText(general) === plainText(part.sections[sid])
         });
       });
       (part.add || []).forEach(function (add) {
