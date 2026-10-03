@@ -226,12 +226,12 @@
      kursiv, så «Taken from the language layer.» med lenke bare rundt
      «language layer». */
   function filledCell(cell, row) {
-    var em = el('em', null, row.desc + ' ');
+    var em = el('em', null, row.desc);
     cell.appendChild(em);
     if (!row.ref) { em.appendChild(document.createTextNode(t('filled-from-tree'))); return; }
     var parts = t('taken-from').split('{link}');
     em.appendChild(document.createTextNode(parts[0]));
-    em.appendChild(cardLink(null, t('language-layer-link'), row.ref));
+    em.appendChild(cardLink(null, row.linkText || t('language-layer-link'), row.ref));
     em.appendChild(document.createTextNode(parts[1] || ''));
   }
 
@@ -354,9 +354,14 @@
           /* Fra 0.25.0 ERSTATTER fagfamilien seksjonen: dette er teksten et
              tre i familien får, og den generelle vises når «ingen
              fagfamilie» er valgt. */
-          row.text = plainText(famSections[sid]);
-          row.note = extras.familyNote || t('from-family');
-          row.noteRef = 'family';
+          /* Samme form som en seksjon fra språklaget (Vidar, 2026-10-03): en
+             kort beskrivelse i kursiv og hvor teksten kommer fra, med lenke
+             rundt familiens navn. Familiens tekst står i familiekortet; den
+             generelle står her når «ingen fagfamilie» er valgt. */
+          row.desc = t('fdesc-' + sid) === 'fdesc-' + sid ? sid : t('fdesc-' + sid);
+          row.ref = 'family';
+          row.linkText = extras.familyLink || t('subject-family-link');
+          row.text = row.desc + fill('taken-from', { link: row.linkText });
         } else if (text == null) {
           /* En seksjon som står som null i modulen fylles av språklaget —
              `outputLanguage` og `writingStyle`. Teksten står i språklagets
@@ -377,7 +382,8 @@
                (Vidar, 2026-10-03). Teksten selv står i språklagets kort. */
             row.desc = t(filled.desc);
             row.ref = filled.ref;
-            row.text = row.desc + ' ' + (filled.ref ? fill('taken-from', { link: t('language-layer-link') }) : t('filled-from-tree'));
+            row.linkText = filled.ref ? t('language-layer-link') : '';
+            row.text = row.desc + (filled.ref ? fill('taken-from', { link: row.linkText }) : t('filled-from-tree'));
           } else {
             return;
           }
@@ -460,6 +466,7 @@
         shared: (rel.shared || {}).sections || {},
         familyCount: Object.keys(rel.families || {}).length,
         familyNote: fill('from-family-named', { family: family.title || state.familyCode }),
+        familyLink: fill('family-link-named', { family: family.title || state.familyCode }),
         familyAddNote: fill('from-family-add-named', { family: family.title || state.familyCode }),
         overrides: Object.keys(overrides).map(function (k) {
           return { id: k, text: overrides[k] };
@@ -906,7 +913,7 @@
     (older ? older.rows : []).concat(newer ? newer.rows : []).forEach(function (r) { by[r.label] = r; });
     rows.forEach(function (r) {
       var src = by[r.label] || {};
-      ['desc', 'ref', 'tag', 'alt', 'same', 'noteRef'].forEach(function (k) {
+      ['desc', 'ref', 'linkText', 'tag', 'alt', 'same', 'noteRef'].forEach(function (k) {
         if (r[k] == null && src[k] != null) r[k] = src[k];
       });
     });

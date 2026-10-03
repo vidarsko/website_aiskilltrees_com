@@ -12,21 +12,33 @@
       "definite": "the pupil",
       "plural": "pupils",
       "pluralDefinite": "the pupils",
-      "leadIn": { "skill": "The pupil can:", "concept": "The pupil can explain:", "fact": "The pupil can recall:" }
+      "leadIn": {
+        "skill": "The pupil can:",
+        "concept": "The pupil can explain:",
+        "fact": "The pupil can recall:"
+      }
     },
     "student": {
       "word": "student",
       "definite": "the student",
       "plural": "students",
       "pluralDefinite": "the students",
-      "leadIn": { "skill": "The student can:", "concept": "The student can explain:", "fact": "The student can recall:" }
+      "leadIn": {
+        "skill": "The student can:",
+        "concept": "The student can explain:",
+        "fact": "The student can recall:"
+      }
     },
     "participant": {
       "word": "participant",
       "definite": "the participant",
       "plural": "participants",
       "pluralDefinite": "the participants",
-      "leadIn": { "skill": "The participant can:", "concept": "The participant can explain:", "fact": "The participant can recall:" }
+      "leadIn": {
+        "skill": "The participant can:",
+        "concept": "The participant can explain:",
+        "fact": "The participant can recall:"
+      }
     }
   },
   "ui": {
@@ -225,9 +237,9 @@
     }
   },
   "prompt": {
-    "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. `writingStyle` is necessarily empty here: it holds examples in a specific language, and this file serves every language that has no file of its own. The language-independent half of that advice is NOT missing — it lives in prompts/shared.json → writingStyleGeneral and applies to every tree regardless. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. The student's right to ask for a different language, and what happens when they do, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. `writingStyle` holds one English example of the active-voice advice (Vidar, 2026-10-03: it should not be empty). Because this file also serves every language that has no file of its own, the example says to apply the same idea in the conversation language. The language-independent half of that advice is NOT missing — it lives in prompts/shared.json → writingStyleGeneral and applies to every tree regardless. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. The student's right to ask for a different language, and what happens when they do, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
     "outputLanguage": "Conduct the conversation in {conversationLanguage}: the skill tree below is written in it, and {learnerDefinite} expects it. Do not switch language on your own initiative or comment on the language of these instructions. Address {learnerDefinite} as \"you\"; where the role must be named, the word is “{learnerDefinite}”.",
-    "writingStyle": "",
+    "writingStyle": "An example in English of the first piece of advice above (in another conversation language, apply the same idea in that language):\n- Active voice: write \"we can write the number as …\", not \"the number can only be written as …\"; write \"we do this by …\" or \"you do this by …\", not \"this is done by …\". Avoid \"is done\" and \"can be done\" where you can say who does it.",
     "overrides": {}
   }
 }
