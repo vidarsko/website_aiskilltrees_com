@@ -299,7 +299,6 @@ const CONDITIONS = {
   allConcepts:      ctx => !!ctx.allConcepts,
   someConcepts:     ctx => !!ctx.hasConcepts && !ctx.allConcepts,
   hasFacts:         ctx => !!ctx.hasFacts,
-  tightSchedule:    ctx => !!ctx.tight,
 };
 
 /* Betingelsen en seksjon har i en instruks, som navn, eller null. En
@@ -1985,16 +1984,12 @@ function ensureGoalIndexModal() {
 // kartet uleselig; derfor bor dette utvalget kun i læringsmål-lista.
 const lessonSelection = new Set();
 
-// Faste rammer for timeplanen. Starter og gjenhenting har fast lengde
-// uansett hvor lang økta er; resten av tiden fordeles likt på de valgte
-// læringsmålene. Blir det mindre enn LESSON_MIN_GOAL_BLOCK minutter igjen
-// per læringsmål, ber instruksen KI-en si fra til læreren om at utvalget er
-// for stort for tiden (se composeLessonPlanInstruction).
+// Lengden økta får hvis læreren ikke oppgir en. Fra 0.27.0 regner motoren
+// ikke ut noen timeplan: hvordan økta deles opp, står i seksjonen
+// `structure` i lesson-plan.json, som hver fagfamilie skriver for seg
+// (matematikk med 7 minutter oppstart og 5 minutter gjenhenting). Vidar,
+// 2026-10-03: timeplanleggeren skal ikke bestå av en håndfull variabler.
 const LESSON_DEFAULT_MINUTES = 45;
-const LESSON_STARTER_MIN = 7;
-const LESSON_RECALL_MIN = 5;
-const LESSON_DIAGNOSTIC_MIN = 3;
-const LESSON_MIN_GOAL_BLOCK = 12;
 
 // Sorteringsnøkkel for en nodes auto-genererte læringsmålkode (A1, A2, ..., B1):
 // bokstav først, deretter tall NUMERISK - ren strengsortering ville gitt
@@ -2566,35 +2561,6 @@ function updateLessonPlanBar() {
   btn.disabled = n === 0;
 }
 
-// Fordeler den oppgitte lengden på økta: starter og gjenhenting har fast
-// lengde, resten deles likt mellom de valgte læringsmålene (overskytende
-// minutter går til de første målene, så summen alltid går opp). Motoren
-// regner dette ut i stedet for å overlate fordelingen til KI-en, slik at
-// læreren får en forutsigbar timeplan uansett hvilken modell hen bruker.
-function buildLessonSchedule(nodes, totalMinutes) {
-  const teachingTotal = Math.max(nodes.length, totalMinutes - LESSON_STARTER_MIN - LESSON_RECALL_MIN);
-  const base = Math.floor(teachingTotal / nodes.length);
-  const extra = teachingTotal - base * nodes.length;
-
-  const lines = [];
-  let t = 0;
-  const line = CORE.prompts.lessonPlan.sections._scheduleLines;
-  lines.push(fill(line.starter, { from: t, to: t + LESSON_STARTER_MIN }));
-  t += LESSON_STARTER_MIN;
-
-  nodes.forEach((node, i) => {
-    const len = base + (i < extra ? 1 : 0);
-    const diag = Math.min(LESSON_DIAGNOSTIC_MIN, Math.max(1, len - 1));
-    lines.push(fill(line.goal, { from: t, to: t + len, index: i + 1, name: node.name, diagnostic: diag }));
-    t += len;
-  });
-
-  lines.push(fill(line.recall, { from: t, to: t + LESSON_RECALL_MIN }));
-  t += LESSON_RECALL_MIN;
-
-  return { text: lines.join('\n'), perGoal: base, tight: base < LESSON_MIN_GOAL_BLOCK, total: t };
-}
-
 // Fast metodikk-tekst, lik for alle fag. Ligger hardkodet her (ikke i CSV
 // og ikke i config.js) på samme måte som BEGREP_TEST_GUIDANCE: dette er
 // didaktikk som gjelder på tvers av fag, ikke fagspesifikt innhold.
@@ -2617,8 +2583,6 @@ function buildLessonSchedule(nodes, totalMinutes) {
 // forutsetninger som faktisk mangler, vises i stedet som status i
 // læringsmål-lista (se goalStatus).
 function composeLessonPlanInstruction(nodes, totalMinutes) {
-  const schedule = buildLessonSchedule(nodes, totalMinutes);
-
   const goalList = nodes.map((n, i) => {
     const tags = [promptTypeTag(n.type)];
     if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
@@ -2642,18 +2606,12 @@ function composeLessonPlanInstruction(nodes, totalMinutes) {
     ancestors: prerequisites,
     hasConcepts: nodes.some(n => n.type === 'concept'),
     hasFacts: nodes.some(n => n.type === 'fact'),
-    tight: schedule.tight,
     aidsText: aidsTextFor(nodes),
     multipleAids: nodes.some(n => (n.aids || []).length > 1),
     vars: {
-      goalCount: nodes.length,
-      totalMinutes: schedule.total,
-      perGoal: schedule.perGoal,
+      totalMinutes: totalMinutes,
       goalList: goalList,
       prerequisiteList: prerequisites.sort(compareByGoalIndex).map(a => '- ' + a.name).join('\n'),
-      schedule: schedule.text,
-      starterMinutes: LESSON_STARTER_MIN,
-      recallMinutes: LESSON_RECALL_MIN,
       aidsText: aidsTextFor(nodes),
     },
   });

@@ -59,8 +59,7 @@
     { group: 'kw-group-tree', keys: ['courseName', 'motivationSubject', 'expressionFocus', 'courseSpecifics'] },
     { group: 'kw-group-language', keys: ['conversationLanguage', 'learnerDefinite', 'examButtonLabel'] },
     { group: 'kw-group-engine', keys: ['nodeName', 'nodeDescription', 'prerequisiteList', 'aidsText',
-      'nodeCount', 'nodeList', 'taskCount', 'goalCount', 'goalList', 'totalMinutes', 'perGoal',
-      'schedule', 'starterMinutes', 'recallMinutes'] }
+      'nodeCount', 'nodeList', 'taskCount', 'goalList', 'totalMinutes'] }
   ];
 
   /* Seksjoner som står som null i modulen og fylles et annet sted: en kort
