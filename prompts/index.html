@@ -8,12 +8,12 @@
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css?v=2026-10-03c">
+  <link rel="stylesheet" href="/css/components.css?v=2026-10-03d">
 
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <script src="/js/prompts-page.js?v=2026-10-03c" defer></script>
+  <script src="/js/prompts-page.js?v=2026-10-03d" defer></script>
 
   <!--
     `?v=` på components.css og prompts-page.js tvinger nettleseren til å
@@ -140,6 +140,191 @@
           "en": "Same as the general text",
           "nb": "Samme som den generelle teksten",
           "sv": "Samma som den allmänna texten"
+      },
+      "keywords-title": {
+          "en": "Keywords in the instructions",
+          "nb": "Nøkkelord i instruksene",
+          "sv": "Nyckelord i instruktionerna"
+      },
+      "about-keywords": {
+          "en": "Words in {braces} are filled in when an instruction is composed for one tree. Some come from the tree's own settings, some from the language layer, where a tree can override the default, and the rest from the tree's nodes. The defaults below are for the language layer chosen further down.",
+          "nb": "Ord i {klammer} fylles inn når en instruks settes sammen for ett tre. Noen kommer fra treets egne innstillinger, noen fra språklaget, der treet kan overstyre standardverdien, og resten fra treets noder. Standardverdiene under gjelder språklaget som er valgt lenger ned.",
+          "sv": "Ord inom {klammer} fylls i när en instruktion sätts ihop för ett träd. Vissa kommer från trädets egna inställningar, vissa från språklagret, där trädet kan ersätta standardvärdet, och resten från trädets noder. Standardvärdena nedan gäller språklagret som är valt längre ned."
+      },
+      "kw-group-tree": {
+          "en": "Set by the tree",
+          "nb": "Settes av treet",
+          "sv": "Sätts av trädet"
+      },
+      "kw-group-language": {
+          "en": "From the language layer, unless the tree sets it",
+          "nb": "Fra språklaget, med mindre treet setter det",
+          "sv": "Från språklagret, om inte trädet sätter det"
+      },
+      "kw-group-engine": {
+          "en": "Filled in from the tree's nodes and choices",
+          "nb": "Fylles inn fra treets noder og valg",
+          "sv": "Fylls i från trädets noder och val"
+      },
+      "kw-default": {
+          "en": "Default with the {lang} language layer: “{value}”",
+          "nb": "Standard med språklaget {lang}: «{value}»",
+          "sv": "Standard med språklagret {lang}: ”{value}”"
+      },
+      "kw-courseName": {
+          "en": "The course's name as it reads in a sentence. Setting slots.courseName. No default: without it the braces stay in the text.",
+          "nb": "Kursets navn slik det leses i en setning. Innstillingen slots.courseName. Ingen standard: uten den blir klammene stående i teksten.",
+          "sv": "Kursens namn så som det läses i en mening. Inställningen slots.courseName. Inget standardvärde: utan den blir klamrarna kvar i texten."
+      },
+      "kw-motivationSubject": {
+          "en": "What the motivation dialogue is about, e.g. “maths”. Setting slots.motivationSubject.",
+          "nb": "Hva motivasjonssamtalen handler om, f.eks. «matte». Innstillingen slots.motivationSubject.",
+          "sv": "Vad motivationssamtalet handlar om, t.ex. ”matte”. Inställningen slots.motivationSubject."
+      },
+      "kw-expressionFocus": {
+          "en": "What students in this course get sloppy about when they write. Setting slots.expressionFocus; without it, the section expression is left out.",
+          "nb": "Hva elevene i faget slurver med når de skriver. Innstillingen slots.expressionFocus; uten den utelates seksjonen expression.",
+          "sv": "Vad eleverna i ämnet slarvar med när de skriver. Inställningen slots.expressionFocus; utan den utelämnas avsnittet expression."
+      },
+      "kw-courseSpecifics": {
+          "en": "The teacher's own text about the whole course. Setting slots.courseSpecifics; without it, the section courseSpecifics is left out.",
+          "nb": "Lærerens egen tekst om hele kurset. Innstillingen slots.courseSpecifics; uten den utelates seksjonen courseSpecifics.",
+          "sv": "Lärarens egen text om hela kursen. Inställningen slots.courseSpecifics; utan den utelämnas avsnittet courseSpecifics."
+      },
+      "kw-conversationLanguage": {
+          "en": "The language the conversation is held in. A tree can set it with languageName.",
+          "nb": "Språket samtalen føres på. Et tre kan sette det med languageName.",
+          "sv": "Språket samtalet förs på. Ett träd kan sätta det med languageName."
+      },
+      "kw-learnerDefinite": {
+          "en": "What the learner is called. A tree chooses with learner (pupil, student or participant), and the language layer gives the word.",
+          "nb": "Hva den som lærer kalles. Et tre velger med learner (pupil, student eller participant), og språklaget gir ordet.",
+          "sv": "Vad den som lär sig kallas. Ett träd väljer med learner (pupil, student eller participant), och språklagret ger ordet."
+      },
+      "kw-examButtonLabel": {
+          "en": "The label on the tree's test button, so the instruction can point to it.",
+          "nb": "Teksten på treets prøveknapp, så instruksen kan vise til den.",
+          "sv": "Texten på trädets provknapp, så att instruktionen kan hänvisa till den."
+      },
+      "kw-nodeName": {
+          "en": "The name of the node the student picked.",
+          "nb": "Navnet på noden eleven valgte.",
+          "sv": "Namnet på noden eleven valde."
+      },
+      "kw-nodeDescription": {
+          "en": "The node's description: what mastering it means.",
+          "nb": "Nodens beskrivelse: hva det vil si å mestre den.",
+          "sv": "Nodens beskrivning: vad det innebär att behärska den."
+      },
+      "kw-prerequisiteList": {
+          "en": "Every node the node or lesson depends on, directly or through others.",
+          "nb": "Alle nodene noden eller timen bygger på, direkte eller via andre.",
+          "sv": "Alla noder som noden eller lektionen bygger på, direkt eller via andra."
+      },
+      "kw-aidsText": {
+          "en": "The tree's text for each aid level that applies, from the settings aids.<n>.*.",
+          "nb": "Treets tekst for hvert hjelpemiddelnivå som gjelder, fra innstillingene aids.<n>.*.",
+          "sv": "Trädets text för varje hjälpmedelsnivå som gäller, från inställningarna aids.<n>.*."
+      },
+      "kw-nodeCount": {
+          "en": "How many nodes the test covers.",
+          "nb": "Hvor mange noder prøven dekker.",
+          "sv": "Hur många noder provet täcker."
+      },
+      "kw-nodeList": {
+          "en": "The nodes the student has ticked off, one line each, marked [skill], [concept] or [fact].",
+          "nb": "Nodene eleven har krysset av, én linje hver, merket [skill], [concept] eller [fact].",
+          "sv": "Noderna eleven har bockat av, en rad var, märkta [skill], [concept] eller [fact]."
+      },
+      "kw-taskCount": {
+          "en": "How many tasks the student asked for.",
+          "nb": "Hvor mange oppgaver eleven ba om.",
+          "sv": "Hur många uppgifter eleven bad om."
+      },
+      "kw-goalCount": {
+          "en": "How many learning goals the teacher picked for the lesson.",
+          "nb": "Hvor mange læringsmål læreren valgte for timen.",
+          "sv": "Hur många lärandemål läraren valde för lektionen."
+      },
+      "kw-goalList": {
+          "en": "The learning goals, in order.",
+          "nb": "Læringsmålene, i rekkefølge.",
+          "sv": "Lärandemålen, i ordning."
+      },
+      "kw-totalMinutes": {
+          "en": "The length of the lesson in minutes, chosen by the teacher.",
+          "nb": "Timens lengde i minutter, valgt av læreren.",
+          "sv": "Lektionens längd i minuter, vald av läraren."
+      },
+      "kw-perGoal": {
+          "en": "Minutes per goal, used in the warning when time is tight.",
+          "nb": "Minutter per mål, brukt i advarselen når tiden er knapp.",
+          "sv": "Minuter per mål, används i varningen när tiden är knapp."
+      },
+      "kw-schedule": {
+          "en": "The timetable the engine works out, block by block.",
+          "nb": "Timeplanen motoren regner ut, blokk for blokk.",
+          "sv": "Schemat motorn räknar ut, block för block."
+      },
+      "kw-starterMinutes": {
+          "en": "Minutes for the starter: 7.",
+          "nb": "Minutter til oppstarten: 7.",
+          "sv": "Minuter för starten: 7."
+      },
+      "kw-recallMinutes": {
+          "en": "Minutes for the retrieval block at the end: 5.",
+          "nb": "Minutter til hentingen fra minnet til slutt: 5.",
+          "sv": "Minuter för återhämtningen i slutet: 5."
+      },
+      "desc-outputLanguage": {
+          "en": "Specifies the language the conversation is held in, and how to address the student.",
+          "nb": "Angir hvilket språk samtalen føres på, og hvordan eleven tiltales.",
+          "sv": "Anger vilket språk samtalet förs på, och hur eleven tilltalas."
+      },
+      "desc-writingStyle": {
+          "en": "Examples of good prose in the conversation language, for the writing advice above. Empty in English.",
+          "nb": "Eksempler på god prosa på samtalespråket, til skriverådene over. Tom på engelsk.",
+          "sv": "Exempel på god prosa på samtalsspråket, till skrivråden ovan. Tom på engelska."
+      },
+      "desc-nodeInstruction": {
+          "en": "The teacher's extra instruction for this node, if the tree has one.",
+          "nb": "Lærerens ekstra instruks for denne noden, om treet har en.",
+          "sv": "Lärarens extra instruktion för denna nod, om trädet har en."
+      },
+      "taken-from": {
+          "en": "Taken from the {link}.",
+          "nb": "Hentes fra {link}.",
+          "sv": "Hämtas från {link}."
+      },
+      "language-layer-link": {
+          "en": "language layer",
+          "nb": "språklaget",
+          "sv": "språklagret"
+      },
+      "filled-from-tree": {
+          "en": "Filled in from the tree.",
+          "nb": "Fylles inn fra treet.",
+          "sv": "Fylls i från trädet."
+      },
+      "shared-tag": {
+          "en": "Shared with the other instructions",
+          "nb": "Felles med de andre instruksene",
+          "sv": "Gemensam med de andra instruktionerna"
+      },
+      "show-keywords": {
+          "en": "Show the keywords",
+          "nb": "Vis nøkkelordene",
+          "sv": "Visa nyckelorden"
+      },
+      "hide-keywords": {
+          "en": "Hide the keywords",
+          "nb": "Skjul nøkkelordene",
+          "sv": "Dölj nyckelorden"
+      },
+      "keyword-count": {
+          "en": "{n} keywords",
+          "nb": "{n} nøkkelord",
+          "sv": "{n} nyckelord"
       },
       "from-family-named": {
           "en": "from the {family} family",

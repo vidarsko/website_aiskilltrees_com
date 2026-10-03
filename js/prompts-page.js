@@ -46,7 +46,30 @@
   /* Fagfamiliene står IKKE i en liste her. De leses av historikken, som
      leser dem av `subjectFamilies` i hver releases manifest — så en ny
      familie i maskineriet dukker opp her av seg selv. */
-  var DEFAULT_FAMILY = 'mathematics';
+  /* Ingen fagfamilie som standard (fra 2026-10-03): instrukskortene viser
+     da den generelle teksten, og en seksjon en familie erstatter sier det.
+     Med matematikk som standard sto «from the Mathematics family» i det
+     leseren tok for å være den generelle instruksen. */
+  var DEFAULT_FAMILY = '';
+
+  /* Nøkkelordene i {klammer}, i tre grupper etter hvor verdien kommer fra.
+     Standardverdiene i den midterste gruppa avhenger av språklaget og leses
+     av den publiserte språkfila (historikken har bare `prompt`-delen). */
+  var KEYWORDS = [
+    { group: 'kw-group-tree', keys: ['courseName', 'motivationSubject', 'expressionFocus', 'courseSpecifics'] },
+    { group: 'kw-group-language', keys: ['conversationLanguage', 'learnerDefinite', 'examButtonLabel'] },
+    { group: 'kw-group-engine', keys: ['nodeName', 'nodeDescription', 'prerequisiteList', 'aidsText',
+      'nodeCount', 'nodeList', 'taskCount', 'goalCount', 'goalList', 'totalMinutes', 'perGoal',
+      'schedule', 'starterMinutes', 'recallMinutes'] }
+  ];
+
+  /* Seksjoner som står som null i modulen og fylles et annet sted: en kort
+     beskrivelse av hva de gjør, og hvor teksten kommer fra. */
+  var FILLED = {
+    outputLanguage: { desc: 'desc-outputLanguage', ref: 'language' },
+    writingStyle: { desc: 'desc-writingStyle', ref: 'language' },
+    nodeInstruction: { desc: 'desc-nodeInstruction', ref: null }
+  };
 
   /* De to lagvelgerne bygges én gang og FLYTTES inn i hvert sitt kort for
      hver tegning, framfor å bygges på nytt: de har lyttere på `document` for
@@ -65,7 +88,8 @@
         /* Hvilke kort som står åpne. Sida tegnes på nytt ved hvert bytte av
            språklag, familie eller release, og et åpent kort skal være åpent
            etterpå også (Vidar, 2026-10-03). */
-        open: {}
+        open: {},
+        liveLang: {}
       };
 
   /* Ikonet og etikettene er det eneste som skiller de to lagvelgerne. */
@@ -199,12 +223,26 @@
     return a;
   }
 
+  /* Tekstcellen til en seksjon som fylles et annet sted: beskrivelsen i
+     kursiv, så «Taken from the language layer.» med lenke bare rundt
+     «language layer». */
+  function filledCell(cell, row) {
+    var em = el('em', null, row.desc + ' ');
+    cell.appendChild(em);
+    if (!row.ref) { em.appendChild(document.createTextNode(t('filled-from-tree'))); return; }
+    var parts = t('taken-from').split('{link}');
+    em.appendChild(document.createTextNode(parts[0]));
+    em.appendChild(cardLink(null, t('language-layer-link'), row.ref));
+    em.appendChild(document.createTextNode(parts[1] || ''));
+  }
+
   /* Stikkordcellen: navnet, når seksjonen gjelder, hvor teksten kommer fra,
      og om en fagfamilie kan erstatte den. Samme for begge korttypene. */
   function keyParts(cell, row) {
     cell.appendChild(el('code', null, row.label));
     if (row.when) cell.appendChild(el('span', 'promptdoc__when', row.when));
     if (row.same) cell.appendChild(el('span', 'promptdoc__when', t('family-same-as-general')));
+    if (row.tag) cell.appendChild(cardLink('promptdoc__alt', row.tag, 'shared'));
     if (row.note) {
       cell.appendChild(row.noteRef ? cardLink('promptdoc__note', row.note, row.noteRef)
                                    : el('span', 'promptdoc__note', row.note));
@@ -249,12 +287,14 @@
        tastaturoppførselen gratis. */
     var reveal = revealFor(opts.id);
     var toggle = el('summary', 'promptdoc__toggle');
-    toggle.appendChild(el('span', 'promptdoc__toggle-show', t('show-prompt')));
-    toggle.appendChild(el('span', 'promptdoc__toggle-hide', t('hide-prompt')));
+    var kw = opts.id === 'keywords';
+    toggle.appendChild(el('span', 'promptdoc__toggle-show', t(kw ? 'show-keywords' : 'show-prompt')));
+    toggle.appendChild(el('span', 'promptdoc__toggle-hide', t(kw ? 'hide-keywords' : 'hide-prompt')));
     /* Språklaget kan ha én eneste seksjon — en.json legger bare til
        samtalespråket — og «1 sections» ville stått der hver gang. */
-    toggle.appendChild(el('span', 'promptdoc__count', opts.rows.length === 1
-      ? t('section-count-one')
+    toggle.appendChild(el('span', 'promptdoc__count', kw
+      ? t('keyword-count').replace('{n}', opts.rows.length)
+      : opts.rows.length === 1 ? t('section-count-one')
       : t('section-count').replace('{n}', opts.rows.length)));
     reveal.appendChild(toggle);
     box.appendChild(reveal);
@@ -276,7 +316,7 @@
       keyParts(dt, row);
       list.appendChild(dt);
       var dd = el('dd', 'promptdoc__text');
-      if (row.ref) dd.appendChild(cardLink(null, row.text, row.ref));
+      if (row.desc) filledCell(dd, row);
       else dd.textContent = row.text;
       list.appendChild(dd);
     });
@@ -326,15 +366,19 @@
              instruksen selv var skrevet på det språket. Tom teller ikke:
              en.json har `writingStyle: ""` med vilje. */
           var filler = (extras.lang || {})[sid];
-          if (filler) {
-            row.text = t('from-language-link');
-            row.ref = 'language';
-          } else if ((extras.shared || {})[sid] != null) {
+          var filled = FILLED[sid];
+          if ((extras.shared || {})[sid] != null) {
             /* En seksjon fra shared.json (languageSwitch, courseSpecifics ...)
-               sto ikke i kortet i det hele tatt før 2026-10-03; den står nå
-               på plassen sin, med lenke til de delte seksjonene. */
-            row.text = t('from-shared-link');
-            row.ref = 'shared';
+               står med teksten sin, merket i stikkordkolonnen. */
+            row.text = plainText(extras.shared[sid]);
+            row.tag = t('shared-tag');
+          } else if (filled && (filled.ref !== 'language' || filler || extras.lang)) {
+            /* Fylles av språklaget eller treet: en kort beskrivelse i kursiv
+               og hvor teksten kommer fra, med lenke bare rundt «språklaget»
+               (Vidar, 2026-10-03). Teksten selv står i språklagets kort. */
+            row.desc = t(filled.desc);
+            row.ref = filled.ref;
+            row.text = row.desc + ' ' + (filled.ref ? fill('taken-from', { link: t('language-layer-link') }) : t('filled-from-tree'));
           } else {
             return;
           }
@@ -540,7 +584,29 @@
     };
   }
 
+  function keywordsView() {
+    var lang = state.liveLang[state.code] || null;
+    var learner = lang && (lang.learners || {})[lang.defaultLearner];
+    var defaults = lang ? {
+      conversationLanguage: (lang.prompt || {}).conversationLanguage || lang.name,
+      learnerDefinite: learner && learner.definite,
+      examButtonLabel: ((lang.ui || {}).exam || {}).button
+    } : {};
+    var rows = [];
+    KEYWORDS.forEach(function (g) {
+      g.keys.forEach(function (k) {
+        var text = t('kw-' + k);
+        if (defaults[k]) {
+          text += '\n' + fill('kw-default', { lang: (lang && lang.name) || state.code, value: defaults[k] });
+        }
+        rows.push({ label: '{' + k + '}', text: text, group: t(g.group), note: '', when: '' });
+      });
+    });
+    return { title: t('keywords-title'), meta: '', about: about('keywords'), rows: rows };
+  }
+
   function view(rel, id) {
+    if (id === 'keywords') return keywordsView();
     if (id === 'language') return languageView(rel);
     if (id === 'family') return familyView(rel);
     if (id === 'shared') return sharedView(rel);
@@ -560,7 +626,7 @@
         prev = at;
       });
     });
-    return ids.concat(['language', 'family', 'shared']);
+    return ['keywords'].concat(ids, ['language', 'family', 'shared']);
   }
 
   /* SOLO-tabellen i samfunnsfagfamilien er et objekt, ikke en tekst, og
@@ -833,6 +899,21 @@
      rad — slik at `tone` står ved siden av `tone` og ikke forskjøvet av det
      som står over den. Kolonneoverskriftene, med versjonsvelgerne, står
      utenfor rullen og er alltid synlige. */
+  /* diffRows() bærer bare stikkord, merknad, gruppe og betingelse; resten av
+     en rads opplysninger hentes her fra den nyere (eller eldre) releasens
+     rad med samme stikkord. */
+  function enrich(rows, newer, older) {
+    var by = {};
+    (older ? older.rows : []).concat(newer ? newer.rows : []).forEach(function (r) { by[r.label] = r; });
+    rows.forEach(function (r) {
+      var src = by[r.label] || {};
+      ['desc', 'ref', 'tag', 'alt', 'same', 'noteRef'].forEach(function (k) {
+        if (r[k] == null && src[k] != null) r[k] = src[k];
+      });
+    });
+    return rows;
+  }
+
   function compareCard(opts) {
     var box = el('section', 'promptdoc promptdoc--compare');
     box.setAttribute('data-card', opts.id);
@@ -885,9 +966,9 @@
         var cell;
         if (c[0] === null) cell = el('div', 'promptcmp__text promptcmp__none', fill('not-in', { tag: c[1] }));
         else if (c[0] === 'same') cell = el('div', 'promptcmp__text promptcmp__none', t('no-change-plain'));
-        else if (row.ref) {
+        else if (row.desc) {
           cell = el('div', 'promptcmp__text');
-          cell.appendChild(cardLink(null, row.text, row.ref));
+          filledCell(cell, row);
         }
         else cell = textCell(c[0]);
         /* På en telefon står cellene under hverandre; da sier denne hvilken
@@ -922,7 +1003,11 @@
     if (!root || !state.history) return;
     var ticket = ++drawn;
     var tags = state.compare ? [state.compare, state.release] : [state.release];
-    Promise.all(tags.map(loadRelease)).then(function (rels) {
+    var code = state.code;
+    var live = state.liveLang[code] ? Promise.resolve() :
+      getJson('/assets/languages/' + code + '.json').then(function (d) { state.liveLang[code] = d; }, function () {});
+    Promise.all(tags.map(loadRelease).concat([live])).then(function (rels) {
+      rels = rels.slice(0, tags.length);
       if (ticket !== drawn) return;
       draw(rels);
     }).catch(failed);
@@ -948,6 +1033,11 @@
 
     cardIds(rels).forEach(function (id) {
       var controls = { language: langRow, family: familyRow }[id] || null;
+      if (id === 'keywords') {
+        var kv = keywordsView();
+        root.appendChild(card({ id: id, title: kv.title, about: kv.about, rows: kv.rows }));
+        return;
+      }
       if (rels.length === 1) {
         var v = view(rels[0], id);
         if (!v) return;
@@ -978,7 +1068,7 @@
           : sameRows(older.rows, newer.rows) ? noChange(rels[0].tag, id)
           : older.format !== newer.format ? t('format-changed')
           : '',
-        rows: tableRows(older, newer)
+        rows: enrich(tableRows(older, newer), newer, older)
       }));
     });
 
