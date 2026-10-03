@@ -220,50 +220,99 @@
     reveal.appendChild(toggle);
     box.appendChild(reveal);
 
-    var list = el('dl', 'promptdoc__sections');
+    /* Gruppeoverskriften («Role and style», «How to teach» ...) står der
+       gruppa begynner — samme overskrift som står i instruksen eleven limer
+       inn — og hver gruppe er sin egen <dl>, siden en overskrift ikke kan
+       stå inne i en. Moduler fra før 0.25.0 har ingen grupper og får én. */
+    var list = null;
+    var group = null;
     opts.rows.forEach(function (row) {
+      if (!list || (row.group || null) !== group) {
+        if (row.group) reveal.appendChild(el('h4', 'promptdoc__group', row.group));
+        list = el('dl', 'promptdoc__sections');
+        reveal.appendChild(list);
+      }
+      group = row.group || null;
       var dt = el('dt', 'promptdoc__key');
       dt.appendChild(el('code', null, row.label));
+      if (row.when) dt.appendChild(el('span', 'promptdoc__when', row.when));
       if (row.note) dt.appendChild(el('span', 'promptdoc__note', row.note));
       list.appendChild(dt);
       var dd = el('dd', 'promptdoc__text', row.text);
       list.appendChild(dd);
     });
-    reveal.appendChild(list);
 
     return box;
   }
 
   /* ---- seksjonene i én instruksmodul ------------------------------------ */
 
+  /* Hva en betingelse heter for en leser. Navnet kommer fra modulens
+     `when` (fra 0.25.0) og betydningen fra CONDITIONS i motoren; teksten
+     her er sidas, på tre språk. Et navn uten tekst vises som det er,
+     framfor å forsvinne. */
+  function whenLabel(name) {
+    if (!name) return '';
+    var key = 'cond-' + name;
+    var text = t(key);
+    return text === key ? name : text;
+  }
+
   function moduleRows(module, extras) {
     var rows = [];
+    var when = module.when || {};
+    var famSections = extras.familySections || {};
+    var groups = module.groups ||
+      [{ title: '', sections: module.order || Object.keys(module.sections || {}) }];
 
-    (module.order || Object.keys(module.sections || {})).forEach(function (sid) {
-      var text = (module.sections || {})[sid];
-      /* Stikkordet ER navnet. Ingen av modulene har en parallell
-         tittel-tabell lenger, og i den komponerte instruksen står det
-         samme ordet foran teksten — se composePrompt() i motoren. */
-      var label = sid;
-      if (text == null) {
-        /* En seksjon som står som null i modulen fylles av et annet lag —
-           `outputLanguage` og `writingStyle` kommer fra språkfila. Det er
-           verdt å vise AT den finnes, framfor å utelate den i stillhet. Tom
-           teller ikke: en.json har `writingStyle: ""` med vilje, fordi den
-           fila betjener alle språk som ikke har en fil selv. */
-        var filler = (extras.lang || {})[sid];
-        if (!filler) return;
-        rows.push({ label: label, text: filler, note: t('from-language') });
-        return;
-      }
-      rows.push({ label: label, text: plainText(text), note: '' });
+    groups.forEach(function (g) {
+      g.sections.forEach(function (sid) {
+        var text = (module.sections || {})[sid];
+        /* Stikkordet ER navnet. I den komponerte instruksen står det samme
+           ordet foran teksten — se composePrompt() i motoren. */
+        var row = { label: sid, group: g.title || '', when: whenLabel(when[sid]), note: '' };
+        if (famSections[sid] != null) {
+          /* Fra 0.25.0 ERSTATTER fagfamilien seksjonen: dette er teksten et
+             tre i familien får, og den generelle vises når «ingen
+             fagfamilie» er valgt. */
+          row.text = plainText(famSections[sid]);
+          row.note = extras.familyNote || t('from-family');
+        } else if (text == null) {
+          /* En seksjon som står som null i modulen fylles av et annet lag —
+             `outputLanguage` og `writingStyle` kommer fra språkfila. Det er
+             verdt å vise AT den finnes, framfor å utelate den i stillhet. Tom
+             teller ikke: en.json har `writingStyle: ""` med vilje, fordi den
+             fila betjener alle språk som ikke har en fil selv. */
+          var filler = (extras.lang || {})[sid];
+          if (!filler) return;
+          row.text = filler;
+          row.note = t('from-language');
+        } else {
+          row.text = plainText(text);
+        }
+        rows.push(row);
+      });
     });
 
+    /* En seksjon fagfamilien LEGGER TIL står etter ankeret sitt, i gruppa
+       til ankeret, som i instruksen. Uten anker (eller i en eldre release
+       der ankeret ikke finnes) står den sist. */
     (extras.family || []).forEach(function (add) {
-      rows.push({ label: add.id, text: add.text, note: t('from-family') });
+      var row = { label: add.id, text: add.text, note: extras.familyAddNote || t('from-family-add'), group: '', when: '' };
+      var at = -1;
+      rows.forEach(function (r, i) { if (r.label === add.after) at = i; });
+      if (at === -1) {
+        row.group = rows.length ? rows[rows.length - 1].group : '';
+        rows.push(row);
+      } else {
+        row.group = rows[at].group;
+        row.when = rows[at].when;
+        rows.splice(at + 1, 0, row);
+      }
     });
     (extras.overrides || []).forEach(function (o) {
-      rows.push({ label: o.id, text: o.text, note: t('from-language-override') });
+      rows.push({ label: o.id, text: o.text, note: t('from-language-override'),
+                  group: rows.length ? rows[rows.length - 1].group : '', when: '' });
     });
 
     return rows;
@@ -280,7 +329,8 @@
     if (!module) return null;
     var lang = rel.languages[state.code] || {};
     var layer = lang.prompt || {};
-    var family = rel.families[state.familyCode] || {};
+    var family = (state.familyCode && rel.families[state.familyCode]) || {};
+    var famPart = (family.instructions || {})[id] || {};
     var overrides = (layer.overrides || {})[id] || {};
     return {
       title: module.title || id,
@@ -289,7 +339,10 @@
       format: module.format || 'json',
       rows: moduleRows(module, {
         lang: layer,
-        family: ((family.instructions || {})[id] || {}).add || [],
+        family: famPart.add || [],
+        familySections: famPart.sections || {},
+        familyNote: fill('from-family-named', { family: family.title || state.familyCode }),
+        familyAddNote: fill('from-family-add-named', { family: family.title || state.familyCode }),
         overrides: Object.keys(overrides).map(function (k) {
           return { id: k, text: overrides[k] };
         })
@@ -340,6 +393,13 @@
      `decomposition` leses av læreren eller agenten som skriver treet. Det
      er tekst en KI faktisk får — og sida heter «alt KI-en blir bedt om». */
   function familyView(rel) {
+    /* «Ingen fagfamilie» er et valg i velgeren fra 0.25.0: det er slik den
+       generelle teksten i en seksjon en familie erstatter, kan leses. Kortet
+       står likevel, for velgeren står i det. */
+    if (!state.familyCode) {
+      return { title: t('family-title'), meta: t('family-none'), about: about('family'),
+               status: t('family-none-status'), rows: [] };
+    }
     var fam = rel.families[state.familyCode];
     if (!fam) return null;
     var rows = [];
@@ -349,10 +409,20 @@
     var instructions = fam.instructions || {};
     rel.instructions.forEach(function (id) {
       var module = rel.modules[id] || {};
-      ((instructions[id] || {}).add || []).forEach(function (add) {
+      var part = instructions[id] || {};
+      Object.keys(part.sections || {}).forEach(function (sid) {
+        rows.push({
+          label: sid,
+          text: plainText(part.sections[sid]),
+          group: module.title || id,
+          note: t('family-replaces-in').replace('{x}', module.title || id)
+        });
+      });
+      (part.add || []).forEach(function (add) {
         rows.push({
           label: add.id,
           text: add.text,
+          group: (module.groups ? module.title || id : ''),
           note: t('family-add-in').replace('{x}', module.title || id)
         });
       });
@@ -360,7 +430,8 @@
 
     var decomposition = fam.decomposition || {};
     Object.keys(decomposition).forEach(function (sid) {
-      rows.push({ label: sid, text: plainText(decomposition[sid]), note: t('family-authoring') });
+      rows.push({ label: sid, text: plainText(decomposition[sid]), note: t('family-authoring'),
+                  group: fam.schemaVersion >= 3 ? t('family-group-authoring') : '' });
     });
 
     return {
@@ -583,27 +654,39 @@
      stikkord og merknad. En rad som bare finnes i den gamle, kommer inn
      der den sto, strøket. */
   function diffRows(oldRows, newRows) {
-    var keyOf = function (r) { return r.label + '\u0000' + r.note; };
+    /* Nøkkelen er stikkordet, nummerert når det står flere ganger (en
+       språkoverstyring står ved siden av seksjonen den erstatter). Merknaden
+       er ikke med: fra 0.25.0 er `conceptGuidance` «fra fagfamilien» der den
+       før var den generelle, og det er den samme seksjonen. Gruppa er heller
+       ikke med: en seksjon som har flyttet gruppe, er den samme seksjonen. */
+    var keyed = function (rows) {
+      var seen = {};
+      return rows.map(function (r) {
+        var n = seen[r.label] = (seen[r.label] || 0) + 1;
+        return r.label + '\u0000' + n;
+      });
+    };
+    var oldK = keyed(oldRows), newK = keyed(newRows);
     var oldBy = {}, newKeys = {};
-    oldRows.forEach(function (r, i) { oldBy[keyOf(r)] = i; });
-    newRows.forEach(function (r) { newKeys[keyOf(r)] = true; });
+    oldK.forEach(function (k, i) { oldBy[k] = i; });
+    newK.forEach(function (k) { newKeys[k] = true; });
     var out = [], next = 0;
     var flushRemoved = function (upto) {
       for (; next < upto; next++) {
         var r = oldRows[next];
-        if (!newKeys[keyOf(r)]) {
-          out.push({ label: r.label, note: r.note, change: '-', parts: [{ t: '-', s: r.text }] });
+        if (!newKeys[oldK[next]]) {
+          out.push({ label: r.label, note: r.note, group: r.group, when: r.when, change: '-', parts: [{ t: '-', s: r.text }] });
         }
       }
     };
-    newRows.forEach(function (r) {
-      var i = oldBy[keyOf(r)];
+    newRows.forEach(function (r, j) {
+      var i = oldBy[newK[j]];
       if (i == null) {
-        out.push({ label: r.label, note: r.note, change: '+', parts: [{ t: '+', s: r.text }] });
+        out.push({ label: r.label, note: r.note, group: r.group, when: r.when, change: '+', parts: [{ t: '+', s: r.text }] });
         return;
       }
       if (i >= next) flushRemoved(i + 1);
-      out.push({ label: r.label, note: r.note,
+      out.push({ label: r.label, note: r.note, group: r.group, when: r.when,
                  parts: r.text === oldRows[i].text ? [{ t: '=', s: r.text }] : diffText(oldRows[i].text, r.text) });
     });
     flushRemoved(oldRows.length);
@@ -619,7 +702,7 @@
     function plain(rows, side) {
       return rows.map(function (r) {
         var cell = [{ t: '=', s: r.text }];
-        return { label: r.label, note: r.note,
+        return { label: r.label, note: r.note, group: r.group, when: r.when,
                  newer: side === 'newer' ? cell : null, older: side === 'older' ? cell : null };
       });
     }
@@ -637,7 +720,7 @@
       };
       var same = r.parts.every(function (p) { return p.t === '='; });
       return {
-        label: r.label, note: r.note,
+        label: r.label, note: r.note, group: r.group, when: r.when,
         newer: r.change === '-' ? null : keep('+'),
         older: r.change === '+' ? null : (same ? 'same' : keep('-'))
       };
@@ -699,9 +782,17 @@
     box.appendChild(reveal);
 
     var grid = el('div', 'promptcmp');
+    var group = null;
     opts.rows.forEach(function (row) {
+      /* En rad uten gruppe (en seksjon bare den eldre releasen har, fra før
+         gruppene) står i gruppa den havner i, og bryter den ikke. */
+      if (row.group && row.group !== group) {
+        grid.appendChild(el('div', 'promptcmp__group', row.group));
+        group = row.group;
+      }
       var key = el('div', 'promptcmp__key');
       key.appendChild(el('code', null, row.label));
+      if (row.when) key.appendChild(el('span', 'promptdoc__when', row.when));
       if (row.note) key.appendChild(el('span', 'promptdoc__note', row.note));
       grid.appendChild(key);
       [[row.newer, opts.newTag], [row.older, opts.oldTag]].forEach(function (c) {
@@ -722,7 +813,8 @@
   function sameRows(a, b) {
     if (a.length !== b.length) return false;
     for (var i = 0; i < a.length; i++) {
-      if (a[i].label !== b[i].label || a[i].note !== b[i].note || a[i].text !== b[i].text) return false;
+      if (a[i].label !== b[i].label || a[i].note !== b[i].note || a[i].text !== b[i].text ||
+          (a[i].group || '') !== (b[i].group || '')) return false;
     }
     return true;
   }
@@ -769,16 +861,22 @@
       if (rels.length === 1) {
         var v = view(rels[0], id);
         if (!v) return;
+        var noFamily = id === 'family' && !state.familyCode;
         root.appendChild(card({
           id: id, title: v.title, meta: v.meta, about: v.about, rows: v.rows,
-          control: controls,
-          versions: versionSelect(id, v.title, rels[0].tag, function (tag) { setRelease(tag); })
+          control: controls, status: v.status,
+          versions: noFamily ? null : versionSelect(id, v.title, rels[0].tag, function (tag) { setRelease(tag); })
         }));
         return;
       }
 
       var older = view(rels[0], id), newer = view(rels[1], id);
       var main = newer || older;
+      if (id === 'family' && !state.familyCode) {
+        root.appendChild(card({ id: id, title: main.title, meta: main.meta, about: main.about,
+                                control: controls, status: main.status, rows: [] }));
+        return;
+      }
       root.appendChild(compareCard({
         id: id, title: main.title, meta: main.meta, about: main.about,
         control: controls,
@@ -938,7 +1036,7 @@
     state.familyCode = code;
     if (setFamily) setFamily(code);
     render();
-    if (window.aistTrack) window.aistTrack('prompts_family', { prompt_family: code });
+    if (window.aistTrack) window.aistTrack('prompts_family', { prompt_family: code || 'none' });
   }
 
   function failed(err) {
@@ -1094,14 +1192,17 @@
           if (!titles[f.code]) titles[f.code] = f.title || f.code;
         });
       });
-      if (families.indexOf(state.familyCode) === -1 && families.length) state.familyCode = families[0];
+      if (state.familyCode && families.indexOf(state.familyCode) === -1 && families.length) state.familyCode = families[0];
 
       var fp = pickerRow('family-label');
       familyRow = fp.row;
       familyLabel = fp.label;
-      setFamily = buildPicker(fp.host, families.map(function (code) {
+      /* «Ingen fagfamilie» først: et tre uten `subjectFamily` får de
+         generelle tekstene, og fra 0.25.0 er det eneste sted de vises for en
+         seksjon en familie erstatter. */
+      setFamily = buildPicker(fp.host, [{ code: '', name: t('family-none') }].concat(families.map(function (code) {
         return { code: code, name: titles[code] };
-      }), 'family', pickFamily);
+      })), 'family', pickFamily);
       setFamily(state.familyCode);
 
       render();

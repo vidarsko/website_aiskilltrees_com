@@ -625,6 +625,16 @@ select.ed-input { cursor: pointer; }
 
 /* ---- Instruksene -------------------------------------------------------- */
 
+/* Instruksens egne grupper, de samme overskriftene som står i teksten
+   eleven limer inn (fra maskineri 0.25.0). */
+.ed-group {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .ed-sec {
   display: grid;
   gap: var(--space-1);

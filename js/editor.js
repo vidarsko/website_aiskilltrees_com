@@ -1286,7 +1286,14 @@
     var ins = eff.instructions.filter(function (i) { return i.id === state.instruction; })[0] || eff.instructions[0];
     wrap.appendChild(h('p', { class: 'ed-meta', text: t('instr-version', { id: ins.id, version: ins.version }) }));
 
-    ins.sections.forEach(function (sec) { wrap.appendChild(sectionCard(ins, sec)); });
+    /* Overskriftene er instruksens egne grupper («Role and style», «How to
+       teach» ...), de samme som står i teksten eleven limer inn. */
+    var group = null;
+    ins.sections.forEach(function (sec) {
+      if (sec.group && sec.group !== group) wrap.appendChild(h('h4', { class: 'ed-group', text: sec.group }));
+      group = sec.group || null;
+      wrap.appendChild(sectionCard(ins, sec));
+    });
     return wrap;
   }
 
@@ -1294,6 +1301,12 @@
     var k = 'instr-name-' + ins.id;
     var name = t(k);
     return name === k ? ins.title : name;
+  }
+
+  function condLabel(name) {
+    var key = 'cond-' + name;
+    var text = t(key);
+    return text === key ? name : text;
   }
 
   function usedIn(sectionId) {
@@ -1310,9 +1323,16 @@
     if (own) badges.push(['changed', t('sec-changed')]);
     if (all) badges.push(['changed', t('sec-changed-all')]);
     if (sec.runtime) badges.push(['runtime', t('sec-runtime')]);
-    if (sec.conditional) badges.push(['cond', t('sec-conditional')]);
+    /* Når seksjonen gjelder, med navnet fra modulens `when` («Concept
+       nodes», «With prerequisites»), ikke bare at den gjelder «noen ganger». */
+    if (sec.condition) badges.push(['cond', condLabel(sec.condition)]);
+    else if (sec.conditional) badges.push(['cond', t('sec-conditional')]);
     if (!own && !all && sec.source === 'language') badges.push(['src', t('sec-from-language')]);
-    if (!own && !all && sec.source === 'family') badges.push(['src', t('sec-from-family')]);
+    if (!own && !all && sec.source === 'family') {
+      badges.push(['src', state.eff.subjectFamilyTitle
+        ? t('sec-from-family-named', { family: state.eff.subjectFamilyTitle })
+        : t('sec-from-family')]);
+    }
 
     var card = h('article', { class: 'ed-sec' + (own || all ? ' ed-sec--changed' : '') }, [
       h('header', { class: 'ed-sec__head' }, [

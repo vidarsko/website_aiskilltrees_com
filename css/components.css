@@ -932,6 +932,36 @@
   overflow-wrap: anywhere;
 }
 
+/* Gruppene i en instruks (fra maskineri 0.25.0): «Role and style», «How
+   to teach» ... Samme overskrift som i instruksen eleven limer inn. */
+.promptdoc__group,
+.promptcmp__group {
+  margin: var(--space-3) 0 var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 600;
+  color: var(--ink);
+}
+.promptdoc__group:first-of-type { margin-top: var(--space-2); }
+.promptdoc__sections + .promptdoc__sections { border-top: 0; }
+.promptcmp__group {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: var(--space-2) var(--space-2) var(--space-1);
+  background: var(--paper-2);
+}
+
+/* Når seksjonen gjelder — «Concept nodes», «With prerequisites». Ingen
+   farge: det er en opplysning, ikke et varsel. */
+.promptdoc__when {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
 /* På en telefon faller stikkordet over teksten framfor ved siden av — to
    kolonner på 360px gir fire ord i bredden i høyre spor. */
 @media (max-width: 40rem) {

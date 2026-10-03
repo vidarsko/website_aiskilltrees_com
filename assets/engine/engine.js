@@ -64,15 +64,18 @@ const ENGINE_SRC = (typeof document !== 'undefined' && document.currentScript)
 /*   2. tree.csv     → prompt-rad (instruks + seksjon, eller * + seksjon)*/
 /*   3. språkfila    → prompt.overrides.<instruks>.<seksjon>            */
 /*   4. språkfila    → prompt.<seksjon> (outputLanguage, writingStyle)  */
-/*   5. fagfamilien  → instructions.<instruks>.add[].text               */
+/*   5. fagfamilien  → instructions.<instruks>.sections.<seksjon>       */
+/*                     (eller .add[].text for en helt ny seksjon)       */
 /*   6. instruksmodulen → sections.<seksjon>                            */
 /*   7. shared.json  → sections.<seksjon>                               */
 /* Punkt 3 er grunnen til at «engelsk kjerne + språklag» og «full       */
 /* oversettelse» er samme mekanisme: et språk kan overstyre én seksjon  */
 /* eller alle, uten at noe annet endres.                                */
-/* Punkt 5 gir fagfamilien to virkemåter med én mekanisme: en NY id     */
-/* flettes inn i `order` etter ankeret sitt, mens en id som allerede    */
-/* finnes i `order` overstyrer den generelle teksten på plassen sin.    */
+/* Punkt 5: fagfamilien ERSTATTER en generell seksjon (`sections`), slik */
+/* at hvert punkt har ÉN tekst - familiens, eller den generelle når     */
+/* treet ikke har familie. Fra 0.25.0; før det la familien til egne     */
+/* seksjoner etter den generelle. `add` finnes fortsatt, men bare for   */
+/* en seksjon den generelle instruksen ikke har (practiceLanguage).     */
 /*                                                                      */
 /* STIENE BEGYNNER MED /assets/ (fra 0.4.0). Maskineriet ligger samlet   */
 /* under ett prefiks på det publiserte nettstedet, fordi /prompts/ er en */
@@ -260,51 +263,57 @@ const NODE_TYPES = ['skill', 'concept', 'fact'];
 /* ------------------------------------------------------------------ */
 /* Komposisjon av KI-instruks                                           */
 /*                                                                      */
-/* Rekkefølgen på seksjonene er DATA (`order` i instruksmodulen), slik   */
-/* at den kan endres uten å røre kode. Hvilke seksjoner som gjelder NÅR  */
-/* er logikk, og bor her.                                               */
+/* Rekkefølgen på seksjonene er DATA (`groups` i instruksmodulen), slik */
+/* at den kan endres uten å røre kode. HVILKEN betingelse en seksjon har */
+/* er også data (`when`); hva betingelsen betyr er logikk, og bor her.  */
 /* ------------------------------------------------------------------ */
 
-const SECTION_WHEN = {
-  /* Lærerens egen tekst om kurset. Den står i alle fire instruksene og er
-     tom by default: et tre som ikke setter slotten skal se ut nøyaktig som
-     før. Se courseSpecificsApplies(). */
-  'node.courseSpecifics':       ctx => courseSpecificsApplies('node'),
-  'exam.courseSpecifics':       ctx => courseSpecificsApplies('exam'),
-  'motivation.courseSpecifics': ctx => courseSpecificsApplies('motivation'),
-  'lessonPlan.courseSpecifics': ctx => courseSpecificsApplies('lessonPlan'),
-  'node.expression':         ctx => !!slot('expressionFocus'),
-  'node.prerequisites':      ctx => ctx.ancestors && ctx.ancestors.length > 0,
-  'node.prerequisitesNone':  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
-  /* «Alt som ikke er et begrep» fram til fakta-typen kom (0.21.0). En
-     faktanode skal ikke få ferdighetsseksjonene, og heller ikke det
-     fagfamiliene har forankret etter dem. */
-  'node.goalSkill':          ctx => !ctx.node || (ctx.node.type !== 'concept' && ctx.node.type !== 'fact'),
-  'node.goalConcept':        ctx => ctx.node && ctx.node.type === 'concept',
+/* Hvilke seksjoner som gjelder NÅR. Modulen sier hvilken betingelse en
+   seksjon har (`when` i JSON-en, et navn herfra); hva navnet betyr er
+   logikk, og bor her. Navnet er også det byggeren og /prompts/ viser
+   («Nodes with prerequisites»), så det skal si hva det gjelder, ikke
+   hvordan det regnes ut. Fram til 0.25.0 var tabellen nøklet på
+   instruks.seksjon her i koden, og sidene kunne bare si «noen ganger». */
+const CONDITIONS = {
+  /* Lærerens egen tekst om kurset er tom by default: et tre som ikke
+     setter slotten skal se ut nøyaktig som før. */
+  courseSpecifics:  (ctx, name) => courseSpecificsApplies(name),
+  expressionFocus:  ctx => !!slot('expressionFocus'),
+  hasPrerequisites: ctx => !!(ctx.ancestors && ctx.ancestors.length > 0),
+  noPrerequisites:  ctx => !ctx.ancestors || ctx.ancestors.length === 0,
+  /* «Alt som ikke er et begrep» fram til fakta-typen kom (0.21.0). */
+  skillNode:        ctx => !ctx.node || (ctx.node.type !== 'concept' && ctx.node.type !== 'fact'),
+  conceptNode:      ctx => !!(ctx.node && ctx.node.type === 'concept'),
   /* Bare når noden faktisk holder flere definisjoner: teksten forklarer
      et format, og et format som ikke er der trenger ingen forklaring. */
-  'node.goalConceptMultiple': ctx => ctx.node && ctx.node.type === 'concept' &&
-                                     descriptionLines(ctx.node.description).length > 1,
-  'node.conceptGuidance':    ctx => ctx.node && ctx.node.type === 'concept',
-  'node.goalFact':           ctx => ctx.node && ctx.node.type === 'fact',
-  'node.factGuidance':       ctx => ctx.node && ctx.node.type === 'fact',
-  'node.nodeInstruction':    ctx => !!(ctx.node && ctx.node.instruction),
-  'node.aids':               ctx => treeUsesAids() && (ctx.node.aids || []).length > 0,
-  'node.aidsMultiple':       ctx => !!ctx.multipleAids,
-  'exam.aidsMultiple':       ctx => !!ctx.multipleAids,
-  'lessonPlan.aidsMultiple': ctx => !!ctx.multipleAids,
-  'exam.conceptMix':             ctx => !!ctx.hasConcepts,
-  'exam.conceptMixAllConcepts':  ctx => !!ctx.allConcepts,
-  'exam.conceptMixMixed':        ctx => !!ctx.hasConcepts && !ctx.allConcepts,
-  'exam.factMix':                ctx => !!ctx.hasFacts,
-  'exam.aids':                   ctx => treeUsesAids() && !!ctx.aidsText,
-  'lessonPlan.prerequisites':     ctx => ctx.ancestors && ctx.ancestors.length > 0,
-  'lessonPlan.prerequisitesNone': ctx => !ctx.ancestors || ctx.ancestors.length === 0,
-  'lessonPlan.tightWarning':      ctx => !!ctx.tight,
-  'lessonPlan.conceptAdaptation': ctx => !!ctx.hasConcepts,
-  'lessonPlan.factAdaptation':    ctx => !!ctx.hasFacts,
-  'lessonPlan.aids':              ctx => treeUsesAids() && !!ctx.aidsText,
+  severalConcepts:  ctx => !!(ctx.node && ctx.node.type === 'concept' &&
+                              descriptionLines(ctx.node.description).length > 1),
+  factNode:         ctx => !!(ctx.node && ctx.node.type === 'fact'),
+  nodeInstruction:  ctx => !!(ctx.node && ctx.node.instruction),
+  /* Én node har sine nivåer på noden; et utvalg (prøve, økt) har dem samlet
+     i aidsText. */
+  aids:             ctx => treeUsesAids() &&
+                           (ctx.node ? (ctx.node.aids || []).length > 0 : !!ctx.aidsText),
+  severalAids:      ctx => !!ctx.multipleAids,
+  hasConcepts:      ctx => !!ctx.hasConcepts,
+  allConcepts:      ctx => !!ctx.allConcepts,
+  someConcepts:     ctx => !!ctx.hasConcepts && !ctx.allConcepts,
+  hasFacts:         ctx => !!ctx.hasFacts,
+  tightSchedule:    ctx => !!ctx.tight,
 };
+
+/* Betingelsen en seksjon har i en instruks, som navn, eller null. En
+   seksjon fagfamilien LEGGER TIL (`add`) arver betingelsen til seksjonen
+   den står etter, med mindre den oppgir sin egen. */
+function sectionCondition(promptName, id) {
+  const spec = CORE.prompts[promptName] || {};
+  const when = spec.when || {};
+  if (when[id]) return when[id];
+  const add = familyAdds(promptName).find(a => a.id === id);
+  if (add && add.when) return add.when;
+  if (add && add.after) return sectionCondition(promptName, add.after);
+  return null;
+}
 
 function slot(name) {
   return (CONFIG.slots || {})[name];
@@ -321,10 +330,20 @@ function courseSpecificsApplies(promptName) {
          PROMPT_ROWS['*.courseSpecifics'] != null;
 }
 
-/* Tilleggene fagfamilien bidrar med til ÉN instruks, som en liste av
-   { id, after, text }. Tomt for et tre uten `subjectFamily`. */
+/* Det fagfamilien har for ÉN instruks: `sections` erstatter generelle
+   seksjoner, `add` er seksjoner den generelle instruksen ikke har, som en
+   liste av { id, after, text }. Tomt for et tre uten `subjectFamily`. */
+function familyPart(promptName) {
+  return (FAMILY && FAMILY.instructions && FAMILY.instructions[promptName]) || {};
+}
 function familyAdds(promptName) {
-  return ((FAMILY && FAMILY.instructions && FAMILY.instructions[promptName]) || {}).add || [];
+  return familyPart(promptName).add || [];
+}
+function familyText(promptName, id) {
+  const own = familyPart(promptName).sections || {};
+  if (own[id] != null) return own[id];
+  const add = familyAdds(promptName).find(a => a.id === id);
+  return add && add.text != null ? add.text : null;
 }
 
 /* Slår opp teksten for én seksjon. Se rekkefølgen i filhodet. */
@@ -344,8 +363,8 @@ function sectionText(promptName, id, ctx) {
   if (fromLangOverride != null) return fromLangOverride;
   if (langPrompt[id] != null) return langPrompt[id];
 
-  const fromFamily = familyAdds(promptName).find(a => a.id === id);
-  if (fromFamily && fromFamily.text != null) return fromFamily.text;
+  const fromFamily = familyText(promptName, id);
+  if (fromFamily != null) return fromFamily;
 
   const spec = CORE.prompts[promptName];
   if (spec && spec.sections[id] != null) return spec.sections[id];
@@ -353,12 +372,32 @@ function sectionText(promptName, id, ctx) {
   return SHARED[id] != null ? SHARED[id] : null;
 }
 
-/* Instruksens egen `order`, med fagfamiliens seksjoner flettet inn etter
-   ankeret hver av dem oppgir. En familie som gjenbruker en id som ALLEREDE
-   finnes i `order` flytter ingenting - da vinner familieteksten på plassen
-   seksjonen har fra før, via sectionText() over. */
+/* Gruppene i en instruks: [{ title, sections }]. Fra 0.25.0 har en modul
+   `groups` med en overskrift hver - «Role and style», «How to teach» ... -
+   som også skrives inn i den ferdige instruksen. En modul med bare
+   `order` er én gruppe uten overskrift. */
+function sectionGroups(promptName) {
+  const spec = CORE.prompts[promptName];
+  if (spec.groups) return spec.groups;
+  return [{ title: '', sections: spec.order || [] }];
+}
+
+/* Overskriften på gruppa en seksjon står i, etter at familiens nye
+   seksjoner er flettet inn: de står i gruppa til ankeret sitt. */
+function sectionGroup(promptName, id) {
+  const groups = sectionGroups(promptName);
+  const g = groups.find(gr => gr.sections.indexOf(id) !== -1);
+  if (g) return g.title;
+  const add = familyAdds(promptName).find(a => a.id === id);
+  return add && add.after ? sectionGroup(promptName, add.after) : (groups[groups.length - 1] || {}).title || '';
+}
+
+/* Alle seksjonene i rekkefølge, med fagfamiliens NYE seksjoner flettet inn
+   etter ankeret hver av dem oppgir. En familie som erstatter en seksjon
+   flytter ingenting - den vinner på plassen seksjonen har fra før, via
+   sectionText() over. */
 function sectionOrder(promptName) {
-  const order = CORE.prompts[promptName].order.slice();
+  const order = sectionGroups(promptName).reduce((acc, g) => acc.concat(g.sections), []);
   familyAdds(promptName).forEach(add => {
     if (order.indexOf(add.id) !== -1) return;
     const at = add.after ? order.indexOf(add.after) : -1;
@@ -373,11 +412,14 @@ function sectionOrder(promptName) {
    `conceptGuidance` stått på hver eneste ferdighetsnode, ikke bare på
    begrepsnodene - se `_conditions` i prompts/manifest.json. */
 function sectionApplies(promptName, id, ctx) {
-  const when = SECTION_WHEN[promptName + '.' + id];
-  if (when) return when(ctx);
-  const add = familyAdds(promptName).find(a => a.id === id);
-  if (add && add.after) return sectionApplies(promptName, add.after, ctx);
-  return true;
+  const name = sectionCondition(promptName, id);
+  if (!name) return true;
+  const test = CONDITIONS[name];
+  if (!test) {
+    console.warn('Ukjent betingelse «' + name + '» på ' + promptName + '.' + id);
+    return true;
+  }
+  return test(ctx, promptName);
 }
 
 function composePrompt(promptName, ctx) {
@@ -392,10 +434,16 @@ function composePrompt(promptName, ctx) {
     ctx.vars || {});
 
   const out = [];
+  let heading = null;
   sectionOrder(promptName).forEach(id => {
     if (!sectionApplies(promptName, id, ctx)) return;
     const text = sectionText(promptName, id, ctx);
     if (text == null || text === '') return;
+    /* Overskriften skrives først når gruppa faktisk har en seksjon med
+       tekst, så en gruppe der ingenting gjelder ikke står igjen tom. */
+    const group = sectionGroup(promptName, id);
+    if (group && group !== heading) out.push('## ' + group);
+    heading = group;
     /* Stikkordet står foran teksten: «role: ...». Det gjør to ting på én
        gang. Modellen får strukturen XML-tagger ville gitt den, uten at
        instruksen ser ut som kode for den som limer den inn — og læreren
@@ -678,8 +726,8 @@ function editDistance(a, b) {
    emoji» tror den fikk viljen sin.
 
    Kan bare kjøres ETTER at instruksmodulene og fagfamilien er lastet:
-   hvilke seksjoner som finnes, står i modulenes `order`, og fagfamilien
-   legger til sine egne. Derfor kalles den fra bootstrap og ikke fra
+   hvilke seksjoner som finnes, står i modulenes `groups`, og fagfamilien
+   kan legge til sine egne. Derfor kalles den fra bootstrap og ikke fra
    splitRows. */
 /* «Mente du ...?» for en instruks. Redigeringsavstand alene treffer ikke
    det vanligste feilgrepet: å skrive det instruksen HETER i artikkelen og
@@ -905,8 +953,8 @@ function sectionDefault(promptName, id) {
   const fromLangOverride = ((langPrompt.overrides || {})[promptName] || {})[id];
   if (fromLangOverride != null) return { text: fromLangOverride, source: 'language' };
   if (langPrompt[id] != null) return { text: langPrompt[id], source: 'language' };
-  const fromFamily = familyAdds(promptName).find(a => a.id === id);
-  if (fromFamily && fromFamily.text != null) return { text: fromFamily.text, source: 'family' };
+  const fromFamily = familyText(promptName, id);
+  if (fromFamily != null) return { text: fromFamily, source: 'family' };
   const spec = CORE.prompts[promptName];
   if (spec && spec.sections[id] != null) return { text: spec.sections[id], source: 'module' };
   if (SHARED[id] != null) return { text: SHARED[id], source: 'shared' };
@@ -924,7 +972,7 @@ function describeInstructions() {
       version: spec.version || '',
       sections: sectionOrder(name).map(id => {
         const def = sectionDefault(name, id);
-        const add = familyAdds(name).find(a => a.id === id);
+        const condition = sectionCondition(name, id);
         return {
           id: id,
           text: def.text,
@@ -932,8 +980,11 @@ function describeInstructions() {
           override: PROMPT_ROWS[name + '.' + id] != null ? PROMPT_ROWS[name + '.' + id] : null,
           overrideAll: PROMPT_ROWS['*.' + id] != null ? PROMPT_ROWS['*.' + id] : null,
           runtime: runtime.indexOf(id) !== -1,
-          conditional: !!SECTION_WHEN[name + '.' + id] ||
-                       !!(add && add.after && SECTION_WHEN[name + '.' + add.after]),
+          group: sectionGroup(name, id),
+          /* Navnet fra CONDITIONS, som byggeren oversetter til «Nodes with
+             prerequisites» o.l. `conditional` beholdes for en eldre side. */
+          condition: condition,
+          conditional: !!condition,
         };
       }),
     };
@@ -3083,6 +3134,7 @@ function publishEffectiveConfig() {
     language: CONFIG.language || '',
     languageName: CONVERSATION_LANGUAGE,
     subjectFamily: CONFIG.subjectFamily || '',
+    subjectFamilyTitle: (FAMILY && FAMILY.title) || '',
     decompositionVersion: CONFIG.decompositionVersion || '',
     learner: LEARNER_KEY,
     learnerWord: (LEARNER && LEARNER.definite) || '',

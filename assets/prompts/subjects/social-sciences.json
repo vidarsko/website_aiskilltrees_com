@@ -1,11 +1,10 @@
 {
-  "_comment": "Everything that is true of the social sciences and humanities but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"social-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats another family file, that is deliberate: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. Covers social studies, history, religious education and philosophy; the first-language subject and its literature are in language-and-literature. Carries its own `version`, cited separately in the paper's appendix.",
+  "_comment": "Everything that is true of the social sciences and humanities but NOT of every subject, in one place. A tree opts in with \"subjectFamily\": \"social-sciences\" in its tree.json. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by js/engine.js at runtime, and `decomposition` is read by a human or an agent following prompts/spec/decomposition.md when a new subject is authored. The engine ignores `decomposition` entirely. Where this file repeats another family file, that is deliberate: a teacher should be able to open one file and see the whole picture for their subject without chasing cross-references. Covers social studies, history, religious education and philosophy; the first-language subject and its literature are in language-and-literature. Carries its own `version`, cited separately in the paper's appendix. From 0.25.0 a family REPLACES general sections (`sections`, keyed by the section id) instead of adding its own after them: each point has one text, the family's or the general one, so a teacher edits it in one place. A replacement is therefore the whole section, general wording included, written for this subject. `add` remains only for a section the general instructions do not have at all, placed after `after` and taking that section's condition.",
   "family": "social-sciences",
   "title": "Social sciences and humanities",
-  "version": "1.4.1",
-  "schemaVersion": 2,
+  "version": "2.0.0",
+  "schemaVersion": 3,
   "sourceLanguage": "en",
-
   "decomposition": {
     "_comment": "Read at authoring time, not by the engine: the builder appends every family's block to the authoring prompt, after prompts/decomposition.json (its `subjectFamilies` section tells the model so). Every key here that does not start with `_` is text the model reads.",
     "nodeTypeCharacter": "In a subject that is more qualitative than quantitative, mastery is usually shown as successively higher qualitative command of the material, not as a procedure carried out. Most skill nodes here therefore sit at the upper SOLO levels (`soloTaxonomy`): they connect several concepts into a whole.",
@@ -13,30 +12,18 @@
     "loadBearingExamples": "Load-bearing vocabulary in these subjects is typically a word that names a contested or technical distinction later nodes depend on — sovereignty, separation of powers, welfare state, source criticism. An everyday political or social word used in its ordinary sense earns no node.",
     "assessmentContext": "Subjects in this family are often assessed orally or by coursework rather than by a written examination split into parts. Where that is so, leave the `aids` column empty on every row and write no `aids.*` settings — that is all it takes to switch the field off (see `aidsField`)."
   },
-
   "instructions": {
     "node": {
-      "add": [
-        {
-          "id": "conceptGuidanceCalculation",
-          "after": "conceptGuidance",
-          "text": "In this subject: do not test a concept with a long written argument or a full source analysis; that belongs to a skill node. A couple of sentences in the student's own words, a judgement on a borderline case, or which of two cases the concept covers is enough."
-        }
-      ]
+      "sections": {
+        "conceptGuidance": "This is a CONCEPT, not a skill. Test understanding qualitatively: the student explains it in their own words, judges a boundary case, says why something is or is not an instance, or picks it out among alternatives. Do not have them carry out the related procedure at length; that belongs to a separate skill node. In this subject, do not test a concept with a long written argument or a full source analysis; that belongs to a skill node. A couple of sentences in the student's own words, a judgement on a borderline case, or which of two cases the concept covers is enough."
+      }
     },
-
-    "exam": { "add": [] },
-
+    "exam": {},
     "lessonPlan": {
-      "add": [
-        {
-          "id": "mainPartCase",
-          "after": "examplePair",
-          "text": "IN THIS SUBJECT, anchor each goal in a concrete case, source or example before generalising. The teacher's turn works through one case aloud: what it shows, what it does not, and which idea it is an instance of. The students' turn does the same with a new case. For a higher-order goal (analysing, comparing, arguing, discussing), the students' task must connect several ideas; if one sentence answers it, it is pitched too low."
-        }
-      ]
+      "sections": {
+        "examplePair": "THE MAIN PART — ONE LEARNING GOAL AT A TIME\nTeach one learning goal at a time, in rounds: the teacher models the work first, the students then do corresponding work themselves, and the round repeats one step harder.\nMake 2–3 such rounds per learning goal. Each round consists of:\n\na) THE TEACHER'S TURN — one worked instance the teacher takes the class through in full, with every intermediate step shown, written as it should appear on the board. Also suggest HOW the teacher should do it, and vary this between rounds. Possible variants:\n   - The teacher does the whole problem in COMPLETE SILENCE, without saying a word, and the students must afterwards explain to their neighbour — or write down for themselves — what the teacher did and why.\n   - The teacher thinks aloud as they go.\n   - The teacher makes one deliberate mistake for the students to find.\n   - The teacher stops halfway and lets the class suggest the next step.\n\nb) THE STUDENTS' TURN — several pieces of work resembling the teacher's, in increasing difficulty, so that students who finish quickly have more to go at. Give at least three. IMPORTANT: the extra work must lie SIDEWAYS relative to the course progression — the same kind of thing in a different dress, a new wrapping or a small twist — and NOT forward towards the next round. The next, harder step is for the teacher to take in the next round; if the extra work pre-empts it, the next round loses its point. Mark clearly which one the teacher should go through afterwards (the easiest). Give answers to all of them.\n\nThe rounds should build upwards: the first round is the simplest case, the last round sits close to how the learning goal is actually to be mastered.\n\nc) INDEPENDENT PRACTICE — after the last round, three sets at different levels (e.g. \"Get started\", \"Further\", \"Challenge\") that the students work on by themselves. The students choose, or the teacher assigns. Give complete answers to all three sets.\n\nIN THIS SUBJECT, anchor each goal in a concrete case, source or example before generalising. The teacher's turn works through one case aloud: what it shows, what it does not, and which idea it is an instance of. The students' turn does the same with a new case. For a higher-order goal (analysing, comparing, arguing, discussing), the students' task must connect several ideas; if one sentence answers it, it is pitched too low."
+      }
     },
-
-    "motivation": { "add": [] }
+    "motivation": {}
   }
 }

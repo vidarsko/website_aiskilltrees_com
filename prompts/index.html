@@ -8,12 +8,12 @@
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css?v=2026-10-02c">
+  <link rel="stylesheet" href="/css/components.css?v=2026-10-03a">
 
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <script src="/js/prompts-page.js?v=2026-10-02c" defer></script>
+  <script src="/js/prompts-page.js?v=2026-10-03a" defer></script>
 
   <!--
     `?v=` på components.css og prompts-page.js tvinger nettleseren til å
@@ -112,9 +112,124 @@
           "sv": "ersatt av språklagret"
       },
       "from-family": {
+          "en": "from the subject family",
+          "nb": "fra fagfamilien",
+          "sv": "från ämnesfamiljen"
+      },
+      "from-family-named": {
+          "en": "from the {family} family",
+          "nb": "fra fagfamilien {family}",
+          "sv": "från ämnesfamiljen {family}"
+      },
+      "from-family-add": {
           "en": "added by the subject family",
           "nb": "lagt til av fagfamilien",
           "sv": "tillagt av ämnesfamiljen"
+      },
+      "from-family-add-named": {
+          "en": "added by the {family} family",
+          "nb": "lagt til av fagfamilien {family}",
+          "sv": "tillagt av ämnesfamiljen {family}"
+      },
+      "family-replaces-in": {
+          "en": "replaces the general text in {x}",
+          "nb": "erstatter den generelle teksten i {x}",
+          "sv": "ersätter den allmänna texten i {x}"
+      },
+      "family-group-authoring": {
+          "en": "When a tree is written",
+          "nb": "Når et tre skrives",
+          "sv": "När ett träd skrivs"
+      },
+      "family-none": {
+          "en": "No subject family",
+          "nb": "Ingen fagfamilie",
+          "sv": "Ingen ämnesfamilj"
+      },
+      "family-none-status": {
+          "en": "A tree without a subject family gets the general text in every section. That is what the instructions above show now.",
+          "nb": "Et tre uten fagfamilie får den generelle teksten i hver seksjon. Det er det instruksene over viser nå.",
+          "sv": "Ett träd utan ämnesfamilj får den allmänna texten i varje avsnitt. Det är vad instruktionerna ovan visar nu."
+      },
+      "cond-hasPrerequisites": {
+          "en": "With prerequisites",
+          "nb": "Med forutsetninger",
+          "sv": "Med förkunskaper"
+      },
+      "cond-noPrerequisites": {
+          "en": "Without prerequisites",
+          "nb": "Uten forutsetninger",
+          "sv": "Utan förkunskaper"
+      },
+      "cond-skillNode": {
+          "en": "Skill nodes",
+          "nb": "Ferdighetsnoder",
+          "sv": "Färdighetsnoder"
+      },
+      "cond-conceptNode": {
+          "en": "Concept nodes",
+          "nb": "Begrepsnoder",
+          "sv": "Begreppsnoder"
+      },
+      "cond-severalConcepts": {
+          "en": "Concept nodes with several terms",
+          "nb": "Begrepsnoder med flere begreper",
+          "sv": "Begreppsnoder med flera begrepp"
+      },
+      "cond-factNode": {
+          "en": "Fact nodes",
+          "nb": "Faktanoder",
+          "sv": "Faktanoder"
+      },
+      "cond-nodeInstruction": {
+          "en": "Nodes with an extra instruction",
+          "nb": "Noder med ekstra instruks",
+          "sv": "Noder med extra instruktion"
+      },
+      "cond-aids": {
+          "en": "When aid levels are set",
+          "nb": "Når hjelpemiddelnivå er satt",
+          "sv": "När hjälpmedelsnivå är satt"
+      },
+      "cond-severalAids": {
+          "en": "Several aid levels",
+          "nb": "Flere hjelpemiddelnivåer",
+          "sv": "Flera hjälpmedelsnivåer"
+      },
+      "cond-expressionFocus": {
+          "en": "When the tree sets expressionFocus",
+          "nb": "Når treet setter expressionFocus",
+          "sv": "När trädet sätter expressionFocus"
+      },
+      "cond-courseSpecifics": {
+          "en": "When the tree has a course text",
+          "nb": "Når treet har en kurstekst",
+          "sv": "När trädet har en kurstext"
+      },
+      "cond-hasConcepts": {
+          "en": "When concepts are included",
+          "nb": "Når begreper er med",
+          "sv": "När begrepp ingår"
+      },
+      "cond-allConcepts": {
+          "en": "Only concepts",
+          "nb": "Bare begreper",
+          "sv": "Bara begrepp"
+      },
+      "cond-someConcepts": {
+          "en": "Concepts and skills mixed",
+          "nb": "Begreper og ferdigheter blandet",
+          "sv": "Begrepp och färdigheter blandat"
+      },
+      "cond-hasFacts": {
+          "en": "When facts are included",
+          "nb": "Når fakta er med",
+          "sv": "När fakta ingår"
+      },
+      "cond-tightSchedule": {
+          "en": "When time is tight",
+          "nb": "Når tiden er knapp",
+          "sv": "När tiden är knapp"
       },
       "language-override-in": {
           "en": "replaces a section in {x}",
@@ -227,9 +342,9 @@
           "sv": "Läggs till i varenda instruktion motorn sätter samman, så att ett norskt träd talas om på norska och ett svenskt på svenska. En fil per språk håller det instruktionerna medvetet lämnar öppet: vilket språk samtalet förs på, och vad god prosa är på det språket. Samma avsnitt står märkta inne i instruktionerna ovan, där de landar."
       },
       "about-family": {
-          "en": "Added to four of the instructions above, and read once more when a tree is built, so that what holds for mathematics but not for history does not have to be written into every instruction. One file per family holds both halves: the sections it splices into the student's instructions, where they stand marked above, and the decomposition rules a teacher or an agent reads before writing a single row of the file. A tree names its family in its own file; one that names none gets the general instructions only.",
-          "nb": "Legges inn i fire av instruksene over, og leses en gang til når et tre bygges, slik at det som gjelder for matematikk men ikke for historie slipper å stå skrevet inn i hver eneste instruks. Én fil per familie holder begge halvdelene: seksjonene den skyter inn i elevinstruksene, der de står merket over, og dekomponeringsreglene en lærer eller en agent leser før en eneste rad i fila er skrevet. Et tre navngir familien sin i sin egen fil; et tre som ikke navngir noen, får bare de generelle instruksene.",
-          "sv": "Läggs in i fyra av instruktionerna ovan, och läses en gång till när ett träd byggs, så att det som gäller för matematik men inte för historia slipper skrivas in i varenda instruktion. En fil per familj håller båda halvorna: avsnitten den skjuter in i elevinstruktionerna, där de står märkta ovan, och nedbrytningsreglerna en lärare eller en agent läser innan en enda rad i filen är skriven. Ett träd namnger sin familj i sin egen fil; ett träd som inte namnger någon får bara de generella instruktionerna."
+          "en": "Some sections need different text for different subjects: how to lead in to a topic in mathematics is not how to do it in history. A subject family replaces those sections with versions written for its subjects, so every section has one text, and the instructions above show it in place, marked with the family's name. Choose \u201cNo subject family\u201d to see the general text instead. The same file holds the decomposition rules a teacher or an agent reads before writing a single row of the tree. A tree names its family in its own file.",
+          "nb": "Noen seksjoner trenger ulik tekst for ulike fag: å lede inn til et tema i matematikk gjøres ikke som i historie. En fagfamilie erstatter de seksjonene med versjoner skrevet for sine fag, så hver seksjon har én tekst, og instruksene over viser den på plassen sin, merket med familiens navn. Velg \u00abIngen fagfamilie\u00bb for å se den generelle teksten. Den samme fila har dekomponeringsreglene en lærer eller en agent leser før den skriver en eneste rad i treet. Et tre oppgir familien sin i sin egen fil.",
+          "sv": "Vissa avsnitt behöver olika text för olika ämnen: att leda in i ett område i matematik görs inte som i historia. En ämnesfamilj ersätter de avsnitten med versioner skrivna för sina ämnen, så varje avsnitt har en text, och instruktionerna ovan visar den på sin plats, märkt med familjens namn. Välj \u201dIngen ämnesfamilj\u201d för att se den allmänna texten. Samma fil har nedbrytningsreglerna en lärare eller en agent läser innan den skriver en enda rad i trädet. Ett träd anger sin familj i sin egen fil."
       },
       "about-shared": {
           "en": "Added to each instruction that names one of these sections, so that text which must read the same everywhere is written once. Kept in one place so the copies cannot drift apart.",

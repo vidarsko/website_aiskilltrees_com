@@ -1,11 +1,10 @@
 {
-  "_comment": "Everything that is true of the first-language subject but NOT of every subject, in one place: Norwegian for Norwegians, Swedish for Swedes, English as a first language. The name follows the IB (Studies in language and literature). History, religion and philosophy stay in social-sciences. A tree opts in with `subjectFamily` = `language-and-literature` in its tree.csv. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by the engine, and `decomposition` is appended to the authoring prompt when a new subject is built. The engine ignores `decomposition` entirely. Carries its own `version`, cited separately in the paper's appendix.",
+  "_comment": "Everything that is true of the first-language subject but NOT of every subject, in one place: Norwegian for Norwegians, Swedish for Swedes, English as a first language. The name follows the IB (Studies in language and literature). History, religion and philosophy stay in social-sciences. A tree opts in with `subjectFamily` = `language-and-literature` in its tree.csv. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by the engine, and `decomposition` is appended to the authoring prompt when a new subject is built. The engine ignores `decomposition` entirely. Carries its own `version`, cited separately in the paper's appendix. From 0.25.0 a family REPLACES general sections (`sections`, keyed by the section id) instead of adding its own after them: each point has one text, the family's or the general one, so a teacher edits it in one place. A replacement is therefore the whole section, general wording included, written for this subject. `add` remains only for a section the general instructions do not have at all, placed after `after` and taking that section's condition.",
   "family": "language-and-literature",
   "title": "Language and literature",
-  "version": "1.0.0",
-  "schemaVersion": 2,
+  "version": "2.0.0",
+  "schemaVersion": 3,
   "sourceLanguage": "en",
-
   "decomposition": {
     "_comment": "Read at authoring time, not by the engine: the builder appends every family's block to the authoring prompt, after prompts/decomposition.json (its `subjectFamilies` section tells the model so). Every key here that does not start with `_` is text the model reads.",
     "nodeTypeCharacter": "Most skills in this subject are operations on a text: summarising, skimming, reading to find something specific, drawing out opinions and arguments, interpreting, writing. The AI can train these fully, and can write the practice texts itself. Interpreting literature is the exception: it needs the real work, which the student must bring, and it has more than one defensible answer. Concept nodes hold the terms these operations depend on.",
@@ -13,35 +12,18 @@
     "loadBearingExamples": "Load-bearing vocabulary is typically the terms for how a text works: genre, narrator, point of view, argument, source, metaphor, rhetorical appeal. An everyday word used in its ordinary sense earns no node.",
     "assessmentContext": "These subjects are assessed by written exams, oral exams and coursework. Where the written exam is split into parts with different aids, use `aidsField` as usual; otherwise leave the `aids` column empty and write no `aids.*` settings."
   },
-
   "instructions": {
     "node": {
-      "add": [
-        {
-          "id": "texts",
-          "after": "goalSkill",
-          "text": "If this skill is an operation on a text, write short practice texts yourself, suited to the level, and vary them. If it is interpreting a literary work, ask the student to paste the passage they are working on; do not reproduce a whole work. An interpretation has more than one defensible answer: judge how well the student argues from the text, not whether they reach your reading."
-        },
-        {
-          "id": "ownWriting",
-          "after": "texts",
-          "text": "If the skill is writing, do not write the text for the student, and do not rewrite theirs so far that it is no longer theirs. Give feedback and let them revise it themselves."
-        }
-      ]
+      "sections": {
+        "skillGuidance": "This is a SKILL: the student learns it by doing it. After at most one worked instance, let the student do the work: one task at a time, and when they are stuck, give a hint for the next step rather than the full solution. If this skill is an operation on a text, write short practice texts yourself, suited to the level, and vary them. If it is interpreting a literary work, ask the student to paste the passage they are working on; do not reproduce a whole work. An interpretation has more than one defensible answer: judge how well the student argues from the text, not whether they reach your reading. If the skill is writing, do not write the text for the student, and do not rewrite theirs so far that it is no longer theirs. Give feedback and let them revise it themselves."
+      }
     },
-
     "exam": {
-      "add": [
-        {
-          "id": "textTasks",
-          "after": "task",
-          "text": "Write the texts the tasks work on yourself, short enough for a test. For an interpretation task, use a text you write, or ask the student to paste a passage from a work they have read. In the answer key for an interpretation task, describe what a well-argued answer does rather than giving one correct reading."
-        }
-      ]
+      "sections": {
+        "task": "Make a test with exactly {taskCount} task(s). Pick a representative selection that covers as many of the points as possible, vary the difficulty, and let some tasks combine several skills. Number the tasks and word them as on a written test in the subject. Write the texts the tasks work on yourself, short enough for a test. For an interpretation task, use a text you write, or ask the student to paste a passage from a work they have read. In the answer key for an interpretation task, describe what a well-argued answer does rather than giving one correct reading."
+      }
     },
-
-    "lessonPlan": { "add": [] },
-
-    "motivation": { "add": [] }
+    "lessonPlan": {},
+    "motivation": {}
   }
 }
