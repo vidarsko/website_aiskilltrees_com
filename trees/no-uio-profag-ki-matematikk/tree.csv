@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Profag:KI-matematikk,,,
 ,config,,description,"Kognitiv læringspsykologi omsatt til undervisningsgrep i matematikk, og hvordan KI kan brukes til å gjennomføre dem.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norsk (bokmål),,,
 ,config,,learner,participant,,,
 ,config,,subjectFamily,social-sciences,,,
 ,config,,storageKey,profag-ki-matematikk-completed,,,

@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Matematikk 1P,,,
 ,config,,description,"Tall og standardform, prosent og vekstfaktor, proporsjonalitet, måleenheter, geometri, lineære og ikke-lineære modeller og programmering — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,1p-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,

@@ -566,7 +566,12 @@ async function bootstrap() {
   /* Utledet framfor konfigurert. Samtalespråkets navn står i språkfila, og
      lagringsnøkkelen er et internt navn ingen lærer skal måtte finne på.
      Begge kan likevel oppgis - en config-rad vinner alltid. */
-  if (!CONFIG.languageName) CONFIG.languageName = LANG.name || code;
+  /* `prompt.conversationLanguage` er språkets navn slik det står inne i en
+     setning («på norsk (bokmål)»), som ikke alltid er det samme som navnet i
+     en meny («Norsk (bokmål)»). Fra 0.25.1 bruker alle språkfilene
+     {conversationLanguage} i `outputLanguage`, så en config-rad
+     `languageName` virker for norske og svenske trær også. */
+  if (!CONFIG.languageName) CONFIG.languageName = (LANG.prompt || {}).conversationLanguage || LANG.name || code;
   if (!CONFIG.storageKey) CONFIG.storageKey = deriveStorageKey(CONFIG.title || code);
 
   /* Pedagogikken ligger i én modul per bidrag, ikke i én core.json. Bare

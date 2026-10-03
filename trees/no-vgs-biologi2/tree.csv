@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Biologi 2,,,
 ,config,,description,"Fagmetode og feltarbeid, populasjonsøkologi og forvaltning, energistrøm og stoffkretsløp, enzymer, fotosyntese og celleånding, genetisk kode og genuttrykk, genteknologi, arv og variasjon, evolusjon og bioteknologi — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,biologi2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,

@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Matematikk 10. trinn,,,
 ,config,,description,"Tall og algebra, likningssett og modellering, funksjoner, personlig økonomi, statistikk, geometri og programmering — dekomponert i det elevene faktisk må kunne gjøre, med eksamens to deler lagt til grunn.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,matte10-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,

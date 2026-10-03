@@ -3,7 +3,7 @@
   "id": "node",
   "title": "Practice tutor",
   "contribution": 2,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "schemaVersion": 3,
   "sourceLanguage": "en",
   "groups": [
@@ -16,9 +16,9 @@
         "messageLength",
         "fallibility",
         "features",
+        "vocabulary",
         "outputLanguage",
         "languageSwitch",
-        "vocabulary",
         "writingStyleGeneral",
         "writingStyle"
       ]

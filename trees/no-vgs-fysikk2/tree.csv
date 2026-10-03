@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Fysikk 2,,,
 ,config,,description,"Kinematikk i to dimensjoner, krumlinjet bevegelse, gravitasjon, elektriske og magnetiske felt, induksjon, spesiell og generell relativitetsteori og kvantefysikk — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,fysikk2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,

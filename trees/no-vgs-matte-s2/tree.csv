@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Matematikk S2,,,
 ,config,,description,"Rekker, integrasjon, funksjonsdrøfting, eksponentiell og logistisk vekst, økonomisk modellering, sannsynlighetsfordelinger, normalfordeling og hypotesetesting — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,s2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,

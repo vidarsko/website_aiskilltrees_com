@@ -61,7 +61,11 @@
         history: null,
         release: null,   // taggen sida viser; i sammenlikning den NYERE
         compare: null,   // den eldre taggen, eller null
-        code: 'en', familyCode: DEFAULT_FAMILY
+        code: 'en', familyCode: DEFAULT_FAMILY,
+        /* Hvilke kort som står åpne. Sida tegnes på nytt ved hvert bytte av
+           språklag, familie eller release, og et åpent kort skal være åpent
+           etterpå også (Vidar, 2026-10-03). */
+        open: {}
       };
 
   /* Ikonet og etikettene er det eneste som skiller de to lagvelgerne. */
@@ -174,9 +178,43 @@
      form: overskrift, metalinje, en setning om hvor teksten brukes, og
      selve teksten sammenrullet. Derfor én byggefunksjon, ikke fire. */
 
+  function revealFor(id) {
+    var reveal = el('details', 'promptdoc__reveal');
+    if (state.open[id]) reveal.open = true;
+    reveal.addEventListener('toggle', function () { state.open[id] = reveal.open; });
+    return reveal;
+  }
+
+  /* En lenke til et annet kort på sida — språklaget eller fagfamilien —
+     som også folder det ut, så den som klikker ser teksten det pekes på. */
+  function cardLink(cls, text, ref) {
+    var a = el('a', cls, text);
+    a.href = '#card-' + ref;
+    a.addEventListener('click', function () {
+      state.open[ref] = true;
+      var target = document.getElementById('card-' + ref);
+      var d = target && target.querySelector('details');
+      if (d) d.open = true;
+    });
+    return a;
+  }
+
+  /* Stikkordcellen: navnet, når seksjonen gjelder, hvor teksten kommer fra,
+     og om en fagfamilie kan erstatte den. Samme for begge korttypene. */
+  function keyParts(cell, row) {
+    cell.appendChild(el('code', null, row.label));
+    if (row.when) cell.appendChild(el('span', 'promptdoc__when', row.when));
+    if (row.note) {
+      cell.appendChild(row.noteRef ? cardLink('promptdoc__note', row.note, row.noteRef)
+                                   : el('span', 'promptdoc__note', row.note));
+    }
+    if (row.alt) cell.appendChild(cardLink('promptdoc__alt', row.alt, 'family'));
+  }
+
   function card(opts) {
     var box = el('section', 'promptdoc' + (opts.missing ? ' promptdoc--missing' : ''));
     box.setAttribute('data-card', opts.id);
+    box.id = 'card-' + opts.id;
 
     var head = el('header', 'promptdoc__head');
     head.appendChild(el('h3', 'promptdoc__title', opts.title));
@@ -208,7 +246,7 @@
        instruks, vil som regel lese én. <details> framfor egen JavaScript:
        det virker uten script, kan søkes i av nettleseren, og har
        tastaturoppførselen gratis. */
-    var reveal = el('details', 'promptdoc__reveal');
+    var reveal = revealFor(opts.id);
     var toggle = el('summary', 'promptdoc__toggle');
     toggle.appendChild(el('span', 'promptdoc__toggle-show', t('show-prompt')));
     toggle.appendChild(el('span', 'promptdoc__toggle-hide', t('hide-prompt')));
@@ -234,11 +272,11 @@
       }
       group = row.group || null;
       var dt = el('dt', 'promptdoc__key');
-      dt.appendChild(el('code', null, row.label));
-      if (row.when) dt.appendChild(el('span', 'promptdoc__when', row.when));
-      if (row.note) dt.appendChild(el('span', 'promptdoc__note', row.note));
+      keyParts(dt, row);
       list.appendChild(dt);
-      var dd = el('dd', 'promptdoc__text', row.text);
+      var dd = el('dd', 'promptdoc__text');
+      if (row.ref) dd.appendChild(cardLink(null, row.text, row.ref));
+      else dd.textContent = row.text;
       list.appendChild(dd);
     });
 
@@ -271,24 +309,39 @@
         /* Stikkordet ER navnet. I den komponerte instruksen står det samme
            ordet foran teksten — se composePrompt() i motoren. */
         var row = { label: sid, group: g.title || '', when: whenLabel(when[sid]), note: '' };
+        var replacers = (extras.replacers || {})[sid] || [];
         if (famSections[sid] != null) {
           /* Fra 0.25.0 ERSTATTER fagfamilien seksjonen: dette er teksten et
              tre i familien får, og den generelle vises når «ingen
              fagfamilie» er valgt. */
           row.text = plainText(famSections[sid]);
           row.note = extras.familyNote || t('from-family');
+          row.noteRef = 'family';
         } else if (text == null) {
-          /* En seksjon som står som null i modulen fylles av et annet lag —
-             `outputLanguage` og `writingStyle` kommer fra språkfila. Det er
-             verdt å vise AT den finnes, framfor å utelate den i stillhet. Tom
-             teller ikke: en.json har `writingStyle: ""` med vilje, fordi den
-             fila betjener alle språk som ikke har en fil selv. */
+          /* En seksjon som står som null i modulen fylles av språklaget —
+             `outputLanguage` og `writingStyle`. Teksten står i språklagets
+             eget kort lenger ned, så her står bare en lenke dit (Vidar,
+             2026-10-03): å vise det valgte språkets tekst her så ut som om
+             instruksen selv var skrevet på det språket. Tom teller ikke:
+             en.json har `writingStyle: ""` med vilje. */
           var filler = (extras.lang || {})[sid];
-          if (!filler) return;
-          row.text = filler;
-          row.note = t('from-language');
+          if (filler) {
+            row.text = t('from-language-link');
+            row.ref = 'language';
+          } else if ((extras.shared || {})[sid] != null) {
+            /* En seksjon fra shared.json (languageSwitch, courseSpecifics ...)
+               sto ikke i kortet i det hele tatt før 2026-10-03; den står nå
+               på plassen sin, med lenke til de delte seksjonene. */
+            row.text = t('from-shared-link');
+            row.ref = 'shared';
+          } else {
+            return;
+          }
         } else {
           row.text = plainText(text);
+          /* Den generelle teksten, men noen fagfamilier har sin egen: si
+             hvilke, med lenke til familiekortet. */
+          if (replacers.length) row.alt = fill('family-can-replace', { list: replacers.join(', ') });
         }
         rows.push(row);
       });
@@ -324,6 +377,20 @@
      bruker de samme, så de to kolonnene kan ikke komme til å vise teksten
      forskjellig. */
 
+  /* For hver seksjon i en instruks: hvilke fagfamilier i releasen som
+     erstatter den, ved navn. */
+  function replacersOf(rel, id) {
+    var out = {};
+    Object.keys(rel.families || {}).forEach(function (code) {
+      var fam = rel.families[code] || {};
+      var secs = (((fam.instructions || {})[id]) || {}).sections || {};
+      Object.keys(secs).forEach(function (sid) {
+        (out[sid] = out[sid] || []).push(fam.title || code);
+      });
+    });
+    return out;
+  }
+
   function instructionView(rel, id) {
     var module = rel.modules[id];
     if (!module) return null;
@@ -341,6 +408,8 @@
         lang: layer,
         family: famPart.add || [],
         familySections: famPart.sections || {},
+        replacers: replacersOf(rel, id),
+        shared: (rel.shared || {}).sections || {},
         familyNote: fill('from-family-named', { family: family.title || state.familyCode }),
         familyAddNote: fill('from-family-add-named', { family: family.title || state.familyCode }),
         overrides: Object.keys(overrides).map(function (k) {
@@ -749,6 +818,7 @@
   function compareCard(opts) {
     var box = el('section', 'promptdoc promptdoc--compare');
     box.setAttribute('data-card', opts.id);
+    box.id = 'card-' + opts.id;
 
     var head = el('header', 'promptdoc__head');
     head.appendChild(el('h3', 'promptdoc__title', opts.title));
@@ -771,7 +841,7 @@
     if (opts.status) box.appendChild(el('p', 'promptdoc__status', opts.status));
     if (!opts.rows.length) return box;
 
-    var reveal = el('details', 'promptdoc__reveal');
+    var reveal = revealFor(opts.id);
     var toggle = el('summary', 'promptdoc__toggle');
     toggle.appendChild(el('span', 'promptdoc__toggle-show', t('show-prompt')));
     toggle.appendChild(el('span', 'promptdoc__toggle-hide', t('hide-prompt')));
@@ -791,14 +861,16 @@
         group = row.group;
       }
       var key = el('div', 'promptcmp__key');
-      key.appendChild(el('code', null, row.label));
-      if (row.when) key.appendChild(el('span', 'promptdoc__when', row.when));
-      if (row.note) key.appendChild(el('span', 'promptdoc__note', row.note));
+      keyParts(key, row);
       grid.appendChild(key);
       [[row.newer, opts.newTag], [row.older, opts.oldTag]].forEach(function (c) {
         var cell;
         if (c[0] === null) cell = el('div', 'promptcmp__text promptcmp__none', fill('not-in', { tag: c[1] }));
         else if (c[0] === 'same') cell = el('div', 'promptcmp__text promptcmp__none', t('no-change-plain'));
+        else if (row.ref) {
+          cell = el('div', 'promptcmp__text');
+          cell.appendChild(cardLink(null, row.text, row.ref));
+        }
         else cell = textCell(c[0]);
         /* På en telefon står cellene under hverandre; da sier denne hvilken
            release teksten er fra. */

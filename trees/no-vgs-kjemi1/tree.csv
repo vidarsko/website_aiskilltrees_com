@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Kjemi 1,,,
 ,config,,description,"Atombygning og periodesystemet, bindinger og molekylgeometri, navnsetting, støkiometri, redoks, termokjemi, reaksjonsfart og likevekt, syrer og baser, løselighet, kvantitativ analyse og organisk kjemi — dekomponert i det elevene faktisk må kunne gjøre.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,kjemi1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,

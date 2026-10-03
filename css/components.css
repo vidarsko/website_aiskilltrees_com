@@ -951,6 +951,21 @@
   background: var(--paper-2);
 }
 
+/* Merknaden om hvor teksten kommer fra er en lenke når den peker på et
+   annet kort (fagfamilien), og «Erstattes i noen fagfamilier» likeså. */
+a.promptdoc__note { text-decoration: underline; text-underline-offset: 0.15em; }
+.promptdoc__alt {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  line-height: 1.4;
+  color: var(--ink-3);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.promptdoc__text a, .promptcmp__text a { color: var(--primary); }
+
 /* Når seksjonen gjelder — «Concept nodes», «With prerequisites». Ingen
    farge: det er en opplysning, ikke et varsel. */
 .promptdoc__when {

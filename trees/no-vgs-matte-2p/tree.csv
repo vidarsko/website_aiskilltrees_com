@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Matematikk 2P,,,
 ,config,,description,"Interaktivt ferdighetstre for matematikk 2P: huk av det du mestrer, og kopier en KI-instruks for å trene videre.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,2p-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,

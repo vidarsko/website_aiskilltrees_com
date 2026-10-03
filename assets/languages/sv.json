@@ -12,21 +12,33 @@
       "definite": "eleven",
       "plural": "elever",
       "pluralDefinite": "eleverna",
-      "leadIn": { "skill": "Eleven kan:", "concept": "Eleven kan förklara:", "fact": "Eleven kan återge:" }
+      "leadIn": {
+        "skill": "Eleven kan:",
+        "concept": "Eleven kan förklara:",
+        "fact": "Eleven kan återge:"
+      }
     },
     "student": {
       "word": "student",
       "definite": "studenten",
       "plural": "studenter",
       "pluralDefinite": "studenterna",
-      "leadIn": { "skill": "Studenten kan:", "concept": "Studenten kan förklara:", "fact": "Studenten kan återge:" }
+      "leadIn": {
+        "skill": "Studenten kan:",
+        "concept": "Studenten kan förklara:",
+        "fact": "Studenten kan återge:"
+      }
     },
     "participant": {
       "word": "deltagare",
       "definite": "deltagaren",
       "plural": "deltagare",
       "pluralDefinite": "deltagarna",
-      "leadIn": { "skill": "Deltagaren kan:", "concept": "Deltagaren kan förklara:", "fact": "Deltagaren kan återge:" }
+      "leadIn": {
+        "skill": "Deltagaren kan:",
+        "concept": "Deltagaren kan förklara:",
+        "fact": "Deltagaren kan återge:"
+      }
     }
   },
   "ui": {
@@ -226,7 +238,8 @@
   },
   "prompt": {
     "_comment": "Språklagret i AI-instruktionerna. Samma roll som languages/nb.json → prompt. Endast det som är SÄRSKILT FÖR SVENSKA hör hemma här: själva principerna (aktiv form, undvik skriftspråkliga ord) är språkoberoende och bor i prompts/shared.json → writingStyleGeneral. Formuleringarna är hämtade från den svenska systermotorn på skogvoll.com, inte nyöversatta. OBS: `outputLanguage` säger vilket språk samtalet BÖRJAR på — den ska inte förbjuda eleven att be om ett annat. Att eleven kan be om ett annat språk, och vad som då händer, är språkoberoende och bor i prompts/shared.json → languageSwitch. Skriv inget absolut förbud här: de två skulle motsäga varandra, och modellen följer förbudet.",
-    "outputLanguage": "För hela detta samtal på svenska. Allt som citeras från färdighetsträdet nedan — nodnamn, beskrivningar, förkunskaper — är skrivet på svenska, och det är språket {learnerDefinite} förväntar sig att bli tilltalad på. Delar av instruktionen du nu läser är på engelska; det är ingen uppmaning att svara på engelska. Byt inte språk på eget initiativ, och kommentera inte vilket språk instruktionen är skriven på. Tilltala {learnerDefinite} som \"du\", och använd \"hen\" i stället för \"han/hon\" när du omtalar {learnerDefinite} i tredje person. Måste rollen namnges är ordet »{learnerDefinite}« - inte ett annat ord för samma sak.",
+    "conversationLanguage": "svenska",
+    "outputLanguage": "För hela detta samtal på {conversationLanguage}. Allt som citeras från färdighetsträdet nedan — nodnamn, beskrivningar, förkunskaper — är skrivet på {conversationLanguage}, och det är språket {learnerDefinite} förväntar sig att bli tilltalad på. Delar av instruktionen du nu läser är på engelska; det är ingen uppmaning att svara på engelska. Byt inte språk på eget initiativ, och kommentera inte vilket språk instruktionen är skriven på. Tilltala {learnerDefinite} som \"du\", och använd \"hen\" i stället för \"han/hon\" när du omtalar {learnerDefinite} i tredje person. Måste rollen namnges är ordet »{learnerDefinite}« - inte ett annat ord för samma sak.",
     "writingStyle": "Svenska exempel på de två råden ovan:\n- Aktiv form: skriv \"vi kan skriva talet som …\", inte \"talet kan skrivas som …\"; skriv \"vi gör detta genom att …\" eller \"du gör detta genom att …\", inte \"det görs genom att …\". Undvik \"görs\" och \"kan göras\" där du kan säga vem som gör det.\n- Ord som är vanliga på svenska men sällsynta i talspråk, skriftspråkliga eller lite för vuxna ska du byta ut mot ett enklare ord. Kompistestet: är det något du faktiskt skulle säga högt till en kompis?",
     "overrides": {}
   }

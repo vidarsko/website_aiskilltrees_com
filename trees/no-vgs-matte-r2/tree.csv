@@ -4,7 +4,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Matematikk R2,,,
 ,config,,description,"Rekker, trigonometriske funksjoner, integrasjonsteknikker og fundamentalteoremet, numerisk integrasjon, omdreiningslegemer, modellering, vektorer i rommet, kinematikk og matematiske bevis — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,
-,config,,languageName,Norwegian (bokmål),,,
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,r2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
