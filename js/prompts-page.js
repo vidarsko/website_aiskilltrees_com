@@ -240,7 +240,6 @@
   function keyParts(cell, row) {
     cell.appendChild(el('code', null, row.label));
     if (row.when) cell.appendChild(el('span', 'promptdoc__when', row.when));
-    if (row.same) cell.appendChild(el('span', 'promptdoc__when', t('family-same-as-general')));
     if (row.tag) cell.appendChild(cardLink('promptdoc__alt', row.tag, 'shared'));
     if (row.note) {
       cell.appendChild(row.noteRef ? cardLink('promptdoc__note', row.note, row.noteRef)
@@ -324,6 +323,26 @@
   }
 
   /* ---- seksjonene i én instruksmodul ------------------------------------ */
+
+  /* Seksjonene i en modul i instruksens egen rekkefølge, ikke filens:
+     historikken lagrer nøklene sortert, og da kom `conceptGuidance` før
+     `leadIn`. Moduler fra før 0.25.0 har ingen grupper og bruker `order`. */
+  function sectionOrder(module) {
+    return (module.groups || []).reduce(function (acc, g) { return acc.concat(g.sections); },
+                                        module.order || []);
+  }
+
+  /* Instruksene en seksjon står i, ved navn. Språklagskortet og
+     familiekortet viser hver sin seksjon løsrevet fra instruksen den lander
+     i, og «used in …» er det som knytter den tilbake. */
+  function usedIn(rel, has) {
+    var titles = [];
+    (rel.instructions || []).forEach(function (id) {
+      var module = rel.modules[id] || {};
+      if (has(module, id)) titles.push(module.title || id);
+    });
+    return titles;
+  }
 
   /* Hva en betingelse heter for en leser. Navnet kommer fra modulens
      `when` (fra 0.25.0) og betydningen fra CONDITIONS i motoren; teksten
@@ -450,9 +469,16 @@
     var layer = lang.prompt || {};
     var rows = [];
 
+    /* Seksjonen står for seg selv her, uten instruksen den lander i, så
+       hver rad sier hvilke instrukser den brukes i — samme merknad som
+       radene i familiekortet. */
     ['outputLanguage', 'writingStyle'].forEach(function (sid) {
       if (!layer[sid]) return;
-      rows.push({ label: sid, text: layer[sid], note: '' });
+      var where = usedIn(rel, function (module) {
+        return sectionOrder(module).indexOf(sid) !== -1 && (module.sections || {})[sid] == null;
+      });
+      rows.push({ label: sid, text: layer[sid],
+                  note: where.length ? fill('used-in', { x: where.join(', ') }) : '' });
     });
 
     /* En overstyring er språklagets rett til å bytte ut en hel seksjon i én
@@ -498,15 +524,13 @@
           var part = (((rel.families[code] || {}).instructions || {})[id]) || {};
           Object.keys(part.sections || {}).forEach(function (sid) { seen[sid] = true; });
         });
-        var order = (module.groups || []).reduce(function (acc, g) { return acc.concat(g.sections); },
-                                                 module.order || []);
-        order.filter(function (sid) { return seen[sid]; }).forEach(function (sid) {
+        sectionOrder(module).filter(function (sid) { return seen[sid]; }).forEach(function (sid) {
           drows.push({
             label: sid,
             text: plainText((module.sections || {})[sid]),
             group: module.title || id,
             when: whenLabel((module.when || {})[sid]),
-            note: t('family-default-in').replace('{x}', module.title || id),
+            note: fill('used-in', { x: module.title || id }),
             noteRef: id
           });
         });
@@ -524,24 +548,20 @@
     rel.instructions.forEach(function (id) {
       var module = rel.modules[id] || {};
       var part = instructions[id] || {};
-      /* I instruksens egen rekkefølge, ikke filens: historikken lagrer
-         nøklene sortert, og da kom `conceptGuidance` før `leadIn`. */
-      var order = (module.groups || []).reduce(function (acc, g) { return acc.concat(g.sections); },
-                                               module.order || []);
+      var order = sectionOrder(module);
       var pos = function (sid) { var i = order.indexOf(sid); return i === -1 ? 1e6 : i; };
       Object.keys(part.sections || {}).sort(function (a, b) { return pos(a) - pos(b); }).forEach(function (sid) {
-        /* Fra 0.26.0 har alle familiene de samme seksjonene, og en familie
-           uten noe eget å si har en ordrett kopi av den generelle teksten.
-           Det sies her, så den som sammenlikner fag ser hvor forskjellen
-           faktisk er. Merknaden lenker til instruksen seksjonen står i. */
-        var general = (module.sections || {})[sid];
+        /* «used in <instruks>», samme merknad som i språklagskortet og i
+           «ingen fagfamilie». Den sa før «replaces the general text in …»,
+           men den generelle teksten står ikke noe sted på sida nå som
+           instrukskortene bare henviser hit — så den pekte på noe leseren
+           ikke kunne finne. Merknaden lenker til instruksen. */
         rows.push({
           label: sid,
           text: plainText(part.sections[sid]),
           group: module.title || id,
-          note: t('family-replaces-in').replace('{x}', module.title || id),
-          noteRef: id,
-          same: general != null && plainText(general) === plainText(part.sections[sid])
+          note: fill('used-in', { x: module.title || id }),
+          noteRef: id
         });
       });
       (part.add || []).forEach(function (add) {
