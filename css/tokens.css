@@ -1,7 +1,7 @@
 /* ==========================================================================
    tokens.css — the single source of truth for color, type and spacing.
    Design system: aiskilltrees-style v1.3
-   (canonical: ../.claude/skills/aiskilltrees-style/SKILL.md in the umbrella repo)
+   (canonical: ../../AgentSkills/ui-style-banded-fullbleed/SKILL.md in the work vault)
 
    NO other stylesheet and NO page may hardcode a hex value or a font stack.
    If a value is missing, add a token here — that is what keeps the palette
