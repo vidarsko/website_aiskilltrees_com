@@ -915,14 +915,40 @@
   overflow-wrap: anywhere;
 }
 
+/* Merknadene i stikkordkolonnen — «used in:», «from:», «only in:» — er
+   opplysninger på linje med «når seksjonen gjelder», og har derfor samme
+   grå som den framfor den gule de hadde (2026-10-04). Gult leste som et
+   varsel i en celle der ingenting er galt. */
 .promptdoc__note {
   display: block;
   margin-top: 0.25rem;
   font-family: var(--font-sans);
   font-size: var(--step-xs);
   line-height: 1.4;
-  color: var(--amber-text);
+  color: var(--ink-3);
 }
+
+/* Navnene merknaden peker på, ett per linje: fire instruksnavn på rad ble
+   uleselig i en kolonne på 12rem. Lenka ligger rundt navnet alene. */
+.promptdoc__used {
+  margin: 0.1rem 0 0;
+  padding-left: 1.1em;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
+.promptdoc__used li { margin: 0; }
+
+.promptdoc__used a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.promptdoc__used a:hover,
+.promptdoc__used a:focus-visible { color: var(--primary-strong); }
 
 .promptdoc__text {
   font-size: var(--step-s);
@@ -943,6 +969,20 @@
   color: var(--ink);
 }
 .promptdoc__group:first-of-type { margin-top: var(--space-2); }
+
+/* I familiekortet er overskrifta navnet på instruksen seksjonene under
+   lander i, og da er den en lenke dit. Den skal fortsatt lese som en
+   overskrift, så den arver farge og vekt og har bare understreken. */
+.promptdoc__group a,
+.promptcmp__group a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.promptdoc__group a:hover,
+.promptdoc__group a:focus-visible,
+.promptcmp__group a:hover,
+.promptcmp__group a:focus-visible { color: var(--primary-strong); }
 .promptdoc__sections + .promptdoc__sections { border-top: 0; }
 .promptcmp__group {
   grid-column: 1 / -1;
@@ -951,19 +991,6 @@
   background: var(--paper-2);
 }
 
-/* Merknaden om hvor teksten kommer fra er en lenke når den peker på et
-   annet kort (fagfamilien), og «Erstattes i noen fagfamilier» likeså. */
-a.promptdoc__note { text-decoration: underline; text-underline-offset: 0.15em; }
-.promptdoc__alt {
-  display: block;
-  margin-top: 0.25rem;
-  font-family: var(--font-sans);
-  font-size: var(--step-xs);
-  line-height: 1.4;
-  color: var(--ink-3);
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-}
 .promptdoc__text a, .promptcmp__text a { color: var(--primary); }
 
 /* Når seksjonen gjelder — «Concept nodes», «With prerequisites». Ingen

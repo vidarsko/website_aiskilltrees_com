@@ -235,17 +235,59 @@
     em.appendChild(document.createTextNode(parts[1] || ''));
   }
 
-  /* Stikkordcellen: navnet, når seksjonen gjelder, hvor teksten kommer fra,
-     og om en fagfamilie kan erstatte den. Samme for begge korttypene. */
+  /* En merknad i stikkordkolonnen har ÉN form: en ledetekst som slutter på
+     kolon, og en punktliste med ett navn per linje, der lenka ligger rundt
+     selve navnet og ikke rundt setningen (Vidar, 2026-10-04). Punktliste
+     framfor en komma-rekke fordi kolonnen er 12rem bred og fire
+     instruksnavn på rad ble uleselig. En merknad uten navn — «read when a
+     tree is written» — er bare ledeteksten. */
+  function noteBlock(cell, note) {
+    cell.appendChild(el('span', 'promptdoc__note', t(note.key)));
+    if (!note.items || !note.items.length) return;
+    var ul = el('ul', 'promptdoc__used');
+    note.items.forEach(function (item) {
+      var li = el('li');
+      li.appendChild(item.ref ? cardLink(null, item.title, item.ref)
+                              : document.createTextNode(item.title));
+      ul.appendChild(li);
+    });
+    cell.appendChild(ul);
+  }
+
+  /* Gruppeoverskriften. I familiekortet ER den navnet på instruksen
+     seksjonene under lander i, og da er den lenka dit — framfor at hver
+     eneste rad gjentar «used in: Practice tutor» rett under en overskrift
+     som allerede sier det. I instrukskortene er den navnet på en gruppe i
+     instruksen («Role and style»), som ikke er et kort, og står som ren
+     tekst. */
+  function groupHead(cls, row) {
+    var head = el(cls === 'promptcmp__group' ? 'div' : 'h4', cls);
+    if (row.groupRef) head.appendChild(cardLink(null, row.group, row.groupRef));
+    else head.textContent = row.group;
+    return head;
+  }
+
+  /* Stikkordcellen: navnet, når seksjonen gjelder, og merknadene om hvor
+     teksten kommer fra og hvor den brukes. Samme for begge korttypene. */
   function keyParts(cell, row) {
     cell.appendChild(el('code', null, row.label));
     if (row.when) cell.appendChild(el('span', 'promptdoc__when', row.when));
-    if (row.tag) cell.appendChild(cardLink('promptdoc__alt', row.tag, 'shared'));
-    if (row.note) {
-      cell.appendChild(row.noteRef ? cardLink('promptdoc__note', row.note, row.noteRef)
-                                   : el('span', 'promptdoc__note', row.note));
-    }
-    if (row.alt) cell.appendChild(cardLink('promptdoc__alt', row.alt, 'family'));
+    (row.notes || []).forEach(function (note) { noteBlock(cell, note); });
+  }
+
+  /* Alt som hører stikkordcellen til, båret over til en ny rad. */
+  function rowMeta(r, extra) {
+    var out = { label: r.label, notes: r.notes, group: r.group, groupRef: r.groupRef,
+                when: r.when, desc: r.desc, ref: r.ref, linkText: r.linkText };
+    Object.keys(extra).forEach(function (k) { out[k] = extra[k]; });
+    return out;
+  }
+
+  /* Merknadene som tekst, så sammenlikningen kan se om en rad er endret. */
+  function noteSig(row) {
+    return (row.notes || []).map(function (n) {
+      return n.key + ':' + (n.items || []).map(function (i) { return i.title; }).join(',');
+    }).join('|');
   }
 
   function card(opts) {
@@ -305,7 +347,7 @@
     var group = null;
     opts.rows.forEach(function (row) {
       if (!list || (row.group || null) !== group) {
-        if (row.group) reveal.appendChild(el('h4', 'promptdoc__group', row.group));
+        if (row.group) reveal.appendChild(groupHead('promptdoc__group', row));
         list = el('dl', 'promptdoc__sections');
         reveal.appendChild(list);
       }
@@ -332,16 +374,26 @@
                                         module.order || []);
   }
 
-  /* Instruksene en seksjon står i, ved navn. Språklagskortet og
-     familiekortet viser hver sin seksjon løsrevet fra instruksen den lander
-     i, og «used in …» er det som knytter den tilbake. */
-  function usedIn(rel, has) {
-    var titles = [];
-    (rel.instructions || []).forEach(function (id) {
+  function cardItem(rel, id) {
+    return { ref: id, title: (rel.modules[id] || {}).title || id };
+  }
+
+  /* Instruksene en seksjon faktisk lander i. Språklagskortet, de delte
+     seksjonene og familiekortet viser hver sin seksjon løsrevet fra
+     instruksen den havner i, og «used in …» er det som knytter den
+     tilbake. Samme betingelse som i `moduleRows`: seksjonen står i
+     instruksens rekkefølge, instruksen har ingen egen tekst for den, og
+     ingen fagfamilie erstatter den der. */
+  function usersOf(rel, sid) {
+    return (rel.instructions || []).filter(function (id) {
       var module = rel.modules[id] || {};
-      if (has(module, id)) titles.push(module.title || id);
-    });
-    return titles;
+      if (sectionOrder(module).indexOf(sid) === -1) return false;
+      if ((module.sections || {})[sid] != null) return false;
+      return !Object.keys(rel.families || {}).some(function (code) {
+        var part = (((rel.families[code] || {}).instructions || {})[id]) || {};
+        return (part.sections || {})[sid] != null;
+      });
+    }).map(function (id) { return cardItem(rel, id); });
   }
 
   /* Hva en betingelse heter for en leser. Navnet kommer fra modulens
@@ -383,7 +435,7 @@
         var text = (module.sections || {})[sid];
         /* Stikkordet ER navnet. I den komponerte instruksen står det samme
            ordet foran teksten — se composePrompt() i motoren. */
-        var row = { label: sid, group: g.title || '', when: whenLabel(when[sid]), note: '' };
+        var row = { label: sid, group: g.title || '', when: whenLabel(when[sid]), notes: [] };
         var filled = FILLED[sid];
         if (byFamily[sid]) {
           pointer(row, 'fdesc-' + sid, 'family', t('subject-family-link'));
@@ -393,7 +445,7 @@
           /* En seksjon fra shared.json står med teksten sin, merket i
              stikkordkolonnen. */
           row.text = plainText(extras.shared[sid]);
-          row.tag = t('shared-tag');
+          row.notes.push({ key: 'note-from', items: [{ title: t('shared-title'), ref: 'shared' }] });
         } else if (filled) {
           pointer(row, filled.desc, filled.ref, filled.ref ? t('language-layer-link') : '');
         } else {
@@ -407,9 +459,12 @@
        practiceLanguage) står etter ankeret sitt, også som henvisning, og
        sier hvilke familier som har den. */
     (extras.familyAdds || []).forEach(function (add) {
-      var row = pointer({ label: add.id, group: '', when: '', note: '' },
+      var row = pointer({ label: add.id, group: '', when: '', notes: [] },
                         'fdesc-' + add.id, 'family', t('subject-family-link'));
-      row.alt = fill('family-only-in', { list: add.families.join(', ') });
+      row.notes.push({ key: 'family-only-in',
+                       items: add.families.map(function (name) {
+                         return { title: name, ref: 'family' };
+                       }) });
       var at = -1;
       rows.forEach(function (r, i) { if (r.label === add.after) at = i; });
       if (at === -1) {
@@ -448,7 +503,9 @@
     });
     return {
       title: module.title || id,
-      meta: [module.path, t('audience-' + (module.audience || 'student'))].join(' · '),
+      /* Fila står sist, som i de andre kortene: «English · languages/en.json»,
+         «Mathematics · prompts/subjects/mathematics.json». */
+      meta: [t('audience-' + (module.audience || 'student')), module.path].join(' · '),
       about: about(id),
       format: module.format || 'json',
       rows: moduleRows(module, {
@@ -470,15 +527,13 @@
     var rows = [];
 
     /* Seksjonen står for seg selv her, uten instruksen den lander i, så
-       hver rad sier hvilke instrukser den brukes i — samme merknad som
-       radene i familiekortet. */
+       hver rad sier hvilke instrukser den brukes i — samme merknad som i
+       de delte seksjonene og i familiekortet. */
     ['outputLanguage', 'writingStyle'].forEach(function (sid) {
       if (!layer[sid]) return;
-      var where = usedIn(rel, function (module) {
-        return sectionOrder(module).indexOf(sid) !== -1 && (module.sections || {})[sid] == null;
-      });
+      var where = usersOf(rel, sid);
       rows.push({ label: sid, text: layer[sid],
-                  note: where.length ? fill('used-in', { x: where.join(', ') }) : '' });
+                  notes: where.length ? [{ key: 'used-in', items: where }] : [] });
     });
 
     /* En overstyring er språklagets rett til å bytte ut en hel seksjon i én
@@ -492,7 +547,7 @@
         rows.push({
           label: sid,
           text: overrides[id][sid],
-          note: t('language-override-in').replace('{x}', module.title || id)
+          notes: [{ key: 'language-override-in', items: [cardItem(rel, id)] }]
         });
       });
     });
@@ -529,9 +584,8 @@
             label: sid,
             text: plainText((module.sections || {})[sid]),
             group: module.title || id,
-            when: whenLabel((module.when || {})[sid]),
-            note: fill('used-in', { x: module.title || id }),
-            noteRef: id
+            groupRef: id,
+            when: whenLabel((module.when || {})[sid])
           });
         });
       });
@@ -551,33 +605,38 @@
       var order = sectionOrder(module);
       var pos = function (sid) { var i = order.indexOf(sid); return i === -1 ? 1e6 : i; };
       Object.keys(part.sections || {}).sort(function (a, b) { return pos(a) - pos(b); }).forEach(function (sid) {
-        /* «used in <instruks>», samme merknad som i språklagskortet og i
-           «ingen fagfamilie». Den sa før «replaces the general text in …»,
-           men den generelle teksten står ikke noe sted på sida nå som
+        /* Hvor seksjonen lander, står i gruppeoverskriften over, som er
+           lenka til instruksen. Raden sa før «replaces the general text in
+           …», men den generelle teksten står ikke noe sted på sida nå som
            instrukskortene bare henviser hit — så den pekte på noe leseren
-           ikke kunne finne. Merknaden lenker til instruksen. */
+           ikke kunne finne. */
         rows.push({
           label: sid,
           text: plainText(part.sections[sid]),
           group: module.title || id,
-          note: fill('used-in', { x: module.title || id }),
-          noteRef: id
+          groupRef: id,
+          when: whenLabel((module.when || {})[sid])
         });
       });
       (part.add || []).forEach(function (add) {
         rows.push({
           label: add.id,
           text: add.text,
-          group: (module.groups ? module.title || id : ''),
-          note: t('family-add-in').replace('{x}', module.title || id)
+          group: module.title || id,
+          groupRef: id,
+          notes: [{ key: 'family-add-in' }]
         });
       });
     });
 
     var decomposition = fam.decomposition || {};
     Object.keys(decomposition).forEach(function (sid) {
-      rows.push({ label: sid, text: plainText(decomposition[sid]), note: t('family-authoring'),
-                  group: fam.schemaVersion >= 3 ? t('family-group-authoring') : '' });
+      /* Overskrifta sier at dette leses når et tre skrives, så raden sier
+         det ikke om igjen. Den står også for eldre familiefiler, der
+         `decomposition` var hele fila: overskrifta er sidetekst, ikke
+         maskineriets, og hører hjemme uansett skjemaversjon. */
+      rows.push({ label: sid, text: plainText(decomposition[sid]),
+                  group: t('family-group-authoring') });
     });
 
     return {
@@ -590,12 +649,18 @@
 
   function sharedView(rel) {
     if (!rel.shared) return null;
-    var layer = ((rel.languages[state.code] || {}).prompt) || {};
+    /* Også her står seksjonen løsrevet fra instruksene den skytes inn i,
+       så hver rad sier hvilke — samme merknad som i språklagskortet. */
+    var rows = moduleRows(rel.shared, {}).map(function (row) {
+      var where = usersOf(rel, row.label);
+      if (where.length) row.notes.push({ key: 'used-in', items: where });
+      return row;
+    });
     return {
       title: t('shared-title'),
       meta: rel.shared.path,
       about: about('shared'),
-      rows: moduleRows(rel.shared, { lang: layer })
+      rows: rows
     };
   }
 
@@ -622,7 +687,7 @@
             return '- ' + d.name + ': “' + d.values[k] + '”';
           }).join('\n');
         }
-        rows.push({ label: '{' + k + '}', text: text, group: t(g.group), note: '', when: '' });
+        rows.push({ label: '{' + k + '}', text: text, group: t(g.group), notes: [], when: '' });
       });
     });
     return { title: t('keywords-title'), meta: '', about: about('keywords'), rows: rows };
@@ -835,6 +900,10 @@
        er ikke med: fra 0.25.0 er `conceptGuidance` «fra fagfamilien» der den
        før var den generelle, og det er den samme seksjonen. Gruppa er heller
        ikke med: en seksjon som har flyttet gruppe, er den samme seksjonen. */
+    /* Stikkordet, merknadene og en eventuell henvisning følger raden
+       gjennom sammenlikningen, så en seksjon ser lik ut i begge
+       visningene. `desc`/`ref` ble ikke båret over før, og en seksjon fra
+       språklaget sto derfor uten lenke i sammenlikningen. */
     var keyed = function (rows) {
       var seen = {};
       return rows.map(function (r) {
@@ -851,19 +920,20 @@
       for (; next < upto; next++) {
         var r = oldRows[next];
         if (!newKeys[oldK[next]]) {
-          out.push({ label: r.label, note: r.note, group: r.group, when: r.when, change: '-', parts: [{ t: '-', s: r.text }] });
+          out.push(rowMeta(r, { change: '-', parts: [{ t: '-', s: r.text }] }));
         }
       }
     };
     newRows.forEach(function (r, j) {
       var i = oldBy[newK[j]];
       if (i == null) {
-        out.push({ label: r.label, note: r.note, group: r.group, when: r.when, change: '+', parts: [{ t: '+', s: r.text }] });
+        out.push(rowMeta(r, { change: '+', parts: [{ t: '+', s: r.text }] }));
         return;
       }
       if (i >= next) flushRemoved(i + 1);
-      out.push({ label: r.label, note: r.note, group: r.group, when: r.when,
-                 parts: r.text === oldRows[i].text ? [{ t: '=', s: r.text }] : diffText(oldRows[i].text, r.text) });
+      out.push(rowMeta(r, {
+        parts: r.text === oldRows[i].text ? [{ t: '=', s: r.text }] : diffText(oldRows[i].text, r.text)
+      }));
     });
     flushRemoved(oldRows.length);
     return out;
@@ -878,8 +948,8 @@
     function plain(rows, side) {
       return rows.map(function (r) {
         var cell = [{ t: '=', s: r.text }];
-        return { label: r.label, note: r.note, group: r.group, when: r.when,
-                 newer: side === 'newer' ? cell : null, older: side === 'older' ? cell : null };
+        return rowMeta(r, { newer: side === 'newer' ? cell : null,
+                            older: side === 'older' ? cell : null });
       });
     }
     if (!older) return plain(newer.rows, 'newer');
@@ -888,18 +958,17 @@
       var whole = function (rows) {
         return [{ t: '=', s: rows.map(function (r) { return r.label + '\n\n' + r.text; }).join('\n\n') }];
       };
-      return [{ label: t('whole-text'), note: '', newer: whole(newer.rows), older: whole(older.rows) }];
+      return [{ label: t('whole-text'), notes: [], newer: whole(newer.rows), older: whole(older.rows) }];
     }
     return diffRows(older.rows, newer.rows).map(function (r) {
       var keep = function (type) {
         return r.parts.filter(function (p) { return p.t === '=' || p.t === type; });
       };
       var same = r.parts.every(function (p) { return p.t === '='; });
-      return {
-        label: r.label, note: r.note, group: r.group, when: r.when,
+      return rowMeta(r, {
         newer: r.change === '-' ? null : keep('+'),
         older: r.change === '+' ? null : (same ? 'same' : keep('-'))
-      };
+      });
     });
   }
 
@@ -979,7 +1048,7 @@
       /* En rad uten gruppe (en seksjon bare den eldre releasen har, fra før
          gruppene) står i gruppa den havner i, og bryter den ikke. */
       if (row.group && row.group !== group) {
-        grid.appendChild(el('div', 'promptcmp__group', row.group));
+        grid.appendChild(groupHead('promptcmp__group', row));
         group = row.group;
       }
       var key = el('div', 'promptcmp__key');
@@ -1007,7 +1076,7 @@
   function sameRows(a, b) {
     if (a.length !== b.length) return false;
     for (var i = 0; i < a.length; i++) {
-      if (a[i].label !== b[i].label || a[i].note !== b[i].note || a[i].text !== b[i].text ||
+      if (a[i].label !== b[i].label || noteSig(a[i]) !== noteSig(b[i]) || a[i].text !== b[i].text ||
           (a[i].group || '') !== (b[i].group || '')) return false;
     }
     return true;

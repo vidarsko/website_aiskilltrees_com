@@ -8,12 +8,12 @@
 
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css?v=2026-10-04a">
+  <link rel="stylesheet" href="/css/components.css?v=2026-10-04b">
 
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <script src="/js/prompts-page.js?v=2026-10-04a" defer></script>
+  <script src="/js/prompts-page.js?v=2026-10-04b" defer></script>
 
   <!--
     `?v=` på components.css og prompts-page.js tvinger nettleseren til å
@@ -236,10 +236,10 @@
           "nb": ", fylt inn fra treet.",
           "sv": ", ifylld från trädet."
       },
-      "shared-tag": {
-          "en": "Shared with the other instructions",
-          "nb": "Felles med de andre instruksene",
-          "sv": "Gemensam med de andra instruktionerna"
+      "note-from": {
+          "en": "from:",
+          "nb": "fra:",
+          "sv": "från:"
       },
       "show-keywords": {
           "en": "Show the keywords",
@@ -327,9 +327,9 @@
           "sv": "Argument för varför ämnet spelar roll senare, används bara om eleven frågar"
       },
       "used-in": {
-          "en": "used in {x}",
-          "nb": "brukes i {x}",
-          "sv": "används i {x}"
+          "en": "used in:",
+          "nb": "brukes i:",
+          "sv": "används i:"
       },
       "family-group-authoring": {
           "en": "When a tree is written",
@@ -422,19 +422,14 @@
           "sv": "När fakta ingår"
       },
       "language-override-in": {
-          "en": "replaces a section in {x}",
-          "nb": "erstatter en seksjon i {x}",
-          "sv": "ersätter ett avsnitt i {x}"
+          "en": "replaces a section in:",
+          "nb": "erstatter en seksjon i:",
+          "sv": "ersätter ett avsnitt i:"
       },
       "family-add-in": {
-          "en": "adds a section to {x}",
-          "nb": "legger til en seksjon i {x}",
-          "sv": "lägger till ett avsnitt i {x}"
-      },
-      "family-authoring": {
-          "en": "read when a tree is written",
-          "nb": "leses når et tre skrives",
-          "sv": "läses när ett träd skrivs"
+          "en": "adds a section",
+          "nb": "legger til en seksjon",
+          "sv": "lägger till ett avsnitt"
       },
       "fdesc-practiceLanguage": {
           "en": "Which language the student practises in",
@@ -442,9 +437,9 @@
           "sv": "Vilket språk eleven övar på"
       },
       "family-only-in": {
-          "en": "Only in: {list}",
-          "nb": "Bare i: {list}",
-          "sv": "Bara i: {list}"
+          "en": "only in:",
+          "nb": "bare i:",
+          "sv": "bara i:"
       },
       "kw-defaults": {
           "en": "Default from each language layer:",
@@ -699,7 +694,7 @@
         <div id="prompt-list"></div>
         <noscript>
           <div class="prose">
-            <p>This page puts the instructions together in your browser, so it needs JavaScript. Without it, the same text is in the files themselves: <a href="/assets/prompts/manifest.json">the index</a>, <a href="/assets/prompts/decomposition.json">the decomposition model</a>, <a href="/assets/prompts/practice-tutor.json">the practice tutor</a>, <a href="/assets/prompts/test-generator.json">the test generator</a>, <a href="/assets/prompts/motivation.json">the motivation dialogue</a>, <a href="/assets/prompts/lesson-plan.json">the lesson-plan generator</a>, and the subject families in <a href="https://github.com/vidarsko/ai-skill-trees/tree/main/prompts">the method repository</a>.</p>
+            <p>This page puts the instructions together in your browser, so it needs JavaScript. Without it, the same text is in the files themselves: <a href="/assets/prompts/manifest.json">the index</a>, <a href="/assets/prompts/decomposition.json">the decomposition model</a>, <a href="/assets/prompts/practice-tutor.json">the practice tutor</a>, <a href="/assets/prompts/test-generator.json">the test generator</a>, <a href="/assets/prompts/motivation.json">the motivation dialogue</a>, <a href="/assets/prompts/lesson-plan.json">the lesson-plan generator</a>, <a href="/assets/prompts/authoring.json">the authoring prompt</a>, <a href="/assets/prompts/shared.json">the shared sections</a>, and the subject families in <a href="https://github.com/vidarsko/ai-skill-trees/tree/main/prompts">the method repository</a>.</p>
           </div>
         </noscript>
       </div>
