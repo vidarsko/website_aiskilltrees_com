@@ -3,7 +3,7 @@
 
    Knappen er en ekte lenke til /trees/ i markupen, og dette scriptet bytter
    bare ut href-en når katalogen er hentet. Slår noe feil — scriptet er ikke
-   lastet, trees.json er borte, JavaScript er av — havner den besøkende i
+   lastet, catalog.json er borte, JavaScript er av — havner den besøkende i
    katalogen og kan velge selv. En knapp som ikke gjør noe er verre enn en
    knapp som gjør noe nest best.
 
@@ -13,10 +13,9 @@
    TREET SKAL VÆRE PÅ LESERENS SPRÅK. Et ferdighetstre er enspråklig — det
    er skrevet på ett språk av den som laget det — så en svensk besøkende som
    lander på et norsk tre ser noe hen ikke kan bruke, og det er et dårlig
-   førsteinntrykk av en metode hen ikke kjenner. Språket står i hvert tres
-   `meta.json`, ikke i `trees.json` (som med vilje bare er en liste over
-   slugs), så det koster én liten forespørsel per tre å vite det. Katalogen
-   gjør nøyaktig det samme, og filene er noen hundre bytes hver.
+   førsteinntrykk av en metode hen ikke kjenner. Språket står i
+   `/trees/catalog.json`, som tools/build-catalog.py genererer fra hvert
+   tres tree.csv — samme fil som katalogen leser.
 
    Finnes det ikke noe tre på leserens språk, går knappen til et tilfeldig
    av alle. Et tre på feil språk er fortsatt et tre å se på; ingenting er
@@ -33,34 +32,21 @@
   var byLanguage = null;     // { nb: [...], sv: [...] } — null til metadataene er inne
   var languageOf = {};       // slug → språk, for sporingen
 
-  fetch('/trees/trees.json')
+  fetch('/trees/catalog.json')
     .then(function (res) { return res.ok ? res.json() : null; })
     .then(function (data) {
-      var list = Array.isArray(data) ? data : (data && data.trees) || [];
+      var list = (data && data.trees) || [];
       if (!list.length) return;
-      slugs = list;
-      return loadLanguages(list);
-    })
-    .catch(function () { /* lenka blir stående på /trees/ */ });
-
-  /* Alle meta.json-ene parallelt. En som ikke svarer, utelates framfor å
-     stoppe resten: da mangler ett tre i språkutvalget, og knappen virker. */
-  function loadLanguages(list) {
-    return Promise.all(list.map(function (slug) {
-      return fetch('/trees/' + slug + '/meta.json')
-        .then(function (res) { return res.ok ? res.json() : null; })
-        .then(function (meta) { return meta && meta.language ? { slug: slug, lang: meta.language } : null; })
-        .catch(function () { return null; });
-    })).then(function (entries) {
+      slugs = list.map(function (tree) { return tree.slug; });
       var map = {};
-      entries.forEach(function (entry) {
-        if (!entry) return;
-        (map[entry.lang] = map[entry.lang] || []).push(entry.slug);
-        languageOf[entry.slug] = entry.lang;
+      list.forEach(function (tree) {
+        if (!tree.language) return;
+        (map[tree.language] = map[tree.language] || []).push(tree.slug);
+        languageOf[tree.slug] = tree.language;
       });
       byLanguage = map;
-    });
-  }
+    })
+    .catch(function () { /* lenka blir stående på /trees/ */ });
 
   function pick(list) {
     return list[Math.floor(Math.random() * list.length)];

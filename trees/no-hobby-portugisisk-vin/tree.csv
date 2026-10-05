@@ -15,6 +15,12 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,Hobby,,,
+,config,,country,NO,,,
+,config,,institution,hobby,,,
+,config,,subjectArea,wine,,,
+,config,,keywords,vin; vinsmaking; Portugal; portvin; madeira; Douro; Vinho Verde; Alentejo; druesorter; vin og mat; smaksnotat,,,
+,config,,updated,2026-10-01,,,
 gjaering,concept,Grunnleggende om vin,Gjæring (fermentation),"Gjæring (fermentation): gjærsopp omdanner sukkeret i druesaften til alkohol og karbondioksid.
 Restsukker (residual sugar): sukker som er igjen i vinen når gjæringen stopper.",,,
 torr-sot,concept,Grunnleggende om vin,Tørr og søt vin,"Tørr vin (dry): vin med så lite restsukker at den ikke kjennes søt.

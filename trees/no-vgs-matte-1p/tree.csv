@@ -19,6 +19,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Praktisk matematikk, Vg1 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg1,,,
+,config,,subjectArea,mathematics,,,
+,config,,updated,2026-09-21,,,
 standardform-begrep,concept,"Tall, potenser og standardform",Standardform,"Standardform: et tall på standardform er skrevet som a·10ⁿ, der 1 ≤ a < 10. Skrivemåten gjør svært store og svært små tall oversiktlige, og lar størrelsesordenen leses rett av eksponenten.",,0,
 tall-standardform-om,skill,"Tall, potenser og standardform",Regne om til og fra standardform,"regne om et tall mellom vanlig desimalform og standardform, i begge retninger.",standardform-begrep,1,"Gi eleven tall både i vanlig desimalform og i standardform (inkludert svært store og svært små tall), og be dem regne om til den andre formen. Ren mekanisk øvelse, uten kalkulator."
 potensregler-begrep,concept,"Tall, potenser og standardform",Potensregler,"Produkt av potenser med samme grunntall: aˣ·aʸ = aˣ⁺ʸ.

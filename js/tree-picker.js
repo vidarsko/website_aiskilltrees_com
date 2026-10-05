@@ -5,7 +5,7 @@
 /*                                                                      */
 /* Et vindu over vinduet med veiene inn, med søk og filtre som på       */
 /* /trees/ (fra 2026-10-02; før var det en nedtrekksliste med titlene). */
-/* Samme data som katalogen: /trees/trees.json, hvert tres meta.json og */
+/* Samme data som katalogen: /trees/catalog.json (generert fra tree.csv) og */
 /* /trees/vocabulary.json, og samme regler: alle søkeord må treffe, ELLER */
 /* innenfor en fasett og OG på tvers, avhengige fasetter (land →        */
 /* institusjon → inndeling, fagfamilie → fagområde), og tallet bak hver */
@@ -32,7 +32,7 @@
   ];
 
   var SEARCH_FIELDS = [
-    'title', 'subtitle', 'summary', 'course', 'courseCode',
+    'title', 'subtitle', 'summary', 'courseCode',
     'curriculum', 'author', 'topics', 'keywords',
   ];
 
@@ -114,15 +114,10 @@
 
   function load() {
     if (loading) return loading;
-    loading = Promise.all([getJson('/trees/vocabulary.json'), getJson('/trees/trees.json')])
+    loading = Promise.all([getJson('/trees/vocabulary.json'), getJson('/trees/catalog.json')])
       .then(function (both) {
         VOCAB = both[0] || {};
-        var slugs = (both[1] && both[1].trees) || [];
-        return Promise.all(slugs.map(function (slug) {
-          return getJson('/trees/' + slug + '/meta.json').then(function (m) {
-            return prepare(Object.assign({}, m, { slug: slug }));
-          }, function () { return null; });
-        }));
+        return ((both[1] && both[1].trees) || []).map(function (m) { return prepare(Object.assign({}, m)); });
       })
       .then(function (list) {
         TREES = list.filter(Boolean);
@@ -178,7 +173,7 @@
   }
 
   function score(tree, w) {
-    var title = String(tree.title + ' ' + (tree.course || '')).toLowerCase();
+    var title = String(tree.title).toLowerCase();
     var near = String((tree.subtitle || '') + ' ' + (tree.summary || '')).toLowerCase();
     var s = 0;
     w.forEach(function (term) {

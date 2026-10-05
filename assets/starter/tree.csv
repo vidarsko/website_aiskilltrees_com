@@ -3,7 +3,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,title,Example skill tree,,,
 ,config,,description,"A tiny tree with nine nodes, here so you can see the mechanism work before you write anything of your own. Replace every row below with your own subject.",,,
 ,config,,language,en,,,
-,config,,learner,pupil,,,
+,config,,learner,the pupil,,,
 ,config,,subjectFamily,mathematics,,,
 ,config,,decompositionVersion,2.6.0,,,
 ,config,,topicOrder,Whole numbers;Fractions,,,

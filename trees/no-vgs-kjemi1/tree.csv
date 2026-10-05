@@ -12,6 +12,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag realfag, Vg2",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,chemistry,,,
+,config,,updated,2026-09-30,,,
 kf-fagsprak,concept,Kjemi som fag,Kjemisk fagspråk og notasjon,"Kjemisk fagspråk og notasjon: den faste notasjonen faget bruker for å si presist hva som skjer - kjemiske formler, navnsetting av forbindelser, tilstandsformene (s), (l), (g) og (aq), og reaksjonspiler som skiller en fullstendig reaksjon fra en likevekt.",,0,
 kf-bruke-fagsprak,skill,Kjemi som fag,Bruke kjemisk fagspråk i faglig kommunikasjon,"bruke kjemisk fagspråk og fagbegreper presist når hen forklarer, begrunner eller presenterer kjemifaglig innhold, i stedet for upresist eller hverdagslig språk.",kf-fagsprak,0,"Gi eleven en kort kjemifaglig forklaring skrevet med upresist eller hverdagslig språk, og be dem omformulere den med presist kjemisk fagspråk."
 kf-sikkerhetsdatablad-begrep,concept,Kjemi som fag,Sikkerhetsdatablad og faresymboler,"Sikkerhetsdatablad: dokumentet som følger et kjemikalie, med opplysninger om egenskaper, farer, håndtering, verneutstyr, førstehjelp og avfallsbehandling.

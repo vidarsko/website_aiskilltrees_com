@@ -19,6 +19,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Teoretisk matematikk, Vg1 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg1,,,
+,config,,subjectArea,mathematics,,,
+,config,,updated,2026-09-21,,,
 variabel-og-uttrykk-begrep,concept,Algebra: likninger og ulikheter,Variabel og algebraisk uttrykk,"Variabel: en bokstav som står for et tall som kan variere, eller som ennå ikke er kjent.
 Algebraisk uttrykk: tall, variabler og konstanter satt sammen med regnetegn, som 3x + 5 - x. Et uttrykk kan forenkles ved å trekke sammen like ledd og løse opp parenteser, uten at verdien endrer seg.",,0,
 koeffisient-begrep,concept,Algebra: likninger og ulikheter,Koeffisient,Koeffisient: det konstante tallet som multipliserer en variabel eller en potens av en variabel i et algebraisk uttrykk.,,0,

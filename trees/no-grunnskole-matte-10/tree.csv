@@ -19,6 +19,14 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Ungdomsskole, 10. trinn",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,MAT0015,,,
+,config,,country,NO,,,
+,config,,institution,grunnskole,,,
+,config,,division,10,,,
+,config,,subjectArea,mathematics,,,
+,config,,updated,2026-09-30,,,
 prosent-begrep-10,concept,Tall og algebra,Prosent,"Prosent betyr hundredeler: 40 % er 40 av 100, altså 40/100 eller 0,40 - samme tall i tre skrivemåter. Prosent læres normalt på barnetrinnet, men står som en rot-node her fordi det ikke inngår eksplisitt i kompetansemålene etter 8. eller 9. trinn, og eksamen forutsetter det godt innøvd.",,0,
 prosent-brok-desimal,fact,Tall og algebra,"Prosent, brøk og desimaltall som hører sammen","1 %: 1/100 = 0,01
 10 %: 1/10 = 0,1

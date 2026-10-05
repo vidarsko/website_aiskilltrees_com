@@ -3,31 +3,25 @@
 /* ------------------------------------------------------------------ */
 /* Katalogen på /trees/ — søk og filtrering over alle ferdighetstrærne. */
 /*                                                                      */
-/* Datamodell: hvert tre eier sin egen /trees/<slug>/meta.json. Denne   */
-/* fila henter /trees/trees.json (bare en liste over slugs) og deretter */
-/* alle meta.json-filene parallelt. Det finnes altså INGEN samlet,      */
-/* generert katalogfil — metadataene bor sammen med treet de beskriver, */
-/* og å legge til et tre er å legge til en mappe + én linje i           */
-/* trees.json. Det er et bevisst valg: repoet har ikke noe byggesteg,   */
-/* og et tre som flyttes eller kopieres tar metadataene sine med seg.   */
-/*                                                                      */
-/* Skalering: med noen titalls trær er N små, parallelle fetch-er helt  */
-/* uproblematisk. Skulle antallet en dag bli stort nok til at det       */
-/* merkes, er svaret en generert samlefil — ikke å duplisere feltene    */
-/* inn i trees.json for hånd, som garantert vil komme ut av synk.       */
+/* Datamodell: fra maskineri v0.31.0 står alt om et tre i dets egen     */
+/* tree.csv, også det katalogen trenger (valgfrie config-rader).         */
+/* tools/build-catalog.py leser dem og skriver /trees/catalog.json, som  */
+/* denne fila henter. Den genereres av deployen og av sync-engine.sh, og */
+/* er aldri en kilde: å legge til et tre er fortsatt en mappe pluss én   */
+/* linje i trees.json. Feltnavnene er de samme som i den gamle meta.json.*/
 /* ------------------------------------------------------------------ */
 
 /* ------------------------------------------------------------------ */
 /* Fasettene. ENESTE stedet filterdimensjonene er definert.            */
 /*                                                                      */
-/* `key` er feltnavnet i meta.json, `labelKey` slår opp overskriften i    */
+/* `key` er config-nøkkelen i tree.csv,`labelKey` slår opp overskriften i    */
 /* sidas i18n-ordbok (se trees/index.html) — selve teksten bor der, ikke  */
 /* her, siden katalogen finnes på tre språk.                              */
 /*                                                                      */
 /* Verdiene er NØKLER fra trees/vocabulary.json, ikke fri tekst. Fram    */
 /* til 2026-09-20 skrev hvert tre verdien selv, og resultatet var        */
 /* «Matematikk» og «Mathematics» som to atskilte valg i samme liste.     */
-/* Nå lagrer meta.json nøkkelen og vokabularet eier teksten på alle tre  */
+/* Nå lagrer tree.csv nøkkelen  og vokabularet eier teksten på alle tre  */
 /* språk. Bivirkning verdt å ha med seg: en delt filterlenke inneholder  */
 /* nå nøkler og virker derfor på tvers av språk — før lå det norsk tekst */
 /* i URL-en.                                                             */
@@ -69,7 +63,7 @@ let VOCAB = null;   // trees/vocabulary.json, lastet før trærne
 /* ------------------------------------------------------------------ */
 /* Språk. Katalogens EGET språk veksles av js/i18n.js; selve trærne er  */
 /* ikke oversatt — hvert tre er skrevet på ett språk av den som laget   */
-/* det, og `language` i meta.json er et faktum om treet, ikke en visning */
+/* det, og `language` i tree.csv er et faktum om treet, ikke en visning */
 /* av det.                                                              */
 /*                                                                      */
 /* Fasettenes overskrifter oversettes her, i sidas ordbok. VERDIENE     */
@@ -179,13 +173,16 @@ function vocabSynonyms(tree) {
   return out;
 }
 
-/* Hvert vokabularfelt i et tre må finnes i vocabulary.json. Returnerer en
-   liste over det som mangler — tom liste betyr at treet er i orden. */
+/* Et vokabularfelt som er UTFYLT, må finnes i vocabulary.json. Returnerer
+   en liste over det som er feil — tom liste betyr at treet er i orden.
+   Et tomt felt er ikke en feil (fra 2026-10-05): katalogradene er valgfrie
+   i tree.csv, og demotreet har ingen fordi CSV-en er byte-identisk med
+   utkastet i artikkelen. Treet vises da bare ikke under den fasetten. */
 function validateVocab(tree) {
   const problems = [];
   VOCAB_FIELDS.forEach(field => {
     const key = tree[field];
-    if (!key) { problems.push(field + ' mangler'); return; }
+    if (!key) return;
     if (!VOCAB[field] || !VOCAB[field][key] || !vocab(field, key)) {
       problems.push(field + ' = «' + key + '» finnes ikke i vocabulary.json');
     }
@@ -211,7 +208,7 @@ function collator() {
    et søk på «matematikk» ville ikke truffet. De legges i stedet inn som
    oversettelser på alle språk, via vocabSynonyms(). */
 const SEARCH_FIELDS = [
-  'title', 'subtitle', 'summary', 'course', 'courseCode',
+  'title', 'subtitle', 'summary', 'courseCode',
   'curriculum', 'author', 'topics', 'keywords',
 ];
 
@@ -320,16 +317,16 @@ function loadTrees() {
       if (!res.ok) throw new Error('vocabulary.json ga HTTP ' + res.status);
       return res.json();
     }),
-    fetch('trees.json').then(res => {
-      if (!res.ok) throw new Error('trees.json ga HTTP ' + res.status);
+    fetch('catalog.json').then(res => {
+      if (!res.ok) throw new Error('catalog.json ga HTTP ' + res.status + ' (kjør tools/build-catalog.py)');
       return res.json();
     }),
   ])
-    .then(([vocabulary, manifest]) => {
+    .then(([vocabulary, catalog]) => {
       VOCAB = vocabulary;
-      const slugs = (manifest && manifest.trees) || [];
-      if (!slugs.length) throw new Error('trees.json inneholder ingen trær.');
-      return Promise.all(slugs.map(loadOne));
+      const list = (catalog && catalog.trees) || [];
+      if (!list.length) throw new Error('catalog.json inneholder ingen trær.');
+      return list;
     })
     .then(list => {
       TREES = list.filter(Boolean).filter(checkVocab).map(prepare);
@@ -349,22 +346,10 @@ function loadTrees() {
     });
 }
 
-function loadOne(slug) {
-  return fetch(slug + '/meta.json')
-    .then(res => {
-      if (!res.ok) throw new Error(slug + '/meta.json ga HTTP ' + res.status);
-      return res.json();
-    })
-    .then(meta => Object.assign({ slug: slug }, meta))
-    // Ett tre med ødelagt metadatafil skal ikke ta ned hele katalogen —
-    // det utelates, og feilen går til konsollen for den som vedlikeholder.
-    .catch(err => { console.error('Hopper over treet «' + slug + '»:', err); return null; });
-}
-
 /* Et tre med en vokabularverdi vi ikke kjenner utelates, og grunnen står
    i konsollen. Se kommentaren over vocab(): dette skal være umulig i
    praksis, siden hvert tre er gjennomgått for hånd — treffer det, er det
-   en skrivefeil i meta.json eller en verdi som mangler i vocabulary.json,
+   en skrivefeil i tree.csv eller en verdi som mangler i vocabulary.json,
    og begge deler er noe som skal rettes framfor skjules. */
 function checkVocab(tree) {
   const problems = validateVocab(tree);
@@ -430,7 +415,7 @@ function currentResults() {
    sorteringen faller tilbake på tittel. */
 function score(tree, words) {
   if (!words.length) return 0;
-  const title = String(tree.title + ' ' + (tree.course || '')).toLowerCase();
+  const title = String(tree.title).toLowerCase();
   const near = String((tree.subtitle || '') + ' ' + (tree.summary || '')).toLowerCase();
   let s = 0;
   words.forEach(term => {
@@ -525,7 +510,7 @@ function card(tree, position) {
 
   /* Treets eget språk står på kortet, ikke bare i filteret: trærne er ikke
      oversatt, så språket er noe leseren trenger FØR klikket. Verdiene er
-     nøkler i meta.json og slås opp i vokabularet på katalogens språk. */
+     nøkler i tree.csv og slås opp i vokabularet på katalogens språk. */
   const meta = document.createElement('p');
   meta.className = 'treecard__meta';
   [

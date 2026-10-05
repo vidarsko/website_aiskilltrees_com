@@ -4,41 +4,18 @@
   "name": "Norsk (bokmål)",
   "endonym": "Norsk",
   "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
-  "defaultLearner": "pupil",
-  "learners": {
-    "_comment": "Hva den som lærer HETER. En elev på skolen og en student på universitetet er det samme i treet og ulikt i teksten, så treet velger med config-raden «learner» hvilken av disse som gjelder - og BARE nøkkelen står i tree.csv. Bøyningen står her, fordi bøyning er noe som varierer med språk, og en lærer som lager sitt eget tre skal ikke måtte skrive grammatikk i et regneark. `leadIn` er ledeteksten panelet setter foran beskrivelsen: en ferdighet er en verbfrase («Eleven kan: legge sammen ...»), et begrep er en definisjon, og de to trenger derfor hver sin innledning. Trenger et tre et ord som ikke står her, er det denne fila som får en oppføring til - ikke motoren.",
-    "pupil": {
-      "word": "elev",
-      "definite": "eleven",
-      "plural": "elever",
-      "pluralDefinite": "elevene",
-      "leadIn": {
-        "skill": "Eleven kan:",
-        "concept": "Eleven kan forklare:",
-        "fact": "Eleven kan gjengi:"
-      }
+  "learner": {
+    "_comment": "Hva den som lærer HETER, i bestemt form, slik instruksene og panelet bruker det: «eleven», «studenten», «deltakeren» eller noe annet. Treet setter det med config-raden `learner`, som fritekst; uten raden gjelder `default`. `legacy` oversetter nøklene trærne brukte før 0.31.0 (`pupil`, `student`, `participant`) til den formen, slik at en eldre fil leses likt. `leadIn` er ledeteksten panelet setter foran beskrivelsen; {LearnerDefinite} er formen med stor forbokstav. En ferdighet er en verbfrase («Eleven kan: legge sammen ...»), et begrep er en definisjon, og de to trenger derfor hver sin innledning.",
+    "default": "eleven",
+    "legacy": {
+      "pupil": "eleven",
+      "student": "studenten",
+      "participant": "deltakeren"
     },
-    "student": {
-      "word": "student",
-      "definite": "studenten",
-      "plural": "studenter",
-      "pluralDefinite": "studentene",
-      "leadIn": {
-        "skill": "Studenten kan:",
-        "concept": "Studenten kan forklare:",
-        "fact": "Studenten kan gjengi:"
-      }
-    },
-    "participant": {
-      "word": "deltaker",
-      "definite": "deltakeren",
-      "plural": "deltakere",
-      "pluralDefinite": "deltakerne",
-      "leadIn": {
-        "skill": "Deltakeren kan:",
-        "concept": "Deltakeren kan forklare:",
-        "fact": "Deltakeren kan gjengi:"
-      }
+    "leadIn": {
+      "skill": "{LearnerDefinite} kan:",
+      "concept": "{LearnerDefinite} kan forklare:",
+      "fact": "{LearnerDefinite} kan gjengi:"
     }
   },
   "ui": {
@@ -63,7 +40,6 @@
     "errorExamsRenamed": "Rad {row} i tree.csv: innstillingen «features.exams» heter nå «features.resources», og exams.csv heter resources.csv med kolonnene node_id, group, label og url. Ingenting ble brukt.",
     "errorCycle": "Disse nodene er forutsetninger for hverandre, i ring: {cycle}. En av koblingene må bort.",
     "errorUnknownConfig": "Ukjent innstilling «{key}» på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
-    "errorUnknownLearner": "Ukjent verdi «{value}» for innstillingen «learner» på rad {row} i tree.csv. Verdiene norsk har: {valid}.",
     "errorUnknownNodeType": "Noden «{id}» har typen «{type}», som ikke finnes. Typene er: {valid}.",
     "errorUnknownPromptSection": "Ukjent seksjon «{section}» i prompt-rada på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
     "errorUnknownPromptTarget": "Prompt-rada på rad {row} i tree.csv peker på «{name}», som ikke er en instruks dette treet setter sammen. Ingenting ble tatt i bruk.",
@@ -219,7 +195,6 @@
     "courseInfo": {
       "button": "Om faget",
       "heading": "Om faget",
-      "course": "Fag",
       "division": "Trinn eller fakultet",
       "curriculum": "Læreplan",
       "institution": "Institusjon",

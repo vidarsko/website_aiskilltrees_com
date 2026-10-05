@@ -18,6 +18,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag realfag, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,biology,,,
+,config,,updated,2026-09-21,,,
 hypotese,concept,Fagmetode og feltarbeid,Hypotese,"Hypotese: en presis, testbar påstand om sammenhengen mellom to eller flere variabler, som data enten kan styrke eller svekke.",,0,
 uavhengig-avhengig-variabel,concept,Fagmetode og feltarbeid,Uavhengig og avhengig variabel,"Uavhengig variabel: den forskeren bevisst endrer, som temperatur eller substratmengde.
 Avhengig variabel: det som måles som resultat, og som eventuelt endrer seg fordi den uavhengige ble endret - for eksempel reaksjonshastighet.",,0,

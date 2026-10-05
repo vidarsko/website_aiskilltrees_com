@@ -89,8 +89,8 @@ const ENGINE_SRC = (typeof document !== 'undefined' && document.currentScript)
    ikke kan leses før tre fetch-er har kommet tilbake - det er den ene
    reelle forskjellen fra den gamle synkrone config.js-modellen. */
 let CONFIG = null;          // utledet av config-radene i ./tree.csv
-let META = null;            // ./meta.json (katalogens metadata — vises i kursinfo)
-let VOCAB = null;           // /trees/vocabulary.json (kontrollert vokabular for meta.json)
+let VOCAB = null;           // /trees/vocabulary.json (kontrollert vokabular for nøklene
+                            //   country, institution, division, subjectArea, language)
 let LANG = null;            // /languages/<kode>.json
 let CORE = null;            // { prompts: { <id>: instruksmodul } } - satt sammen av
                             //   bootstrap() fra /prompts/manifest.json. Formen er den
@@ -118,12 +118,9 @@ let TOPIC_ORDER = [];
 let FEATURES = {};
 let SHOW_MOTIVATION_BUTTON = false;
 let CONVERSATION_LANGUAGE = '';
-let LEARNER_KEY = '';       // nøkkelen treet valgte, eller språkets egen standard
-let LEARNER = null;         // hva den som lærer HETER, fra språkfila: { word, definite,
-                            //   plural, pluralDefinite, leadIn: { skill, concept, fact } }.
-                            //   Treet velger nøkkelen med config-raden `learner`; selve
-                            //   bøyningen står i languages/<kode>.json, fordi bøyning er
-                            //   noe som varierer med språk.
+let LEARNER = '';           // hva den som lærer HETER, i bestemt form («eleven»,
+                            //   «the student»): config-raden `learner` som fritekst,
+                            //   ellers språkfilas `learner.default`. Se resolveLearner().
 
 let LAYOUT = {
   nodeWidth: 210,
@@ -171,26 +168,18 @@ function typeLabelText(type) {
   return map[type] || type;
 }
 
-/* Hva den som lærer HETER, avgjort ETTER at språkfila er lastet: nøkkelen
-   står i tree.csv, ordene står i språkfila, og de to kan først møtes her.
-   En ukjent nøkkel er en FEIL av samme slag som en ukjent innstilling -
-   `learner: elev` på et norsk tre ville ellers stille gitt «Eleven kan:»,
-   sett helt riktig ut, og latt læreren tro at nøkkelen het det. */
-function resolveLearner(row) {
-  const learners = (LANG && LANG.learners) || {};
-  const keys = Object.keys(learners).filter(k => k.charAt(0) !== '_');
-  const asked = CONFIG.learner;
-  if (asked && !learners[asked]) {
-    pushError('errorUnknownLearner', {
-      value: asked, row: row, valid: keys.join(', '), guess: nearest(asked, keys),
-    });
-  }
-  LEARNER_KEY = learners[asked] ? asked
-    : (learners[LANG.defaultLearner] ? LANG.defaultLearner : (keys[0] || 'student'));
-  return learners[asked] || learners[LANG.defaultLearner] || learners[keys[0]] || {
-    word: 'student', definite: 'the student', plural: 'students', pluralDefinite: 'the students',
-    leadIn: { skill: 'The student can:', concept: 'The student can explain:', fact: 'The student can recall:' },
-  };
+/* Hva den som lærer HETER, i bestemt form. Fra 0.31.0 er `learner` fritekst
+   i tree.csv («kursdeltakeren»), fordi den bestemte formen er den eneste
+   instruksene og panelet bruker - de andre bøyningene i språkfila ble
+   aldri lest. Verdiene trærne brukte før (`pupil`, `student`,
+   `participant`) oversettes av språkfilas `learner.legacy`, slik at en
+   eldre fil leses likt. Uten raden gjelder språkets `learner.default`. */
+function resolveLearner() {
+  const spec = (LANG && LANG.learner) || {};
+  const asked = String(CONFIG.learner || '').trim();
+  const legacy = spec.legacy || {};
+  if (asked) return Object.prototype.hasOwnProperty.call(legacy, asked) ? legacy[asked] : asked;
+  return spec.default || 'the student';
 }
 
 /* Ledeteksten panelet setter foran beskrivelsen. Den står IKKE i CSV-en:
@@ -202,20 +191,17 @@ function resolveLearner(row) {
    ingen verbfrase, og «Eleven kan: Posisjonen til et siffer bestemmer
    verdien» går ikke opp. Vidars beslutning, 2026-09-21. */
 function learnerLeadIn(type) {
-  const lead = (LEARNER && LEARNER.leadIn) || {};
-  return lead[type] || lead.skill || '';
+  const lead = (LANG && LANG.learner && LANG.learner.leadIn) || {};
+  const tmpl = lead[type] || lead.skill || '{LearnerDefinite}:';
+  return tmpl.replace('{LearnerDefinite}', LEARNER.charAt(0).toUpperCase() + LEARNER.slice(1));
 }
 
-/* Ordene for den som lærer, som {learner}, {learnerDefinite}, {learners} og
-   {learnersDefinite}. De kan bare brukes i SPRÅKLAGET og i tree.csv, ikke i
+/* Ordet for den som lærer, som {learnerDefinite}. Det kan bare brukes i
+   SPRÅKLAGET og i tree.csv, ikke i
    prompts/: de står på treets språk, og limt inn i den engelske kjernen
    ville de gitt «helping eleven practise». */
 function learnerVars() {
-  const l = LEARNER || {};
-  return {
-    learner: l.word, learnerDefinite: l.definite,
-    learners: l.plural, learnersDefinite: l.pluralDefinite,
-  };
+  return { learnerDefinite: LEARNER };
 }
 
 /* En begrepsnode kan definere FLERE begreper - «Intron og ekson» er ett
@@ -495,7 +481,7 @@ let themeList = [];
 
 // «/trees/no-vgs-matte-2p/» → «no-vgs-matte-2p». Slug-en er mappenavnet; det finnes
 // ingen egen id i config, og mappenavnet er allerede nøkkelen i
-// /trees/trees.json og i meta.json.
+// /trees/trees.json.
 function treeSlug() {
   const parts = location.pathname.split('/').filter(Boolean);
   const i = parts.indexOf('trees');
@@ -560,7 +546,7 @@ async function bootstrap() {
   }
   LANG = lang;
   /* Først her møtes nøkkelen fra tree.csv og ordene fra språkfila. */
-  LEARNER = resolveLearner((split.config.find(e => e.key === 'learner') || {}).row);
+  LEARNER = resolveLearner();
 
   /* Utledet framfor konfigurert. Samtalespråkets navn står i språkfila, og
      lagringsnøkkelen er et internt navn ingen lærer skal måtte finne på.
@@ -603,12 +589,10 @@ async function bootstrap() {
   FAMILY = famPath ? loaded[loaded.length - 1] : null;
   /* Først her vet vi hvilke seksjoner som finnes. Se validatePromptRows(). */
   validatePromptRows();
-  /* meta.json eies av katalogen, og finnes bare for et tre som ligger DER.
-     Et tre en lærer har laget selv har ingen katalogoppføring, så kursinfoen
-     settes da sammen av config-radene i stedet - ellers ville «Om faget»
-     vært tomt for alle andre enn meg. */
-  META = await fetchJson('meta.json').catch(() => null) || metaFromConfig();
-  /* Vokabularet oversetter nøklene i meta.json (country, institution,
+  /* «Om faget» leses fra config-radene i tree.csv, og bare derfra. Fram
+     til 0.31.0 hadde katalogtrærne en egen meta.json ved siden av, og da
+     viste et tre på nettsiden noe annet enn den samme fila lastet ned.
+     Vokabularet oversetter nøklene i config-radene (country, institution,
      division, subjectArea, language) til lesbar tekst. Treet slår opp på
      SITT EGET språk, ikke leserens: et tre er enspråklig, og «Om faget»
      skal stå på treets språk uansett hvor leseren kom fra. */
@@ -668,7 +652,12 @@ function splitRows(rows) {
 const CONFIG_KEYS = [
   'schemaVersion', 'title', 'description', 'language', 'languageName',
   'subjectFamily', 'storageKey', 'topicOrder', 'learner',
-  'course', 'curriculum', 'author', 'authorUrl', 'license',
+  /* Om faget og katalogen. Alle valgfrie; country, institution, division
+     og subjectArea er nøkler i /trees/vocabulary.json. `course` ble strøket
+     i 0.31.0 (den var lik `title` på hvert eneste tre), men godtas fortsatt
+     og overses, slik at en fil laget i byggeren før det ikke får en feil. */
+  'subtitle', 'curriculum', 'courseCode', 'country', 'institution', 'division',
+  'subjectArea', 'keywords', 'updated', 'author', 'authorUrl', 'license', 'course',
   'features.motivation', 'features.resources',
   'slots.courseName', 'slots.motivationSubject', 'slots.expressionFocus',
   'slots.courseSpecifics',
@@ -811,8 +800,7 @@ function buildConfig(entries) {
 /* `basedOn.1.author`, `basedOn.1.title` og `basedOn.1.url` blir til en
    liste `[{ n, author, title, url }]`, sortert på tallet. 1 er treet dette
    er laget fra, 2 treet DET bygget på, og så videre. Rekken står i
-   tree.csv og ikke i meta.json, slik at den følger fila når noen laster
-   den ned: CC BY krever at den som bearbeider et tre krediterer
+   tree.csv, slik at den følger fila når noen laster den ned: CC BY krever at den som bearbeider et tre krediterer
    opphavet, og det er lettere når navnene allerede står i fila. */
 function normaliseBasedOn(cfg) {
   const src = cfg.basedOn;
@@ -845,7 +833,7 @@ function normaliseAids(cfg) {
 }
 
 function coerceConfigValue(key, value) {
-  if (key === 'topicOrder') return value.split(';').map(s => s.trim()).filter(Boolean);
+  if (key === 'topicOrder' || key === 'keywords') return value.split(';').map(s => s.trim()).filter(Boolean);
   if (value === 'true') return true;
   if (value === 'false') return false;
   if (/^-?\d+$/.test(value) && (key === 'schemaVersion' || key.indexOf('layout.') === 0)) {
@@ -993,18 +981,6 @@ function describeInstructions() {
       }),
     };
   });
-}
-
-/* «Om faget» for et tre uten katalogoppføring. Bare fritekstfeltene:
-   fasettnøklene (country, institution, ...) hører katalogen til, og et
-   tre en lærer laget for seg selv står ikke i den. */
-function metaFromConfig() {
-  const fields = ['course', 'curriculum', 'author', 'authorUrl', 'license', 'description'];
-  const meta = {};
-  let any = false;
-  fields.forEach(f => { if (CONFIG[f]) { meta[f] = CONFIG[f]; any = true; } });
-  if (CONFIG.title) meta.title = CONFIG.title;
-  return any ? meta : null;
 }
 
 function fetchJson(path) {
@@ -1436,10 +1412,8 @@ async function bundleForDownload() {
   const bundle = {
     'tree.csv': TREE_CSV_TEXT,
     '/assets/prompts/manifest.json': MANIFEST,
-    /* Katalogens to filer blir med når treet ligger i en katalog, slik at
-       «Om faget» står i den nedlastede fila også. Står de som null, faller
-       motoren tilbake på config-radene - se metaFromConfig(). */
-    'meta.json': META,
+    /* Vokabularet blir med slik at nøklene i config-radene (country,
+       institution, ...) får lesbar tekst i «Om faget» også uten nett. */
     '/trees/vocabulary.json': VOCAB
   };
   if (RESOURCES_CSV_TEXT) bundle['resources.csv'] = RESOURCES_CSV_TEXT;
@@ -1577,7 +1551,7 @@ function ensureCourseInfoModal() {
 /* ------------------------------------------------------------------ */
 /* Vokabularoppslag for «Om faget»                                      */
 /*                                                                      */
-/* meta.json lagrer nøkler («NO», «vgs», «vg2», «mathematics», «nb»),   */
+/* Config-radene lagrer nøkler («NO», «vgs», «vg2», «mathematics», «nb»),*/
 /* ikke ferdig tekst — se /trees/vocabulary.json. Oppslaget her gjøres   */
 /* på TREETS eget språk (CONFIG.language), ikke på leserens: trærne er   */
 /* enspråklige, og denne sida har ingen språkveksler.                    */
@@ -1619,7 +1593,7 @@ function vocabDivisionLabel(institutionKey) {
 }
 
 function renderCourseInfoBody(body) {
-  const m = META || {};
+  const m = CONFIG || {};
   body.innerHTML = '';
 
   /* Faktatabellen FØRST, ingressen etter. Vidars rekkefølge 2026-09-20:
@@ -1629,7 +1603,6 @@ function renderCourseInfoBody(body) {
      Faktatabellen. Bare rader som FINNES vises — et felt ingen har fylt ut
      skal ikke stå igjen som en tom rad. */
   const facts = [
-    [t('courseInfo.course'),      m.course],
     /* Inndelingsraden navngis av institusjonen framfor av språkfila:
        «Trinn» for et skoleslag, «Fakultet» for et universitet. Se
        `institution` i /trees/vocabulary.json for hvorfor det ikke finnes
@@ -1640,7 +1613,7 @@ function renderCourseInfoBody(body) {
     [t('courseInfo.institution'), vocabText('institution', m.institution)],
     [t('courseInfo.country'),     vocabText('country', m.country)],
     [t('courseInfo.language'),    vocabText('language', m.language)],
-    [t('courseInfo.size'),        nodeCountText(m)],
+    [t('courseInfo.size'),        nodeCountText()],
     /* Hvilken utgave av dekomponeringsmodellen treet ble laget etter. Står
        i tree.csv, ikke i katalogen: det er et faktum om fila, og det skal
        følge med den nedlastede utgaven. */
@@ -1661,10 +1634,10 @@ function renderCourseInfoBody(body) {
     body.appendChild(dl);
   }
 
-  if (m.summary || CONFIG.description) {
+  if (m.description) {
     const lead = document.createElement('p');
     lead.className = 'course-info__lead';
-    lead.textContent = m.summary || CONFIG.description;
+    lead.textContent = m.description;
     body.appendChild(lead);
   }
 
@@ -1710,9 +1683,7 @@ function renderCourseInfoBody(body) {
     ['courseInfo.updated', m.updated],
     ['courseInfo.license', m.license],
   ].filter(row => row[1]);
-  /* «Bygger på» leses alltid fra tree.csv, også når treet har en
-     meta.json: rekken følger fila, og katalogen fører den ikke. */
-  const basedOn = (CONFIG && CONFIG.basedOn) || [];
+  const basedOn = m.basedOn || [];
 
   if (credits.length || basedOn.length) {
     const h3 = document.createElement('h3');
@@ -1760,12 +1731,15 @@ function renderCourseInfoBody(body) {
   }
 }
 
-function nodeCountText(m) {
+/* Tellingene regnes av nodene selv. De sto i meta.json før 0.31.0, og en
+   kopi av et tall som kan telles, kommer ut av synk. */
+function nodeCountText() {
+  const count = type => allNodes.filter(n => n.type === type).length;
   const parts = [];
-  if (m.skillCount) parts.push(fmtCount('courseInfo.skills', m.skillCount));
-  if (m.conceptCount) parts.push(fmtCount('courseInfo.concepts', m.conceptCount));
-  if (m.factCount) parts.push(fmtCount('courseInfo.facts', m.factCount));
-  if (!parts.length && m.nodeCount) parts.push(fmtCount('courseInfo.nodes', m.nodeCount));
+  if (count('skill')) parts.push(fmtCount('courseInfo.skills', count('skill')));
+  if (count('concept')) parts.push(fmtCount('courseInfo.concepts', count('concept')));
+  if (count('fact')) parts.push(fmtCount('courseInfo.facts', count('fact')));
+  if (!parts.length && allNodes.length) parts.push(fmtCount('courseInfo.nodes', allNodes.length));
   return parts.join(' · ');
 }
 
@@ -3114,8 +3088,8 @@ function publishEffectiveConfig() {
     subjectFamily: CONFIG.subjectFamily || '',
     subjectFamilyTitle: (FAMILY && FAMILY.title) || '',
     decompositionVersion: CONFIG.decompositionVersion || '',
-    learner: LEARNER_KEY,
-    learnerWord: (LEARNER && LEARNER.definite) || '',
+    learner: LEARNER,
+    learnerDefault: (LANG.learner && LANG.learner.default) || '',
     learnerDerived: !CONFIG.learner,
     storageKey: STORAGE_KEY,
     topicOrder: TOPIC_ORDER.slice(),
@@ -3135,7 +3109,6 @@ function publishEffectiveConfig() {
     instructions: describeInstructions(),
     style: Object.assign({}, CONFIG.style || {}),
     styleFonts: STYLE_FONTS.slice(),
-    learners: Object.keys(LANG.learners || {}).filter(k => k.charAt(0) !== '_'),
     subjectFamilies: Object.keys((MANIFEST && MANIFEST.subjectFamilies) || {}),
     errors: validationErrors.map(errorText),
   };

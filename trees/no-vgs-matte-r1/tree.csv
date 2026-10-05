@@ -19,6 +19,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag realfag, Vg2",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,mathematics,,,
+,config,,updated,2026-09-30,,,
 potensregler-rasjonale-eksponenter,skill,Potenser og logaritmer,Bruke potensregler med rasjonale og negative eksponenter,"bruke og omforme uttrykk med rasjonale og negative eksponenter, og skrive n-te røtter som potenser.",,1,"Gi eleven potensuttrykk med rasjonale eller negative eksponenter, samt uttrykk med n-te røtter, og be dem forenkle eller regne dem ut for hånd."
 logaritme-begrep,concept,Potenser og logaritmer,"Logaritme, ln og lg","Logaritme: log_a(x) er svaret på «a opphøyd i hva gir x», altså den eksponenten a må ha for å gi x.
 ln: den naturlige logaritmen, med grunntall e.

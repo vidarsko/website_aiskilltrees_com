@@ -293,10 +293,10 @@
           "nb": "Instrukser",
           "sv": "Instruktioner"
       },
-      "tab-settings": {
-          "en": "Settings",
-          "nb": "Innstillinger",
-          "sv": "Inställningar"
+      "tab-nodes": {
+          "en": "Nodes",
+          "nb": "Nodene",
+          "sv": "Noderna"
       },
       "tab-look": {
           "en": "Look",
@@ -649,9 +649,9 @@
           "sv": "Hjälpmedel"
       },
       "node-aids-hint": {
-          "en": "Which of the tree’s aid levels this node is examined under. Set the levels under Settings.",
-          "nb": "Hvilke av treets hjelpemiddelnivåer noden prøves under. Nivåene settes under Innstillinger.",
-          "sv": "Vilka av trädets hjälpmedelsnivåer noden prövas under. Nivåerna ställs in under Inställningar."
+          "en": "Which of the tree’s aid levels this node is examined under. Set the levels under Tree.",
+          "nb": "Hvilke av treets hjelpemiddelnivåer noden prøves under. Nivåene settes under Treet.",
+          "sv": "Vilka av trädets hjälpmedelsnivåer noden prövas under. Nivåerna ställs in under Trädet."
       },
       "node-instruction": {
           "en": "Extra instruction for this node",
@@ -889,14 +889,14 @@
           "sv": "Skrivs på varje nod, under ”Extra instruktion för denna nod”."
       },
       "sec-runtime-aids": {
-          "en": "Written from the aid levels under Settings.",
-          "nb": "Skrives ut fra hjelpemiddelnivåene under Innstillinger.",
-          "sv": "Skrivs utifrån hjälpmedelsnivåerna under Inställningar."
+          "en": "Written from the aid levels under Tree.",
+          "nb": "Skrives ut fra hjelpemiddelnivåene under Treet.",
+          "sv": "Skrivs utifrån hjälpmedelsnivåerna under Trädet."
       },
       "set-group-about": {
-          "en": "The tree",
-          "nb": "Treet",
-          "sv": "Trädet"
+          "en": "Basics",
+          "nb": "Grunnleggende",
+          "sv": "Grundläggande"
       },
       "set-title": {
           "en": "Title",
@@ -918,10 +918,10 @@
           "nb": "Den som lærer heter",
           "sv": "Den som lär sig heter"
       },
-      "set-default-for-language": {
-          "en": "Default for the language",
-          "nb": "Standard for språket",
-          "sv": "Standard för språket"
+      "set-learner-hint": {
+          "en": "In the definite form, as the instructions say it: “the student”, “the participant”. Empty gives the language’s default.",
+          "nb": "I bestemt form, slik instruksene sier det: «eleven», «studenten», «kursdeltakeren». Tomt gir språkets standard.",
+          "sv": "I bestämd form, så som instruktionerna säger det: ”eleven”, ”studenten”, ”deltagaren”. Tomt ger språkets standard."
       },
       "set-family": {
           "en": "Subject family",
@@ -958,10 +958,70 @@
           "nb": "Vises for elevene under «Om faget».",
           "sv": "Visas för eleverna under ”Om ämnet”."
       },
-      "set-course": {
-          "en": "Course",
-          "nb": "Kurs",
-          "sv": "Kurs"
+      "set-subtitle": {
+          "en": "Subtitle",
+          "nb": "Undertittel",
+          "sv": "Underrubrik"
+      },
+      "set-subtitle-hint": {
+          "en": "One line under the title on the tree’s card, e.g. “Programme subject, Year 12”.",
+          "nb": "Én linje under tittelen på treets kort, f.eks. «Programfag realfag, Vg2».",
+          "sv": "En rad under titeln på trädets kort, t.ex. ”Yrkesprogram, Gy25”."
+      },
+      "set-course-code": {
+          "en": "Course code",
+          "nb": "Fagkode",
+          "sv": "Kurskod"
+      },
+      "set-updated": {
+          "en": "Last updated",
+          "nb": "Sist oppdatert",
+          "sv": "Senast uppdaterad"
+      },
+      "set-updated-hint": {
+          "en": "As YYYY-MM-DD.",
+          "nb": "Som ÅÅÅÅ-MM-DD.",
+          "sv": "Som ÅÅÅÅ-MM-DD."
+      },
+      "set-group-catalogue": {
+          "en": "In the catalogue",
+          "nb": "I katalogen",
+          "sv": "I katalogen"
+      },
+      "set-group-catalogue-note": {
+          "en": "What the filters on aiskilltrees.com/trees/ sort by. Also shown under “About the subject”.",
+          "nb": "Det filtrene på aiskilltrees.com/trees/ sorterer etter. Vises også under «Om faget».",
+          "sv": "Det filtren på aiskilltrees.com/trees/ sorterar efter. Visas också under ”Om ämnet”."
+      },
+      "set-country": {
+          "en": "Country",
+          "nb": "Land",
+          "sv": "Land"
+      },
+      "set-institution": {
+          "en": "Institution",
+          "nb": "Institusjon",
+          "sv": "Institution"
+      },
+      "set-division": {
+          "en": "Year or faculty",
+          "nb": "Trinn eller fakultet",
+          "sv": "Årskurs eller fakultet"
+      },
+      "set-subject-area": {
+          "en": "Subject area",
+          "nb": "Fagområde",
+          "sv": "Ämnesområde"
+      },
+      "set-keywords": {
+          "en": "Keywords",
+          "nb": "Søkeord",
+          "sv": "Sökord"
+      },
+      "set-keywords-hint": {
+          "en": "Extra words the catalogue search should find the tree by, separated by semicolons.",
+          "nb": "Ekstra ord katalogsøket skal finne treet på, skilt med semikolon.",
+          "sv": "Extra ord katalogsökningen ska hitta trädet på, åtskilda med semikolon."
       },
       "set-curriculum": {
           "en": "Curriculum",
@@ -1447,9 +1507,9 @@
 
         <nav class="ed-tabs" id="ed-tabs" role="tablist">
           <button type="button" role="tab" data-tab="tree" aria-selected="true" data-i18n="tab-tree">Tree</button>
+          <button type="button" role="tab" data-tab="nodes" aria-selected="false" data-i18n="tab-nodes">Nodes</button>
           <button type="button" role="tab" data-tab="node" aria-selected="false" data-i18n="tab-node">Node</button>
           <button type="button" role="tab" data-tab="instructions" aria-selected="false" data-i18n="tab-instructions">Instructions</button>
-          <button type="button" role="tab" data-tab="settings" aria-selected="false" data-i18n="tab-settings">Settings</button>
           <button type="button" role="tab" data-tab="look" aria-selected="false" data-i18n="tab-look">Look</button>
         </nav>
 

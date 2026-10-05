@@ -76,6 +76,11 @@
       ? (manifest.subjectFamilies || {})[config.subjectFamily] : null;
     if (family) files.push('/assets/prompts/' + family);
     files.push('/assets/languages/' + (config.language || 'en') + '.json');
+    /* Vokabularet gir nøklene i config-radene (country, institution,
+       division, ...) lesbar tekst i «Om faget». Hentes det ikke, står det
+       som null, og motoren dropper de radene framfor å gjøre et kall som
+       feiler i en fil uten nett. */
+    files.push('/trees/vocabulary.json');
 
     return Promise.all(files.map(function (path) {
       return getJson(path).then(function (data) { return [path, data]; },
@@ -84,12 +89,10 @@
       var bundle = {
         'tree.csv': treeCsv,
         '/assets/prompts/manifest.json': manifest,
-        /* Katalogens to filer finnes ikke for et tre en lærer har laget
-           selv. De står som null framfor å mangle, slik at motoren får
-           svaret sitt uten å gjøre et kall som feiler - en rød linje i
-           konsollen for en fil som er valgfri, er nettopp den slags støy
+        /* Overskrives under hvis vokabularet ble hentet. Står det som
+           null, får motoren svaret sitt uten et kall som feiler - en rød
+           linje i konsollen for en valgfri fil er nettopp den slags støy
            som får folk til å tro at noe er i stykker. */
-        'meta.json': null,
         '/trees/vocabulary.json': null,
       };
       if (resourcesCsv) bundle['resources.csv'] = resourcesCsv;

@@ -4,41 +4,18 @@
   "name": "Svenska",
   "endonym": "Svenska",
   "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
-  "defaultLearner": "pupil",
-  "learners": {
-    "_comment": "Vad den som lär sig HETER. En elev i skolan och en student på universitetet är samma sak i trädet och olika i texten, så trädet väljer med config-raden »learner« vilken som gäller - och BARA nyckeln står i tree.csv. Böjningen står här, eftersom böjning varierar med språk, och en lärare som bygger ett eget träd ska inte behöva skriva grammatik i ett kalkylark. `leadIn` är ledtexten panelen sätter framför beskrivningen: en färdighet är en verbfras (»Eleven kan: addera två ...«), ett begrepp är en definition, och de två behöver därför var sin inledning.",
-    "pupil": {
-      "word": "elev",
-      "definite": "eleven",
-      "plural": "elever",
-      "pluralDefinite": "eleverna",
-      "leadIn": {
-        "skill": "Eleven kan:",
-        "concept": "Eleven kan förklara:",
-        "fact": "Eleven kan återge:"
-      }
+  "learner": {
+    "_comment": "Vad den som lär sig KALLAS, i bestämd form, så som instruktionerna och panelen använder det: »eleven«, »studenten«, »deltagaren« eller något annat. Trädet sätter det med config-raden `learner`, som fritext; utan raden gäller `default`. `legacy` översätter nycklarna träden använde före 0.31.0 (`pupil`, `student`, `participant`) till den formen, så att en äldre fil läses likadant. `leadIn` är ledtexten panelen sätter framför beskrivningen; {LearnerDefinite} är formen med stor begynnelsebokstav.",
+    "default": "eleven",
+    "legacy": {
+      "pupil": "eleven",
+      "student": "studenten",
+      "participant": "deltagaren"
     },
-    "student": {
-      "word": "student",
-      "definite": "studenten",
-      "plural": "studenter",
-      "pluralDefinite": "studenterna",
-      "leadIn": {
-        "skill": "Studenten kan:",
-        "concept": "Studenten kan förklara:",
-        "fact": "Studenten kan återge:"
-      }
-    },
-    "participant": {
-      "word": "deltagare",
-      "definite": "deltagaren",
-      "plural": "deltagare",
-      "pluralDefinite": "deltagarna",
-      "leadIn": {
-        "skill": "Deltagaren kan:",
-        "concept": "Deltagaren kan förklara:",
-        "fact": "Deltagaren kan återge:"
-      }
+    "leadIn": {
+      "skill": "{LearnerDefinite} kan:",
+      "concept": "{LearnerDefinite} kan förklara:",
+      "fact": "{LearnerDefinite} kan återge:"
     }
   },
   "ui": {
@@ -63,7 +40,6 @@
     "errorExamsRenamed": "Rad {row} i tree.csv: inställningen »features.exams« heter nu »features.resources«, och exams.csv heter resources.csv med kolumnerna node_id, group, label och url. Ingenting tillämpades.",
     "errorCycle": "De här noderna är förkunskaper för varandra, i en ring: {cycle}. En av länkarna måste bort.",
     "errorUnknownConfig": "Okänd inställning »{key}« på rad {row} i tree.csv. Ingenting tillämpades.",
-    "errorUnknownLearner": "Okänt värde »{value}« för inställningen »learner« på rad {row} i tree.csv. Värdena svenska har: {valid}.",
     "errorUnknownNodeType": "Noden »{id}« har typen »{type}«, som inte finns. Typerna är: {valid}.",
     "errorUnknownPromptSection": "Okänt avsnitt »{section}« i prompt-raden på rad {row} i tree.csv. Ingenting tillämpades.",
     "errorUnknownPromptTarget": "Prompt-raden på rad {row} i tree.csv pekar på »{name}«, som inte är en instruktion det här trädet sätter samman. Ingenting tillämpades.",
@@ -219,7 +195,6 @@
     "courseInfo": {
       "button": "Om ämnet",
       "heading": "Om ämnet",
-      "course": "Ämne",
       "division": "Årskurs eller fakultet",
       "curriculum": "Läroplan",
       "institution": "Institution",

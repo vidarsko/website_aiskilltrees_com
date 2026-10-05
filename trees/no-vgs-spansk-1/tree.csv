@@ -14,6 +14,14 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fremmedspråk nivå I, Vg1",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg1,,,
+,config,,subjectArea,spanish,,,
+,config,,keywords,spansk; fremmedspråk; nivå I; gloser; ser og estar; gustar; presens; uttale; aksenttegn; spansktalende land,,,
+,config,,updated,2026-09-30,,,
 alfabetet,fact,Uttale og rettskriving,Det spanske alfabetet,"a: a
 b: be
 c: ce

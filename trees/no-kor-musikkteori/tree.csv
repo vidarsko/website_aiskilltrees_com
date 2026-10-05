@@ -1,7 +1,7 @@
 id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
 ,config,,title,Musikkteori for korsangere,,,
-,config,,description,"Fra noter og rytme til tonearter, intonasjon og bladlesing av egen stemme",,,
+,config,,description,"Fra noter og rytme til tonearter, intonasjon og bladlesing av egen stemme. Et første forslag.",,,
 ,config,,language,nb,,,
 ,config,,learner,participant,,,
 ,config,,subjectFamily,practical-aesthetic,,,
@@ -15,6 +15,12 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,Kor,,,
+,config,,country,NO,,,
+,config,,institution,kor,,,
+,config,,subjectArea,music,,,
+,config,,keywords,kor; korsang; musikk; musikkteori; noter; bladlesing; intervaller; tonearter; rytme; intonasjon,,,
+,config,,updated,2026-09-30,,,
 notelinjer,concept,Notesystemet,Notelinjer,"Notelinjer: de fem linjene notene skrives på; jo høyere en note står, jo lysere klinger den.
 Hjelpelinje: en kort ekstra linje over eller under notelinjene for toner som ligger utenfor dem.",,,
 notenavn,concept,Notesystemet,Stamtoner og oktav,"Stamtoner: de sju tonene c, d, e, f, g, a og h, som gjentas oppover og nedover.

@@ -2,7 +2,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
 ,config,,topicOrder,"Classroom management;Questions and discussion;Whiteboarding and sense-making;Feedback and presentation;How learning works;Motivation, anxiety and equity",,,
 ,config,,title,The LA seminar,,,
-,config,,description,"Classroom management and the pedagogy underneath it: what a group teacher at UiO should be able to do in the room, and why it works.",,,
+,config,,description,"Classroom management and the pedagogy underneath it - relationships, routines and rules, questions and wait time, whiteboarding, feedback, and how memory, motivation and anxiety actually work - decomposed into what a learning assistant has to be able to do in the room.",,,
 ,config,,language,en,,,
 ,config,,languageName,English,,,
 ,config,,learner,participant,,,
@@ -16,6 +16,14 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Group teacher training, Faculty of Mathematics and Natural Sciences",,,
+,config,,curriculum,"The LA seminar curriculum, v3 (2026)",,,
+,config,,country,NO,,,
+,config,,institution,uio,,,
+,config,,division,mn,,,
+,config,,subjectArea,teaching,,,
+,config,,keywords,learning assistant; teaching assistant; group teacher; gruppelærer; LA-programmet; KURT; pedagogy; classroom management; whiteboarding; think pair share; SOLO taxonomy; wait time; cognitive load; retrieval practice; university teaching; teacher training,,,
+,config,,updated,2026-09-21,,,
 rrr,concept,Classroom management,"Relationships, routines and rules","Relationship: what you have with each student in the group, and the most powerful tool you own.
 Routine: what you do every single time, so that nobody has to be told what happens next.
 Rule: what you expect of the group - arriving on time, staying quiet while someone explains, putting a hand up.",,,

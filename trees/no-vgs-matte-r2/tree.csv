@@ -19,6 +19,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag realfag, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,mathematics,,,
+,config,,updated,2026-09-30,,,
 rekke-begrep,concept,Rekker,Rekke og delsum,"Rekke: summen av leddene i en tallfølge.
 Delsum S_n: summen av de n første leddene.
 Konvergens: en uendelig rekke konvergerer når følgen av delsummer har en grenseverdi, og den grenseverdien er rekkens sum.",,0,

@@ -2,7 +2,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,schemaVersion,3,,,
 ,config,,topicOrder,Prosent og vekstfaktor;Lån og økonomi;Eksponentialfunksjoner;Statistikk;Programmering;Geometri;Likninger og funksjoner,,,
 ,config,,title,Matematikk 2P,,,
-,config,,description,"Interaktivt ferdighetstre for matematikk 2P: huk av det du mestrer, og kopier en KI-instruks for å trene videre.",,,
+,config,,description,"Prosent og vekstfaktor, personlig økonomi og lån, eksponentiell vekst, statistikk, geometri og litt programmering — dekomponert i det elevene faktisk må kunne gjøre, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
 ,config,,language,nb,,,
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,2p-ferdighetstre-fullfort,,,
@@ -19,6 +19,14 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Praktisk matematikk, Vg2 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,mathematics,,,
+,config,,keywords,vekstfaktor; prisindeks; reallønn; annuitetslån; sentralmål; spredningsmål; formlikhet; målestokk; eksamen,,,
+,config,,updated,2026-09-21,,,
 prosent-av-tall,skill,Prosent og vekstfaktor,Finne prosentdel av et tall,regne ut hvor mye en gitt prosentandel av et tall utgjør.,,1,"Gi eleven et tall og en prosentsats, be dem finne prosentdelen. Ingen kontekst eller tolkning kreves, kun regneferdigheten."
 prosent-desimal-brok,skill,Prosent og vekstfaktor,"Veksle mellom prosent, desimaltall og brøk","omforme et tall mellom prosentform, desimalform og brøkform.",,1,"Gi eleven tall i én form (prosent, desimal eller brøk) og be dem omforme til de to andre. Ren mekanisk øvelse."
 prosentvis-endring-to-tall,skill,Prosent og vekstfaktor,Finne prosentvis endring mellom to tall,"regne ut hvor mange prosent en verdi har økt eller blitt redusert med, gitt den opprinnelige og den nye verdien direkte (uten at vekstfaktor er oppgitt).",prosent-desimal-brok,1,"Gi eleven en opprinnelig og en ny verdi (f.eks. gammel og ny pris) og be dem finne den prosentvise endringen. Ren regneferdighet, ett tallsvar."

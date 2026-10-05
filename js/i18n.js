@@ -11,7 +11,7 @@
 
    THE SKILL TREES THEMSELVES ARE NOT TRANSLATED. Each tree under
    /trees/<slug>/ is written in one language by the teacher who made it, and
-   that language is a fact about the tree (meta.json `language`), not a view
+   that language is a fact about the tree (the `language` row in tree.csv), not a view
    of it. This file therefore runs on the landing page and the catalogue
    only; a tree page loads no switcher at all. See AGENTS.md, "Språk".
 

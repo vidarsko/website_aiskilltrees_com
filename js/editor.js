@@ -292,7 +292,7 @@
     resources: null,
     fileName: 'tree.csv',
     mode: 'edit',          // 'edit' | 'view'
-    tab: 'tree',           // 'tree' | 'node' | 'instructions' | 'settings' | 'look'
+    tab: 'tree',           // 'tree' (innstillingene) | 'nodes' | 'node' | 'instructions' | 'look'
     selected: null,        // node-id
     picking: false,        // velger forutsetninger ved å klikke i treet
     instruction: 'node',
@@ -564,8 +564,8 @@
         state.eff = eff;
         el.stage.removeAttribute('data-busy');
         renderStatus();
-        if (state.tab === 'instructions' || state.tab === 'settings' || state.tab === 'look' ||
-            state.tab === 'tree') {
+        if (state.tab === 'instructions' || state.tab === 'tree' || state.tab === 'look' ||
+            state.tab === 'nodes') {
           if (!panelHasFocus()) renderPanel();
         }
         highlight();
@@ -792,7 +792,7 @@
       state.doc.rows.splice(state.doc.rows.indexOf(row), 1);
     }, { now: true, quiet: true });
     state.selected = null;
-    state.tab = 'tree';
+    state.tab = 'nodes';
     renderPanel();
   }
 
@@ -946,8 +946,11 @@
     if (state.mode === 'view') {
       el.body.appendChild(renderView());
     } else {
-      var draw = { tree: renderTree, node: renderNode, instructions: renderInstructions,
-                   settings: renderSettings, look: renderLook }[state.tab];
+      /* «Treet» er innstillingene og står først; «Nodene» er lista over
+         nodene. Vidars omlegging 2026-10-05 - før het lista «Treet» og
+         innstillingene «Innstillinger». */
+      var draw = { tree: renderSettings, nodes: renderNodes, node: renderNode,
+                   instructions: renderInstructions, look: renderLook }[state.tab];
       el.body.appendChild(draw());
     }
     el.body.scrollTop = scroll;
@@ -979,7 +982,7 @@
       [t('rep-family'), eff.subjectFamily || '—'],
       [t('rep-decomposition'), eff.decompositionVersion ? 'v' + String(eff.decompositionVersion).replace(/^v/, '')
         : '— ' + t('set-decomposition-missing')],
-      [t('rep-learner'), eff.learnerWord + ' (' + eff.learner + ')' + (eff.learnerDerived ? '  ' + t('set-derived') : '')],
+      [t('rep-learner'), eff.learner + (eff.learnerDerived ? '  ' + t('set-derived') : '')],
       [t('rep-storage'), eff.storageKey + '  ' + t('set-derived')],
       [t('rep-topicorder'), (eff.topicOrder || []).join(' → ') + (eff.topicOrderDerived ? '  ' + t('set-derived') : '')],
     ];
@@ -1021,7 +1024,7 @@
 
   /* ---- Treet -------------------------------------------------------- */
 
-  function renderTree() {
+  function renderNodes() {
     var wrap = h('div', { class: 'ed-section' });
     wrap.appendChild(h('p', { class: 'ed-note', text: t('tree-intro') }));
 
@@ -1117,7 +1120,7 @@
     var key = function (f) { return 'node:' + id + ':' + f; };
 
     wrap.appendChild(h('div', { class: 'ed-row ed-row--between' }, [
-      button('← ' + t('node-back'), function () { state.tab = 'tree'; renderPanel(); }, 'ed-btn--quiet ed-btn--small'),
+      button('← ' + t('node-back'), function () { state.tab = 'nodes'; renderPanel(); }, 'ed-btn--quiet ed-btn--small'),
       button(t('node-delete'), function () { deleteNode(id); }, 'ed-btn--danger ed-btn--small'),
     ]));
 
@@ -1418,16 +1421,28 @@
       { key: 'title', label: 'set-title', required: true },
       { key: 'description', label: 'set-description', area: true },
       { key: 'language', label: 'set-language', kind: 'language', required: true },
-      { key: 'learner', label: 'set-learner', kind: 'learner' },
+      { key: 'learner', label: 'set-learner', kind: 'learner', hint: 'set-learner-hint' },
       { key: 'subjectFamily', label: 'set-family', kind: 'family', hint: 'set-family-hint' },
       { key: 'decompositionVersion', label: 'set-decomposition', hint: 'set-decomposition-hint' },
     ] },
+    /* Alt under «Om faget» og i katalogen står i tree.csv fra maskineri
+       v0.31.0 - det finnes ingen meta.json ved siden av. Alle er valgfrie.
+       `course` ble strøket: den var lik tittelen på hvert eneste tre. */
     { group: 'set-group-course', note: 'set-group-course-note', fields: [
-      { key: 'course', label: 'set-course' },
+      { key: 'subtitle', label: 'set-subtitle', hint: 'set-subtitle-hint' },
       { key: 'curriculum', label: 'set-curriculum' },
+      { key: 'courseCode', label: 'set-course-code' },
       { key: 'author', label: 'set-author' },
       { key: 'authorUrl', label: 'set-author-url' },
       { key: 'license', label: 'set-license' },
+      { key: 'updated', label: 'set-updated', hint: 'set-updated-hint' },
+    ] },
+    { group: 'set-group-catalogue', note: 'set-group-catalogue-note', fields: [
+      { key: 'country', label: 'set-country', kind: 'vocab' },
+      { key: 'institution', label: 'set-institution', kind: 'vocab' },
+      { key: 'division', label: 'set-division', kind: 'division' },
+      { key: 'subjectArea', label: 'set-subject-area', kind: 'vocab' },
+      { key: 'keywords', label: 'set-keywords', hint: 'set-keywords-hint' },
     ] },
     { group: 'set-group-buttons', fields: [
       { key: 'features.motivation', label: 'set-motivation', kind: 'bool', hint: 'set-motivation-hint' },
@@ -1533,10 +1548,27 @@
       control = select(langs.map(function (c) { return { value: c, label: t('lang-' + c) === 'lang-' + c ? c : t('lang-' + c) }; }),
                        value, onPick);
     } else if (f.kind === 'learner') {
-      var opts = [{ value: '', label: t('set-default-for-language') }].concat((eff.learners || []).map(function (k) {
-        return { value: k, label: k };
+      /* Fritekst fra maskineri v0.31.0: den bestemte formen er den eneste
+         motoren bruker. Tomt felt gir språkets standard, som står som
+         plassholder. */
+      control = textInput(value, onText, { placeholder: eff.learnerDefault || '' });
+    } else if (f.kind === 'vocab' || f.kind === 'division') {
+      /* Nøkler fra /trees/vocabulary.json, samme som katalogen filtrerer på.
+         Inndelingen avhenger av institusjonen. En verdi i fila som ikke
+         finnes i vokabularet, står likevel som et valg, så den ikke
+         forsvinner bare ved å åpne treet. */
+      var vocab = state.vocab || {};
+      var src = f.kind === 'division'
+        ? (((vocab.institution || {})[configValue('institution')] || {}).divisions || {})
+        : (vocab[f.key] || {});
+      var lang = (window.i18n && window.i18n.lang) || 'en';
+      var opts = [{ value: '', label: '—' }].concat(Object.keys(src).filter(function (k) {
+        return k.charAt(0) !== '_';
+      }).map(function (k) {
+        var e = src[k] || {};
+        return { value: k, label: e.label || e[lang] || e.en || k };
       }));
-      if (value && !(eff.learners || []).some(function (k) { return k === value; })) opts.push({ value: value, label: value });
+      if (value && !opts.some(function (o) { return o.value === value; })) opts.push({ value: value, label: value });
       control = select(opts, value, onPick);
     } else if (f.kind === 'family') {
       var fams = [{ value: '', label: t('set-family-none') }].concat((eff.subjectFamilies || []).map(function (k) {
@@ -1910,8 +1942,9 @@
     el.errorCount = document.getElementById('ed-error-count');
     el.errorList = document.getElementById('ed-error-list');
     window.AistStandalone.getJson('/trees/vocabulary.json').then(function (v) {
-      state.familyNames = (v && v.subjectFamily) || {};
-      if (state.tab === 'settings' && state.doc) renderPanel();
+      state.vocab = v || {};
+      state.familyNames = state.vocab.subjectFamily || {};
+      if (state.tab === 'tree' && state.doc) renderPanel();
     }, function () { /* nøklene vises */ });
     el.errorDetails = document.getElementById('ed-error-details');
     el.errorSummary = document.getElementById('ed-error-count-summary');

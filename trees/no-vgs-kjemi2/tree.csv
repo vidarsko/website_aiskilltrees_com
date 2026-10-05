@@ -18,6 +18,14 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag realfag, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3046,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,chemistry,,,
+,config,,updated,2026-09-21,,,
 kf-fagsprak,concept,Kjemi som fag,Kjemisk fagspråk og notasjon,"Kjemisk fagspråk og notasjon: den faste notasjonen faget bruker for å si presist hva som skjer - kjemiske formler, navnsetting av forbindelser, tilstandsformene (s), (l), (g) og (aq), og reaksjonspiler som skiller en fullstendig reaksjon fra en likevekt.",,0,
 kf-bruke-fagsprak,skill,Kjemi som fag,Bruke kjemisk fagspråk i faglig kommunikasjon,"bruke kjemisk fagspråk og fagbegreper presist når hen forklarer, begrunner eller presenterer kjemifaglig innhold, i stedet for upresist eller hverdagslig språk.",kf-fagsprak,1;2,"Gi eleven en kort kjemifaglig påstand eller forklaring skrevet med upresist/hverdagslig språk, og be dem omformulere den med presist kjemisk fagspråk, eller be dem forklare en kjemisk situasjon fra pensum med riktig fagterminologi."
 kf-risikovurdering,concept,Kjemi som fag,Faresymboler og risikovurdering,"Faresymbol (piktogram): den røderammede romben som viser hvilken type fare et stoff utgjør - etsende, brannfarlig, giftig, helsefarlig, miljøfarlig.

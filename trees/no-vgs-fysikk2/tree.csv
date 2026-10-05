@@ -18,6 +18,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag realfag, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,physics,,,
+,config,,updated,2026-09-21,,,
 usikkerhet-begrep,concept,Fysikk som fag,Absolutt og relativ usikkerhet,"Absolutt usikkerhet: usikkerheten oppgitt i samme enhet som målingen, som 0,2 cm.
 Relativ usikkerhet: den absolutte usikkerheten delt på måleverdien, oppgitt i prosent. Den sier hvor god målingen er i forhold til det som ble målt, og er den som skal sammenlignes når to målinger har ulik enhet eller størrelsesorden.",,0,
 beregne-usikkerhet-fra-malinger,skill,Fysikk som fag,Beregne gjennomsnitt og usikkerhet fra flere målinger,beregne gjennomsnittsverdien og den absolutte usikkerheten Δx = (xmaks − xmin)/2 fra et sett med gjentatte målinger av samme størrelse.,usikkerhet-begrep,1,"Gi eleven et lite sett med gjentatte måleverdier for samme størrelse, og be dem regne ut gjennomsnittet og den absolutte usikkerheten."
