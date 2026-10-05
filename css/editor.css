@@ -264,6 +264,47 @@ html.ed-has-overlay .siteheader { position: relative; z-index: 60; }
   .ed-stage { order: 0; flex: 1 1 auto; height: auto; min-width: 0; }
 }
 
+/* Skilleveggen mellom panelet og treet kan dras (fra 2026-10-05). Bredden
+   settes som --ed-panel-w på .ed-app av js/editor.js og gjelder bare til
+   siden lastes på nytt: den lagres ikke, siden /privacy/ lover at ingenting
+   lagres på enheten utenom elevens avhukinger. Under 768px ligger panelet
+   under treet, og da finnes det ingen vegg å dra i. */
+.ed-split { display: none; }
+
+@media (min-width: 768px) {
+  .ed-panel { flex-basis: var(--ed-panel-w, clamp(21rem, 34vw, 30rem)); }
+
+  .ed-split {
+    display: block;
+    position: relative;
+    z-index: 3;
+    flex: 0 0 auto;
+    width: 9px;
+    margin-inline: -5px -4px;   /* ligger oppå panelets høyrekant og tar ingen plass */
+    cursor: col-resize;
+    touch-action: none;
+  }
+  .ed-split::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 4px;
+    width: 1px;
+    transition: background 0.15s, box-shadow 0.15s;
+  }
+  .ed-split:hover::after,
+  .ed-split:focus-visible::after,
+  .ed-app.is-resizing .ed-split::after {
+    background: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+  }
+  .ed-split:focus-visible { outline: none; }
+
+  /* Under draget skal ikke iframen sluke musa, og tekst skal ikke markeres. */
+  .ed-app.is-resizing { cursor: col-resize; user-select: none; }
+  .ed-app.is-resizing .ed-frame { pointer-events: none; }
+}
+
 .ed-frame {
   position: absolute;
   inset: 0;

@@ -1925,6 +1925,73 @@
     document.body.removeChild(area);
   }
 
+  /* Skilleveggen mellom panelet og treet (fra 2026-10-05). Bredden settes
+     som --ed-panel-w på .ed-app og lagres IKKE: /privacy/ lover at ingenting
+     lagres på enheten utenom elevens avhukinger. Treet ligger i en iframe,
+     som ellers ville tatt musa når den glir inn over den; pointer capture og
+     .is-resizing (pointer-events: none på iframen) holder draget her. */
+  function setupSplit() {
+    var split = document.getElementById('ed-split');
+    if (!split || !el.appWrap || !el.panel) return;
+    var MIN = 280;                 // px; under dette brekker feltene i panelet
+    var MAX_SHARE = 0.65;          // treet skal alltid ha minst en tredjedel
+
+    function clamp(w) {
+      var max = Math.max(MIN, el.appWrap.clientWidth * MAX_SHARE);
+      return Math.round(Math.min(max, Math.max(MIN, w)));
+    }
+    function setWidth(w) {
+      w = clamp(w);
+      el.appWrap.style.setProperty('--ed-panel-w', w + 'px');
+      split.setAttribute('aria-valuenow', String(w));
+    }
+    function reset() {
+      el.appWrap.style.removeProperty('--ed-panel-w');
+      split.removeAttribute('aria-valuenow');
+    }
+
+    var startX = 0, startW = 0, dragging = false;
+    split.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
+      dragging = true;
+      startX = e.clientX;
+      startW = el.panel.getBoundingClientRect().width;
+      split.setPointerCapture(e.pointerId);
+      el.appWrap.classList.add('is-resizing');
+      e.preventDefault();
+    });
+    split.addEventListener('pointermove', function (e) {
+      if (dragging) setWidth(startW + e.clientX - startX);
+    });
+    function stop(e) {
+      if (!dragging) return;
+      dragging = false;
+      el.appWrap.classList.remove('is-resizing');
+      if (split.hasPointerCapture(e.pointerId)) split.releasePointerCapture(e.pointerId);
+    }
+    split.addEventListener('pointerup', stop);
+    split.addEventListener('pointercancel', stop);
+    split.addEventListener('dblclick', reset);
+
+    split.addEventListener('keydown', function (e) {
+      var w = el.panel.getBoundingClientRect().width;
+      var step = e.shiftKey ? 80 : 20;
+      if (e.key === 'ArrowLeft') setWidth(w - step);
+      else if (e.key === 'ArrowRight') setWidth(w + step);
+      else if (e.key === 'Home') setWidth(MIN);
+      else if (e.key === 'End') setWidth(Infinity);
+      else if (e.key === 'Enter' || e.key === 'Escape') reset();
+      else return;
+      e.preventDefault();
+    });
+
+    // Et smalere vindu skal ikke etterlate et panel som tar hele treet.
+    window.addEventListener('resize', function () {
+      if (el.appWrap.style.getPropertyValue('--ed-panel-w')) setWidth(el.panel.getBoundingClientRect().width);
+    });
+    split.setAttribute('aria-valuemin', String(MIN));
+  }
+
   function init() {
     el.app = document.getElementById('editor');
     if (!el.app) return;
@@ -2091,6 +2158,8 @@
     });
 
     if (window.i18n && window.i18n.onChange) window.i18n.onChange(function () { renderPanel(); });
+
+    setupSplit();
 
     /* /make-your-own/<slug>/ og ?tree=<slug> åpner et tre fra katalogen rett
        i verktøyet. Stien er den «Rediger eller last ned» på hvert tre lenker
