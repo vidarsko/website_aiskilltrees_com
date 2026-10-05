@@ -1,0 +1,294 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Fysikens arbetsmetoder;Rörelse;Krafter, impuls och jämvikt;Energi;Elektricitet;Fält;Termisk fysik;Tryck och gaser;Elektromagnetisk strålning;Materiens byggstenar;Kärnreaktioner och kärnenergi;Radioaktivitet och stråldos;Fysiken i omvärlden",,,
+,config,,title,Fysik 1b,,,
+,config,,description,"Rörelse och krafter, energi, elektricitet, fält, termisk fysik, tryck och gaser, elektromagnetisk strålning, standardmodellen, kärnfysik och radioaktivitet — nedbrutet i det eleverna faktiskt måste kunna göra, med Gy25 som grund.",,,
+,config,,language,sv,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,se-gym-fysik-1b-fardighetstrad,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"fysik 1b (svenskt gymnasium, naturvetenskapsprogrammet, Gy25)",,,
+,config,,slots.motivationSubject,fysik,,,
+,config,,slots.expressionFocus,"glömmer enheter eller blandar enheter (t.ex. km/h och m/s, °C och K), anger svar med orimligt många värdesiffror eller avrundar mellanled för tidigt, glömmer att välja och ange positiv riktning i uppgifter med tecken (rörelse, krafter, impuls), blandar ihop massa och tyngd eller värme och temperatur, eller använder symboler för storheter utan att säga vad de står för",,,
+,config,,decompositionVersion,2.12.0,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Naturvetenskapsprogrammet, svenskt gymnasium (Gy25)",,,
+,config,,curriculum,Gy25,,,
+,config,,courseCode,FYSK1B00X,,,
+,config,,country,SE,,,
+,config,,institution,gym,,,
+,config,,division,1,,,
+,config,,subjectArea,physics,,,
+,config,,keywords,rörelse; Newtons lagar; kraft; impuls; vridmoment; tryck; Arkimedes princip; allmänna gaslagen; energi; effekt; verkningsgrad; elektricitet; Ohms lag; elektriskt fält; värme; standardmodellen; fission; fusion; bindningsenergi; radioaktivitet; halveringstid; stråldos; laboration,,,
+,config,,updated,2026-10-05,,,
+storhet-enhet-begrepp,concept,Fysikens arbetsmetoder,Storhet och enhet,"Fysikalisk storhet: något mätbart, som anges med ett mätetal och en enhet tillsammans. Ett tal utan enhet är inget mätresultat.
+SI-enhet: de grundenheter fysiken mäter i, och de härledda enheter som byggs av dem, som newton (kg·m/s²) och joule (N·m).",,0,
+si-grundenheter-fakta,fact,Fysikens arbetsmetoder,SI-grundenheterna,"längd: meter (m)
+massa: kilogram (kg)
+tid: sekund (s)
+elektrisk ström: ampere (A)
+temperatur: kelvin (K)
+substansmängd: mol (mol)
+ljusstyrka: candela (cd)",storhet-enhet-begrepp,0,
+si-prefix-fakta,fact,Fysikens arbetsmetoder,SI-prefix,"T (tera): 10¹²
+G (giga): 10⁹
+M (mega): 10⁶
+k (kilo): 10³
+c (centi): 10⁻²
+m (milli): 10⁻³
+µ (mikro): 10⁻⁶
+n (nano): 10⁻⁹
+p (piko): 10⁻¹²",storhet-enhet-begrepp,0,
+storheter-symboler-fakta,fact,Fysikens arbetsmetoder,"Storheter, beteckningar och enheter","läge och sträcka: s, mätt i meter (m)
+tid: t, mätt i sekund (s)
+hastighet: v, mätt i m/s
+acceleration: a, mätt i m/s²
+massa: m, mätt i kilogram (kg)
+kraft: F, mätt i newton (N = kg·m/s²)
+rörelsemängd: p, mätt i kg·m/s
+impuls: I, mätt i newtonsekund (N·s)
+vridmoment: M, mätt i newtonmeter (N·m)
+tryck: p, mätt i pascal (Pa = N/m²)
+densitet: ρ, mätt i kg/m³
+energi och arbete: E och W, mätt i joule (J = N·m)
+effekt: P, mätt i watt (W = J/s)
+temperatur: T, mätt i kelvin (K)
+specifik värmekapacitet: c, mätt i J/(kg·K)
+laddning: Q eller q, mätt i coulomb (C = A·s)
+ström: I, mätt i ampere (A)
+spänning: U, mätt i volt (V = J/C)
+resistans: R, mätt i ohm (Ω = V/A)
+elektrisk fältstyrka: E, mätt i N/C eller V/m
+frekvens: f, mätt i hertz (Hz = 1/s)
+våglängd: λ, mätt i meter (m)
+aktivitet: A, mätt i becquerel (Bq = 1/s)
+absorberad dos: D, mätt i gray (Gy = J/kg)
+ekvivalent dos: H, mätt i sievert (Sv)",si-grundenheter-fakta,0,
+enhetsomvandlingar-fakta,fact,Fysikens arbetsmetoder,Vanliga enhetsomvandlingar,"1 m/s: 3,6 km/h
+1 h: 3600 s
+1 L: 1 dm³ = 10⁻³ m³
+0 °C: 273,15 K
+1 kWh: 3,6 MJ
+1 bar: 10⁵ Pa
+1 eV: 1,602 · 10⁻¹⁹ J
+energin som motsvarar 1 u: 931,5 MeV",si-prefix-fakta,0,
+konstanter-fakta,fact,Fysikens arbetsmetoder,Fysikaliska konstanter och tabellvärden,"tyngdfaktorn vid jordytan, g: 9,82 N/kg
+ljusets hastighet i vakuum, c: 3,00 · 10⁸ m/s
+elementarladdningen, e: 1,602 · 10⁻¹⁹ C
+Plancks konstant, h: 6,63 · 10⁻³⁴ J·s
+allmänna gaskonstanten, R: 8,31 J/(mol·K)
+atomära massenheten, u: 1,661 · 10⁻²⁷ kg
+elektronens massa: 9,11 · 10⁻³¹ kg
+protonens massa: 1,673 · 10⁻²⁷ kg
+neutronens massa: 1,675 · 10⁻²⁷ kg
+vattnets densitet: 1,00 · 10³ kg/m³
+normalt lufttryck vid havsytan: 101,3 kPa
+vattnets specifika värmekapacitet: 4,18 kJ/(kg·K)
+isens specifika smältentalpi: 334 kJ/kg
+vattnets specifika ångbildningsentalpi: 2,26 MJ/kg",storheter-symboler-fakta,0,
+grundpotensform-fardighet,skill,Fysikens arbetsmetoder,Räkna med tal i grundpotensform,"skriva och räkna med mycket stora och mycket små tal i grundpotensform, och byta mellan prefix och tiopotenser.",si-prefix-fakta,0,
+omvandla-enheter-fardighet,skill,Fysikens arbetsmetoder,Omvandla enheter,"omvandla en storhet mellan enheter och prefix, även sammansatta enheter som km/h till m/s och kWh till J.",enhetsomvandlingar-fakta;grundpotensform-fardighet,0,
+losa-ut-formel-fardighet,skill,Fysikens arbetsmetoder,Lösa ut en storhet ur en formel,"lösa ut en efterfrågad storhet ur en fysikalisk formel innan värden sätts in, och sätta in värdena med enheter.",storheter-symboler-fakta,0,"Ge eleven formler från kursen (t.ex. p = F/A, E = cmΔT eller U = RI) och be hen lösa ut en annan storhet än den som står ensam. Låt eleven arbeta med symboler först och sätta in siffror sist."
+enhetsanalys-fardighet,skill,Fysikens arbetsmetoder,Kontrollera ett uttryck med enhetsanalys,"avgöra med enhetsanalys om en formel eller ett svar kan vara rätt, genom att följa enheterna genom beräkningen.",storheter-symboler-fakta;losa-ut-formel-fardighet,0,
+storleksuppskattning-fardighet,skill,Fysikens arbetsmetoder,Göra en storleksuppskattning,"uppskatta storleksordningen på en fysikalisk storhet utifrån rimliga antaganden, och använda uppskattningen för att bedöma om ett beräknat svar är rimligt.",grundpotensform-fardighet;omvandla-enheter-fardighet,0,"Ge eleven en fråga av typen ""hur mycket energi gör ett hushåll av med per dygn?"" eller ""hur stor kraft tar en fotboll emot i en spark?"", och be hen redovisa sina antaganden innan räkningen görs."
+matnoggrannhet-begrepp,concept,Fysikens arbetsmetoder,Mätnoggrannhet och värdesiffror,"Mätosäkerhet: att ett mätvärde aldrig är exakt, utan anger ett intervall där det sanna värdet troligen ligger.
+Värdesiffror: de siffror i ett mätetal som bär information om mätningen. Ett beräknat svar anges med lika många värdesiffror som de minst noggranna indata.
+Systematiskt fel: ett fel som förskjuter alla mätningar åt samma håll.
+Slumpmässigt fel: ett fel som sprider mätningarna åt båda hållen runt det sanna värdet.",storhet-enhet-begrepp,0,
+ange-matresultat-fardighet,skill,Fysikens arbetsmetoder,Ange ett mätresultat med noggrannhet,"ange ett mätresultat som medelvärde med en uppskattad osäkerhet, avrunda ett beräknat svar till ett rimligt antal värdesiffror, och avgöra om två mätvärden stämmer överens inom osäkerheten.",matnoggrannhet-begrepp,0,
+undersokning-begrepp,concept,Fysikens arbetsmetoder,"Frågeställning, hypotes och variabler","Frågeställning: den fråga en undersökning ska besvara, formulerad så att den går att besvara med mätningar eller observationer.
+Hypotes: en förutsägelse som kan prövas och som kan visa sig vara fel.
+Oberoende variabel: den storhet som varieras med avsikt.
+Beroende variabel: den storhet som mäts för att se hur den påverkas.
+Kontrollerad variabel: en storhet som hålls konstant så att den inte påverkar resultatet.",,0,
+riskbedomning-fardighet,skill,Fysikens arbetsmetoder,Göra en riskbedömning inför en laboration,"identifiera riskerna i ett planerat experiment, till exempel med el, värme, tryck eller strålning, och föreslå åtgärder som gör att det kan genomföras säkert.",,0,
+planera-undersokning-fardighet,skill,Fysikens arbetsmetoder,Planera en systematisk undersökning,"formulera en frågeställning och en hypotes, bestämma vilka variabler som ska varieras, mätas och hållas konstanta, välja utrustning och metod, och motivera valen.",undersokning-begrepp;matnoggrannhet-begrepp;riskbedomning-fardighet,0,"Ge eleven ett fenomen (t.ex. hur studshöjden hos en boll beror på fallhöjden, eller hur snabbt vatten svalnar) och be hen planera en undersökning från grunden. Ställ följdfrågor om vilka variabler som måste hållas konstanta och varför."
+samla-data-fardighet,skill,Fysikens arbetsmetoder,Samla in data från mätningar och simuleringar,"genomföra mätningar eller observationer enligt en plan, eller samla in data från en simulering, och föra in dem i en tabell med storheter och enheter.",planera-undersokning-fardighet;ange-matresultat-fardighet,0,"Laborationen kan inte göras i chatten. Låt eleven beskriva steg för steg hur hen skulle genomföra mätningen, eller hänvisa till en simulering (t.ex. PhET) att samla data i, och granska sedan tabellen eleven gör."
+graf-analys-fardighet,skill,Fysikens arbetsmetoder,Rita och tolka en graf av mätdata,"rita en graf av mätdata med storheter och enheter på axlarna, och tolka lutningen och arean under grafen som fysikaliska storheter.",storheter-symboler-fakta,0,
+regressionsanalys-fardighet,skill,Fysikens arbetsmetoder,Anpassa en modell till mätdata med regression,"använda regression i ett digitalt verktyg för att anpassa en linjär eller annan funktion till mätdata, tolka konstanterna i funktionen fysikaliskt, och bedöma hur väl modellen passar.",graf-analys-fardighet,0,
+vardera-metod-resultat-fardighet,skill,Fysikens arbetsmetoder,Värdera metod och resultat,"bedöma hur felkällor och mätosäkerhet påverkar resultatet av en undersökning, avgöra om resultatet stöder hypotesen, och föreslå förbättringar av metoden.",samla-data-fardighet;regressionsanalys-fardighet,0,"Ge eleven en kort beskrivning av en genomförd laboration med resultat (påhittad om nödvändigt) och be hen peka ut felkällor, bedöma om slutsatsen håller och föreslå en förbättring."
+redovisa-fardighet,skill,Fysikens arbetsmetoder,Redovisa en undersökning,"redovisa en undersökning med syfte, metod, resultat och slutsats, och välja uttrycksform (tabell, graf, text eller formel) efter vad som ska visas.",vardera-metod-resultat-fardighet,0,
+modell-teori-begrepp,concept,Fysikens arbetsmetoder,Modeller och teorier,"Fysikalisk modell: en förenklad beskrivning av en del av verkligheten, gjord för att förklara eller förutsäga, inte ett påstående om att verkligheten är så.
+Giltighetsområde: de förhållanden under vilka modellen ger användbara svar.
+Teori: ett sammanhängande system av förklaringar som har klarat många oberoende prövningar och knyter ihop många observationer.
+Naturlag: ett samband som har hållit vid all prövning, ofta uttryckt matematiskt.",,0,
+vardera-modell-fardighet,skill,Fysikens arbetsmetoder,Bedöma en modells giltighet,"bedöma vad en given fysikalisk eller matematisk modell beskriver väl, vilka förenklingar den bygger på, och var dess giltighetsområde tar slut.",modell-teori-begrepp;regressionsanalys-fardighet,0,"Hämta gärna modellen från andra delar av kursen, t.ex. fritt fall utan luftmotstånd, Ohms lag eller allmänna gaslagen, och fråga när den slutar fungera."
+experiment-teoriutveckling-fardighet,skill,Fysikens arbetsmetoder,Förklara experimentets roll för en teoris utveckling,"beskriva med ett historiskt exempel hur nya experimentella resultat har tvingat fram en ändrad eller ny modell eller teori.",modell-teori-begrepp,0,"Låt eleven välja exempel, eller ge hen ett (t.ex. Rutherfords spridningsförsök och atommodellen, eller upptäckten av radioaktivitet), och be hen förklara vad experimentet visade som den gamla modellen inte kunde förklara."
+vetenskapligt-pastaende-begrepp,concept,Fysikens arbetsmetoder,Vetenskapliga och icke-vetenskapliga påståenden,"Vetenskapligt påstående: ett påstående som kan prövas mot observationer och som skulle kunna visa sig vara fel.
+Icke-vetenskapligt påstående: ett påstående som inte går att pröva, till exempel för att det är en värdering eller för att inget tänkbart utfall skulle kunna motsäga det.",undersokning-begrepp,0,
+granska-information-fardighet,skill,Fysikens arbetsmetoder,Granska information om fysik,"granska ett påstående eller en argumentation som rör fysik, till exempel i reklam, nyheter eller sociala medier: avgöra om påståendet är vetenskapligt, bedöma källan, och kontrollera rimligheten med en storleksuppskattning.",vetenskapligt-pastaende-begrepp;storleksuppskattning-fardighet,0,"Ge eleven ett kort, påhittat påstående (t.ex. en apparat som ""sparar 50 % el"" eller ett armband som ""skyddar mot strålning"") och be hen granska det."
+lage-forflyttning-begrepp,concept,Rörelse,"Läge, förflyttning och sträcka","Läge: var ett föremål befinner sig, mätt från en vald nollpunkt längs en vald positiv riktning.
+Förflyttning: ändringen i läge från start till slut. Den har tecken och blir noll när föremålet är tillbaka där det började.
+Sträcka: hela vägen föremålet faktiskt har tillryggalagt, oavsett riktning.",storhet-enhet-begrepp,0,
+hastighet-begrepp,concept,Rörelse,Medelhastighet och momentanhastighet,"Hastighet: förflyttning per tidsenhet. Den har riktning och därmed tecken; farten är hastighetens belopp, utan riktning.
+Medelhastighet: förflyttningen delad med tiden den tog, över ett helt tidsintervall.
+Momentanhastighet: hastigheten i ett bestämt ögonblick, lika med lutningen hos tangenten i en s-t-graf.",lage-forflyttning-begrepp,0,
+acceleration-begrepp,concept,Rörelse,Acceleration,"Acceleration: hastighetsändringen per tidsenhet, mätt i m/s². Den har riktning, så en inbromsning är en acceleration motsatt rörelseriktningen.
+Likformigt accelererad rörelse: rörelse med konstant acceleration, där hastigheten ändras lika mycket varje sekund.",hastighet-begrepp,0,
+likformig-rorelse-fardighet,skill,Rörelse,Räkna på likformig rörelse,"beräkna sträcka, tid eller hastighet för en rätlinjig rörelse med konstant hastighet, med enheter som passar situationen.",hastighet-begrepp;omvandla-enheter-fardighet;losa-ut-formel-fardighet,0,
+rorelsegrafer-fardighet,skill,Rörelse,Tolka och rita rörelsegrafer,"tolka och rita s-t-, v-t- och a-t-grafer för samma rörelse, bestämma hastigheten ur lutningen i en s-t-graf och förflyttningen ur arean under en v-t-graf.",acceleration-begrepp;graf-analys-fardighet,0,"Eftersom grafer inte kan ritas i chatten, beskriv en graf i ord eller med en värdetabell och be eleven beskriva rörelsen, eller låt eleven beskriva hur den efterfrågade grafen skulle se ut."
+rorelseekvationer-begrepp,concept,Rörelse,Rörelseekvationerna vid konstant acceleration,"Rörelseekvationerna: de samband som knyter ihop förflyttning, begynnelsehastighet, sluthastighet, acceleration och tid för en rätlinjig rörelse med konstant acceleration. Var och en saknar en av storheterna, och det är den saknade storheten som avgör vilken ekvation en uppgift behöver.",acceleration-begrepp,0,
+rorelseekvationer-fardighet,skill,Rörelse,Räkna med rörelseekvationerna,"använda rörelseekvationerna för att bestämma en okänd storhet för en likformigt accelererad rörelse, med ett uttalat val av positiv riktning.",rorelseekvationer-begrepp;losa-ut-formel-fardighet,0,"Kräv att eleven väljer och anger positiv riktning innan räkningen börjar, och att svaret anges med enhet och rimligt antal värdesiffror."
+fritt-fall-begrepp,concept,Rörelse,Fritt fall,"Fritt fall: rörelse där tyngdkraften är den enda kraft som verkar, så att luftmotståndet försummas. Accelerationen är då densamma för alla föremål oavsett massa, nära jordytan ungefär 9,82 m/s² riktad nedåt.",acceleration-begrepp,0,
+fritt-fall-fardighet,skill,Rörelse,Lösa problem om fritt fall och vertikala kast,"beräkna falltid, högsta höjd eller hastighet för ett föremål i fritt fall eller i ett kast rakt uppåt eller nedåt.",fritt-fall-begrepp;rorelseekvationer-fardighet,0,
+rorelse-ur-matdata-fardighet,skill,Rörelse,Bestämma hastighet och acceleration ur mätdata,"bestämma hastighet och acceleration ur mätdata för läge och tid, till exempel från en videoanalys eller en rörelsesensor, med regression eller ur små tidsintervall.",rorelsegrafer-fardighet;regressionsanalys-fardighet,0,
+kraft-begrepp,concept,"Krafter, impuls och jämvikt",Kraft,"Kraft: en växelverkan mellan två föremål som kan ändra ett föremåls rörelse eller form. Kraften har storlek och riktning, ritas som en pil och mäts i newton (N).",storhet-enhet-begrepp,0,
+krafttyper-begrepp,concept,"Krafter, impuls och jämvikt","Tyngdkraft, normalkraft, friktion och spännkraft","Tyngdkraft: kraften från jorden på ett föremål, riktad nedåt och lika med massan gånger tyngdfaktorn g.
+Normalkraft: kraften från ett underlag, vinkelrät mot underlaget.
+Friktionskraft: kraften längs underlaget som motverkar glidning. Vid glidning är den friktionstalet gånger normalkraften.
+Spännkraft: kraften i ett spänt rep eller snöre, riktad längs repet.",kraft-begrepp,0,
+massa-tyngd-begrepp,concept,"Krafter, impuls och jämvikt",Massa och tyngd,"Massa: hur mycket materia ett föremål har och hur trögt det är att sätta i rörelse, mätt i kg. Den är densamma överallt.
+Tyngd: tyngdkraften på föremålet, mätt i newton. Den beror på var föremålet befinner sig. I vardagsspråk kallas massan ofta för vikt.",kraft-begrepp,0,
+resultant-fardighet,skill,"Krafter, impuls och jämvikt",Bestämma den resulterande kraften,"bestämma den resulterande kraften när flera krafter verkar på ett föremål, både längs en linje och genom att dela upp krafter i komposanter.",kraft-begrepp,0,
+kraftfigur-fardighet,skill,"Krafter, impuls och jämvikt",Rita en kraftfigur,"rita alla krafter som verkar på ett valt föremål, med rätt angreppspunkt och riktning, och ange vilket föremål varje kraft kommer från.",krafttyper-begrepp,0,"Beskriv en situation i ord (t.ex. en låda som dras över ett golv, eller en hiss som bromsar) och be eleven lista krafterna med riktning och ursprung, eftersom figuren inte kan ritas i chatten. Var särskilt uppmärksam på krafter som saknas, och på påhittade krafter som en ""rörelsekraft"" i rörelseriktningen."
+newton1-begrepp,concept,"Krafter, impuls och jämvikt",Newtons första lag,"Newtons första lag (tröghetslagen): ett föremål förblir i vila eller fortsätter med konstant hastighet längs en rät linje om och endast om den resulterande kraften på det är noll.",kraft-begrepp,0,
+newton2-begrepp,concept,"Krafter, impuls och jämvikt",Newtons andra lag,"Newtons andra lag: den resulterande kraften på ett föremål är lika med massan gånger accelerationen, F = ma, och accelerationen har samma riktning som den resulterande kraften.",kraft-begrepp;acceleration-begrepp,0,
+newton3-begrepp,concept,"Krafter, impuls och jämvikt",Newtons tredje lag,"Newtons tredje lag: när föremål A påverkar föremål B med en kraft, påverkar B föremål A med en lika stor och motsatt riktad kraft. De två krafterna verkar alltid på var sitt föremål och tar därför aldrig ut varandra.",kraft-begrepp,0,
+newton3-fardighet,skill,"Krafter, impuls och jämvikt",Identifiera kraftpar enligt Newtons tredje lag,"identifiera kraft och motkraft i en given situation, och förklara varför en kraft och dess motkraft inte kan ta ut varandra.",newton3-begrepp;kraftfigur-fardighet,0,
+newton2-fardighet,skill,"Krafter, impuls och jämvikt",Använda Newtons andra lag,"använda Newtons andra lag för att beräkna acceleration, kraft eller massa, utifrån en kraftfigur och en vald positiv riktning.",newton1-begrepp;newton2-begrepp;resultant-fardighet;kraftfigur-fardighet,0,
+friktion-lutande-plan-fardighet,skill,"Krafter, impuls och jämvikt",Lösa kraftproblem med friktion och lutande plan,"lösa problem där friktion verkar, till exempel ett föremål som glider på ett horisontellt eller lutande underlag, genom att dela upp krafterna i komposanter.",newton2-fardighet;krafttyper-begrepp,0,
+rorelsemangd-begrepp,concept,"Krafter, impuls och jämvikt",Rörelsemängd,"Rörelsemängd: massan gånger hastigheten, p = mv, mätt i kg·m/s. Den har samma riktning som hastigheten.",hastighet-begrepp;massa-tyngd-begrepp,0,
+impuls-begrepp,concept,"Krafter, impuls och jämvikt",Impuls,"Impuls: kraften gånger tiden den verkar, I = F·Δt, mätt i N·s. Impulsen på ett föremål är lika med ändringen i dess rörelsemängd, så samma ändring kan fås av en stor kraft under kort tid eller en liten kraft under lång tid.",rorelsemangd-begrepp;newton2-begrepp,0,
+impuls-fardighet,skill,"Krafter, impuls och jämvikt",Beräkna impuls och medelkraft vid en stöt,"beräkna impulsen och medelkraften när ett föremål ändrar hastighet under en kort stöt, och bestämma impulsen som arean under en kraft-tid-graf.",impuls-begrepp;graf-analys-fardighet,0,"Var noga med tecknen: en boll som studsar tillbaka får en större ändring i rörelsemängd än en som stannar, och det är en vanlig fälla."
+vridmoment-begrepp,concept,"Krafter, impuls och jämvikt",Vridmoment,"Vridmoment: en krafts förmåga att vrida ett föremål kring en axel, lika med kraften gånger hävarmen, mätt i N·m.
+Hävarm: det vinkelräta avståndet från axeln till kraftens verkningslinje.",kraft-begrepp,0,
+jamvikt-begrepp,concept,"Krafter, impuls och jämvikt",Jämvikt,"Jämvikt: ett föremål är i jämvikt när det varken börjar röra sig eller börjar rotera. Då är summan av krafterna noll, och summan av vridmomenten kring varje punkt är noll.
+Tyngdpunkt: den punkt där hela föremålets tyngdkraft kan tänkas angripa.",newton1-begrepp;vridmoment-begrepp,0,
+jamvikt-fardighet,skill,"Krafter, impuls och jämvikt",Lösa jämviktsproblem med vridmoment,"bestämma en okänd kraft eller ett okänt avstånd för ett föremål i jämvikt, till exempel en gungbräda, en hävstång eller en balk på två stöd, genom att ställa upp villkoren för kraft- och momentjämvikt.",jamvikt-begrepp;resultant-fardighet;losa-ut-formel-fardighet,0,
+energi-begrepp,concept,Energi,Energi och energiformer,"Energi: en storhet som kan omvandlas mellan olika former men inte skapas eller förstöras, mätt i joule (J).
+Energiformer: bland annat rörelseenergi, lägesenergi, elektrisk energi, termisk energi, strålningsenergi, kemisk energi och kärnenergi.",storhet-enhet-begrepp,0,
+energiprincipen-begrepp,concept,Energi,Energiprincipen,"Energiprincipen: energi kan inte skapas eller förstöras, bara omvandlas och överföras. I ett isolerat system är den totala energin därför konstant, och energi som verkar försvinna i en process har alltid gått över till någon annan form, oftast termisk energi.",energi-begrepp,0,
+arbete-begrepp,concept,Energi,Arbete,"Arbete: energi som överförs när en kraft verkar längs en förflyttning, lika med kraften gånger förflyttningen i kraftens riktning, W = F·s. Att bära en väska bortåt ett plant golv är inget arbete i fysikalisk mening, hur tröttsamt det än är.",kraft-begrepp;energi-begrepp,0,
+arbete-fardighet,skill,Energi,Beräkna arbete,"beräkna det arbete en kraft uträttar, även när kraften inte är parallell med förflyttningen eller motverkar den.",arbete-begrepp;resultant-fardighet,0,
+mekanisk-energi-begrepp,concept,Energi,Rörelseenergi och lägesenergi,"Rörelseenergi: den energi ett föremål har på grund av sin rörelse, Ek = mv²/2.
+Lägesenergi: den energi ett föremål har på grund av sin höjd över en vald nollnivå, Ep = mgh.
+Mekanisk energi: summan av rörelseenergi och lägesenergi.",arbete-begrepp;massa-tyngd-begrepp,0,
+mekanisk-energi-fardighet,skill,Energi,Lösa problem med mekanisk energi,"använda energiprincipen för att beräkna hastighet eller höjd för ett föremål i rörelse, både när friktion kan försummas och när en del av energin omvandlas till termisk energi.",mekanisk-energi-begrepp;energiprincipen-begrepp;losa-ut-formel-fardighet,0,
+effekt-begrepp,concept,Energi,Effekt,"Effekt: omvandlad eller överförd energi per tidsenhet, P = E/t, mätt i watt (W = J/s). En kilowattimme (kWh) är en energienhet, den energi som omvandlas på en timme med effekten 1 kW.",energi-begrepp,0,
+effekt-fardighet,skill,Energi,Beräkna effekt och energi,"beräkna effekt, energi eller tid för en energiomvandling, och byta mellan joule och kilowattimmar.",effekt-begrepp;omvandla-enheter-fardighet,0,
+verkningsgrad-begrepp,concept,Energi,Verkningsgrad,"Verkningsgrad: den nyttiga energin delad med den tillförda energin, eller nyttig effekt delad med tillförd effekt. Den är alltid mindre än 1, och resten blir oftast termisk energi i omgivningen.",energiprincipen-begrepp;effekt-begrepp,0,
+verkningsgrad-fardighet,skill,Energi,Beräkna verkningsgrad,"beräkna verkningsgraden för en energiomvandling, och den sammanlagda verkningsgraden för flera omvandlingar efter varandra.",verkningsgrad-begrepp;effekt-fardighet,0,
+energilagring-begrepp,concept,Energi,Energilagring,"Energilagring: att omvandla energi till en form som kan sparas och omvandlas tillbaka senare, till exempel kemisk energi i ett batteri, lägesenergi i ett pumpkraftverk eller termisk energi i ett värmelager. Varje omvandling på vägen har sin verkningsgrad.",verkningsgrad-begrepp,0,
+energikedja-fardighet,skill,Energi,Beskriva omvandlingar i en energikedja,"beskriva de energiomvandlingar som sker i ett tekniskt system, från energikälla till nyttjande eller lagring, och ange var förlusterna uppstår.",energiprincipen-begrepp;energilagring-begrepp,0,
+energiresurser-begrepp,concept,Energi,Energiresurser,"Förnybar energiresurs: en resurs som ständigt fylls på, som sol, vind, strömmande vatten och biomassa.
+Icke förnybar energiresurs: en resurs som förbrukas mycket snabbare än den bildas, som kol, olja, naturgas och uran.",energi-begrepp,0,
+hallbar-energi-fardighet,skill,Energi,Jämföra energiresurser ur ett hållbarhetsperspektiv,"jämföra energiresurser och sätt att omvandla och lagra energi utifrån verkningsgrad, miljöpåverkan, tillgång och hur de kan användas hållbart, med beräkningar där det går.",energiresurser-begrepp;verkningsgrad-fardighet;energikedja-fardighet;storleksuppskattning-fardighet,0,"Ge eleven två konkreta alternativ (t.ex. vindkraft och kärnkraft, eller elbil och bensinbil) och be hen jämföra dem med siffror där det går. Håll isär det som är fysik och det som är värderingar."
+laddning-begrepp,concept,Elektricitet,Elektrisk laddning,"Elektrisk laddning: en egenskap hos partiklar som gör att de påverkar varandra med elektriska krafter, mätt i coulomb (C). Lika laddningar stöter bort varandra och olika laddningar attraherar varandra.
+Elementarladdning: den minsta fria laddningen, e ≈ 1,602 · 10⁻¹⁹ C. Protonen har laddningen +e och elektronen −e.
+Laddningens bevarande: laddning kan flyttas men inte skapas eller förstöras.",kraft-begrepp,0,
+strom-begrepp,concept,Elektricitet,Elektrisk ström,"Elektrisk ström: den laddning som passerar ett tvärsnitt av ledaren per tidsenhet, I = Q/t, mätt i ampere (A = C/s). Strömmen förbrukas inte i en krets; det som omvandlas är energi.",laddning-begrepp,0,
+spanning-begrepp,concept,Elektricitet,Elektrisk spänning,"Spänning: energiändringen per laddning när en laddning flyttas mellan två punkter, U = W/Q, mätt i volt (V = J/C). Spänningen finns alltid mellan två punkter, aldrig i en punkt.",laddning-begrepp;energi-begrepp,0,
+resistans-begrepp,concept,Elektricitet,Resistans och Ohms lag,"Resistans: hur mycket en komponent motverkar strömmen, R = U/I, mätt i ohm (Ω).
+Ohms lag: för en resistor vid konstant temperatur är strömmen proportionell mot spänningen, så att resistansen är konstant.",strom-begrepp;spanning-begrepp,0,
+ohms-lag-fardighet,skill,Elektricitet,Räkna med Ohms lag,"använda Ohms lag för att beräkna spänning, ström eller resistans för en komponent, och avgöra ur en U-I-graf om komponenten följer Ohms lag.",resistans-begrepp;graf-analys-fardighet,0,
+krets-begrepp,concept,Elektricitet,Serie- och parallellkoppling,"Seriekoppling: komponenterna sitter efter varandra, samma ström går genom alla, och spänningarna över dem summeras till den totala spänningen.
+Parallellkoppling: komponenterna sitter i var sin gren, alla har samma spänning, och strömmarna i grenarna summeras till den totala strömmen.
+Ersättningsresistans: den enda resistans som skulle ge samma totala ström vid samma spänning.",resistans-begrepp,0,
+krets-fardighet,skill,Elektricitet,Beräkna ström och spänning i en krets,"beräkna ersättningsresistans, strömmar och spänningar i en krets med resistorer i serie- och parallellkoppling.",krets-begrepp;ohms-lag-fardighet,0,"Kopplingsscheman kan inte ritas i chatten. Beskriv kretsen tydligt i ord (vilka komponenter som sitter i serie och vilka som sitter parallellt) och be eleven bekräfta hur hen uppfattar den innan räkningen börjar."
+mata-krets-fardighet,skill,Elektricitet,Koppla och mäta i en elektrisk krets,"koppla upp en krets efter ett kopplingsschema, och mäta ström och spänning genom att koppla amperemetern i serie och voltmetern parallellt.",krets-begrepp;ange-matresultat-fardighet,0,"Mätningen kan inte göras i chatten. Låt eleven beskriva var mätinstrumenten ska kopplas och varför, eller tolka några givna mätvärden. Fråga gärna vad som händer om amperemetern kopplas parallellt."
+elektrisk-effekt-fardighet,skill,Elektricitet,Beräkna elektrisk effekt och energi,"beräkna den elektriska effekten P = UI för en komponent, och den elektriska energi den omvandlar under en viss tid, i joule och i kilowattimmar.",effekt-fardighet;ohms-lag-fardighet,0,
+krets-tillampning-fardighet,skill,Elektricitet,Förklara en elektrisk tillämpning,"förklara hur en vardaglig elektrisk tillämpning fungerar med hjälp av ström, spänning, resistans och effekt, till exempel säkringar, parallellkopplade apparater i hemmet eller laddning av ett batteri.",krets-fardighet;elektrisk-effekt-fardighet,0,
+falt-begrepp,concept,Fält,Fält och fältstyrka,"Fält: en egenskap hos rummet som gör att ett föremål på en viss plats påverkas av en kraft utan beröring.
+Fältstyrka: kraften per massa (i ett gravitationsfält) eller per laddning (i ett elektriskt fält) på den platsen. Den har riktning.
+Homogent fält: ett fält som har samma styrka och riktning överallt i ett område.",kraft-begrepp,0,
+gravitationsfalt-begrepp,concept,Fält,Homogent gravitationsfält,"Gravitationsfält: fältet kring en massa, med fältstyrkan g = F/m mätt i N/kg. Nära jordytan är fältet i praktiken homogent, med g ≈ 9,82 N/kg riktad nedåt, och det är samma tal som tyngdaccelerationen i m/s².",falt-begrepp;massa-tyngd-begrepp,0,
+elektriskt-falt-begrepp,concept,Fält,Elektriskt fält,"Elektriskt fält: fältet kring laddningar, med fältstyrkan E = F/q mätt i N/C. Fältets riktning är den riktning kraften har på en positiv laddning.
+Homogent elektriskt fält: fältet mellan två parallella, laddade plattor, där E = U/d mätt i V/m och d är avståndet mellan plattorna.",falt-begrepp;laddning-begrepp;spanning-begrepp,0,
+kraft-i-falt-fardighet,skill,Fält,Beräkna kraften i ett homogent fält,"beräkna kraften på en massa i ett homogent gravitationsfält eller på en laddning i ett homogent elektriskt fält, och ange kraftens riktning.",gravitationsfalt-begrepp;elektriskt-falt-begrepp,0,
+jamvikt-i-falt-fardighet,skill,Fält,Analysera jämvikt i ett homogent fält,"ställa upp villkoret för att en laddad partikel ska sväva i jämvikt mellan tyngdkraft och elektrisk kraft, till exempel en oljedroppe mellan två laddade plattor, och beräkna den okända storheten.",kraft-i-falt-fardighet;jamvikt-begrepp,0,"Millikans oljedroppsförsök är ett bra sammanhang att utgå från, och kan kopplas till att laddning bara förekommer i hela multiplar av elementarladdningen."
+laddad-partikel-rorelse-fardighet,skill,Fält,Beräkna rörelsen för en laddad partikel i ett homogent fält,"beräkna accelerationen, hastigheten eller tiden för en laddad partikel som rör sig rätlinjigt i ett homogent elektriskt fält, antingen med kraft och rörelseekvationer eller med energiprincipen, där qU är den energi partikeln får.",kraft-i-falt-fardighet;newton2-fardighet;rorelseekvationer-fardighet;mekanisk-energi-fardighet,0,
+temperatur-begrepp,concept,Termisk fysik,Temperatur,"Temperatur: ett mått på den genomsnittliga rörelseenergin hos partiklarna i ett ämne.
+Absoluta nollpunkten: den lägsta möjliga temperaturen, 0 K eller −273,15 °C.
+Kelvinskalan: temperaturskalan som börjar vid absoluta nollpunkten. En ändring på 1 K är lika stor som en ändring på 1 °C.",mekanisk-energi-begrepp,0,
+termisk-energi-varme-begrepp,concept,Termisk fysik,Termisk energi och värme,"Termisk energi: den sammanlagda rörelse- och lägesenergin hos alla partiklar i ett föremål.
+Värme: termisk energi som överförs från ett varmare till ett kallare föremål på grund av temperaturskillnaden. Ett föremål har termisk energi och en temperatur, men det innehåller ingen värme.",temperatur-begrepp;energiprincipen-begrepp,0,
+varmekapacitet-begrepp,concept,Termisk fysik,Specifik värmekapacitet,"Specifik värmekapacitet: den energi som krävs för att höja temperaturen hos 1 kg av ett ämne med 1 K, mätt i J/(kg·K). Vatten har en ovanligt hög värmekapacitet, och därför tar det lång tid både att värma upp och att svalna.",termisk-energi-varme-begrepp,0,
+varmekapacitet-fardighet,skill,Termisk fysik,Beräkna energi vid uppvärmning och avsvalning,"beräkna den energi som krävs eller avges när ett ämne ändrar temperatur, med E = cmΔT.",varmekapacitet-begrepp;losa-ut-formel-fardighet,0,
+fasomvandling-begrepp,concept,Termisk fysik,Fasomvandlingar,"Fasomvandling: att ett ämne övergår mellan fast form, vätska och gas, till exempel smältning, stelning, förångning och kondensation.
+Specifik smältentalpi: den energi som krävs för att smälta 1 kg av ämnet vid konstant temperatur.
+Specifik ångbildningsentalpi: den energi som krävs för att förånga 1 kg av ämnet vid konstant temperatur. Under en fasomvandling går energin åt till att bryta bindningar mellan partiklarna, inte till att höja temperaturen.",termisk-energi-varme-begrepp,0,
+fasomvandling-fardighet,skill,Termisk fysik,Beräkna energi vid fasomvandlingar,"beräkna den energi som krävs när ett ämne både värms och byter fas, till exempel när is vid −10 °C blir vatten vid 20 °C, och tolka platåerna i en uppvärmningskurva.",fasomvandling-begrepp;varmekapacitet-fardighet;graf-analys-fardighet,0,
+varmeutbyte-fardighet,skill,Termisk fysik,Beräkna sluttemperatur vid värmeutbyte,"använda energiprincipen för att beräkna sluttemperaturen när två föremål eller ämnen med olika temperatur förs samman, eller bestämma en okänd värmekapacitet ur ett sådant försök.",varmekapacitet-fardighet;energiprincipen-begrepp,0,
+tryck-begrepp,concept,Tryck och gaser,Tryck,"Tryck: kraften vinkelrätt mot en yta delad med ytans area, p = F/A, mätt i pascal (Pa = N/m²). Samma kraft ger högre tryck på en mindre yta.",kraft-begrepp,0,
+densitet-begrepp,concept,Tryck och gaser,Densitet,"Densitet: massan per volymenhet, ρ = m/V, mätt i kg/m³. Den är en egenskap hos ämnet och beror inte på hur stort föremålet är.",storhet-enhet-begrepp,0,
+tryckvariation-begrepp,concept,Tryck och gaser,Tryck i vätskor och gaser,"Hydrostatiskt tryck: trycket från vätskan ovanför en punkt, ρgh. Det ökar med djupet men beror inte på kärlets form.
+Lufttryck: trycket från atmosfären, ungefär 101 kPa vid havsytan, som minskar med höjden.
+Övertryck: skillnaden mellan ett tryck och lufttrycket, till exempel det en däcktrycksmätare visar.",tryck-begrepp;densitet-begrepp,0,
+tryck-fardighet,skill,Tryck och gaser,Beräkna tryck och tryckskillnader,"beräkna trycket mot en yta och trycket på ett visst djup i en vätska, och skilja mellan totalt tryck och övertryck.",tryckvariation-begrepp;omvandla-enheter-fardighet,0,
+arkimedes-begrepp,concept,Tryck och gaser,Arkimedes princip,"Lyftkraft: den uppåtriktade kraft en vätska eller gas utövar på ett föremål som är helt eller delvis nedsänkt i den.
+Arkimedes princip: lyftkraften är lika stor som tyngden av den vätska eller gas som föremålet tränger undan. Den uppstår eftersom trycket är större mot föremålets undersida än mot dess ovansida.",tryckvariation-begrepp;krafttyper-begrepp,0,
+arkimedes-fardighet,skill,Tryck och gaser,Beräkna lyftkraft och avgöra om något flyter,"beräkna lyftkraften på ett föremål i en vätska eller gas, och avgöra med hjälp av densiteter om föremålet flyter, sjunker eller svävar.",arkimedes-begrepp;newton1-begrepp;losa-ut-formel-fardighet,0,
+allmanna-gaslagen-begrepp,concept,Tryck och gaser,Allmänna gaslagen,"Allmänna gaslagen: för en gas gäller pV = nRT, där p är trycket, V volymen, n substansmängden, T den absoluta temperaturen i kelvin och R allmänna gaskonstanten. För en innesluten gasmängd är därför pV/T konstant.",tryck-begrepp;temperatur-begrepp,0,
+gaslagen-fardighet,skill,Tryck och gaser,Räkna med allmänna gaslagen,"beräkna hur tryck, volym eller temperatur ändras för en innesluten gas när de andra storheterna ändras, med temperaturen i kelvin.",allmanna-gaslagen-begrepp;omvandla-enheter-fardighet;losa-ut-formel-fardighet,0,"Ett vanligt fel är att räkna med temperaturen i °C. Låt eleven själv upptäcka varför det ger orimliga svar, t.ex. genom att fråga vad som händer vid 0 °C."
+vag-begrepp,concept,Elektromagnetisk strålning,Våglängd och frekvens,"Våglängd: avståndet mellan två närliggande vågtoppar, λ.
+Frekvens: antalet svängningar per sekund, f, mätt i hertz (Hz).
+Vågekvationen: utbredningshastigheten är våglängden gånger frekvensen, v = λf. Elektromagnetisk strålning i vakuum har alltid hastigheten c, så högre frekvens betyder kortare våglängd.",storhet-enhet-begrepp,0,
+em-stralning-begrepp,concept,Elektromagnetisk strålning,Elektromagnetisk strålning,"Elektromagnetisk strålning: energi som breder ut sig som svängande elektriska och magnetiska fält, med ljusets hastighet i vakuum. Synligt ljus, radiovågor och röntgenstrålning är samma slags strålning med olika våglängd.
+Elektromagnetiska spektrumet: hela området av våglängder, från radiovågor via synligt ljus till gammastrålning.",vag-begrepp,0,
+em-spektrum-fakta,fact,Elektromagnetisk strålning,Det elektromagnetiska spektrumets områden,"radiovågor: våglängd över ca 1 m
+mikrovågor: ca 1 mm till 1 m
+infraröd strålning: ca 700 nm till 1 mm
+synligt ljus: ca 400–700 nm
+ultraviolett strålning: ca 10–400 nm
+röntgenstrålning: ca 0,01–10 nm
+gammastrålning: under ca 0,01 nm",em-stralning-begrepp,0,
+foton-begrepp,concept,Elektromagnetisk strålning,Foton,"Foton: den minsta energimängd elektromagnetisk strålning av en viss frekvens kan avge eller ta upp. Fotonens energi är E = hf, så strålning med kortare våglängd består av fotoner med mer energi.",em-stralning-begrepp,0,
+vag-fardighet,skill,Elektromagnetisk strålning,"Räkna med våglängd, frekvens och fotonenergi","beräkna våglängd, frekvens eller fotonenergi för elektromagnetisk strålning, och placera strålningen i rätt område av spektrumet.",foton-begrepp;em-spektrum-fakta;grundpotensform-fardighet,0,
+atom-begrepp,concept,Materiens byggstenar,Atomens och kärnans uppbyggnad,"Atom: en positivt laddad kärna omgiven av negativt laddade elektroner.
+Nukleon: en partikel i kärnan, alltså en proton eller en neutron.
+Atomnummer: antalet protoner i kärnan, som avgör vilket grundämne det är.
+Masstal: antalet nukleoner i kärnan.",laddning-begrepp,0,
+isotop-begrepp,concept,Materiens byggstenar,Isotoper och nuklidbeteckning,"Isotoper: atomer av samma grundämne med olika antal neutroner, och därmed olika masstal.
+Nuklidbeteckning: kärnan skriven som grundämnets kemiska symbol med masstalet uppe till vänster och atomnumret nere till vänster, till exempel ²³⁵₉₂U.",atom-begrepp,0,
+standardmodellen-begrepp,concept,Materiens byggstenar,Standardmodellen,"Standardmodellen: den teori som beskriver materiens minsta kända beståndsdelar och tre av de fyra fundamentala växelverkningarna.
+Kvark: en elementarpartikel som bara förekommer bunden i sammansatta partiklar, till exempel protoner och neutroner.
+Lepton: en elementarpartikel som kan förekomma fri, till exempel elektronen och neutrinon.
+Kraftförmedlande partikel: en boson som förmedlar en växelverkan mellan andra partiklar.
+Higgsbosonen: partikeln som hör till det fält som ger elementarpartiklarna deras massa.",atom-begrepp,0,
+vaxelverkan-begrepp,concept,Materiens byggstenar,De fyra fundamentala växelverkningarna,"Gravitation: verkar mellan alla massor. Den är svagast men har obegränsad räckvidd, och ingår inte i standardmodellen.
+Elektromagnetisk växelverkan: verkar mellan laddningar och håller ihop atomer och molekyler.
+Stark växelverkan: håller ihop kvarkarna i nukleonerna och nukleonerna i kärnan, men har mycket kort räckvidd.
+Svag växelverkan: kan ändra en kvarks typ, och ligger bakom vissa radioaktiva sönderfall.",standardmodellen-begrepp;kraft-begrepp,0,
+standardmodellen-fakta,fact,Materiens byggstenar,Partiklarna i standardmodellen,"kvarkarna: upp, ned, charm, sär, topp och botten
+upp-kvarkens laddning: +2/3 e
+ned-kvarkens laddning: −1/3 e
+leptonerna: elektronen, myonen och tauonen, och deras tre neutriner
+protonens kvarkar: upp, upp, ned (uud)
+neutronens kvarkar: upp, ned, ned (udd)
+fotonen: förmedlar den elektromagnetiska växelverkan
+gluonen: förmedlar den starka växelverkan
+W- och Z-bosonerna: förmedlar den svaga växelverkan
+higgsbosonen: hör till det fält som ger partiklarna massa, påvisad vid CERN 2012",standardmodellen-begrepp,0,
+kvarkladdning-fardighet,skill,Materiens byggstenar,Bestämma laddningen hos en partikel ur dess kvarkar,"bestämma laddningen hos en proton, en neutron eller en annan sammansatt partikel ur dess kvarkinnehåll, och avgöra om en föreslagen kvarkkombination ger rätt laddning.",standardmodellen-fakta,0,
+massa-energi-begrepp,concept,Kärnreaktioner och kärnenergi,Ekvivalensen mellan massa och energi,"Massa-energiekvivalensen: massa och energi hänger ihop genom E = mc². När ett system avger energi minskar dess massa, och när det tar upp energi ökar den.",energi-begrepp;massa-tyngd-begrepp,0,
+bindningsenergi-begrepp,concept,Kärnreaktioner och kärnenergi,Bindningsenergi och massdefekt,"Massdefekt: att en kärna har mindre massa än summan av massorna för dess protoner och neutroner när de är fria.
+Bindningsenergi: den energi som motsvarar massdefekten, och som måste tillföras för att dela upp kärnan i fria nukleoner.
+Bindningsenergi per nukleon: ett mått på hur hårt kärnan hålls ihop. Den är störst för kärnor i närheten av järn.",massa-energi-begrepp;atom-begrepp,0,
+bindningsenergi-fardighet,skill,Kärnreaktioner och kärnenergi,Beräkna bindningsenergin för en kärna,"beräkna massdefekten och bindningsenergin för en kärna ur tabellvärden för massor, i joule och i MeV, och bindningsenergin per nukleon.",bindningsenergi-begrepp;konstanter-fakta;enhetsomvandlingar-fakta;grundpotensform-fardighet,0,
+karnreaktion-begrepp,concept,Kärnreaktioner och kärnenergi,Kärnreaktion,"Kärnreaktion: en process där en atomkärna ändras, så att ett grundämne kan bli ett annat. I varje kärnreaktion bevaras både antalet nukleoner och den totala laddningen.",isotop-begrepp,0,
+karnreaktionsformel-fardighet,skill,Kärnreaktioner och kärnenergi,Skriva en kärnreaktionsformel,"skriva och komplettera reaktionsformeln för en kärnreaktion så att nukleontal och laddning stämmer, och avgöra vilken partikel eller kärna som saknas.",karnreaktion-begrepp,0,
+fission-fusion-begrepp,concept,Kärnreaktioner och kärnenergi,Fission och fusion,"Fission: en tung kärna klyvs i två lättare kärnor, till exempel när uran-235 träffas av en neutron i en kärnreaktor.
+Fusion: två lätta kärnor slås ihop till en tyngre, som i solens inre. Både fission och fusion frigör energi eftersom produkterna har högre bindningsenergi per nukleon än det man började med.",bindningsenergi-begrepp;karnreaktion-begrepp,0,
+energi-karnreaktion-fardighet,skill,Kärnreaktioner och kärnenergi,Beräkna energin som frigörs i en kärnreaktion,"beräkna den energi som frigörs i en kärnreaktion ur massskillnaden mellan reaktanter och produkter, eller ur deras bindningsenergier.",fission-fusion-begrepp;bindningsenergi-fardighet;karnreaktionsformel-fardighet,0,
+karnkraft-fardighet,skill,Kärnreaktioner och kärnenergi,Beskriva energiomvandlingen i ett kärnkraftverk,"beskriva hur en kedjereaktion styrs i en kärnreaktor och vilka energiomvandlingar som sker från fission till elektrisk energi, och jämföra med hur en fusionsreaktor skulle fungera.",fission-fusion-begrepp;energikedja-fardighet,0,
+sonderfall-begrepp,concept,Radioaktivitet och stråldos,Radioaktivt sönderfall,"Radioaktivt sönderfall: en instabil kärna omvandlas av sig själv och sänder ut strålning. När en enskild kärna sönderfaller går inte att förutsäga, bara sannolikheten för det.
+Alfasönderfall: kärnan sänder ut en alfapartikel, en heliumkärna med två protoner och två neutroner.
+Betasönderfall: en neutron i kärnan omvandlas till en proton, och en elektron och en antineutrino sänds ut. Vid beta-plus-sönderfall är det omvänt.
+Gammastrålning: kärnan gör sig av med överskottsenergi som en foton med mycket hög energi.",karnreaktion-begrepp;foton-begrepp,0,
+sonderfallsformel-fardighet,skill,Radioaktivitet och stråldos,Skriva formler för radioaktivt sönderfall,"skriva sönderfallsformeln för ett alfa- eller betasönderfall, och avgöra vilken dotterkärna som bildas.",sonderfall-begrepp;karnreaktionsformel-fardighet,0,
+joniserande-stralning-begrepp,concept,Radioaktivitet och stråldos,Joniserande strålning,"Joniserande strålning: strålning med tillräckligt mycket energi för att slå loss elektroner ur atomer, så att joner bildas. Den kan skada celler och arvsmassa.
+Genomträngningsförmåga: hur långt strålningen når i ett material. Alfastrålning stoppas av ett papper, betastrålning av några millimeter aluminium, och gammastrålning dämpas först av tjockt bly eller betong.",sonderfall-begrepp;em-stralning-begrepp,0,
+halveringstid-aktivitet-begrepp,concept,Radioaktivitet och stråldos,Halveringstid och aktivitet,"Aktivitet: antalet sönderfall per sekund i ett prov, mätt i becquerel (Bq).
+Halveringstid: den tid det tar för hälften av de radioaktiva kärnorna i ett prov att sönderfalla. Efter varje halveringstid har både antalet kvarvarande kärnor och aktiviteten halverats.",sonderfall-begrepp,0,
+halveringstid-fardighet,skill,Radioaktivitet och stråldos,Beräkna med halveringstid,"beräkna hur stor andel av ett radioaktivt ämne, eller hur stor aktivitet, som återstår efter en viss tid, och hur lång tid det tar tills aktiviteten har sjunkit till en given nivå.",halveringstid-aktivitet-begrepp;grundpotensform-fardighet,0,
+halveringstid-data-fardighet,skill,Radioaktivitet och stråldos,Bestämma halveringstid ur mätdata,"bestämma halveringstiden för ett radioaktivt ämne ur mätdata för aktivitet och tid, med en graf eller med exponentiell regression, och korrigera för bakgrundsstrålningen.",halveringstid-fardighet;regressionsanalys-fardighet,0,
+straldos-begrepp,concept,Radioaktivitet och stråldos,Stråldos,"Absorberad dos: den strålningsenergi som absorberas per kilogram vävnad, mätt i gray (Gy = J/kg).
+Ekvivalent dos: den absorberade dosen viktad efter hur skadligt strålslaget är, mätt i sievert (Sv). Alfastrålning ger större skada än samma absorberade dos av beta- eller gammastrålning.
+Bakgrundsstrålning: den strålning vi alltid utsätts för, bland annat från radon, marken och rymden.",joniserande-stralning-begrepp;energi-begrepp,0,
+straldos-fardighet,skill,Radioaktivitet och stråldos,Beräkna och bedöma en stråldos,"beräkna absorberad och ekvivalent dos ur absorberad energi, massa och strålslag, och jämföra resultatet med bakgrundsstrålningen.",straldos-begrepp;losa-ut-formel-fardighet,0,
+stralskydd-fardighet,skill,Radioaktivitet och stråldos,Föreslå strålskydd,"föreslå hur man skyddar sig mot joniserande strålning med avstånd, tid och avskärmning, och motivera valet utifrån strålslaget och om källan finns utanför eller inuti kroppen.",joniserande-stralning-begrepp;straldos-begrepp,0,
+stralning-tillampning-fardighet,skill,Radioaktivitet och stråldos,Förklara tillämpningar av strålning i medicin och teknik,"förklara hur strålning används inom medicin och teknik, till exempel vid röntgen, strålbehandling, PET-kamera, sterilisering och kol-14-datering, och varför valet av strålslag och halveringstid spelar roll.",joniserande-stralning-begrepp;halveringstid-aktivitet-begrepp,0,
+fysik-samhalle-fardighet,skill,Fysiken i omvärlden,Beskriva fysikens betydelse för vetenskap och samhälle,"beskriva med ett historiskt och ett aktuellt exempel hur fysikalisk kunskap har påverkat vetenskap, teknik, människors levnadsvillkor eller samhället.",experiment-teoriutveckling-fardighet,0,"Låt eleven välja exempel själv om hen kan, annars föreslå några (t.ex. elektrifieringen, kärnkraft och kärnvapen, halvledare, GPS, medicinsk bildgivning eller klimatforskning). Be hen vara konkret om vad som förändrades och för vilka."
+etik-hallbarhet-fardighet,skill,Fysiken i omvärlden,Diskutera etiska frågor och hållbarhetsfrågor med koppling till fysik,"argumentera i en etisk fråga eller en fråga om hållbar utveckling med koppling till fysik, till exempel kärnkraft, slutförvar av kärnavfall eller strålning i vården, och skilja mellan de fysikaliska fakta och de värderingar argumentationen bygger på.",granska-information-fardighet;hallbar-energi-fardighet;straldos-begrepp,0,

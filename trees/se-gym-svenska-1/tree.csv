@@ -1,0 +1,204 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Språket och språkbruket;Retorik och muntlig framställning;Sakprosa och källor;Skriva och bearbeta texter;Skönlitteratur;Litterära epoker,,,
+,config,,title,Svenska 1,,,
+,config,,description,"Retorik och muntlig framställning, skrivande, sakprosa och källkritik, skönlitteratur och litterära epoker, och det svenska språkets uppbyggnad och variation — nedbrutet i det eleverna faktiskt måste kunna göra, med Gy25 som grund.",,,
+,config,,language,sv,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,se-gym-svenska-1-fardighetstrad,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"svenska nivå 1 (svenskt gymnasium, Gy25)",,,
+,config,,slots.motivationSubject,svenska,,,
+,config,,slots.expressionFocus,"särskriver sammansatta ord, blandar ihop de och dem, sätter kommatecken på måfå, återberättar handlingen i stället för att analysera den, eller citerar och refererar utan att ange källan",,,
+,config,,decompositionVersion,2.12.0,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Nivå 1, svenskt gymnasium (Gy25)",,,
+,config,,curriculum,Gy25,,,
+,config,,courseCode,SVEN1000X,,,
+,config,,country,SE,,,
+,config,,institution,gym,,,
+,config,,division,1,,,
+,config,,subjectArea,swedish,,,
+,config,,keywords,retorik; retoriska arbetsprocessen; ethos; pathos; logos; anförande; argumenterande text; debattartikel; källkritik; citat; referat; novell; litterär analys; berättarteknik; litterära epoker; språkriktighet; satsdelar; språklig variation; dialekt; sociolekt,,,
+,config,,updated,2026-10-05,,,
+ordklasser-begrepp,concept,Språket och språkbruket,Ordklasser,"Ordklass: en grupp ord med samma grammatiska egenskaper och uppgift i meningen, till exempel substantiv, verb, adjektiv, pronomen, adverb, prepositioner, konjunktioner och subjunktioner.",,0,
+satsdelar-begrepp,concept,Språket och språkbruket,Satsdelar,"Predikat: det böjda verbet i satsen, som säger vad som händer eller hur något är.
+Subjekt: den eller det som utför handlingen eller befinner sig i tillståndet.
+Objekt: den eller det som handlingen riktas mot.
+Adverbial: en satsdel som anger när, var, hur eller varför något sker.",ordklasser-begrepp,0,
+ta-ut-satsdelar-fardighet,skill,Språket och språkbruket,Ta ut satsdelar,"hitta predikat, subjekt, objekt och adverbial i en mening och benämna dem med rätt begrepp.",satsdelar-begrepp,0,"Ge eleven några meningar i stigande svårighetsgrad, gärna hämtade ur vardagliga texter, och be hen ta ut satsdelarna och motivera varje val."
+huvudsats-bisats-begrepp,concept,Språket och språkbruket,Huvudsats och bisats,"Huvudsats: en sats som kan stå ensam som en mening, med eget subjekt och predikat.
+Bisats: en sats som är en del av en annan sats och inte kan stå ensam, oftast inledd av en subjunktion som att, när eller eftersom.",satsdelar-begrepp,0,
+ordbildning-begrepp,concept,Språket och språkbruket,Sammansättning och avledning,"Sammansättning: ett ord som är bildat av två eller flera ord och skrivs ihop, som sommarlov eller fotbollsträning.
+Avledning: ett ord som är bildat med ett förled eller efterled som inte kan stå ensamt, som o- i olycklig eller -het i frihet.",ordklasser-begrepp,0,
+sprakriktighet-begrepp,concept,Språket och språkbruket,Språkriktighet och språknorm,"Språknorm: en uppfattning om hur språket bör användas i ett visst sammanhang, nedskriven i ordböcker och skrivregler eller outtalad.
+Språkriktighet: att en text följer skriftspråkets normer för stavning, böjning, meningsbyggnad och skiljetecken.",,0,
+skiljetecken-fardighet,skill,Språket och språkbruket,Sätta skiljetecken,"avgränsa meningar med punkt, och sätta kommatecken mellan huvudsatser, efter en inledande bisats och kring inskott.",huvudsats-bisats-begrepp;sprakriktighet-begrepp,0,Ge eleven ett kort textstycke där skiljetecknen saknas eller är fel och be hen rätta det och förklara varje kommatecken med hjälp av huvudsats och bisats.
+rata-sprakfel-fardighet,skill,Språket och språkbruket,Rätta vanliga språkriktighetsfel,"hitta och rätta vanliga språkriktighetsfel i en egen eller annans text, som särskrivning, de och dem, syftningsfel och felaktig kongruens, och förklara varför det är fel.",sprakriktighet-begrepp;ordbildning-begrepp;ta-ut-satsdelar-fardighet,0,Skriv ett kort textstycke med några inbyggda språkriktighetsfel av olika slag och be eleven hitta och rätta dem och förklara varför.
+diskutera-sprakriktighet-fardighet,skill,Språket och språkbruket,Diskutera en språkriktighetsfråga,"diskutera en språkriktighetsfråga där normen är omstridd eller håller på att ändras, som hen, de och dem eller engelska lånord, med språkvetenskapliga begrepp och argument för olika ståndpunkter.",rata-sprakfel-fardighet;sprak-makt-begrepp,0,"Låt eleven välja en aktuell språkriktighetsfråga eller ge hen en, och be hen redogöra för de olika ståndpunkterna och ta ställning med motivering."
+talsprak-skriftsprak-begrepp,concept,Språket och språkbruket,Talspråk och skriftspråk,"Talspråk: språket som det låter när vi pratar, med kortare och ofullständiga meningar, upprepningar och uttal som inte syns i skrift.
+Skriftspråk: språket som det skrivs, mer planerat och normerat, med längre meningar och ett mer exakt ordval.",,0,
+stilniva-begrepp,concept,Språket och språkbruket,Stilnivå,"Stilnivå: hur formellt eller informellt ett språk är, från vardagligt och talspråkligt till högtidligt och skriftspråkligt. Rätt stilnivå beror på syfte, mottagare och sammanhang.",talsprak-skriftsprak-begrepp,0,
+sprakvariation-begrepp,concept,Språket och språkbruket,Språklig variation och varietet,"Språklig variation: att ett språk talas och skrivs olika beroende på vem som använder det och i vilken situation.
+Varietet: en variant av ett språk som används av en viss grupp eller i en viss situation, som en dialekt.",,0,
+dialekt-begrepp,concept,Språket och språkbruket,Dialekt och standardspråk,"Dialekt: en varietet som hör till ett visst geografiskt område och skiljer sig i uttal, ordförråd och grammatik.
+Standardspråk: den varietet som används i skrift och i offentliga sammanhang i hela landet.
+Regionalt standardspråk: standardspråk med uttal och enstaka ord från den egna regionen.",sprakvariation-begrepp,0,
+sociolekt-begrepp,concept,Språket och språkbruket,Sociolekt och etnolekt,"Sociolekt: en varietet som hör till en viss social grupp, till exempel en yrkesgrupp eller samhällsklass.
+Etnolekt: en varietet som har vuxit fram bland talare med olika språkliga bakgrunder, ofta i flerspråkiga stadsmiljöer.",sprakvariation-begrepp,0,
+kronolekt-genderlekt-begrepp,concept,Språket och språkbruket,Kronolekt och genderlekt,"Kronolekt: språkdrag som är typiska för en viss åldersgrupp, som ungdomsspråk.
+Genderlekt: skillnader i språkbruk som hänger samman med kön, till exempel i ordval och samtalsstil.",sprakvariation-begrepp,0,
+forklara-variation-fardighet,skill,Språket och språkbruket,Förklara språklig variation,"beskriva språkdrag i ett exempel på talat eller skrivet språk och förklara hur de hänger samman med geografisk och social bakgrund, ålder och kön.",dialekt-begrepp;sociolekt-begrepp;kronolekt-genderlekt-begrepp;talsprak-skriftsprak-begrepp,0,"Ge eleven ett kort exempel på talat eller skrivet språk, till exempel en dialog, ett chattutdrag eller en dialektinspelning beskriven i skrift, och be hen peka ut språkdragen och förklara vad de kan säga om talaren."
+sprak-makt-begrepp,concept,Språket och språkbruket,"Språk, makt och identitet","Språklig identitet: hur människor visar vilka de är och vilka grupper de hör till genom hur de talar och skriver.
+Språklig makt: att vissa sätt att tala och skriva ger mer status och inflytande än andra, så att språkbruk kan inkludera eller utestänga.
+Språkliga attityder: värderingar om olika varieteter och deras talare, som att en dialekt låter mindre bildad.",sprakvariation-begrepp,0,
+resonera-makt-identitet-fardighet,skill,Språket och språkbruket,"Resonera om makt, normer och identitet i språkbruk","resonera om hur makt, normer och identitet kommer till uttryck i ett konkret exempel på språkbruk, och ge stöd för resonemanget i språkvetenskapliga begrepp.",sprak-makt-begrepp;forklara-variation-fardighet,0,"Ge eleven en konkret situation där språkbruk och makt möts, till exempel en anställningsintervju, ett klassrum eller en kommentarstråd, och be hen resonera om vem som har tolkningsföreträde och varför."
+kommunikationssituation-begrepp,concept,Retorik och muntlig framställning,"Syfte, mottagare och sammanhang","Syfte: vad avsändaren vill uppnå, som att informera, övertyga, underhålla eller reflektera.
+Mottagare: de som texten eller talet riktar sig till, med sina förkunskaper och förväntningar.
+Sammanhang: situationen, platsen, mediet och tidpunkten där kommunikationen sker.",,0,
+retoriska-arbetsprocessen-begrepp,concept,Retorik och muntlig framställning,Den retoriska arbetsprocessen,"Intellectio: att analysera situationen, syftet och mottagarna.
+Inventio: att samla stoff och hitta argument.
+Dispositio: att ordna stoffet i en genomtänkt ordning.
+Elocutio: att välja ord och formuleringar.
+Memoria: att lära in talet så att man kan tala fritt.
+Actio: att framföra talet med röst och kroppsspråk.",kommunikationssituation-begrepp,0,
+appellformer-begrepp,concept,Retorik och muntlig framställning,"Ethos, pathos och logos","Ethos: att övertyga genom avsändarens trovärdighet, kunnighet och goda vilja.
+Pathos: att övertyga genom att väcka känslor hos mottagaren.
+Logos: att övertyga med fakta, förnuft och logiska resonemang.",kommunikationssituation-begrepp,0,
+tes-argument-begrepp,concept,Retorik och muntlig framställning,Tes och argument,"Tes: den ståndpunkt avsändaren vill få mottagaren att godta.
+Argument: ett skäl som stöder tesen.
+Motargument: ett skäl som talar emot tesen, och som en övertygande avsändare bemöter.",,0,
+planera-anforande-fardighet,skill,Retorik och muntlig framställning,Planera ett anförande med den retoriska arbetsprocessen,"planera ett anförande steg för steg genom att analysera situationen, samla och sovra stoff och ordna det i en disposition med inledning, huvuddel och avslutning.",retoriska-arbetsprocessen-begrepp,0,"Ge eleven ett ämne och en tänkt publik, och led hen genom arbetsprocessens första steg fram till en färdig disposition. Skriv inte dispositionen åt eleven."
+manus-hjalpmedel-fardighet,skill,Retorik och muntlig framställning,Skriva manus och välja hjälpmedel,"skriva ett manus eller stödord som är skrivet för att sägas och inte läsas, och välja hjälpmedel som bilder eller presentationsprogram som stöder framförandet i stället för att ta över det.",planera-anforande-fardighet;talsprak-skriftsprak-begrepp,0,"Be eleven klistra in sitt manus eller sina stödord, och ge respons på hur väl det fungerar att tala utifrån. Föreslå inte färdiga formuleringar."
+halla-anforande-fardighet,skill,Retorik och muntlig framställning,Hålla ett anförande inför grupp,"framföra ett anförande inför en grupp med anpassning till syfte, mottagare och sammanhang, med fritt tal, tydlig röst, ögonkontakt och genomtänkt bruk av ethos, pathos och logos.",manus-hjalpmedel-fardighet;appellformer-begrepp;stilniva-begrepp,0,"Du kan inte höra eleven tala. Låt eleven beskriva situationen och klistra in sitt manus, hjälp hen att förutse hur publiken tar emot talet, och ge konkreta råd om actio som hen kan öva på inför en kamrat eller med inspelning."
+aktivt-lyssnande-fardighet,skill,Retorik och muntlig framställning,Lyssna aktivt och återge vad någon sagt,"lyssna på ett muntligt inlägg, återge dess huvudinnehåll korrekt och ställa följdfrågor som visar att man har förstått.",,0,"Skriv ett kort muntligt inlägg, som om det vore talat, och be eleven återge huvudinnehållet med egna ord och formulera en följdfråga."
+respons-begrepp,concept,Retorik och muntlig framställning,Respons,"Respons: återkoppling på en text eller ett framförande som pekar ut vad som fungerar och vad som kan utvecklas, utifrån uppgiftens syfte, så att mottagaren kan arbeta vidare.",,0,
+ge-muntlig-respons-fardighet,skill,Retorik och muntlig framställning,Ge respons på en muntlig framställning,"ge konkret och saklig respons på en kamrats muntliga framställning, anpassad till situationen, med utgångspunkt i den retoriska arbetsprocessen.",respons-begrepp;aktivt-lyssnande-fardighet;retoriska-arbetsprocessen-begrepp,0,"Beskriv ett påhittat anförande med både styrkor och svagheter, och be eleven ge respons på det som hen skulle göra till en kamrat."
+diskutera-i-grupp-fardighet,skill,Retorik och muntlig framställning,Argumentera i en gruppdiskussion,"framföra och motivera en ståndpunkt i en gruppdiskussion, bemöta andras argument sakligt och anpassa sina inlägg till samtalet.",tes-argument-begrepp;aktivt-lyssnande-fardighet;kommunikationssituation-begrepp,0,"Spela en eller två deltagare i en gruppdiskussion om en aktuell fråga, och låt eleven argumentera och bemöta era inlägg. Ge efteråt respons på hur sakligt och lyhört hen argumenterade."
+sakprosa-skonlitteratur-begrepp,concept,Sakprosa och källor,Sakprosa och skönlitteratur,"Sakprosa: texter som handlar om verkligheten och vill informera, förklara eller påverka, som artiklar, debattinlägg och rapporter.
+Skönlitteratur: diktade texter som skapar en egen värld, som noveller, romaner, dikter och dramer.",,0,
+lasstrategier-begrepp,concept,Sakprosa och källor,Lässtrategier,"Skumläsning: att snabbt läsa igenom en text för att få en överblick.
+Sökläsning: att leta efter en bestämd uppgift i en text.
+Närläsning: att läsa noggrant för att förstå detaljer, samband och underförstådda budskap.",,0,
+urskilja-huvudtanke-fardighet,skill,Sakprosa och källor,Urskilja huvudtanken i en sakprosatext,"urskilja huvudtanken och de viktigaste delarna i en sakprosatext, och skilja dem från exempel och detaljer.",lasstrategier-begrepp;sakprosa-skonlitteratur-begrepp,0,
+sammanfatta-fardighet,skill,Sakprosa och källor,Sammanfatta en sakprosatext,"sammanfatta en sakprosatext kort och sakligt med egna ord, utan egna värderingar och utan att förvränga innehållet.",urskilja-huvudtanke-fardighet,0,Skriv en sakprosatext på 300–500 ord och be eleven sammanfatta den på högst en fjärdedel av längden. Ge respons på vad som saknas och vad som borde ha strukits.
+urskilja-argument-fardighet,skill,Sakprosa och källor,Urskilja tes och argument i en text,"urskilja tesen och argumenten i en argumenterande text, och skilja argument från exempel och påståenden utan stöd.",tes-argument-begrepp;urskilja-huvudtanke-fardighet,0,
+analysera-avsandare-fardighet,skill,Sakprosa och källor,"Analysera avsändare, syfte och mottagare i en text","avgöra vem som står bakom en sakprosatext, vad den vill uppnå och vem den riktar sig till, och visa hur texten försöker påverka sina läsare.",kommunikationssituation-begrepp;appellformer-begrepp;urskilja-huvudtanke-fardighet,0,
+kalla-begrepp,concept,Sakprosa och källor,Källa,"Källa: det som en uppgift eller ett synsätt är hämtat från, som en bok, en artikel, en webbplats, en film eller en person.
+Förstahandskälla: en källa som själv har upplevt eller undersökt det den berättar om.
+Andrahandskälla: en källa som återger vad någon annan har upplevt eller kommit fram till.",,0,
+kallkritik-begrepp,concept,Sakprosa och källor,Källkritiska kriterier,"Äkthet: att källan verkligen är det den utger sig för att vara.
+Tid: att uppgifterna är aktuella, och hur nära i tid källan ligger det den beskriver.
+Beroende: om källan bygger på egna iakttagelser eller på andra källor.
+Tendens: om avsändaren har ett intresse av att framställa saken på ett visst sätt.",kalla-begrepp,0,
+soka-information-fardighet,skill,Sakprosa och källor,Söka och sovra information,"söka information till en given fråga med genomtänkta sökord och lämpliga typer av källor, och sovra bort det som inte är relevant.",kalla-begrepp;lasstrategier-begrepp,0,"Ge eleven en avgränsad fråga, be hen föreslå sökord och typer av källor, och diskutera vilka träffar som är värda att läsa vidare i och varför."
+vardera-kalla-fardighet,skill,Sakprosa och källor,Värdera en källas relevans och tillförlitlighet,"bedöma hur relevant och tillförlitlig en källa är för ett visst syfte med hjälp av de källkritiska kriterierna, och motivera bedömningen.",kallkritik-begrepp;analysera-avsandare-fardighet,0,"Beskriv två eller tre källor av olika slag om samma fråga, till exempel en myndighetssida, ett blogginlägg och en reklamtext, och be eleven rangordna dem och motivera ordningen."
+resonera-sakprosa-fardighet,skill,Sakprosa och källor,Föra ett resonemang om en sakprosatext,"resonera muntligt eller skriftligt om en sakprosatexts innehåll, uppbyggnad, relevans och tillförlitlighet, med stöd i texten.",sammanfatta-fardighet;urskilja-argument-fardighet;vardera-kalla-fardighet;beskriva-struktur-fardighet,0,
+sammanstalla-kallor-fardighet,skill,Sakprosa och källor,Sammanställa information från flera källor,"jämföra vad flera källor säger om samma fråga, se var de stämmer överens och var de skiljer sig, och sammanställa informationen till en helhet.",soka-information-fardighet;vardera-kalla-fardighet;sammanfatta-fardighet,0,
+texttyper-begrepp,concept,Skriva och bearbeta texter,Texttyper,"Berättande text: återger händelser i en tidsföljd.
+Beskrivande text: skildrar hur något är eller ser ut.
+Förklarande text: visar hur eller varför något sker.
+Argumenterande text: vill övertyga om en ståndpunkt.
+Instruerande text: talar om hur man gör något.",,0,
+argumenterande-genrer-begrepp,concept,Skriva och bearbeta texter,"Debattartikel, insändare och krönika","Debattartikel: en argumenterande text där avsändaren driver en tes i en aktuell samhällsfråga, ofta med stöd av fakta och sakkunskap.
+Insändare: en kortare argumenterande text där en läsare tar ställning i en fråga.
+Krönika: en personlig text med en tydlig avsändarröst som kommenterar en aktuell företeelse.",texttyper-begrepp;tes-argument-begrepp,0,
+utredande-reflekterande-begrepp,concept,Skriva och bearbeta texter,Utredande och reflekterande text,"Utredande text: en text som undersöker en fråga från flera håll med hjälp av källor och avslutas med en slutsats.
+Reflekterande text: en text där skribenten fördjupar sig i en egen erfarenhet eller iakttagelse och prövar tankar kring den.",texttyper-begrepp,0,
+textstruktur-begrepp,concept,Skriva och bearbeta texter,"Inledning, huvuddel och avslutning","Inledning: väcker intresse och presenterar ämnet eller frågan.
+Huvuddel: utvecklar innehållet, ett stycke för varje huvudtanke.
+Avslutning: knyter ihop texten och svarar på det inledningen lovade, utan att föra in nya argument.",,0,
+stycke-begrepp,concept,Skriva och bearbeta texter,Stycke och kärnmening,"Stycke: en del av en text som handlar om en huvudtanke, markerad med ny rad och indrag eller blankrad.
+Kärnmening: den mening, ofta den första, som säger vad stycket handlar om.",,0,
+textbindning-begrepp,concept,Skriva och bearbeta texter,Textbindning,"Textbindning: de språkliga medel som knyter ihop meningar och stycken till en helhet, som sambandsord (därför, däremot, dessutom), ord som syftar tillbaka (den, detta) och upprepning av nyckelord.",,0,
+beskriva-struktur-fardighet,skill,Skriva och bearbeta texter,Beskriva struktur och språkliga drag i en text,"beskriva hur en text är uppbyggd och vilka språkliga drag den har, och förklara hur strukturen och språket passar texttypen och syftet.",texttyper-begrepp;textstruktur-begrepp;stilniva-begrepp,0,
+skriva-stycke-fardighet,skill,Skriva och bearbeta texter,Skriva stycken med tydlig kärnmening,"skriva stycken som har en tydlig kärnmening, utvecklar en huvudtanke och binds samman med stycket före och efter.",stycke-begrepp;textbindning-begrepp,0,
+citat-referat-begrepp,concept,Skriva och bearbeta texter,Citat och referat,"Citat: en ordagrann återgivning av vad någon har skrivit eller sagt, markerad med citattecken.
+Referat: en återgivning av en källas innehåll med egna ord.
+Referatmarkör: ord som visar att det är källans tanke som återges, som enligt eller hävdar.",kalla-begrepp,0,
+kallhanvisning-begrepp,concept,Skriva och bearbeta texter,Källhänvisning och plagiat,"Källhänvisning: en uppgift i texten om varifrån en uppgift är hämtad, kopplad till en källförteckning.
+Källförteckning: en lista i slutet av texten med fullständiga uppgifter om de källor som har använts.
+Plagiat: att ge ut någon annans text eller idéer som sina egna.",kalla-begrepp,0,
+citat-referatteknik-fardighet,skill,Skriva och bearbeta texter,Använda citat- och referatteknik,"föra in citat och referat i en egen text med referatmarkörer och korrekta källhänvisningar, och hålla isär källans tankar och sina egna.",citat-referat-begrepp;kallhanvisning-begrepp;sammanfatta-fardighet,0,Ge eleven ett kort utdrag ur en påhittad källa och be hen skriva några meningar som både citerar och refererar källan med korrekt källhänvisning.
+anpassa-text-fardighet,skill,Skriva och bearbeta texter,"Anpassa en text till syfte, mottagare och sammanhang","välja innehåll, struktur och stilnivå efter textens syfte, mottagare och sammanhang, och skriva om en text för en ny mottagare.",kommunikationssituation-begrepp;beskriva-struktur-fardighet,0,Ge eleven en kort text skriven för en mottagare och be hen skriva om den för en annan mottagare eller ett annat sammanhang och förklara vad som har ändrats och varför.
+skriva-argumenterande-fardighet,skill,Skriva och bearbeta texter,Skriva en argumenterande text,"skriva en debattartikel eller insändare med en tydlig tes, hållbara argument, ett bemött motargument och ett genomtänkt bruk av ethos, pathos och logos.",argumenterande-genrer-begrepp;appellformer-begrepp;skriva-stycke-fardighet;textstruktur-begrepp;anpassa-text-fardighet,0,
+skriva-replik-fardighet,skill,Skriva och bearbeta texter,Skriva en replik på en läst text,"skriva en argumenterande text som svarar på en läst sakprosatext, återger dess tes korrekt och bemöter dess argument sakligt.",skriva-argumenterande-fardighet;urskilja-argument-fardighet;citat-referatteknik-fardighet,0,"Skriv en kort debattartikel med en tydlig tes som eleven kan svara på, eller låt eleven klistra in en text hen har läst. Skriv inte repliken åt eleven."
+skriva-utredande-fardighet,skill,Skriva och bearbeta texter,Skriva en utredande text med källor,"skriva en utredande text som belyser en fråga från flera håll med stöd i lästa källor, med korrekt citat- och referatteknik och en slutsats som följer av utredningen.",utredande-reflekterande-begrepp;citat-referatteknik-fardighet;sammanstalla-kallor-fardighet;skriva-stycke-fardighet;textstruktur-begrepp,0,
+skriva-reflekterande-fardighet,skill,Skriva och bearbeta texter,Skriva en reflekterande text,"skriva en reflekterande text som utgår från en egen erfarenhet eller läsupplevelse och fördjupar den med frågor, jämförelser och nya perspektiv.",utredande-reflekterande-begrepp;skriva-stycke-fardighet,0,
+kreativt-skrivande-fardighet,skill,Skriva och bearbeta texter,Skriva en kort skönlitterär text,"skriva en kort berättelse eller dikt där berättarperspektiv, gestaltning och bildspråk är medvetet valda, och förklara valen.",berattarperspektiv-begrepp;gestaltning-begrepp;bildsprak-begrepp;komposition-begrepp,0,"Ge eleven en startpunkt, till exempel en bild beskriven i ord, en första mening eller ett motiv, och låt hen skriva. Ge respons på de medvetna valen och låt eleven bearbeta texten själv."
+ge-skriftlig-respons-fardighet,skill,Skriva och bearbeta texter,Ge respons på en kamrats text,"ge skriftlig respons på en annans text som utgår från textens syfte och texttyp, pekar på konkreta styrkor och föreslår tydliga förbättringar.",respons-begrepp;beskriva-struktur-fardighet,0,Skriv en kort elevtext med både styrkor och tydliga brister och be eleven ge respons på den som till en kamrat.
+bearbeta-text-fardighet,skill,Skriva och bearbeta texter,Bearbeta en egen text utifrån respons,"bearbeta en egen text utifrån respons och egen granskning, både i innehåll och struktur och i språkriktighet.",respons-begrepp;rata-sprakfel-fardighet;skiljetecken-fardighet;skriva-stycke-fardighet,0,"Be eleven klistra in sin egen text och gärna den respons hen har fått. Hjälp hen att prioritera vad som ska ändras först, och låt eleven göra ändringarna själv."
+digitala-verktyg-fardighet,skill,Skriva och bearbeta texter,Använda digitala verktyg för bearbetning och respons,"använda kommentarsfunktion, ändringsspårning och stavnings- och grammatikkontroll för att bearbeta och ge respons på texter, och bedöma när verktygets förslag är fel.",respons-begrepp;rata-sprakfel-fardighet,0,
+epik-lyrik-dramatik-begrepp,concept,Skönlitteratur,"Epik, lyrik och dramatik","Epik: berättande skönlitteratur, som noveller och romaner.
+Lyrik: dikter, ofta med rytm, bilder och ett koncentrerat språk.
+Dramatik: texter skrivna för att framföras på scen, med repliker och scenanvisningar.",sakprosa-skonlitteratur-begrepp,0,
+berattare-begrepp,concept,Skönlitteratur,Berättare,"Berättare: rösten som berättar historien, som inte är detsamma som författaren.
+Jagberättare: en berättare som själv deltar i handlingen och berättar i jagform.
+Tredjepersonsberättare: en berättare som står utanför handlingen och berättar om han, hon eller hen.",,0,
+berattarperspektiv-begrepp,concept,Skönlitteratur,Berättarperspektiv,"Allvetande berättare: vet allt om alla gestalter, även deras tankar.
+Inre perspektiv: berättelsen följer en enda gestalts tankar och upplevelser.
+Yttre perspektiv: berättaren visar bara det som kan ses och höras utifrån.",berattare-begrepp,0,
+komposition-begrepp,concept,Skönlitteratur,Komposition,"Komposition: hur handlingen i en berättelse är ordnad, kronologiskt eller med tillbakablickar, ofta med en början in medias res, en konflikt, en vändpunkt och ett slut.
+Ramberättelse: en berättelse som omsluter en annan berättelse.",,0,
+gestaltning-begrepp,concept,Skönlitteratur,Gestaltning,"Gestaltning: att visa en känsla, en person eller en miljö genom konkreta detaljer, handlingar och repliker, i stället för att säga rakt ut hur det är.",,0,
+personskildring-begrepp,concept,Skönlitteratur,Direkt och indirekt personskildring,"Direkt personskildring: berättaren säger rakt ut hur en gestalt är.
+Indirekt personskildring: läsaren förstår hur en gestalt är genom vad den säger, gör och tänker.",,0,
+bildsprak-begrepp,concept,Skönlitteratur,Bildspråk,"Liknelse: en jämförelse med som eller liksom: arg som ett bi.
+Metafor: att kalla något för något annat utan jämförelseord: livet är en resa.
+Besjälning: att ge ting, djur eller natur mänskliga egenskaper: vinden viskade.",,0,
+symbol-begrepp,concept,Skönlitteratur,Symbol,"Symbol: en konkret sak, handling eller gestalt i en text som också står för något större, som en stängd dörr för utanförskap.",bildsprak-begrepp,0,
+stildrag-begrepp,concept,Skönlitteratur,Stildrag och stilfigurer,"Stildrag: återkommande drag i hur en text är skriven, som meningslängd, ordval och mängden dialog, som tillsammans ger texten dess ton.
+Upprepning: ett ord eller en fras som återkommer för att förstärka något.
+Kontrast: två motsatser som ställs mot varandra.
+Ironi: att säga en sak men mena motsatsen.",,0,
+motiv-tema-begrepp,concept,Skönlitteratur,Motiv och tema,"Motiv: en återkommande situation eller konstellation i litteraturen, som den omöjliga kärleken eller resan.
+Tema: det övergripande ämne eller den fråga en text handlar om, som ensamhet eller skuld, och som läsaren tolkar fram.",,0,
+centrala-motiv-fakta,fact,Skönlitteratur,Centrala motiv i litteraturen,"resan: en gestalt bryter upp och förändras på vägen
+den omöjliga kärleken: två älskande hindras av familj, klass eller samhälle
+uppväxten: en ung gestalt lämnar barndomen och söker sin plats
+utanförskapet: en gestalt står utanför gemenskapen och längtar in eller vill bort
+hämnden: en oförrätt driver en gestalt till att ge igen
+individen mot samhället: en gestalt sätter sig upp mot normer och makt
+förvandlingen: en gestalt eller värld förändras i grunden",motiv-tema-begrepp,0,
+lyrik-begrepp,concept,Skönlitteratur,"Rytm, rim och strof","Rytm: växlingen mellan betonade och obetonade stavelser i en dikt.
+Rim: ord som låter lika i slutet, som slutrim i slutet av versraderna.
+Strof: en grupp versrader som hör ihop, skild från de andra med en blankrad.
+Lyriskt jag: rösten som talar i en dikt, som inte är detsamma som poeten.",,0,
+drama-begrepp,concept,Skönlitteratur,Replik och scenanvisning,"Replik: det en gestalt säger i ett drama.
+Scenanvisning: författarens anvisningar om miljö, rörelser och tonfall, som inte sägs på scenen.
+Akt och scen: de delar ett drama är indelat i.",,0,
+analysera-berattarteknik-fardighet,skill,Skönlitteratur,Analysera berättartekniken,"bestämma berättare, berättarperspektiv och komposition i en novell eller ett romanutdrag, och förklara vad valen gör med det läsaren får veta och känner.",berattarperspektiv-begrepp;komposition-begrepp,0,
+analysera-gestalt-fardighet,skill,Skönlitteratur,Analysera en litterär gestalt,"karakterisera en gestalt utifrån direkt och indirekt personskildring och gestaltning, och visa med citat hur gestalten förändras.",personskildring-begrepp;gestaltning-begrepp,0,
+tolka-tema-fardighet,skill,Skönlitteratur,Tolka motiv och tema,"känna igen motivet i en skönlitterär text, formulera ett tema och motivera tolkningen med exempel och citat ur texten.",motiv-tema-begrepp;centrala-motiv-fakta,0,
+forklara-stildrag-fardighet,skill,Skönlitteratur,Förklara hur stildrag och bildspråk verkar,"hitta stildrag, bildspråk och symboler i en text och förklara vilken verkan de har och hur de stöder tolkningen av temat.",bildsprak-begrepp;symbol-begrepp;stildrag-begrepp;tolka-tema-fardighet,0,
+analysera-dikt-fardighet,skill,Skönlitteratur,Analysera en dikt,"analysera form, bildspråk och rytm i en dikt, och tolka vad dikten uttrycker.",lyrik-begrepp;bildsprak-begrepp;tolka-tema-fardighet,0,Använd gärna en samtida dikt eleven klistrar in. Har eleven ingen dikt kan du skriva en kort dikt själv att öva på.
+analysera-drama-fardighet,skill,Skönlitteratur,Analysera en dramatisk text,"analysera hur konflikten och gestalterna byggs upp genom repliker och scenanvisningar i ett dramautdrag, och tolka vad dramat gestaltar.",drama-begrepp;analysera-gestalt-fardighet;tolka-tema-fardighet,0,
+analysera-berattelse-fardighet,skill,Skönlitteratur,Analysera och tolka en berättande text,"läsa en novell eller ett romanutdrag, gärna samtida, och föra samman berättarteknik, gestalter, stildrag och tema till en sammanhängande tolkning.",analysera-berattarteknik-fardighet;analysera-gestalt-fardighet;forklara-stildrag-fardighet,0,
+samtala-litteratur-fardighet,skill,Skönlitteratur,Samtala om en skönlitterär text,"delta i ett litteratursamtal genom att dela sin läsupplevelse och tolkning, stödja den med exempel ur texten och pröva andras tolkningar.",tolka-tema-fardighet;aktivt-lyssnande-fardighet,0,"Föreslå att eleven berättar om en text hen har läst, och för ett litteratursamtal med hen där du lägger fram en annan tolkning än elevens som hen får pröva och bemöta."
+jamfora-texter-fardighet,skill,Skönlitteratur,Jämföra hur två texter gestaltar samma motiv,"jämföra hur två skönlitterära texter, gärna av författare av olika kön och från olika tider, gestaltar samma motiv, och resonera om likheter och skillnader.",tolka-tema-fardighet;analysera-berattarteknik-fardighet,0,
+skriva-litterar-analys-fardighet,skill,Skönlitteratur,Skriva en litterär analys,"skriva en litterär analys av en novell eller ett romanutdrag där tolkningen byggs upp stycke för stycke och påståendena stöds med citat.",analysera-berattelse-fardighet;citat-referatteknik-fardighet;textstruktur-begrepp;skriva-stycke-fardighet,0,
+litterar-epok-begrepp,concept,Litterära epoker,Litterär epok,"Litterär epok: en tidsperiod vars litteratur har gemensamma idéer, ämnen och stildrag, formade av samhället och tänkandet i sin tid.",,0,
+epoker-tidsordning-fakta,fact,Litterära epoker,Epokerna i tidsordning,"antiken: omkring 800 f.Kr.–500 e.Kr.
+medeltiden: omkring 500–1500
+renässansen: omkring 1400–1600
+barocken: 1600-talet
+upplysningen: 1700-talet
+romantiken: omkring 1800–1850
+realismen och det moderna genombrottet: andra halvan av 1800-talet
+naturalismen: slutet av 1800-talet
+nyromantiken: 1890-talet
+modernismen: omkring 1900–1950
+postmodernismen: från omkring 1960",litterar-epok-begrepp,0,
+antiken-medeltiden-begrepp,concept,Litterära epoker,Antiken och medeltiden,"Antiken: den grekiska och romerska kulturens tid, då eposet och dramat med tragedi och komedi formades, som i Homeros Odysséen.
+Medeltiden: en tid då kyrkan och tron präglade mycket av litteraturen, med riddardikter, ballader och i Norden de isländska sagorna.",litterar-epok-begrepp;epik-lyrik-dramatik-begrepp,0,
+renassans-upplysning-begrepp,concept,Litterära epoker,Renässansen och upplysningen,"Renässansen: en återupptäckt av antikens kultur med människan i centrum, humanismen, som i Shakespeares dramer.
+Upplysningen: en tid då förnuftet och vetenskapen sattes i centrum och litteraturen skulle uppfostra och kritisera, ofta med satir.",litterar-epok-begrepp,0,
+romantiken-begrepp,concept,Litterära epoker,Romantiken,"Romantiken: en reaktion mot upplysningens förnuftstro där känslan, fantasin, naturen, det förflutna och det unika geniet hyllades.",litterar-epok-begrepp,0,
+realism-naturalism-begrepp,concept,Litterära epoker,Realism och naturalism,"Realism: litteratur som skildrar samtidens samhälle och vanliga människor så verklighetstroget som möjligt och tar upp samhällsproblem, i Norden kallad det moderna genombrottet.
+Naturalism: en skärpt realism där människan ses som formad av arv och miljö.",litterar-epok-begrepp,0,
+modernism-begrepp,concept,Litterära epoker,Modernism och postmodernism,"Modernism: 1900-talets brott mot traditionella former, med fri vers, inre monolog och splittrade berättelser, som svar på en snabbt föränderlig värld.
+Postmodernism: litteratur som leker med genrer, blandar fakta och fiktion och ifrågasätter att det finns en enda sanning.",litterar-epok-begrepp,0,
+redogora-epoker-fardighet,skill,Litterära epoker,Redogöra för de litterära epokerna,"redogöra för huvuddragen i de litterära epokerna, vad som skiljer dem åt och hur de hänger samman med sin tids samhälle och idéer.",epoker-tidsordning-fakta;antiken-medeltiden-begrepp;renassans-upplysning-begrepp;romantiken-begrepp;realism-naturalism-begrepp;modernism-begrepp,0,
+koppla-verk-sammanhang-fardighet,skill,Litterära epoker,Koppla ett verk till sitt sammanhang,"resonera om hur ett litterärt verk hänger samman med epoken och samhället det skrevs i, med stöd i drag i själva texten.",redogora-epoker-fardighet;tolka-tema-fardighet,0,"Låt eleven välja ett verk eller ett utdrag från en epok, eller föreslå ett känt verk och be hen klistra in ett utdrag, och be hen visa vilka drag i texten som är typiska för tiden."
