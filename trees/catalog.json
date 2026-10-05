@@ -357,7 +357,7 @@
    "author": "Vidar Skogvoll",
    "authorUrl": "https://skogvoll.com",
    "license": "CC BY 4.0",
-   "updated": "2026-09-21",
+   "updated": "2026-10-05",
    "topics": [
     "Fysikk som fag",
     "Programmering og numeriske metoder",
@@ -373,10 +373,10 @@
     "Energi, klima og samfunn"
    ],
    "keywords": [],
-   "nodeCount": 190,
+   "nodeCount": 198,
    "skillCount": 101,
    "conceptCount": 89,
-   "factCount": 0
+   "factCount": 8
   },
   {
    "slug": "no-vgs-fysikk2",
