@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferdighetstrær for LK20 | AI Skill Trees</title>
+  <meta name="description" content="Fagene på ungdomsskolen og studiespesialisering etter LK20, med ferdighetstrær for de fagene og nivåene der det finnes et.">
+
+  <!--
+    ULISTET SIDE, på samme måte som /gy25/: ikke i navigasjonen, ikke lenket
+    fra andre sider, og noindex. Se lk20_private/.
+
+    Bare på norsk, med vilje. Derfor lastes ikke js/i18n.js; skriptet under
+    gir sidehodet norske etiketter, og et annet språkvalg sender den
+    besøkende til forsiden på det språket.
+
+    Fagslisten er HÅNDSKREVET (i motsetning til /gy25/), sjekket mot
+    fagkodene i Udirs Grep-API 2026-10-05. Et nytt tre: gjør den grå
+    <span class="level level--none"> om til en <a class="level level--FAG">,
+    og gi kortet fargeklassen subject-card--FAG i stedet for --empty.
+  -->
+  <meta name="robots" content="noindex">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/curriculum.css">
+
+  <script src="/js/analytics.js"></script>
+  <script>
+    window.i18n = {
+      lang: 'nb',
+      setLang: function (lang) { if (lang !== 'nb') location.href = '/?lang=' + lang; }
+    };
+  </script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/mail-link.js" defer></script>
+</head>
+<body>
+
+  <header class="siteheader" data-site-header></header>
+
+  <main>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow">LK20 · Norge</p>
+        <h1>Ferdighetstrær for ungdomsskolen og videregående</h1>
+        <div class="prose">
+          <p class="lede-p">Her er fagene på ungdomsskolen og på studiespesialisering, ordnet etter faggruppe. Fargede nivåer har et ferdighetstre. Grå nivåer har ikke noe tre ennå.</p>
+          <p>Et ferdighetstre bryter kompetansemålene ned i det eleven faktisk skal kunne: begreper og ferdigheter, og hvilke som bygger på hvilke. Eleven ser hele kartet og velger selv hvor hen starter. Til hver ferdighet hører en instruks som eleven kopierer inn i en hvilken som helst KI-chat. Chatten øver og prøver da akkurat den ferdigheten, uten å gi eleven svarene.</p>
+          <p>Trærne er utkast, og poenget er at de skal bli bedre. De er åpne under CC BY 4.0, og hvem som helst kan endre dem.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--alt" aria-labelledby="ungdomsskole">
+      <div class="band__inner">
+        <h2 id="ungdomsskole">Ungdomsskolen</h2>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Realfag</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--mathematics">
+              <h4 class="subject-card__title">Matematikk</h4>
+              <ul class="levels">
+                <li><a class="level level--mathematics" href="/trees/no-grunnskole-matte-8/">8. trinn</a></li>
+                <li><a class="level level--mathematics" href="/trees/no-grunnskole-matte-9/">9. trinn</a></li>
+                <li><a class="level level--mathematics" href="/trees/no-grunnskole-matte-10/">10. trinn</a></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Naturfag</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Språk</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Norsk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Engelsk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Fremmedspråk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Samfunnsfag og KRLE</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Samfunnsfag</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">KRLE</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Praktiske og estetiske fag</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Kunst og håndverk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Musikk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Mat og helse</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Kroppsøving</h4>
+              <ul class="levels">
+                <li><span class="level level--none">8. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">9. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">10. trinn<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="studiespesialisering">
+      <div class="band__inner">
+        <h2 id="studiespesialisering">Videregående: studiespesialisering</h2>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Fellesfag</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--language">
+              <h4 class="subject-card__title">Norsk</h4>
+              <ul class="levels">
+                <li><a class="level level--language" href="/trees/no-vgs-norsk-vg1/">Vg1</a></li>
+                <li><span class="level level--none">Vg2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Vg3<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Engelsk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Vg1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--mathematics">
+              <h4 class="subject-card__title">Matematikk</h4>
+              <ul class="levels">
+                <li><a class="level level--mathematics" href="/trees/no-vgs-matte-1p/">1P</a></li>
+                <li><a class="level level--mathematics" href="/trees/no-vgs-matte-1t/">1T</a></li>
+                <li><a class="level level--mathematics" href="/trees/no-vgs-matte-2p/">2P</a></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--science">
+              <h4 class="subject-card__title">Naturfag</h4>
+              <ul class="levels">
+                <li><a class="level level--science" href="/trees/no-vgs-naturfag-vg1/">Vg1</a></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--social">
+              <h4 class="subject-card__title">Samfunnskunnskap</h4>
+              <ul class="levels">
+                <li><a class="level level--social" href="/trees/no-vgs-samfunnskunnskap-vg1/">Vg1</a></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--language">
+              <h4 class="subject-card__title">Fremmedspråk</h4>
+              <ul class="levels">
+                <li><a class="level level--language" href="/trees/no-vgs-spansk-1/">Spansk nivå I</a></li>
+                <li><span class="level level--none">Nivå II<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Geografi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Vg1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Historie</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Vg2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Vg3<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Religion og etikk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Vg3<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Kroppsøving</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Vg1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Vg2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Vg3<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Programfag: realfag</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--mathematics">
+              <h4 class="subject-card__title">Matematikk</h4>
+              <ul class="levels">
+                <li><a class="level level--mathematics" href="/trees/no-vgs-matte-r1/">R1</a></li>
+                <li><a class="level level--mathematics" href="/trees/no-vgs-matte-r2/">R2</a></li>
+                <li><a class="level level--mathematics" href="/trees/no-vgs-matte-s1/">S1</a></li>
+                <li><a class="level level--mathematics" href="/trees/no-vgs-matte-s2/">S2</a></li>
+                <li><span class="level level--none">X<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Statistikk<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Matematikk for økonomi<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--physics">
+              <h4 class="subject-card__title">Fysikk</h4>
+              <ul class="levels">
+                <li><a class="level level--physics" href="/trees/no-vgs-fysikk1/">Fysikk 1</a></li>
+                <li><a class="level level--physics" href="/trees/no-vgs-fysikk2/">Fysikk 2</a></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--chemistry">
+              <h4 class="subject-card__title">Kjemi</h4>
+              <ul class="levels">
+                <li><a class="level level--chemistry" href="/trees/no-vgs-kjemi1/">Kjemi 1</a></li>
+                <li><a class="level level--chemistry" href="/trees/no-vgs-kjemi2/">Kjemi 2</a></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--biology">
+              <h4 class="subject-card__title">Biologi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Biologi 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><a class="level level--biology" href="/trees/no-vgs-biologi2/">Biologi 2</a></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Geofag</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Geofag X<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Geofag 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Geofag 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Informasjonsteknologi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">IT 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">IT 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Teknologi og forskningslære</h4>
+              <ul class="levels">
+                <li><span class="level level--none">TOF X<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">TOF 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">TOF 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Programmering og modellering</h4>
+              <ul class="levels">
+                <li><span class="level level--none">X<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Programfag: språk</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Engelsk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Engelsk 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Engelsk 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Kommunikasjon og kultur</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">3<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Latin</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Latin 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Latin 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Gresk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Gresk 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Gresk 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Antikkens kultur</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Antikkens kultur<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Reiseliv og språk</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Programfag: samfunnsfag</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Historie og filosofi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Politikk og menneskerettigheter</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Politikk og menneskerettigheter<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Psykologi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Psykologi 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Psykologi 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Rettslære</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Rettslære 1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">Rettslære 2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Samfunnsgeografi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Samfunnsgeografi<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Sosialkunnskap</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Sosialkunnskap<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Sosiologi og sosialantropologi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Sosiologi og sosialantropologi<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Medie- og informasjonskunnskap</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Klima- og miljøfag</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Samisk historie og samfunn</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="subgroup">
+          <h3 class="subgroup__heading">Programfag: økonomi</h3>
+          <ul class="subject-cards">
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Entreprenørskap og bedriftsutvikling</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Markedsføring og ledelse</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Samfunnsøkonomi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Økonomistyring</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Økonomistyring<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Økonomi og ledelse</h4>
+              <ul class="levels">
+                <li><span class="level level--none">Økonomi og ledelse<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+            <li class="subject-card subject-card--empty">
+              <h4 class="subject-card__title">Økologisk økonomi</h4>
+              <ul class="levels">
+                <li><span class="level level--none">1<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+                <li><span class="level level--none">2<span class="visually-hidden"> (ingen tre ennå)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <p class="subjects-count subjects-source">Fagene er hentet fra Utdanningsdirektoratets læreplanverk (LK20) 2026-10-05. Lista viser bare ungdomsskolen og studiespesialisering, ikke de andre utdanningsprogrammene.</p>
+      </div>
+    </section>
+
+    <section class="band band--primary">
+      <div class="band__inner">
+        <h2>Vil du forbedre et tre, eller lage et for ditt fag?</h2>
+        <div class="prose">
+          <p>Ta kontakt med Vidar Skogvoll ved KURT, Universitetet i Oslo:</p>
+          <p class="lede-p"><a data-mail-user="vidarsko" data-mail-domain="uio.no" hidden></a></p>
+          <noscript><p class="lede-p">vidarsko [at] uio [dot] no</p></noscript>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/make-your-own/?lang=nb">Lag ditt eget tre</a>
+          <a class="btn btn--ghost" href="/about/?lang=nb">Om metoden</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="band band--dark sitefooter">
+    <div class="band__inner sitefooter__inner">
+      <p>AI Skill Trees — en åpen metode av Vidar Skogvoll.</p>
+      <p>Motoren er MIT-lisensiert; instruksene og trærne er CC BY 4.0.</p>
+      <p><a href="/privacy/?lang=nb">Personvern</a></p>
+      <p class="sitefooter__affiliation">Del av et forskningsprosjekt ved <a href="https://www.mn.uio.no/kurt/index.html">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

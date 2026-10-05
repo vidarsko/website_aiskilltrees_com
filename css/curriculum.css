@@ -1,7 +1,8 @@
 /* ==========================================================================
    curriculum.css — a page showing every subject and level of one school
    system's curriculum, with the levels that have a tree coloured in and the
-   rest greyed out. /gy25/ (Sweden) is the first; a /lk20/ would reuse this.
+   rest greyed out. /gy25/ (Sweden) is a list; /lk20/ (Norway) uses the
+   cards at the bottom of this file.
 
    Built on ui-style-banded-fullbleed: square controls (this is a content
    page, not the tree app, so no pills), no shadows, colours from tokens.css
@@ -181,3 +182,65 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
   font-weight: 500;
   cursor: default;
 }
+
+/* ==========================================================================
+   Cards by subject group — /lk20/ (Norway). Borrowed in shape from the old
+   skogvoll.com/ferdighetstre page: a band per school stage, a small
+   uppercase heading per subject group, and one card per subject with its
+   levels underneath. The levels are the same .level buttons as above.
+
+   A card with at least one tree gets its subject colour as a left stripe;
+   a card with none is muted, so the trees that exist stand out without a
+   separate filter. The stripe repeats what the coloured level says in
+   words, so it never carries the meaning alone.
+   ========================================================================== */
+
+.subgroup + .subgroup { margin-top: var(--space-5); }
+
+.subgroup__heading {
+  font-size: var(--step-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 var(--space-2);
+}
+
+.subject-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subject-card {
+  --card-colour: var(--subject-none);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--card-colour);
+}
+
+.subject-card--mathematics { --card-colour: var(--subject-mathematics); }
+.subject-card--physics     { --card-colour: var(--subject-physics); }
+.subject-card--biology     { --card-colour: var(--subject-biology); }
+.subject-card--chemistry   { --card-colour: var(--subject-chemistry); }
+.subject-card--science     { --card-colour: var(--subject-science); }
+.subject-card--language    { --card-colour: var(--subject-language); }
+.subject-card--social      { --card-colour: var(--subject-social); }
+
+.subject-card--empty { background: transparent; }
+
+.subject-card__title {
+  font-size: var(--step-s);
+  font-weight: 600;
+  margin: 0;
+}
+.subject-card--empty .subject-card__title { color: var(--ink-2); font-weight: 500; }
+
+.subjects-source { margin: var(--space-5) 0 0; }
