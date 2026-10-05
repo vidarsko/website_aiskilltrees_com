@@ -2059,10 +2059,13 @@
 
     if (window.i18n && window.i18n.onChange) window.i18n.onChange(function () { renderPanel(); });
 
-    /* ?tree=<slug> åpner et tre fra katalogen rett i verktøyet, slik at
-       «rediger dette treet» kan lenkes til. */
+    /* /make-your-own/<slug>/ og ?tree=<slug> åpner et tre fra katalogen rett
+       i verktøyet. Stien er den «Rediger eller last ned» på hvert tre lenker
+       til; mappene lages av deployen (se .github/workflows/deploy.yml), så
+       lokalt er det ?tree= som virker. */
     var params = new URLSearchParams(location.search);
-    var slug = params.get('tree');
+    var fromPath = location.pathname.match(/^\/make-your-own\/([^\/]+)\/?$/);
+    var slug = fromPath ? decodeURIComponent(fromPath[1]) : params.get('tree');
     if (slug && /^[a-z0-9-]+$/.test(slug)) {
       openUrl('/trees/' + slug + '/tree.csv', '/trees/' + slug + '/resources.csv', true);
       el.overlay.hidden = true;

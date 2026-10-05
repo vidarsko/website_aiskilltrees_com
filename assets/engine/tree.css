@@ -208,7 +208,8 @@ header {
 #action-menu-panel #goal-index-btn,
 #action-menu-panel #course-info-btn,
 #action-menu-panel #help-btn,
-#action-menu-panel #download-btn {
+#action-menu-panel #download-btn,
+#action-menu-panel #edit-link {
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -228,7 +229,8 @@ header {
 #action-menu-panel #goal-index-btn:hover,
 #action-menu-panel #course-info-btn:hover,
 #action-menu-panel #help-btn:hover,
-#action-menu-panel #download-btn:hover {
+#action-menu-panel #download-btn:hover,
+#action-menu-panel #edit-link:hover {
   border-color: var(--border-strong);
   background: var(--surface-hover);
 }
@@ -238,6 +240,13 @@ header {
 #action-menu-panel #download-btn[disabled] {
   opacity: 0.6;
   cursor: progress;
+}
+
+/* Lenken til redigeringsverktøyet ser ut som knappene over den. */
+#action-menu-panel #edit-link {
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 .progress-row {

@@ -212,7 +212,9 @@
       "button": "Download this tree",
       "title": "Download the tree twice over: the spreadsheet you can edit, and a single file that works offline",
       "working": "Building the single file…",
-      "failed": "The single file could not be built"
+      "failed": "The single file could not be built",
+      "edit": "Edit or download",
+      "editTitle": "Open the tree in the editor, where you can change it and download it as a spreadsheet or as a single file that works offline"
     },
     "courseInfo": {
       "button": "About the course",

@@ -212,7 +212,9 @@
       "button": "Ladda ner det här trädet",
       "title": "Ladda ner trädet i två former: kalkylarket du kan redigera, och en enda fil som fungerar utan nät",
       "working": "Bygger enkelfilen …",
-      "failed": "Enkelfilen kunde inte byggas"
+      "failed": "Enkelfilen kunde inte byggas",
+      "edit": "Redigera eller ladda ner",
+      "editTitle": "Öppna trädet i redigeringsverktyget, där du kan ändra det och ladda ner det som kalkylark eller som en enda fil som fungerar utan nät"
     },
     "courseInfo": {
       "button": "Om ämnet",

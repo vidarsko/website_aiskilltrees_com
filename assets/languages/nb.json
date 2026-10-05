@@ -212,7 +212,9 @@
       "button": "Last ned dette treet",
       "title": "Last ned treet i to former: regnearket du kan redigere, og én fil som virker uten nett",
       "working": "Bygger enkeltfila …",
-      "failed": "Enkeltfila kunne ikke bygges"
+      "failed": "Enkeltfila kunne ikke bygges",
+      "edit": "Rediger eller last ned",
+      "editTitle": "Åpne treet i redigeringsverktøyet, der du kan endre det og laste det ned som regneark eller som én fil som virker uten nett"
     },
     "courseInfo": {
       "button": "Om faget",

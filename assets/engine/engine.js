@@ -1338,6 +1338,21 @@ function setupDownloadButton() {
   const panel = ensureActionMenu();
   if (!panel) return;
 
+  /* En utrulling med et redigeringsverktøy kan sende leseren dit i stedet,
+     med <meta name="aist-editor" content="/sti/{slug}/"> i <head>. Der kan
+     treet både endres og lastes ned, så knappen blir en lenke. Uten taggen
+     bygger knappen fila her, som før - motoren vet ikke om noe verktøy. */
+  const editor = document.querySelector('meta[name="aist-editor"]');
+  if (editor && editor.content) {
+    const link = document.createElement('a');
+    link.id = 'edit-link';
+    link.href = editor.content.replace('{slug}', encodeURIComponent(treeSlug()));
+    link.textContent = t('download.edit');
+    link.title = t('download.editTitle');
+    panel.appendChild(link);
+    return;
+  }
+
   const btn = document.createElement('button');
   btn.id = 'download-btn';
   btn.type = 'button';
