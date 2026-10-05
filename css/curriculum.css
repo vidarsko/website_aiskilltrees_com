@@ -1,142 +1,21 @@
 /* ==========================================================================
-   curriculum.css — a page showing every subject and level of one school
+   curriculum.css — a page showing the subjects and levels of one school
    system's curriculum, with the levels that have a tree coloured in and the
-   rest greyed out. /gy25/ (Sweden) is a list; /lk20/ (Norway) uses the
-   cards at the bottom of this file.
+   rest greyed out. /lk20/ (Norway) and /gy25/ (Sweden) share this layout.
 
    Built on ui-style-banded-fullbleed: square controls (this is a content
    page, not the tree app, so no pills), no shadows, colours from tokens.css
    only. A level carries its name in words, so colour never carries the
    meaning alone; a greyed level is a <span>, not a link, and says
-   "inget träd ännu" to a screen reader.
+   "ingen tre ennå" / "inget träd ännu" to a screen reader.
    ========================================================================== */
 
-/* ---- The strip of trees that exist ------------------------------------- */
-
-.tree-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-  margin: var(--space-3) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.tree-strip .level {
-  min-width: 0;
-  padding: 0.75rem 1.25rem;
-  font-size: var(--step-s);
-}
-
-/* ---- Search and filter -------------------------------------------------- */
-
-.subject-filter {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2) var(--space-4);
-  margin: 0 0 var(--space-4);
-  font-family: var(--font-sans);
-}
-
-.subject-filter input[type="search"] {
-  flex: 1 1 18rem;
-  max-width: 28rem;
-  min-height: 44px;
-  padding: 0.5rem 0.875rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: 0;
-  background: var(--surface);
-  color: var(--ink);
-  font: inherit;
-  font-size: var(--step-s);
-}
-
-.subject-filter label.check {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  min-height: 44px;
-  font-size: var(--step-s);
-  cursor: pointer;
-}
-
-.subject-filter input[type="checkbox"] {
-  width: 1.25rem;
-  height: 1.25rem;
-  accent-color: var(--primary);
-}
-
-.subjects-count,
-.subjects-empty {
+.subjects-count {
   font-family: var(--font-sans);
   font-size: var(--step-xs);
   color: var(--ink-3);
   margin: 0 0 var(--space-4);
 }
-
-/* ---- Groups ------------------------------------------------------------- */
-
-.subject-group + .subject-group { margin-top: var(--space-5); }
-
-.subject-group h2 { font-size: var(--step-l); margin-bottom: var(--space-2); }
-
-.subject-group__n {
-  font-weight: 500;
-  font-size: var(--step-s);
-  color: var(--ink-3);
-  margin-left: 0.25em;
-}
-
-.subject-group--fold > summary {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: 44px;
-  cursor: pointer;
-  list-style: none;
-}
-.subject-group--fold > summary::-webkit-details-marker { display: none; }
-.subject-group--fold > summary::before {
-  content: "▸";
-  font-family: var(--font-sans);
-  color: var(--ink-3);
-}
-.subject-group--fold[open] > summary::before { content: "▾"; }
-.subject-group--fold > summary h2 { margin: 0; }
-
-/* ---- One subject: name on the left, its levels on the right ------------- */
-
-.subjects {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--rule);
-}
-
-.subject {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-1);
-  padding: 0.625rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-@media (min-width: 768px) {
-  .subject {
-    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
-    align-items: center;
-    gap: var(--space-3);
-  }
-}
-
-.subject__name {
-  font-family: var(--font-sans);
-  font-size: var(--step-s);
-  font-weight: 500;
-}
-
-.subject[hidden] { display: none; }
 
 /* ---- A level button ----------------------------------------------------- */
 
@@ -184,7 +63,7 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
 }
 
 /* ==========================================================================
-   Cards by subject group — /lk20/ (Norway). Borrowed in shape from the old
+   Cards by subject group — /lk20/ and /gy25/. Borrowed in shape from the old
    skogvoll.com/ferdighetstre page: a band per school stage, a small
    uppercase heading per subject group, and one card per subject with its
    levels underneath. The levels are the same .level buttons as above.
@@ -244,3 +123,25 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
 .subject-card--empty .subject-card__title { color: var(--ink-2); font-weight: 500; }
 
 .subjects-source { margin: var(--space-5) 0 0; }
+
+/* A folded group (/gy25/: the remaining general subjects, and the
+   vocational ones) — the same small heading, as a <summary>. */
+.subgroup--fold > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+}
+.subgroup--fold > summary::-webkit-details-marker { display: none; }
+.subgroup--fold > summary::before {
+  content: "▸";
+  font-family: var(--font-sans);
+  color: var(--ink-3);
+}
+.subgroup--fold[open] > summary::before { content: "▾"; }
+.subgroup--fold > summary .subgroup__heading { margin: 0; }
+.subgroup--fold[open] > summary { margin-bottom: var(--space-2); }
+
+.subgroup__n { font-weight: 500; letter-spacing: 0; margin-left: 0.25em; }
