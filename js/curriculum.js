@@ -39,4 +39,9 @@
   input.addEventListener('input', apply);
   onlyTrees.addEventListener('change', apply);
   apply();
+  /* Back from a tree: the browser restores the checkbox and the search text
+     AFTER this script has run, and fires no event for it — so the list showed
+     everything while the box was ticked. pageshow comes after the restore,
+     both on a fresh load and from the back-forward cache. */
+  window.addEventListener('pageshow', apply);
 })();
