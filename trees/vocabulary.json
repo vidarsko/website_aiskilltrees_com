@@ -35,6 +35,7 @@
     "science":        { "en": "Science",        "nb": "Naturfag",         "sv": "Naturkunskap" },
     "social-studies": { "en": "Social studies", "nb": "Samfunnskunnskap", "sv": "Samhällskunskap" },
     "norwegian":      { "en": "Norwegian",      "nb": "Norsk",            "sv": "Norska" },
+    "swedish":        { "en": "Swedish",        "nb": "Svensk",           "sv": "Svenska" },
     "spanish":        { "en": "Spanish",        "nb": "Spansk",           "sv": "Spanska" },
     "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" },
     "music":          { "en": "Music",          "nb": "Musikk",           "sv": "Musik" },

@@ -1,0 +1,183 @@
+/* ==========================================================================
+   curriculum.css — a page showing every subject and level of one school
+   system's curriculum, with the levels that have a tree coloured in and the
+   rest greyed out. /gy25/ (Sweden) is the first; a /lk20/ would reuse this.
+
+   Built on ui-style-banded-fullbleed: square controls (this is a content
+   page, not the tree app, so no pills), no shadows, colours from tokens.css
+   only. A level carries its name in words, so colour never carries the
+   meaning alone; a greyed level is a <span>, not a link, and says
+   "inget träd ännu" to a screen reader.
+   ========================================================================== */
+
+/* ---- The strip of trees that exist ------------------------------------- */
+
+.tree-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tree-strip .level {
+  min-width: 0;
+  padding: 0.75rem 1.25rem;
+  font-size: var(--step-s);
+}
+
+/* ---- Search and filter -------------------------------------------------- */
+
+.subject-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-sans);
+}
+
+.subject-filter input[type="search"] {
+  flex: 1 1 18rem;
+  max-width: 28rem;
+  min-height: 44px;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--step-s);
+}
+
+.subject-filter label.check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 44px;
+  font-size: var(--step-s);
+  cursor: pointer;
+}
+
+.subject-filter input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--primary);
+}
+
+.subjects-count,
+.subjects-empty {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+  margin: 0 0 var(--space-4);
+}
+
+/* ---- Groups ------------------------------------------------------------- */
+
+.subject-group + .subject-group { margin-top: var(--space-5); }
+
+.subject-group h2 { font-size: var(--step-l); margin-bottom: var(--space-2); }
+
+.subject-group__n {
+  font-weight: 500;
+  font-size: var(--step-s);
+  color: var(--ink-3);
+  margin-left: 0.25em;
+}
+
+.subject-group--fold > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+}
+.subject-group--fold > summary::-webkit-details-marker { display: none; }
+.subject-group--fold > summary::before {
+  content: "▸";
+  font-family: var(--font-sans);
+  color: var(--ink-3);
+}
+.subject-group--fold[open] > summary::before { content: "▾"; }
+.subject-group--fold > summary h2 { margin: 0; }
+
+/* ---- One subject: name on the left, its levels on the right ------------- */
+
+.subjects {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.subject {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-1);
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 768px) {
+  .subject {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-3);
+  }
+}
+
+.subject__name {
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 500;
+}
+
+.subject[hidden] { display: none; }
+
+/* ---- A level button ----------------------------------------------------- */
+
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.level {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink-inverse);
+  background: var(--subject-mathematics);
+  transition: filter 150ms ease;
+}
+a.level:hover,
+a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
+
+.level--mathematics { background: var(--subject-mathematics); }
+.level--physics     { background: var(--subject-physics); }
+.level--biology     { background: var(--subject-biology); }
+.level--chemistry   { background: var(--subject-chemistry); }
+.level--science     { background: var(--subject-science); }
+.level--language    { background: var(--subject-language); }
+.level--social      { background: var(--subject-social); }
+
+.level--none {
+  background: var(--subject-none);
+  color: var(--ink-2);
+  font-weight: 500;
+  cursor: default;
+}

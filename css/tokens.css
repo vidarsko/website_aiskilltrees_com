@@ -74,6 +74,23 @@
   --aid-4: #6E3A6B;   /* plum — 8.47:1 */
   --aid-5: #7A2E2E;   /* brick — 9.30:1 */
 
+  /* ---- Subject colours ---------------------------------------------------
+     Used by /gy25/ (and any later per-curriculum page) to colour a subject's
+     level buttons when a tree exists for it. Vidar's choice 2026-10-05:
+     mathematics blue, physics red, biology green; the rest picked here.
+     Overlap between subjects is accepted. All carry WHITE text at AA
+     (≥ 4.5:1), and a button always carries its level in words, so colour
+     never carries the meaning alone — a greyed level is also disabled and
+     says so to a screen reader. */
+  --subject-mathematics: #2563A8;   /* blue — 6.12:1 on white (same as --blue) */
+  --subject-physics:     #B3261E;   /* red — 6.5:1 */
+  --subject-biology:     #1F6F4A;   /* green — 6.12:1 (same as --primary) */
+  --subject-chemistry:   #8A5A12;   /* amber-brown — 5.91:1 */
+  --subject-science:     #0F6B73;   /* teal — 6.2:1 */
+  --subject-language:    #6E3A6B;   /* plum — 8.47:1 */
+  --subject-social:      #7A2E2E;   /* brick — 9.30:1 */
+  --subject-none:        #E2DFD7;   /* greyed level: no tree yet — with --ink-2 text, 6.3:1 */
+
   /* ---- Scrim ------------------------------------------------------------
      A FLAT overlay, not a gradient: the system has no gradients, and a
      photograph still has to be dimmed before display type can sit on it. */
