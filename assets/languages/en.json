@@ -21,9 +21,9 @@
   "ui": {
     "backLink": "← all skill trees",
     "pageTitle": "Skill tree for {title}",
-    "tagline": "A map of how skills and concepts build on one another — tick off what you have mastered, and copy an AI instruction to practise what comes next.",
+    "tagline": "A map of how learning goals build on one another — tick off what you have mastered, and copy an AI instruction to practise what comes next.",
     "makeYourOwn": "{subject}. Make your own tree:",
-    "progressLabel": "{done} of {total} skills completed",
+    "progressLabel": "{done} of {total} learning goals completed",
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out",
     "fitToView": "Show the whole tree",
@@ -34,6 +34,7 @@
     "copyFallback": "Could not copy automatically — copy the text below manually:",
     "errorBanner": "⚠ {n} problem(s) found in the data files (see console for details):",
     "errorCsv": "The spreadsheet could not be read on row {row}: {message}",
+    "errorCsvHeader": "The first row of {file} must name the columns. Missing: {missing}. The first row reads: {found}. The file was probably saved without its first row, or in another format; save it again as plain CSV.",
     "errorUnknownDep": "Node “{id}” lists “{dep}” as a prerequisite, but no node has that id.",
     "errorNoTopic": "Node “{id}” has no topic, and ends up in the catch-all column “{topic}”.",
     "errorUnknownResourceNode": "resources.csv refers to the node id “{id}”, which does not exist in tree.csv.",
@@ -75,12 +76,12 @@
         {
           "id": "map",
           "heading": "The map",
-          "body": "The map shows how skills and concepts build on one another, from the most basic at the top to the most composite at the bottom. Boxes you do not have the prerequisites for yet appear grey and locked — tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
+          "body": "The map shows how learning goals build on one another, from the most basic at the top to the most composite at the bottom. Boxes you do not have the prerequisites for yet appear grey and locked — tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
         },
         {
           "id": "clickBox",
           "heading": "Click a box",
-          "body": "When you click a box you get the prerequisites, a full description of the learning goal, and an AI instruction you can copy and paste into an AI chat to practise that particular skill. Mark the box as mastered when you know it — your progress is saved in your browser, and you can remove the mark again whenever you like."
+          "body": "When you click a box you get the prerequisites, a full description of the learning goal, and an AI instruction you can copy and paste into an AI chat to practise that particular learning goal. Mark the box as mastered when you know it — your progress is saved in your browser, and you can remove the mark again whenever you like."
         },
         {
           "id": "goalIndex",
@@ -99,13 +100,13 @@
         },
         {
           "id": "exam",
-          "heading": "“Make a test from mastered skills”",
-          "body": "This button gives you an AI instruction for a test covering a selection of what you have already marked as mastered. Paste it into an AI chat to test yourself across several skills at once."
+          "heading": "“Make a test from mastered learning goals”",
+          "body": "This button gives you an AI instruction for a test covering a selection of what you have already marked as mastered. Paste it into an AI chat to test yourself across several learning goals at once."
         },
         {
           "id": "aids",
           "heading": "The aid tag",
-          "body": "The tag on a box shows which aid level the skill belongs to — for example \"Part 1\" or \"Part 2\". If it is split into several colours, the skill belongs to several levels, and you should be able to manage it under the most restrictive one. Click the tag to open \"About the course\", where each level is explained.",
+          "body": "The tag on a box shows which aid level the learning goal belongs to — for example \"Part 1\" or \"Part 2\". If it is split into several colours, the learning goal belongs to several levels, and you should be able to manage it under the most restrictive one. Click the tag to open \"About the course\", where each level is explained.",
           "when": "feature:aids"
         },
         {
@@ -149,9 +150,9 @@
       "selectedMany": "{n} learning goals selected"
     },
     "exam": {
-      "button": "Make a test from mastered skills",
+      "button": "Make a test from mastered learning goals",
       "title": "Copy an AI instruction to build a test based on what you have marked as mastered",
-      "none": "No mastered skills yet",
+      "none": "No mastered learning goals yet",
       "countLabel": "Number of tasks",
       "countAria": "Number of tasks in the test"
     },
@@ -159,8 +160,8 @@
       "markMastered": "Mark as mastered"
     },
     "column": {
-      "markAll": "Mark every skill in “{topic}” as mastered",
-      "clearAll": "Remove the mastered mark from every skill in “{topic}”"
+      "markAll": "Mark every learning goal in “{topic}” as mastered",
+      "clearAll": "Remove the mastered mark from every learning goal in “{topic}”"
     },
     "detail": {
       "show": "Show AI instruction",
@@ -178,8 +179,8 @@
     "aids": {
       "heading": "Aids",
       "tagTitle": "See what you may use at this level",
-      "multipleNote": "This skill belongs to several levels. You should be able to manage it under the most restrictive of them — that is, with the fewest aids.",
-      "multipleNoteGeneral": "A skill can belong to several levels. Its tag is then split into several colours, and you should be able to manage the skill under the most restrictive of those levels — that is, with the fewest aids."
+      "multipleNote": "This learning goal belongs to several levels. You should be able to manage it under the most restrictive of them — that is, with the fewest aids.",
+      "multipleNoteGeneral": "A learning goal can belong to several levels. Its tag is then split into several colours, and you should be able to manage the learning goal under the most restrictive of those levels — that is, with the fewest aids."
     },
     "menu": {
       "label": "Menu"
@@ -215,7 +216,7 @@
   },
   "prompt": {
     "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. `writingStyle` holds one English example of the active-voice advice (Vidar, 2026-10-03: it should not be empty). Because this file also serves every language that has no file of its own, the example says to apply the same idea in the conversation language. The language-independent half of that advice is NOT missing — it lives in prompts/shared.json → writingStyleGeneral and applies to every tree regardless. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. The student's right to ask for a different language, and what happens when they do, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
-    "outputLanguage": "Conduct the conversation in {conversationLanguage}: the skill tree below is written in it, and {learnerDefinite} expects it. Do not switch language on your own initiative or comment on the language of these instructions. Address {learnerDefinite} as \"you\"; where the role must be named, the word is “{learnerDefinite}”.",
+    "outputLanguage": "Conduct the conversation in {conversationLanguage}: the skill tree below is written in it, and the user expects it. Do not switch language on your own initiative or comment on the language of these instructions. Address the user as \"you\"; where the learner must be named, the word is “{learnerDefinite}”.",
     "writingStyle": "An example in English of the first piece of advice above (in another conversation language, apply the same idea in that language):\n- Active voice: write \"we can write the number as …\", not \"the number can only be written as …\"; write \"we do this by …\" or \"you do this by …\", not \"this is done by …\". Avoid \"is done\" and \"can be done\" where you can say who does it.",
     "overrides": {}
   }

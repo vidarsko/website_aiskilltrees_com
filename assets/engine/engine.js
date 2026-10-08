@@ -523,7 +523,7 @@ async function bootstrap() {
   let rows;
   try {
     TREE_CSV_TEXT = await fetchText('tree.csv');
-    rows = parseCsv(TREE_CSV_TEXT);
+    rows = parseCsv(TREE_CSV_TEXT, 'tree.csv', ['type', 'name', 'description']);
   } catch (err) {
     console.error(err);
     document.body.textContent = 'Fant ikke tree.csv for dette ferdighetstreet: ' + err.message;
@@ -2715,7 +2715,7 @@ async function init() {
        den slags støy som får en lærer til å tro at noe er i stykker. */
     const resources = FEATURES.resources ? await fetchText('resources.csv').catch(() => null) : null;
     RESOURCES_CSV_TEXT = resources;
-    buildResourceIndex(resources ? parseCsv(resources) : []);
+    buildResourceIndex(resources ? parseCsv(resources, 'resources.csv', ['node_id']) : []);
     validateReferences();
     validateDag();
 
@@ -2741,10 +2741,20 @@ function fetchText(path) {
   });
 }
 
-function parseCsv(text) {
+/* Den første raden må navngi kolonnene. Et regneark lagret med semikolon
+   som skilletegn, eller uten overskriftsrad, leses ellers uten en eneste
+   feil fra PapaParse: hver rad blir bare til felt med feil navn, og treet
+   står tomt uten forklaring. Forfatterinstruksen lover læreren akkurat
+   denne meldingen. */
+function parseCsv(text, file, required) {
   const result = Papa.parse(text, { header: true, skipEmptyLines: true });
   if (result.errors && result.errors.length) {
     result.errors.forEach(e => pushError('errorCsv', { message: e.message, row: e.row }));
+  }
+  const fields = (result.meta && result.meta.fields) || [];
+  const missing = (required || []).filter(c => fields.indexOf(c) === -1);
+  if (missing.length) {
+    pushError('errorCsvHeader', { file: file, missing: missing.join(', '), found: fields.join(', ') });
   }
   return result.data;
 }

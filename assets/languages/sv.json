@@ -21,9 +21,9 @@
   "ui": {
     "backLink": "← alla färdighetsträd",
     "pageTitle": "Färdighetsträd för {title}",
-    "tagline": "En karta över hur färdigheter och begrepp bygger på varandra — kryssa i det du behärskar, och kopiera en AI-instruktion för att träna vidare.",
+    "tagline": "En karta över hur lärandemålen bygger på varandra — kryssa i det du behärskar, och kopiera en AI-instruktion för att träna vidare.",
     "makeYourOwn": "{subject}. Gör ditt eget träd:",
-    "progressLabel": "{done} av {total} färdigheter avklarade",
+    "progressLabel": "{done} av {total} lärandemål avklarade",
     "zoomIn": "Zooma in",
     "zoomOut": "Zooma ut",
     "fitToView": "Visa hela trädet",
@@ -34,6 +34,7 @@
     "copyFallback": "Det gick inte att kopiera automatiskt - kopiera texten nedan manuellt:",
     "errorBanner": "⚠ {n} problem hittades i datafilerna (se konsolen för detaljer):",
     "errorCsv": "Kalkylarket kunde inte läsas på rad {row}: {message}",
+    "errorCsvHeader": "Den första raden i {file} måste namnge kolumnerna. Saknas: {missing}. Den första raden är: {found}. Filen är troligen sparad utan den första raden, eller i ett annat format; spara den igen som vanlig CSV.",
     "errorUnknownDep": "Noden »{id}« anger »{dep}« som förkunskap, men ingen nod har det id:t.",
     "errorNoTopic": "Noden »{id}« saknar tema och hamnar i samlingskolumnen »{topic}«.",
     "errorUnknownResourceNode": "resources.csv hänvisar till nod-id:t »{id}«, som inte finns i tree.csv.",
@@ -75,12 +76,12 @@
         {
           "id": "map",
           "heading": "Kartan",
-          "body": "Kartan visar hur färdigheter och begrepp bygger på varandra, från det mest grundläggande högst upp till det mest sammansatta längst ner. Rutorna du inte har förkunskaperna för än ser du som grå och låsta - kryssa i det som saknas först. Dra för att panorera kartan, och använd +/- eller mushjulet för att zooma."
+          "body": "Kartan visar hur lärandemålen bygger på varandra, från det mest grundläggande högst upp till det mest sammansatta längst ner. Rutorna du inte har förkunskaperna för än ser du som grå och låsta - kryssa i det som saknas först. Dra för att panorera kartan, och använd +/- eller mushjulet för att zooma."
         },
         {
           "id": "clickBox",
           "heading": "Klicka på en ruta",
-          "body": "När du klickar på en ruta får du upp förkunskaperna, en fullständig beskrivning av lärandemålet, och en AI-instruktion du kan kopiera och klistra in i en AI-chatt för att träna på just den färdigheten. Markera rutan som avklarad när du kan den - framstegen sparas i din webbläsare, och du kan ta bort markeringen igen när du vill."
+          "body": "När du klickar på en ruta får du upp förkunskaperna, en fullständig beskrivning av lärandemålet, och en AI-instruktion du kan kopiera och klistra in i en AI-chatt för att träna på just det lärandemålet. Markera rutan som avklarad när du kan den - framstegen sparas i din webbläsare, och du kan ta bort markeringen igen när du vill."
         },
         {
           "id": "goalIndex",
@@ -99,13 +100,13 @@
         },
         {
           "id": "exam",
-          "heading": "«Skapa prov av avklarade färdigheter»",
-          "body": "När du trycker på den här knappen får du en AI-instruktion för ett prov som täcker ett urval av det du redan markerat som avklarat. Klistra in den i en AI-chatt för att testa dig själv över flera färdigheter samtidigt."
+          "heading": "«Skapa prov av avklarade lärandemål»",
+          "body": "När du trycker på den här knappen får du en AI-instruktion för ett prov som täcker ett urval av det du redan markerat som avklarat. Klistra in den i en AI-chatt för att testa dig själv över flera lärandemål samtidigt."
         },
         {
           "id": "aids",
           "heading": "Hjälpmedelsmärkningen",
-          "body": "Märkningen på en ruta visar vilken hjälpmedelsnivå färdigheten hör till — till exempel «Del 1» eller «Del 2». Är den delad i flera färger hör färdigheten till flera nivåer, och du bör klara den under den striktaste av dem. Klicka på märkningen för att öppna «Om ämnet», där varje nivå förklaras.",
+          "body": "Märkningen på en ruta visar vilken hjälpmedelsnivå lärandemålet hör till — till exempel «Del 1» eller «Del 2». Är den delad i flera färger hör lärandemålet till flera nivåer, och du bör klara den under den striktaste av dem. Klicka på märkningen för att öppna «Om ämnet», där varje nivå förklaras.",
           "when": "feature:aids"
         },
         {
@@ -149,9 +150,9 @@
       "selectedMany": "{n} lärandemål valda"
     },
     "exam": {
-      "button": "Skapa prov av avklarade färdigheter",
+      "button": "Skapa prov av avklarade lärandemål",
       "title": "Kopiera en AI-instruktion för att skapa ett prov baserat på det du har markerat som avklarat",
-      "none": "Inga avklarade färdigheter än",
+      "none": "Inga avklarade lärandemål än",
       "countLabel": "Antal uppgifter",
       "countAria": "Antal uppgifter i provet"
     },
@@ -159,8 +160,8 @@
       "markMastered": "Markera som avklarad"
     },
     "column": {
-      "markAll": "Markera alla färdigheter i «{topic}» som avklarade",
-      "clearAll": "Ta bort avklarad-markering för alla färdigheter i «{topic}»"
+      "markAll": "Markera alla lärandemål i «{topic}» som avklarade",
+      "clearAll": "Ta bort avklarad-markering för alla lärandemål i «{topic}»"
     },
     "detail": {
       "show": "Visa AI-instruktion",
@@ -178,8 +179,8 @@
     "aids": {
       "heading": "Hjälpmedel",
       "tagTitle": "Se vad du får använda på den här nivån",
-      "multipleNote": "Den här färdigheten hör till flera nivåer. Du bör klara den under den striktaste av dem — alltså med minst hjälpmedel.",
-      "multipleNoteGeneral": "En färdighet kan höra till flera nivåer. Märkningen är då delad i flera färger, och du bör klara färdigheten under den striktaste av nivåerna — alltså med minst hjälpmedel."
+      "multipleNote": "Det här lärandemålet hör till flera nivåer. Du bör klara den under den striktaste av dem — alltså med minst hjälpmedel.",
+      "multipleNoteGeneral": "Ett lärandemål kan höra till flera nivåer. Märkningen är då delad i flera färger, och du bör klara lärandemålet under den striktaste av nivåerna — alltså med minst hjälpmedel."
     },
     "menu": {
       "label": "Meny"
@@ -216,7 +217,7 @@
   "prompt": {
     "_comment": "Språklagret i AI-instruktionerna. Samma roll som languages/nb.json → prompt. Endast det som är SÄRSKILT FÖR SVENSKA hör hemma här: själva principerna (aktiv form, undvik skriftspråkliga ord) är språkoberoende och bor i prompts/shared.json → writingStyleGeneral. Formuleringarna är hämtade från den svenska systermotorn på skogvoll.com, inte nyöversatta. OBS: `outputLanguage` säger vilket språk samtalet BÖRJAR på — den ska inte förbjuda eleven att be om ett annat. Att eleven kan be om ett annat språk, och vad som då händer, är språkoberoende och bor i prompts/shared.json → languageSwitch. Skriv inget absolut förbud här: de två skulle motsäga varandra, och modellen följer förbudet.",
     "conversationLanguage": "svenska",
-    "outputLanguage": "För hela detta samtal på {conversationLanguage}. Allt som citeras från färdighetsträdet nedan — nodnamn, beskrivningar, förkunskaper — är skrivet på {conversationLanguage}, och det är språket {learnerDefinite} förväntar sig att bli tilltalad på. Delar av instruktionen du nu läser är på engelska; det är ingen uppmaning att svara på engelska. Byt inte språk på eget initiativ, och kommentera inte vilket språk instruktionen är skriven på. Tilltala {learnerDefinite} som \"du\", och använd \"hen\" i stället för \"han/hon\" när du omtalar {learnerDefinite} i tredje person. Måste rollen namnges är ordet »{learnerDefinite}« - inte ett annat ord för samma sak.",
+    "outputLanguage": "För hela detta samtal på {conversationLanguage}. Allt som citeras från färdighetsträdet nedan — nodnamn, beskrivningar, förkunskaper — är skrivet på {conversationLanguage}, och det är språket användaren förväntar sig att bli tilltalad på. Delar av instruktionen du nu läser är på engelska; det är ingen uppmaning att svara på engelska. Byt inte språk på eget initiativ, och kommentera inte vilket språk instruktionen är skriven på. Tilltala användaren som \"du\", och använd \"hen\" i stället för \"han/hon\" när du omtalar någon i tredje person. Måste den som lär sig namnges är ordet »{learnerDefinite}« - inte ett annat ord för samma sak.",
     "writingStyle": "Svenska exempel på de två råden ovan:\n- Aktiv form: skriv \"vi kan skriva talet som …\", inte \"talet kan skrivas som …\"; skriv \"vi gör detta genom att …\" eller \"du gör detta genom att …\", inte \"det görs genom att …\". Undvik \"görs\" och \"kan göras\" där du kan säga vem som gör det.\n- Ord som är vanliga på svenska men sällsynta i talspråk, skriftspråkliga eller lite för vuxna ska du byta ut mot ett enklare ord. Kompistestet: är det något du faktiskt skulle säga högt till en kompis?",
     "overrides": {}
   }
