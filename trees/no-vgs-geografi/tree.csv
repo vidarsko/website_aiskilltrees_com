@@ -1,0 +1,200 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Geografiske metoder og kart;Landskap og naturkrefter;Vær og klima;Naturressurser og næringer;Ressurs- og arealbruk i Norge og nordområdene;Klimaendringer;Natur- og miljøkatastrofer;Befolkning og levekår;Bærekraft og globalisering,,,
+,config,,title,Geografi,,,
+,config,,description,"Kart og feltarbeid, landskap og naturkrefter, vær og klima, naturressurser, ressurs- og arealbruk, klimaendringer, katastrofer, befolkning og levekår, og bærekraft — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-geografi-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,geografi Vg1 (fellesfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"forveksler vær og klima, blander forvitring og erosjon, bruker «drivhuseffekten» om bare den menneskeskapte delen, forveksler fødselsrate og samlet fruktbarhetstall, sammenligner absolutte tall der relative tall trengs, eller oppgir et tall uten kilde og årstall",,,
+,config,,slots.courseSpecifics,"Faget vurderes med standpunktkarakter, og eleven kan trekkes ut til lokalt gitt muntlig eksamen med forberedelsesdel. Øv derfor på å forklare og drøfte muntlig og med egne eksempler, og be alltid om kilde og årstall når eleven bruker et tall.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,GEO1003,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg1,,,
+,config,,subjectArea,geography,,,
+,config,,keywords,kart;målestokk;feltarbeid;platetektonikk;istid;klima;klimaendringer;naturkatastrofe;skred;demografi;befolkningspyramide;levekår;HDI;Sápmi;nordområdene;arealkonflikt;bærekraft;økologisk fotavtrykk,,,
+,config,,updated,2026-10-08,,,
+geografisk-niva,concept,Geografiske metoder og kart,Geografisk nivå,"Geografisk nivå: hvor stort område man ser et fenomen i - lokalt (nærmiljøet), regionalt (en landsdel eller en gruppe land), nasjonalt (et land) eller globalt (hele verden). Det samme fenomenet kan se ulikt ut på ulike nivåer.",,0,
+kart-typer,concept,Geografiske metoder og kart,Topografisk og tematisk kart,"Topografisk kart: et kart som viser terrenget og det som ligger der - høyder, vann, veier, bebyggelse og stedsnavn.
+Tematisk kart: et kart som viser hvordan ett tema fordeler seg over et område, som befolkningstetthet, nedbør eller valgresultat.",,0,
+malestokk,concept,Geografiske metoder og kart,Målestokk,"Målestokk: forholdet mellom en lengde på kartet og den samme lengden i terrenget. 1 : 50 000 betyr at 1 cm på kartet er 50 000 cm, altså 500 m, i terrenget. Et kart i stor målestokk viser et lite område med mange detaljer.",,0,
+regne-malestokk,skill,Geografiske metoder og kart,Regne med målestokk,"regne om mellom avstand på kartet og avstand i terrenget, og finne målestokken når begge avstandene er kjent.",malestokk,0,
+koordinater,concept,Geografiske metoder og kart,Breddegrad og lengdegrad,"Breddegrad: hvor langt nord eller sør for ekvator et sted ligger, målt i grader fra 0° ved ekvator til 90° ved polene.
+Lengdegrad: hvor langt øst eller vest for nullmeridianen gjennom Greenwich et sted ligger, målt i grader fra 0° til 180°.",,0,
+kartprojeksjon,concept,Geografiske metoder og kart,Kartprojeksjon,"Kartprojeksjon: en metode for å overføre den runde jordoverflaten til et flatt kart. Ingen projeksjon gjengir både areal, form, avstand og retning riktig; Mercators projeksjon bevarer form og retning, men får land nær polene til å se mye større ut enn de er.",koordinater,0,
+hoydekurver,concept,Geografiske metoder og kart,Høydekurver,"Høydekurve: en linje på kartet som binder sammen punkter med samme høyde over havet. Ligger kurvene tett, er terrenget bratt; ligger de langt fra hverandre, er det slakt.",,0,
+lese-topografisk-kart,skill,Geografiske metoder og kart,Lese et topografisk kart,"bruke et topografisk kart til å finne høyde, helning, retning og avstand, og beskrive terrenget langs en rute.",kart-typer;hoydekurver;regne-malestokk,0,
+gis,concept,Geografiske metoder og kart,GIS,"GIS (geografisk informasjonssystem): et digitalt verktøy som lagrer, viser og analyserer stedfestede data i lag oppå hverandre, slik at man kan se hvordan for eksempel bebyggelse, skredfare og veier ligger i forhold til hverandre.",kart-typer,0,
+kildekritikk-geografi,concept,Geografiske metoder og kart,Kildekritikk,"Kildekritikk: å vurdere hvor pålitelig og relevant en kilde er før den brukes - hvem som står bak, hvilket formål avsenderen har, når den ble laget, og hva tallene eller påstandene bygger på.",,0,
+absolutte-relative-tall,concept,Geografiske metoder og kart,Absolutte og relative tall,"Absolutt tall: et antall, som antall fødte i et land et år.
+Relativt tall: et tall satt i forhold til noe annet, som fødte per 1000 innbyggere eller andel i prosent. Relative tall trengs for å sammenligne steder av ulik størrelse.",,0,
+lese-lage-diagram,skill,Geografiske metoder og kart,Lese og lage diagrammer fra geografisk statistikk,"hente tall fra en statistikkilde, velge en diagramtype som passer (søyle, linje, sektor eller tematisk kart), lage diagrammet og beskrive hva det viser.",absolutte-relative-tall,0,
+kritisk-kartbruk,skill,Geografiske metoder og kart,Vurdere hva et kart viser og skjuler,"vurdere hvilket inntrykk et kart eller en framstilling av statistikk gir - projeksjon, utsnitt, fargevalg og inndeling - og hva den kan skjule eller overdrive.",kartprojeksjon;kart-typer;kildekritikk-geografi;lese-lage-diagram,0,
+presentere-geografisk-tema,skill,Geografiske metoder og kart,Utforske og presentere et geografisk tema,"utforske et geografisk forhold eller en prosess ved å bruke flere typer kilder, blant dem kart, og presentere funnene med kildehenvisninger.",kritisk-kartbruk;gis;geografisk-niva,0,
+feltarbeid,concept,Geografiske metoder og kart,Feltarbeid,"Feltarbeid: å samle inn egne data ute i nærmiljøet eller terrenget - ved observasjon, måling, telling, intervju eller foto - og bearbeide dem etterpå. Det gir førstehåndsdata, men et lite og lokalt utvalg.",,0,
+planlegge-feltarbeid,skill,Geografiske metoder og kart,Planlegge et feltarbeid,"formulere en problemstilling som kan undersøkes i felt, velge metode, sted og utstyr, og planlegge for sikkerheten.",feltarbeid,0,
+gjennomfore-feltarbeid,skill,Geografiske metoder og kart,Gjennomføre og presentere et feltarbeid,"samle inn data i felt, bearbeide dem til tabeller, diagrammer eller kart, presentere funnene og vurdere feilkilder og hva dataene kan og ikke kan si.",planlegge-feltarbeid;lese-lage-diagram;lese-topografisk-kart,0,
+platetektonikk,concept,Landskap og naturkrefter,Platetektonikk,"Platetektonikk: jordskorpa og den øverste delen av mantelen (litosfæren) er delt i plater som flytter seg noen centimeter i året. De drives av varmestrømmer i mantelen under, og det meste av vulkanisme og jordskjelv skjer der platene møtes.",,0,
+plategrenser,concept,Landskap og naturkrefter,Plategrenser,"Divergerende plategrense: platene beveger seg fra hverandre, og ny skorpe dannes, som ved den midtatlantiske ryggen.
+Konvergerende plategrense: platene beveger seg mot hverandre; den ene presses ned under den andre (subduksjon), eller skorpa foldes opp til fjellkjeder.
+Transformgrense: platene glir langs hverandre, som ved San Andreas-forkastningen.",platetektonikk,0,
+indre-ytre-krefter,concept,Landskap og naturkrefter,Indre og ytre krefter,"Indre krefter: krefter fra jordas indre - platebevegelser, fjellkjededanning, jordskjelv og vulkanisme - som bygger opp landskapet.
+Ytre krefter: krefter drevet av sola og tyngdekraften - vann, is, vind og temperaturendringer - som bryter ned landskapet og flytter materialet.",platetektonikk,0,
+forvitring,concept,Landskap og naturkrefter,Forvitring,"Forvitring: at fast berg brytes ned der det ligger, uten å bli fraktet bort. Mekanisk forvitring sprenger berget i biter, som når vann fryser i sprekker (frostsprengning); kjemisk forvitring løser opp eller endrer mineralene.",indre-ytre-krefter,0,
+erosjon-avsetning,concept,Landskap og naturkrefter,Erosjon og avsetning,"Erosjon: at vann, is eller vind river løs og frakter bort materiale.
+Avsetning: at materialet legger seg igjen når transporten mister kraft, som sand i et elvedelta eller grus i en morene.",indre-ytre-krefter,0,
+bergarter,concept,Landskap og naturkrefter,Bergartsgrupper,"Magmatisk bergart: dannet når smeltet stein (magma) størkner, som granitt og basalt.
+Sedimentær bergart: dannet av lag med avsatt materiale som presses sammen, som sandstein og skifer. Olje og gass finnes i slike bergarter.
+Omdannet (metamorf) bergart: en bergart som er endret av høyt trykk og høy temperatur, som gneis og marmor.",platetektonikk,0,
+brelandskap,concept,Landskap og naturkrefter,Brelandskap,"U-dal: en dal med bred bunn og bratte sider, gravd ut av en isbre.
+Fjord: en dal gravd ut av en isbre, som havet har fylt etter istida.
+Botn: en skålformet fordypning høyt i en fjellside, der en liten bre har gravd.
+Morene: en rygg eller et dekke av usortert stein, grus og sand som en bre har avsatt.",erosjon-avsetning,0,
+elvelandskap,concept,Landskap og naturkrefter,Elvelandskap,"V-dal: en trang dal med V-formet tverrsnitt, gravd ut av ei elv.
+Meander: en slynge ei elv lager der terrenget er flatt.
+Delta: en vifte av sand og grus som ei elv avsetter der den renner ut i et vann eller i havet.",erosjon-avsetning,0,
+landheving-marin-grense,concept,Landskap og naturkrefter,Landheving og marin grense,"Landheving: at landet hever seg etter istida fordi vekten av isen er borte. Den pågår fortsatt i Norge.
+Marin grense: det høyeste nivået havet nådde etter istida. Under den ligger det ofte marine avsetninger som leire - god jordbruksjord, men også der kvikkleire kan finnes.",brelandskap,0,
+geologiske-tidsmerker,fact,Landskap og naturkrefter,Geologiske tidsmerker,"Jordas alder: om lag 4,6 milliarder år
+den kaledonske fjellkjededanningen som la grunnlaget for de norske fjellene: for om lag 400-500 millioner år siden
+siste istids største utbredelse: for om lag 20 000 år siden
+da Norge for det meste var blitt isfritt: for om lag 10 000 år siden",,0,
+forklare-plategrenser,skill,Landskap og naturkrefter,Forklare landformer ved plategrensene,"forklare hvordan de ulike typene plategrenser gir vulkaner, jordskjelv, fjellkjeder og havgraver, med et eksempel på hver.",plategrenser,0,
+forklare-istidens-spor,skill,Landskap og naturkrefter,Forklare hvordan istida formet Norge,"forklare hvordan isbreene under istida formet det norske landskapet, og kjenne igjen brelandskap og elvelandskap på kart eller bilde.",brelandskap;elvelandskap;landheving-marin-grense;lese-topografisk-kart,0,
+forklare-landskapsdanning,skill,Landskap og naturkrefter,Gjøre rede for hvordan et landskap er dannet,"gjøre rede for hvordan indre og ytre krefter sammen har formet et gitt landskap, i Norge eller et annet sted i verden.",forklare-plategrenser;forklare-istidens-spor;forvitring;bergarter,0,
+vaer-klima,concept,Vær og klima,Vær og klima,"Vær: tilstanden i atmosfæren på et bestemt sted og tidspunkt - temperatur, nedbør, vind og skydekke.
+Klima: gjennomsnittet og variasjonen i været på et sted over lang tid, vanligvis minst 30 år.",,0,
+solinnstraling,concept,Vær og klima,Solinnstråling og årstider,"Solinnstråling: energien fra sola som når jordoverflaten. Den er størst nær ekvator, der strålene treffer nesten loddrett, og minst mot polene, der de treffer skrått.
+Årstider: oppstår fordi jordaksen heller, slik at hver halvkule får mer sol i den ene halvdelen av året enn i den andre.",koordinater,0,
+global-luftsirkulasjon,concept,Vær og klima,Høytrykk og lavtrykk i den globale luftsirkulasjonen,"Lavtrykk: luft som stiger, avkjøles og gir skyer og nedbør, som i beltet rundt ekvator.
+Høytrykk: luft som synker og varmes opp, og gir tørt og klart vær, som i beltene rundt 30° nord og sør der mange av verdens ørkener ligger.
+Vind: luft som strømmer fra høytrykk mot lavtrykk.",solinnstraling,0,
+nedborstyper,concept,Vær og klima,Nedbørstyper,"Frontnedbør: nedbør der en varm og en kald luftmasse møtes og den varme lufta presses opp.
+Orografisk nedbør (stigningsnedbør): nedbør når fuktig luft presses opp over fjell; lesiden bak fjellet blir tørrere.
+Konveksjonsnedbør: nedbør når bakken varmes opp og lufta stiger raskt, ofte som byger og torden.",global-luftsirkulasjon,0,
+havstromer,concept,Vær og klima,Havstrømmer,"Havstrøm: en stor, vedvarende bevegelse av havvann som frakter varme fra et sted til et annet. Den nordatlantiske strømmen, en forlengelse av Golfstrømmen, frakter varmt vann nordover langs norskekysten.",,0,
+klimasoner,fact,Vær og klima,Klimasonene,"A: tropisk klima - varmt hele året
+B: tørt klima - fordampningen er større enn nedbøren
+C: temperert klima - milde vintre
+D: kontinentalt (boreal) klima - kalde vintre og varme somre
+E: polart klima - kaldt hele året",,0,
+lese-klimadiagram,skill,Vær og klima,Lese et klimadiagram,"lese temperatur og nedbør gjennom året fra et klimadiagram, og beskrive klimaet på stedet med egne ord.",vaer-klima;lese-lage-diagram,0,
+forklare-klimasoner,skill,Vær og klima,Forklare hvorfor klimaet varierer over jorda,"forklare hvordan breddegrad, høytrykk og lavtrykk, havstrømmer og avstand til havet gir ulike klimasoner, og avgjøre hvilken klimasone et klimadiagram hører til.",klimasoner;global-luftsirkulasjon;havstromer;lese-klimadiagram,0,
+forklare-norges-klima,skill,Vær og klima,Forklare Norges klima,"forklare hvorfor Norge har et mildere klima enn breddegraden skulle tilsi, og hvorfor Vestlandet får mye mer nedbør enn Østlandet.",havstromer;nedborstyper;solinnstraling,0,
+naturressurs,concept,Naturressurser og næringer,Naturressurs,"Naturressurs: noe i naturen som mennesker kan utnytte - jord, vann, skog, fisk, mineraler, olje og gass, vind og sollys. Om noe er en ressurs, avhenger av teknologi og behov: olja i Nordsjøen ble først en ressurs da man kunne hente den opp.",,0,
+fornybar-ressurs,concept,Naturressurser og næringer,Fornybare og ikke-fornybare ressurser,"Fornybar ressurs: en ressurs som ikke blir brukt opp, som vind, sollys og rennende vann.
+Betinget fornybar ressurs: en ressurs som fornyer seg så lenge uttaket ikke er større enn tilveksten, som fisk, skog og jord.
+Ikke-fornybar ressurs: en ressurs som finnes i en begrenset mengde og blir brukt opp, som olje, gass og mineraler.",naturressurs,0,
+naeringssektorer,concept,Naturressurser og næringer,Næringssektorer,"Primærnæring: næring som henter ressurser direkte fra naturen - jordbruk, skogbruk, fiske og havbruk.
+Sekundærnæring: næring som bearbeider råvarer til produkter, eller bygger - industri, kraftproduksjon og bygg og anlegg.
+Tertiærnæring: næring som yter tjenester - handel, transport, helse, undervisning og reiseliv.",naturressurs,0,
+fornybar-energi,concept,Naturressurser og næringer,Fornybar energi i Norge,"Vannkraft: elektrisitet fra vann som renner fra høyt til lavt gjennom turbiner. Norges bratte terreng og mye nedbør gjør vannkraft til den klart største kilden til strøm her.
+Vindkraft: elektrisitet fra vindturbiner, på land eller til havs. Den krever store arealer og er omstridt der den bygges.",fornybar-ressurs,0,
+petroleum,concept,Naturressurser og næringer,Petroleum,"Petroleum: olje og gass, dannet over millioner av år av rester etter planter og dyr som ble begravd i sedimentære bergarter. En ikke-fornybar ressurs, og i dag Norges største eksportnæring.",fornybar-ressurs;bergarter,0,
+lokaliseringsfaktor,concept,Naturressurser og næringer,Lokaliseringsfaktor,"Lokaliseringsfaktor: et forhold som avgjør hvor bosetting eller en virksomhet legges - tilgang på råvarer, energi, transport, arbeidskraft og nærhet til markedet.",,0,
+forklare-ressursutnyttelse,skill,Naturressurser og næringer,Gi eksempler på hvordan folk utnytter ressursene i et landskap,"gi eksempler på hvordan menneskene som bor i et bestemt landskap utnytter ressursene der, og forklare hvordan landskapet gjør det mulig.",forklare-landskapsdanning;naeringssektorer;fornybar-energi;petroleum,0,
+forklare-bosettingsmonster,skill,Naturressurser og næringer,Forklare bosettingsmønsteret i Norge,"forklare hvorfor folk i Norge bor der de bor, med naturgitte forhold som klima, terreng og jordsmonn og menneskeskapte forhold som næringer og samferdsel.",lokaliseringsfaktor;forklare-norges-klima;landheving-marin-grense,0,
+utforske-lokalt-naeringsgrunnlag,skill,Naturressurser og næringer,Utforske hva hjemstedet lever av,"utforske hvilke ressurser og næringer hjemstedet lever av, og hvordan naturgrunnlaget har påvirket dem før og nå.",forklare-ressursutnyttelse;forklare-bosettingsmonster;presentere-geografisk-tema,0,
+arealbruk,concept,Ressurs- og arealbruk i Norge og nordområdene,Arealbruk,"Arealbruk: hva et område brukes til - jordbruk, beite, skog, bolig, hytter, industri, veier, energianlegg eller vern. I Norge bestemmer kommunene det meste av arealbruken gjennom arealplaner.",naturressurs,0,
+arealkonflikt,concept,Ressurs- og arealbruk i Norge og nordområdene,Arealkonflikt,"Arealkonflikt: en konflikt mellom aktører som vil bruke det samme området på måter som ikke lar seg forene, som vindkraft mot reinbeite, eller ny vei mot dyrka mark.",arealbruk,0,
+sapmi,concept,Ressurs- og arealbruk i Norge og nordområdene,Sápmi,"Sápmi: samenes tradisjonelle bosettingsområde, som strekker seg over deler av Norge, Sverige, Finland og Russland.",,0,
+urfolk,concept,Ressurs- og arealbruk i Norge og nordområdene,Urfolk,"Urfolk: et folk som bodde i et område før dagens statsgrenser ble trukket, og som har beholdt sitt eget språk, sin kultur og sine institusjoner. Samene er urfolk i Norge, og ILO-konvensjon 169 gir dem rett til å bli konsultert om inngrep i områdene de bruker.",sapmi,0,
+reindrift,concept,Ressurs- og arealbruk i Norge og nordområdene,Reindrift,"Reindrift: en samisk næring der reinflokkene flyttes mellom beiteområder gjennom året. Den trenger store, sammenhengende områder, og blir sårbar når beiter og flyttleier stykkes opp av veier, hytter, gruver eller kraftanlegg.",sapmi,0,
+nordomradene,concept,Ressurs- og arealbruk i Norge og nordområdene,Nordområdene,"Nordområdene: de nordlige land- og havområdene Norge har interesser i - Nord-Norge, Svalbard, Barentshavet og Norskehavet, og Arktis videre.",,0,
+okonomisk-sone,concept,Ressurs- og arealbruk i Norge og nordområdene,Økonomisk sone,"Økonomisk sone: havområdet ut til 200 nautiske mil fra land, der kyststaten etter havretten har enerett til å utnytte ressursene - fisk, olje og gass.",,0,
+analysere-arealkonflikt,skill,Ressurs- og arealbruk i Norge og nordområdene,Analysere en arealkonflikt,"analysere en konkret arealkonflikt: hvilke aktører som er involvert, hvilke interesser og verdier hver av dem har, og hvordan konflikten ser ut på kart.",arealkonflikt;gis;lese-topografisk-kart,0,
+forklare-reindrift-konflikt,skill,Ressurs- og arealbruk i Norge og nordområdene,Forklare hvorfor reindrift kommer i konflikt med andre interesser,"forklare hvorfor reindrift kan komme i konflikt med vindkraft, gruvedrift, hytter og veier, og hva samenes rettigheter som urfolk betyr i en slik konflikt.",reindrift;urfolk;arealkonflikt;fornybar-energi,0,
+forklare-nordomradenes-ressurser,skill,Ressurs- og arealbruk i Norge og nordområdene,Forklare interessene i nordområdene,"forklare hvilke ressurser som finnes i nordområdene, og hvilke interesser som støter sammen der: fiske, olje og gass, skipsfart, miljø og sikkerhet.",nordomradene;okonomisk-sone;petroleum;fornybar-ressurs,0,
+drofte-ressurs-arealbruk,skill,Ressurs- og arealbruk i Norge og nordområdene,"Drøfte interesser i ressurs- og arealbruk i Norge, Sápmi og nordområdene","drøfte ulike interesser knyttet til ressurs- og arealbruk i Norge, Sápmi og nordområdene, veie hensynene mot hverandre og komme fram til en begrunnet vurdering.",analysere-arealkonflikt;forklare-reindrift-konflikt;forklare-nordomradenes-ressurser;baerekraftig-utvikling,0,
+drivhuseffekt,concept,Klimaendringer,Drivhuseffekten,"Drivhuseffekten: at gasser i atmosfæren slipper sollyset inn, men holder igjen en del av varmestrålingen fra jorda. Uten den ville jorda vært mye kaldere.
+Klimagass: en gass som bidrar til drivhuseffekten, særlig karbondioksid (CO₂), metan og lystgass.
+Forsterket drivhuseffekt: den ekstra oppvarmingen som skyldes at mennesker har økt mengden klimagasser, mest ved å brenne kull, olje og gass.",,0,
+global-oppvarming,concept,Klimaendringer,Global oppvarming,"Global oppvarming: at gjennomsnittstemperaturen ved jordoverflaten stiger over tid. Den nåværende oppvarmingen skyldes i hovedsak den forsterkede drivhuseffekten.",drivhuseffekt;vaer-klima,0,
+tilbakekobling,concept,Klimaendringer,Tilbakekobling i klimasystemet,"Tilbakekobling: en endring som forsterker eller demper seg selv. Når is og snø smelter, blir overflaten mørkere og tar opp mer sollys, så det blir enda varmere; når permafrost tiner, frigjøres klimagasser som varmer mer.",global-oppvarming,0,
+havnivastigning,concept,Klimaendringer,Havnivåstigning,"Havnivåstigning: at havet stiger fordi isbreer og innlandsis smelter, og fordi vannet utvider seg når det blir varmere. I store deler av Norge motvirkes den delvis av landhevingen.",global-oppvarming;landheving-marin-grense,0,
+utslippskutt-tilpasning,concept,Klimaendringer,Utslippskutt og klimatilpasning,"Utslippskutt: tiltak som reduserer utslippene av klimagasser, slik at oppvarmingen blir mindre.
+Klimatilpasning: tiltak som gjør samfunnet bedre i stand til å tåle de endringene som kommer, som større overvannsrør, flomvern og nye byggeregler.",global-oppvarming,0,
+klimanokkeltall,fact,Klimaendringer,Nøkkeltall om klimaendringene,"global oppvarming i 2011-2020 sammenlignet med 1850-1900 (FNs klimapanel): om lag 1,1 °C
+FNs klimapanel forkortes: IPCC
+Parisavtalen ble vedtatt: 2015
+Parisavtalens temperaturmål: godt under 2 °C, og helst 1,5 °C, over førindustrielt nivå",global-oppvarming,0,
+forklare-drivhuseffekt,skill,Klimaendringer,Forklare forskjellen på naturlig og forsterket drivhuseffekt,"forklare forskjellen på den naturlige og den forsterkede drivhuseffekten, og hvorfor økt CO₂ i atmosfæren gir høyere temperatur.",drivhuseffekt,0,
+forklare-klimaendring-natur,skill,Klimaendringer,Forklare hva klimaendringer betyr for naturen,"forklare hva klimaendringer betyr for naturen - isbreer, havis, permafrost, arters utbredelse og vekstsesong - med eksempler fra ulike geografiske nivåer.",tilbakekobling;havnivastigning;forklare-drivhuseffekt,0,
+forklare-klimaendring-samfunn,skill,Klimaendringer,Forklare hva klimaendringer betyr for samfunnet,"forklare hva klimaendringer betyr for samfunnet - jordbruk, flom og skred, tørke, bosetting ved kysten og migrasjon - og hvorfor konsekvensene rammer ulike steder ulikt.",havnivastigning;geografisk-niva;forklare-drivhuseffekt,0,
+utforske-klimaendring-lokalt,skill,Klimaendringer,Utforske hva klimaendringer betyr der du bor,"utforske hva klimaendringer ventes å bety for natur og samfunn i eget fylke eller nærmiljø, ved å bruke klimaframskrivninger, kart og andre kilder.",forklare-klimaendring-natur;forklare-klimaendring-samfunn;presentere-geografisk-tema;lese-klimadiagram,0,
+vurdere-klimatiltak,skill,Klimaendringer,Vurdere tiltak mot klimaendringer,"vurdere konkrete tiltak for utslippskutt og klimatilpasning, lokalt eller globalt, ut fra hvor mye de virker, hva de koster og hvem som må bære byrden.",utslippskutt-tilpasning;utforske-klimaendring-lokalt,0,
+naturfare-katastrofe,concept,Natur- og miljøkatastrofer,Naturfare og katastrofe,"Naturfare: en naturprosess som kan gjøre skade, som flom, skred, jordskjelv eller storm.
+Naturkatastrofe: når en naturhendelse rammer mennesker så hardt at samfunnet ikke klarer å håndtere den med egne krefter.
+Miljøkatastrofe: stor skade på naturen som mennesker har forårsaket, som et stort oljeutslipp eller et giftutslipp.",,0,
+risiko-sarbarhet,concept,Natur- og miljøkatastrofer,Risiko og sårbarhet,"Risiko: hvor sannsynlig en uønsket hendelse er, sett sammen med hvor store konsekvensene blir.
+Sårbarhet: hvor dårlig et samfunn eller en gruppe tåler en hendelse - avhengig av blant annet byggeskikk, varsling, helsevesen og økonomi.",naturfare-katastrofe,0,
+jordskjelv-vulkan,concept,Natur- og miljøkatastrofer,"Jordskjelv, tsunami og vulkanutbrudd","Jordskjelv: rystelser når spenninger i jordskorpa utløses brått, oftest langs plategrenser.
+Tsunami: en serie flodbølger som oppstår når havbunnen forskyves brått, ofte ved et jordskjelv under havet.
+Vulkanutbrudd: når magma, aske og gass kommer opp til overflaten.",platetektonikk,0,
+skred,concept,Natur- og miljøkatastrofer,Skred,"Skred: at masser raser eller glir nedover en skråning - snøskred, steinsprang, jordskred og flomskred.
+Kvikkleireskred: et skred i marin leire der saltet er vasket ut, slik at leira plutselig kan bli flytende og et stort område raser ut på kort tid.",landheving-marin-grense,0,
+flom-torke,concept,Natur- og miljøkatastrofer,Flom og tørke,"Flom: at vannføringen i ei elv blir så stor at den går over sine bredder, ofte ved snøsmelting eller kraftig regn.
+Tørke: en lang periode med mindre nedbør enn normalt, slik at det blir for lite vann til natur, jordbruk og mennesker.",vaer-klima,0,
+tropisk-syklon,concept,Natur- og miljøkatastrofer,Tropisk syklon,"Tropisk syklon: et kraftig lavtrykk som dannes over varmt hav i tropene, med svært sterk vind og mye nedbør. Den kalles orkan i Atlanterhavet og tyfon i det nordvestlige Stillehavet.",global-luftsirkulasjon,0,
+forklare-katastrofe-arsaker,skill,Natur- og miljøkatastrofer,Gjøre rede for årsakene til en katastrofe,"gjøre rede for de naturgitte og de menneskeskapte årsakene til en natur- eller miljøkatastrofe.",naturfare-katastrofe;jordskjelv-vulkan;skred;flom-torke;tropisk-syklon;forklare-plategrenser,0,
+forklare-skredfare-norge,skill,Natur- og miljøkatastrofer,Forklare skred- og flomfaren i Norge,"forklare hvorfor deler av Norge er utsatt for skred og flom, og hvordan faren kartlegges og varsles, med eksempel fra et faresonekart.",skred;flom-torke;lese-topografisk-kart;gis,0,
+forklare-ulik-sarbarhet,skill,Natur- og miljøkatastrofer,Forklare hvorfor samme hendelse rammer ulikt,"forklare hvorfor en like kraftig naturhendelse kan få svært ulike konsekvenser i ulike land og for ulike grupper.",risiko-sarbarhet;levekar,0,
+utforske-aktuell-katastrofe,skill,Natur- og miljøkatastrofer,Utforske en aktuell natur- eller miljøkatastrofe,"utforske en aktuell natur- eller miljøkatastrofe og gjøre rede for årsakene og konsekvensene for mennesker, samfunn og natur, med pålitelige kilder.",forklare-katastrofe-arsaker;forklare-ulik-sarbarhet;presentere-geografisk-tema,0,
+demografi-rater,concept,Befolkning og levekår,Fødselsrate og dødsrate,"Demografi: læren om befolkningens størrelse, sammensetning og endringer.
+Fødselsrate: antall levendefødte per 1000 innbyggere i løpet av et år.
+Dødsrate: antall døde per 1000 innbyggere i løpet av et år.",absolutte-relative-tall,0,
+fruktbarhet,concept,Befolkning og levekår,Samlet fruktbarhetstall,"Samlet fruktbarhetstall: hvor mange barn en kvinne i gjennomsnitt vil få dersom fruktbarheten i ett år holder seg resten av livet hennes. Om lag 2,1 barn per kvinne trengs for at befolkningen skal erstatte seg selv uten innvandring.",demografi-rater,0,
+befolkningsvekst,concept,Befolkning og levekår,Befolkningsvekst,"Fødselsoverskudd: antall fødte minus antall døde.
+Nettoinnvandring: antall innvandrede minus antall utvandrede.
+Befolkningsvekst: fødselsoverskudd pluss nettoinnvandring.",demografi-rater,0,
+migrasjon,concept,Befolkning og levekår,Migrasjon,"Migrasjon: at mennesker flytter for å bo et annet sted, innenlands eller over landegrenser.
+Push-faktor: noe som driver folk ut av et sted, som krig, fattigdom eller tørke.
+Pull-faktor: noe som trekker folk til et sted, som jobb, utdanning, trygghet eller familie.",,0,
+urbanisering,concept,Befolkning og levekår,Urbanisering,"Urbanisering: at en stadig større andel av befolkningen bor i byer og tettsteder.",migrasjon,0,
+befolkningspyramide,concept,Befolkning og levekår,Befolkningspyramide,"Befolkningspyramide: et diagram som viser befolkningen fordelt på alder og kjønn, med de yngste nederst. En bred bunn tyder på mange fødte; en smal bunn og bred topp tyder på en aldrende befolkning.",demografi-rater,0,
+demografisk-overgang,concept,Befolkning og levekår,Den demografiske overgangsmodellen,"Den demografiske overgangsmodellen: en modell for hvordan fødselsraten og dødsraten endrer seg når et samfunn moderniseres. Først er begge høye; så faller dødsraten, og befolkningen vokser raskt; så faller også fødselsraten; til slutt er begge lave, og veksten stopper opp.",demografi-rater;befolkningsvekst,0,
+aldrende-befolkning,concept,Befolkning og levekår,Aldrende befolkning og forsørgerbyrde,"Aldrende befolkning: at andelen eldre i befolkningen øker, fordi folk lever lenger og færre barn blir født.
+Forsørgerbyrde: forholdet mellom antall barn og eldre og antall personer i yrkesaktiv alder som forsørger dem.",befolkningspyramide;fruktbarhet,0,
+levekar,concept,Befolkning og levekår,Levekår,"Levekår: de materielle og sosiale forholdene folk lever under - inntekt, helse, utdanning, bolig, arbeid og trygghet. Levekår kan måles, og skiller seg fra hvordan folk selv opplever livet sitt.",,0,
+hdi,concept,Befolkning og levekår,HDI,"HDI (indeks for menneskelig utvikling): en indeks fra FNs utviklingsprogram (UNDP) mellom 0 og 1, satt sammen av forventet levealder, utdanning og inntekt per innbygger.
+Forventet levealder: hvor mange år en nyfødt i gjennomsnitt vil leve dersom dødeligheten i hver alder holder seg som i dag.",levekar,0,
+bnp-per-innbygger,concept,Befolkning og levekår,BNP per innbygger,"BNP per innbygger: verdien av alle varer og tjenester som produseres i et land i løpet av et år, delt på antall innbyggere. Justert for kjøpekraft tar tallet hensyn til at prisene er ulike i ulike land.",absolutte-relative-tall,0,
+fattigdom,concept,Befolkning og levekår,Absolutt og relativ fattigdom,"Absolutt fattigdom: å ha så lite at man ikke får dekket grunnleggende behov som mat, rent vann og husly. Verdensbanken måler den med en fast grense i dollar per dag.
+Relativ fattigdom: å ha mye mindre enn det som er vanlig i samfunnet man lever i, målt som inntekt under en andel av medianinntekten i landet.",levekar,0,
+befolkningsfakta,fact,Befolkning og levekår,Nøkkeltall om befolkningen,"verdens befolkning i 2024 (FN): om lag 8,2 milliarder
+samlet fruktbarhetstall i verden i 2024 (FN): om lag 2,25
+forventet levealder i verden i 2024 (FN): om lag 73 år
+når verdens befolkning ventes å nå toppen (FN 2024): midten av 2080-årene, med om lag 10,3 milliarder
+Norges folketall 1. januar 2026 (SSB): om lag 5,63 millioner
+samlet fruktbarhetstall i Norge i 2025 (SSB): 1,48
+forventet levealder i Norge i 2025 (SSB): om lag 81,6 år for menn og 84,9 år for kvinner",fruktbarhet;hdi,0,
+tolke-befolkningspyramide,skill,Befolkning og levekår,Tolke en befolkningspyramide,"lese og tolke en befolkningspyramide, og si hva formen forteller om fødsler, dødelighet, migrasjon og framtidig utvikling i landet.",befolkningspyramide;lese-lage-diagram,0,
+forklare-demografisk-endring,skill,Befolkning og levekår,Gjøre rede for årsaker til demografiske endringer,"gjøre rede for årsakene til at befolkningen i et land vokser, krymper eller endrer sammensetning, med fødsler, dødelighet, migrasjon og urbanisering, og plassere landet i den demografiske overgangsmodellen.",demografisk-overgang;fruktbarhet;migrasjon;urbanisering;tolke-befolkningspyramide,0,
+forklare-aldring-konsekvenser,skill,Befolkning og levekår,Forklare konsekvensene av en aldrende befolkning,"forklare hva en aldrende befolkning betyr for et land som Norge - arbeidskraft, pensjoner, helse og omsorg - og hvilke tiltak som kan dempe utfordringene.",aldrende-befolkning;tolke-befolkningspyramide,0,
+sammenligne-levekar,skill,Befolkning og levekår,Sammenligne levekår med indikatorer,"sammenligne levekår i ulike land eller regioner ved å bruke indikatorer som HDI, forventet levealder og BNP per innbygger, og vurdere hva gjennomsnittstallene skjuler.",hdi;bnp-per-innbygger;fattigdom;lese-lage-diagram,0,
+forklare-levekar-arsaker,skill,Befolkning og levekår,Forklare årsaker til ulike levekår,"forklare naturgitte og menneskeskapte årsaker til at levekårene er ulike i forskjellige deler av verden - klima, naturressurser, styresett, konflikter, kolonihistorie og handel.",levekar;forklare-klimasoner;naturressurs;globalisering,0,
+drofte-levekar,skill,Befolkning og levekår,Drøfte ulike levekår i verden,"drøfte ulike levekår i forskjellige deler av verden og sammenhengen med demografiske endringer, med konkrete land som eksempler.",sammenligne-levekar;forklare-levekar-arsaker;forklare-demografisk-endring,0,
+baerekraftig-utvikling,concept,Bærekraft og globalisering,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker behovene til dagens mennesker uten å ødelegge mulighetene for at kommende generasjoner skal få dekket sine. Den har tre sider som må veies mot hverandre: miljø, økonomi og sosiale forhold.",,0,
+baerekraftsmal,fact,Bærekraft og globalisering,FNs bærekraftsmål,"antall bærekraftsmål: 17
+året bærekraftsmålene ble vedtatt: 2015
+året målene skal være nådd: 2030",baerekraftig-utvikling,0,
+globalisering,concept,Bærekraft og globalisering,Globalisering,"Globalisering: at land, økonomier og mennesker over hele verden knyttes tettere sammen gjennom handel, investeringer, migrasjon, kommunikasjon og kultur.",,0,
+global-verdikjede,concept,Bærekraft og globalisering,Global verdikjede,"Global verdikjede: at de ulike stegene i å lage en vare - råvare, bearbeiding, montering, transport og salg - foregår i ulike land.",globalisering;naeringssektorer,0,
+okologisk-fotavtrykk,concept,Bærekraft og globalisering,Økologisk fotavtrykk,"Økologisk fotavtrykk: hvor stort areal av jord og hav som trengs for å produsere det en person eller et land forbruker, og ta opp avfallet og CO₂-utslippene. Er fotavtrykket større enn arealet som finnes per person på jorda, er forbruket ikke bærekraftig.",baerekraftig-utvikling,0,
+sirkulaer-okonomi,concept,Bærekraft og globalisering,Sirkulær økonomi,"Lineær økonomi: ressurser hentes ut, blir til produkter, brukes og kastes.
+Sirkulær økonomi: produkter og materialer holdes i bruk så lenge som mulig gjennom deling, reparasjon, gjenbruk og gjenvinning.",fornybar-ressurs,0,
+forklare-baerekraft-spenninger,skill,Bærekraft og globalisering,Forklare spenninger mellom bærekraftens tre sider,"forklare hvordan miljø, økonomi og sosiale forhold kan trekke i hver sin retning, med et konkret eksempel som oljeutvinning, vindkraft eller fiskeoppdrett.",baerekraftig-utvikling;fornybar-energi;petroleum,0,
+kartlegge-egen-ressursbruk,skill,Bærekraft og globalisering,Kartlegge egen ressursbruk,"kartlegge sin egen ressursbruk innen mat, transport, klær og elektronikk, og anslå sitt eget økologiske fotavtrykk med et kalkulatorverktøy.",okologisk-fotavtrykk,0,
+spore-verdikjede,skill,Bærekraft og globalisering,Spore en vare gjennom verdikjeden,"spore hvor råvarene i en vanlig vare kommer fra og hvor den lages, og forklare hvilke ressurser og arbeidsforhold som ligger bak den.",global-verdikjede;naturressurs,0,
+sammenligne-ressursbruk,skill,Bærekraft og globalisering,Sammenligne Norges ressursbruk med andre land,"sammenligne Norges ressursbruk og fotavtrykk med andre land, med relative tall, og forklare forskjellene.",okologisk-fotavtrykk;absolutte-relative-tall;sammenligne-levekar,0,
+reflektere-ressursbruk,skill,Bærekraft og globalisering,Reflektere over egen og Norges ressursbruk,"reflektere over sin egen og Norges ressursbruk i et globalt og bærekraftig perspektiv, og vurdere hvilke handlingsalternativer som faktisk ville gjøre en forskjell.",kartlegge-egen-ressursbruk;sammenligne-ressursbruk;spore-verdikjede;sirkulaer-okonomi;forklare-baerekraft-spenninger,0,
+drofte-baerekraft-nivaer,skill,Bærekraft og globalisering,Drøfte bærekraft på ulike geografiske nivåer,"drøfte en geografisk utfordring - ressursbruk, arealbruk, klima eller levekår - som et bærekraftsspørsmål på lokalt, nasjonalt og globalt nivå, og veie miljø, økonomi og sosiale forhold mot hverandre.",reflektere-ressursbruk;drofte-ressurs-arealbruk;vurdere-klimatiltak;drofte-levekar;baerekraftsmal,0,

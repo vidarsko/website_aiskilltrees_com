@@ -1,0 +1,224 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Rett og rettsstat;Juridisk metode;Barnerett;Familierett;Arverett;Arbeidsrett;Likestilling og diskriminering;Avtalerett og forbrukerkjøp;Aktuelle og rettshistoriske spørsmål,,,
+,config,,title,Rettslære 1,,,
+,config,,description,"Rettsstaten, juridisk metode, barnerett, familierett, arverett, arbeidsrett, likestilling og diskriminering, avtalerett og forbrukerkjøp — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-rettslare-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,rettslære 1 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"skriver «loven sier» uten å oppgi lov og paragraf, hopper rett til konklusjonen uten å subsumere faktum under vilkårene, blander rett med hva som føles rettferdig, og forveksler nære begreper som oppsigelse og avskjed, separasjon og skilsmisse, reklamasjon og angrerett, eller felleseie og særeie",,,
+,config,,slots.courseSpecifics,"Juridiske oppgaver løses med fast metode: parter og krav, juridisk problemstilling, rettsregel med lov og paragraf, subsumsjon med argumenter for begge parter, og konklusjon. Lovene endres jevnlig, så frister, aldersgrenser og beløp skal kontrolleres mot gjeldende tekst på lovdata.no. Faget kan trekkes ut til muntlig eksamen med forberedelsesdel.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag samfunnsfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3057,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,law,,,
+,config,,keywords,rettslære; juss; rettsstat; maktfordeling; legalitetsprinsippet; rettskilder; juridisk metode; juridisk drøfting; barneloven; barnets beste; ekteskapsloven; samboer; arveloven; testament; uskifte; arbeidsmiljøloven; oppsigelse; varsling; trakassering; diskriminering; avtaleloven; forbrukerkjøpsloven; reklamasjon; angrerett,,,
+,config,,updated,2026-10-08,,,
+rettsregel-moralnorm,concept,Rett og rettsstat,Rettsregel og moralnorm,"Rettsregel: en regel som er vedtatt eller anerkjent av staten, og som kan håndheves med tvang gjennom domstolene og politiet.
+Moralnorm: en oppfatning av rett og galt som håndheves av omgivelsene og samvittigheten, ikke av staten.",,0,
+rettsreglenes-funksjoner,concept,Rett og rettsstat,Rettsreglenes funksjoner,"Konfliktløsning: rettsreglene gir et svar når parter er uenige, slik at konflikter kan avgjøres fredelig.
+Forutberegnelighet: folk kan vite på forhånd hva som gjelder, og innrette seg etter det.
+Vern av den svake part: reglene beskytter den som står svakest, som barn, arbeidstakere og forbrukere.
+Styring: staten bruker lover til å fremme mål som trygghet, likestilling og miljøvern.",rettsregel-moralnorm,0,
+privatrett-offentlig-rett,concept,Rett og rettsstat,Privatrett og offentlig rett,"Privatrett: reglene for forholdet mellom private parter, som familierett, arverett, arbeidsrett og avtalerett.
+Offentlig rett: reglene for forholdet mellom det offentlige og den enkelte, og for hvordan staten er organisert, som statsrett, forvaltningsrett og strafferett.",rettsregel-moralnorm,0,
+sivil-sak-straffesak,concept,Rett og rettsstat,Sivil sak og straffesak,"Sivil sak: en tvist mellom to eller flere parter om et krav, der den som går til sak er saksøker og den som saksøkes er saksøkt.
+Straffesak: en sak der påtalemyndigheten krever at en tiltalt blir straffet for et lovbrudd.",privatrett-offentlig-rett,0,
+domstolene,concept,Rett og rettsstat,Domstolene,"Forliksrådet: et lokalt lekmannsorgan som mekler i, og kan avgjøre, mindre sivile tvister. De fleste sivile saker skal behandles der før de kan bringes inn for tingretten.
+Tingretten: førsteinstans i sivile saker og straffesaker.
+Lagmannsretten: ankeinstans etter tingretten. Det er seks lagmannsretter.
+Høyesterett: øverste domstol, som behandler få saker og særlig saker med betydning ut over den enkelte tvisten.",sivil-sak-straffesak,0,
+maktfordeling,concept,Rett og rettsstat,Maktfordeling,"Maktfordeling: statsmakta er delt mellom den lovgivende makta (Stortinget), den utøvende makta (regjeringen) og den dømmende makta (domstolene), slik at de kan kontrollere hverandre og ingen samler all makt.",,0,
+domstolskontroll,concept,Rett og rettsstat,Domstolskontroll,"Domstolskontroll: domstolenes rett og plikt til å prøve om en lov strider mot Grunnloven, og om et vedtak fra forvaltningen strider mot Grunnloven eller lov (Grunnloven § 89).",maktfordeling;domstolene,0,
+legalitetsprinsippet,concept,Rett og rettsstat,Legalitetsprinsippet,"Legalitetsprinsippet: myndighetenes inngrep overfor den enkelte må ha grunnlag i lov (Grunnloven § 113). I strafferetten gjelder det særlig strengt: ingen kan straffes uten etter lov (Grunnloven § 96).",,0,
+rettssikkerhet,concept,Rett og rettsstat,Rettssikkerhet,"Rettssikkerhet: at den enkelte kan forutse sin rettsstilling og er vernet mot vilkårlige inngrep: like saker behandles likt, saker behandles forsvarlig og upartisk, og avgjørelser kan prøves på nytt.",legalitetsprinsippet,0,
+rettsstat,concept,Rett og rettsstat,Rettsstat,"Rettsstat: en stat der også myndighetene er bundet av lovene, der borgerne har grunnleggende rettigheter som er vernet, og der uavhengige domstoler kan prøve om makta er brukt lovlig.",maktfordeling;legalitetsprinsippet;rettssikkerhet,0,
+drofte-rettsreglenes-funksjon,skill,Rett og rettsstat,Drøfte funksjonen til en rettsregel,"utforske en konkret rettsregel og drøfte hvilke funksjoner den fyller i samfunnet, og hvilke hensyn som taler for og mot den.",rettsreglenes-funksjoner,0,
+vurdere-maktfordeling,skill,Rett og rettsstat,Vurdere maktfordelingen i Norge,"vurdere hvordan maktfordelingen virker i Norge, med eksempler på at statsmaktene kontrollerer hverandre, og drøfte hvorfor parlamentarismen gjør skillet mellom lovgivende og utøvende makt mindre skarpt.",maktfordeling;domstolskontroll,0,
+vurdere-hjemmel,skill,Rett og rettsstat,Vurdere om et inngrep har hjemmel i lov,"vurdere om et konkret inngrep fra myndighetene har tilstrekkelig hjemmel i lov, og begrunne hvorfor kravet til hjemmel er strengere jo mer inngripende tiltaket er.",legalitetsprinsippet;rettssikkerhet,0,
+reflektere-rettsstat,skill,Rett og rettsstat,Reflektere over Norge som rettsstat,"reflektere over hva som gjør Norge til en rettsstat, og vurdere hvor godt maktfordeling, rettssikkerhet og legalitetsprinsippet er ivaretatt, med utgangspunkt i en konkret sak.",rettsstat;vurdere-maktfordeling;vurdere-hjemmel,0,
+rettskildefaktorer,concept,Juridisk metode,Rettskildefaktorer,"Lov: regler vedtatt av Stortinget, med Grunnloven øverst.
+Forskrift: utfyllende regler gitt av regjeringen eller et departement med hjemmel i lov.
+Forarbeider: dokumentene fra lovens tilblivelse (NOU, proposisjon, innstilling) som viser hva lovgiveren mente.
+Rettspraksis: tidligere avgjørelser fra domstolene, særlig Høyesterett.
+Forvaltningspraksis: hvordan forvaltningen fast har praktisert en regel.
+Sedvanerett: en praksis som har vært fulgt lenge og alminnelig, i den tro at den er bindende.
+Reelle hensyn: vurderinger av hva som er en rimelig og god løsning.
+Juridisk teori: det rettsvitenskapen har skrevet om et spørsmål.",,0,
+prejudikat,concept,Juridisk metode,Prejudikat,"Prejudikat: en avgjørelse fra Høyesterett som er retningsgivende for hvordan senere saker med samme rettsspørsmål skal løses.",rettskildefaktorer,0,
+motstridsprinsipper,concept,Juridisk metode,Prinsipper ved motstrid,"Lex superior: en regel av høyere rang går foran en av lavere rang, slik at Grunnloven går foran lov og lov går foran forskrift.
+Lex specialis: en spesiell regel går foran en generell.
+Lex posterior: en nyere regel går foran en eldre.",rettskildefaktorer,0,
+tolkingsmetoder,concept,Juridisk metode,Lovtolking,"Ordlydstolking: å lese bestemmelsen slik ordene naturlig forstås.
+Formålstolking: å tolke bestemmelsen i lys av hva den skal oppnå.
+Utvidende tolking: å la bestemmelsen omfatte mer enn ordlyden tilsier.
+Innskrenkende tolking: å la bestemmelsen omfatte mindre enn ordlyden tilsier.",rettskildefaktorer,0,
+vilkar-rettsvirkning,concept,Juridisk metode,Vilkår og rettsvirkning,"Vilkår: det som må være oppfylt for at en rettsregel skal gjelde.
+Rettsvirkning: det som følger av regelen når alle vilkårene er oppfylt.",,0,
+problemstilling-parter-krav,concept,Juridisk metode,"Parter, krav og rettslig grunnlag","Part: en person eller virksomhet som saken direkte gjelder.
+Krav: det en part vil oppnå, for eksempel penger, en gjenstand eller at et vedtak oppheves.
+Rettslig grunnlag: den rettsregelen kravet bygger på.
+Juridisk problemstilling: spørsmålet som må avgjøres, formulert slik at det kan besvares med ja eller nei.",vilkar-rettsvirkning,0,
+subsumsjon,concept,Juridisk metode,Subsumsjon,"Subsumsjon: å vurdere om de faktiske forholdene i saken oppfyller vilkårene i rettsregelen, ett vilkår om gangen.",vilkar-rettsvirkning,0,
+finne-lov-lovdata,skill,Juridisk metode,Finne riktig lov og paragraf,"finne fram til riktig lov og bestemmelse på lovdata.no for et gitt rettsspørsmål, og vise til den presist med lov, paragraf og ledd.",rettskildefaktorer,0,
+tolke-lovtekst,skill,Juridisk metode,Tolke en lovbestemmelse,"dele en lovbestemmelse opp i vilkår og rettsvirkning, tolke ordlyden, og bruke formål og forarbeider der ordlyden er uklar.",finne-lov-lovdata;tolkingsmetoder;vilkar-rettsvirkning,0,
+bruke-rettspraksis,skill,Juridisk metode,Bruke en høyesterettsdom som rettskilde,"finne hva en høyesterettsdom gjaldt og hva retten la avgjørende vekt på, og vurdere om avgjørelsen kan overføres til en ny sak.",prejudikat,0,
+lose-motstrid,skill,Juridisk metode,Løse motstrid mellom rettsregler,"avgjøre hvilken regel som går foran når to rettsregler gir ulike svar, og begrunne valget med motstridsprinsippene.",motstridsprinsipper,0,
+identifisere-parter-krav,skill,Juridisk metode,Identifisere parter og krav i en sak,"lese en saksbeskrivelse og identifisere partene, hva hver av dem krever og hvilket rettslig grunnlag kravet bygger på, og formulere den juridiske problemstillingen.",problemstilling-parter-krav,0,
+juridisk-drofting,skill,Juridisk metode,Gjennomføre en juridisk drøfting,"gjennomføre en juridisk drøfting i fast struktur: problemstilling, rettsregel, subsumsjon med argumenter for begge parter, og en begrunnet konklusjon.",identifisere-parter-krav;tolke-lovtekst;subsumsjon,0,
+bruke-flere-rettskilder,skill,Juridisk metode,Løse en problemstilling med flere rettskilder,"bruke flere rettskilder sammen, som lov, forarbeider, rettspraksis og reelle hensyn, for å løse en juridisk problemstilling, og vekte dem mot hverandre.",juridisk-drofting;bruke-rettspraksis;lose-motstrid,0,
+barnets-beste,concept,Barnerett,Barnets beste,"Barnets beste: prinsippet om at barnets interesser skal være et grunnleggende hensyn i alle handlinger som gjelder barn (Grunnloven § 104 og barnekonvensjonen artikkel 3). I saker om foreldreansvar, fast bosted og samvær skal det først og fremst legges vekt på hva som er best for barnet (barneloven § 48).",,0,
+foreldreskap,concept,Barnerett,Morskap og farskap,"Morskap: kvinnen som føder barnet, er mor.
+Farskap: mannen mor er gift med ved fødselen, regnes som far. Ellers fastsettes farskapet ved erkjennelse eller dom.",,0,
+foreldreansvar,concept,Barnerett,Foreldreansvar,"Foreldreansvar: retten og plikten til å gi barnet omsorg og ta avgjørelser for barnet i personlige forhold (barneloven § 30). Foreldre har i utgangspunktet foreldreansvaret sammen, enten de er gift eller ikke (§§ 34–35).",foreldreskap,0,
+fast-bosted,concept,Barnerett,Fast bosted,"Fast bosted: hvor barnet bor fast, hos én av foreldrene eller hos begge (delt fast bosted, barneloven § 36). Den barnet bor fast hos, kan alene ta avgjørelser om vesentlige sider av omsorgen, som barnehage og hvor i landet barnet skal bo (§ 37).",foreldreansvar,0,
+samvaer,concept,Barnerett,Samvær,"Samvær: tiden barnet er sammen med forelderen det ikke bor fast hos. Samværsretten er barnets rett (barneloven § 42), og foreldrene har et felles ansvar for at den blir oppfylt.",fast-bosted,0,
+foreldremekling,concept,Barnerett,Foreldremekling,"Foreldremekling: obligatorisk mekling ved familievernkontor for foreldre med felles barn under 16 år, før separasjon eller skilsmisse og før sak om foreldreansvar, fast bosted eller samvær (barneloven § 51). Målet er en avtale foreldrene selv står bak.",foreldreansvar,0,
+barnebidrag,concept,Barnerett,Barnebidrag,"Barnebidrag: et beløp forelderen barnet ikke bor fast hos betaler til den andre, for å dekke sin del av barnets utgifter. Begge foreldre har plikt til å forsørge barnet etter evne (barneloven § 66).",fast-bosted,0,
+aldersgrenser-barn,fact,Barnerett,Aldersgrenser for barn og unge,"barnet skal få informasjon og si sin mening om personlige forhold: fra 7 år (barneloven § 31)
+det skal legges stor vekt på barnets mening: fra 12 år (barneloven § 31)
+barnet bestemmer selv om utdanning og medlemskap i foreninger: fra 15 år (barneloven § 32)
+kan selv inngå arbeidsavtale: fra 15 år (vergemålsloven § 10)
+foreldre må til mekling: når de har felles barn under 16 år (barneloven § 51)
+myndig, og foreldreansvaret opphører: 18 år",barnets-beste,0,
+bruke-regler-foreldreansvar,skill,Barnerett,Avgjøre hvem som har foreldreansvar,"avgjøre hvem som har foreldreansvaret i en konkret familiesituasjon, og hva det gir rett til å bestemme over barnet.",foreldreansvar,0,
+bruke-regler-bosted-samvaer,skill,Barnerett,Bruke reglene om fast bosted og samvær,"bruke reglene om fast bosted og samvær på en konkret sak: hva den barnet bor fast hos kan bestemme alene, hva som krever enighet, og hvilke regler som gjelder når en av foreldrene vil flytte (varsel senest tre måneder før, barneloven § 42 a).",fast-bosted;samvaer;foreldremekling,0,
+vurdere-barnets-mening,skill,Barnerett,Vurdere vekten av barnets mening,"vurdere hvor mye barnets mening skal telle i en konkret sak, ut fra barnets alder og modenhet.",aldersgrenser-barn;barnets-beste,0,
+drofte-barnets-beste,skill,Barnerett,Drøfte barnets beste i en foreldretvist,"utforske hva prinsippet om barnets beste tilsier i en konkret tvist om bosted eller samvær, og drøfte argumenter for ulike løsninger fram til en begrunnet konklusjon.",bruke-regler-bosted-samvaer;vurdere-barnets-mening;juridisk-drofting,0,
+vilkar-ekteskap,fact,Familierett,Vilkår for å inngå ekteskap,"alder: begge må ha fylt 18 år, uten unntak (ekteskapsloven § 1 a)
+samtykke: begge må fritt ønske å gifte seg (§ 1 b)
+slektskap: ikke i rett opp- eller nedstigende linje, ikke søsken, og som hovedregel ikke søskenbarn (§ 3)
+tidligere ekteskap: ingen kan gifte seg så lenge et tidligere ekteskap består (§ 4)
+prøving: vilkårene prøves før vielsen, som regel av folkeregistermyndigheten",,0,
+ekteskapets-rettsvirkninger,concept,Familierett,Ekteskapets rettsvirkninger,"Underholdsplikt: ektefellene har sammen ansvaret for familiens utgifter og arbeidet i hjemmet (ekteskapsloven § 38).
+Opplysningsplikt: ektefellene må gi hverandre opplysninger om sin økonomi (§ 39).
+Råderett: hver ektefelle råder over det han eller hun eier (§ 31), men felles bolig kan ikke selges, pantsettes eller leies ut uten skriftlig samtykke fra den andre (§ 32).",,0,
+felleseie-saereie,concept,Familierett,Felleseie og særeie,"Felleseie: hovedregelen. Ved oppløsning av ekteskapet deles verdiene likt etter fradrag for gjeld (ekteskapsloven § 58).
+Særeie: verdier som ved ektepakt er holdt utenfor delingen (§ 42).
+Ektepakt: en skriftlig avtale mellom ektefellene, underskrevet i nærvær av to vitner (§ 54).",ekteskapets-rettsvirkninger,0,
+skjevdeling,concept,Familierett,Skjevdeling,"Skjevdeling: retten til å holde utenfor likedelingen verdier som klart kan føres tilbake til det en ektefelle eide før ekteskapet, eller har fått i arv eller gave fra andre enn ektefellen (ekteskapsloven § 59).",felleseie-saereie,0,
+separasjon-skilsmisse,fact,Familierett,Separasjon og skilsmisse,"separasjon: kan kreves av hver av ektefellene, uten begrunnelse (ekteskapsloven § 20)
+skilsmisse etter separasjon: etter minst ett år (§ 21)
+skilsmisse etter samlivsbrudd: etter minst to år (§ 22)
+skilsmisse straks: ved drapsforsøk, alvorlig mishandling eller tvangsekteskap (§§ 23–24)
+mekling: påkrevd når ektefellene har felles barn under 16 år (§ 26)",,0,
+samboerskap,concept,Familierett,Samboerskap,"Samboerskap: to personer som bor sammen i et parforhold uten å være gift. Det finnes ingen samlet samboerlov, så hver eier det de selv har kjøpt, og det de har kjøpt sammen er sameie. Husstandsfellesskapsloven kan gi rett til å overta felles bolig og innbo når de har bodd sammen i minst to år eller har, har hatt eller venter barn sammen.",,0,
+bruke-ekteskapsvilkar,skill,Familierett,Avgjøre om et ekteskap kan inngås,"avgjøre om to personer i en konkret sak kan inngå ekteskap, med henvisning til vilkårene i ekteskapsloven.",vilkar-ekteskap,0,
+bruke-regler-skilsmisse,skill,Familierett,Bruke reglene om separasjon og skilsmisse,"avgjøre når ektefeller i en konkret sak kan få separasjon og skilsmisse, og om de må møte til mekling først.",separasjon-skilsmisse;foreldremekling,0,
+beregne-skifte,skill,Familierett,Beregne et skifteoppgjør ved skilsmisse,"beregne hva hver ektefelle får ved et skifte etter skilsmisse, med likedeling, fradrag for gjeld, særeie og skjevdeling.",felleseie-saereie;skjevdeling,0,
+sammenligne-ektefelle-samboer,skill,Familierett,Sammenligne rettsstillingen til ektefeller og samboere,"forklare forskjellen på rettsstillingen til ektefeller og samboere ved samlivsbrudd og ved dødsfall, og gi råd om hva samboere bør avtale skriftlig.",samboerskap;felleseie-saereie,0,
+drofte-urimelig-skjevdeling,skill,Familierett,Drøfte om skjevdeling blir urimelig,"drøfte om en skjevdeling vil gi et åpenbart urimelig resultat (ekteskapsloven § 59 andre ledd), med vekt på ekteskapets varighet og ektefellenes innsats for familien.",beregne-skifte;juridisk-drofting,0,
+drofte-samboerbrudd,skill,Familierett,Drøfte en tvist etter samboerbrudd,"drøfte en tvist mellom samboere om bolig og eiendeler etter et samlivsbrudd, med reglene om sameie og husstandsfellesskapsloven.",sammenligne-ektefelle-samboer;juridisk-drofting,0,
+arv-grunnbegreper,concept,Arverett,"Arvelater, arving og livsarving","Arvelater: den som dør og etterlater seg formue.
+Arving: den som har rett til arv, enten etter loven eller etter testament.
+Livsarving: arvelaterens barn, barnebarn og videre etterkommere.",,0,
+grunnbelop,concept,Arverett,Grunnbeløpet (G),"Grunnbeløpet (G): et beløp i folketrygden som justeres hvert år. Arveloven bruker det til å fastsette minstearv og grensen for pliktdelsarv, slik at beløpene følger lønns- og prisutviklingen.",,0,
+arvegangsklasser,concept,Arverett,Arvegangsklassene,"Første arvegangsklasse: livsarvingene. Barna arver likt, og et barn som er dødt, erstattes av sine livsarvinger (arveloven § 4).
+Andre arvegangsklasse: foreldrene og deres livsarvinger, som søsken og nieser og nevøer (§ 5).
+Tredje arvegangsklasse: besteforeldrene og deres barn og barnebarn (§ 6). Fjernere slekt arver ikke etter loven.",arv-grunnbegreper,0,
+ektefelle-samboer-arv,fact,Arverett,Ektefellens og samboerens arv,"ektefelle når det finnes livsarvinger: en firedel, men minst 4 G (arveloven § 8)
+ektefelle når nærmeste slekt er foreldre eller deres etterkommere: halvparten, men minst 6 G (§ 9)
+ektefelle uten arvinger i første eller andre arvegangsklasse: alt (§ 9)
+samboer med felles barn: 4 G (§ 12)
+samboer i minst fem år uten felles barn: opptil 4 G, bare hvis det står i testament (§ 13)",arvegangsklasser;grunnbelop,0,
+pliktdelsarv,concept,Arverett,Pliktdelsarv,"Pliktdelsarv: den delen av arven livsarvingene har krav på, og som arvelateren ikke kan testamentere bort uten deres samtykke: to tredeler av formuen, men aldri mer enn 15 G til hvert barn eller hvert barns linje (arveloven § 50).",arv-grunnbegreper;grunnbelop,0,
+testament,concept,Arverett,Testament,"Testament: en skriftlig erklæring om hvordan arven skal fordeles. Testator må ha fylt 18 år (arveloven § 41). Det skal underskrives foran to vitner over 18 år, som vet at det er et testament og skriver under mens testator er til stede (§ 42).",arv-grunnbegreper,0,
+uskifte,concept,Arverett,Uskifte,"Uskifte: den gjenlevende ektefellen overtar felleseiet uten å dele det med den avdødes arvinger, og råder over det som en eier (arveloven §§ 14 og 22). Arvingene får sin arv først når den gjenlevende dør eller skifter. Særkullsbarn må samtykke til uskifte (§ 15).",felleseie-saereie;arv-grunnbegreper,0,
+beregne-arv-etter-lov,skill,Arverett,Beregne arv etter loven,"beregne hvordan arven fordeles etter loven i en konkret familie, med ektefelle- eller samboerarv og riktig arvegangsklasse.",ektefelle-samboer-arv,0,
+beregne-fri-testasjonsrett,skill,Arverett,Beregne hva som kan testamenteres fritt,"beregne hvor mye arvelateren fritt kan testamentere bort når pliktdelsarven og ektefellens minstearv skal holdes utenfor.",pliktdelsarv;beregne-arv-etter-lov;testament,0,
+vurdere-testament,skill,Arverett,Vurdere om et testament er gyldig,"vurdere om et testament i en konkret sak oppfyller formkravene og kravet til testasjonsevne.",testament,0,
+forklare-uskifte,skill,Arverett,Gjøre rede for reglene om uskifte,"gjøre rede for når en gjenlevende ektefelle har rett til uskifte, hva vedkommende kan og ikke kan gjøre med uskifteboet, og hvorfor særkullsbarn har et særlig vern.",uskifte,0,
+drofte-arvesak,skill,Arverett,Drøfte en sammensatt arvesak,"drøfte en arvesak der testament, uskifte og særkullsbarn spiller sammen, og konkludere med hvem som arver hva.",beregne-fri-testasjonsrett;vurdere-testament;forklare-uskifte;juridisk-drofting,0,
+arbeidstaker,concept,Arbeidsrett,Arbeidstaker og oppdragstaker,"Arbeidstaker: en som utfører arbeid i en annens tjeneste og under en annens ledelse, og som har vern etter arbeidsmiljøloven.
+Selvstendig oppdragstaker: en som påtar seg et oppdrag for egen regning og risiko, og som ikke har det samme vernet.",,0,
+styringsrett,concept,Arbeidsrett,Styringsrett,"Styringsrett: arbeidsgiverens rett til å organisere, lede og fordele arbeidet, innenfor rammene av lov, tariffavtale og arbeidsavtale.",arbeidstaker,0,
+arbeidsavtale,concept,Arbeidsrett,Arbeidsavtale og ansettelsesform,"Arbeidsavtale: en skriftlig avtale som skal inngås i alle arbeidsforhold (arbeidsmiljøloven § 14-5).
+Fast ansettelse: hovedregelen; ansettelsen løper uten sluttdato (§ 14-9).
+Midlertidig ansettelse: bare lov i særlige tilfeller, som vikariat eller arbeid av midlertidig karakter (§ 14-9).",arbeidstaker,0,
+plikter-arbeidsforhold,concept,Arbeidsrett,Plikter i arbeidsforholdet,"Arbeidstakerens plikter: å utføre arbeidet, følge arbeidsgiverens styring og være lojal mot virksomheten.
+Arbeidsgiverens plikter: å betale lønn, sørge for et fullt forsvarlig arbeidsmiljø og gi ferie (25 virkedager i året etter ferieloven).",styringsrett,0,
+aldersgrenser-arbeid,fact,Arbeidsrett,Aldersgrenser i arbeidslivet,"lett arbeid er tillatt: fra 13 år (arbeidsmiljøloven § 11-1)
+forbud mot vanlig arbeid: under 15 år eller skolepliktig (§ 11-1)
+kan selv inngå arbeidsavtale: fra 15 år (vergemålsloven § 10)
+råder selv over penger tjent ved eget arbeid: fra 15 år (vergemålsloven § 12)
+særlige vernregler om arbeidstid og arbeidets art: under 18 år (arbeidsmiljøloven kapittel 11)",arbeidstaker,0,
+oppsigelse-avskjed,concept,Arbeidsrett,Oppsigelse og avskjed,"Oppsigelse: arbeidsforholdet avsluttes etter en oppsigelsesfrist. Fra arbeidsgiver må den være saklig begrunnet i virksomhetens, arbeidsgiverens eller arbeidstakerens forhold (arbeidsmiljøloven § 15-7), og den skal være skriftlig (§ 15-4).
+Avskjed: arbeidstakeren må gå med en gang, og det krever grovt pliktbrudd eller annet vesentlig mislighold (§ 15-14).",arbeidsavtale,0,
+frister-arbeid,fact,Arbeidsrett,Frister i arbeidsmiljøloven,"skriftlig arbeidsavtale når arbeidsforholdet varer over en måned: senest sju dager etter start (§ 14-5)
+prøvetid: inntil seks måneder (§ 15-6)
+oppsigelsesfrist som hovedregel: én måned (§ 15-3)
+oppsigelsesfrist etter fem års ansettelse: minst to måneder (§ 15-3)",arbeidsavtale,0,
+varsling,concept,Arbeidsrett,Varsling,"Varsling: å si fra om kritikkverdige forhold i virksomheten, som fare for liv og helse, korrupsjon, myndighetsmisbruk eller trakassering. Arbeidstakeren har rett til å varsle på en forsvarlig måte, og gjengjeldelse mot den som varsler er forbudt (arbeidsmiljøloven kapittel 2 A).",plikter-arbeidsforhold,0,
+trakassering,concept,Arbeidsrett,Trakassering,"Trakassering: handlinger, unnlatelser eller ytringer som har som formål eller virkning å være krenkende, skremmende, fiendtlige, nedverdigende eller ydmykende (arbeidsmiljøloven § 4-3).
+Seksuell trakassering: uønsket seksuell oppmerksomhet som er plagsom for den som utsettes for den.",plikter-arbeidsforhold,0,
+vurdere-ansettelse,skill,Arbeidsrett,Vurdere om en ansettelse er lovlig,"vurdere om en ansettelse i en konkret sak er lovlig midlertidig eller skal regnes som fast, og om arbeidsavtalen er inngått riktig og i tide.",arbeidsavtale;frister-arbeid,0,
+vurdere-oppsigelse,skill,Arbeidsrett,Vurdere om en oppsigelse er lovlig,"vurdere om en oppsigelse eller avskjed i en konkret sak er saklig begrunnet og riktig gjennomført, og hva arbeidstakeren kan kreve hvis den ikke er det.",oppsigelse-avskjed;frister-arbeid,0,
+vurdere-varsling,skill,Arbeidsrett,Vurdere en varslingssak,"vurdere om en varsling i en konkret sak er forsvarlig, og om reaksjoner fra arbeidsgiveren etterpå er forbudt gjengjeldelse.",varsling,0,
+bruke-regler-trakassering,skill,Arbeidsrett,Bruke reglene om trakassering,"bruke reglene om trakassering på en konkret sak fra en arbeidsplass, og forklare hvilke plikter arbeidsgiveren har til å forebygge og følge opp.",trakassering,0,
+drofte-arbeidssak,skill,Arbeidsrett,Drøfte en arbeidsrettslig tvist,"drøfte en arbeidsrettslig tvist der flere regler spiller sammen, for eksempel en oppsigelse som kommer etter en varsling, fram til en begrunnet konklusjon.",vurdere-oppsigelse;vurdere-varsling;juridisk-drofting,0,
+likestilling,concept,Likestilling og diskriminering,Likestilling,"Likestilling: likeverd, like muligheter og like rettigheter, uavhengig av for eksempel kjønn, etnisitet, funksjonsnedsettelse eller seksuell orientering.",,0,
+diskriminering,concept,Likestilling og diskriminering,Diskriminering,"Diskriminering: forskjellsbehandling som ikke er lovlig, på grunn av kjønn, graviditet, permisjon ved fødsel eller adopsjon, omsorgsoppgaver, etnisitet, religion, livssyn, funksjonsnedsettelse, seksuell orientering, kjønnsidentitet, kjønnsuttrykk, alder eller en kombinasjon av disse (likestillings- og diskrimineringsloven § 6).",likestilling,0,
+direkte-indirekte,concept,Likestilling og diskriminering,Direkte og indirekte forskjellsbehandling,"Direkte forskjellsbehandling: en person behandles dårligere enn andre i en tilsvarende situasjon, på grunn av et diskrimineringsgrunnlag (§ 7).
+Indirekte forskjellsbehandling: en tilsynelatende nøytral regel eller praksis stiller personer dårligere på grunn av et diskrimineringsgrunnlag (§ 8).",diskriminering,0,
+lovlig-forskjellsbehandling,concept,Likestilling og diskriminering,Lovlig forskjellsbehandling,"Lovlig forskjellsbehandling: forskjellsbehandling som har et saklig formål, er nødvendig for å nå formålet og ikke er uforholdsmessig inngripende (§ 9).
+Positiv særbehandling: forskjellsbehandling som skal fremme likestilling, og som er tillatt på visse vilkår (§ 11).",direkte-indirekte,0,
+diskriminering-arbeidsliv,concept,Likestilling og diskriminering,Diskrimineringsvern i arbeidslivet,"Diskrimineringsvern i arbeidslivet: forbudet gjelder alle sider av arbeidsforholdet, fra utlysning og ansettelse til lønn og opphør (§ 29), og arbeidsgiveren må ikke spørre søkere om for eksempel graviditet, religion eller seksuell orientering (§ 30).",diskriminering,0,
+aktivitetsplikt,concept,Likestilling og diskriminering,Aktivitetsplikt,"Aktivitetsplikt: plikten offentlige myndigheter og arbeidsgivere har til å arbeide aktivt, målrettet og planmessig for likestilling og mot diskriminering (§§ 24 og 26).",likestilling,0,
+handheving-diskriminering,concept,Likestilling og diskriminering,Håndheving av diskrimineringsvernet,"Likestillings- og diskrimineringsombudet: veileder den som mener seg diskriminert, og arbeider for likestilling.
+Diskrimineringsnemnda: behandler klager og avgjør om loven er brutt.
+Delt bevisbyrde: er det grunn til å tro at diskriminering har skjedd, må den som anklages sannsynliggjøre at det ikke har skjedd (§ 37).",diskriminering,0,
+vurdere-diskriminering,skill,Likestilling og diskriminering,Vurdere om en handling er diskriminering,"vurdere om en handling i en konkret sak er diskriminering: om det foreligger et diskrimineringsgrunnlag, om noen er behandlet dårligere, om det er sammenheng mellom de to, og om forskjellsbehandlingen likevel er lovlig.",direkte-indirekte;lovlig-forskjellsbehandling,0,
+vurdere-ansettelsesprosess,skill,Likestilling og diskriminering,Vurdere en ansettelsesprosess,"vurdere om spørsmål og kriterier i en konkret ansettelsesprosess er lovlige etter diskrimineringsvernet i arbeidslivet.",diskriminering-arbeidsliv;vurdere-diskriminering,0,
+forklare-klagevei,skill,Likestilling og diskriminering,Forklare hvordan diskriminering kan påklages,"forklare hvordan den som mener seg diskriminert kan gå fram, og hvordan regelen om delt bevisbyrde påvirker saken.",handheving-diskriminering,0,
+drofte-likestillingssak,skill,Likestilling og diskriminering,Drøfte en likestillingssak i samfunnet,"drøfte en sak om likestilling eller diskriminering i samfunnet, for eksempel kvotering eller alderskrav, og vurdere hensynene som står mot hverandre.",vurdere-diskriminering;aktivitetsplikt;juridisk-drofting,0,
+avtale,concept,Avtalerett og forbrukerkjøp,Avtale,"Avtale: et rettslig bindende løfte mellom to eller flere parter. Avtaler skal holdes, og en muntlig avtale er like bindende som en skriftlig, men vanskeligere å bevise.",,0,
+tilbud-aksept,concept,Avtalerett og forbrukerkjøp,Tilbud og aksept,"Tilbud: et bindende løfte om å inngå en avtale på bestemte vilkår.
+Aksept: et ja til tilbudet; når aksepten kommer fram i tide, er avtalen inngått (avtaleloven §§ 1–4).
+Akseptfrist: fristen for å svare. En aksept som kommer for sent, regnes som et nytt tilbud (§ 4).
+Uoverensstemmende aksept: et svar som ikke stemmer med tilbudet, og som regnes som avslag og nytt tilbud (§ 6).",avtale,0,
+ugyldighet,concept,Avtalerett og forbrukerkjøp,Ugyldige og urimelige avtaler,"Ugyldig avtale: en avtale som ikke binder, for eksempel fordi den er inngått ved tvang eller svik, eller ved utnytting av noens svake stilling (avtaleloven §§ 28–31).
+Urimelig avtale: en avtale som helt eller delvis kan settes til side eller endres fordi det vil være urimelig å gjøre den gjeldende (§ 36).",avtale,0,
+mindreariges-avtaler,concept,Avtalerett og forbrukerkjøp,Mindreåriges avtaler,"Mindreåriges avtaler: en mindreårig kan som hovedregel ikke selv inngå bindende avtaler eller råde over sine midler (vergemålsloven § 9), men råder selv over penger tjent ved eget arbeid etter fylte 15 år og penger fått til egen rådighet (§ 12).",avtale,0,
+kjopstyper,concept,Avtalerett og forbrukerkjøp,Ulike typer kjøp,"Forbrukerkjøp: en forbruker kjøper en ting av en som opptrer i næringsvirksomhet. Forbrukerkjøpsloven gjelder, og den kan ikke fravikes til skade for forbrukeren (§ 3).
+Kjøp mellom private: to privatpersoner handler med hverandre. Kjøpsloven gjelder, og den kan fravikes ved avtale.
+Handelskjøp: to næringsdrivende handler med hverandre. Kjøpsloven gjelder.",avtale,0,
+mangel,concept,Avtalerett og forbrukerkjøp,Mangel,"Mangel: tingen er ikke i samsvar med det som er avtalt eller det forbrukeren har grunn til å regne med (forbrukerkjøpsloven §§ 15–16). Det er tilstanden ved leveringen som teller, og en mangel som viser seg innen to år etter levering, regnes som om den fantes ved leveringen hvis ikke selgeren beviser noe annet (§ 18).",kjopstyper,0,
+mangelsbefoyelser,concept,Avtalerett og forbrukerkjøp,Mangelsbeføyelser,"Avhjelp: retting eller omlevering av tingen (forbrukerkjøpsloven § 29).
+Prisavslag: et avslag i prisen som svarer til mangelen.
+Heving: avtalen oppheves, varen leveres tilbake og pengene betales tilbake (§ 32).
+Erstatning: dekning av økonomisk tap mangelen har påført forbrukeren (§ 33).
+Tilbakeholdelse: forbrukeren holder tilbake betaling for å sikre kravet sitt.",mangel,0,
+angrerett,concept,Avtalerett og forbrukerkjøp,Angrerett,"Angrerett: forbrukerens rett til å gå fra en avtale uten begrunnelse ved fjernsalg, som netthandel og telefonsalg, og ved salg utenfor fast utsalgssted (angrerettloven § 20). Den gjelder ikke kjøp i vanlig butikk, og ikke for eksempel varer som raskt blir dårlige (§ 22).",kjopstyper,0,
+frister-forbrukerkjop,fact,Avtalerett og forbrukerkjøp,Frister ved forbrukerkjøp,"reklamasjon etter at mangelen er oppdaget: innen rimelig tid, men aldri kortere enn to måneder (forbrukerkjøpsloven § 27)
+absolutt reklamasjonsfrist: to år etter levering (§ 27)
+reklamasjonsfrist for ting som skal vare vesentlig lenger: fem år (§ 27)
+angrefrist: 14 dager fra varen er mottatt (angrerettloven § 21)
+angrefrist når selgeren ikke har opplyst om angreretten: forlenget med inntil 12 måneder (§ 21)",mangel;angrerett,0,
+vurdere-avtaleinngaelse,skill,Avtalerett og forbrukerkjøp,Avgjøre om en avtale er inngått,"avgjøre om og når en bindende avtale er inngått i en konkret sak, med reglene om tilbud, aksept, frister og tilbakekall.",tilbud-aksept,0,
+vurdere-avtalens-gyldighet,skill,Avtalerett og forbrukerkjøp,Vurdere om en avtale er gyldig,"vurdere om en avtale i en konkret sak er ugyldig eller kan settes til side, for eksempel fordi den er inngått av en mindreårig eller er urimelig.",ugyldighet;mindreariges-avtaler,0,
+avgjore-kjopstype,skill,Avtalerett og forbrukerkjøp,Avgjøre hvilken lov som gjelder for et kjøp,"avgjøre om et kjøp er et forbrukerkjøp eller et kjøp mellom private, og forklare hva det betyr for kjøperens rettigheter.",kjopstyper,0,
+vurdere-reklamasjon,skill,Avtalerett og forbrukerkjøp,Vurdere en reklamasjon,"vurdere om det foreligger en mangel i en konkret sak, og om forbrukeren har reklamert i tide.",avgjore-kjopstype;mangel;frister-forbrukerkjop,0,
+velge-mangelsbefoyelse,skill,Avtalerett og forbrukerkjøp,Bruke reglene om mangelsbeføyelser,"avgjøre hvilke krav forbrukeren kan sette fram ved en mangel i en konkret sak, og i hvilken rekkefølge de kan brukes.",mangelsbefoyelser;vurdere-reklamasjon,0,
+bruke-angrerett,skill,Avtalerett og forbrukerkjøp,Avgjøre om forbrukeren har angrerett,"avgjøre om forbrukeren har angrerett i en konkret sak, om fristen er ute, og hva som skjer når angreretten brukes.",angrerett;frister-forbrukerkjop,0,
+skille-reklamasjon-angrerett,skill,Avtalerett og forbrukerkjøp,Forklare forskjellen på reklamasjon og angrerett,"forklare forskjellen på reklamasjon og angrerett, og avgjøre hvilken av dem forbrukeren bør bruke i en gitt situasjon.",mangel;angrerett,0,
+drofte-forbrukersak,skill,Avtalerett og forbrukerkjøp,Drøfte en forbrukertvist,"drøfte en forbrukertvist fram til en begrunnet konklusjon, og forklare hvordan den kan løses utenfor domstolene gjennom Forbrukerrådet og Forbrukerklageutvalget.",velge-mangelsbefoyelse;bruke-angrerett;juridisk-drofting,0,
+rettshistorie,fact,Aktuelle og rettshistoriske spørsmål,Milepæler i norsk rettshistorie,"Magnus Lagabøtes landslov: 1274
+Christian 5.s Norske Lov: 1687
+Grunnloven: 1814
+den første likestillingsloven: 1978
+menneskerettsloven: 1999
+ekteskap for likekjønnede par: 2009
+dagens straffelov i kraft: 2015
+dagens arvelov i kraft: 2021",,0,
+utforske-rettshistorisk-endring,skill,Aktuelle og rettshistoriske spørsmål,Utforske en rettshistorisk endring,"utforske hvordan en lov har endret seg over tid, og drøfte hvordan endringer i samfunnet og i synet på rett og rettferdighet har ført til ny lov.",rettshistorie;drofte-rettsreglenes-funksjon,0,
+utforske-aktuell-sak,skill,Aktuelle og rettshistoriske spørsmål,Utforske en dagsaktuell juridisk problemstilling,"utforske en dagsaktuell juridisk problemstilling: finne de aktuelle rettsreglene og rettskildene, identifisere interessene som står mot hverandre, og drøfte mulige løsninger.",bruke-flere-rettskilder;drofte-rettsreglenes-funksjon,0,
+presentere-juridisk-sak,skill,Aktuelle og rettshistoriske spørsmål,Legge fram en juridisk sak muntlig,"legge fram en juridisk problemstilling muntlig med problemstilling, rettsregler, drøfting og konklusjon, og svare presist på oppfølgingsspørsmål om regler og avveininger.",utforske-aktuell-sak,0,

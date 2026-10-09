@@ -1,0 +1,219 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Økonomiske modeller og kostnader;Kostnads-, resultat- og volumanalyse;Markedsformer og prissetting;Priskalkulasjon;Budsjett og finansiering;Investeringsanalyse;Organisasjon;Ledelse;Bærekraft og næringslivet",,,
+,config,,title,Økonomi og ledelse,,,
+,config,,description,"Kostnader og økonomiske modeller, kostnads-, resultat- og volumanalyse, markedsformer og prissetting, priskalkulasjon, budsjettering og finansiering, investeringsanalyse, organisasjon, ledelse og bærekraftig verdiskaping — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-okonomi-ledelse-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,økonomi og ledelse (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"forveksler kostnad, utgift og utbetaling, kaller dekningsbidraget for overskudd, blander påslag og avanse, skriver prosent der det skal stå prosentpoeng, glemmer enheten (kr, kr per stk, stk), tar avskrivninger med i kontantstrømmen, kaller et prosjekt lønnsomt uten å sammenligne med avkastningskravet, gjør rede for en teori uten å bruke den på casen, eller skriver «drøfte» uten å veie argumenter mot hverandre før konklusjonen",,,
+,config,,slots.courseSpecifics,"Økonomi og ledelse er et valgfritt programfag, normalt på Vg3, og de fleste elevene har hatt økonomistyring før. Eleven kan trekkes ut til en skriftlig eksamen som lages og sensureres sentralt, eller til en muntlig-praktisk eksamen med forberedelsesdel som lages og sensureres lokalt. Øv derfor både på beregningsoppgaver der eleven viser oppstilling, formel og enhet og gjerne bruker regneark, og på å drøfte skriftlig og muntlig. Be alltid eleven knytte tallene til en vurdering og en begrunnet anbefaling for virksomheten.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag økonomi,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3070,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,økonomi og ledelse; SAM3070; næringslivsøkonomi; bedriftsøkonomi; dekningsbidrag; nullpunkt; sikkerhetsmargin; KRV-analyse; markedsformer; monopol; priselastisitet; selvkost; bidragskalkyle; kapitalbehov; finansiering; investeringsanalyse; netto nåverdi; internrente; organisasjonsstruktur; organisasjonskultur; ledelse; situasjonsbestemt ledelse; motivasjon; bærekraft; samfunnsansvar,,,
+,config,,updated,2026-10-08,,,
+okonomisk-modell,concept,Økonomiske modeller og kostnader,Økonomisk modell,"Økonomisk modell: en forenklet framstilling av en økonomisk sammenheng, bygd på forutsetninger, som gjør det mulig å beregne og sammenligne alternativer. Modellen er bare så god som forutsetningene den hviler på.",,0,
+vurdere-modellforutsetninger,skill,Økonomiske modeller og kostnader,Vurdere forutsetningene bak en modell,"peke på forutsetningene en økonomisk modell bygger på, og vurdere hvor godt de holder for en bestemt virksomhet og hva svaret betyr hvis de ikke holder.",okonomisk-modell,0,
+regnearkmodell,skill,Økonomiske modeller og kostnader,Bygge en økonomisk modell i regneark,"bygge en beregning i regneark der forutsetningene står i egne celler og resten er formler, slik at resultatet oppdateres når en forutsetning endres.",okonomisk-modell,0,
+kostnad-utgift-utbetaling,concept,Økonomiske modeller og kostnader,"Kostnad, utgift og utbetaling","Utbetaling: penger som går ut av virksomheten, i kontanter eller fra bankkonto.
+Utgift: et kjøp av varer eller tjenester, regnet fra den dagen virksomheten forplikter seg, uansett når det betales.
+Kostnad: verdien av de ressursene som brukes opp i perioden for å skape inntekter.",,0,
+inntekt-innbetaling,concept,Økonomiske modeller og kostnader,Inntekt og innbetaling,"Inntekt: verdien av det virksomheten selger i perioden, regnet fra salget, uansett når kunden betaler.
+Innbetaling: penger som faktisk kommer inn til virksomheten.",,0,
+skille-periodisering,skill,Økonomiske modeller og kostnader,Plassere en transaksjon som kostnad og utbetaling,"avgjøre i hvilken periode en transaksjon gir kostnad, utgift og utbetaling (eller inntekt og innbetaling), og forklare hvorfor resultat og likviditet kan utvikle seg ulikt.",kostnad-utgift-utbetaling;inntekt-innbetaling,0,
+faste-variable-kostnader,concept,Økonomiske modeller og kostnader,Faste og variable kostnader,"Faste kostnader: kostnader som ikke endrer seg med produsert mengde innenfor en gitt kapasitet, som husleie og faste lønninger. Ved økt kapasitet kan de stige i sprang.
+Variable kostnader: kostnader som endrer seg med produsert mengde, som råvarer og akkordlønn.",kostnad-utgift-utbetaling,0,
+kostnadsforlop,concept,Økonomiske modeller og kostnader,Forløpet til variable kostnader,"Proporsjonale variable kostnader: øker like mye for hver ekstra enhet.
+Degressive variable kostnader: øker mindre for hver ekstra enhet, for eksempel fordi innkjøp blir billigere i store kvanta.
+Progressive variable kostnader: øker mer for hver ekstra enhet, for eksempel på grunn av overtid nær kapasitetsgrensen.",faste-variable-kostnader,0,
+direkte-indirekte-kostnader,concept,Økonomiske modeller og kostnader,Direkte og indirekte kostnader,"Direkte kostnader: kostnader som kan knyttes direkte til ett bestemt produkt, som direkte material og direkte lønn.
+Indirekte kostnader: felleskostnader for flere produkter, som administrasjon og lokaler, som må fordeles med en fordelingsnøkkel.",kostnad-utgift-utbetaling,0,
+klassifisere-kostnader,skill,Økonomiske modeller og kostnader,Klassifisere kostnadene i en virksomhet,"sortere kostnadene i en beskrevet virksomhet som faste eller variable og som direkte eller indirekte, og begrunne plasseringen der den ikke er opplagt.",faste-variable-kostnader;direkte-indirekte-kostnader,0,
+enhetskostnad-grensekostnad,concept,Økonomiske modeller og kostnader,Enhetskostnad og grensekostnad,"Totalkostnad (TK): summen av faste og variable kostnader ved en gitt mengde.
+Enhetskostnad (gjennomsnittskostnad): totalkostnaden delt på antall enheter.
+Grensekostnad (GK): økningen i totalkostnad når mengden øker med én enhet.",faste-variable-kostnader,0,
+beregne-kostnader,skill,Økonomiske modeller og kostnader,"Beregne totalkostnad, enhetskostnad og grensekostnad","beregne totalkostnad, enhetskostnad og grensekostnad fra en tabell eller en kostnadsfunksjon, tegne kurvene og forklare hvorfor enhetskostnaden først faller og så stiger.",enhetskostnad-grensekostnad;kostnadsforlop,0,
+totalinntekt-grenseinntekt,concept,Økonomiske modeller og kostnader,Totalinntekt og grenseinntekt,"Totalinntekt (TI): pris ganger solgt mengde.
+Grenseinntekt (GI): økningen i totalinntekt når salget øker med én enhet. Må prisen settes ned for å selge mer, er grenseinntekten lavere enn prisen.",inntekt-innbetaling,0,
+relevante-kostnader,concept,Økonomiske modeller og kostnader,Relevante og irrelevante kostnader,"Relevant kostnad: en framtidig kostnad som er forskjellig mellom alternativene en skal velge mellom.
+Sunk cost (sokkekostnad): en kostnad som allerede er påløpt og ikke kan hentes tilbake, og som derfor ikke skal påvirke beslutningen.
+Alternativkostnad: verdien av det beste alternativet en gir opp når en ressurs brukes til noe annet.",faste-variable-kostnader,0,
+relevante-beslutninger,skill,Økonomiske modeller og kostnader,Finne de relevante tallene for en beslutning,"plukke ut hvilke kostnader og inntekter som er relevante for en konkret beslutning, som å lage selv eller kjøpe, og regne ut hvilket alternativ som lønner seg.",relevante-kostnader,0,
+dekningsbidrag,concept,"Kostnads-, resultat- og volumanalyse",Dekningsbidrag,"Dekningsbidrag (DB): salgspris minus variable kostnader. DB per enhet er det hver solgte enhet bidrar med til å dekke de faste kostnadene og gi overskudd; totalt DB er DB per enhet ganger solgt mengde.",faste-variable-kostnader;totalinntekt-grenseinntekt,0,
+dekningsgrad,concept,"Kostnads-, resultat- og volumanalyse",Dekningsgrad,"Dekningsgrad (DG): dekningsbidraget i prosent av salgsprisen. Den viser hvor mange kroner av hver hundrelapp i omsetning som går til å dekke faste kostnader og overskudd.",dekningsbidrag,0,
+krv-formler,fact,"Kostnads-, resultat- og volumanalyse",Formlene i KRV-analysen,"DB per enhet: pris − variabel kostnad per enhet
+DG: DB per enhet / pris · 100 %
+Resultat: totalt DB − faste kostnader
+Nullpunktsmengde: faste kostnader / DB per enhet
+Nullpunktsomsetning: faste kostnader / DG
+Sikkerhetsmargin i kroner: budsjettert omsetning − nullpunktsomsetning
+Sikkerhetsmargin i prosent: sikkerhetsmargin i kroner / budsjettert omsetning · 100 %
+Mengde for et resultatmål: (faste kostnader + ønsket resultat) / DB per enhet",dekningsgrad,0,
+beregne-db-dg,skill,"Kostnads-, resultat- og volumanalyse",Beregne dekningsbidrag og dekningsgrad,"beregne dekningsbidrag per enhet, totalt dekningsbidrag og dekningsgrad for ett eller flere produkter, og sette opp en resultatoppstilling etter bidragsmetoden.",dekningsbidrag;dekningsgrad,0,
+nullpunkt,concept,"Kostnads-, resultat- og volumanalyse",Nullpunkt,"Nullpunkt (break-even): den mengden eller omsetningen der totalt dekningsbidrag akkurat dekker de faste kostnadene, slik at resultatet er null.",dekningsbidrag,0,
+beregne-nullpunkt,skill,"Kostnads-, resultat- og volumanalyse",Beregne nullpunktsmengde og nullpunktsomsetning,"beregne nullpunktet både i antall enheter og i kroner, og forklare hva tallet sier om virksomheten.",nullpunkt;beregne-db-dg;krv-formler,0,
+sikkerhetsmargin,concept,"Kostnads-, resultat- og volumanalyse",Sikkerhetsmargin,"Sikkerhetsmargin: hvor mye salget kan falle fra budsjettert nivå før virksomheten går med underskudd, målt i enheter, i kroner eller i prosent av budsjettert omsetning.",nullpunkt,0,
+beregne-sikkerhetsmargin,skill,"Kostnads-, resultat- og volumanalyse",Beregne sikkerhetsmarginen,"beregne sikkerhetsmarginen i enheter, kroner og prosent, og tolke hva den sier om risikoen.",sikkerhetsmargin;beregne-nullpunkt,0,
+resultatmal,skill,"Kostnads-, resultat- og volumanalyse",Beregne salget som trengs for et resultatmål,"beregne hvor mye som må selges, i mengde og kroner, for å nå et oppgitt resultatmål.",beregne-nullpunkt,0,
+krv-diagram,skill,"Kostnads-, resultat- og volumanalyse",Tegne og lese et resultatdiagram,"tegne totalinntekt og totalkostnad i samme diagram, lese av nullpunkt, overskudds- og underskuddsområde og sikkerhetsmargin, og lage diagrammet i regneark.",beregne-sikkerhetsmargin;regnearkmodell,0,
+flere-produkter-nullpunkt,skill,"Kostnads-, resultat- og volumanalyse",Beregne nullpunkt for flere produkter,"beregne nullpunktsomsetningen for en virksomhet med flere produkter ved hjelp av gjennomsnittlig dekningsgrad, og forklare hvordan endringer i salgsmiksen flytter nullpunktet.",beregne-nullpunkt,0,
+folsomhetsanalyse,concept,"Kostnads-, resultat- og volumanalyse",Følsomhetsanalyse,"Følsomhetsanalyse: å endre én forutsetning om gangen, som pris, variabel kostnad, faste kostnader eller mengde, og se hvor mye resultatet endrer seg. Den viser hvilke forutsetninger det er viktigst å treffe på.",okonomisk-modell,0,
+gjennomfore-folsomhet-krv,skill,"Kostnads-, resultat- og volumanalyse",Analysere følsomheten i resultatet,"beregne hvordan resultat og nullpunkt endrer seg når pris, variable kostnader eller faste kostnader endres, og finne hvilken faktor resultatet er mest følsomt for.",folsomhetsanalyse;beregne-nullpunkt,0,
+kostnadsstruktur,concept,"Kostnads-, resultat- og volumanalyse",Kostnadsstruktur og driftsrisiko,"Kostnadsstruktur: fordelingen mellom faste og variable kostnader i en virksomhet.
+Driftsrisiko: hvor mye resultatet svinger når salget svinger. En høy andel faste kostnader gir høy dekningsgrad, men større svingninger i resultatet.",faste-variable-kostnader;dekningsgrad,0,
+vurdere-krv,skill,"Kostnads-, resultat- og volumanalyse",Vurdere lønnsomhet og risiko med KRV-analyse,"vurdere lønnsomheten og risikoen i en virksomhet eller et produkt ut fra dekningsgrad, nullpunkt, sikkerhetsmargin og kostnadsstruktur, og gi en begrunnet anbefaling.",beregne-sikkerhetsmargin;gjennomfore-folsomhet-krv;kostnadsstruktur,0,
+krv-forutsetninger,skill,"Kostnads-, resultat- og volumanalyse",Vurdere forutsetningene for KRV-analysen,"forklare forutsetningene KRV-analysen bygger på, som konstant pris, lineære kostnader og at alt som produseres blir solgt, og vurdere hvordan svaret endres når de ikke holder.",vurdere-modellforutsetninger;beregne-nullpunkt,0,
+knapp-faktor,concept,"Kostnads-, resultat- og volumanalyse",Knapp faktor,"Knapp faktor: en ressurs, som maskintid eller arbeidstimer, som begrenser hvor mye virksomheten kan produsere. Da avgjøres lønnsomheten av dekningsbidraget per enhet av den knappe faktoren, ikke per produkt.",dekningsbidrag,0,
+prioritere-knapp-faktor,skill,"Kostnads-, resultat- og volumanalyse",Prioritere produkter når kapasiteten er knapp,"beregne dekningsbidrag per enhet knapp faktor og sette opp den produksjonsplanen som gir høyest totalt dekningsbidrag.",knapp-faktor;beregne-db-dg,0,
+tilleggsordre,skill,"Kostnads-, resultat- og volumanalyse",Vurdere en tilleggsordre,"vurdere om virksomheten bør ta en tilleggsordre til redusert pris, ut fra ledig kapasitet, dekningsbidraget på ordren og virkningen på de vanlige kundene.",beregne-db-dg;relevante-beslutninger,0,
+ettersporsel,concept,Markedsformer og prissetting,Etterspørsel,"Etterspørselskurve: sammenhengen mellom prisen på en vare og mengden kundene vil kjøpe. Normalt faller etterspurt mengde når prisen stiger.",,0,
+priselastisitet,concept,Markedsformer og prissetting,Priselastisitet,"Priselastisitet: prosentvis endring i etterspurt mengde delt på prosentvis endring i pris. Etterspørselen er elastisk når tallverdien er større enn 1, og uelastisk når den er mindre enn 1.",ettersporsel,0,
+beregne-priselastisitet,skill,Markedsformer og prissetting,Beregne og tolke priselastisitet,"beregne priselastisiteten fra to pris–mengde-kombinasjoner, avgjøre om etterspørselen er elastisk, og forutsi hva en prisendring gjør med totalinntekten.",priselastisitet;totalinntekt-grenseinntekt,0,
+markedsformer,concept,Markedsformer og prissetting,Markedsformer,"Fullkommen konkurranse: mange tilbydere av like produkter, fri etablering, og ingen kan påvirke prisen.
+Monopolistisk konkurranse: mange tilbydere av produkter som skiller seg litt fra hverandre, så hver har noe makt over sin egen pris.
+Oligopol: få store tilbydere som må ta hensyn til hverandres pris og mengde.
+Monopol: én tilbyder uten nære erstatninger, beskyttet av etableringshindringer.",ettersporsel,0,
+etableringshindringer,concept,Markedsformer og prissetting,Etableringshindringer,"Etableringshindringer: forhold som gjør det vanskelig for nye virksomheter å komme inn i et marked, som store oppstartskostnader, patenter, konsesjoner, stordriftsfordeler og sterke merkevarer.",markedsformer,0,
+plassere-markedsform,skill,Markedsformer og prissetting,Plassere en bransje i en markedsform,"plassere en virkelig norsk bransje i en markedsform ut fra antall tilbydere, hvor like produktene er og etableringshindringene, og begrunne valget.",markedsformer;etableringshindringer,0,
+gi-lik-gk,concept,Markedsformer og prissetting,Optimal tilpasning,"Optimal tilpasning: den mengden som gir størst overskudd, der grenseinntekten er lik grensekostnaden (GI = GK). Er GI større enn GK, lønner det seg å produsere mer; er den mindre, lønner det seg å produsere mindre.",enhetskostnad-grensekostnad;totalinntekt-grenseinntekt,0,
+tilpasning-fullkommen,skill,Markedsformer og prissetting,Finne optimal mengde under fullkommen konkurranse,"finne den mengden som maksimerer overskuddet når prisen er gitt av markedet (pris = GK), både ved regning og grafisk, og forklare hvorfor overskuddet forsvinner på lang sikt.",gi-lik-gk;beregne-kostnader;markedsformer,0,
+tilpasning-monopol,skill,Markedsformer og prissetting,Finne optimal pris og mengde for en monopolist,"finne den mengden og prisen som maksimerer overskuddet for en monopolist ut fra etterspørsel og kostnader (GI = GK), beregne overskuddet og vise løsningen i en figur.",gi-lik-gk;beregne-kostnader;ettersporsel,0,
+beste-pris-tabell,skill,Markedsformer og prissetting,Velge beste pris fra en tabell over alternativer,"beregne totalt dekningsbidrag og resultat for flere oppgitte kombinasjoner av pris og forventet salg, og velge og begrunne det beste alternativet.",beregne-db-dg;ettersporsel,0,
+konkurranseloven,concept,Markedsformer og prissetting,Konkurranseloven,"Konkurranseloven: loven som forbyr samarbeid om priser og markedsdeling mellom konkurrenter og misbruk av dominerende stilling. Konkurransetilsynet håndhever den og må godkjenne store oppkjøp.",markedsformer,0,
+oligopol-atferd,skill,Markedsformer og prissetting,Forklare atferd i oligopol,"forklare hvorfor virksomheter i oligopol er gjensidig avhengige, hvorfor de ofte konkurrerer på annet enn pris, og hvorfor priskrig og ulovlig prissamarbeid kan oppstå, og sammenligne med hvordan virksomheter i monopolistisk konkurranse bruker produktdifferensiering.",markedsformer;etableringshindringer;konkurranseloven,0,
+prisdifferensiering,concept,Markedsformer og prissetting,Prisdifferensiering,"Prisdifferensiering: å ta ulik pris for samme produkt fra ulike kundegrupper, tidspunkter eller kvanta. Det forutsetter at gruppene har ulik priselastisitet og at varen ikke kan selges videre mellom dem.",priselastisitet,0,
+vurdere-prisdifferensiering,skill,Markedsformer og prissetting,Vurdere prisdifferensiering,"vurdere om og hvordan en virksomhet kan tjene på prisdifferensiering, og beregne virkningen på totalt dekningsbidrag i et enkelt eksempel.",prisdifferensiering;beste-pris-tabell,0,
+prisstrategier,concept,Markedsformer og prissetting,Prisstrategier,"Penetrasjonspris: lav innføringspris for raskt å vinne markedsandeler.
+Skumming: høy innføringspris mot de mest betalingsvillige kundene, som senkes over tid.
+Psykologisk pris: pris som virker lavere enn den er, som 199 kroner framfor 200.",ettersporsel,0,
+vurdere-konkurransesituasjon,skill,Markedsformer og prissetting,Vurdere konkurransesituasjonen og anbefale pris og mengde,"vurdere konkurransesituasjonen for en virksomhet og anbefale produksjonsnivå og pris, ut fra både lønnsomhet og bærekraft, og begrunne anbefalingen med beregninger.",plassere-markedsform;tilpasning-monopol;oligopol-atferd;vurdere-prisdifferensiering;prisstrategier;baerekraftig-utvikling,0,
+selvkost,concept,Priskalkulasjon,Selvkost og tilleggssats,"Kalkyle: en beregning av kostnader og pris per enhet, før produksjonen starter (forkalkyle) eller med de faktiske tallene etterpå (etterkalkyle).
+Selvkost: alle kostnader, også de faste og indirekte, fordelt per enhet.
+Tilleggssats: prosentsatsen indirekte kostnader legges på med, beregnet som indirekte kostnader i prosent av en fordelingsnøkkel, for eksempel direkte lønn.",direkte-indirekte-kostnader,0,
+selvkostkalkyle,skill,Priskalkulasjon,Sette opp en selvkostkalkyle,"beregne tilleggssatser og sette opp en selvkostkalkyle med direkte kostnader, påslag for indirekte kostnader, fortjeneste og salgspris.",selvkost,0,
+bidragskalkyle-begrep,concept,Priskalkulasjon,Bidragskalkyle,"Bidragskalkyle: en kalkyle som bare fordeler variable kostnader per enhet og legger på et dekningsbidrag som skal dekke de faste kostnadene og gi fortjeneste.",dekningsbidrag,0,
+bidragskalkyle,skill,Priskalkulasjon,Sette opp en bidragskalkyle,"sette opp en bidragskalkyle med variable kostnader per enhet og et påslag for dekningsbidrag, og regne ut salgsprisen.",bidragskalkyle-begrep;beregne-db-dg,0,
+sammenligne-kalkyler,skill,Priskalkulasjon,Sammenligne selvkost- og bidragsmetoden,"sammenligne selvkostmetoden og bidragsmetoden og vurdere hvilken som gir best beslutningsgrunnlag på kort og lang sikt og ved ledig kapasitet.",selvkostkalkyle;bidragskalkyle,0,
+avanse-paslag,concept,Priskalkulasjon,Avanse og påslag,"Avanse (bruttofortjeneste): salgspris uten merverdiavgift minus inntakskost.
+Avanseprosent: avansen i prosent av salgsprisen.
+Påslagsprosent: avansen i prosent av inntakskosten.",,0,
+handelskalkyle,skill,Priskalkulasjon,Regne ut salgspris i en handelsbedrift,"regne mellom inntakskost, påslag, avanse og salgspris med og uten merverdiavgift, og omregne mellom påslagsprosent og avanseprosent.",avanse-paslag,0,
+markedsbasert-pris,concept,Priskalkulasjon,Markedsbasert prising og målkostnad,"Markedsbasert prising: prisen settes ut fra hva kundene er villige til å betale og hva konkurrentene tar, ikke ut fra kostnadene.
+Målkostnad: den kostnaden produktet må lages for når pris og ønsket fortjeneste er gitt av markedet.",ettersporsel;selvkost,0,
+fastsette-pris,skill,Priskalkulasjon,Vurdere kalkulasjonsmetoder og fastsette pris,"vurdere kostnadsbaserte og markedsbaserte metoder for prisfastsettelse i en konkret situasjon, og fastsette og begrunne en pris på et produkt.",sammenligne-kalkyler;handelskalkyle;markedsbasert-pris;beste-pris-tabell,0,
+budsjetter,concept,Budsjett og finansiering,Budsjettypene,"Resultatbudsjett: forventede inntekter og kostnader i en periode, som viser forventet resultat.
+Likviditetsbudsjett: forventede innbetalinger og utbetalinger, som viser om virksomheten har nok penger hver måned.
+Investeringsbudsjett: hva et prosjekt krever av anleggsmidler, og når.",kostnad-utgift-utbetaling;inntekt-innbetaling,0,
+resultatbudsjett,skill,Budsjett og finansiering,Sette opp et resultatbudsjett for et prosjekt,"sette opp et resultatbudsjett for et prosjekt eller en ny virksomhet ut fra oppgitte forutsetninger, med avskrivninger og rentekostnader.",budsjetter;skille-periodisering,0,
+likviditetsbudsjett,skill,Budsjett og finansiering,Sette opp et likviditetsbudsjett,"sette opp et likviditetsbudsjett med kredittider for kunder og leverandører, og finne når og hvor stort finansieringsbehovet er.",budsjetter;skille-periodisering;regnearkmodell,0,
+kapitalbehov,concept,Budsjett og finansiering,Kapitalbehov,"Kapitalbehov: den kapitalen et prosjekt binder, det vil si anleggsmidler pluss arbeidskapital.
+Anleggsmidler: eiendeler til varig bruk, som bygninger og maskiner.
+Arbeidskapital: kapitalen som bindes i varelager og kundefordringer, fratrukket leverandørgjeld.",budsjetter,0,
+beregne-kapitalbehov,skill,Budsjett og finansiering,Beregne kapitalbehovet,"beregne kapitalbehovet for et investeringsprosjekt eller en etablering, med arbeidskapital beregnet ut fra lagertid og kredittider.",kapitalbehov,0,
+egenkapital-fremmedkapital,concept,Budsjett og finansiering,Egenkapital og fremmedkapital,"Egenkapital: kapital eierne har skutt inn eller latt bli stående i virksomheten. Den har ikke fast rente eller forfall, men eierne krever avkastning.
+Fremmedkapital: lånt kapital som skal betales tilbake med rente.",,0,
+finansieringskilder,concept,Budsjett og finansiering,Finansieringskilder,"Egenfinansiering: aksjekapital, nye eiere eller tilbakeholdt overskudd.
+Langsiktig fremmedkapital: banklån og obligasjonslån.
+Kortsiktig fremmedkapital: kassekreditt og leverandørkreditt.
+Leasing: å leie et driftsmiddel framfor å kjøpe det.",egenkapital-fremmedkapital,0,
+lanetyper,concept,Budsjett og finansiering,Annuitetslån og serielån,"Annuitetslån: like store terminbeløp hele løpetiden, der renteandelen synker og avdraget øker.
+Serielån: like store avdrag hver termin, så terminbeløpet synker etter hvert som renten beregnes av en mindre restgjeld.",egenkapital-fremmedkapital,0,
+betalingsplan,skill,Budsjett og finansiering,Sette opp en betalingsplan for et lån,"sette opp en betalingsplan for et serielån og et annuitetslån med renter, avdrag og restgjeld, og sammenligne samlede rentekostnader.",lanetyper;regnearkmodell,0,
+finansiell-risiko,concept,Budsjett og finansiering,Gjeldsgrad og finansiell risiko,"Gjeldsgrad: fremmedkapital delt på egenkapital.
+Finansiell risiko: risikoen som følger av å ha gjeld. Høy gjeldsgrad kan øke egenkapitalrentabiliteten i gode år, men gjør virksomheten mer sårbar for renteøkning og dårlige år.",egenkapital-fremmedkapital,0,
+gyllen-finansieringsregel,concept,Budsjett og finansiering,Den gylne finansieringsregel,"Den gylne finansieringsregel: anleggsmidler og den faste delen av omløpsmidlene skal finansieres med langsiktig kapital, mens bare de svingende delene av omløpsmidlene kan finansieres kortsiktig.",kapitalbehov;finansieringskilder,0,
+vurdere-finansiering,skill,Budsjett og finansiering,Vurdere og anbefale finansiering,"vurdere ulike måter å finansiere et investeringsprosjekt på ut fra kostnad, risiko, sikkerhet og eiernes kontroll, og anbefale en finansieringsplan.",beregne-kapitalbehov;betalingsplan;finansiell-risiko;gyllen-finansieringsregel,0,
+nokkeltall,concept,Budsjett og finansiering,Nøkkeltall for lønnsomhet og soliditet,"Totalkapitalrentabilitet: resultat før rentekostnader i prosent av totalkapitalen.
+Egenkapitalrentabilitet: resultat i prosent av egenkapitalen.
+Egenkapitalandel: egenkapital i prosent av totalkapitalen.
+Likviditetsgrad 1: omløpsmidler delt på kortsiktig gjeld.",egenkapital-fremmedkapital;finansiell-risiko,0,
+investering,concept,Investeringsanalyse,Investering,"Investering: en utbetaling nå som skal gi innbetalinger i flere år framover.
+Grunninvestering: utbetalingen ved start.
+Restverdi: det driftsmidlene kan selges for når prosjektet avsluttes.
+Økonomisk levetid: hvor lenge det lønner seg å bruke driftsmiddelet.",kapitalbehov,0,
+kontantstrom,concept,Investeringsanalyse,Kontantstrøm,"Kontantstrøm: innbetalinger minus utbetalinger i hver periode i prosjektets levetid. Avskrivninger er ikke en utbetaling og hører ikke med, mens arbeidskapital som bindes ved start og frigjøres til slutt, gjør det.",investering;kostnad-utgift-utbetaling,0,
+sette-opp-kontantstrom,skill,Investeringsanalyse,Sette opp kontantstrømmen for et prosjekt,"sette opp kontantstrømmen for et investeringsprosjekt år for år, med grunninvestering, driftsinnbetalinger og -utbetalinger, arbeidskapital og restverdi.",kontantstrom;beregne-kapitalbehov,0,
+tidsverdi,concept,Investeringsanalyse,Pengenes tidsverdi og avkastningskrav,"Pengenes tidsverdi: en krone i dag er mer verdt enn en krone om et år, fordi den kan plasseres og gi avkastning.
+Avkastningskrav (kalkulasjonsrente): den renten investorene krever, avhengig av rentenivå og risiko. Brukes til å diskontere framtidige beløp.",investering,0,
+investeringsformler,fact,Investeringsanalyse,Formlene i investeringsanalysen,"Nåverdi av et beløp K om n år: K / (1 + r)ⁿ
+Sluttverdi av et beløp K om n år: K · (1 + r)ⁿ
+Netto nåverdi: summen av nåverdiene av alle kontantstrømmene, grunninvesteringen medregnet
+Internrente: den renten som gjør netto nåverdi lik null
+Tilbakebetalingstid: antall år til summen av kontantstrømmene har dekket grunninvesteringen",tidsverdi,0,
+diskontere,skill,Investeringsanalyse,Regne ut nåverdi og sluttverdi,"diskontere et framtidig beløp til nåverdi og regne et beløp i dag fram til sluttverdi, for hånd og med regneark.",tidsverdi;investeringsformler;regnearkmodell,0,
+netto-naverdi,concept,Investeringsanalyse,Netto nåverdi,"Netto nåverdi (NNV): summen av nåverdien av alle kontantstrømmene i et prosjekt, diskontert med avkastningskravet. Er NNV positiv, gir prosjektet mer enn avkastningskravet og er lønnsomt.",tidsverdi;kontantstrom,0,
+beregne-nnv,skill,Investeringsanalyse,Beregne netto nåverdi,"beregne netto nåverdi for et investeringsprosjekt og konkludere om det er lønnsomt.",netto-naverdi;sette-opp-kontantstrom;diskontere,0,
+internrente,concept,Investeringsanalyse,Internrente,"Internrente: den avkastningen prosjektet selv gir, det vil si den renten som gjør netto nåverdi lik null. Prosjektet er lønnsomt når internrenten er høyere enn avkastningskravet.",netto-naverdi,0,
+beregne-internrente,skill,Investeringsanalyse,Finne internrenten,"finne internrenten til et prosjekt med regneark eller ved prøving og feiling, og sammenligne den med avkastningskravet.",internrente;beregne-nnv,0,
+tilbakebetalingstid,skill,Investeringsanalyse,Beregne og vurdere tilbakebetalingstid,"beregne tilbakebetalingstiden for et prosjekt og vurdere hva metoden sier om risiko og hva den overser.",sette-opp-kontantstrom;investeringsformler,0,
+sammenligne-prosjekter,skill,Investeringsanalyse,Rangere investeringsprosjekter,"rangere prosjekter som utelukker hverandre etter netto nåverdi og internrente, og forklare hvorfor metodene kan gi ulik rangering når prosjektene har ulik størrelse eller levetid.",beregne-nnv;beregne-internrente;tilbakebetalingstid,0,
+risiko-investering,skill,Investeringsanalyse,Analysere risikoen i et investeringsprosjekt,"vurdere risikoen i et investeringsprosjekt med følsomhetsanalyse og scenarioer, og beregne hvor mye en forutsetning kan endre seg før netto nåverdi blir null.",beregne-nnv;folsomhetsanalyse,0,
+vurdere-investering,skill,Investeringsanalyse,Vurdere et investeringsprosjekt samlet,"vurdere et investeringsprosjekt samlet ut fra lønnsomhet, risiko, finansiering og bærekraft, og gi en begrunnet anbefaling som også tar med forhold som ikke kan tallfestes.",sammenligne-prosjekter;risiko-investering;vurdere-finansiering;baerekraftig-utvikling,0,
+organisasjonsteorier,concept,Organisasjon,Klassiske og moderne organisasjonsteorier,"Scientific management (Taylor): effektivitet gjennom oppdeling av arbeidet i små, standardiserte oppgaver og prestasjonslønn.
+Byråkratimodellen (Weber): klare regler, hierarki og ansettelse etter kompetanse.
+Human relations: de sosiale relasjonene og trivselen i arbeidsgruppen påvirker innsats og produktivitet.
+Systemteori: virksomheten er et åpent system som påvirkes av og må tilpasse seg omgivelsene.",,0,
+sammenligne-organisasjonsteorier,skill,Organisasjon,Sammenligne organisasjonsteorier,"sammenligne synet på mennesket og på effektivitet i ulike organisasjonsteorier, og vise hvordan hver av dem kommer til syne i en virkelig virksomhet.",organisasjonsteorier,0,
+organisasjonsstruktur,concept,Organisasjon,Organisasjonsstruktur,"Organisasjonsstruktur: den formelle arbeidsdelingen og hvem som rapporterer til hvem.
+Spesialisering: hvor mye arbeidet er delt opp i egne oppgaver.
+Kontrollspenn: hvor mange medarbeidere en leder har direkte under seg.
+Sentralisering og desentralisering: om beslutningene tas på toppen eller delegeres nedover.",,0,
+organisasjonsformer,concept,Organisasjon,Organisasjonsformer,"Linjeorganisasjon: én ubrutt kommandolinje fra toppen og ned.
+Linje- og stabsorganisasjon: linjen får støtte fra rådgivende stabsenheter uten beslutningsmyndighet.
+Funksjonsorganisering: inndeling etter fagfunksjon, som innkjøp, produksjon og salg.
+Divisjonsorganisering: inndeling etter produkt, marked eller geografi.
+Matriseorganisasjon: medarbeidere rapporterer både til en fagleder og en prosjekt- eller produktleder.",organisasjonsstruktur,0,
+organisasjonskart,skill,Organisasjon,Tegne og tolke et organisasjonskart,"tegne et organisasjonskart for en beskrevet virksomhet, og avgjøre hvilken organisasjonsform den har.",organisasjonsformer,0,
+vurdere-organisasjonsform,skill,Organisasjon,Vurdere organisasjonsformen i en virksomhet,"vurdere fordeler og ulemper ved organisasjonsformen i en gitt virksomhet og foreslå og begrunne en endring.",organisasjonskart;sammenligne-organisasjonsteorier,0,
+organisasjonskultur,concept,Organisasjon,Organisasjonskultur,"Organisasjonskultur: den uformelle siden av organisasjonen, det vil si de felles verdiene, normene og grunnleggende antakelsene som preger hvordan de ansatte tenker og handler. Edgar Schein deler den i tre nivåer: synlige artefakter, uttalte verdier og underliggende grunnleggende antakelser.",organisasjonsstruktur,0,
+analysere-kultur,skill,Organisasjon,Analysere kulturen i en virksomhet,"analysere kulturen i en virksomhet med Scheins tre nivåer, og forklare hvorfor kulturen kan være vanskelig å endre.",organisasjonskultur,0,
+motivasjonsteorier,concept,Organisasjon,Motivasjonsteorier,"Maslows behovspyramide: menneskets behov er ordnet fra fysiologiske behov via trygghet, tilhørighet og anerkjennelse til selvrealisering.
+Herzbergs tofaktorteori: hygienefaktorer som lønn og arbeidsforhold fjerner misnøye, mens motivasjonsfaktorer som ansvar og anerkjennelse skaper motivasjon.
+Indre og ytre motivasjon: drivkraften kommer fra selve oppgaven, eller fra belønning og straff utenfra.",,0,
+bruke-motivasjonsteori,skill,Organisasjon,Bruke motivasjonsteori på en arbeidsplass,"bruke en motivasjonsteori til å forklare hva som motiverer eller demotiverer de ansatte i en konkret virksomhet, og foreslå tiltak.",motivasjonsteorier,0,
+arbeidsmiljo,concept,Organisasjon,Arbeidsmiljø,"Arbeidsmiljø: de fysiske, organisatoriske og psykososiale forholdene på arbeidsplassen. Arbeidsmiljøloven krever et fullt forsvarlig arbeidsmiljø, verneombud og, i større virksomheter, et arbeidsmiljøutvalg (AMU).",,0,
+medbestemmelse,concept,Organisasjon,Medbestemmelse og partssamarbeid,"Partssamarbeid: samarbeidet mellom arbeidsgivere og arbeidstakere, gjennom tillitsvalgte og fagforeninger, som er en del av den norske arbeidslivsmodellen.
+Medbestemmelse: de ansattes rett til å bli hørt og være med på beslutninger, blant annet gjennom styrerepresentasjon i større aksjeselskaper.",arbeidsmiljo,0,
+drofte-struktur-kultur,skill,Organisasjon,Drøfte hvordan struktur og kultur påvirker arbeidsmiljø og lønnsomhet,"drøfte hvordan strukturen og kulturen i en virksomhet kan påvirke arbeidsmiljøet og lønnsomheten, og veie organisasjonsteorier opp mot hverandre før konklusjonen.",vurdere-organisasjonsform;analysere-kultur;bruke-motivasjonsteori;medbestemmelse,0,
+ledelse,concept,Ledelse,Ledelse,"Ledelse: å påvirke andres tanker, holdninger og handlinger slik at de arbeider mot felles mål. Ledelse som funksjon er det som må gjøres for at virksomheten skal nå målene, uansett hvem som gjør det.",,0,
+lederfunksjoner,concept,Ledelse,Lederens funksjoner,"Planlegge: sette mål og bestemme hvordan de skal nås.
+Organisere: fordele oppgaver, ansvar og ressurser.
+Lede: motivere, kommunisere med og veilede medarbeiderne.
+Kontrollere: følge opp resultatene mot målene og sette inn tiltak ved avvik.",ledelse,0,
+analysere-ledelsesfunksjon,skill,Ledelse,Analysere ledelse som funksjon,"bruke lederfunksjonene til å analysere hva en leder i en virkelig virksomhet faktisk gjør i hverdagen.",lederfunksjoner,0,
+lederteorier,concept,Ledelse,Teoritradisjoner om ledelse,"Egenskapsteorier: gode ledere kjennetegnes av bestemte personlige egenskaper.
+Atferdsteorier: god ledelse handler om hva lederen gjør, særlig balansen mellom oppgave- og relasjonsorientering.
+Situasjonsteorier: hvilken ledelse som virker, avhenger av medarbeiderne og situasjonen.",ledelse,0,
+lederstiler,concept,Ledelse,Lederstiler,"Autoritær ledelse: lederen bestemmer alene og gir ordre.
+Demokratisk ledelse: lederen trekker medarbeiderne med i beslutningene.
+Laissez-faire-ledelse: lederen lar medarbeiderne styre seg selv og griper lite inn.",lederteorier,0,
+situasjonsbestemt-ledelse,concept,Ledelse,Situasjonsbestemt ledelse,"Situasjonsbestemt ledelse (Hersey og Blanchard): lederen tilpasser stilen til medarbeiderens kompetanse og motivasjon for oppgaven, fra instruerende via selgende og deltakende til delegerende ledelse.",lederstiler,0,
+velge-lederstil,skill,Ledelse,Velge lederstil etter situasjonen,"velge og begrunne en lederstil for en medarbeider i en beskrevet situasjon ut fra modellen for situasjonsbestemt ledelse.",situasjonsbestemt-ledelse,0,
+transformasjonsledelse,concept,Ledelse,Transaksjons- og transformasjonsledelse,"Transaksjonsledelse: lederen bytter belønning mot innsats og følger opp at avtalte mål nås.
+Transformasjonsledelse: lederen inspirerer gjennom en felles visjon, er et forbilde og utfordrer medarbeiderne til å vokse.",lederteorier,0,
+endringsledelse,concept,Ledelse,Omstilling og endringsmotstand,"Omstilling: større endringer i hva eller hvordan en virksomhet produserer, for eksempel på grunn av ny teknologi, konkurranse eller krav om bærekraft.
+Endringsmotstand: ansattes motvilje mot endring, ofte av frykt for å miste trygghet, status eller kompetanse.",ledelse,0,
+lede-endring,skill,Ledelse,Planlegge ledelse av en omstilling,"foreslå hvordan ledelsen kan gjennomføre en omstilling i en virksomhet, med tiltak mot endringsmotstand og for å involvere de ansatte.",endringsledelse;medbestemmelse;transformasjonsledelse,0,
+analysere-ledelse-case,skill,Ledelse,Analysere ledelsen i en virksomhet med teori,"analysere hvordan ledelse utøves i en virkelig eller beskrevet virksomhet med en eller flere ledelsesteorier, og forklare hva teorien får fram og hva den overser.",analysere-ledelsesfunksjon;lederstiler;transformasjonsledelse,0,
+vurdere-ledelse-virkning,skill,Ledelse,"Vurdere hvordan ledelse påvirker arbeidsmiljø, kultur, effektivitet og bærekraft","vurdere hvordan ulike måter å utøve ledelse på kan påvirke arbeidsmiljøet, bedriftskulturen, effektiviteten og bærekraften i en virksomhet, og drøfte hva som passer i den aktuelle situasjonen.",analysere-ledelse-case;velge-lederstil;lede-endring;analysere-kultur;arbeidsmiljo;baerekraftig-utvikling,0,
+baerekraftig-utvikling,concept,Bærekraft og næringslivet,Bærekraftig verdiskaping,"Bærekraftig utvikling: en utvikling som dekker dagens behov uten å ødelegge mulighetene for framtidige generasjoner.
+Trippel bunnlinje: at en virksomhet måles på økonomiske, miljømessige og sosiale resultater, ikke bare på overskuddet.",,0,
+interessenter,concept,Bærekraft og næringslivet,Interessenter,"Interessenter: grupper som påvirker eller påvirkes av virksomheten, som eiere, ansatte, kunder, leverandører, långivere, lokalsamfunnet og myndighetene. Interessene deres kan komme i konflikt med hverandre.",,0,
+samfunnsansvar,concept,Bærekraft og næringslivet,Samfunnsansvar,"Samfunnsansvar (CSR): virksomhetens ansvar for hvordan driften påvirker mennesker, miljø og samfunn, også utover det loven krever, for eksempel i leverandørkjeden.",interessenter;baerekraftig-utvikling,0,
+sirkulaer-okonomi,concept,Bærekraft og næringslivet,Sirkulær økonomi,"Sirkulær økonomi: en økonomi der produkter og materialer holdes i bruk så lenge som mulig gjennom reparasjon, gjenbruk og gjenvinning, i stedet for å bli kastet.",baerekraftig-utvikling,0,
+gronnvasking,concept,Bærekraft og næringslivet,Grønnvasking,"Grønnvasking: å framstille en virksomhet eller et produkt som mer miljøvennlig enn det er, for eksempel med vage miljøpåstander uten dokumentasjon.",samfunnsansvar,0,
+interessekonflikter,skill,Bærekraft og næringslivet,Analysere interessekonflikter i en beslutning,"analysere hvordan en beslutning i en virksomhet slår ut for ulike interessenter, og vise hvor interessene trekker i hver sin retning.",interessenter;samfunnsansvar,0,
+vurdere-baerekraft-beslutning,skill,Bærekraft og næringslivet,Vurdere en beslutning ut fra trippel bunnlinje,"vurdere en bedriftsøkonomisk beslutning ut fra økonomiske, miljømessige og sosiale konsekvenser, avveie dem mot hverandre og avsløre grønnvasking der den finnes.",interessekonflikter;gronnvasking;sirkulaer-okonomi,0,
+lese-arsrapport,skill,Bærekraft og næringslivet,Hente ut og tolke tall fra en årsrapport,"finne og beregne sentrale nøkkeltall i en virkelig virksomhets årsregnskap og bærekraftsrapportering, og tolke hva de sier om lønnsomhet, soliditet og bærekraft.",nokkeltall;baerekraftig-utvikling,0,
+utforske-aktuelt-tema,skill,Bærekraft og næringslivet,Utforske en aktuell næringslivsøkonomisk sak,"finne og vurdere kilder om en dagsaktuell næringslivsøkonomisk sak, formulere en problemstilling og presentere en analyse som bruker fagbegreper, tall og modeller og viser til kildene på en etterprøvbar måte.",lese-arsrapport;vurdere-baerekraft-beslutning;vurdere-modellforutsetninger,0,

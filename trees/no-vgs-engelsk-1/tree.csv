@@ -1,0 +1,235 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Strategies and learning;Sentences and grammar;Vocabulary and register;Reading factual texts;Sources;Writing;Speaking;Fiction and film;Varieties of English;English as a global language;Current debates;In-depth project,,,
+,config,,title,English 1,,,
+,config,,description,"Strategies, academic vocabulary, sources, writing and speaking, fiction and film, varieties of English, English as a global language and current debates in English-speaking countries, for Vg2 students who have chosen English 1.",,,
+,config,,language,en,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-vgs-engelsk-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"English 1, programme subject in Vg2 general studies (Norwegian upper secondary school)",,,
+,config,,slots.motivationSubject,English,,,
+,config,,slots.expressionFocus,"joins two main clauses with only a comma, writes ""the society"" and ""the nature"" about ideas in general, leaves a lonely ""this"" without a noun, leans on ""very"", ""a lot of"" and ""thing"", makes sweeping claims about ""everyone"" or ""all Americans"", confuses affect/effect and economic/economical, mixes British and American spelling, lets a quotation stand without comment, and retells a text instead of analysing it",,,
+,config,,slots.courseSpecifics,"The students are Norwegian upper-secondary students in Vg2 who have chosen English 1 as a programme subject after compulsory English in Vg1. English is their second language and most have Norwegian as their first. Work in English at an advanced, academic level, and when an error comes from Norwegian (word order, articles, prepositions, false friends), name the contrast with Norwegian briefly. Practice texts should be set in, or be about, the English-speaking world. The course gives one written and one oral grade for coursework, and a student can be drawn for a centrally set written exam of five hours with no preparation day, or for a locally set oral exam.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programme subject, Vg2 general studies (Norway, LK20)",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3029,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,english,,,
+,config,,keywords,English 1; engelsk 1; engelsk programfag; SPR3029; SPR3030; ENG04-02; academic writing; essay; source criticism; literary analysis; film analysis; varieties of English; World Englishes; global English; lingua franca; current debates; in-depth project,,,
+,config,,updated,2026-10-08,,,
+reading-strategies,concept,Strategies and learning,Reading strategies,"Skimming: reading quickly for the gist and the main points.
+Scanning: searching a text for one particular piece of information.
+Close reading: reading slowly to understand details, language and argument.",,0,
+choose-reading-strategy,skill,Strategies and learning,Choose a reading strategy for the purpose,"choose a reading strategy that fits the purpose, such as skimming a long report to judge whether it is relevant and then reading the relevant section closely, and switch strategy when the purpose changes.",reading-strategies,0,
+take-notes,skill,Strategies and learning,Take notes from a talk or podcast,"take structured notes from an English lecture, podcast or documentary, listening for the overall message as well as for figures, names and reasons, and use the notes to retell the content.",,0,
+use-writing-process,skill,Strategies and learning,Write in stages,"plan, draft, revise and proofread a text in separate stages, fixing content, structure and argument before correcting language.",,0,
+keep-communication-going,skill,Strategies and learning,Keep a demanding conversation going,"keep a demanding conversation going by paraphrasing, asking for clarification, checking that you have been understood and rephrasing when you have not, instead of switching to Norwegian.",,0,
+target-own-errors,skill,Strategies and learning,Work systematically on your own errors,"find your own recurring errors in feedback on earlier texts, and choose a strategy for each, such as a personal checklist or targeted practice.",,0,
+use-ai-tools,skill,Strategies and learning,Use translation tools and AI to learn,"use translation tools and AI chatbots to learn rather than to write for you: ask for explanations of your errors, check their suggestions against a dictionary or grammar, and keep the text your own.",target-own-errors,0,
+sentence-boundary-errors,concept,Sentences and grammar,"Comma splice, run-on and fragment","Comma splice: two main clauses joined with only a comma, as in ""The report was clear, it was too long.""
+Run-on sentence: two main clauses run together with no punctuation or linking word.
+Sentence fragment: part of a sentence written as if it were complete, as in ""Because the costs rose.""",,0,
+fix-sentence-boundaries,skill,Sentences and grammar,Fix comma splices and fragments,"find and fix comma splices, run-on sentences and fragments in your own text, choosing between a full stop, a semicolon, a linking word and a subordinate clause.",sentence-boundary-errors,0,
+vary-sentences,skill,Sentences and grammar,Vary sentence length and structure,"vary sentence length and structure in a text: join short sentences with subordinate clauses, split overloaded ones, and open some sentences with something other than the subject.",,0,
+passive-nominalisation,concept,Sentences and grammar,Passive and nominalisation,"Passive voice: a structure where the thing acted upon becomes the subject, as in ""The law was passed in 2010"", so that the doer can be left out.
+Nominalisation: turning a verb or adjective into a noun, such as decide into decision, which makes a text more compact and formal.",,0,
+use-passive-nominalisation,skill,Sentences and grammar,Use the passive and nominalisation with judgement,"use the passive and nominalisation where they suit a formal text, and rewrite with active verbs where they make a sentence heavy or hide who did what.",passive-nominalisation;register,0,
+control-tenses,skill,Sentences and grammar,Keep tenses under control in a long text,"keep tenses consistent through a longer text, choose correctly between the present perfect and the past simple, and use the present tense when writing about what happens in a literary work.",,0,
+agreement-hard-cases,skill,Sentences and grammar,Make the verb agree in hard cases,"make the verb agree with the subject in difficult cases: a long subject, ""one of the"", ""there is"" and ""there are"", collective nouns, and uncountable nouns such as information, research and evidence.",,0,
+generic-articles,skill,Sentences and grammar,Use articles with general and abstract nouns,"decide when to use the and when to leave it out with general and abstract nouns, such as society, nature, history, the environment and the government.",,0,
+edit-own-text,skill,Sentences and grammar,Revise your own text for language,"revise your own text at word, sentence and text level, using what you know about vocabulary, sentence structure and linking to make it clearer and more precise.",fix-sentence-boundaries;vary-sentences;agreement-hard-cases;build-cohesion;use-academic-vocabulary;target-own-errors,0,
+register,concept,Vocabulary and register,Register,"Register: the level of formality in speech or writing, from formal (academic texts, official letters) through neutral to informal (chat, talk among friends), shown in word choice, contractions and sentence structure.",,0,
+adapt-register,skill,Vocabulary and register,Adapt the register,"adapt word choice, contractions and sentence structure to the purpose, audience and situation, and rewrite a text from an informal to a formal register or the other way round.",register,0,
+academic-vocabulary,concept,Vocabulary and register,Academic vocabulary and subject-specific terms,"Academic vocabulary: words used across many subjects in academic texts, such as analyse, significant, consequence, whereas and approach.
+Subject-specific term: a word with a precise meaning in one field, such as inflation in economics or natural selection in biology.",register,0,
+use-academic-vocabulary,skill,Vocabulary and register,Write precisely with academic vocabulary,"replace vague everyday words such as thing, get, big and a lot of with precise, academic alternatives, without making the text stiff.",academic-vocabulary,0,
+use-subject-terms,skill,Vocabulary and register,Use and explain subject-specific terms,"use the subject-specific terms of a topic you have worked on correctly, and explain them for a reader who does not know the field.",academic-vocabulary,0,
+collocation-phrasal,concept,Vocabulary and register,Collocations and phrasal verbs,"Collocation: words that are normally used together, such as make a decision, play a role and raise awareness.
+Phrasal verb: a verb and a particle that together have their own meaning, such as carry out or put off.",,0,
+use-collocations,skill,Vocabulary and register,Use natural collocations,"use natural collocations instead of word-for-word translations from Norwegian, such as make a mistake rather than do a mistake, and prefer a one-word verb to a phrasal verb in formal writing.",collocation-phrasal;register,0,
+choose-word-form,skill,Vocabulary and register,Choose the right form in a word family,"choose the right word from a word family, such as economy, economic, economical and economist, using prefixes and suffixes to tell word class and meaning.",,0,
+confusable-words,fact,Vocabulary and register,Commonly confused words in formal writing,"affect: to influence (verb)
+effect: a result (noun)
+economic: to do with the economy
+economical: saving money or resources
+principle: a basic rule or belief
+principal: main, or the head of a school
+imply: suggest without saying directly
+infer: conclude from what is suggested
+fewer: used with countable nouns (fewer people)
+less: used with uncountable nouns (less time)
+historic: important in history
+historical: to do with the past
+complement: something that completes or goes well with something else
+compliment: praise",,0,
+hedging,concept,Vocabulary and register,Hedging,"Hedging: softening a claim to show how certain you are, with words such as may, seems, likely, tends to and to some extent.",,0,
+use-hedging,skill,Vocabulary and register,Match your claims to your evidence,"state a claim as strongly as the evidence allows, using hedging where it is uncertain and avoiding sweeping words such as always, everyone and never.",hedging,0,
+linking-words,concept,Vocabulary and register,Linking words,"Linking word: a word or phrase that shows how ideas relate, such as addition (furthermore), contrast (however, whereas), concession (although, admittedly), cause and effect (therefore, as a result), example (for instance) and conclusion (in conclusion).",,0,
+cohesion-coherence,concept,Vocabulary and register,Cohesion and coherence,"Cohesion: the links between sentences, made with linking words, reference words such as this and these, repetition and synonyms.
+Coherence: the logical order of ideas, so that the reader can follow the thread through the whole text.",linking-words,0,
+build-cohesion,skill,Vocabulary and register,Bind a text together,"bind sentences and paragraphs together with varied linking words and clear reference words, and put a noun after this or these when the reference would otherwise be unclear.",cohesion-coherence,0,
+factual-text-types,concept,Reading factual texts,Types of factual text,"News report: a text that tells what has happened, most important facts first.
+Feature article: a longer, more personal text that explores a topic in depth.
+Opinion piece: a text that argues for the writer's view, such as an editorial or a column.
+Report: an organised account of an investigation, usually with headings.",,0,
+identify-purpose,skill,Reading factual texts,"Identify purpose, audience and text type","identify the purpose, intended audience and text type of a factual text, and explain how they shape its language and structure.",factual-text-types;register,0,
+summarise,skill,Reading factual texts,Summarise a long factual text,"summarise a long factual text in your own words, keeping the main argument and leaving out examples and details.",choose-reading-strategy,0,
+explicit-implicit,concept,Reading factual texts,Explicit and implicit information,"Explicit information: what a text states directly.
+Implicit information: what a text suggests without stating it, which the reader infers from word choice, selection and tone.",,0,
+infer-implicit,skill,Reading factual texts,Read between the lines,"work out a writer's implicit attitudes and assumptions from word choice and from what is included and left out, and support your reading with quotations.",explicit-implicit,0,
+rhetorical-appeals,concept,Reading factual texts,Rhetorical appeals,"Ethos: persuading through the speaker's credibility and character.
+Pathos: persuading by stirring the audience's emotions.
+Logos: persuading through facts, reasoning and logic.
+Kairos: saying the right thing at the right moment and in a way that fits the situation.",,0,
+analyse-rhetoric,skill,Reading factual texts,Analyse a persuasive text,"analyse how a speech or opinion piece tries to persuade, through the appeals and devices such as repetition, rhetorical questions and contrast, and assess how well it works.",rhetorical-appeals;identify-purpose,0,
+read-subject-text,skill,Reading factual texts,Read a text from another subject,"read an English text from another subject, such as a popular science article on climate, health or technology, and explain its main points and key terms to a reader without the background.",use-subject-terms;summarise,0,
+describe-data,skill,Reading factual texts,Describe a graph or table,"describe and interpret a graph, table or chart in English, with precise language for trends such as rise steadily, level off, peak and fall sharply, and say what the data do not show.",,0,
+research-article,concept,Reading factual texts,Research article,"Research article: an academic text reporting a study, usually with an abstract, an introduction, a method section, results, a discussion and a reference list.
+Abstract: a short summary at the start of a research article.",factual-text-types,0,
+read-research-article,skill,Reading factual texts,Find the essentials in a research article,"find the research question, method and main finding of a research article by reading the abstract, the headings and the discussion first.",research-article;choose-reading-strategy,0,
+academic-reflection,skill,Reading factual texts,Reflect academically on a text,"reflect on a text academically: relate it to other texts and to what you know, weigh its claims, and say what it adds to your understanding of the topic.",infer-implicit;summarise,0,
+source-criticism,concept,Sources,Source criticism,"Source criticism: evaluating a source by asking who made it, for what purpose and audience, when, what evidence it builds on, and whether independent sources confirm it.",,0,
+search-effectively,skill,Sources,Search for sources effectively,"search for English sources with precise keywords, quotation marks and filters, use search tools for academic texts such as Google Scholar, and change the search when the results are poor.",,0,
+assess-source,skill,Sources,Assess a source,"assess how reliable and relevant a source is for your purpose, and explain your judgement with reference to sender, purpose, date and evidence.",source-criticism,0,
+bias-misinformation,concept,Sources,Bias and misinformation,"Bias: a one-sided presentation that favours one view, often without saying so.
+Misinformation: false information spread by people who believe it is true.
+Disinformation: false information spread on purpose to mislead.",,0,
+detect-bias,skill,Sources,Detect bias in a source,"spot bias in a source through word choice, the facts selected, framing and images, and compare it with a source that has a different slant.",bias-misinformation;infer-implicit,0,
+fact-check,skill,Sources,Check a claim across sources,"check a claim by leaving the page and finding out what independent sources say about the claim and about whoever made it.",assess-source,0,
+quote-paraphrase-summary,concept,Sources,"Quotation, paraphrase and summary","Quotation: a source's exact words, in quotation marks.
+Paraphrase: a source's point in your own words, about as long as the original.
+Summary: the main points of a source in your own words, much shorter than the original.",,0,
+integrate-sources,skill,Sources,Work sources into your own text,"work quotations and paraphrases into your own sentences with signal phrases such as according to and X argues that, and comment on each one instead of letting it stand alone.",quote-paraphrase-summary,0,
+citation,concept,Sources,In-text citation and reference list,"In-text citation: a short reference in the text to where an idea or quotation comes from, such as (Smith, 2023).
+Reference list: the full list of sources at the end of a text, in alphabetical order.
+Citation style: a fixed system for references, such as APA or MLA.",,0,
+cite-sources,skill,Sources,Cite sources consistently,"cite sources in the text and list them in a reference list, following one citation style consistently.",citation;integrate-sources,0,
+plagiarism,concept,Sources,Plagiarism,"Plagiarism: presenting someone else's words or ideas as your own, including text produced by an AI tool or a source used without a reference.",quote-paraphrase-summary,0,
+task-words,fact,Writing,Task words,"discuss: weigh arguments for and against and reach a conclusion
+analyse: break something into its parts and show how they work and why
+compare: point out similarities and differences
+explain: make clear how or why something is as it is
+reflect: consider something from several angles and show your own thinking
+assess: judge the value, importance or effect of something, with reasons
+present: give an organised account of something
+elaborate: develop a point further with details and examples",,0,
+interpret-task,skill,Writing,Answer exactly what the task asks,"read a writing task closely, identify the task words, the topic and any required sources or text type, and plan a text that answers exactly what is asked.",task-words,0,
+essay-structure,concept,Writing,Essay structure,"Introduction: the opening paragraph, which leads into the topic and states the thesis.
+Thesis statement: one or two sentences in the introduction that state the main claim or angle of the text.
+Body paragraph: a paragraph that develops one point, opening with a topic sentence.
+Conclusion: the closing paragraph, which draws the argument together.",,0,
+write-thesis,skill,Writing,Write a thesis statement,"write a thesis statement that is specific and arguable, and keep the rest of the text tied to it.",essay-structure,0,
+write-paragraph,skill,Writing,Write a well-built paragraph,"write a paragraph that develops one point: a clear topic sentence, explanation, evidence or examples, and a sentence linking it back to the thesis.",essay-structure;build-cohesion,0,
+intro-conclusion,skill,Writing,Write the introduction and conclusion,"write an introduction that leads into the topic and states the thesis, and a conclusion that draws the argument together without just repeating it or adding new points.",write-thesis,0,
+essay-types,concept,Writing,Types of essay,"Argumentative essay: an essay that argues for one position.
+Discussion essay: an essay that weighs several views before reaching a balanced conclusion.
+Analytical essay: an essay that examines how a text or phenomenon works and why.",essay-structure,0,
+write-argumentative,skill,Writing,Write an argumentative essay,"write an argumentative essay that builds a position with evidence and answers the strongest counterargument.",essay-types;write-paragraph;intro-conclusion,0,
+write-discussion,skill,Writing,Write a discussion essay,"write a discussion essay that presents several views fairly, weighs them against each other, and reaches a conclusion that follows from the discussion.",essay-types;write-paragraph;intro-conclusion;use-hedging,0,
+write-analytical,skill,Writing,Write an analytical essay,"write an analytical essay about a text, organised by points of analysis rather than by retelling the text, with quotations as evidence.",essay-types;write-paragraph;intro-conclusion;integrate-sources,0,
+write-for-audience,skill,Writing,Write a feature article or formal letter,"write a feature article, blog post or formal letter for a defined audience and purpose, with a fitting title, opening and register.",adapt-register,0,
+write-under-time,skill,Writing,Write a long text from sources in limited time,"plan, write and revise a long text that answers a task within a fixed time, using given sources critically and accountably.",interpret-task;write-discussion;cite-sources;edit-own-text;use-writing-process,0,
+word-stress,concept,Speaking,Word stress,"Word stress: the syllable spoken louder and longer in a word; within a word family the stress can move, as in PHOtograph, phoTOgraphy and photoGRAPHic.",,0,
+pronounce-clearly,skill,Speaking,Pronounce academic English clearly,"speak clearly with correct word stress on academic words such as analysis, develop and economy, and keep to one accent consistently.",word-stress,0,
+give-presentation,skill,Speaking,Give an academic presentation,"give a structured presentation on an academic topic, with a clear main point, signposting between the parts and a conclusion, speaking from keywords rather than a script.",adapt-register;pronounce-clearly,0,
+formal-discussion,skill,Speaking,Take part in a formal discussion,"take part in a formal discussion: build on what others say, disagree politely with reasons, and ask follow-up questions that move the discussion on.",keep-communication-going,0,
+debate-format,concept,Speaking,Formal debate,"Motion: the statement a debate is about.
+Proposition: the side arguing for the motion.
+Opposition: the side arguing against the motion.
+Rebuttal: an answer that shows why the other side's argument does not hold.",,0,
+debate,skill,Speaking,Argue a motion in a debate,"argue for or against a motion with prepared arguments, and rebut the other side's points on the spot.",debate-format;formal-discussion,0,
+exam-conversation,skill,Speaking,Handle follow-up questions,"answer follow-up questions in an academic conversation, such as an oral exam: expand on your answers, justify your views with examples, and say so honestly when you are unsure.",formal-discussion;give-presentation,0,
+narrative-technique,concept,Fiction and film,Narrator and point of view,"Narrator: the voice that tells the story, which is not the same as the author.
+Point of view: whose eyes and thoughts the story is told through, from a first-person narrator to an omniscient one.
+Unreliable narrator: a narrator whose account the reader has reason to doubt.",,0,
+characterisation,concept,Fiction and film,Characterisation,"Direct characterisation: the narrator tells the reader what a character is like.
+Indirect characterisation: the reader works out what a character is like from what they say, do and think.
+Round character: a complex character who develops during the story.
+Flat character: a simple character built around one trait.",,0,
+theme-motif-symbol,concept,Fiction and film,"Theme, motif and symbol","Theme: a central idea a text explores, such as power, identity or loss.
+Motif: an image, idea or object that recurs and develops the theme.
+Symbol: a concrete thing that also stands for something larger.",,0,
+irony,concept,Fiction and film,Irony,"Verbal irony: saying the opposite of what is meant.
+Situational irony: an outcome that is the opposite of what was expected.
+Dramatic irony: the reader or audience knows something a character does not.",,0,
+figurative-language,concept,Fiction and film,Figurative language,"Simile: a comparison using like or as.
+Metaphor: describing something by calling it something else.
+Personification: giving human qualities to things, animals or nature.
+Imagery: language that appeals to the senses.",,0,
+poetic-devices,concept,Fiction and film,Poetic devices,"Speaker: the voice in a poem, which is not necessarily the poet.
+Stanza: a group of lines forming a unit in a poem.
+Enjambment: a sentence running on from one line to the next without a pause.
+Rhyme scheme: the pattern of rhymes at the ends of lines, written as letters such as ABAB.
+Alliteration: the same sound at the start of several words close together.",figurative-language,0,
+film-techniques,concept,Fiction and film,Film techniques,"Shot size: how much of the scene the frame shows, from extreme long shot to close-up.
+Camera angle: the position the camera films from, such as low angle or high angle.
+Editing: how shots are cut and put together, which controls pace and connections.
+Diegetic sound: sound that belongs to the world of the film, such as dialogue.
+Non-diegetic sound: sound added for the audience, such as background music.",,0,
+analyse-short-story,skill,Fiction and film,Analyse a short story,"analyse how a short story creates meaning through its narrator, characters, setting, structure and literary devices.",narrative-technique;characterisation;theme-motif-symbol;irony,0,
+analyse-poem,skill,Fiction and film,Analyse a poem,"analyse how a poem creates meaning through its speaker, imagery, sound and form, and connect the devices to what the poem is about.",poetic-devices;theme-motif-symbol,0,
+analyse-film,skill,Fiction and film,Analyse a film scene,"analyse how a film scene uses shot size, camera angle, editing, sound and acting to create mood and meaning.",film-techniques;characterisation,0,
+quote-literary,skill,Fiction and film,Use quotations as evidence about literature,"use short quotations, worked into your own sentences, as evidence when writing about literature, and comment on the words you quote.",integrate-sources,0,
+interpret-text,skill,Fiction and film,Argue for an interpretation,"argue for an interpretation of a literary text, support it with evidence from the text, and consider another possible reading.",analyse-short-story;quote-literary,0,
+self-chosen-work,skill,Fiction and film,Present a work you have chosen yourself,"choose a novel, play or film yourself, and present and interpret it, explaining why you chose it and what it says about its themes.",interpret-text;give-presentation,0,
+compare-works,skill,Fiction and film,Compare two works on the same theme,"compare how two literary works or films treat the same theme, and explain what the comparison shows.",interpret-text,0,
+write-literary-essay,skill,Fiction and film,Write a literary essay,"write an essay that interprets a literary text or film, organised around your reading of it and supported with quotations and analysis.",interpret-text;write-analytical,0,
+standard-dialect-accent,concept,Varieties of English,"Standard English, dialect and accent","Standard English: the variety used in education, news and official writing, with largely the same grammar and spelling everywhere.
+Dialect: a regional or social variety with its own vocabulary and grammar.
+Accent: the way a variety is pronounced.",,0,
+rp-ga,concept,Varieties of English,RP and General American,"Received Pronunciation (RP): the accent traditionally regarded as standard in England, not tied to one region.
+General American: the broad accent of much of the USA without strong regional features.
+Rhotic accent: an accent where an r after a vowel is pronounced, as in most American English; RP is non-rhotic.",standard-dialect-accent,0,
+world-englishes,concept,Varieties of English,Kachru's three circles,"Inner circle: countries where English is the main first language, such as the UK, the USA and Australia.
+Outer circle: countries where English is an official or second language because of colonial history, such as India, Nigeria and Singapore.
+Expanding circle: countries where English is learned as a foreign language, such as Norway, Brazil and China.",standard-dialect-accent,0,
+pidgin-creole,concept,Varieties of English,Pidgin and creole,"Pidgin: a simplified contact language that arises when groups without a common language need to communicate, and that is nobody's first language.
+Creole: a full language that develops when a pidgin becomes the first language of a community, such as Jamaican Creole.",world-englishes,0,
+prestige-identity,concept,Varieties of English,Prestige and code-switching,"Linguistic prestige: the status a variety has in a society, which reflects the status of its speakers rather than the quality of the language.
+Code-switching: shifting between languages or varieties depending on the situation and the people you are with.",standard-dialect-accent,0,
+british-american-words,fact,Varieties of English,British and American words,"flat (BrE): apartment (AmE)
+lorry (BrE): truck (AmE)
+pavement (BrE): sidewalk (AmE)
+autumn (BrE): fall (AmE)
+queue (BrE): line (AmE)
+mobile phone (BrE): cell phone (AmE)
+petrol (BrE): gas (AmE)
+holiday (BrE): vacation (AmE)
+rubbish (BrE): trash or garbage (AmE)
+colour, centre, travelled (BrE): color, center, traveled (AmE)",,0,
+identify-varieties,skill,Varieties of English,Recognise varieties of English,"recognise some major varieties of English when you hear or read them, such as British, American, Australian, Irish, Scottish, Indian and Nigerian English, and point to features that identify them.",rp-ga;world-englishes,0,
+compare-varieties,skill,Varieties of English,Compare two varieties of English,"describe differences in pronunciation, vocabulary, spelling and grammar between two varieties of English, with examples, and keep to one variety in your own writing.",identify-varieties;british-american-words,0,
+reflect-varieties,skill,Varieties of English,Reflect on varieties and identity,"reflect on why some varieties of English have higher status than others, and on how a variety can express identity, history and belonging.",compare-varieties;prestige-identity;pidgin-creole,0,
+lingua-franca,concept,English as a global language,Lingua franca,"Lingua franca: a shared language used between people with different first languages, as English is in much of business, science, aviation and the internet.",,0,
+explain-spread,skill,English as a global language,Explain how English became a global language,"explain how English became a global language through British colonialism, the economic and cultural power of the USA after 1945, and its role in science, technology and the internet.",lingua-franca;world-englishes,0,
+language-dominance,concept,English as a global language,Linguistic imperialism and domain loss,"Linguistic imperialism: the view that the spread of English pushes other languages and cultures aside and favours native speakers.
+Domain loss: when a language stops being used in an area of society, such as Norwegian in research or parts of business.",lingua-franca,0,
+anglicism,concept,English as a global language,Anglicism,"Anglicism: an English word, phrase or structure taken into another language, such as deadline or å google in Norwegian.",,0,
+english-and-norwegian,skill,English as a global language,Reflect on English influence on Norwegian,"reflect on how English influences Norwegian, with examples from vocabulary, everyday speech and areas such as research and business, and discuss whether it is a threat or an enrichment.",anglicism;language-dominance,0,
+reflect-global-english,skill,English as a global language,Discuss English as a global language,"discuss the advantages and disadvantages of English as a global language for exchanging information and opinions, including for people who do not speak it.",explain-spread;language-dominance,0,
+echo-filter,concept,English as a global language,Echo chamber and filter bubble,"Echo chamber: an environment where people mostly meet opinions that confirm their own.
+Filter bubble: the narrowing of what a user sees online by algorithms that build on their earlier behaviour.",,0,
+analyse-online-opinion,skill,English as a global language,Analyse how opinions spread online,"analyse how information and opinions spread in English online, through social media, influencers and algorithms, and what this means for how people form their views.",echo-filter;detect-bias,0,
+intercultural-communication,skill,English as a global language,Communicate with speakers of other first languages,"adapt your English when communicating with people who speak it as a second language: avoid local idioms and slang, speak clearly, and check understanding without being condescending.",lingua-franca;keep-communication-going,0,
+polarisation,concept,Current debates,Polarisation,"Polarisation: the movement of opinion in a society towards two opposing camps with little common ground.",,0,
+us-amendments,fact,Current debates,Constitutional amendments in US debates,"First Amendment: freedom of religion, speech, the press, assembly and petition
+Second Amendment: the right to keep and bear arms
+Fourteenth Amendment: citizenship and equal protection of the laws
+Nineteenth Amendment: women's right to vote",,0,
+reconciliation,concept,Current debates,Reconciliation with Indigenous peoples,"Reconciliation: the process of acknowledging and making amends for past wrongs against Indigenous peoples, such as the residential schools in Canada and the Stolen Generations in Australia.",,0,
+map-debate,skill,Current debates,Map a current debate,"map a current social debate in an English-speaking country: the main positions, the groups that hold them, and their strongest arguments.",,0,
+debate-background,skill,Current debates,Explain the background of a debate,"explain the historical background of a current debate, such as gun control in the USA, Indigenous rights in Canada or Australia, or immigration in the UK, and how that background shapes the debate today.",map-debate;us-amendments;reconciliation,0,
+compare-coverage,skill,Current debates,Compare how the media cover a debate,"compare how two news outlets with different political leanings cover the same issue, and explain the differences in framing.",detect-bias;map-debate,0,
+compare-with-norway,skill,Current debates,Compare a debate with Norway,"compare a debate in an English-speaking country with a similar debate in Norway, and explain the differences through history, institutions or values.",map-debate,0,
+discuss-debate,skill,Current debates,Discuss a current debate independently,"discuss a current social debate in an English-speaking country with independent reflection: weigh the arguments, question the assumptions on all sides, and reach and justify a view of your own.",debate-background;compare-coverage;polarisation;use-hedging,0,
+research-question,concept,In-depth project,Research question,"Research question: a precise, open question that a project sets out to answer, narrow enough to be answered with the time and sources available.",,0,
+formulate-question,skill,In-depth project,Narrow a topic to a research question,"choose a topic related to language, culture, society or science, and narrow it to a research question that can be answered.",research-question,0,
+plan-project,skill,In-depth project,Plan an in-depth project,"plan an in-depth project: set a timeline, decide which kinds of sources to search, and record notes and references as you go.",formulate-question;search-effectively,0,
+present-project,skill,In-depth project,Present an in-depth project,"present the findings of your in-depth project orally or in writing, using English sources critically, and say where the sources disagree and what remains uncertain.",plan-project;assess-source;cite-sources;give-presentation;academic-reflection,0,

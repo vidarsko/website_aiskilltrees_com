@@ -1,0 +1,260 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Datamaskiner og nettverk;Digital representasjon og lagring;Grunnleggende programmering;Prosedyrer og funksjoner;Algoritmer og effektivitet;Utforske og strukturere kode;Nettsider med HTML og CSS;Brukervennlighet og universell utforming;Data på nettsider;Personvern og data;Teknologi og samfunn;Utforskende programmering,,,
+,config,,title,Informasjonsteknologi 1,,,
+,config,,description,"Datamaskiner og nettverk, digital representasjon, programmering med prosedyrer og funksjoner, algoritmer, nettsider med HTML og CSS, universell utforming, personvern og teknologi i samfunnet — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,mathematics,,,
+,config,,storageKey,no-vgs-it-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,informasjonsteknologi 1 (programfag i norsk videregående skole),,,
+,config,,slots.motivationSubject,IT,,,
+,config,,slots.expressionFocus,"blander sammen = (tilordning) og == (sammenligning), blander sammen print og return, bruker «parameter» og «argument» om hverandre, sier «en kode» om et program, blander bit og byte (b og B), glemmer å lukke HTML-elementer eller rykker inn koden tilfeldig, eller skriver «det funker ikke» i stedet for å si hvilken feil som oppstår og på hvilken linje",,,
+,config,,slots.courseSpecifics,"Python er brukt som eksempelspråk der et programmeringsspråk må velges. Sier eleven at klassen bruker et annet språk (f.eks. JavaScript), bruk det i stedet. Nettsider lages med HTML og CSS. Faget har standpunktkarakter, og eleven kan trekkes ut til muntlig-praktisk eksamen med forberedelsesdel, så la eleven også forklare og begrunne løsningene sine med egne ord, ikke bare skrive kode.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag realfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3048,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,informatics,,,
+,config,,keywords,IT1; informatikk; programmering; Python; HTML; CSS; nettsider; algoritmer; binære tall; nettverk; personvern; GDPR; universell utforming; WCAG; muntlig eksamen,,,
+,config,,updated,2026-10-08,,,
+maskinvare-programvare,concept,Datamaskiner og nettverk,Maskinvare og programvare,"Maskinvare: de fysiske delene av en datamaskin, som prosessor, minne og skjerm.
+Programvare: programmene som kjører på maskinvaren og forteller den hva den skal gjøre.
+Operativsystem: programvaren som styrer maskinvaren og lar andre programmer bruke den, f.eks. Windows, macOS, Linux eller Android.",,0,
+prosessor-minne-lagring,concept,Datamaskiner og nettverk,"Prosessor, minne og lagring","Prosessor (CPU): komponenten som utfører instruksjonene i et program, én etter én, svært raskt.
+Arbeidsminne (RAM): raskt minne som holder programmene og dataene som er i bruk nå. Innholdet forsvinner når strømmen går.
+Lagring: harddisk eller SSD som tar vare på filer og programmer også når maskinen er slått av, men er tregere enn RAM.
+Inn- og utenheter: det maskinen tar imot data fra (tastatur, mus, mikrofon) og sender data til (skjerm, høyttaler).",maskinvare-programvare,0,
+forklare-programkjoring,skill,Datamaskiner og nettverk,Forklare hva som skjer når et program kjøres,"beskrive hvilken rolle lagring, arbeidsminne og prosessor spiller fra et program startes til det viser et resultat på skjermen.",prosessor-minne-lagring,0,"Gi eleven et konkret scenario (f.eks. å åpne et bilde i et bildeprogram og gjøre det lysere), og be dem forklare steg for steg hvilke komponenter som er i bruk og hvorfor."
+nettverk-begrep,concept,Datamaskiner og nettverk,Nettverk og Internett,"Nettverk: to eller flere enheter som er koblet sammen for å utveksle data.
+Lokalnett (LAN): et nettverk innenfor et begrenset område, som et hjem eller en skole.
+Internett: det verdensomspennende nettverket av sammenkoblede nettverk.
+Verdensveven (WWW): tjenesten med nettsider som lenker til hverandre, og som bruker Internett til å flytte dataene.",,0,
+nettverkskomponenter,concept,Datamaskiner og nettverk,Nettverkskomponenter,"Ruter: sender datapakker videre mellom ulike nettverk, f.eks. mellom hjemmenettet og Internett.
+Svitsj: kobler sammen enheter i samme lokalnett og sender data bare til den enheten den er ment for.
+Trådløst aksesspunkt: lar enheter koble seg til nettverket uten kabel, via wifi.
+Nettverkskort: delen av en enhet som sender og tar imot data i nettverket.",nettverk-begrep,0,
+ip-dns,concept,Datamaskiner og nettverk,IP-adresse og DNS,"IP-adresse: et nummer som identifiserer en enhet i et nettverk, slik at data kan sendes til riktig sted.
+Domenenavn: et navn som er lettere å huske enn en IP-adresse, som udir.no.
+DNS: tjenesten som slår opp domenenavnet og finner IP-adressen som hører til.",nettverk-begrep,0,
+protokoll-pakker,concept,Datamaskiner og nettverk,Protokoller og datapakker,"Protokoll: et sett regler for hvordan to enheter skal utveksle data.
+Datapakke: en liten bit av en større melding. Dataene deles i pakker som kan sendes hver sin vei og settes sammen igjen hos mottakeren.
+TCP/IP: protokollene som deler opp, adresserer og sender pakkene på Internett, og sørger for at alt kommer fram.
+HTTP og HTTPS: protokollene nettlesere bruker til å hente nettsider. HTTPS krypterer innholdet underveis.",ip-dns,0,
+klient-tjener,concept,Datamaskiner og nettverk,Klient og tjener,"Klient: programmet eller enheten som ber om data, f.eks. nettleseren din.
+Tjener (server): datamaskinen som tar imot forespørselen og sender data tilbake, f.eks. en webtjener som leverer nettsider.",nettverk-begrep,0,
+forklare-nettsideoppslag,skill,Datamaskiner og nettverk,Forklare hva som skjer når du åpner en nettside,"forklare steg for steg hva som skjer fra en adresse skrives i nettleseren til siden vises, med DNS-oppslag, forespørsel til tjeneren, datapakker gjennom rutere og svar tilbake.",ip-dns;protokoll-pakker;klient-tjener;nettverkskomponenter,0,"Be eleven forklare hele kjeden for en konkret adresse. Spør oppfølgingsspørsmål om hva som ville skjedd hvis ett ledd i kjeden sviktet, f.eks. DNS."
+skissere-nettverk,skill,Datamaskiner og nettverk,Skissere og forklare et lokalt nettverk,"tegne en skisse av et hjemme- eller skolenettverk med enheter, svitsj, aksesspunkt og ruter, og forklare hvilken funksjon hver komponent har.",nettverkskomponenter,0,
+bit-byte,concept,Digital representasjon og lagring,Bit og byte,"Bit: den minste enheten for data, som enten er 0 eller 1.
+Byte: en gruppe på 8 bit. Med én byte kan vi representere 2⁸ = 256 ulike verdier.",,0,
+datamengdeenheter,fact,Digital representasjon og lagring,Enheter for datamengde,"kilobyte (kB): 1000 byte
+megabyte (MB): 1000 kB
+gigabyte (GB): 1000 MB
+terabyte (TB): 1000 GB
+kibibyte (KiB): 1024 byte
+liten b og stor B: b er bit, B er byte, så 100 Mb/s er 12,5 MB/s",bit-byte,0,
+tallsystemer,concept,Digital representasjon og lagring,Binært og heksadesimalt tallsystem,"Binært tallsystem: tallsystemet med grunntall 2, der hvert siffer er 0 eller 1 og hver plass er verdt dobbelt så mye som plassen til høyre.
+Heksadesimalt tallsystem: tallsystemet med grunntall 16, med sifrene 0–9 og A–F. Ett heksadesimalt siffer tilsvarer nøyaktig fire bit.",bit-byte,0,
+regne-binaert,skill,Digital representasjon og lagring,Regne om mellom binære tall og titallssystemet,"regne om hele tall mellom titallssystemet og det binære tallsystemet i begge retninger, for tall opp til minst 255.",tallsystemer,0,"Gi eleven tall i begge retninger, f.eks. 13, 100 og 255 til binært, og 1011 og 11001010 til titallssystemet. Be dem vise plassverdiene."
+regne-heksadesimalt,skill,Digital representasjon og lagring,Regne med heksadesimale tall,"regne om mellom heksadesimale, binære og desimale tall, og lese en heksadesimal fargekode som #FF8000 som tre fargeverdier.",regne-binaert,0,
+tegnkoding,concept,Digital representasjon og lagring,"Tegnkoding: ASCII, Unicode og UTF-8","Tegnkoding: en avtale om hvilket tall som står for hvilket tegn.
+ASCII: en gammel tegnkoding med 128 tegn, uten æ, ø og å.
+Unicode: en felles nummerering av nesten alle tegn i verdens skriftsystemer, også emoji.
+UTF-8: den vanligste måten å lagre Unicode på, med 1 til 4 byte per tegn.",bit-byte,0,
+kode-tekst,skill,Digital representasjon og lagring,Kode tekst som tall og bit,"slå opp tallkodene for tegnene i et kort ord, skrive dem som bit, og forklare hvorfor feil tegnkoding gir tegn som Ã¸ i stedet for ø.",tegnkoding;regne-binaert,0,
+bilde-representasjon,concept,Digital representasjon og lagring,Digitale bilder,"Piksel: ett bildepunkt med én farge.
+Oppløsning: hvor mange piksler bildet har i bredde og høyde.
+RGB: en farge beskrevet som styrken på rødt, grønt og blått, ofte med én byte (0–255) for hver.
+Fargedybde: hvor mange bit som brukes per piksel.
+Vektorgrafikk: et bilde lagret som former og linjer i stedet for piksler, så det kan skaleres uten å bli kornete.",bit-byte,0,
+beregne-bildestorrelse,skill,Digital representasjon og lagring,Beregne lagringsplassen til et bilde,"beregne hvor mye plass et ukomprimert bilde tar ut fra oppløsning og fargedybde, og oppgi svaret i passende enhet.",bilde-representasjon;datamengdeenheter,0,"Gi eleven f.eks. et bilde på 1920 × 1080 piksler med 24 bit per piksel, og be dem regne ut størrelsen i MB. Følg opp med hvordan svaret endres om oppløsningen dobles."
+lyd-representasjon,concept,Digital representasjon og lagring,Digital lyd,"Sampling: å måle lydsignalet mange ganger i sekundet og lagre hver måling som et tall.
+Samplingsfrekvens: hvor mange målinger som tas per sekund, f.eks. 44 100 Hz.
+Bitdybde: hvor mange bit hver måling lagres med, som avgjør hvor fint lydstyrken kan graderes.",bit-byte,0,
+komprimering,concept,Digital representasjon og lagring,Komprimering,"Komprimering: å lagre de samme dataene med færre bit.
+Tapsfri komprimering: originalen kan gjenskapes nøyaktig, f.eks. PNG og ZIP.
+Tapsbasert komprimering: noe informasjon kastes for å spare mer plass, f.eks. JPEG og MP3.",bilde-representasjon;lyd-representasjon,0,
+velge-filformat,skill,Digital representasjon og lagring,Velge filformat for et formål,"velge et passende filformat for et gitt formål, som et fotografi, en logo, et lydklipp eller en tabell med måledata, og begrunne valget ut fra kvalitet, filstørrelse og bruk.",komprimering,0,
+datalagringsmetoder,concept,Digital representasjon og lagring,Måter å lagre data på,"Tekstfil: data lagret som tekst, en linje etter en annen.
+CSV: tabelldata der hver linje er en rad og verdiene skilles med komma eller semikolon.
+JSON: data lagret som nøkkel–verdi-par og lister, som kan nøstes inni hverandre.
+Database: et system som lagrer data i tabeller og lar oss søke i, endre og koble dem sammen.",bit-byte,0,
+database-begreper,concept,Digital representasjon og lagring,"Tabell, post og primærnøkkel","Tabell: en samling data om én type ting, f.eks. elever.
+Post: én rad i tabellen, altså én elev.
+Felt: én kolonne, altså én egenskap ved hver post, f.eks. fødselsår.
+Primærnøkkel: et felt som er unikt for hver post, slik at hver post kan finnes igjen.",datalagringsmetoder,0,
+strukturere-data,skill,Digital representasjon og lagring,Strukturere informasjon som tabell og som JSON,"strukturere et sett opplysninger som en tabell med felt og primærnøkkel, og som JSON, og forklare hva hver struktur gjør lett og vanskelig.",database-begreper,0,"Gi eleven en uryddig tekstbeskrivelse av f.eks. en klasses lånte bøker, og be dem strukturere opplysningene både som tabell og som JSON."
+vurdere-representasjon,skill,Digital representasjon og lagring,Vurdere ulike måter å representere informasjon på,"vurdere fordeler og ulemper ved to måter å representere eller lagre samme informasjon på, med hensyn til presisjon, lagringsplass og hvor lett dataene er å bruke videre.",strukturere-data;velge-filformat;kode-tekst,0,
+program-algoritme,concept,Grunnleggende programmering,Algoritme og program,"Algoritme: en presis, endelig oppskrift med steg som løser et problem.
+Program: en algoritme skrevet i et programmeringsspråk, slik at en datamaskin kan utføre den.
+Syntaks: reglene for hvordan kode i et bestemt språk skal skrives.",,0,
+variabel-tilordning,concept,Grunnleggende programmering,Variabel og tilordning,"Variabel: et navn som peker på en verdi programmet har lagret.
+Tilordning: å gi en variabel en verdi med =. I x = x + 1 regnes høyresiden ut først, og svaret legges tilbake i x. Tegnet = betyr altså «sett lik», ikke «er lik».",program-algoritme,0,
+datatyper,concept,Grunnleggende programmering,Datatyper,"Heltall (int): tall uten desimaler, som 7 og -3.
+Desimaltall (float): tall med desimaler, som 3.14. Python bruker punktum, ikke komma.
+Tekst (str): en tekststreng, skrevet i anførselstegn.
+Sannhetsverdi (bool): True eller False.",variabel-tilordning,0,
+inn-og-utdata,skill,Grunnleggende programmering,Skrive et program med inndata og utdata,"skrive et program som leser inn verdier fra brukeren, gjør om tekst til tall med int() eller float(), regner med verdiene og skriver ut et tydelig svar.",datatyper,0,"Gi eleven små oppgaver som å lese inn pris og antall og skrive ut totalpris med enhet. Ta med en elev-typisk feil, at input() gir tekst, og la eleven finne ut hvorfor '2' + '3' blir '23'."
+operatorer,concept,Grunnleggende programmering,Operatorer,"Aritmetiske operatorer: +, -, *, /, ** (potens), // (heltallsdivisjon) og % (rest ved divisjon).
+Sammenligningsoperatorer: ==, !=, <, >, <= og >=, som alle gir True eller False.
+Logiske operatorer: and, or og not, som kombinerer sannhetsverdier.",datatyper,0,
+betingelser,concept,Grunnleggende programmering,Betingelse og forgrening,"Betingelse: et uttrykk som er enten sant eller usant.
+Forgrening: at programmet velger hvilke linjer som kjøres ut fra en betingelse, med if, elif og else.",operatorer,0,
+skrive-if,skill,Grunnleggende programmering,Skrive forgreninger med if,"skrive if-, elif- og else-setninger med sammensatte betingelser, og velge rekkefølge på testene slik at riktig gren blir valgt.",betingelser,0,"Bruk oppgaver der rekkefølgen på testene betyr noe, f.eks. å gi karakter ut fra poengsum, og be eleven forklare hvorfor rekkefølgen er viktig."
+lokker,concept,Grunnleggende programmering,Løkker,"Løkke: en struktur som gjentar en blokk kode.
+For-løkke: gjentar én gang for hvert element i en samling eller hvert tall i range(), og brukes når vi vet hvor mange ganger.
+While-løkke: gjentar så lenge en betingelse er sann, og brukes når vi ikke vet på forhånd hvor mange ganger.",betingelser,0,
+skrive-for-lokke,skill,Grunnleggende programmering,Skrive for-løkker,"skrive for-løkker med range() med start, stopp og steg, og bruke løkkevariabelen i beregninger.",lokker,0,
+skrive-while-lokke,skill,Grunnleggende programmering,Skrive while-løkker,"skrive while-løkker som stopper når et mål er nådd, og unngå uendelige løkker ved å sørge for at betingelsen før eller siden blir usann.",lokker,0,"Gi eleven oppgaver som «hvor mange år tar det før et beløp med 5 % rente er doblet?», og la dem finne og rette en løkke som aldri stopper."
+lister,concept,Grunnleggende programmering,Liste og indeks,"Liste: en ordnet samling verdier, skrevet med hakeparenteser, som [3, 8, 5].
+Indeks: plassnummeret til et element. Python teller fra 0, så første element er liste[0], og liste[-1] er det siste.",datatyper,0,
+bruke-lister,skill,Grunnleggende programmering,Lage og endre lister,"lage lister, hente ut og endre elementer med indeks, legge til og fjerne elementer, finne lengden med len() og gå gjennom listen med en løkke.",lister;skrive-for-lokke,0,
+akkumulere-i-lokke,skill,Grunnleggende programmering,"Summere, telle og finne største verdi med en løkke","bruke en løkke med en hjelpevariabel til å summere, telle eller finne den største eller minste verdien i en liste, uten å bruke ferdige funksjoner som sum() og max().",bruke-lister;skrive-if,0,
+strenger,skill,Grunnleggende programmering,Behandle tekst i programmer,"hente ut tegn og deler av en tekststreng med indeks og slicing, gå gjennom teksten tegn for tegn, og sette sammen utskrift med f-strenger.",lister;skrive-for-lokke,0,
+ordbok,concept,Grunnleggende programmering,Ordbok (dictionary),"Ordbok: en samling nøkkel–verdi-par, skrevet med krøllparenteser, som {'navn': 'Ada', 'alder': 17}. Vi slår opp en verdi med nøkkelen, ikke med en plassindeks.",lister,0,
+bruke-ordbok,skill,Grunnleggende programmering,Bruke ordbøker,"lage en ordbok, slå opp, legge til og endre verdier, sjekke om en nøkkel finnes, og gå gjennom alle nøkler og verdier med en løkke.",ordbok;skrive-for-lokke,0,"La eleven f.eks. telle hvor mange ganger hvert ord forekommer i en tekst med en ordbok."
+folge-kode,skill,Grunnleggende programmering,Følge kode for hånd og forutsi utskriften,"følge et kort program linje for linje uten å kjøre det, holde rede på variablenes verdier i en tabell og forutsi nøyaktig hva programmet skriver ut.",skrive-if;skrive-for-lokke;skrive-while-lokke;bruke-lister,0,"Gi eleven et program på 6–12 linjer med løkke og forgrening, og be dem lage en verditabell over variablene for hver runde før de sier hva som skrives ut."
+funksjon-begrep,concept,Prosedyrer og funksjoner,Prosedyre og funksjon,"Prosedyre: en navngitt kodeblokk som utfører en oppgave når den kalles, og som ikke gir noen verdi tilbake.
+Funksjon: en navngitt kodeblokk som regner ut og gir tilbake en verdi.
+Kall: å kjøre prosedyren eller funksjonen ved å skrive navnet etterfulgt av parenteser. I Python lages begge med def.",variabel-tilordning,0,
+prosedyre-uten-parametre,skill,Prosedyrer og funksjoner,Lage og kalle en prosedyre uten parametre,"definere en prosedyre uten parametre med def, kalle den flere ganger, og forklare hvorfor koden inni ikke kjøres før prosedyren blir kalt.",funksjon-begrep,0,
+parameter-argument,concept,Prosedyrer og funksjoner,Parameter og argument,"Parameter: variabelen i definisjonen av en prosedyre eller funksjon, som tar imot en verdi.
+Argument: verdien som sendes inn når prosedyren eller funksjonen kalles.",funksjon-begrep,0,
+prosedyre-med-parametre,skill,Prosedyrer og funksjoner,Lage prosedyrer med parametre,"definere prosedyrer med én eller flere parametre og kalle dem med ulike argumenter, slik at samme kode kan gjøre jobben for ulike verdier.",prosedyre-uten-parametre;parameter-argument,0,
+returverdi,concept,Prosedyrer og funksjoner,Returverdi,"Returverdi: verdien en funksjon gir tilbake med return. Den kan lagres i en variabel eller brukes videre i et uttrykk, og return avslutter funksjonen med en gang.",parameter-argument,0,
+funksjon-med-returverdi,skill,Prosedyrer og funksjoner,Lage funksjoner med returverdi,"definere funksjoner som tar imot argumenter og returnerer et resultat, og bruke returverdien videre i andre beregninger eller som betingelse.",prosedyre-med-parametre;returverdi,0,"Gi eleven oppgaver som en funksjon som regner ut BMI, en som avgjør om et år er skuddår (returnerer True/False), og en som finner gjennomsnittet av en liste."
+print-vs-return,skill,Prosedyrer og funksjoner,Forklare forskjellen på print og return,"forklare forskjellen på å skrive ut en verdi med print og å returnere den med return, og avgjøre hvilken et gitt program trenger.",funksjon-med-returverdi,0,"Vis eleven et program der funksjonen skriver ut svaret i stedet for å returnere det, slik at resultatet blir None når det brukes videre. Be dem forklare hva som skjer."
+lokale-variabler,concept,Prosedyrer og funksjoner,Lokale og globale variabler,"Lokal variabel: en variabel som lages inni en funksjon og bare finnes mens funksjonen kjører.
+Global variabel: en variabel som lages utenfor alle funksjoner og kan leses overalt i programmet.",funksjon-begrep,0,
+dele-opp-i-funksjoner,skill,Prosedyrer og funksjoner,Dele et program opp i funksjoner,"dele et problem opp i delproblemer, skrive én prosedyre eller funksjon for hvert, og la hovedprogrammet kalle dem i riktig rekkefølge.",funksjon-med-returverdi;lokale-variabler;bruke-lister,0,
+sokealgoritmer,concept,Algoritmer og effektivitet,Lineært søk og binærsøk,"Lineært søk: å se på elementene ett etter ett til vi finner det vi leter etter eller kommer til slutten.
+Binærsøk: å se på elementet i midten av en sortert liste, og forkaste halvparten som ikke kan inneholde det vi leter etter, igjen og igjen. Krever at listen er sortert.",program-algoritme;lister,0,
+lineaert-sok,skill,Algoritmer og effektivitet,Programmere lineært søk,"skrive en funksjon som søker gjennom en liste etter en verdi og returnerer indeksen der den står, eller en avtalt verdi som -1 hvis den ikke finnes.",sokealgoritmer;funksjon-med-returverdi;akkumulere-i-lokke,0,
+binaersok-for-hand,skill,Algoritmer og effektivitet,Utføre binærsøk for hånd,"utføre binærsøk for hånd i en sortert liste, skrive ned hvilke elementer som sammenlignes i hvert steg, og forklare hvorfor listen må være sortert.",sokealgoritmer,0,
+sorteringsalgoritmer,concept,Algoritmer og effektivitet,Sorteringsalgoritmer,"Sortering: å ordne elementer etter størrelse eller alfabet.
+Boblesortering: går gjennom listen gang på gang og bytter om naboer som står i feil rekkefølge.
+Utvalgssortering: finner det minste elementet i den usorterte delen og flytter det fremst, igjen og igjen.",program-algoritme;lister,0,
+sortere-for-hand,skill,Algoritmer og effektivitet,Simulere en sorteringsalgoritme for hånd,"vise steg for steg hvordan boblesortering og utvalgssortering endrer en kort liste, og telle hvor mange sammenligninger og ombyttinger som trengs.",sorteringsalgoritmer,0,
+programmere-sortering,skill,Algoritmer og effektivitet,Programmere en enkel sorteringsalgoritme,"skrive en funksjon som sorterer en liste med boblesortering eller utvalgssortering med nøstede løkker, uten å bruke sort() eller sorted().",sortere-for-hand;bruke-lister;funksjon-med-returverdi,0,
+effektivitet,concept,Algoritmer og effektivitet,Effektivitet og vekst,"Effektivitet: hvor mye tid eller minne en algoritme bruker.
+Antall operasjoner: et mål på arbeidet en algoritme gjør, uavhengig av hvor rask maskinen er.
+Lineær vekst: arbeidet dobles når datamengden dobles, som ved én løkke over listen.
+Kvadratisk vekst: arbeidet firedobles når datamengden dobles, som ved to nøstede løkker.
+Logaritmisk vekst: arbeidet øker med ett steg når datamengden dobles, som ved binærsøk.",sokealgoritmer;sorteringsalgoritmer,0,
+anslaa-operasjoner,skill,Algoritmer og effektivitet,Anslå hvor mye arbeid en algoritme gjør,"anslå hvordan antall operasjoner i en kodebit vokser med størrelsen på dataene, og sammenligne to algoritmer for samme problem ut fra det.",effektivitet;folge-kode,0,"Vis eleven kodebiter med én løkke, to nøstede løkker og en løkke som halverer, og be dem anslå hvor mange operasjoner som trengs for 10, 1000 og 1 000 000 elementer."
+vurdere-egen-kode-effektivitet,skill,Algoritmer og effektivitet,Vurdere og forbedre effektiviteten i egen kode,"måle eller anslå kjøretiden til sitt eget program, finne den delen som gjør mest unødvendig arbeid, og foreslå eller gjøre en mer effektiv løsning.",anslaa-operasjoner;programmere-sortering;lineaert-sok,0,"La eleven f.eks. sammenligne sin egen sortering med sorted() på lister av ulik lengde ved å ta tiden med time-modulen, og forklare resultatet."
+beskrive-algoritme,skill,Algoritmer og effektivitet,Beskrive en algoritme med pseudokode eller flytdiagram,"beskrive en algoritme presist med pseudokode eller flytdiagram før den programmeres, slik at en annen kan følge stegene.",program-algoritme;betingelser;lokker,0,
+feiltyper,concept,Utforske og strukturere kode,"Syntaksfeil, kjøretidsfeil og logiske feil","Syntaksfeil: koden bryter språkets regler, så programmet ikke starter.
+Kjøretidsfeil: programmet starter, men stopper med en feilmelding underveis, f.eks. ved deling på null.
+Logisk feil: programmet kjører uten feilmelding, men gir feil svar.",program-algoritme,0,
+lese-feilmelding,skill,Utforske og strukturere kode,Lese en feilmelding og rette feilen,"lese en feilmelding fra Python, finne linjen og feiltypen den peker på, og rette feilen.",feiltyper;inn-og-utdata,0,"Gi eleven korte programmer med typiske feil (manglende kolon, feil innrykk, NameError, TypeError ved tekst pluss tall, IndexError) sammen med feilmeldingen, og be dem forklare meldingen før de retter."
+finne-logisk-feil,skill,Utforske og strukturere kode,Finne en logisk feil,"finne en logisk feil ved å teste med verdier der svaret er kjent på forhånd og skrive ut mellomverdier til man ser hvor programmet går galt.",feiltyper;folge-kode,0,
+utforske-ukjent-kode,skill,Utforske og strukturere kode,Utforske et ukjent program,"finne ut hva et ukjent program gjør ved å lese det, kjøre det, endre én ting om gangen og observere hva som skjer.",folge-kode,0,
+lesbar-kode,concept,Utforske og strukturere kode,Lesbar kode,"Beskrivende navn: variabler og funksjoner heter det de inneholder eller gjør, som antall_elever, ikke a.
+Innrykk: viser hvilke linjer som hører til en løkke, forgrening eller funksjon. I Python er innrykket en del av syntaksen.
+Gjentakelse: kode som er kopiert flere steder, bør heller stå ett sted, i en løkke eller funksjon.",funksjon-begrep,0,
+kommentere-kode,skill,Utforske og strukturere kode,Kommentere kode,"skrive kommentarer som forklarer hvorfor koden gjør det den gjør og hva en funksjon tar imot og gir tilbake, uten å gjenta det som står i selve koden.",lesbar-kode,0,"Gi eleven et program uten kommentarer og et program med overflødige kommentarer som '# legger til 1', og be dem kommentere det første og rydde i det andre."
+strukturere-kode,skill,Utforske og strukturere kode,Rydde og omstrukturere kode,"skrive om et rotete program med bedre navn, færre gjentakelser og en tydelig inndeling i funksjoner, uten å endre hva programmet gjør.",lesbar-kode;dele-opp-i-funksjoner,0,
+markeringsspraak,concept,Nettsider med HTML og CSS,Markeringsspråk og HTML,"Markeringsspråk: et språk som merker opp tekst med koder som sier hva de ulike delene er, ikke hva datamaskinen skal regne ut.
+HTML: markeringsspråket nettsider skrives i.
+Element: en del av siden, som regel med en starttagg og en sluttagg, som <p> og </p>.
+Attributt: ekstra informasjon i starttaggen, som href i en lenke eller alt i et bilde.",klient-tjener,0,
+html-grunnstruktur,skill,Nettsider med HTML og CSS,Lage grunnstrukturen i et HTML-dokument,"skrive et gyldig HTML-dokument med doctype, html-, head- og body-element, tittel og tegnkoding.",markeringsspraak,0,
+html-tekst-lenker-bilder,skill,Nettsider med HTML og CSS,"Bruke overskrifter, avsnitt, lister, lenker og bilder","bruke overskrifter i riktig rekkefølge, avsnitt, punktlister, lenker og bilder med alternativ tekst i et HTML-dokument.",html-grunnstruktur,0,
+stier,concept,Nettsider med HTML og CSS,Relative og absolutte stier,"Absolutt adresse: en full adresse med protokoll og domene, som https://udir.no/.
+Relativ sti: en sti regnet fra filen vi står i, som bilder/logo.png eller ../index.html, der .. betyr mappen over.",markeringsspraak,0,
+semantisk-html,concept,Nettsider med HTML og CSS,Semantisk HTML,"Semantisk element: et element som sier hva innholdet er, ikke bare hvordan det ser ut, som header, nav, main, section, article og footer. Det hjelper både skjermlesere og søkemotorer.",markeringsspraak,0,
+html-struktur-semantisk,skill,Nettsider med HTML og CSS,Strukturere en nettside med semantiske elementer,"dele en nettside inn med semantiske elementer, slik at toppfelt, navigasjon, hovedinnhold og bunnfelt er merket opp for det de er.",semantisk-html;html-tekst-lenker-bilder,0,
+html-tabell,skill,Nettsider med HTML og CSS,Lage en tabell i HTML,"lage en tabell i HTML med overskriftsrad og dataceller, slik at tabellen også kan leses av en skjermleser.",html-grunnstruktur,0,
+html-skjema,skill,Nettsider med HTML og CSS,Lage et skjema i HTML,"lage et skjema med tekstfelt, valgknapper og en knapp, der hvert felt har en label som er koblet til feltet.",html-grunnstruktur,0,
+css-begrep,concept,Nettsider med HTML og CSS,CSS,"CSS: språket som bestemmer utseendet til en nettside, adskilt fra innholdet i HTML.
+Selektor: velger hvilke elementer en regel gjelder, f.eks. et elementnavn, en klasse (.meny) eller en id (#topp).
+Egenskap og verdi: det som skal endres og hva det skal bli, som color: navy;.",markeringsspraak,0,
+style-med-css,skill,Nettsider med HTML og CSS,Style en nettside med CSS,"koble et eksternt stilark til en HTML-side og bruke element-, klasse- og id-selektorer til å sette farger, skrift og avstander.",css-begrep;html-tekst-lenker-bilder,0,
+boksmodellen,concept,Nettsider med HTML og CSS,Boksmodellen,"Boksmodellen: hvert element tegnes som en boks med innhold innerst, så polstring (padding), så kantlinje (border) og ytterst marg (margin).",css-begrep,0,
+css-layout,skill,Nettsider med HTML og CSS,Lage oppsett med flexbox eller grid,"plassere elementer side om side og i kolonner med flexbox eller grid, og justere avstander med boksmodellen.",style-med-css;boksmodellen;html-struktur-semantisk,0,
+responsivt-design,concept,Nettsider med HTML og CSS,Responsivt design,"Responsivt design: at en nettside tilpasser seg skjermstørrelsen, slik at den fungerer både på mobil og PC.
+Mediespørring (media query): en CSS-regel som bare gjelder når skjermen har en bestemt bredde eller egenskap.",boksmodellen,0,
+lage-responsiv-side,skill,Nettsider med HTML og CSS,Lage en responsiv nettside,"bruke viewport-innstillingen, fleksible bredder og en mediespørring slik at oppsettet endres fra flere kolonner på PC til én kolonne på mobil.",responsivt-design;css-layout,0,
+brukervennlighet,concept,Brukervennlighet og universell utforming,Brukervennlighet,"Brukervennlighet: hvor lett, effektivt og behagelig en bestemt bruker kan nå målet sitt med en løsning.
+Målgruppe: de brukerne løsningen først og fremst lages for.",,0,
+universell-utforming,concept,Brukervennlighet og universell utforming,Universell utforming,"Universell utforming: at en løsning utformes slik at flest mulig kan bruke den, uten spesialtilpasning, også personer med nedsatt syn, hørsel, motorikk eller kognisjon.
+WCAG: den internasjonale standarden med krav til tilgjengelige nettsider. I Norge er universell utforming av nettsider et lovkrav.",brukervennlighet,0,
+wcag-prinsipper,fact,Brukervennlighet og universell utforming,De fire prinsippene i WCAG,"mulig å oppfatte: innholdet kan oppfattes med flere sanser, f.eks. alternativ tekst til bilder og teksting av video
+mulig å betjene: alt kan brukes med tastatur, og brukeren får nok tid
+forståelig: tekst og navigasjon er tydelig og forutsigbar, og feilmeldinger forklarer hva som er galt
+robust: koden følger standardene, så den virker i ulike nettlesere og hjelpemidler som skjermlesere",universell-utforming,0,
+alternativ-tekst,skill,Brukervennlighet og universell utforming,Skrive god alternativ tekst,"skrive alternativ tekst som formidler det et bilde betyr i sammenhengen, og avgjøre når et bilde er pynt og skal ha tom alt-tekst.",wcag-prinsipper;html-tekst-lenker-bilder,0,
+kontrast-farge,skill,Brukervennlighet og universell utforming,Vurdere kontrast og bruk av farge,"sjekke fargekontrasten mellom tekst og bakgrunn med et kontrastverktøy, og sørge for at informasjon ikke bare formidles med farge.",wcag-prinsipper;style-med-css,0,
+tastatur-skjema,skill,Brukervennlighet og universell utforming,Gjøre en side brukbar med tastatur og skjermleser,"sørge for at alle lenker, knapper og skjemafelt kan nås og brukes med tastaturet, at fokus synes, og at feltene har labels en skjermleser kan lese opp.",wcag-prinsipper;html-skjema;html-struktur-semantisk,0,"Be eleven teste en nettside bare med Tab, Shift+Tab og Enter, og beskrive hva som ikke fungerer og hvordan det kan rettes."
+planlegge-nettside,skill,Brukervennlighet og universell utforming,Planlegge en nettside,"planlegge en nettside ut fra målgruppe og formål med innholdsstruktur, navigasjon og en skisse av sideoppsettet, før koden skrives.",brukervennlighet;html-struktur-semantisk,0,
+brukertest,skill,Brukervennlighet og universell utforming,Gjennomføre en enkel brukertest,"gjennomføre en enkel brukertest der en testperson løser konkrete oppgaver mens hen tenker høyt, notere hvor hen stopper opp, og foreslå forbedringer ut fra det.",brukervennlighet,0,
+vurdere-nettside-uu,skill,Brukervennlighet og universell utforming,Vurdere og forbedre en nettside,"vurdere en egen eller andres nettside opp mot brukervennlighet og de fire WCAG-prinsippene, og foreslå og begrunne konkrete forbedringer.",alternativ-tekst;kontrast-farge;tastatur-skjema;brukertest;lage-responsiv-side,0,
+lese-skrive-fil,skill,Data på nettsider,Lagre og hente data fra fil,"skrive data fra et program til en tekstfil eller CSV-fil, og lese dem inn igjen til en liste i programmet.",bruke-lister;strenger;datalagringsmetoder,0,"Gi eleven en kort CSV-fil med f.eks. temperaturmålinger, og be dem lese den inn, legge til en ny måling og lagre filen igjen."
+lese-json,skill,Data på nettsider,Lese og skrive JSON,"lese en JSON-fil inn som lister og ordbøker, hente ut bestemte verdier, og lagre endrede data som JSON igjen.",bruke-ordbok;lese-skrive-fil,0,
+data-til-html,skill,Data på nettsider,Presentere data på en nettside,"skrive et program som henter data fra en fil og lager en HTML-side der dataene vises som en tabell eller liste.",lese-skrive-fil;html-tabell;dele-opp-i-funksjoner,0,"Python kan bygge HTML som tekst og skrive den til en fil. Bruker klassen JavaScript, kan dataene i stedet hentes inn og settes inn i siden der."
+diagramtyper,concept,Data på nettsider,Diagramtyper,"Søylediagram: sammenligner verdier i ulike kategorier.
+Linjediagram: viser hvordan en verdi endrer seg over tid.
+Sektordiagram: viser hvordan en helhet fordeler seg på deler.
+Punktdiagram: viser sammenhengen mellom to størrelser.",,0,
+lage-diagram,skill,Data på nettsider,Lage diagram av data med et program,"lage et søyle- eller linjediagram av data fra en fil med et programbibliotek, med titler på aksene og enheter, og vise det på en nettside.",diagramtyper;lese-skrive-fil,0,"I Python passer matplotlib. La eleven lagre diagrammet som bilde og vise det i en HTML-side."
+misvisende-fremstilling,concept,Data på nettsider,Misvisende fremstilling av data,"Avkuttet akse: en akse som ikke starter på null, slik at små forskjeller ser store ut.
+Utvalgt tidsrom: å vise bare den perioden som støtter en påstand.
+Feil diagramtype: en form som får dataene til å se ut som noe de ikke er, f.eks. et linjediagram for kategorier uten rekkefølge.",diagramtyper,0,
+vurdere-presentasjonsform,skill,Data på nettsider,Vurdere hvordan presentasjonen påvirker tolkningen,"vise de samme dataene på to ulike måter, og drøfte hvordan valg av diagramtype, skala og utvalg kan påvirke hvordan leseren tolker dem.",misvisende-fremstilling;lage-diagram,0,
+personopplysninger,concept,Personvern og data,Personopplysning og behandling,"Personopplysning: enhver opplysning som kan knyttes til en enkeltperson, direkte eller indirekte, som navn, IP-adresse eller posisjon.
+Særlige kategorier: spesielt sensitive opplysninger, som helse, religion, politisk syn, etnisitet og seksuell legning.
+Behandling: alt som gjøres med opplysningene, som å samle inn, lagre, dele og slette dem.",,0,
+personvernforordningen,concept,Personvern og data,Personvernforordningen (GDPR),"Personvernforordningen (GDPR): EU-regelverket for behandling av personopplysninger, som gjelder i Norge gjennom personopplysningsloven.
+Behandlingsgrunnlag: det lovlige grunnlaget for å behandle opplysningene, f.eks. samtykke eller avtale.
+Samtykke: en frivillig, konkret og informert ja-erklæring som kan trekkes tilbake.
+Datatilsynet: myndigheten som fører tilsyn med at regelverket følges i Norge.",personopplysninger,0,
+personvernprinsipper,fact,Personvern og data,Prinsippene for behandling av personopplysninger,"lovlighet, rettferdighet og åpenhet: behandlingen skal ha et lovlig grunnlag og være åpen for den det gjelder
+formålsbegrensning: opplysningene samles inn for bestemte formål og brukes ikke til noe annet
+dataminimering: bare de opplysningene som trengs for formålet, samles inn
+riktighet: opplysningene skal være korrekte og oppdaterte
+lagringsbegrensning: opplysningene slettes når de ikke lenger trengs
+integritet og konfidensialitet: opplysningene skal sikres mot innsyn, endring og tap
+ansvarlighet: den som behandler opplysningene, må kunne vise at reglene følges",personvernforordningen,0,
+registrertes-rettigheter,fact,Personvern og data,Rettighetene til den registrerte,"rett til informasjon: å få vite hvem som behandler opplysningene og hvorfor
+rett til innsyn: å få se hvilke opplysninger som er lagret om deg
+rett til retting: å få feil opplysninger rettet
+rett til sletting: å få opplysninger slettet når det ikke er grunnlag for å beholde dem
+rett til dataportabilitet: å få med seg opplysningene sine til en annen tjeneste
+rett til å protestere: å motsette seg behandling, f.eks. til markedsføring",personvernforordningen,0,
+innebygd-personvern,concept,Personvern og data,Innebygd personvern,"Innebygd personvern: at personvernet tas med i planleggingen fra starten av, ikke legges til etterpå.
+Personvern som standardinnstilling: at de mest personvernvennlige innstillingene er valgt på forhånd, uten at brukeren må gjøre noe.",personvernprinsipper,0,
+informasjonssikkerhet,concept,Personvern og data,Informasjonssikkerhet,"Konfidensialitet: bare de som skal ha tilgang, får se dataene.
+Integritet: dataene er korrekte og ikke endret uten lov.
+Tilgjengelighet: dataene er tilgjengelige når de trengs.",,0,
+vurdere-personvern-utvikling,skill,Personvern og data,Vurdere personvernet i en løsning som skal utvikles,"gjøre rede for hvilke krav personvernregelverket stiller til en konkret app eller nettside, ved å avgjøre hvilke personopplysninger som trengs, hvilket behandlingsgrunnlag som passer, og hvordan dataene skal sikres og slettes.",innebygd-personvern;registrertes-rettigheter;informasjonssikkerhet,0,"Gi eleven et konkret utviklingsprosjekt, f.eks. en app for påmelding til skoleturer, og be dem gå gjennom løsningen opp mot prinsippene og si hva som må endres."
+datainnsamling,concept,Personvern og data,Innsamling av data på nett,"Informasjonskapsel (cookie): en liten fil nettsiden lagrer i nettleseren for å huske innstillinger eller spore besøk.
+Sporing: å følge hva en bruker gjør på tvers av nettsider og apper.
+Metadata: data om data, som når et bilde ble tatt og hvor.
+Profilering: å bruke innsamlede data til å anslå en persons interesser, økonomi eller atferd.",personopplysninger,0,
+anonymisering,concept,Personvern og data,Anonymisering og pseudonymisering,"Anonymisering: å fjerne alt som kan knytte dataene til en person, slik at de ikke lenger er personopplysninger.
+Pseudonymisering: å erstatte navn og lignende med en kode. Dataene kan fortsatt knyttes til personen med en nøkkel, og er fortsatt personopplysninger.",personopplysninger,0,
+drofte-data-misbruk,skill,Personvern og data,"Drøfte innhenting, bruk og misbruk av data","drøfte et konkret tilfelle av innhenting og bruk av data, med fordeler for brukere og samfunn, risikoen for misbruk og hvem som har ansvaret, og ende med en begrunnet vurdering.",datainnsamling;anonymisering;personvernprinsipper,0,
+anbefalingsalgoritmer,concept,Teknologi og samfunn,Anbefalingsalgoritme og filterboble,"Anbefalingsalgoritme: en algoritme som velger ut hva du får se, ut fra hva du og lignende brukere har gjort før.
+Filterboble: at du mest får se innhold som bekrefter det du allerede liker eller mener.
+Ekkokammer: et miljø der de samme synspunktene gjentas og forsterkes, mens motstemmer sjelden slipper til.",program-algoritme,0,
+kunstig-intelligens,concept,Teknologi og samfunn,Kunstig intelligens og maskinlæring,"Kunstig intelligens: datasystemer som løser oppgaver vi forbinder med menneskelig intelligens, som å gjenkjenne bilder eller skrive tekst.
+Maskinlæring: at et system finner mønstre i store mengder eksempler i stedet for å følge regler en programmerer har skrevet.
+Treningsdata: eksemplene systemet lærer av. Skjevheter i treningsdataene blir skjevheter i systemet.",program-algoritme,0,
+digitalt-utenforskap,concept,Teknologi og samfunn,Digitalt utenforskap,"Digitalt utenforskap: at noen ikke kan bruke digitale tjenester fullt ut, på grunn av alder, funksjonsnedsettelse, språk, økonomi eller manglende kunnskap, og derfor får dårligere tilgang til tjenester og informasjon.",,0,
+vurdere-kilder-it,skill,Teknologi og samfunn,Finne og vurdere kilder om et IT-tema,"finne kilder om et dagsaktuelt IT-tema og vurdere hvem som står bak, hva formålet er, og om påstandene er dokumentert.",,0,
+drofte-dagsaktuelt-tema,skill,Teknologi og samfunn,Drøfte hvordan IT påvirker individ og samfunn,"drøfte et dagsaktuelt tema om hvordan informasjonsteknologi påvirker enkeltmennesker og samfunnet, med argumenter fra flere sider, faglige begreper og en begrunnet konklusjon.",vurdere-kilder-it;anbefalingsalgoritmer;kunstig-intelligens;digitalt-utenforskap;drofte-data-misbruk,0,"Foreslå tre-fire aktuelle temaer (f.eks. KI i skolen, aldersgrense på sosiale medier, overvåking eller digitalt utenforskap) og la eleven velge. Øv på muntlig drøfting: be eleven argumentere, og still motspørsmål."
+algoritmisk-tenkning,concept,Utforskende programmering,Algoritmisk tenkning,"Dekomponering: å dele et stort problem i mindre delproblemer.
+Mønstergjenkjenning: å se likheter mellom delproblemer eller med problemer vi har løst før.
+Abstraksjon: å se bort fra detaljer som ikke betyr noe for løsningen.
+Algoritmedesign: å beskrive løsningen som presise steg en datamaskin kan utføre.",program-algoritme,0,
+formulere-problemstilling,skill,Utforskende programmering,Formulere en problemstilling som kan utforskes med programmering,"formulere en avgrenset problemstilling som kan undersøkes med et program, og si hva programmet må regne ut eller simulere for å svare på den.",algoritmisk-tenkning,0,
+simulere-tilfeldighet,skill,Utforskende programmering,Simulere et tilfeldig forsøk mange ganger,"bruke tilfeldige tall til å simulere et forsøk tusenvis av ganger, telle opp utfallene og bruke resultatet til å anslå en sannsynlighet eller et gjennomsnitt.",akkumulere-i-lokke;funksjon-med-returverdi,0,"Gi eleven en problemstilling som «hvor mange kast trengs i gjennomsnitt før vi får seks?» eller bursdagsparadokset, og la dem bruke random-modulen."
+gjennomfore-utforsking,skill,Utforskende programmering,Utforske en problemstilling med et eget program,"planlegge med pseudokode, programmere, teste og kjøre et program med varierte inndata for å undersøke en problemstilling, og samle resultatene systematisk.",formulere-problemstilling;beskrive-algoritme;dele-opp-i-funksjoner;finne-logisk-feil,0,
+presentere-resultat,skill,Utforskende programmering,Presentere resultatet av en utforskning,"presentere resultatet av en programmeringsutforskning med tabell eller diagram, forklare hvordan programmet kom fram til svaret, og si noe om begrensningene i metoden.",gjennomfore-utforsking;lage-diagram;kommentere-kode,0,"Be eleven presentere muntlig som på en muntlig-praktisk eksamen: problemstilling, framgangsmåte, resultat og begrensninger, og still oppfølgingsspørsmål om koden."

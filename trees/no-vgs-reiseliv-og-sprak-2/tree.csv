@@ -1,0 +1,172 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Grunnbegreper;Reisemotiver og reisetrender;Utviklingstrekk og aktuelle hendelser;Verdiskaping og samfunn;Destinasjonsutvikling;Organisasjon og innovasjon;Strategisk markedsføring;Kulturkunnskap;Fagtekst og drøfting,,,
+,config,,title,Reiseliv og språk 2,,,
+,config,,description,"Reisemotiver og trender, utviklingstrekk og aktuelle hendelser, verdiskaping, bærekraftig destinasjonsutvikling og konkurransefortrinn, organisasjon og innovasjon, strategisk markedsføring og kulturkunnskap i reiselivet.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-reiseliv-og-sprak-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"reiseliv og språk 2 (programfag, Vg3, videregående skole)",,,
+,config,,slots.motivationSubject,reiseliv,,,
+,config,,slots.expressionFocus,"bruker «bærekraftig» om alt som er litt miljøvennlig, blander sammen komparative fortrinn og konkurransefortrinn, skriver «drøfte» men legger bare fram én side, nevner en modell uten å bruke den på caset, eller trekker en konklusjon som ikke følger av argumentene",,,
+,config,,slots.courseSpecifics,"Reiseliv og språk er et reiselivsfag der språk er arbeidsverktøyet. Læreplanen for nivå 2 har ingen egne språkmål, men faget hører til språkfagene, og noen noder sier «på målspråket». Læreren eller eleven velger hvilket målspråk det er; har eleven ikke sagt hvilket, spør før du begynner. Forklaringer, og øving på reiselivsfaget ellers, foregår på norsk med mindre eleven ber om noe annet. Den skriftlige eksamenen er sentralt gitt og består av drøftende oppgaver knyttet til vedlagte tekster, så øv på å bruke fagbegreper og modeller på et konkret case. Hent eksempler fra virkelige destinasjoner og bedrifter.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag språk, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3039,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,tourism,,,
+,config,,keywords,reiseliv; turisme; reisemotiver; reisetrender; verdiskaping; ringvirkninger; destinasjonsutvikling; konkurransefortrinn; innovasjon; markedsføringsstrategi; kulturkunnskap; bærekraft; RSP01-03; SPR3040,,,
+,config,,updated,2026-10-08,,,
+reiseliv,concept,Grunnbegreper,Reiseliv og turist,"Reiseliv: alt som har med det å gjøre at folk reiser til og oppholder seg et sted utenfor sitt vanlige miljø i mindre enn ett år, enten det er for ferie, arbeid eller et annet formål.
+Turist: en tilreisende som overnatter minst én natt på stedet.
+Dagsbesøkende: en tilreisende som reiser hjem eller videre samme dag uten å overnatte.",,0,
+destinasjon,concept,Grunnbegreper,Destinasjon,"Destinasjon: et geografisk område som gjestene oppfatter som ett reisemål, med attraksjoner, tjenester og infrastruktur. Det kan være alt fra en bygd til et helt land.",reiseliv,0,
+helhetlig-produkt,concept,Grunnbegreper,Det helhetlige reiselivsproduktet,"Det helhetlige reiselivsproduktet: alt gjesten møter fra reisen planlegges til hen er hjemme igjen, satt sammen av tjenester fra mange leverandører: attraksjoner og aktiviteter, transport, overnatting, servering, informasjon og tilgjengelighet, vertskapet og stedets image.",destinasjon,0,
+baerekraft,concept,Grunnbegreper,Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker behovene til dem som lever i dag, uten å ødelegge mulighetene for at kommende generasjoner kan dekke sine.
+Tre dimensjoner: miljømessig, sosial og økonomisk bærekraft, som alle må være til stede samtidig.",,0,
+ti-prinsipper,fact,Grunnbegreper,Prinsipper for bærekraftig reiseliv,"bevaring av natur, kultur og miljø: kulturell rikdom, landskapets fysiske og visuelle integritet, biologisk mangfold, rent miljø og ressurseffektivitet
+styrking av sosiale verdier: lokal livskvalitet og sosiale verdier, lokal kontroll og engasjement, jobbkvalitet for de ansatte, gjestetilfredshet og trygghet
+økonomisk levedyktighet: økonomisk levedyktige og konkurransedyktige destinasjoner og bedrifter",baerekraft,0,
+interne-eksterne,concept,Grunnbegreper,Interne og eksterne arbeidsbetingelser,"Interne arbeidsbetingelser: forhold bedriften selv rår over, som økonomien, de ansatte og deres kompetanse, lokalene og hvordan arbeidet er organisert.
+Eksterne arbeidsbetingelser: forhold utenfor bedriften som den må tilpasse seg, som lover og regler, markedet og konkurrentene, økonomien i samfunnet, teknologi, klima og politiske beslutninger.",,0,
+lese-statistikk,skill,Grunnbegreper,Lese og bruke reiselivsstatistikk,"hente reiselivsstatistikk fra en pålitelig kilde, lese tabeller og diagrammer, og regne ut endring i antall og i prosent over tid",,0,
+reisemotiv,concept,Reisemotiver og reisetrender,Reisemotiv,"Reisemotiv: grunnen til at en person velger å reise, som å slappe av, oppleve noe nytt, besøke familie, lære, eller være sammen med andre.",reiseliv,0,
+push-pull,concept,Reisemotiver og reisetrender,Push- og pullfaktorer,"Pushfaktor: noe ved livet hjemme som får en person til å ville reise, som stress, mørketid eller ønske om forandring.
+Pullfaktor: noe ved et reisemål som trekker gjesten dit, som klima, natur, kultur, pris eller en attraksjon.",reisemotiv;destinasjon,0,
+maslow,concept,Reisemotiver og reisetrender,Maslows behovspyramide brukt på reiser,"Maslows behovspyramide: en modell der menneskers behov ordnes fra grunnleggende til høyere: fysiske behov, trygghet, tilhørighet, anerkjennelse og selvrealisering. Brukt på reiseliv viser den at én reise kan dekke flere behov, fra hvile og trygghet til status og personlig utvikling.",reisemotiv,0,
+turisttyper,concept,Reisemotiver og reisetrender,Cohens turisttyper,"Den organiserte masseturisten: kjøper en ferdig pakkereise og holder seg innenfor det trygge og kjente.
+Den individuelle masseturisten: reiser til kjente reisemål, men legger selv opp mye av reisen.
+Oppdageren: planlegger reisen selv og oppsøker det nye, men vil ha en viss komfort og trygghet.
+Driveren: reiser uten fast plan, langt fra turistløypene, og vil leve som lokalbefolkningen.",reisemotiv,0,
+plog,concept,Reisemotiver og reisetrender,Plogs modell,"Plogs modell: en modell som plasserer reisende langs en skala fra de som søker det trygge og kjente (psykosentriske) til de som søker det nye og ukjente (allosentriske), med de fleste et sted midt imellom. Modellen brukes også til å forklare hvordan en destinasjon tiltrekker seg ulike typer gjester etter hvert som den blir kjent.",turisttyper,0,
+reisemonster,concept,Reisemotiver og reisetrender,Reisemønster og reisetrend,"Reisemønster: hvordan en gruppe faktisk reiser: hvor, når, hvor lenge, med hvilket transportmiddel og hvordan reisen bestilles.
+Reisetrend: en endring i reisemønsteret over tid.",reiseliv,0,
+reiselivshistorie,fact,Reisemotiver og reisetrender,Milepæler i reiselivets historie,"dannelsesreisen (Grand Tour): unge menn fra overklassen i Europa reiste rundt på kontinentet på 1600- og 1700-tallet for å lære
+Thomas Cook: arrangerte sin første gruppereise med tog i England i 1841
+de første turistene i Norge: britiske fiske- og fjellturister kom på 1800-tallet
+charterturisme: pakkereiser med fly til Syden ble vanlige for nordmenn fra 1960-tallet
+lavprisflyselskapene: gjorde flyreiser billige for mange fra 1990- og 2000-tallet
+internett: lot gjestene bestille og sammenligne reiser selv fra slutten av 1990-tallet",reisemonster,0,
+forklare-motiver,skill,Reisemotiver og reisetrender,Gjøre rede for reisemotiver,"gjøre rede for ulike reisemotiver hos norske og utenlandske gjester, og bruke push- og pullfaktorer, Maslow og turisttypologiene til å forklare dem",push-pull;maslow;turisttyper;plog,0,
+reisemonstre-for-og-na,skill,Reisemotiver og reisetrender,Sammenligne reisemønstre før og nå,"sammenligne reisemønstre før og nå, nasjonalt og internasjonalt, og forklare endringene med endringer i inntekt, fritid, transport og teknologi",reisemonster;reiselivshistorie;lese-statistikk,0,
+aktuelle-trender,skill,Reisemotiver og reisetrender,Beskrive aktuelle reisetrender,"beskrive noen aktuelle reisetrender, som ønsket om autentiske og bærekraftige opplevelser, kortere og nærere reiser, og reiser som kombinerer arbeid og fritid, og finne eksempler på dem",reisemonster;reisemotiv,0,
+drofte-trender,skill,Reisemotiver og reisetrender,Drøfte hva som påvirker reisetrender,"drøfte hvordan utviklingstrekk i samfunnet påvirker reisemotiver, reisemønstre og reisetrender, og hva det kan bety for reiselivet framover",forklare-motiver;reisemonstre-for-og-na;aktuelle-trender;utviklingstrekk,0,
+utviklingstrekk,concept,Utviklingstrekk og aktuelle hendelser,Utviklingstrekk,"Utviklingstrekk: en langsiktig endring i samfunnet som påvirker mange områder samtidig, som globalisering, digitalisering, klimaendringer, en aldrende befolkning og økt velstand.",,0,
+globalisering,concept,Utviklingstrekk og aktuelle hendelser,Globalisering,"Globalisering: at verden blir tettere knyttet sammen gjennom handel, reiser, kommunikasjon og kultur, slik at det som skjer ett sted, raskt får følger andre steder.",utviklingstrekk,0,
+digitalisering,concept,Utviklingstrekk og aktuelle hendelser,Digitalisering i reiselivet,"Digitalisering: at stadig mer av reisen planlegges, bestilles, betales og deles digitalt, gjennom bestillingsportaler, apper, sosiale medier og anmeldelser.",utviklingstrekk,0,
+pestel,concept,Utviklingstrekk og aktuelle hendelser,PESTEL,"PESTEL: en sjekkliste for eksterne forhold som påvirker en bransje eller bedrift: politiske, økonomiske, sosiokulturelle, teknologiske, miljømessige og juridiske forhold.",interne-eksterne,0,
+krise,concept,Utviklingstrekk og aktuelle hendelser,Krise i reiselivet,"Krise: en hendelse som brått og kraftig endrer etterspørselen etter reiser, som en pandemi, en naturkatastrofe, en terrorhandling eller en økonomisk krise. Reiselivet er særlig sårbart fordi gjestene raskt kan velge et annet reisemål eller la være å reise.",utviklingstrekk,0,
+kildekritikk,skill,Utviklingstrekk og aktuelle hendelser,Vurdere kilder om aktuelle hendelser,"vurdere hvor pålitelig en nyhetssak, en rapport eller et innlegg om reiselivet er, ut fra hvem avsenderen er, hva formålet er, og hva andre kilder sier",,0,
+presentere-hendelse,skill,Utviklingstrekk og aktuelle hendelser,Presentere en aktuell hendelse og dens konsekvenser,"presentere en aktuell hendelse og analysere hvilke konsekvenser den kan få for reiselivet på kort og lang sikt, og for ulike aktører",kildekritikk;pestel;krise,0,
+pestel-analyse,skill,Utviklingstrekk og aktuelle hendelser,Lage en PESTEL-analyse,"lage en PESTEL-analyse av omgivelsene til en destinasjon eller reiselivsbedrift, og peke ut de forholdene som betyr mest",pestel;helhetlig-produkt,0,
+analysere-globalisering,skill,Utviklingstrekk og aktuelle hendelser,Analysere hvordan globalisering påvirker reiselivet,"analysere og vurdere hvordan globalisering påvirker reiselivsnæringen, for eksempel gjennom konkurranse fra hele verden, internasjonale kjeder, arbeidsinnvandring og kulturmøter",globalisering;pestel-analyse,0,
+analysere-digitalisering,skill,Utviklingstrekk og aktuelle hendelser,Analysere hvordan digitalisering påvirker reiselivet,"analysere hvordan digitalisering har endret måten gjester planlegger, kjøper og deler reiser på, og hva det betyr for små og store reiselivsbedrifter",digitalisering;pestel-analyse,0,
+analysere-klima,skill,Utviklingstrekk og aktuelle hendelser,Analysere samspillet mellom klima og reiseliv,"analysere hvordan klimaendringer påvirker reiselivet, for eksempel gjennom kortere vintersesonger og mer ekstremvær, og hvordan reiselivet selv bidrar til klimaendringene",utviklingstrekk;baerekraft;pestel-analyse,0,
+vurdere-utviklingstrekk,skill,Utviklingstrekk og aktuelle hendelser,Vurdere hvordan utviklingstrekk påvirker næringen,"vurdere hvordan globalisering, bærekraftig utvikling og andre aktuelle utviklingstrekk sammen påvirker reiselivsnæringen, og hvilke muligheter og trusler de gir",analysere-globalisering;analysere-digitalisering;analysere-klima;ti-prinsipper,0,
+verdiskaping,concept,Verdiskaping og samfunn,Verdiskaping,"Verdiskaping: verdien av det som produseres, minus verdien av varene og tjenestene som gikk med til å produsere det. Det som blir igjen, går til lønn, skatt og overskudd.",,0,
+mikro-makro,concept,Verdiskaping og samfunn,Mikronivå og makronivå,"Mikronivå: den enkelte bedriften, gjesten, familien eller lokalsamfunnet.
+Makronivå: samfunnet som helhet, en region, et land eller verden.",,0,
+ringvirkninger,concept,Verdiskaping og samfunn,"Direkte, indirekte og induserte virkninger","Direkte virkning: inntekter og arbeidsplasser i reiselivsbedriftene selv når gjestene kjøper noe.
+Indirekte virkning: inntekter og arbeidsplasser hos leverandørene, som bakeriet, vaskeriet og regnskapsføreren.
+Indusert virkning: inntekter og arbeidsplasser som oppstår når de ansatte bruker lønnen sin i lokalsamfunnet.",verdiskaping,0,
+multiplikator,concept,Verdiskaping og samfunn,Multiplikatoreffekt,"Multiplikatoreffekt: at en krone gjestene bruker, gir mer enn én krone i samlet inntekt i området, fordi pengene brukes flere ganger før de forsvinner ut. Jo mer som kjøpes lokalt, desto større blir effekten.",ringvirkninger,0,
+lekkasje,concept,Verdiskaping og samfunn,Lekkasje,"Lekkasje: den delen av gjestenes penger som forsvinner ut av lokalsamfunnet, for eksempel gjennom importerte varer, eiere utenfra og tilreisende arbeidskraft.",multiplikator,0,
+fellesgoder,concept,Verdiskaping og samfunn,Fellesgoder,"Fellesgode: et gode alle kan bruke uten å betale, og som ingen kan stenge andre ute fra, som landskapet, en utsikt eller en sti. Fordi ingen eier dem alene, står de i fare for å bli overbrukt og slitt.",,0,
+sosiale-virkninger,concept,Verdiskaping og samfunn,Sosiale og kulturelle virkninger av reiseliv,"Sosiale og kulturelle virkninger: hvordan reiselivet påvirker livet til dem som bor på stedet, positivt gjennom arbeidsplasser, tilbud som ellers ikke ville fantes, og stolthet over egen kultur, og negativt gjennom trengsel, høyere boligpriser og endrede tradisjoner.",mikro-makro,0,
+doxey,concept,Verdiskaping og samfunn,Doxeys irritasjonsindeks,"Doxeys irritasjonsindeks: en modell for hvordan lokalbefolkningens holdning til turistene kan endre seg etter hvert som det kommer flere, fra begeistring, via likegyldighet og irritasjon, til åpen motstand.",sosiale-virkninger,0,
+talegrense,concept,Verdiskaping og samfunn,Tålegrense og overturisme,"Tålegrense: hvor mange besøkende et sted tåler før naturen, kulturminnene eller livskvaliteten til dem som bor der, tar skade.
+Overturisme: når så mange besøker et sted at tålegrensen er overskredet.",fellesgoder;doxey,0,
+beregne-turistforbruk,skill,Verdiskaping og samfunn,Regne på turistforbruk og lokal verdi,"regne ut samlet forbruk fra antall gjester og forbruk per gjest, og anslå hvor mye som blir igjen lokalt når en gitt andel lekker ut",lekkasje;lese-statistikk,0,
+drofte-mikro,skill,Verdiskaping og samfunn,Drøfte verdiskaping på mikronivå,"drøfte hvordan verdiskaping fra reiseliv påvirker en enkelt bedrift og et lokalsamfunn, med både positive og negative virkninger",ringvirkninger;sosiale-virkninger;talegrense,0,
+drofte-makro,skill,Verdiskaping og samfunn,Drøfte verdiskaping på makronivå,"drøfte hvordan verdiskaping fra reiseliv påvirker en region eller et land, for eksempel gjennom arbeidsplasser, eksportinntekter, skatt og bosetting i distriktene",ringvirkninger;mikro-makro;lekkasje,0,
+drofte-verdiskaping,skill,Verdiskaping og samfunn,Drøfte reiselivets samfunnsvirkninger,"drøfte hvordan verdiskaping i reiselivet påvirker samfunnet på mikro- og makronivå i et konkret tilfelle, veie fordeler mot ulemper og konkludere",drofte-mikro;drofte-makro;beregne-turistforbruk,0,
+butler,concept,Destinasjonsutvikling,Butlers livssyklusmodell,"Butlers livssyklusmodell: en modell for hvordan en destinasjon utvikler seg gjennom faser: utforskning, engasjement, utvikling, konsolidering og stagnasjon, og deretter enten fornyelse eller nedgang.",destinasjon,0,
+bruke-butler,skill,Destinasjonsutvikling,Plassere en destinasjon i livssyklusmodellen,"plassere en konkret destinasjon i Butlers livssyklusmodell, begrunne plasseringen med kjennetegn ved stedet, og si hva som kan skje videre",butler;lese-statistikk,0,
+dmo,concept,Destinasjonsutvikling,Destinasjonsselskap,"Destinasjonsselskap: et selskap som utvikler og markedsfører en hel destinasjon på vegne av mange bedrifter, ofte eid av bedriftene og kommunene sammen.",destinasjon,0,
+malkonflikt,concept,Destinasjonsutvikling,Målkonflikt,"Målkonflikt: når det å nå ett mål går ut over et annet, for eksempel når flere gjester gir flere arbeidsplasser, men også mer slitasje og utslipp.",baerekraft,0,
+besoksforvaltning,concept,Destinasjonsutvikling,Besøksforvaltning,"Besøksforvaltning: tiltak som styrer hvor mange som kommer, hvor de går og når de kommer, slik at stedet ikke overbelastes, som tilrettelagte stier, kvoter, forhåndsbestilling, pris og spredning av gjestene i tid og rom.",talegrense,0,
+lokal-medvirkning,concept,Destinasjonsutvikling,Lokal medvirkning,"Lokal medvirkning: at de som bor på et sted, får være med og bestemme hvordan reiselivet der skal utvikles.",sosiale-virkninger,0,
+komparative-fortrinn,concept,Destinasjonsutvikling,Komparative fortrinn og konkurransefortrinn,"Komparative fortrinn: ressursene et sted har fått gratis, som natur, klima, kulturarv og beliggenhet.
+Konkurransefortrinn: det stedet gjør ut av ressursene sine, som god organisering, kompetanse, infrastruktur, samarbeid og markedsføring, og som gjør at gjestene velger det framfor andre steder.",helhetlig-produkt,0,
+vurdere-konkurransefortrinn,skill,Destinasjonsutvikling,Vurdere en destinasjons konkurransefortrinn,"vurdere en destinasjons konkurransefortrinn sammenlignet med en konkurrerende destinasjon, og si hva som er vanskelig for andre å kopiere",komparative-fortrinn;dmo;swot-analyse,0,
+drofte-baerekraftig-destinasjon,skill,Destinasjonsutvikling,Drøfte bærekraftig destinasjonsutvikling,"drøfte hvordan prinsippene for bærekraftig reiseliv kan brukes når en destinasjon skal utvikles, og hvordan målkonfliktene mellom dem kan håndteres",ti-prinsipper;malkonflikt;besoksforvaltning;lokal-medvirkning;bruke-butler,0,
+organisasjonsstruktur,concept,Organisasjon og innovasjon,Organisasjonsstruktur,"Linjeorganisering: en organisering der hver ansatt har én leder, og beslutningene går ovenfra og ned.
+Flat struktur: en organisering med få ledernivåer, der de ansatte har mye ansvar selv.
+Prosjektorganisering: en midlertidig organisering der folk fra ulike deler av bedriften arbeider sammen om én oppgave, for eksempel å utvikle et nytt produkt.",,0,
+organisasjonskultur,concept,Organisasjon og innovasjon,Organisasjonskultur,"Organisasjonskultur: de verdiene, normene og vanene de ansatte i en bedrift deler, og som påvirker hvordan de arbeider og møter gjestene.",organisasjonsstruktur,0,
+ledelsesstil,concept,Organisasjon og innovasjon,Ledelsesstiler,"Autoritær ledelse: lederen bestemmer alene og gir ordre.
+Demokratisk ledelse: lederen trekker de ansatte med i beslutningene.
+La det skure-ledelse: lederen griper lite inn og lar de ansatte styre seg selv.",organisasjonsstruktur,0,
+innovasjon,concept,Organisasjon og innovasjon,Innovasjon,"Innovasjon: noe nytt eller vesentlig forbedret, som et produkt, en arbeidsmåte eller en måte å nå kundene på, som faktisk blir tatt i bruk og skaper verdi. En god idé er ikke en innovasjon før den er satt ut i livet.",,0,
+innovasjonstyper,concept,Organisasjon og innovasjon,Typer innovasjon,"Produktinnovasjon: et nytt eller forbedret produkt eller opplevelse.
+Prosessinnovasjon: en ny måte å produsere eller levere tjenesten på.
+Markedsinnovasjon: en ny måte å nå gjestene på, eller et nytt marked.
+Organisasjonsinnovasjon: en ny måte å organisere arbeidet eller samarbeidet på.",innovasjon,0,
+radikal-inkrementell,concept,Organisasjon og innovasjon,Radikal og inkrementell innovasjon,"Radikal innovasjon: en innovasjon som endrer et marked eller en bransje grunnleggende.
+Inkrementell innovasjon: en innovasjon som består av små, stegvise forbedringer av noe som finnes fra før.",innovasjon,0,
+opplevelsesokonomi,concept,Organisasjon og innovasjon,Opplevelsesøkonomi og opplevelsesrommene,"Opplevelsesøkonomi: en økonomi der kundene betaler for minneverdige opplevelser, ikke bare for varer og tjenester.
+De fire opplevelsesrommene: underholdning, læring, virkelighetsflukt og estetikk. De sterkeste opplevelsene berører flere av dem.",helhetlig-produkt,0,
+produktutvikling,concept,Organisasjon og innovasjon,Produktutviklingsprosessen,"Produktutviklingsprosessen: stegene fra idé til ferdig produkt: idé, vurdering av marked og lønnsomhet, utvikling, utprøving med gjester, lansering og evaluering.",innovasjon,0,
+reflektere-roller,skill,Organisasjon og innovasjon,Reflektere over rollene i produktutvikling,"reflektere over hvilken rolle organisasjonen, ledelsen og de ansatte hver har når et reiselivsprodukt skal utvikles, og hvordan struktur, ledelsesstil og kultur kan fremme eller hemme nye ideer",organisasjonskultur;ledelsesstil;produktutvikling,0,
+kjennetegn-innovativt,skill,Organisasjon og innovasjon,Vurdere hva som gjør et produkt innovativt og bærekraftig,"vurdere hva som kjennetegner innovative og bærekraftige reiselivsprodukter, ut fra konkrete eksempler, og skille ekte nyskaping fra små endringer",innovasjonstyper;radikal-inkrementell;opplevelsesokonomi;ti-prinsipper,0,
+utvikle-produktide,skill,Organisasjon og innovasjon,Utvikle en idé til et nytt reiselivsprodukt,"utvikle en idé til et innovativt og bærekraftig reiselivsprodukt for en målgruppe, og begrunne hvorfor det kan lykkes",kjennetegn-innovativt;reflektere-roller;segmentering,0,
+markedsforing,concept,Strategisk markedsføring,Markedsføring,"Markedsføring: alt en bedrift gjør for å finne ut hva gjestene ønsker, og for å utvikle, prise, distribuere og gjøre kjent et tilbud de vil kjøpe. Reklame er bare en liten del av det.",,0,
+strategi,concept,Strategisk markedsføring,Strategi,"Strategi: en langsiktig plan for hvordan en bedrift skal nå målene sine, ut fra hvem den vil selge til og hva den vil være best på.
+Operative valg: de daglige og kortsiktige beslutningene som setter strategien ut i livet.",markedsforing,0,
+segmentering,concept,Strategisk markedsføring,Segmentering og målgruppe,"Segmentering: å dele et marked inn i grupper med like behov og ønsker, for eksempel etter alder, bosted, livsstil eller reisemåte.
+Målgruppe: det eller de segmentene en bedrift velger å rette et tilbud mot.",markedsforing,0,
+posisjonering,concept,Strategisk markedsføring,Posisjonering og merkevare,"Posisjonering: å bestemme hvilket bilde bedriften vil at målgruppen skal ha av produktet, sammenlignet med konkurrentene.
+Merkevare: et navn og et uttrykk som gjestene forbinder med bestemte egenskaper og forventninger.",segmentering,0,
+konkurransemidler,concept,Strategisk markedsføring,Konkurransemidlene (de 7 P-ene),"Produkt: det gjesten kjøper, inkludert tilleggsproduktene.
+Pris: hva produktet koster, og hvordan prisen varierer med sesong, bestillingstid og gruppe.
+Plass: hvor og hvordan produktet selges og bestilles, direkte eller gjennom andre.
+Påvirkning: hvordan bedriften gjør produktet kjent.
+Personale: de ansatte som møter gjestene.
+Prosess: hvordan tjenesten blir levert, steg for steg.
+Fysiske omgivelser: det gjesten ser og møter av bygninger, interiør og utstyr.",markedsforing,0,
+porter,concept,Strategisk markedsføring,Porters konkurransestrategier,"Kostnadsledelse: å konkurrere ved å ha lavere kostnader og dermed lavere priser enn konkurrentene.
+Differensiering: å konkurrere ved å tilby noe som skiller seg ut, og som gjestene er villige til å betale mer for.
+Fokus: å rette seg mot et smalt segment, enten med lav pris eller med et særpreget tilbud.",strategi,0,
+swot,concept,Strategisk markedsføring,SWOT,"SWOT: en oversikt over et produkts eller en bedrifts styrker og svakheter, som er interne forhold, og muligheter og trusler, som er eksterne forhold i omgivelsene.",interne-eksterne,0,
+swot-analyse,skill,Strategisk markedsføring,Lage en SWOT-analyse,"lage en SWOT-analyse av en reiselivsbedrift eller destinasjon, plassere hvert punkt riktig som internt eller eksternt, og trekke strategiske konsekvenser av den",swot;pestel-analyse,0,
+gronnvasking,concept,Strategisk markedsføring,Grønnvasking,"Grønnvasking: å gi inntrykk av at et produkt eller en bedrift er mer miljøvennlig enn den faktisk er, for eksempel ved å framheve et lite tiltak og tie om de store utslippene.",baerekraft,0,
+kundedata,concept,Strategisk markedsføring,Kundedata og målrettet markedsføring,"Kundedata: opplysninger om gjestene som bedriften samler inn, som bestillinger, søk og klikk, og som brukes til å rette markedsføringen mot dem som mest sannsynlig vil kjøpe. Bruken må følge reglene for personvern.",digitalisering;segmentering,0,
+velge-strategi,skill,Strategisk markedsføring,Foreslå en markedsføringsstrategi,"foreslå en markedsføringsstrategi for en reiselivsbedrift med målgruppe, posisjonering, konkurransestrategi og bruk av de 7 P-ene, og begrunne valgene",posisjonering;porter;konkurransemidler;swot-analyse,0,
+drofte-strategiske-valg,skill,Strategisk markedsføring,Drøfte hvordan arbeidsbetingelser styrer markedsføringen,"drøfte hvordan en reiselivsvirksomhets interne og eksterne arbeidsbetingelser påvirker de strategiske valgene den tar i markedsføringen, for eksempel valg av målgruppe, pris og kanaler",velge-strategi;kundedata;gronnvasking;interne-eksterne,0,
+kultur,concept,Kulturkunnskap,Kultur,"Kultur: de normene, verdiene, tradisjonene og uttrykksformene en gruppe mennesker deler, og som de lærer av hverandre.",,0,
+kulturdimensjoner,concept,Kulturkunnskap,Kulturdimensjoner,"Kulturdimensjoner: målestokker for hvordan kulturer skiller seg fra hverandre, slik Geert Hofstede beskrev dem, for eksempel
+Maktdistanse: hvor mye ulikhet i makt og status folk godtar og venter.
+Individualisme og kollektivisme: om den enkelte eller gruppen og familien står i sentrum.
+Usikkerhetsunngåelse: hvor mye folk ønsker regler, planer og forutsigbarhet.",kultur,0,
+kontekst,concept,Kulturkunnskap,Høykontekst- og lavkontekstkultur,"Høykontekstkultur: en kultur der mye av budskapet ligger i situasjonen, relasjonen og det som ikke sies rett ut.
+Lavkontekstkultur: en kultur der budskapet sies direkte og tydelig med ord.",kultur,0,
+etnosentrisme,concept,Kulturkunnskap,Etnosentrisme og kulturrelativisme,"Etnosentrisme: å bedømme andre kulturer ut fra sin egen, og ofte se sin egen som den riktige.
+Kulturrelativisme: å forsøke å forstå en kultur ut fra dens egne verdier og normer.",kultur,0,
+stereotypi,concept,Kulturkunnskap,Stereotypi,"Stereotypi: et forenklet bilde av hvordan en hel gruppe mennesker er. Kulturkunnskap kan bli stereotypier hvis den brukes som en fasit om enkeltpersoner.",kultur,0,
+autentisitet,concept,Kulturkunnskap,Autentisitet,"Autentisitet: hvor ekte en kulturopplevelse er, eller hvor ekte gjesten opplever at den er.
+Iscenesatt autentisitet: en opplevelse som er tilrettelagt for gjester, men som framstilles som hverdagslivet på stedet.",kultur,0,
+forutse-forventninger,skill,Kulturkunnskap,Forutse ulike gjesters forventninger,"bruke kulturdimensjonene og kontekstbegrepet til å forutse hvilke forventninger gjester fra en bestemt kultur kan ha til service, punktlighet, mat og kommunikasjon, og forklare hvorfor dette bare er et utgangspunkt",kulturdimensjoner;kontekst;stereotypi,0,
+tilpasse-til-kultur,skill,Kulturkunnskap,Tilpasse et tilbud til gjester fra en annen kultur,"foreslå hvordan et reiselivsprodukt eller vertskapet kan tilpasses gjester fra en bestemt kultur uten at stedets egenart går tapt",forutse-forventninger;etnosentrisme,0,
+kulturell-malsprak,skill,Kulturkunnskap,Kommunisere med en gjest fra en annen kultur på målspråket,"føre en samtale med en gjest fra en annen kultur på målspråket, tilpasset gjestens forventninger om høflighet og direkthet",forutse-forventninger,0,"Spill gjesten i en skriftlig samtale, og si hvilken kultur gjesten kommer fra. Gi tilbakemelding både på språket og på hvordan eleven tilpasset seg."
+urfolk-reiseliv,skill,Kulturkunnskap,Drøfte etiske sider ved reiseliv basert på urfolkskultur,"drøfte etiske sider ved reiseliv som bygger på samisk eller annen urfolkskultur: hvem som eier og formidler kulturen, om den framstilles riktig, og hvem som tjener på den",autentisitet;lokal-medvirkning,0,
+drofte-kulturkunnskap,skill,Kulturkunnskap,Drøfte verdien av kulturkunnskap i reiselivet,"drøfte hva kulturkunnskap betyr for en reiselivsbedrift i ulike sammenhenger, som i vertskap, markedsføring, produktutvikling og samarbeid med lokalsamfunnet, og bruke den på et konkret eksempel",tilpasse-til-kultur;urfolk-reiseliv,0,
+oppgaveord,fact,Fagtekst og drøfting,Oppgaveord,"gjør rede for: forklar et emne grundig og ryddig, med fagbegreper, uten å ta stilling
+beskriv: fortell hvordan noe er eller ser ut
+analyser: del noe opp, se på delene og forklar hvordan de henger sammen
+drøft: belys en problemstilling fra flere sider, vei argumentene mot hverandre og kom fram til en begrunnet konklusjon
+vurder: ta stilling til verdien av noe ut fra tydelige kriterier
+reflekter: tenk over og vis hvordan du forstår noe, gjerne knyttet til egne erfaringer",,0,
+drofting,concept,Fagtekst og drøfting,Drøfting,"Drøfting: å undersøke en problemstilling fra flere sider, der argumenter for og imot veies mot hverandre, og konklusjonen følger av argumentene.",oppgaveord,0,
+bruke-kilder,skill,Fagtekst og drøfting,Bruke og henvise til kilder,"bruke opplysninger fra vedlagte tekster og andre kilder i egen tekst, vise tydelig hvor de kommer fra, og vurdere om de er til å stole på",kildekritikk,0,
+analysere-case,skill,Fagtekst og drøfting,Analysere et case med fagbegreper,"lese et case, en artikkel eller statistikk om en reiselivsbedrift eller destinasjon, finne det som er faglig relevant, og koble det til fagbegreper og modeller",oppgaveord;bruke-kilder;lese-statistikk,0,
+problemstilling,skill,Fagtekst og drøfting,Formulere en problemstilling,"formulere en tydelig og avgrenset problemstilling ut fra en oppgavetekst eller et case",oppgaveord,0,
+droftende-tekst,skill,Fagtekst og drøfting,Skrive en drøftende fagtekst,"skrive en drøftende fagtekst om en reiselivsfaglig problemstilling med innledning, en drøfting der fagbegreper og modeller brukes på caset, og en konklusjon som svarer på problemstillingen",drofting;analysere-case;problemstilling;drofte-verdiskaping;drofte-baerekraftig-destinasjon;drofte-strategiske-valg,0,
+muntlig-presentasjon,skill,Fagtekst og drøfting,Presentere et fagstoff muntlig,"presentere et reiselivsfaglig tema muntlig med en tydelig problemstilling, bruke fagbegreper presist, og svare på oppfølgingsspørsmål",problemstilling;presentere-hendelse;drofting,0,
+fagtekst-malsprak,skill,Fagtekst og drøfting,Presentere et reiselivsprodukt på målspråket,"presentere en destinasjon eller et reiselivsprodukt på målspråket, skriftlig eller muntlig, med fagord for reiseliv og et språk tilpasset mottakeren",utvikle-produktide,0,

@@ -1,0 +1,201 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Kommunikasjonsteori;Tegn og språk;Kultur;Interkulturell kommunikasjon;Verbal og ikke-verbal kommunikasjon;Argumentasjon;Medier;Tekst og tekstkulturer;Tekstskaping og kilder,,,
+,config,,title,Kommunikasjon og kultur 1,,,
+,config,,description,"Teorier om kommunikasjon, tegn, kultur og argumentasjon, interkulturell og ikke-verbal kommunikasjon, medier og tekstkulturer — og å skape egne tekster og bruke kilder etterrettelig.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-vgs-kommunikasjon-kultur-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kommunikasjon og kultur 1 (programfag i språk, samfunnsfag og økonomi, norsk videregående skole)",,,
+,config,,slots.motivationSubject,kommunikasjon og kultur,,,
+,config,,slots.expressionFocus,"bruker «kultur» som om det betydde nasjon, generaliserer om hele folkegrupper ut fra én kulturmodell, ramser opp teori uten å bruke den på teksten eller situasjonen, gjenforteller i stedet for å analysere, eller bruker fagord som «tegn», «symbol» og «kode» i dagligtalebetydning",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag språk, Vg2",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3033,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,communication,,,
+,config,,keywords,kommunikasjon og kultur; kommunikasjonsmodeller; Jakobson; semiotikk; tegn; Peirce; denotasjon; konnotasjon; kulturbegrep; Hofstede; høykontekst; interkulturell kommunikasjon; ikke-verbal kommunikasjon; kroppsspråk; Toulmin; argumentasjon; medier; algoritmer; tekstkultur; multimodalitet; kildekritikk,,,
+,config,,updated,2026-10-08,,,
+kommunikasjon,concept,Kommunikasjonsteori,Kommunikasjon,"Kommunikasjon: at mennesker skaper og deler mening ved hjelp av tegn — ord, bilder, lyder, gester og kroppsspråk.",,0,
+avsender-mottaker,concept,Kommunikasjonsteori,"Avsender, mottaker og budskap","Avsender: den som formulerer og sender et budskap.
+Mottaker: den eller de budskapet er rettet mot, og som tolker det.
+Budskap: det avsenderen vil formidle.
+Kanal: veien budskapet går, som tale, skrift, telefon eller sosiale medier.",kommunikasjon,0,
+kontekst,concept,Kommunikasjonsteori,Kontekst,"Kontekst: situasjonen og sammenhengen en ytring inngår i — hvem som deltar, hvor og når, hva som er sagt før, og hvilken kultur deltakerne tolker ut fra.",kommunikasjon,0,
+enveis-toveis,concept,Kommunikasjonsteori,Enveis- og toveiskommunikasjon,"Tilbakemelding: mottakerens reaksjon, som viser avsenderen hvordan budskapet ble tatt imot.
+Enveiskommunikasjon: kommunikasjon der mottakeren ikke kan svare direkte, som en reklameplakat.
+Toveiskommunikasjon: kommunikasjon der deltakerne veksler mellom å være avsender og mottaker, som en samtale.",avsender-mottaker,0,
+overforingsmodell,concept,Kommunikasjonsteori,Overføringsmodellen,"Overføringsmodellen: en modell som ser kommunikasjon som at et budskap kodes av en avsender, sendes gjennom en kanal og dekodes av en mottaker, og som måler suksess i hvor lite som går tapt underveis. Den bygger på Shannon og Weavers modell fra 1949.",avsender-mottaker,0,
+stoy,concept,Kommunikasjonsteori,Støy,"Støy: alt som forstyrrer eller forvrenger et budskap på veien. Teknisk støy er forstyrrelser i kanalen; semantisk støy er at ord forstås ulikt; kulturell støy er at avsender og mottaker tolker ut fra ulike normer.",overforingsmodell,0,
+meningsskaping,concept,Kommunikasjonsteori,Kommunikasjon som meningsskaping,"Meningsskapingsmodellen: en måte å se kommunikasjon på der mottakeren aktivt skaper mening ut fra egen bakgrunn, erfaring og kultur, slik at det samme budskapet kan forstås ulikt av ulike mottakere.",avsender-mottaker;kontekst,0,
+sprakfunksjoner,concept,Kommunikasjonsteori,Jakobsons språkfunksjoner,"Emotiv funksjon: ytringen uttrykker avsenderens følelser og holdninger.
+Konativ funksjon: ytringen vil få mottakeren til å gjøre eller mene noe.
+Referensiell funksjon: ytringen informerer om noe i verden.
+Fatisk funksjon: ytringen holder kontakten ved like, som «hei» og «ikke sant?».
+Metaspråklig funksjon: ytringen handler om språket selv, som «hva mener du med det?».
+Poetisk funksjon: ytringen retter oppmerksomheten mot sin egen form, som i rim og ordspill.",avsender-mottaker;kontekst,0,
+sammenligne-modeller,skill,Kommunikasjonsteori,Sammenligne kommunikasjonsmodeller,"forklare hva overføringsmodellen og meningsskapingsmodellen hver får fram og overser, og bruke begge på det samme konkrete eksempelet.",overforingsmodell;stoy;meningsskaping,0,
+bestemme-sprakfunksjoner,skill,Kommunikasjonsteori,Bestemme språkfunksjoner i ytringer,"avgjøre hvilke språkfunksjoner som er framtredende i en gitt ytring eller tekst, og begrunne svaret ut fra hva ytringen gjør.",sprakfunksjoner,0,
+analysere-situasjon,skill,Kommunikasjonsteori,Analysere en kommunikasjonssituasjon,"beskrive avsender, mottaker, formål, kanal og kontekst i en konkret kommunikasjonssituasjon, og forklare med fagbegreper hvorfor den lyktes eller endte i en misforståelse.",sammenligne-modeller;enveis-toveis,0,
+teoretikere,fact,Kommunikasjonsteori,Teoretikere og modellene deres,"Shannon og Weaver: overføringsmodellen med støy
+Roman Jakobson: de seks språkfunksjonene
+Ferdinand de Saussure: tegnet som uttrykk og innhold
+Charles S. Peirce: ikon, indeks og symbol
+Roland Barthes: denotasjon og konnotasjon
+Geert Hofstede: kulturdimensjoner
+Edward T. Hall: høy- og lavkontekstkulturer og proksemikk
+Stephen Toulmin: argumentmodellen med påstand, belegg og hjemmel
+Aristoteles: appellformene etos, patos og logos",,0,
+tegn,concept,Tegn og språk,Tegn,"Tegn: noe som står for noe annet enn seg selv for noen, som et ord, et bilde, et trafikkskilt eller en gest.
+Uttrykk: den delen av tegnet vi kan sanse, som lydene i et ord eller strekene i en tegning.
+Innhold: det tegnet viser til eller betyr.",kommunikasjon,0,
+ikon-indeks-symbol,concept,Tegn og språk,"Ikon, indeks og symbol","Ikon: et tegn som ligner det det står for, som et fotografi eller et piktogram.
+Indeks: et tegn som har en årsakssammenheng med det det står for, som røyk for ild eller fotspor for at noen har gått der.
+Symbol: et tegn som står for noe bare fordi vi har avtalt det, som ord, bokstaver og et flagg.",tegn,0,
+konvensjon,concept,Tegn og språk,Konvensjon,"Konvensjon: en avtale eller vane som er felles for en gruppe, og som bestemmer hva et tegn betyr. Et tegn som bygger på konvensjon alene, kalles arbitrært: ordet «hund» ligner ikke en hund.",tegn,0,
+kode,concept,Tegn og språk,Kode,"Kode: et system av tegn og regler for hvordan de brukes og tolkes, som deles av en gruppe — for eksempel et språk, trafikkskiltene eller klesreglene på en arbeidsplass.",konvensjon,0,
+denotasjon-konnotasjon,concept,Tegn og språk,Denotasjon og konnotasjon,"Denotasjon: det et tegn direkte viser til, det de fleste kan bli enige om, som at et bilde viser en rød rose.
+Konnotasjon: assosiasjonene og følelsene tegnet vekker i en bestemt kultur, som at en rød rose står for kjærlighet.",tegn,0,
+klassifisere-tegn,skill,Tegn og språk,Klassifisere tegn,"avgjøre om et tegn virker som ikon, indeks eller symbol, begrunne svaret, og vise at det samme tegnet kan fungere på flere måter samtidig.",ikon-indeks-symbol;konvensjon,0,
+analysere-konnotasjoner,skill,Tegn og språk,Analysere konnotasjoner i en tekst,"skille mellom denotasjon og konnotasjoner i et bilde, en logo eller en reklame, og forklare hvordan konnotasjonene avhenger av kulturen mottakeren tolker ut fra.",denotasjon-konnotasjon;kode,0,
+sprakvarieteter,concept,Tegn og språk,"Dialekt, sosiolekt og etnolekt","Dialekt: språkvarieteten knyttet til et geografisk område.
+Sosiolekt: språkvarieteten knyttet til en sosial gruppe, som en yrkesgruppe eller en aldersgruppe.
+Etnolekt: språkvarieteten som har utviklet seg blant unge med ulik språklig bakgrunn i flerspråklige miljøer, også kalt multietnolekt.",kode,0,
+register,concept,Tegn og språk,Register,"Register: hvor formelt eller uformelt man uttrykker seg, tilpasset situasjonen, mottakeren og mediet — fra muntlig prat med venner til en skriftlig søknad.",kontekst,0,
+spraklig-relativitet,concept,Tegn og språk,Språklig relativitet,"Språklig relativitet: tanken om at språket vi snakker, påvirker hvordan vi deler inn og legger merke til verden. Den sterke versjonen, at språket bestemmer tenkningen, er forkastet; at språket kan påvirke noe av det vi legger merke til, har mer støtte.",tegn;kode,0,
+sprak-tilhorighet,skill,Tegn og språk,Forklare hvordan språkvalg signaliserer tilhørighet,"forklare med eksempler hvordan valg av dialekt, sosiolekt, etnolekt og register viser hvem man er og hvem man vil høre sammen med, og hvordan andre kan tolke valget.",sprakvarieteter;register,0,
+kultur,concept,Kultur,Kultur,"Vidt kulturbegrep: de normene, verdiene, tradisjonene, kunnskapene og uttrykksformene en gruppe deler, og som læres videre fra generasjon til generasjon.
+Snevert kulturbegrep: kunst og kulturuttrykk, som litteratur, musikk, film og teater.",,0,
+normer-verdier,concept,Kultur,"Normer, verdier og tradisjoner","Verdi: en grunnleggende oppfatning av hva som er godt, riktig og viktig, som likhet eller respekt for de eldre.
+Norm: en uskreven eller skreven regel for hvordan man bør oppføre seg i en situasjon.
+Tradisjon: en skikk eller praksis som gjentas og føres videre over tid, som en høytid eller et ritual.",kultur,0,
+sosialisering,concept,Kultur,Sosialisering,"Sosialisering: prosessen der et menneske lærer normene, verdiene og kodene i samfunnet det vokser opp i.
+Primærsosialisering: det som skjer i familien de første leveårene.
+Sekundærsosialisering: det som skjer senere, i barnehage, skole, vennegjeng, arbeidsliv og medier.",normer-verdier,0,
+statisk-dynamisk,concept,Kultur,Statisk og dynamisk kulturforståelse,"Statisk kulturforståelse: å se kultur som noe fast og avgrenset som et folk har, ofte likestilt med nasjonen.
+Dynamisk kulturforståelse: å se kultur som noe som stadig endres, overlapper og forhandles, der hvert menneske hører til flere kulturelle fellesskap samtidig.",kultur,0,
+etnosentrisme,concept,Kultur,Etnosentrisme og kulturrelativisme,"Etnosentrisme: å bedømme andre kulturer ut fra normene og verdiene i sin egen, og se sin egen som den normale eller beste.
+Kulturrelativisme: å forsøke å forstå en kulturell praksis ut fra den kulturens egne forutsetninger før man vurderer den.",normer-verdier,0,
+stereotypi,concept,Kultur,Stereotypi og fordom,"Stereotypi: et forenklet og generaliserende bilde av hvordan medlemmer av en gruppe er.
+Fordom: en forhåndsdom, ofte negativ, om en person ut fra gruppen personen hører til, som holder seg selv når erfaringen sier noe annet.",statisk-dynamisk,0,
+majoritet-minoritet,concept,Kultur,Majoritet og minoritet,"Majoritet: den gruppen i et samfunn som er størst og har mest makt til å bestemme hva som regnes som normalt.
+Minoritet: en gruppe som er færre i antall og ofte har mindre makt, for eksempel språklige, religiøse eller etniske minoriteter og urfolk.",kultur,0,
+subkultur,concept,Kultur,Subkultur,"Subkultur: en gruppe innenfor et større samfunn som har egne normer, verdier, uttrykk og koder, som en musikk- eller spillkultur, uten å bryte med storsamfunnet.
+Motkultur: en subkultur som bevisst bryter med og utfordrer normene i storsamfunnet.",normer-verdier,0,
+kulturdimensjoner,concept,Kultur,Hofstedes kulturdimensjoner,"Kulturdimensjon: en skala som brukes til å sammenligne verdier i nasjonale kulturer, utviklet av Geert Hofstede.
+Maktdistanse: hvor mye ulik makt og status godtas i et samfunn.
+Individualisme og kollektivisme: om den enkeltes egne mål eller gruppens fellesskap veier tyngst.
+Usikkerhetsunnvikelse: hvor ubekvemt det oppleves med det uklare og uforutsigbare, og hvor mye regler og struktur man ønsker.",normer-verdier,0,
+hoy-lavkontekst,concept,Kultur,Høy- og lavkontekstkultur,"Lavkontekstkultur: en kommunikasjonskultur der budskapet i stor grad står i ordene selv, og der man sier ting rett ut.
+Høykontekstkultur: en kommunikasjonskultur der mye av budskapet ligger i situasjonen, relasjonen og det usagte, og der indirekte uttrykk er vanlig.",kultur;kontekst,0,
+sammenligne-kulturer,skill,Kultur,Sammenligne hvordan kulturer uttrykker normer og verdier,"sammenligne hvordan to kulturer eller kulturelle fellesskap uttrykker normer, verdier og tradisjoner, for eksempel i en høytid, et måltid eller en hilsen, og forklare likhetene og forskjellene med fagbegreper.",normer-verdier;etnosentrisme;kulturdimensjoner,0,
+vurdere-kulturmodeller,skill,Kultur,Vurdere bruken av kulturmodeller,"vurdere hva Hofstedes dimensjoner og skillet mellom høy- og lavkontekst kan forklare, og hvor de kommer til kort når de brukes om enkeltmennesker eller grupper som er i endring.",kulturdimensjoner;hoy-lavkontekst;stereotypi,0,
+forklare-sosialisering,skill,Kultur,Forklare hvordan normer læres,"forklare med eksempler fra egen hverdag hvordan normer og koder læres gjennom primær- og sekundærsosialisering, og hvordan ulike fellesskap kan lære bort ulike normer.",sosialisering;subkultur,0,
+interkulturell,concept,Interkulturell kommunikasjon,Interkulturell kommunikasjon,"Interkulturell kommunikasjon: kommunikasjon mellom mennesker som tolker hverandre ut fra ulike kulturelle forutsetninger, enten det er ulike land, språk, generasjoner eller miljøer.",kultur;meningsskaping,0,
+sosiale-faktorer,concept,Interkulturell kommunikasjon,Sosiale faktorer,"Sosiale faktorer: trekk ved deltakerne og forholdet mellom dem som påvirker hvordan de kommuniserer og blir forstått, som alder, kjønn, sosial bakgrunn, utdanning, yrke og hvor godt de kjenner hverandre.",kommunikasjon,0,
+rolle-status,concept,Interkulturell kommunikasjon,Rolle og status,"Sosial rolle: forventningene til hvordan en person skal oppføre seg i en bestemt posisjon, som elev, lærer, kunde eller forelder.
+Status: hvor høyt en posisjon eller person blir verdsatt i en gruppe eller et samfunn.",sosiale-faktorer,0,
+hoflighet,concept,Interkulturell kommunikasjon,Høflighetsnormer,"Høflighetsnormer: normene for hvordan man viser respekt og hensyn i språket, for eksempel hvor direkte man ber om noe, hvilke tiltaleformer man bruker, og hvor mye småprat som ventes før man kommer til saken.",normer-verdier,0,
+interkulturell-kompetanse,concept,Interkulturell kommunikasjon,Interkulturell kompetanse,"Interkulturell kompetanse: evnen til å kommunisere hensiktsmessig med mennesker med en annen kulturell bakgrunn — kunnskap om kultur og kommunikasjon, nysgjerrighet og åpenhet, og evnen til å se egne normer utenfra.",interkulturell;etnosentrisme,0,
+sosiale-faktorer-samtale,skill,Interkulturell kommunikasjon,Forklare hvordan sosiale faktorer påvirker kommunikasjon,"beskrive en konkret samtale eller tekst og forklare hvordan alder, rolle, status og relasjon mellom deltakerne former det som blir sagt og hvordan det blir tolket.",rolle-status;register,0,
+kulturelle-faktorer,skill,Interkulturell kommunikasjon,Reflektere over hvordan kultur påvirker kommunikasjon,"reflektere over hvordan kulturelle normer og verdier påvirker hva man sier, hvordan man sier det, og hva man tar for gitt at den andre forstår, med eksempler fra egne erfaringer eller fra tekster.",hoflighet;hoy-lavkontekst;sosiale-faktorer-samtale,0,
+forklare-misforstaelse,skill,Interkulturell kommunikasjon,Forklare en interkulturell misforståelse,"forklare med fagbegreper hvorfor en konkret interkulturell misforståelse oppstod, og foreslå hvordan deltakerne kunne ha unngått eller oppklart den.",interkulturell;stoy;hoflighet;hoy-lavkontekst,0,
+utforske-interkulturell,skill,Interkulturell kommunikasjon,Utforske interkulturell kommunikasjon,"planlegge og gjennomføre en liten undersøkelse av interkulturell kommunikasjon, for eksempel et intervju eller en observasjon, og beskrive funnene med fagbegreper uten å generalisere om hele grupper.",forklare-misforstaelse;interkulturell-kompetanse;vurdere-kulturmodeller,0,
+verbal-ikkeverbal,concept,Verbal og ikke-verbal kommunikasjon,Verbal og ikke-verbal kommunikasjon,"Verbal kommunikasjon: kommunikasjon med ord, muntlig eller skriftlig.
+Ikke-verbal kommunikasjon: kommunikasjon uten ord, som kroppsspråk, stemmebruk, avstand, berøring og ytre signaler.",kommunikasjon,0,
+kroppssprak,concept,Verbal og ikke-verbal kommunikasjon,Kroppsspråk,"Mimikk: bevegelser i ansiktet, som smil og rynket panne.
+Gester: bevegelser med hender, armer og hode som uttrykker noe, som et nikk eller en tommel opp.
+Blikkontakt: hvor mye og hvor lenge man ser på den man snakker med.
+Kroppsholdning: hvordan man står og sitter, som åpen eller lukket.",verbal-ikkeverbal,0,
+stemmebruk,concept,Verbal og ikke-verbal kommunikasjon,Stemmebruk,"Stemmebruk: det stemmen formidler ut over ordene — tonefall, tempo, styrke, pauser og trykk — som kan endre hva den samme setningen betyr.",verbal-ikkeverbal,0,
+proksemikk,concept,Verbal og ikke-verbal kommunikasjon,Proksemikk,"Proksemikk: hvordan vi bruker avstand og rom når vi kommuniserer. Edward T. Hall delte avstanden mellom mennesker i en intim, en personlig, en sosial og en offentlig sone, og hvor store sonene er, varierer mellom kulturer.",verbal-ikkeverbal,0,
+ytre-signaler,concept,Verbal og ikke-verbal kommunikasjon,Ytre signaler,"Ytre signaler: det vi kommuniserer gjennom utseendet og tingene rundt oss, som klær, frisyre, smykker, merkevarer og religiøse eller politiske symboler.",verbal-ikkeverbal;tegn,0,
+samsvar-motstrid,concept,Verbal og ikke-verbal kommunikasjon,Samsvar og motstrid,"Samsvar: at de verbale og ikke-verbale signalene forteller det samme og forsterker hverandre.
+Dobbeltkommunikasjon: at ordene sier én ting og de ikke-verbale signalene noe annet, som et «gratulerer» sagt med himlende øyne.",kroppssprak;stemmebruk,0,
+tolke-ikkeverbal,skill,Verbal og ikke-verbal kommunikasjon,Tolke ikke-verbal kommunikasjon,"tolke den ikke-verbale kommunikasjonen i et videoklipp eller en beskrevet situasjon, og vise hvordan den forsterker, utfyller eller motsier det som blir sagt.",samsvar-motstrid;proksemikk,0,
+ikkeverbal-kulturer,skill,Verbal og ikke-verbal kommunikasjon,Sammenligne ikke-verbale koder i ulike kulturer,"sammenligne hvordan gester, blikkontakt, avstand og berøring tolkes i ulike kulturer, og forklare hvordan ulike koder kan skape misforståelser.",kroppssprak;proksemikk;kode;hoflighet,0,
+utforske-egen-kommunikasjon,skill,Verbal og ikke-verbal kommunikasjon,Utforske egen kommunikasjon,"observere og beskrive sin egen verbale og ikke-verbale kommunikasjon i ulike situasjoner, som blant venner, i klasserommet og i et jobbintervju, og forklare hvordan og hvorfor den endrer seg.",tolke-ikkeverbal;register;ytre-signaler,0,
+pastand-argument,concept,Argumentasjon,Påstand og argument,"Påstand: det avsenderen vil at mottakeren skal godta.
+Argument: en begrunnelse som skal få mottakeren til å godta påstanden.
+Motargument: en begrunnelse for det motsatte synet.",,0,
+argumenttyper,concept,Argumentasjon,Fakta- og verdiargumenter,"Faktaargument: et argument som bygger på opplysninger som kan undersøkes og bekreftes eller avkreftes.
+Verdiargument: et argument som bygger på hva som er godt, riktig eller viktig, og som ikke kan avgjøres med fakta alene.",pastand-argument,0,
+toulmin,concept,Argumentasjon,Toulmins argumentmodell,"Belegg: opplysningene eller dataene som støtter påstanden.
+Hjemmel: den ofte underforståtte regelen eller verdien som gjør at belegget støtter påstanden.
+Ryggdekning: det som støtter hjemmelen.
+Styrkemarkør: ord som viser hvor sikker påstanden er, som «trolig» og «alltid».
+Gjendrivelse: unntak eller motargumenter som kan svekke påstanden.",pastand-argument,0,
+appellformer,concept,Argumentasjon,Appellformene,"Etos: å overbevise gjennom avsenderens troverdighet, kunnskap og gode vilje.
+Patos: å overbevise ved å vekke følelser hos mottakeren.
+Logos: å overbevise gjennom fakta, fornuft og logiske resonnementer.",pastand-argument,0,
+saklig-usaklig,concept,Argumentasjon,Saklig og usaklig argumentasjon,"Saklig argumentasjon: argumenter som er relevante for saken og bygger på holdbare opplysninger.
+Stråmann: å angripe en forvrengt versjon av motpartens syn.
+Personangrep: å angripe personen i stedet for argumentet.
+Falsk dilemma: å framstille det som om det bare finnes to muligheter.",pastand-argument,0,
+finne-hjemmel,skill,Argumentasjon,Finne hjemmelen i et argument,formulere den underforståtte hjemmelen som binder belegget til påstanden i et argument og vurdere om mottakeren vil godta den.,toulmin;argumenttyper,0,
+analysere-argumentasjon,skill,Argumentasjon,Analysere argumentasjonen i en tekst,"finne påstand, belegg og hjemmel i en argumenterende tekst, og vurdere hvor holdbare og relevante argumentene er.",finne-hjemmel;saklig-usaklig,0,
+avslore-usaklig,skill,Argumentasjon,Avsløre usaklig argumentasjon,"kjenne igjen stråmann, personangrep og andre usaklige grep i en debatt eller et kommentarfelt, og forklare hvorfor de ikke svarer på saken.",saklig-usaklig,0,
+finne-appellformer,skill,Argumentasjon,Finne appellformene i en tekst,"finne eksempler på etos, patos og logos i en tekst, og forklare hvordan hvert eksempel skal virke på mottakeren.",appellformer,0,
+bygge-argumentasjon,skill,Argumentasjon,Bygge opp en saklig argumentasjon,"formulere en tydelig påstand, støtte den med belegg og en hjemmel mottakeren kan godta, og imøtegå de sterkeste motargumentene.",toulmin;argumenttyper;saklig-usaklig,0,
+delta-diskusjon,skill,Argumentasjon,Delta i en diskusjon,"lytte til og gjengi andres argumenter riktig, svare saklig på dem, og bruke appellformene og kroppsspråket bevisst i egne innlegg.",bygge-argumentasjon;avslore-usaklig;finne-appellformer;tolke-ikkeverbal,0,
+medium,concept,Medier,Medium,"Medium: det et budskap formidles gjennom, som avis, radio, tv, nettsider og sosiale medier.
+Massemedium: et medium som når mange mottakere samtidig fra én avsender.
+Sosiale medier: digitale plattformer der brukerne selv lager, deler og kommenterer innhold.",avsender-mottaker,0,
+medienes-samfunnsrolle,concept,Medier,Medienes samfunnsrolle,"Den fjerde statsmakt: at frie medier kontrollerer og kritiserer dem som har makt i samfunnet.
+Dagsordenfunksjonen: at mediene, ved å velge hva de skriver om, påvirker hva folk tenker på og snakker om.",medium,0,
+medieeffekter,concept,Medier,Teorier om medienes påvirkning,"Sprøytemodellen: et eldre syn på mediene som påvirker et passivt publikum direkte og likt.
+Bruk og tilfredsstillelse: et syn der publikum aktivt velger medier for å dekke egne behov, som underholdning, informasjon, fellesskap og identitet.
+Totrinnshypotesen: at mediene ofte påvirker gjennom meningsledere som andre lytter til.",medium;meningsskaping,0,
+algoritmer,concept,Medier,Algoritmer og ekkokamre,"Algoritme: en regel eller beregning plattformene bruker for å velge hvilket innhold hver bruker får se, ut fra det brukeren har gjort før.
+Ekkokammer: et miljø der man mest møter synspunkter som bekrefter dem man allerede har.",medium,0,
+desinformasjon,concept,Medier,Feilinformasjon og desinformasjon,"Feilinformasjon: uriktig informasjon som spres uten at det er meningen å lure noen.
+Desinformasjon: uriktig eller misvisende informasjon som spres med vilje for å påvirke eller lure.",medium,0,
+mediet-former-budskapet,skill,Medier,Forklare hvordan mediet former budskapet,"sammenligne hvordan den samme saken blir framstilt i ulike medier, som en avisartikkel, et kortvideoklipp og en podkast, og forklare hvordan mediet påvirker form, innhold og mottakelse.",medium;register,0,
+mediebruk-individ,skill,Medier,Drøfte hva medier betyr for den enkelte,"drøfte hvordan medier påvirker identitet, selvbilde, relasjoner og hverdag for den enkelte, og reflektere over egen mediebruk med støtte i teori om medienes påvirkning.",medieeffekter;algoritmer,0,
+medier-samfunn,skill,Medier,Drøfte hva medier betyr for samfunnet,"drøfte hvordan medier påvirker demokratiet og samtalen i samfunnet, med vekt på både den fjerde statsmakt, algoritmer og spredning av desinformasjon.",medienes-samfunnsrolle;algoritmer;desinformasjon,0,
+utvidet-tekstbegrep,concept,Tekst og tekstkulturer,Det utvidede tekstbegrepet,"Det utvidede tekstbegrepet: at alt som er skapt for å kommunisere og kan tolkes, regnes som tekst — også bilder, film, musikk, kart, memer og samtaler.",tegn,0,
+multimodalitet,concept,Tekst og tekstkulturer,Multimodalitet,"Modalitet: en uttrykksform, som skrift, tale, bilde, lyd, musikk eller bevegelse.
+Multimodal tekst: en tekst som kombinerer flere modaliteter som sammen skaper mening.",utvidet-tekstbegrep,0,
+tekstkultur,concept,Tekst og tekstkulturer,Tekstkultur,"Tekstkultur: tekstene et fellesskap skaper og bruker, sammen med de normene og forventningene som gjelder for dem — for eksempel muntlig fortellertradisjon, nyhetsjournalistikk, akademisk skriving og memekultur på nett.",utvidet-tekstbegrep;kultur,0,
+sjanger-konvensjon,concept,Tekst og tekstkulturer,Sjanger og konvensjon,"Sjanger: en type tekst med kjente trekk i formål, innhold, form og språk, som leseren kjenner igjen.
+Sjangerkonvensjon: de forventningene en sjanger skaper hos mottakerne, som at en nyhetsartikkel har det viktigste først.",tekstkultur;konvensjon,0,
+komposisjon,concept,Tekst og tekstkulturer,Komposisjon,"Komposisjon: hvordan elementene i en tekst er ordnet og satt sammen — rekkefølge, plassering, hva som er størst og står i blikkfanget, og hvordan delene henger sammen.",multimodalitet,0,
+bildets-virkemidler,concept,Tekst og tekstkulturer,Bildets virkemidler,"Utsnitt: hvor mye av motivet som er med, fra totalbilde til nærbilde.
+Perspektiv: hvor bildet er tatt fra, som fugleperspektiv ovenfra og froskeperspektiv nedenfra.
+Blikkfang: det elementet som først fanger oppmerksomheten.
+Lys og farge: hvordan lyssetting og fargevalg skaper stemning.",multimodalitet,0,
+analysere-komposisjon,skill,Tekst og tekstkulturer,Analysere en sammensatt tekst,"beskrive hvilke elementer en sammensatt tekst er satt sammen av, som skrift, bilder, farger og layout, og forklare hvordan de virker sammen for å skape mening hos mottakeren.",komposisjon;bildets-virkemidler;analysere-konnotasjoner,0,
+analysere-tekstkulturer,skill,Tekst og tekstkulturer,Sammenligne tekster fra ulike tekstkulturer,"analysere og sammenligne hvordan tekster fra to tekstkulturer er komponert, for eksempel reklame fra to land eller en muntlig fortelling og en fortelling på sosiale medier, og forklare forskjellene ut fra tekstkulturenes normer.",analysere-komposisjon;sjanger-konvensjon,0,
+kultur-tekstskaping,skill,Tekst og tekstkulturer,Forklare hvordan kultur former tekstskaping,"forklare hvordan normene i en kultur påvirker hvilke tekster som blir skapt, hva som kan sies, hvem som får komme til orde, og hvilken form tekstene får, med eksempler.",tekstkultur;normer-verdier;majoritet-minoritet,0,
+formal-malgruppe,concept,Tekstskaping og kilder,Formål og målgruppe,"Formål: det en tekst skal oppnå, som å informere, overbevise, underholde eller skape kontakt.
+Målgruppe: de mottakerne teksten først og fremst er laget for.",avsender-mottaker,0,
+tilpasse-tekst,skill,Tekstskaping og kilder,Tilpasse en tekst til kommunikasjonssituasjonen,"skrive eller lage den samme beskjeden til to ulike målgrupper eller i to ulike medier, og forklare hvilke valg av innhold, register og form tilpasningen krevde.",formal-malgruppe;register;mediet-former-budskapet,0,
+lage-multimodal,skill,Tekstskaping og kilder,Lage en multimodal tekst,"lage en egen multimodal tekst, som en plakat, et kort videoklipp eller en presentasjon, der valg av bilde, tekst, lyd og komposisjon er gjort bevisst, og forklare valgene med fagbegreper.",tilpasse-tekst;analysere-komposisjon,0,
+muntlig-presentasjon,skill,Tekstskaping og kilder,Holde en muntlig presentasjon,"holde en muntlig presentasjon med tydelig struktur, tilpasset publikum, der stemmebruk, blikkontakt og kroppsspråk brukes bevisst.",tilpasse-tekst;tolke-ikkeverbal,0,
+oppgaveord,concept,Tekstskaping og kilder,"Beskrive, analysere og drøfte","Beskrive: å gjøre rede for hvordan noe er, uten å vurdere det.
+Analysere: å dele noe opp i delene og vise hvordan de virker sammen, med fagbegreper.
+Drøfte: å undersøke et spørsmål fra flere sider ved å veie argumenter mot hverandre, før man kommer fram til en begrunnet konklusjon.",,0,
+kilde-kildekritikk,concept,Tekstskaping og kilder,Kildekritikk,"Kilde: det en opplysning eller et synspunkt er hentet fra, som en bok, en artikkel, en nettside, en video eller en person.
+Kildekritikk: å vurdere om en kilde er troverdig og relevant, ut fra hvem som står bak, hvilket formål den har, når den ble laget, og om opplysningene kan bekreftes andre steder.",,0,
+kildehenvisning,concept,Tekstskaping og kilder,Kildehenvisning og plagiat,"Sitat: ordrett gjengivelse av en kilde, markert med anførselstegn.
+Parafrase: gjengivelse av innholdet i en kilde med egne ord.
+Kildehenvisning: en opplysning i teksten om hvor noe er hentet fra, knyttet til en fullstendig litteraturliste.
+Plagiat: å framstille andres tekst eller ideer som sine egne.",kilde-kildekritikk,0,
+vurdere-kilde,skill,Tekstskaping og kilder,Vurdere en kildes troverdighet,"vurdere hvor troverdig en kilde er ut fra avsender, formål, tidspunkt og mulighet for bekreftelse, og begrunne vurderingen.",kilde-kildekritikk;desinformasjon,0,
+vurdere-ki,skill,Tekstskaping og kilder,Vurdere KI-generert innhold som kilde,"forklare hvorfor et svar fra en KI-tjeneste ikke er en kilde i seg selv, og kontrollere opplysninger fra den mot kilder som kan etterprøves.",vurdere-kilde,0,
+bruke-kilder,skill,Tekstskaping og kilder,Bruke kilder etterrettelig,"flette sitater og parafraser inn i egen tekst med riktige kildehenvisninger og litteraturliste, og holde egne vurderinger atskilt fra kildenes.",kildehenvisning;vurdere-kilde,0,
+skrive-analyse,skill,Tekstskaping og kilder,Skrive en faglig analyse,"skrive en sammenhengende analyse av en tekst eller en kommunikasjonssituasjon der fagbegreper og teori brukes på konkrete eksempler, og der påstandene underbygges med henvisning til teksten og kildene.",oppgaveord;analysere-komposisjon;analysere-situasjon;bruke-kilder,0,
+skrive-droftende,skill,Tekstskaping og kilder,Skrive en drøftende tekst,"skrive en tekst som drøfter et spørsmål om kommunikasjon, medier eller kultur, med flere synspunkter, teori og kilder, og ender i en begrunnet konklusjon.",oppgaveord;bygge-argumentasjon;bruke-kilder,0,
+tolke-i-kontekst,skill,Kommunikasjonsteori,Tolke en ytring ut fra konteksten,"forklare hvordan den samme ytringen kan bety ulike ting i ulike kontekster, og vise hvilke trekk ved situasjonen og deltakerne som avgjør tolkningen.",kontekst;meningsskaping,0,
+gjenkjenne-kultursyn,skill,Kultur,Gjenkjenne statisk og dynamisk kultursyn i en tekst,"avgjøre om en tekst eller et utsagn bygger på en statisk eller en dynamisk kulturforståelse, og forklare hvilke konsekvenser synet får for hvordan grupper blir framstilt.",statisk-dynamisk;stereotypi,0,
+tolke-ytre-signaler,skill,Verbal og ikke-verbal kommunikasjon,Tolke ytre signaler,"tolke hva klær, symboler og gjenstander kommuniserer i et bilde eller en situasjon, og forklare hvordan tolkningen avhenger av mottakerens kultur og kode.",ytre-signaler;analysere-konnotasjoner,0,
+undersoke-algoritmer,skill,Medier,Undersøke hvordan algoritmer former egen strøm,"undersøke systematisk hvilket innhold en plattform viser deg, forklare hvordan algoritmen kan ha valgt det, og reflektere over hva du ikke får se.",algoritmer,0,
+avslore-desinformasjon,skill,Medier,Avsløre manipulerte bilder og falske nyheter,"bruke enkle metoder, som omvendt bildesøk og å finne opprinnelig kilde, for å avgjøre om et bilde, en video eller en nyhet er manipulert eller tatt ut av sin sammenheng.",desinformasjon;vurdere-kilde,0,
+analysere-sprakfunksjoner-tekst,skill,Kommunikasjonsteori,Bruke Jakobsons modell på en hel tekst,"analysere hvilke språkfunksjoner som dominerer i ulike deler av en sammensatt tekst, som en reklame eller en tale, og forklare hva fordelingen sier om tekstens formål.",bestemme-sprakfunksjoner;analysere-situasjon,0,

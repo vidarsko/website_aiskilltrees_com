@@ -1,0 +1,216 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Metode og teori;Sosialisering og identitet;Avvik og sosial kontroll;Kultur og kulturforståelse;Urfolk og minoriteter;Makt;Medier og samhandling;Arbeid og produksjon;Ideologi, rettferdighet og fordeling;Lagdeling og sosial ulikhet",,,
+,config,,title,Sosiologi og sosialantropologi,,,
+,config,,description,"Samfunnsvitenskapelig metode, sosialisering, avvik, kultur, urfolk, makt, medier, arbeid, ideologi og sosial ulikhet — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-sosiologi-sosialantropologi-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,sosiologi og sosialantropologi (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"bruker «kultur» bare om kunst og tradisjoner, leser «avvik» som noe galt i seg selv, tolker en sammenheng som en årsak, bruker «klasse» og «status» om hverandre, ramser opp teoretikere uten å bruke teorien på saken, eller konkluderer («drøfter») uten først å veie argumenter mot hverandre",,,
+,config,,slots.courseSpecifics,"Faget kan avsluttes med en lokalt gitt muntlig eksamen med forberedelsesdel. Øv derfor eleven i å forklare og drøfte muntlig, med egne ord, presise fagbegreper, teori og egne eksempler.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag samfunnsfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3054,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,social-studies,,,
+,config,,keywords,sosiologi; sosialantropologi; sosant; samfunnsvitenskapelig metode; feltarbeid; sosialisering; rolle; avvik; stempling; kultur; etnosentrisme; kulturrelativisme; urfolk; samer; makt; medier; arbeidsdeling; ideologi; rettferdighet; klasse; lagdeling; sosial mobilitet; marginalisering; Durkheim; Marx; Weber; Goffman; Bourdieu,,,
+,config,,updated,2026-10-08,,,
+sosiologi-sosialantropologi,concept,Metode og teori,Sosiologi og sosialantropologi,"Sosiologi: studiet av samfunnet, sosiale grupper og samhandling, særlig i moderne samfunn og ofte med store utvalg og statistikk.
+Sosialantropologi: studiet av kultur og samfunnsliv på tvers av samfunn, ofte gjennom langvarig feltarbeid tett på menneskene som studeres.",,0,
+sosiologisk-fantasi,concept,Metode og teori,Sosiologisk fantasi,"Sosiologisk fantasi: evnen til å se sammenhengen mellom enkeltmenneskers erfaringer og de større samfunnsforholdene de lever i, slik at det som ser ut som et privat problem, kan vise seg å være et samfunnsproblem. Begrepet er C. Wright Mills'.",sosiologi-sosialantropologi,0,
+aktor-struktur,concept,Metode og teori,Aktør og struktur,"Aktør: en person, gruppe eller organisasjon som handler og tar valg.
+Struktur: de varige mønstrene og rammene i samfunnet, som lover, institusjoner, normer og fordeling av ressurser, som både begrenser og muliggjør handlingene til aktørene.",,0,
+teoretiske-perspektiver,concept,Metode og teori,Tre teoretiske perspektiver,"Funksjonalisme: ser samfunnet som et system der hver del har en funksjon som bidrar til stabilitet og orden.
+Konfliktperspektiv: ser samfunnet som preget av motstridende interesser og ulik fordeling av makt og ressurser.
+Symbolsk interaksjonisme: ser samfunnet som noe som skapes i samhandling, der mennesker handler ut fra hva ting og handlinger betyr for dem.",aktor-struktur,0,
+klassiske-teoretikere,fact,Metode og teori,Klassiske teoretikere og hovedbegrepene deres,"Émile Durkheim: sosiale fakta, anomi, mekanisk og organisk solidaritet
+Karl Marx: klasse, eierskap til produksjonsmidlene, fremmedgjøring
+Max Weber: makt, legitim autoritet, byråkrati, klasse og status
+George Herbert Mead: selvet som vokser fram i samhandling, signifikante og generaliserte andre
+Erving Goffman: rollespill, inntrykksstyring, totale institusjoner, stigma
+Pierre Bourdieu: økonomisk, kulturell og sosial kapital
+Howard Becker: stempling av avvikere
+Marcel Mauss: gaven og plikten til å gi igjen
+Fredrik Barth: etniske grenser
+C. Wright Mills: den sosiologiske fantasien",teoretiske-perspektiver,0,
+problemstilling-hypotese,concept,Metode og teori,Problemstilling og hypotese,"Problemstilling: et presist formulert spørsmål som en undersøkelse skal besvare, avgrenset nok til at det faktisk kan undersøkes.
+Hypotese: en antakelse om hva svaret vil være, formulert slik at undersøkelsen kan styrke eller svekke den.",,0,
+kvalitativ-kvantitativ,concept,Metode og teori,Kvalitativ og kvantitativ metode,"Kvalitativ metode: går i dybden på få enheter, med intervju eller observasjon, for å forstå hvordan mennesker opplever og tolker noe.
+Kvantitativ metode: samler inn tallfestbare opplysninger om mange enheter, ofte med spørreskjema eller registerdata, for å finne utbredelse og mønstre.",problemstilling-hypotese,0,
+deltakende-observasjon,concept,Metode og teori,Feltarbeid og deltakende observasjon,"Deltakende observasjon: at forskeren lever med og tar del i hverdagen til dem som studeres over lang tid, og noterer det som skjer. Det er sosialantropologiens kjernemetode, og gir innsikt i det folk gjør, ikke bare det de sier at de gjør.",kvalitativ-kvantitativ,0,
+innenfra-utenfra,concept,Metode og teori,Innenfra- og utenfraperspektiv,"Innenfraperspektiv: å forstå et fenomen slik de som lever med det, selv forstår det.
+Utenfraperspektiv: å beskrive og sammenligne fenomenet med forskerens egne analytiske begreper, på tvers av samfunn.",deltakende-observasjon,0,
+utvalg-representativitet,concept,Metode og teori,Utvalg og representativitet,"Utvalg: de personene eller enhetene som faktisk blir undersøkt.
+Representativitet: at utvalget ligner på hele gruppa man vil si noe om, slik at funnene kan generaliseres. Et skjevt utvalg gir funn som bare gjelder dem som ble spurt.",kvalitativ-kvantitativ,0,
+validitet-reliabilitet,concept,Metode og teori,Validitet og reliabilitet,"Validitet: om undersøkelsen faktisk måler det den skal måle.
+Reliabilitet: om målingen er pålitelig, slik at en ny undersøkelse på samme måte ville gitt omtrent samme resultat.",kvalitativ-kvantitativ,0,
+korrelasjon-kausalitet,concept,Metode og teori,Korrelasjon og kausalitet,"Korrelasjon: at to forhold varierer sammen.
+Kausalitet: at det ene forholdet faktisk er årsak til det andre. En korrelasjon kan skyldes en tredje faktor som påvirker begge, så den beviser ikke en årsak.",,0,
+forskningsetikk,concept,Metode og teori,Forskningsetikk,"Forskningsetikk: reglene for hvordan forskning skal behandle menneskene den studerer: informert og frivillig samtykke, anonymisering, trygg lagring av personopplysninger, og at deltakerne ikke skal skades av å være med.",,0,
+finne-vurdere-informasjon,skill,Metode og teori,Finne og vurdere informasjon til en problemstilling,"finne informasjon fra ulike typer kilder til en faglig problemstilling, og vurdere hvor troverdig og relevant hver kilde er for akkurat den problemstillingen.",problemstilling-hypotese,0,
+lese-statistikk,skill,Metode og teori,Tolke tabeller og statistikk,"hente ut og tolke opplysninger fra en tabell eller figur med samfunnsstatistikk, skille prosent fra prosentpoeng, og si hva tallene kan og ikke kan fortelle.",korrelasjon-kausalitet;utvalg-representativitet,0,
+velge-metode,skill,Metode og teori,Velge og begrunne metode,"velge en egnet metode for en gitt problemstilling, og begrunne valget ut fra hva metoden får fram og hva den overser.",kvalitativ-kvantitativ;deltakende-observasjon,0,
+gjennomfore-undersokelse,skill,Metode og teori,Gjennomføre en liten samfunnsfaglig undersøkelse,"planlegge og gjennomføre en liten undersøkelse, med intervju, observasjon eller spørreskjema, ta forskningsetiske hensyn underveis, og presentere funnene med forbehold.",velge-metode;forskningsetikk;finne-vurdere-informasjon,0,
+vurdere-undersokelse,skill,Metode og teori,Vurdere styrker og svakheter ved en undersøkelse,"vurdere en gitt undersøkelse ut fra utvalg, validitet, reliabilitet og forskningsetikk, og si hvor langt konklusjonene holder.",validitet-reliabilitet;utvalg-representativitet;forskningsetikk;korrelasjon-kausalitet,0,
+bruke-teori-pa-fenomen,skill,Metode og teori,Analysere et fenomen fra to teoretiske perspektiver,"analysere et sosialt eller kulturelt fenomen fra to teoretiske perspektiver, og vurdere hva hvert av dem får fram og hva det overser.",teoretiske-perspektiver;sosiologisk-fantasi,0,
+sosialisering,concept,Sosialisering og identitet,Sosialisering,"Sosialisering: prosessen der vi lærer normene, verdiene, rollene og ferdighetene som trengs for å fungere i et samfunn. Den varer hele livet, fordi vi stadig går inn i nye grupper og roller.",,0,
+primaer-sekundaer-sosialisering,concept,Sosialisering og identitet,Primær- og sekundærsosialisering,"Primærsosialisering: den første sosialiseringen i familien og nære omgivelser, der språk, grunnleggende normer og tillit legges.
+Sekundærsosialisering: sosialiseringen som skjer senere, i barnehage, skole, venneflokk, arbeidsliv, organisasjoner og medier.",sosialisering,0,
+resosialisering,concept,Sosialisering og identitet,Resosialisering og total institusjon,"Resosialisering: at man legger bort gamle normer og roller og lærer nye, for eksempel i militæret, i fengsel eller etter en flytting til et nytt land.
+Total institusjon: et sted der hele livet styres av én organisasjon og er avskåret fra omverdenen, som et fengsel eller en kostskole. Begrepet er Goffmans.",primaer-sekundaer-sosialisering,0,
+gruppe,concept,Sosialisering og identitet,Primærgruppe og sekundærgruppe,"Primærgruppe: en liten gruppe med nære, personlige og varige relasjoner, som familie og nære venner.
+Sekundærgruppe: en større og mer upersonlig gruppe som er samlet om et bestemt formål, som en klasse, en arbeidsplass eller en forening.",,0,
+status-rolle,concept,Sosialisering og identitet,Status og rolle,"Status: en posisjon i en gruppe eller et samfunn, som elev, datter eller leder. Noen statuser får man (tilskrevet), andre oppnår man (ervervet).
+Rolle: forventningene som knytter seg til en status.
+Rollekonflikt: at forventningene fra to roller man har, trekker i hver sin retning.",gruppe,0,
+mead-selvet,concept,Sosialisering og identitet,Selvet ifølge Mead,"Signifikante andre: de nære personene, ofte foreldrene, som barnet først speiler seg i og lærer av.
+Generaliserte andre: de samlede forventningene fra samfunnet, som barnet etter hvert ser seg selv gjennom.
+Selvet: oppfatningen av seg selv, som ifølge Mead vokser fram i samhandling ved at vi lærer å se oss selv med andres øyne.",sosialisering,0,
+goffman-rollespill,concept,Sosialisering og identitet,Rollespill og inntrykksstyring,"Inntrykksstyring: at vi bevisst eller ubevisst styrer hvilket inntrykk andre får av oss.
+Frontstage: situasjoner der vi spiller en rolle for et publikum.
+Backstage: der vi kan slappe av fra rollen og forberede oss. Begrepene er Goffmans, som så samhandling som et slags teater.",status-rolle,0,
+identitet,concept,Sosialisering og identitet,Identitet,"Identitet: oppfatningen av hvem man er. Personlig identitet er det som skiller deg fra andre; sosial identitet er gruppene du regner deg som en del av og blir regnet til av andre. Identiteten formes og forhandles gjennom hele livet.",mead-selvet,0,
+forklare-mead,skill,Sosialisering og identitet,Forklare hvordan selvet utvikles,"forklare hvordan selvet utvikles gjennom samhandling ifølge Mead, med et eget eksempel fra barndom eller ungdom.",mead-selvet,0,
+gjore-rede-sosialisering-livslop,skill,Sosialisering og identitet,Gjøre rede for sosialisering gjennom livsløpet,"gjøre rede for hvordan sosialiseringen fortsetter gjennom livet, med eksempler fra ulike livsfaser og sosialiseringsarenaer, inkludert resosialisering.",primaer-sekundaer-sosialisering;resosialisering;status-rolle,0,
+analysere-samhandling,skill,Sosialisering og identitet,Analysere en hverdagssituasjon med Goffmans begreper,"analysere en konkret hverdagssituasjon som et rollespill, og vise hvordan aktørene styrer inntrykk og veksler mellom frontstage og backstage.",goffman-rollespill,0,
+reflektere-sosialisering-identitet,skill,Sosialisering og identitet,Reflektere over sosialisering som livslang prosess,"reflektere over hvordan sosial bakgrunn og sosialisering har formet og fortsatt former identitet, levemåte og valg, og hvor stort handlingsrom den enkelte har.",gjore-rede-sosialisering-livslop;forklare-mead;identitet;aktor-struktur,0,
+norm,concept,Avvik og sosial kontroll,Norm,"Formell norm: en nedskrevet regel med en fastsatt reaksjon bak seg, som en lov eller et reglement.
+Uformell norm: en uskreven regel for hvordan man oppfører seg, som håndheves gjennom omgivelsenes reaksjoner.",,0,
+sosial-kontroll,concept,Avvik og sosial kontroll,Sosial kontroll og sanksjoner,"Sosial kontroll: alle måtene et samfunn får medlemmene til å følge normene på.
+Sanksjon: en reaksjon på atferd, positiv (ros, belønning) eller negativ (straff, utfrysning), formell (fra en institusjon) eller uformell (fra folk rundt).",norm,0,
+avvik,concept,Avvik og sosial kontroll,Sosialt avvik,"Sosialt avvik: atferd som bryter med normene i en gruppe eller et samfunn. Hva som regnes som avvik, varierer mellom grupper, kulturer og tider, og et avvik kan være både positivt og negativt.",norm,0,
+anomi,concept,Avvik og sosial kontroll,Anomi,"Anomi: normløshet, en tilstand der felles normer svekkes eller ikke henger sammen med de mulighetene folk har. Durkheim brukte begrepet om raske samfunnsendringer; Merton om spriket mellom målene samfunnet setter og de lovlige midlene folk har til å nå dem.",avvik,0,
+stempling,concept,Avvik og sosial kontroll,Stempling,"Stempling: at omgivelsene setter merkelappen «avviker» på en person, som så kan begynne å se seg selv slik og leve opp til den.
+Primært avvik: den første normbruddet, før noen har reagert.
+Sekundært avvik: avvik som følger av at personen har tatt stempelet inn i identiteten sin.",avvik;identitet,0,
+subkultur,concept,Avvik og sosial kontroll,Subkultur,"Subkultur: en gruppe med egne normer, verdier og uttrykk som skiller seg fra flertallet, men innenfor samme samfunn. Det som er avvik i storsamfunnet, kan være norm i subkulturen.",avvik,0,
+moralsk-panikk,concept,Avvik og sosial kontroll,Moralsk panikk,"Moralsk panikk: en overdreven reaksjon i medier og samfunn på en gruppe eller atferd som framstilles som en trussel mot felles verdier, ofte større enn det faktiske problemet tilsier.",sosial-kontroll,0,
+forklare-avvik-teorier,skill,Avvik og sosial kontroll,Forklare årsaker til avvik med teori,"forklare et konkret avvik med minst to av anomiteori, stemplingsteori og subkulturteori, og vise hva hver teori legger vekt på.",anomi;stempling;subkultur,0,
+analysere-reaksjoner-avvik,skill,Avvik og sosial kontroll,Analysere reaksjoner på avvik,"analysere hvordan enkeltpersoner og samfunnet reagerer på et avvik, med formelle og uformelle sanksjoner, og hvilke følger reaksjonene kan få for den som avviker.",sosial-kontroll;stempling;moralsk-panikk,0,
+drofte-avvik,skill,Avvik og sosial kontroll,Drøfte årsaker til og reaksjoner på avvik,"drøfte årsaker til et sosialt avvik og vurdere om reaksjonene på det, fra enkeltpersoner og fra samfunnet, virker etter hensikten eller forsterker avviket.",forklare-avvik-teorier;analysere-reaksjoner-avvik,0,
+kultur,concept,Kultur og kulturforståelse,Kultur,"Kultur (vid forståelse): alt det mennesker lærer og deler som medlemmer av et samfunn: kunnskap, verdier, normer, tro, språk, skikker og materielle ting.
+Kultur (snever forståelse): kunst, litteratur, musikk og andre uttrykk som regnes som verdifulle eller dannende.",,0,
+statisk-dynamisk-kultur,concept,Kultur og kulturforståelse,Statisk og dynamisk kulturforståelse,"Statisk kulturforståelse: ser kultur som en fast, avgrenset pakke en gruppe har og fører uendret videre.
+Dynamisk kulturforståelse: ser kultur som noe som stadig forhandles, blandes og endres, og som enkeltpersoner forholder seg ulikt til.",kultur,0,
+etnosentrisme-kulturrelativisme,concept,Kultur og kulturforståelse,Etnosentrisme og kulturrelativisme,"Etnosentrisme: å vurdere andre kulturer ut fra normene og verdiene i sin egen, og se sin egen som det normale eller beste.
+Kulturrelativisme: å forstå en skikk ut fra sammenhengen den hører hjemme i. Som metode betyr det å forstå før man vurderer; som moralsk syn at ingen kultur kan vurderes utenfra.",kultur,0,
+etnisitet,concept,Kultur og kulturforståelse,Etnisitet,"Etnisitet: tilhørighet til en gruppe som oppfatter seg selv, og blir oppfattet av andre, som et eget folk med felles opprinnelse og kultur. Barth la vekt på at det er grensene mellom gruppene som holdes ved like, mer enn innholdet i kulturen.",kultur;identitet,0,
+resiprositet,concept,Kultur og kulturforståelse,Resiprositet og gaveutveksling,"Resiprositet: gjensidig utveksling av gaver og tjenester, som skaper og holder ved like relasjoner. Mauss viste at en gave skaper en plikt til å ta imot og gi igjen.
+Generalisert resiprositet: man gir uten å regne med noe bestemt tilbake, typisk i familien.
+Balansert resiprositet: man venter en gave av omtrent samme verdi tilbake innen rimelig tid.",kultur,0,
+slektskap-ekteskap,concept,Kultur og kulturforståelse,Slektskap og ekteskap,"Patrilineær og matrilineær slektsregning: slekt regnes bare gjennom farens eller bare gjennom morens linje.
+Bilateral slektsregning: slekt regnes like mye gjennom begge foreldrene, slik det er vanlig i Norge.
+Monogami og polygami: ekteskap mellom to personer, eller der én person kan ha flere ektefeller samtidig.",kultur,0,
+overgangsrite,concept,Kultur og kulturforståelse,Overgangsrite,"Overgangsrite: et ritual som markerer at en person går fra én status til en annen, som konfirmasjon, bryllup eller russetid. Van Gennep delte dem i tre faser: atskillelse fra den gamle statusen, en mellomfase, og innlemmelse i den nye.",kultur;status-rolle,0,
+globalisering,concept,Kultur og kulturforståelse,Globalisering,"Globalisering: at mennesker, samfunn og økonomier over hele verden blir tettere knyttet sammen, gjennom handel, migrasjon, teknologi og medier, slik at det som skjer ett sted, raskere får følger andre steder.",,0,
+kulturmoter,concept,Kultur og kulturforståelse,Kulturmøter og kulturendring,"Assimilasjon: at en minoritet går opp i majoriteten og gir slipp på sin egen kultur.
+Integrasjon: at en gruppe deltar fullt i storsamfunnet og samtidig beholder sider ved sin egen kultur.
+Segregering: at grupper lever atskilt.
+Kulturell hybridisering: at elementer fra ulike kulturer blandes til noe nytt.",statisk-dynamisk-kultur;globalisering,0,
+interkulturell-kompetanse,concept,Kultur og kulturforståelse,Interkulturell kompetanse,"Interkulturell kompetanse: evnen til å kommunisere og samhandle godt med mennesker med en annen kulturell bakgrunn, ved å kjenne sine egne forutsetninger, være nysgjerrig på andres og tåle uenighet uten å gjøre den andre til «de andre».",etnosentrisme-kulturrelativisme,0,
+drofte-kulturbegrep,skill,Kultur og kulturforståelse,Drøfte ulike oppfatninger av kultur,"drøfte ulike måter å forstå begrepet kultur på, og vise med eksempler hvilke følger en statisk og en dynamisk forståelse får for hvordan vi omtaler grupper.",statisk-dynamisk-kultur,0,
+sammenligne-kulturfenomener,skill,Kultur og kulturforståelse,Sammenligne kulturfenomener innad i og mellom kulturer,"sammenligne et kulturfenomen, som gaveutveksling, ekteskap eller overgangsriter, innad i én kultur og mellom ulike kulturer, uten å bruke egen kultur som fasit.",etnosentrisme-kulturrelativisme;resiprositet;slektskap-ekteskap;overgangsrite;innenfra-utenfra,0,
+analysere-kulturendring,skill,Kultur og kulturforståelse,Analysere stabilitet og endring i en kultur,"analysere hva som holder en kultur stabil og hva som driver den til å endre seg, med et konkret eksempel og begreper fra kulturmøter og globalisering.",kulturmoter,0,
+drofte-kulturelt-mangfold,skill,Kultur og kulturforståelse,Drøfte utfordringer og muligheter ved kulturelt mangfold,"drøfte utfordringer og muligheter som kulturelt mangfold gir for enkeltpersoner og samfunn, og bruke begreper som integrasjon, assimilasjon og etnisitet presist.",analysere-kulturendring;etnisitet,0,
+drofte-interkulturell-kompetanse,skill,Kultur og kulturforståelse,Drøfte betydningen av kulturforståelse i et demokrati,"drøfte hvorfor kulturforståelse og interkulturell kompetanse er viktig i et demokratisk og mangfoldig samfunn, og hvor grensene for toleranse bør gå.",interkulturell-kompetanse;drofte-kulturelt-mangfold,0,
+majoritet-minoritet,concept,Urfolk og minoriteter,Majoritet og minoritet,"Majoritet: gruppa som er i flertall og har makt til å definere hva som er normalt.
+Minoritet: en gruppe i mindretall som skiller seg fra majoriteten i for eksempel språk, religion, etnisitet eller levemåte.",etnisitet,0,
+urfolk,concept,Urfolk og minoriteter,Urfolk,"Urfolk: et folk som bodde i et område før dagens statsgrenser ble trukket, som har beholdt egne språk, institusjoner og levemåter, og som selv definerer seg som urfolk. Samene er urfolk i Norge, Sverige, Finland og Russland.",majoritet-minoritet,0,
+fornorsking,concept,Urfolk og minoriteter,Fornorsking,"Fornorsking: den norske statens politikk, særlig fra midten av 1800-tallet og langt ut på 1900-tallet, for å få samer og kvener til å oppgi språket og kulturen sin og bli norske. Det er et eksempel på tvungen assimilasjon.",urfolk;kulturmoter,0,
+urfolk-arstall,fact,Urfolk og minoriteter,Urfolksrettigheter i Norge,"ILO-konvensjon 169 om urfolk vedtatt: 1989
+Norge ratifiserer ILO-konvensjon 169, som første land: 1990
+Sametinget åpnet: 1989
+FNs erklæring om urfolks rettigheter vedtatt: 2007
+Finnmarksloven: 2005
+Sannhets- og forsoningskommisjonen legger fram rapporten sin: 2023",urfolk,0,
+utforske-urfolkssamfunn,skill,Urfolk og minoriteter,Utforske kultur og samfunnsliv hos et urfolk,"utforske kulturen og samfunnslivet til ett urfolk, som næringsveier, språk, slektskap og politisk organisering, og presentere det med kilder.",urfolk;finne-vurdere-informasjon,0,
+sammenligne-urfolk,skill,Urfolk og minoriteter,Sammenligne ulike urfolks kulturer,"sammenligne kulturen og samfunnslivet til to urfolk, eller variasjonen innad i ett, og vise at urfolk ikke er én ensartet gruppe.",utforske-urfolkssamfunn;statisk-dynamisk-kultur,0,
+reflektere-urfolksrettigheter,skill,Urfolk og minoriteter,Reflektere over urfolk i møte med storsamfunnet,"reflektere over hvordan urfolk har blitt møtt av storsamfunnet, fra assimileringspolitikk til rettigheter og selvbestemmelse, og over konflikter som står ved lag i dag, for eksempel om arealbruk.",fornorsking;urfolk-arstall;sammenligne-urfolk,0,
+makt,concept,Makt,Makt,"Makt: muligheten til å få gjennomslag for egen vilje, også mot andres motstand. Definisjonen er Webers. Makt kan bygge på tvang, penger, kunnskap, posisjon eller evnen til å forme hva folk tenker.",aktor-struktur,0,
+lukes-makt,concept,Makt,Maktens tre dimensjoner,"Åpen makt: å vinne fram i en synlig konflikt, som en avstemning.
+Skjult makt: å holde saker unna dagsordenen, slik at de aldri kommer opp.
+Ideologisk makt: å forme hva folk ønsker og tar for gitt, slik at konflikten ikke en gang oppstår. Inndelingen er Steven Lukes'.",makt,0,
+legitimitet-autoritet,concept,Makt,Legitim makt og autoritet,"Autoritet: makt som de som er underlagt den, godtar som legitim.
+Tradisjonell autoritet: bygger på at det alltid har vært slik.
+Karismatisk autoritet: bygger på lederens personlige utstråling.
+Legal-rasjonell autoritet: bygger på regler og lover, og ligger i stillingen, ikke personen. Inndelingen er Webers.",makt,0,
+byrakrati,concept,Makt,Byråkrati,"Byråkrati: en organisasjonsform med faste regler, klar arbeidsdeling, hierarki og ansettelse etter kompetanse, der sakene behandles likt uavhengig av hvem man er. Weber så det som den mest effektive formen for legal-rasjonell styring.",legitimitet-autoritet,0,
+gjore-rede-maktformer,skill,Makt,Gjøre rede for ulike former for makt,"gjøre rede for ulike former for makt og legitim autoritet, med et eget eksempel på hver.",lukes-makt;legitimitet-autoritet,0,
+analysere-maktutovelse,skill,Makt,Vurdere hvordan maktutøvelse påvirker aktører og strukturer,"analysere en konkret maktsituasjon og vurdere hvordan utøvelsen av makt påvirker aktørene, strukturene og handlingsrommet til dem som er involvert.",gjore-rede-maktformer;byrakrati;aktor-struktur,0,
+kommunikasjon-samhandling,concept,Medier og samhandling,Kommunikasjon og samhandling,"Kommunikasjon: overføring av mening mellom mennesker gjennom språk, tegn og kroppsspråk, ansikt til ansikt eller gjennom medier.
+Samhandling: at mennesker handler i forhold til hverandre og tolker og justerer seg etter hverandres handlinger.",,0,
+medialisering,concept,Medier og samhandling,Medialisering,"Medialisering: at mediene og logikken deres, som behovet for kortfattede, personlige og engasjerende saker, får stadig større innflytelse på politikk, arbeidsliv og hverdagsliv.",kommunikasjon-samhandling,0,
+algoritmer-filterbobler,concept,Medier og samhandling,Algoritmer og filterbobler,"Algoritmestyrt innhold: at plattformene velger ut hva hver bruker får se, ut fra hva som holder oppmerksomheten.
+Filterboble: at man mest møter innhold som bekrefter det man allerede mener.
+Ekkokammer: et fellesskap der like meninger forsterker hverandre og avvikende syn sjelden slipper til.",medialisering,0,
+digitale-fellesskap,concept,Medier og samhandling,Digitale fellesskap,"Digitale fellesskap: grupper som møtes og holder sammen gjennom digitale medier, uavhengig av hvor medlemmene bor. De kan være like viktige for tilhørighet og identitet som fysiske fellesskap.",kommunikasjon-samhandling;gruppe,0,
+analysere-selvframstilling,skill,Medier og samhandling,Analysere selvframstilling i sosiale medier,"analysere hvordan mennesker framstiller seg selv i sosiale medier med Goffmans begreper, og hva det kan bety for identitet og selvbilde.",goffman-rollespill;digitale-fellesskap;identitet,0,
+drofte-teknologi-samhandling,skill,Medier og samhandling,"Drøfte hvordan ny teknologi endrer medier, kommunikasjon og samhandling","drøfte hvordan medier, kommunikasjon og samhandling har endret seg med ny teknologi, og vurdere både mulighetene og problemene endringene gir for enkeltpersoner og samfunnet.",algoritmer-filterbobler;analysere-selvframstilling;sosialisering,0,
+samfunnstyper,fact,Arbeid og produksjon,Samfunnstyper og produksjonsmåter,"jeger- og sankersamfunn: lever av det naturen gir, i små og ofte flyttende grupper med lite arbeidsdeling
+gjetersamfunn: lever av tamme dyr som flyttes mellom beiter
+jordbrukssamfunn: fastboende, med overskudd som gir rom for sosiale lag og spesialiserte yrker
+industrisamfunn: produksjon i fabrikker med maskiner, lønnsarbeid og flytting til byene
+postindustrielt samfunn: de fleste arbeider med tjenester, kunnskap og informasjon",,0,
+arbeidsdeling,concept,Arbeid og produksjon,Arbeidsdeling,"Arbeidsdeling: at arbeidet fordeles slik at ulike personer eller grupper tar seg av ulike oppgaver.
+Enkel arbeidsdeling: få og lite spesialiserte oppgaver, ofte fordelt etter kjønn og alder.
+Kompleks arbeidsdeling: mange spesialiserte yrker der alle er avhengige av hverandre. Adam Smith viste hvordan oppdeling av en produksjon i mange små steg øker produktiviteten.",samfunnstyper,0,
+solidaritet-durkheim,concept,Arbeid og produksjon,Mekanisk og organisk solidaritet,"Mekanisk solidaritet: samhold fordi folk er like, med samme arbeid, tro og normer, typisk i små førmoderne samfunn.
+Organisk solidaritet: samhold fordi folk er ulike og derfor avhengige av hverandre, typisk i samfunn med kompleks arbeidsdeling. Begrepene er Durkheims.",arbeidsdeling,0,
+fremmedgjoring,concept,Arbeid og produksjon,Fremmedgjøring,"Fremmedgjøring: at arbeideren mister forbindelsen til produktet, til selve arbeidet, til andre mennesker og til seg selv, fordi hun eller han ikke eier produksjonsmidlene og ikke bestemmer over arbeidet. Begrepet er Marx'.",arbeidsdeling,0,
+taylorisme-fordisme,concept,Arbeid og produksjon,Taylorisme og fordisme,"Taylorisme: å dele arbeidet opp i små, standardiserte steg som måles og effektiviseres, med et skarpt skille mellom dem som planlegger og dem som utfører.
+Fordisme: masseproduksjon av like varer på samlebånd, med faste jobber og lønn høy nok til at arbeiderne selv kan kjøpe varene.",arbeidsdeling,0,
+fleksibelt-arbeidsliv,concept,Arbeid og produksjon,Fleksibelt arbeidsliv,"Fleksibelt arbeidsliv: arbeid organisert med vekt på omstilling, som team, prosjekter, midlertidige stillinger, innleie og oppdrag formidlet gjennom digitale plattformer. Det gir større frihet for noen og mindre trygghet for andre.",taylorisme-fordisme,0,
+automatisering,concept,Arbeid og produksjon,Automatisering og digitalisering,"Automatisering: at maskiner, roboter eller dataprogrammer overtar oppgaver mennesker gjorde før.
+Digitalisering: at arbeid, tjenester og kommunikasjon flyttes over på digitale løsninger, noe som både fjerner, endrer og skaper jobber.",samfunnstyper,0,
+sammenligne-arbeidsorganisering,skill,Arbeid og produksjon,Drøfte konsekvenser av ulik organisering av arbeid,"sammenligne to måter å organisere arbeid på, og drøfte hvilke konsekvenser de får for arbeidstakerne, for produktiviteten og for fellesskapet på arbeidsplassen.",fremmedgjoring;fleksibelt-arbeidsliv,0,
+drofte-arbeidets-betydning,skill,Arbeid og produksjon,Vurdere betydningen av arbeid for individ og samfunn,"vurdere hva arbeid og produksjon betyr for den enkelte, som inntekt, identitet, tilhørighet og status, og for samfunnet, som verdiskaping, velferd og samhold.",sammenligne-arbeidsorganisering;identitet,0,
+vurdere-arbeidsdeling,skill,Arbeid og produksjon,Vurdere ulike former for arbeidsdeling,"vurdere fordeler og ulemper ved enkel og kompleks arbeidsdeling, og ved arbeidsdeling etter kjønn og mellom land, med Durkheims og Marx' syn som motpoler.",solidaritet-durkheim;fremmedgjoring;globalisering,0,
+drofte-teknologi-produksjon,skill,Arbeid og produksjon,"Drøfte sammenhengen mellom teknologi, produksjon og samfunnsendring","drøfte hvordan ny teknologi har endret produksjonen og dermed samfunnet, fra jordbruk og industrialisering til automatisering i dag, og vurdere hva det kan bety for framtidens arbeidsliv.",vurdere-arbeidsdeling;automatisering,0,
+politiske-ideologier,concept,"Ideologi, rettferdighet og fordeling",Politiske ideologier,"Liberalisme: setter individets frihet først, og vil ha en begrenset stat og et fritt marked.
+Sosialisme: setter likhet og fellesskap først, og vil at fellesskapet skal styre mer av økonomien og fordele godene jevnere.
+Konservatisme: legger vekt på tradisjon, stabilitet og forsiktig endring, og på fellesskap som familie og lokalsamfunn.",,0,
+fordelingsprinsipper,concept,"Ideologi, rettferdighet og fordeling",Fordelingsprinsipper,"Likhetsprinsippet: alle skal få like mye.
+Behovsprinsippet: hver skal få etter det den trenger.
+Fortjenesteprinsippet: hver skal få etter innsats eller bidrag.
+Likhet i muligheter og likhet i resultat: om rettferdighet betyr at alle stiller likt ved start, eller at alle ender omtrent likt.",,0,
+rettferdighetsteorier,concept,"Ideologi, rettferdighet og fordeling",Rawls og Nozick om rettferdighet,"Rawls: et rettferdig samfunn er det vi ville valgt bak et uvitenhetens slør, uten å vite hvilken plass vi selv får, og da godtar vi bare ulikhet som også kommer de svakest stilte til gode.
+Nozick: en fordeling er rettferdig hvis alt er ervervet og overført frivillig og lovlig, uansett hvor ulik den er, og staten skal ikke omfordele.",fordelingsprinsipper,0,
+omfordeling,concept,"Ideologi, rettferdighet og fordeling",Omfordeling og velferdsstat,"Omfordeling: at staten flytter ressurser fra noen grupper til andre, gjennom skatter, trygder og gratis eller billige tjenester.
+Velferdsstat: en stat som tar et omfattende ansvar for innbyggernes trygghet, helse og utdanning, finansiert over skatten.",fordelingsprinsipper,0,
+sammenligne-ideologier,skill,"Ideologi, rettferdighet og fordeling",Vurdere hvordan ideologier behandler makt og fordeling,"sammenligne hvordan liberalisme, sosialisme og konservatisme vil fordele goder og makt i samfunnet, og vurdere hva hver av dem vektlegger og nedtoner.",politiske-ideologier;omfordeling;makt,0,
+drofte-rettferdighet,skill,"Ideologi, rettferdighet og fordeling",Drøfte oppfatninger av rettferdig fordeling,"drøfte ulike oppfatninger av hva rettferdig fordeling er, med fordelingsprinsippene og Rawls og Nozick, brukt på en konkret fordelingssak.",rettferdighetsteorier;sammenligne-ideologier,0,
+lagdeling,concept,Lagdeling og sosial ulikhet,Sosial lagdeling,"Sosial lagdeling: at et samfunn er delt i lag som er rangert over hverandre, med ulik tilgang til goder som inntekt, makt og anseelse.
+Kastesystem: et lukket lagdelingssystem der man fødes inn i et lag og nesten ikke kan bytte.
+Klassesamfunn: et mer åpent system der posisjonen også avhenger av utdanning, yrke og inntekt.",,0,
+klasse-marx,concept,Lagdeling og sosial ulikhet,Klasse ifølge Marx,"Klasse (Marx): en gruppe definert av forholdet til produksjonsmidlene. Borgerskapet eier dem, mens arbeiderklassen bare har arbeidskraften sin å selge, og de to har motstridende interesser.",lagdeling;fremmedgjoring,0,
+klasse-weber,concept,Lagdeling og sosial ulikhet,"Klasse, status og parti ifølge Weber","Klasse (Weber): en gruppe med like muligheter på markedet, ut fra eiendom, utdanning og ferdigheter.
+Status: den sosiale anseelsen en gruppe nyter.
+Parti: organisert politisk innflytelse. Webers poeng er at de tre ikke alltid følger hverandre.",lagdeling;makt,0,
+kapitalformer,concept,Lagdeling og sosial ulikhet,"Økonomisk, kulturell og sosial kapital","Økonomisk kapital: penger og eiendom.
+Kulturell kapital: utdanning, kunnskap, språk og smak som verdsettes i samfunnet, ofte arvet fra hjemmet.
+Sosial kapital: nettverk og kontakter man kan dra nytte av. Begrepene er Bourdieus, som viste at alle tre kan overføres mellom generasjoner.",lagdeling,0,
+sosial-ulikhet,concept,Lagdeling og sosial ulikhet,Sosial ulikhet,"Sosial ulikhet: systematiske forskjeller mellom grupper i tilgang til goder som inntekt, formue, utdanning, helse og innflytelse, forskjeller som henger sammen med samfunnets strukturer og ikke bare med enkeltpersoners valg.",lagdeling,0,
+sosial-mobilitet,concept,Lagdeling og sosial ulikhet,Sosial mobilitet,"Sosial mobilitet: bevegelse mellom sosiale lag.
+Vertikal og horisontal mobilitet: bevegelse opp eller ned, eller sidelengs til en posisjon på samme nivå.
+Mobilitet mellom og innen generasjoner: om barna havner i et annet lag enn foreldrene, eller om en person flytter seg i løpet av sitt eget liv.",lagdeling,0,
+sosial-arv-meritokrati,concept,Lagdeling og sosial ulikhet,Sosial arv og meritokrati,"Sosial arv: at levekår, utdanning og vaner går i arv fra foreldre til barn.
+Meritokrati: et samfunn der posisjoner fordeles etter evner og innsats, ikke etter bakgrunn.",sosial-mobilitet;kapitalformer,0,
+marginalisering,concept,Lagdeling og sosial ulikhet,"Marginalisering, utenforskap og inkludering","Marginalisering: at en person eller gruppe skyves ut i utkanten av fellesskap og får mindre tilgang til arbeid, utdanning, innflytelse og sosiale nettverk.
+Utenforskap: det å stå utenfor slike fellesskap over tid.
+Inkludering: at alle får delta på like vilkår, uten å måtte bli lik majoriteten først.",sosial-ulikhet,0,
+baerekraftig-utvikling,concept,Lagdeling og sosial ulikhet,Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker behovene i dag uten å ødelegge mulighetene for kommende generasjoner, og som hviler på tre sider som henger sammen: den økonomiske, den sosiale og den miljømessige.",,0,
+sammenligne-klasseteorier,skill,Lagdeling og sosial ulikhet,Sammenligne Marx' og Webers klassebegrep,"sammenligne Marx' og Webers forståelse av klasse, og forklare hva Bourdieus kapitalformer tilfører når vi skal forklare ulikhet i et moderne samfunn.",klasse-marx;klasse-weber;kapitalformer,0,
+drofte-ulikhet-teori,skill,Lagdeling og sosial ulikhet,Bruke teorier om lagdeling for å drøfte ulikhet,"bruke teorier om lagdeling og klasser til å drøfte en konkret form for sosial ulikhet i Norge eller et annet land, støttet av statistikk.",sammenligne-klasseteorier;sosial-ulikhet;lese-statistikk,0,
+forklare-mobilitet,skill,Lagdeling og sosial ulikhet,Gjøre rede for forutsetninger for sosial mobilitet,"gjøre rede for hva som gjør sosial mobilitet mulig eller vanskelig, som utdanningssystem, familiebakgrunn, kapitalformer og hvor åpent lagdelingssystemet er.",sosial-arv-meritokrati,0,
+drofte-mobilitet,skill,Lagdeling og sosial ulikhet,Drøfte konsekvenser av høy og lav sosial mobilitet,"drøfte hvilke konsekvenser høy og lav sosial mobilitet får for enkeltpersoner og samfunn, med eksempler fra ulike samfunn og kulturer.",forklare-mobilitet,0,
+forklare-marginalisering,skill,Lagdeling og sosial ulikhet,Reflektere over årsaker til marginalisering,"reflektere over hvorfor noen grupper blir marginalisert, og trekke inn både strukturer og aktørenes egne valg.",marginalisering;aktor-struktur;stempling,0,
+vurdere-inkluderingstiltak,skill,Lagdeling og sosial ulikhet,Vurdere tiltak mot utenforskap,"utforske og vurdere tiltak som skal motvirke utenforskap og fremme inkludering, ut fra hvilke årsaker tiltakene treffer og hvilke de ikke treffer.",forklare-marginalisering;finne-vurdere-informasjon,0,
+drofte-ulikhet-baerekraft,skill,Lagdeling og sosial ulikhet,"Drøfte sosiale prosesser, ulikhet og bærekraftige samfunn","drøfte hvordan sosiale prosesser skaper og opprettholder ulikhet på individ- og samfunnsnivå, og hva det betyr for mulighetene til å bygge bærekraftige samfunn.",drofte-ulikhet-teori;drofte-mobilitet;vurdere-inkluderingstiltak;drofte-rettferdighet;baerekraftig-utvikling,0,

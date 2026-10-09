@@ -1,0 +1,194 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Tekst i kontekst;Norrøn litteratur;Fra reformasjonen til opplysningstiden;Romantikk og nasjonalromantikk;Sakprosa og retorisk situasjon;Norsk, nabospråk og norrønt;Språksituasjonen i Norge;Skriving og muntlighet",,,
+,config,,title,Norsk Vg2,,,
+,config,,description,"Litteratur fra norrøn tid til nasjonalromantikken lest i kontekst og sammenlignet med nyere tekster, sakprosa og retorisk situasjon, norsk sammenlignet med svensk, dansk og norrønt, bakgrunnen for språksituasjonen i Norge, og fagartikkelen — for Vg2 studieforberedende.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-vgs-norsk-vg2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"norsk Vg2 (studieforberedende, norsk videregående skole)",,,
+,config,,slots.motivationSubject,norsk,,,
+,config,,slots.expressionFocus,"gjenforteller innholdet i en eldre tekst i stedet for å tolke den, setter et epokestempel på en tekst uten å vise trekkene i selve teksten, blander sammen epoker og århundrer, kaller norrønt «gammelnorsk» eller «vikingspråk», eller beskriver forskjeller mellom norsk, svensk og dansk med hverdagsord som «rart» og «likt» i stedet for fagbegreper",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, Vg2 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"NOR1264 (skriftlig), NOR1265 (muntlig)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,norwegian,,,
+,config,,keywords,litteraturhistorie; norrøn litteratur; saga; eddadikt; barokk; opplysningstiden; Holberg; romantikken; nasjonalromantikk; Wergeland; folkeeventyr; retorisk situasjon; fagartikkel; språkhistorie; nabospråk; svensk; dansk; norrønt; Ivar Aasen; språkstrid; nynorsk; bokmål,,,
+,config,,updated,2026-10-08,,,
+kulturhistorisk-kontekst,concept,Tekst i kontekst,Kulturhistorisk kontekst,"Kulturhistorisk kontekst: tiden en tekst ble til i — samfunnsforholdene, troen, idéene, kunstsynet og mediene — som former hva teksten handler om og hvordan den er skrevet.",,0,
+litterar-epoke,concept,Tekst i kontekst,Litterær epoke,"Litterær epoke: en periode der mange tekster deler idéer, temaer og formtrekk fordi de springer ut av de samme tankestrømningene og samfunnsforholdene. Epokegrensene er satt i ettertid og er ikke skarpe skiller.",kulturhistorisk-kontekst,0,
+menneske-natur-samfunn,concept,Tekst i kontekst,"Menneskesyn, natursyn og samfunnssyn","Menneskesyn: oppfatningen en tekst eller en tid har av hva et menneske er og bør være.
+Natursyn: hvordan naturen blir sett på — som truende, nyttig, ordnet, vakker eller besjelet.
+Samfunnssyn: hvordan samfunnet og menneskets plass i det blir framstilt.",kulturhistorisk-kontekst,0,
+intertekstualitet,concept,Tekst i kontekst,Intertekstualitet,"Intertekstualitet: at en tekst viser til, låner fra eller skriver seg opp mot andre tekster, for eksempel gjennom sitat, allusjon, parodi eller en ny versjon av et kjent motiv.",,0,
+tema-budskap,concept,Tekst i kontekst,Tema og budskap,"Tema: hva teksten handler om på et overordnet plan, sagt med ett eller noen få ord, som ære eller frihet.
+Budskap: hva teksten sier om temaet, en innsikt leseren tolker seg fram til.",,0,
+litterare-virkemidler,concept,Tekst i kontekst,Litterære virkemidler,"Litterært virkemiddel: et grep som skaper mening og virkning i en tekst, som språklige bilder (sammenligning, metafor, besjeling), symboler, kontraster, gjentakelser og ironi.",,0,
+lyriske-virkemidler,concept,Tekst i kontekst,Lyriske virkemidler,"Lyrisk jeg: stemmen som taler i et dikt, som ikke er det samme som dikteren.
+Rytme: vekslingen mellom trykktunge og trykklette stavelser.
+Rim: ord som klinger likt, som enderim på slutten av verselinjene.
+Strofe: en gruppe verselinjer som hører sammen.",litterare-virkemidler,0,
+forteller-synsvinkel,concept,Tekst i kontekst,Forteller og synsvinkel,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren.
+Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom — en allvitende forteller, en personal forteller som følger én persons tanker, eller en ytre forteller som bare viser det som kan ses og høres.",,0,
+epoker-oversikt,fact,Tekst i kontekst,Epokene fram til 1850,"norrøn tid (vikingtid og høymiddelalder): ca. 800–1350
+reformasjonen i Danmark-Norge: 1536–1537
+renessansen og humanismen i Norden: 1500-tallet
+barokken: 1600-tallet
+opplysningstiden: 1700-tallet
+romantikken: ca. 1800–1850
+nasjonalromantikken i Norge: 1840- og 1850-årene",litterar-epoke,0,
+tolke-eldre-tekst,skill,Tekst i kontekst,Tolke en eldre tekst,"lese en eldre tekst nøye, gjengi kort hva den handler om, og formulere en begrunnet tolkning av tema og budskap med sitater fra teksten.",tema-budskap;litterare-virkemidler,0,"Teksten kan være på eldre dansk-norsk eller i oversettelse. Hjelp eleven med uvante ord og former, men la eleven gjøre tolkningen selv."
+lese-i-kontekst,skill,Tekst i kontekst,Lese en tekst i lys av konteksten,"vise hvordan tema, menneskesyn, form og språk i en tekst henger sammen med tiden og epoken den ble skrevet i, med konkrete eksempler fra teksten.",tolke-eldre-tekst;litterar-epoke;menneske-natur-samfunn,0,
+sammenligne-med-nyere,skill,Tekst i kontekst,Sammenligne en eldre tekst med en nyere,"sammenligne en eldre tekst med en tekst fra nyere tid med beslektet tema, og forklare likheter og forskjeller i innhold, form og syn på menneske, natur og samfunn ut fra tidene de ble til i.",lese-i-kontekst;intertekstualitet,0,
+drofte-relevans,skill,Tekst i kontekst,Drøfte hva en eldre tekst har å si i dag,"drøfte om temaene og verdiene i en eldre tekst er relevante, eller fremmede, for lesere i dag, med argumenter både fra teksten og fra egen samtid.",lese-i-kontekst;drofte,0,
+norront,concept,Norrøn litteratur,Norrønt,"Norrønt: språket som ble snakket og skrevet i Norge og på Island i vikingtiden og middelalderen, og som norsk, islandsk og færøysk har utviklet seg fra.",,0,
+eddadikt,concept,Norrøn litteratur,Eddadikt,"Eddadikt: anonyme norrøne dikt om guder og helter, overlevert muntlig og skrevet ned på Island på 1200-tallet, som Voluspå og Håvamål.",norront,0,
+kjenning,concept,Norrøn litteratur,Kjenning,"Kjenning: en omskrivning der et substantiv erstattes av et bilde, som «havets hest» om et skip.",litterare-virkemidler,0,
+skaldedikt,concept,Norrøn litteratur,Skaldedikt,"Skaldedikt: dikt av navngitte skalder, ofte til ære for en konge eller høvding, med strenge regler for rytme og rim og et språk fullt av kjenninger.",norront;kjenning,0,
+saga,concept,Norrøn litteratur,Islendingesaga og kongesaga,"Islendingesaga: prosafortelling om islandske ætter på 900- og 1000-tallet, skrevet ned på 1200-tallet.
+Kongesaga: fortelling om livet og regjeringstiden til norske konger.",norront,0,
+sagastil,concept,Norrøn litteratur,Sagastil,"Sagastil: en nøktern fortellemåte med ytre synsvinkel, korte replikker, indirekte karakteristikk og nesten ingen beskrivelse av følelser, der spenningen bygges med varsler, drømmer og underdrivelser.",saga;forteller-synsvinkel,0,
+aere-hevn-skjebne,concept,Norrøn litteratur,"Ære, hevn og skjebne","Ære: anseelsen til et menneske og en ætt, som måtte forsvares.
+Hevnplikt: plikten til å hevne en krenkelse mot ætten.
+Skjebnetro: troen på at livet og døden er bestemt på forhånd.",saga,0,
+norrone-tekster,fact,Norrøn litteratur,Sentrale norrøne tekster,"Voluspå: eddadikt om verdens skapelse og undergang (ragnarok)
+Håvamål: eddadikt med leveregler, lagt i munnen på Odin
+Heimskringla: Snorre Sturlasons kongesagaer, skrevet rundt 1230
+Njåls saga: islendingesaga om vennskap, lov og blodhevn
+Egils saga: islendingesaga om skalden Egil Skallagrimsson
+Kongespeilet: norsk lærebok i dialogform fra midten av 1200-tallet",eddadikt;saga,0,
+analysere-sagautdrag,skill,Norrøn litteratur,Analysere et sagautdrag,"vise hvordan sagastilen preger et utdrag fra en saga i oversettelse, og hva utdraget sier om verdier som ære, ætt og skjebne.",sagastil;aere-hevn-skjebne;tolke-eldre-tekst,0,
+tolke-eddadikt,skill,Norrøn litteratur,Tolke et eddadikt,"tolke et utdrag av et eddadikt i oversettelse, og forklare hva det sier om livssyn og verdier i norrøn tid.",eddadikt;tolke-eldre-tekst,0,
+sammenligne-norront-nyere,skill,Norrøn litteratur,Sammenligne en norrøn tekst med en nyere tekst,"sammenligne en norrøn tekst i oversettelse med en tekst fra nyere tid, for eksempel synet på ære og hevn i en saga og i en nyere roman eller film, og forklare forskjellene ut fra tidene tekstene ble til i.",analysere-sagautdrag;tolke-eddadikt;sammenligne-med-nyere,0,
+reformasjonen,concept,Fra reformasjonen til opplysningstiden,Reformasjonen,"Reformasjonen: bruddet med den katolske kirken, innført i Danmark-Norge i 1536–1537, som gjorde kongen til kirkens overhode og dansk til språket i kirke, skole og forvaltning i Norge.",,0,
+renessanse-humanisme,concept,Fra reformasjonen til opplysningstiden,Renessanse og humanisme,"Renessansen: en kulturbevegelse som tok opp igjen idealer fra antikken, med vekt på mennesket, fornuften og kunsten.
+Humanisme: et syn som setter menneskets evner, verdighet og dannelse i sentrum.",,0,
+barokken,concept,Fra reformasjonen til opplysningstiden,Barokken,"Barokken: stilretningen på 1600-tallet, preget av kontraster mellom liv og død og mellom det jordiske og det himmelske, ofte med religiøst innhold og et utsmykket språk fullt av bilder, ordspill og antiteser.",litterare-virkemidler,0,
+opplysningstiden,concept,Fra reformasjonen til opplysningstiden,Opplysningstiden,"Opplysningstiden: 1700-tallets tro på fornuft, kunnskap og opplysning av folket, med kritikk av fordommer, overtro og autoriteter som ikke kan begrunne makten sin.",renessanse-humanisme,0,
+satire-komedie,concept,Fra reformasjonen til opplysningstiden,Satire og komedie,"Satire: en tekst som latterliggjør feil og dårskap hos mennesker eller i samfunnet for å kritisere dem.
+Komedie: et drama som skal få publikum til å le, ofte med typer i stedet for sammensatte personer og med en lykkelig slutt.",dramabegreper,0,
+dramabegreper,concept,Fra reformasjonen til opplysningstiden,Dramabegreper,"Akt: en hoveddel av et skuespill, delt i scener.
+Replikk: det en person sier i et drama.
+Sceneanvisning: forfatterens beskjed om sted, handling og regi, skrevet utenom replikkene.",,0,
+forfattere-1600-1700,fact,Fra reformasjonen til opplysningstiden,Forfattere fra 1600- og 1700-tallet,"Petter Dass: prest og dikter på Helgeland, kjent for Nordlands Trompet, en diktskildring av folk, natur og næringsliv i Nord-Norge
+Dorothe Engelbretsdatter: salmedikter i Bergen på 1600-tallet, regnet som den første kjente kvinnelige forfatteren i Norge
+Ludvig Holberg: forfatter født i Bergen i 1684, kjent for komedier som Jeppe på Bjerget (1722) og for epistlene sine
+Johan Herman Wessel: forfatter av parodien Kierlighed uden Strømper (1772)",barokken;opplysningstiden,0,
+ideutvikling-1500-1800,skill,Fra reformasjonen til opplysningstiden,Følge idéutviklingen fra reformasjonen til opplysningstiden,"forklare hvordan synet på Gud, mennesket og fornuften endret seg fra reformasjonen gjennom barokken til opplysningstiden, og vise endringen med eksempler fra tekster.",reformasjonen;barokken;opplysningstiden,0,
+analysere-barokk,skill,Fra reformasjonen til opplysningstiden,Vise barokke trekk i en tekst,"vise hvilke barokke trekk — kontraster, antiteser, bilder og religiøst innhold — en tekst fra 1600-tallet har, og hva de sier om menneskesynet i tiden.",barokken;tolke-eldre-tekst,0,
+analysere-satire,skill,Fra reformasjonen til opplysningstiden,Analysere satire og komedie fra opplysningstiden,"vise hvem eller hva en tekst fra 1700-tallet gjør narr av, hvilke komiske og satiriske grep den bruker, og hvilke opplysningsidéer kritikken bygger på.",satire-komedie;opplysningstiden;tolke-eldre-tekst,0,
+romantikken,concept,Romantikk og nasjonalromantikk,Romantikken,"Romantikken: en kulturbevegelse fra rundt 1800 som satte følelser, fantasi og intuisjon over fornuften, og som så naturen som besjelet og som et uttrykk for noe guddommelig.",opplysningstiden,0,
+universalromantikk,concept,Romantikk og nasjonalromantikk,Universalromantikk,"Universalromantikk: troen på at alt i tilværelsen henger sammen i en større, guddommelig helhet, og at kunstneren med sin intuisjon kan få glimt av den.",romantikken,0,
+nasjonsbygging,concept,Romantikk og nasjonalromantikk,Nasjonsbygging,"Nasjonsbygging: arbeidet etter 1814 med å skape en felles norsk identitet gjennom språk, historie, kunst og folkekultur.",,0,
+nasjonalromantikk,concept,Romantikk og nasjonalromantikk,Nasjonalromantikken,"Nasjonalromantikken: romantikk vendt mot det nasjonale — folket, bondekulturen, naturen, språket og historien — som skulle vise hva som var særegent norsk.",romantikken;nasjonsbygging,0,
+folkediktning,concept,Romantikk og nasjonalromantikk,Folkediktning,"Folkediktning: diktning som er overlevert muntlig i generasjoner, som eventyr, sagn og folkeviser, og som ble samlet inn og skrevet ned på 1800-tallet.
+Eventyr: en fortelling med faste typer, tretall, kontraster og en lykkelig slutt.
+Sagn: en fortelling knyttet til et bestemt sted eller en bestemt person, ment å virke sann.",,0,
+romantikk-fakta,fact,Romantikk og nasjonalromantikk,Navn og verk fra romantikken og nasjonalromantikken,"Henrik Wergeland: dikter og samfunnsdebattant, kjent for Skapelsen, Mennesket og Messias (1830) og arbeidet for folkeopplysning og for å oppheve forbudet mot jøder i Norge
+Johan Sebastian Welhaven: dikter og Wergelands motstander, kjent for Norges Dæmring (1834)
+Wergeland og Welhaven: den første store kulturstriden etter 1814, om Norge skulle bygge en ny kultur fra grunnen eller bygge videre på dansk og europeisk dannelse
+Peter Christen Asbjørnsen og Jørgen Moe: samlet inn og ga ut Norske Folkeeventyr fra 1841
+Magnus Brostrup Landstad: ga ut Norske Folkeviser (1853)
+Adolph Tidemand og Hans Gude: maleriet Brudeferden i Hardanger (1848)",nasjonalromantikk;folkediktning,0,
+analysere-romantisk-dikt,skill,Romantikk og nasjonalromantikk,Analysere et dikt fra romantikken,"vise hvordan et dikt fra romantikken framstiller natur, menneske og det guddommelige, og knytte bildene og formen til romantikkens tankegods.",universalromantikk;lyriske-virkemidler;tolke-eldre-tekst,0,
+analysere-eventyr,skill,Romantikk og nasjonalromantikk,Analysere et folkeeventyr,"vise hvordan typiske eventyrtrekk — faste typer, tretall, kontraster og en lykkelig slutt — brukes i et norsk folkeeventyr, og hvilke verdier eventyret formidler.",folkediktning;tolke-eldre-tekst,0,
+analysere-nasjonalromantikk,skill,Romantikk og nasjonalromantikk,Vise nasjonalromantiske trekk i tekster og bilder,"vise hvordan et dikt, et eventyr eller et maleri fra nasjonalromantikken framstiller folket, bondekulturen og naturen, og hva framstillingen skulle bety for nasjonsbyggingen.",nasjonalromantikk;analysere-eventyr,0,
+sammenligne-romantikk-nyere,skill,Romantikk og nasjonalromantikk,Sammenligne romantikkens framstilling av naturen med nyere tekster,"sammenligne hvordan en tekst fra romantikken og en tekst fra nyere tid — for eksempel en klimatekst, en sangtekst eller en reklame — framstiller menneske, natur og samfunn, og forklare forskjellene.",analysere-romantisk-dikt;analysere-nasjonalromantikk;sammenligne-med-nyere,0,
+nasjonalromantikk-i-dag,skill,Romantikk og nasjonalromantikk,Finne spor av nasjonalromantikken i dag,"finne og forklare spor av nasjonalromantiske bilder av Norge — fjell, fjord, bunad og bondekultur — i nyere tekster som reklame, turistfilm eller taler, og reflektere over hva bildene brukes til.",analysere-nasjonalromantikk,0,
+sakprosa,concept,Sakprosa og retorisk situasjon,Sakprosa,"Sakprosa: tekster som handler om virkeligheten og skal informere, forklare, argumentere eller påvirke, som taler, brev, artikler og essay.",,0,
+retorisk-situasjon,concept,Sakprosa og retorisk situasjon,Retorisk situasjon,"Retorisk situasjon: sammenhengen en ytring blir til i — et påtrengende problem som gjør det nødvendig å si noe, et publikum som kan gjøre noe med problemet, og føringer som begrenser hva avsenderen kan si.
+Kairos: å si det rette på rett tidspunkt.",sakprosa,0,
+aptum,concept,Sakprosa og retorisk situasjon,Aptum,"Aptum: at innhold, form og stil passer til emnet, publikummet og situasjonen.",retorisk-situasjon,0,
+appellformer,concept,Sakprosa og retorisk situasjon,Appellformene,"Etos: å overbevise gjennom avsenderens troverdighet, kunnskap og gode vilje.
+Patos: å overbevise ved å vekke følelser hos mottakeren.
+Logos: å overbevise gjennom fakta, fornuft og logiske argumenter.",,0,
+retoriske-virkemidler,concept,Sakprosa og retorisk situasjon,Retoriske virkemidler,"Retorisk virkemiddel: et språklig grep som skal gjøre et budskap mer overbevisende eller lettere å huske, som gjentakelse, kontrast, retoriske spørsmål, tretall, overdrivelse og ironi.",,0,
+historiske-sakprosasjangre,concept,Sakprosa og retorisk situasjon,Eldre sakprosasjangre,"Epistel: et brevlignende essay der forfatteren drøfter et emne i en personlig og samtalende stil, som Holbergs epistler.
+Preken: en religiøs tale til en menighet, som skal forklare og formane.
+Pamflett: et kort, polemisk skrift om en aktuell sak.",sakprosa,0,
+redegjore-retorisk-situasjon,skill,Sakprosa og retorisk situasjon,Gjøre rede for den retoriske situasjonen,"gjøre rede for hvem som står bak en sakprosatekst, hvem den henvender seg til, hvilket problem den svarer på, i hvilken tid og hvilket medium den ble til, og hva situasjonen gjorde mulig og umulig å si.",retorisk-situasjon;kulturhistorisk-kontekst,0,
+analysere-argumentasjon,skill,Sakprosa og retorisk situasjon,Gjøre rede for argumentasjonen i en sakprosatekst,"finne hovedpåstanden og argumentene i en sakprosatekst, og vurdere hvor relevante og holdbare argumentene er.",argumentasjon;sakprosa,0,
+analysere-appellformer,skill,Sakprosa og retorisk situasjon,Analysere appellformer og virkemidler,"vise hvordan en sakprosatekst bruker etos, patos, logos og retoriske virkemidler, og vurdere om bruken passer til situasjonen og publikummet.",appellformer;retoriske-virkemidler;aptum,0,
+reflektere-sakprosa,skill,Sakprosa og retorisk situasjon,Reflektere over en eldre sakprosatekst,"reflektere over hva en eldre sakprosatekst — en tale, et brev eller en epistel — ville oppnå, hvordan den kan ha blitt mottatt i samtiden, og hvordan den kan leses i dag.",redegjore-retorisk-situasjon;analysere-appellformer;analysere-argumentasjon;historiske-sakprosasjangre,0,
+sammenligne-sakprosa,skill,Sakprosa og retorisk situasjon,Sammenligne sakprosa fra ulike tider,"sammenligne hvordan to sakprosatekster fra ulike tider argumenterer i en beslektet sak, og forklare forskjellene ut fra den retoriske situasjonen hver av dem ble til i.",reflektere-sakprosa;sammenligne-med-nyere,0,
+nordiske-sprak,concept,"Norsk, nabospråk og norrønt",Nordiske språk og nabospråk,"Nordiske språk: norsk, svensk, dansk, islandsk og færøysk, som alle stammer fra et felles urnordisk språk.
+Vestnordisk: norrønt og språkene som har utviklet seg fra det — norsk, islandsk og færøysk.
+Østnordisk: dansk og svensk.
+Nabospråk: språk som ligger så nær hverandre at brukerne stort sett forstår hverandre uten opplæring, som norsk, svensk og dansk.",norront,0,
+ordklasser-setningsledd,concept,"Norsk, nabospråk og norrønt",Ordklasser og setningsledd,"Ordklasse: en gruppe ord med samme grammatiske oppførsel, som substantiv, verb, adjektiv, pronomen og preposisjon.
+Setningsledd: delene en setning er bygd av — verbal, subjekt, objekt og adverbial.",,0,
+boyning-kasus,concept,"Norsk, nabospråk og norrønt",Bøyning og kasus,"Bøyning: endring av et ords form for å uttrykke grammatisk betydning, som tall, bestemthet og tid.
+Kasus: bøyningsform som viser hvilken funksjon et ord har i setningen — nominativ, akkusativ, dativ eller genitiv.",ordklasser-setningsledd,0,
+syntetisk-analytisk,concept,"Norsk, nabospråk og norrønt",Syntetisk og analytisk språk,"Syntetisk språk: et språk som uttrykker grammatiske funksjoner med bøyningsendelser, slik norrønt gjør med kasus.
+Analytisk språk: et språk som uttrykker dem med ordstilling og småord som preposisjoner, slik moderne norsk i stor grad gjør.",boyning-kasus,0,
+v2-regelen,concept,"Norsk, nabospråk og norrønt",V2-regelen,"V2-regelen: at det bøyde verbet står på andre plass i norske helsetninger, uansett hva som står først, som i «I dag skinner sola».",ordklasser-setningsledd,0,
+uttaletrekk,concept,"Norsk, nabospråk og norrønt",Uttaletrekk i de skandinaviske språkene,"Tonelag: at ord med de samme lydene skilles av tonegangen, som «bønder» og «bønner» i mange norske dialekter.
+Stød: et kort brudd eller knirk i stemmen som skiller ord fra hverandre i dansk.
+Bløte konsonanter: at p, t og k etter vokal er blitt til b, d og g i dansk, som i «gade» for «gate».",,0,
+falske-venner,concept,"Norsk, nabospråk og norrønt",Falske venner,"Falske venner: ord som ser like ut i to språk, men betyr noe ulikt, som svensk «rolig» (morsom) og dansk «frokost» (lunsj).",nordiske-sprak,0,
+fra-norront-til-norsk,concept,"Norsk, nabospråk og norrønt",Fra norrønt til moderne norsk,"Lydendring: at uttalen av ord endrer seg over tid etter faste mønstre, som at norrøn þ ble t eller d (þing → ting).
+Endelsesbortfall: at mange av de norrøne bøyningsendelsene falt bort, så kasus forsvant fra substantivene i de fleste dialektene.",norront;boyning-kasus,0,
+saertrekk-nabosprak,skill,"Norsk, nabospråk og norrønt",Beskrive særtrekk ved norsk sammenlignet med svensk og dansk,"beskrive med fagbegreper likheter og forskjeller mellom norsk, svensk og dansk i uttale, ordforråd, rettskriving og bøyning, med eksempler fra korte tekster.",nordiske-sprak;uttaletrekk;falske-venner;boyning-kasus,0,
+lese-nabosprak,skill,"Norsk, nabospråk og norrønt",Lese og forstå svensk og dansk,"lese en kort svensk eller dansk tekst, gjengi innholdet, og forklare hvilke ord og former som er vanskelige for en norsk leser og hvorfor.",falske-venner,0,
+saertrekk-norront,skill,"Norsk, nabospråk og norrønt",Beskrive særtrekk ved norsk sammenlignet med norrønt,"sammenligne en kort norrøn tekst med moderne norsk og beskrive med fagbegreper forskjeller i bøyning, ordstilling, lydverk og ordforråd.",syntetisk-analytisk;v2-regelen;fra-norront-til-norsk,0,"Gi eleven korte norrøne setninger eller ordtak med en ordrett oversettelse ved siden av, slik at eleven kan arbeide med språket uten å kunne lese norrønt på egen hånd."
+dansketiden,concept,Språksituasjonen i Norge,Dansketiden,"Dansketiden: perioden fra senmiddelalderen til 1814 da Norge var i union med Danmark, og dansk ble skriftspråket i Norge mens folk flest fortsatte å snakke norske dialekter.",reformasjonen,0,
+aasen-knudsen,concept,Språksituasjonen i Norge,To veier til et norsk skriftspråk,"Ivar Aasens linje: et nytt norsk skriftspråk bygd på dialektene og knyttet til norrønt, landsmålet, som senere fikk navnet nynorsk.
+Knud Knudsens linje: gradvis fornorsking av det danske skriftspråket etter det dannede talemålet i byene, grunnlaget for riksmål og bokmål.",dansketiden;nasjonsbygging,0,
+sprakstrid,concept,Språksituasjonen i Norge,Språkstrid,"Språkstrid: den politiske striden om skriftspråket i Norge fra 1800-tallet og gjennom store deler av 1900-tallet, mellom landsmål og riksmål og senere om samnorsk.",aasen-knudsen,0,
+samnorsk,concept,Språksituasjonen i Norge,Samnorsk,"Samnorsk: målet om å slå sammen bokmål og nynorsk til ett skriftspråk gjennom rettskrivingsreformer, en offisiell politikk fra tidlig på 1900-tallet til den ble oppgitt i 2002.",sprakstrid,0,
+normering,concept,Språksituasjonen i Norge,Normering og valgfrie former,"Normering: å fastsette den offisielle rettskrivingen for et skriftspråk.
+Valgfrie former: at rettskrivingen godtar flere former av samme ord, som «boka» og «boken».",,0,
+minoritetssprak,concept,Språksituasjonen i Norge,Urfolksspråk og minoritetsspråk,"Urfolksspråk: samisk, som har en særstilling fordi samene er urfolk i Norge.
+Nasjonale minoritetsspråk: kvensk, romani, romanes og skogfinsk, språk som har vært brukt i Norge lenge og har særskilt vern.
+Norsk tegnspråk: det visuelle språket døve i Norge bruker, likeverdig med norsk.",,0,
+sprakloven,concept,Språksituasjonen i Norge,Språkloven,"Språkloven: loven fra 2021 som slår fast at norsk er hovedspråket i Norge, at bokmål og nynorsk er likestilte skriftspråk, og at samisk, de nasjonale minoritetsspråkene og norsk tegnspråk har særskilt vern.",normering;minoritetssprak,0,
+sprakhistorie-arstall,fact,Språksituasjonen i Norge,Årstall i norsk språkhistorie,"svartedauden: 1349–1350
+Norge i union med Danmark: 1380–1814
+reformasjonen i Danmark-Norge: 1536–1537
+Grunnloven og unionen med Sverige: 1814
+Ivar Aasens Det norske Folkesprogs Grammatik: 1848
+Ivar Aasens Ordbog over det norske Folkesprog: 1850
+jamstillingsvedtaket, der landsmålet ble likestilt med dansk-norsk: 1885
+rettskrivingsreformen som fornorsket riksmålet: 1907
+navnene bokmål og nynorsk ble vedtatt: 1929
+samnorskpolitikken ble oppgitt: 2002
+språkloven ble vedtatt: 2021",dansketiden;aasen-knudsen,0,
+redegjore-to-skriftsprak,skill,Språksituasjonen i Norge,Gjøre rede for hvorfor Norge har to skriftspråk,"gjøre rede for hvorfor Norge har to skriftlige målformer, fra dansketiden via Aasen og Knudsen til språkstriden, samnorskpolitikken og rettskrivingsreformene.",aasen-knudsen;sprakstrid;samnorsk;sprakhistorie-arstall,0,
+redegjore-sprakpolitikk,skill,Språksituasjonen i Norge,Gjøre rede for språksituasjonen i Norge i dag,"gjøre rede for stillingen til bokmål, nynorsk, samisk, de nasjonale minoritetsspråkene og norsk tegnspråk i dag, og forklare hvilke historiske røtter situasjonen har.",redegjore-to-skriftsprak;sprakloven,0,
+drofte-sprakpolitikk,skill,Språksituasjonen i Norge,Drøfte et språkpolitisk spørsmål,"drøfte et aktuelt språkpolitisk spørsmål — for eksempel sidemålsopplæringen, dialektbruk eller engelsk i høyere utdanning — med kunnskap om den historiske bakgrunnen.",redegjore-sprakpolitikk;drofte,0,
+argumentasjon,concept,Skriving og muntlighet,Påstand og argument,"Påstand: det avsenderen vil at mottakeren skal godta.
+Argument: en begrunnelse for påstanden.
+Motargument: en begrunnelse for et annet syn.",,0,
+redegjore-drofte,concept,Skriving og muntlighet,Redegjøre og drøfte,"Redegjøre: å legge fram et fagstoff saklig og ordnet, slik at leseren forstår det.
+Drøfte: å undersøke et spørsmål fra flere sider ved å veie argumenter mot hverandre, før en kommer fram til en begrunnet konklusjon.",,0,
+problemstilling,concept,Skriving og muntlighet,Problemstilling,"Problemstilling: et avgrenset spørsmål som en tekst eller presentasjon skal undersøke og svare på.",redegjore-drofte,0,
+fagartikkel,concept,Skriving og muntlighet,Fagartikkel,"Fagartikkel: en saklig tekst som gjør rede for og drøfter et faglig spørsmål ut fra en problemstilling, med kilder, tydelig struktur og en begrunnet konklusjon.",problemstilling,0,
+kildebruk,concept,Skriving og muntlighet,Sitat og kildehenvisning,"Sitat: ordrett gjengivelse av en tekst, markert med anførselstegn.
+Parafrase: gjengivelse av innholdet i en tekst med egne ord.
+Kildehenvisning: en opplysning om hvor noe er hentet fra, knyttet til en litteraturliste.",,0,
+tilbakemelding,concept,Skriving og muntlighet,Respons og vurderingskriterier,"Respons: tilbakemelding på en tekst underveis i arbeidet, fra lærer eller medelever, som peker på hva som fungerer og hva som kan bli bedre.
+Vurderingskriterier: en beskrivelse av hva som kjennetegner en god tekst i en bestemt sjanger.",,0,
+tekstbinding,concept,Skriving og muntlighet,Tekstbinding,"Tekstbinding: språklige midler som knytter setninger og avsnitt sammen til en helhet, som bindeord, gjentakelser, synonymer og pronomen som viser tilbake.",ordklasser-setningsledd,0,
+drofte,skill,Skriving og muntlighet,Drøfte et norskfaglig spørsmål,"drøfte et spørsmål ved å legge fram flere synspunkter, veie dem mot hverandre og ende i en begrunnet konklusjon.",redegjore-drofte;argumentasjon,0,
+formulere-problemstilling,skill,Skriving og muntlighet,Formulere en problemstilling om tekster i kontekst,"gjøre et vidt tema, som «naturen i romantikken», om til en avgrenset problemstilling om en eller flere tekster som lar seg drøfte.",problemstilling,0,
+bruke-kilder,skill,Skriving og muntlighet,Bruke sitater og kilder etterrettelig,"flette sitater og parafraser inn i egen tekst, kommentere dem, og føre riktige kildehenvisninger og litteraturliste.",kildebruk,0,
+skrive-fagartikkel-kontekst,skill,Skriving og muntlighet,Skrive en fagartikkel om tekster i kontekst,"skrive en fagartikkel som gjør rede for en eller flere tekster i deres kulturhistoriske kontekst og drøfter et spørsmål om dem, med problemstilling, sitater og kildehenvisninger.",fagartikkel;formulere-problemstilling;lese-i-kontekst;drofte;bruke-kilder;tekstbinding,0,
+gi-respons,skill,Skriving og muntlighet,Gi respons på en tekst,"gi konkret og begrunnet tilbakemelding på en medelevs tekst ut fra vurderingskriteriene for sjangeren, med forslag til hva som kan gjøres annerledes.",tilbakemelding,0,
+bearbeide-tekst,skill,Skriving og muntlighet,Bruke tilbakemeldinger til å forbedre egen tekst,"velge ut de viktigste rådene i en tilbakemelding, og gjøre konkrete endringer i innhold, struktur og språk i egen tekst.",tilbakemelding;tekstbinding,0,
+spraklig-presisjon,skill,Skriving og muntlighet,Bruke kunnskap om språk til å forbedre egne setninger,"finne og rette uklare setninger, upresise ord og feil bruk av bindeord og komma i egen tekst, og begrunne endringene med fagbegreper.",ordklasser-setningsledd;tekstbinding,0,
+muntlig-presentasjon,skill,Skriving og muntlighet,Holde en norskfaglig presentasjon,"holde en muntlig presentasjon om et norskfaglig emne, med tydelig struktur, fagbegreper og bevisst bruk av appellformer og retoriske virkemidler tilpasset tilhørerne.",appellformer;retoriske-virkemidler;aptum;problemstilling,0,
+delta-diskusjon,skill,Skriving og muntlighet,Delta i en norskfaglig diskusjon,"bruke fagkunnskap til å argumentere for et syn i en diskusjon, svare saklig på motargumenter, og bygge videre på det andre har sagt.",drofte;appellformer,0,
+tolke-kjenninger,skill,Norrøn litteratur,Tolke kjenninger i et skaldedikt,"løse opp kjenningene i en strofe fra et skaldedikt i oversettelse, og forklare hva bildene sier om verdiene og verdenen diktet hører til.",skaldedikt;tolke-eldre-tekst,0,
+analysere-epistel,skill,Fra reformasjonen til opplysningstiden,Analysere en epistel,"vise hvordan en epistel bruker en personlig, samtalende stil og fornuftsargumenter for å drøfte et spørsmål, og hva den sier om opplysningstidens idealer.",historiske-sakprosasjangre;opplysningstiden;analysere-argumentasjon,0,
+wergeland-welhaven,skill,Romantikk og nasjonalromantikk,Gjøre rede for striden mellom Wergeland og Welhaven,"gjøre rede for hva Wergeland og Welhaven var uenige om, og vise hvordan striden handlet om hva slags kultur det nye Norge skulle bygge på.",romantikk-fakta;nasjonsbygging,0,
+skrive-sammenligning,skill,Skriving og muntlighet,Skrive en sammenligning av en eldre og en nyere tekst,"skrive en sammenhengende tekst som sammenligner en eldre og en nyere tekst ut fra et felles tema, bygd opp etter aspekter og ikke én tekst om gangen, med sitater fra begge.",sammenligne-med-nyere;bruke-kilder;tekstbinding,0,
+presentere-tekst-i-kontekst,skill,Skriving og muntlighet,Presentere en eldre tekst i kontekst muntlig,"presentere en eldre tekst muntlig ved å plassere den i tiden den ble til i, vise de viktigste trekkene med eksempler, og knytte den til noe tilhørerne kjenner fra sin egen samtid.",muntlig-presentasjon;lese-i-kontekst,0,
+reformasjonen-sprak,skill,Fra reformasjonen til opplysningstiden,Forklare hvordan reformasjonen påvirket språket i Norge,"forklare hvordan reformasjonen og den danske bibelen og salmeboka gjorde dansk til skriftspråket i Norge, og hvilke følger det fikk for språksituasjonen senere.",reformasjonen;dansketiden,0,

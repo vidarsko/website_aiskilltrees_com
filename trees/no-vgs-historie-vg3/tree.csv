@@ -1,0 +1,205 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Historisk tenkning;Kilder og metode;Historiebruk og minnekultur;Ideer og politiske revolusjoner;Industrialisering og teknologi;Migrasjon og kulturmøter;Kolonialisme og imperialisme;Verdenskrigene og andre konflikter;Ideologier og folkemord;Nasjon og frigjøring i Norge;Velferdsstaten;Natur og ressursforvaltning,,,
+,config,,title,Historie Vg3,,,
+,config,,description,"Historisk tenkning, kilder og historiebruk, revolusjoner og ideologier, industrialisering, migrasjon, kolonialisme, verdenskrigene, folkemord, nasjonsbygging og frigjøring, velferdsstaten og naturforvaltning fra opplysningstiden til i dag — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-historie-vg3-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,historie Vg3 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"behandler en kilde som en sannhet framfor et spor som må tolkes, kaller en lærebok eller nettside for kilde uten å skille framstilling fra kilde, dømmer fortidens mennesker med nåtidens verdier uten å vise til samtiden, blander utløsende årsak og bakenforliggende årsak, bruker «nasjonalisme», «fascisme» og «folkemord» løst framfor i faglig betydning, oppgir årstall og tall upresist, eller forteller hva som skjedde der oppgaven ber om en drøfting",,,
+,config,,slots.courseSpecifics,"Faget avsluttes med standpunktkarakter, og eleven kan trekkes ut til en lokalt gitt muntlig eksamen med forberedelsesdel. Øving og prøver bør derfor også ha form av muntlige spørsmål der eleven forklarer, drøfter og bruker egne eksempler.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, Vg3 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,HIS1010,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,history,,,
+,config,,keywords,historie; historiebruk; historiebevissthet; kildekritikk; problemstilling; opplysningstiden; den franske revolusjonen; 1814; ideologier; industrialisering; migrasjon; kolonialisme; første verdenskrig; andre verdenskrig; kalde krigen; holocaust; folkemord; nasjonalisme; fornorskning; samer; nasjonale minoriteter; velferdsstaten; muntlig eksamen,,,
+,config,,updated,2026-10-08,,,
+historiebevissthet,concept,Historisk tenkning,Historiebevissthet,"Historiebevissthet: forståelsen av at fortid, nåtid og framtid henger sammen - at vi tolker fortiden for å forstå nåtiden, og at forventningene våre til framtiden preger begge deler.",,0,
+historisk-kontekst,concept,Historisk tenkning,Historisk kontekst,"Historisk kontekst: forholdene i samtiden - politiske, økonomiske, sosiale og kulturelle - som en hendelse, en handling eller en kilde må forstås ut fra.",,0,
+arsak-virkning,concept,Historisk tenkning,Årsak og virkning,"Årsak: et forhold som bidro til at noe skjedde. Historikere skiller ofte mellom langsiktige, bakenforliggende årsaker og den utløsende årsaken.
+Virkning: en følge av en hendelse eller endring, på kort eller lang sikt, tilsiktet eller utilsiktet.",,0,
+aktor-struktur,concept,Historisk tenkning,Aktør og struktur,"Aktør: et menneske eller en gruppe som handler og tar valg.
+Struktur: rammene - økonomi, geografi, teknologi, lover og normer - som begrenser og muliggjør valgene aktørene har.",,0,
+historisk-empati,concept,Historisk tenkning,Historisk empati,"Historisk empati: å forstå hvorfor mennesker i fortiden tenkte og handlet som de gjorde, ut fra det de visste, trodde og kunne velge mellom den gangen - uten verken å godta eller fordømme dem på forhånd.",historisk-kontekst,0,
+forklare-flere-arsaker,skill,Historisk tenkning,Forklare en historisk endring med flere årsaker,"forklare en historisk endring med flere årsaker av ulik type, skille bakenforliggende årsaker fra den utløsende, og vurdere hvilke som veide tyngst.",arsak-virkning;aktor-struktur,0,
+brudd-kontinuitet,concept,Historisk tenkning,Brudd og kontinuitet,"Brudd: en rask og gjennomgripende endring, der noe gammelt opphører og noe nytt tar over.
+Kontinuitet: at forhold, ordninger eller tankemåter varer ved over tid, også gjennom perioder med store endringer.",,0,
+historisk-betydning,concept,Historisk tenkning,Historisk betydning,"Historisk betydning: hvor viktig en hendelse, person eller endring var, vurdert etter kriterier som hvor mange den berørte, hvor dypt, hvor lenge virkningene varte, og hva den forteller oss om vår egen tid.",arsak-virkning,0,
+drofte-brudd-kontinuitet,skill,Historisk tenkning,Drøfte brudd og kontinuitet i en periode,"drøfte i hvilken grad utviklingen i en periode - for eksempel rundt 1814, 1905 eller 1945 - var preget av brudd eller kontinuitet, med argumenter for begge sider.",brudd-kontinuitet;forklare-flere-arsaker,0,
+vurdere-historisk-betydning,skill,Historisk tenkning,Vurdere hva som gjør en hendelse betydningsfull,"vurdere hvor betydningsfull en hendelse i fortiden var, ved å bruke tydelige kriterier og sammenligne den med andre hendelser fra samme tid.",historisk-betydning;drofte-brudd-kontinuitet,0,
+historisk-materiale,concept,Kilder og metode,Historisk materiale,"Historisk materiale: alt som er bevart fra fortiden eller fortalt om den - gjenstander, bygninger, dokumenter, bilder, kart, lydopptak og muntlige fortellinger. Det blir en kilde når vi bruker det til å svare på et spørsmål.",,0,
+kilde-levning-beretning,concept,Kilder og metode,Levning og beretning,"Levning: en kilde som er en del av det den forteller om, og som vitner om fortiden uten å ville fortelle noe - et skattemanntall, et redskap, en lov.
+Beretning: en kilde som forteller om noe, og som må vurderes ut fra hvem som forteller, og hvorfor. Den samme kilden kan være en levning for ett spørsmål og en beretning for et annet.",historisk-materiale,0,
+primaer-sekundaer,concept,Kilder og metode,Primærkilde og sekundærkilde,"Primærkilde: en kilde fra samtiden, laget av noen som var der eller nær det som skjedde.
+Sekundærkilde: en framstilling laget senere på grunnlag av andre kilder, som en lærebok eller en historikers bok.",historisk-materiale,0,
+kildekritikk,concept,Kilder og metode,Kildekritikk,"Kildekritikk: å vurdere hva en kilde kan brukes til - hvem som laget den, når, for hvem og med hvilken hensikt - og hvor godt den kan svare på det spørsmålet vi stiller.",historisk-materiale,0,
+tendens,concept,Kilder og metode,Tendens,"Tendens: at en kilde er farget av opphavspersonens interesser, syn eller hensikt. En tendensiøs kilde er ikke ubrukelig - den kan være en god kilde til nettopp avsenderens syn.",kildekritikk,0,
+tolke-kilde,skill,Kilder og metode,Tolke en kilde i sin kontekst,"beskrive hva en kilde sier eller viser, plassere den i tiden den ble laget i, og forklare hva den kan fortelle om fortiden.",kilde-levning-beretning;primaer-sekundaer;historisk-kontekst,0,
+vurdere-kilde,skill,Kilder og metode,Vurdere hva en kilde kan brukes til,"vurdere en kilde kildekritisk - opphav, tid, hensikt og tendens - og avgjøre hva den kan og ikke kan brukes til for et bestemt spørsmål.",tolke-kilde;kildekritikk;tendens,0,
+problemstilling,concept,Kilder og metode,Problemstilling,"Problemstilling: et presist, åpent spørsmål som avgrenser hva en undersøkelse skal finne ut, og som krever drøfting og ikke bare et faktasvar - for eksempel «Hvorfor fikk Norge allmenn stemmerett for kvinner før de fleste andre land?».",historisk-materiale,0,
+formulere-problemstilling,skill,Kilder og metode,Formulere en historisk problemstilling,"formulere og avgrense en historisk problemstilling som kan besvares med materiale det er mulig å få tak i, og forklare hvorfor den er verdt å undersøke.",problemstilling,0,
+historisk-framstilling,concept,Kilder og metode,Historisk framstilling,"Historisk framstilling: en fortelling eller forklaring om fortiden - i en lærebok, en film, en artikkel eller en utstilling - der noen har valgt ut, ordnet og tolket kildene ut fra sitt eget ståsted og sine spørsmål.",primaer-sekundaer,0,
+utforske-problemstilling,skill,Kilder og metode,Utforske en problemstilling og presentere egne slutninger,"utforske en historisk problemstilling ved å finne, vurdere og bruke ulike typer materiale, og presentere egne, begrunnede slutninger - også om hva kildene ikke kan svare på.",formulere-problemstilling;vurdere-kilde,0,
+sammenligne-framstillinger,skill,Kilder og metode,Sammenligne ulike framstillinger av en hendelse,"sammenligne to eller flere framstillinger av samme hendelse, og forklare forskjellene ut fra opphavspersonenes ståsted, samtid og formål.",historisk-framstilling;vurdere-kilde,0,
+handlingsrom,concept,Kilder og metode,Handlingsrom,"Handlingsrom: de valgene en person eller gruppe faktisk hadde i sin situasjon, gitt rammene rundt dem og det de kunne vite den gangen.",aktor-struktur,0,
+utforske-historisk-person,skill,Kilder og metode,Utforske en historisk person i lys av samtiden,"utforske en historisk person gjennom kilder, og diskutere personens tenkning, handlingsrom og valg i lys av samtiden vedkommende levde i.",handlingsrom;historisk-empati;utforske-problemstilling,0,
+minnekultur,concept,Historiebruk og minnekultur,Minnekultur,"Minnekultur: måtene et samfunn husker fortiden på - minnesmerker, merkedager, museer, gatenavn, ritualer og fortellinger som føres videre fra generasjon til generasjon.",,0,
+historiebruk,concept,Historiebruk og minnekultur,Historiebruk,"Historiebruk: å bruke fortiden til et formål i nåtiden - for eksempel for å skape fellesskap, begrunne politiske krav, minnes ofre, underholde eller selge noe.",historiebevissthet,0,
+former-historiebruk,concept,Historiebruk og minnekultur,Former for historiebruk,"Vitenskapelig historiebruk: å finne ut hva som skjedde og hvorfor, etter faglige metoder.
+Eksistensiell historiebruk: å bruke fortiden til å forstå hvem man selv er og hvor man hører til.
+Moralsk historiebruk: å bruke fortiden til å vise hva som var rett og galt, ofte for å gi oppreisning til ofre.
+Ideologisk historiebruk: å bruke fortiden til å begrunne en politisk eller ideologisk sak.
+Politisk-pedagogisk historiebruk: å bruke fortiden som lærdom eller argument i en aktuell politisk debatt.
+Kommersiell historiebruk: å bruke fortiden for å selge noe.
+Ikke-bruk: å tie om, glemme eller fortrenge deler av fortiden.",historiebruk,0,
+historiografi,concept,Historiebruk og minnekultur,Historiografi,"Historiografi: historien om hvordan historie er blitt skrevet - hvordan tolkningene av den samme fortiden har endret seg i takt med nye kilder, nye spørsmål og nye tider.",historisk-framstilling,0,
+reflektere-tolkning-natid,skill,Historiebruk og minnekultur,Reflektere over hvordan nåtiden preger tolkninger av fortiden,"reflektere over hvordan tolkningen av en hendelse har endret seg over tid, og hvordan nåtidens spørsmål og forventninger til framtiden preget hver av tolkningene.",historiografi;historiebevissthet,0,
+analysere-historiebruk,skill,Historiebruk og minnekultur,Analysere et eksempel på historiebruk,"analysere hvordan en aktør - en politiker, en stat, en bevegelse, en bedrift eller et lokalsamfunn - bruker fortiden, og avgjøre hvilken form for historiebruk det er.",former-historiebruk;minnekultur,0,
+drofte-historiebruk,skill,Historiebruk og minnekultur,Drøfte hensikten med historiebruk,"drøfte hvilken hensikt ulike aktører har med å bruke fortiden, og vurdere hvilke følger historiebruken kan få for hvem som blir inkludert og hvem som blir utelatt.",analysere-historiebruk;reflektere-tolkning-natid,0,
+opplysningstiden,concept,Ideer og politiske revolusjoner,Opplysningstiden,"Opplysningstiden: den europeiske idébevegelsen på 1700-tallet som satte fornuften, vitenskapen og den enkeltes rettigheter foran tradisjon og kirkens autoritet, med tenkere som Locke, Montesquieu, Voltaire og Rousseau.",,0,
+folkesuverenitet-maktfordeling,concept,Ideer og politiske revolusjoner,Folkesuverenitet og maktfordeling,"Folkesuverenitet: at makten i staten springer ut fra folket, ikke fra Gud eller fyrsten.
+Maktfordeling: at statsmakten deles mellom en lovgivende, en utøvende og en dømmende makt som holder hverandre i sjakk. Montesquieu formulerte prinsippet i 1748.",opplysningstiden,0,
+amerikanske-revolusjon,concept,Ideer og politiske revolusjoner,Den amerikanske revolusjonen,"Den amerikanske revolusjonen: de britiske koloniene i Nord-Amerika gjorde opprør, erklærte seg uavhengige i 1776 og fikk en grunnlov i 1787 bygd på folkesuverenitet og maktfordeling - men med slaveriet i behold.",folkesuverenitet-maktfordeling,0,
+franske-revolusjon,concept,Ideer og politiske revolusjoner,Den franske revolusjonen,"Den franske revolusjonen: omveltningen fra 1789 som avskaffet eneveldet og adelens privilegier, erklærte menneskets og borgerens rettigheter og gjorde Frankrike til republikk i 1792, før den endte i terror og senere i Napoleons styre.",folkesuverenitet-maktfordeling,0,
+grunnloven-1814,concept,Ideer og politiske revolusjoner,Grunnloven av 1814,"Grunnloven av 1814: Norges grunnlov, vedtatt på Eidsvoll 17. mai 1814, bygd på folkesuverenitet, maktfordeling og borgerrettigheter. Den ga stemmerett til rundt 40 prosent av mennene over 25 år, men utelukket kvinner og nektet jøder adgang til riket.",amerikanske-revolusjon;franske-revolusjon,0,
+liberalisme,concept,Ideer og politiske revolusjoner,Liberalisme,"Liberalisme: ideologien som setter den enkeltes frihet og rettigheter først, og som vil begrense statens makt gjennom grunnlov, rettsstat og frie markeder.",opplysningstiden,0,
+konservatisme,concept,Ideer og politiske revolusjoner,Konservatisme,"Konservatisme: ideologien som vil bevare institusjoner og tradisjoner som har vist seg å fungere, og som foretrekker gradvis endring framfor revolusjon.",,0,
+sosialisme,concept,Ideer og politiske revolusjoner,Sosialisme,"Sosialisme: ideologien som setter fellesskap og økonomisk likhet først, og vil at produksjonsmidlene skal eies eller styres i fellesskap. Den delte seg i en revolusjonær retning (kommunismen) og en reformistisk retning (sosialdemokratiet).",,0,
+nasjonalisme,concept,Ideer og politiske revolusjoner,Nasjonalisme,"Nasjonalisme: ideen om at hver nasjon - et folk med felles språk, kultur og historie - bør ha sin egen stat, og at lojaliteten til nasjonen går foran andre bånd.",,0,
+russiske-revolusjon,concept,Ideer og politiske revolusjoner,Den russiske revolusjonen,"Den russiske revolusjonen: tsarveldet falt i februar 1917, og i oktober samme år tok bolsjevikene under Lenin makten. Revolusjonen førte til borgerkrig og til Sovjetunionen, verdens første kommunistiske ettpartistat.",sosialisme,0,
+revolusjoner-arstall,fact,Ideer og politiske revolusjoner,Årstall for politiske omveltninger,"den amerikanske uavhengighetserklæringen: 1776
+den franske revolusjonen bryter ut: 1789
+Grunnloven vedtas på Eidsvoll: 1814
+unionen med Sverige oppløses: 1905
+den russiske revolusjonen: 1917
+Berlinmuren faller: 1989
+Sovjetunionen oppløses: 1991",grunnloven-1814;russiske-revolusjon,0,
+forklare-ideer-bak-revolusjon,skill,Ideer og politiske revolusjoner,Forklare tankene bak en politisk omveltning,"forklare hvilke tanker og ideologier som lå bak en politisk omveltning - som den franske revolusjonen eller 1814 i Norge - og hvordan de viste seg i det som ble vedtatt.",grunnloven-1814;liberalisme,0,
+sammenligne-ideologier,skill,Ideer og politiske revolusjoner,Sammenligne de politiske ideologiene,"sammenligne liberalisme, konservatisme, sosialisme og nasjonalisme ut fra synet på frihet, likhet, staten og endring, og knytte hver av dem til en historisk omveltning.",liberalisme;konservatisme;sosialisme;nasjonalisme;russiske-revolusjon,0,
+vurdere-ideer-demokrati,skill,Ideer og politiske revolusjoner,Vurdere hva ideologiene har betydd for demokratisk deltakelse,"vurdere hvilken betydning tankene og ideologiene bak politiske omveltninger fra opplysningstiden til i dag har hatt for hvem som har fått delta i demokratiet, og hvem som ble holdt utenfor.",forklare-ideer-bak-revolusjon;sammenligne-ideologier;revolusjoner-arstall,0,
+industrielle-revolusjon,concept,Industrialisering og teknologi,Den industrielle revolusjonen,"Den industrielle revolusjonen: overgangen fra håndverk til maskinell fabrikkproduksjon drevet av damp og kull, som begynte i Storbritannia i andre halvdel av 1700-tallet og spredte seg til resten av Europa og Nord-Amerika på 1800-tallet.",,0,
+industrialisering-norge,concept,Industrialisering og teknologi,Industrialiseringen av Norge,"Industrialiseringen av Norge: kom i to bølger - tekstil- og verkstedindustri, blant annet langs Akerselva, fra 1840-årene, og kraftkrevende industri basert på vannkraft fra rundt 1905, med selskaper som Norsk Hydro.",industrielle-revolusjon,0,
+arbeiderklassen,concept,Industrialisering og teknologi,Arbeiderklassen,"Arbeiderklassen: de som lever av å selge arbeidskraften sin for lønn, og som med industrialiseringen vokste til en stor gruppe i byene, ofte med lange arbeidsdager, dårlige boliger og lite vern.",industrielle-revolusjon,0,
+fremskrittstro,concept,Industrialisering og teknologi,Fremskrittstro,"Fremskrittstro: troen på at vitenskap og teknologi vil gjøre livet stadig bedre for menneskene. Den preget 1800-tallet og etterkrigstiden, men ble svekket av verdenskrigene, atombomben og miljøproblemene.",industrielle-revolusjon,0,
+digitale-revolusjon,concept,Industrialisering og teknologi,Den digitale revolusjonen,"Den digitale revolusjonen: overgangen fra analog til digital teknologi fra slutten av 1900-tallet - datamaskiner, internett og smarttelefoner - som har endret arbeid, kommunikasjon og hvordan informasjon blir spredt.",,0,
+forklare-industrialisering-liv,skill,Industrialisering og teknologi,Forklare hvordan industrialiseringen endret menneskers liv,"forklare hvordan industrialiseringen endret arbeid, bosetting, familieliv og klasseforhold, med eksempler fra Norge.",industrialisering-norge;arbeiderklassen,0,
+reflektere-teknologi-framtid,skill,Industrialisering og teknologi,Reflektere over teknologiske omveltninger og framtidsforventninger,"reflektere over hvordan teknologiske omveltninger fra den industrielle revolusjonen til i dag har endret menneskers liv, og hvordan de har formet både håp og frykt for framtiden.",forklare-industrialisering-liv;fremskrittstro;digitale-revolusjon,0,
+migrasjon,concept,Migrasjon og kulturmøter,Migrasjon,"Migrasjon: at mennesker flytter for å bosette seg et annet sted, innenlands eller over landegrenser.
+Push-faktor: forhold som driver folk bort fra der de bor, som fattigdom, forfølgelse eller krig.
+Pull-faktor: forhold som trekker folk til et nytt sted, som arbeid, jord, trygghet eller familie.",,0,
+flyktning,concept,Migrasjon og kulturmøter,Flyktning,"Flyktning: en person som har flyktet fra hjemlandet sitt fordi vedkommende risikerer forfølgelse på grunn av for eksempel religion, etnisitet eller politisk syn, og som har krav på beskyttelse etter FNs flyktningkonvensjon fra 1951.",migrasjon,0,
+utvandringen-amerika,concept,Migrasjon og kulturmøter,Utvandringen til Amerika,"Utvandringen til Amerika: fra 1825 til rundt 1930 utvandret om lag 800 000 nordmenn, de fleste til USA. Bare Irland mistet en større andel av befolkningen sin på denne måten.",migrasjon,0,
+arbeidsinnvandring,concept,Migrasjon og kulturmøter,Arbeidsinnvandring til Norge,"Arbeidsinnvandring til Norge: på slutten av 1960-tallet og begynnelsen av 1970-tallet kom arbeidsinnvandrere blant annet fra Pakistan, Tyrkia og Marokko, til Norge innførte innvandringsstopp i 1975. Etter EU-utvidelsen i 2004 kom mange fra Polen og Baltikum.",migrasjon,0,
+kulturmote,concept,Migrasjon og kulturmøter,Kulturmøte,"Kulturmøte: når mennesker med ulik bakgrunn, språk, religion eller levemåte møtes og påvirker hverandre - gjennom handel, migrasjon, misjon, krig eller kolonisering.",,0,
+integrasjon-assimilasjon,concept,Migrasjon og kulturmøter,Integrasjon og assimilasjon,"Integrasjon: at en minoritet tar del i storsamfunnet og samtidig beholder sin egen kultur og identitet.
+Assimilasjon: at en minoritet går opp i majoriteten og mister sitt eget språk og sin egen kultur, frivillig eller under press.",kulturmote,0,
+migrasjon-fakta,fact,Migrasjon og kulturmøter,Tall og årstall om migrasjon,"utvandrerskipet Restauration forlater Stavanger: 1825
+nordmenn som utvandret til Amerika 1825-1930: om lag 800 000
+innvandringsstopp i Norge: 1975
+FNs flyktningkonvensjon: 1951
+innvandrere og norskfødte med innvandrerforeldre i Norge i 2024: om lag 20 prosent av befolkningen",utvandringen-amerika;arbeidsinnvandring,0,
+forklare-arsaker-migrasjon,skill,Migrasjon og kulturmøter,Gjøre rede for årsaker til migrasjon,"gjøre rede for årsakene til at mennesker har migrert i ulike perioder, og skille mellom forhold som drev dem ut og forhold som trakk dem til et nytt sted.",utvandringen-amerika;arbeidsinnvandring;flyktning;arsak-virkning,0,
+diskutere-kulturmoter,skill,Migrasjon og kulturmøter,Diskutere kulturmøter fra ulike perspektiver,"diskutere et kulturmøte som fulgte av migrasjon, sett fra både dem som kom og dem som tok imot, og vurdere om resultatet ble integrasjon, assimilasjon eller utestenging.",forklare-arsaker-migrasjon;integrasjon-assimilasjon;historisk-empati,0,
+kolonialisme,concept,Kolonialisme og imperialisme,Kolonialisme,"Kolonialisme: at en stat legger under seg landområder utenfor sitt eget territorium, styrer dem og utnytter ressursene og befolkningen der, ofte gjennom bosetting, plantasjer og tvangsarbeid.",,0,
+imperialisme,concept,Kolonialisme og imperialisme,Imperialisme,"Imperialisme: politikken der en stat utvider makten sin over andre land og folk, ved erobring, kolonier eller økonomisk og politisk dominans. Brukes særlig om europeisk ekspansjon fra rundt 1870 til første verdenskrig.",kolonialisme,0,
+sosialdarwinisme,concept,Kolonialisme og imperialisme,Rasetenkning og sosialdarwinisme,"Rasetenkning: forestillingen om at menneskeheten kan deles i raser med ulik verdi og ulike evner, som ble brukt til å rettferdiggjøre kolonisering og undertrykkelse.
+Sosialdarwinisme: overføringen av Darwins tanke om naturlig utvalg til folk og stater, slik at den sterkestes rett til å herske framsto som naturlig.",,0,
+kapplopet-om-afrika,concept,Kolonialisme og imperialisme,Kappløpet om Afrika,"Kappløpet om Afrika: europeiske staters raske oppdeling av Afrika mellom seg fra rundt 1880. På Berlinkonferansen i 1884-1885 ble reglene for oppdelingen avtalt, uten at noen afrikanere var med.",imperialisme,0,
+avkolonisering,concept,Kolonialisme og imperialisme,Avkolonisering,"Avkolonisering: prosessen etter andre verdenskrig der koloniene ble selvstendige stater, noen ved forhandlinger og andre etter langvarige frigjøringskriger.",kolonialisme,0,
+kolonialisme-arstall,fact,Kolonialisme og imperialisme,Årstall fra kolonitiden,"Columbus når Amerika: 1492
+Danmark-Norge forbyr slavehandelen (forordning med virkning fra 1803): 1792
+Berlinkonferansen om Afrika: 1884-1885
+India blir selvstendig: 1947
+Afrikaåret, da 17 afrikanske land ble selvstendige: 1960",kapplopet-om-afrika;avkolonisering,0,
+forklare-kolonialisme-arsaker,skill,Kolonialisme og imperialisme,Gjøre rede for hvorfor kolonimakter la under seg land,"gjøre rede for økonomiske, politiske, teknologiske og ideologiske årsaker til at kolonimakter la under seg landområder, med et konkret eksempel.",imperialisme;sosialdarwinisme;forklare-flere-arsaker,0,
+drofte-kolonialisme-konsekvenser,skill,Kolonialisme og imperialisme,Drøfte konsekvensene av kolonialismen,"drøfte konsekvensene av kolonialismen for mennesker og samfunn i områdene som ble kolonisert, både under kolonitiden og etter avkoloniseringen.",forklare-kolonialisme-arsaker;avkolonisering;kolonialisme-arstall,0,
+forste-verdenskrig,concept,Verdenskrigene og andre konflikter,Første verdenskrig,"Første verdenskrig: krigen 1914-1918 mellom ententen (blant annet Frankrike, Storbritannia og Russland, senere USA) og sentralmaktene (blant annet Tyskland og Østerrike-Ungarn). Bakgrunnen var allianser, opprustning, imperialisme og nasjonalisme; skuddene i Sarajevo var den utløsende årsaken.",nasjonalisme;imperialisme,0,
+versaillestraktaten,concept,Verdenskrigene og andre konflikter,Versaillestraktaten,"Versaillestraktaten: fredsavtalen med Tyskland fra 1919, som la skylden for krigen på Tyskland, ga landet store krigserstatninger og tok fra det land og kolonier. Mange tyskere opplevde den som et diktat.",forste-verdenskrig,0,
+andre-verdenskrig,concept,Verdenskrigene og andre konflikter,Andre verdenskrig,"Andre verdenskrig: krigen 1939-1945 mellom de allierte (blant annet Storbritannia, Sovjetunionen og USA) og aksemaktene (Tyskland, Italia og Japan). Den begynte med Tysklands angrep på Polen og kostet omkring 60 millioner mennesker livet.",versaillestraktaten;fascisme-nazisme,0,
+okkupasjonen,concept,Verdenskrigene og andre konflikter,Okkupasjonen av Norge,"Okkupasjonen av Norge: Tyskland angrep Norge 9. april 1940 og okkuperte landet til 8. mai 1945. Kongen og regjeringen fortsatte kampen fra London, mens Nasjonal Samling under Vidkun Quisling styrte i samarbeid med okkupasjonsmakten.",andre-verdenskrig,0,
+motstand-samarbeid,concept,Verdenskrigene og andre konflikter,Motstand og samarbeid,"Motstand: handlinger mot okkupasjonsmakten, fra holdningskamp og illegale aviser til sabotasje og væpnet kamp.
+Samarbeid (kollaborasjon): å arbeide med eller for okkupasjonsmakten, av overbevisning, for å tjene penger eller for å beskytte noe eller noen.",okkupasjonen,0,
+kalde-krigen,concept,Verdenskrigene og andre konflikter,Den kalde krigen,"Den kalde krigen: den langvarige konflikten fra slutten av 1940-tallet til 1991 mellom USA med NATO og Sovjetunionen med Warszawapakten, preget av atomvåpenkappløp, propaganda og stedfortrederkriger, men uten direkte krig mellom supermaktene.",andre-verdenskrig,0,
+folkeforbundet-fn,concept,Verdenskrigene og andre konflikter,Folkeforbundet og FN,"Folkeforbundet: organisasjonen for fred og samarbeid som ble opprettet i 1920 etter første verdenskrig, men som ikke klarte å hindre en ny verdenskrig.
+FN: De forente nasjoner, opprettet i 1945 for å hindre krig og fremme menneskerettigheter, med et sikkerhetsråd der fem stormakter har vetorett.",forste-verdenskrig,0,
+forsoning,concept,Verdenskrigene og andre konflikter,Forsoning,"Forsoning: prosessen der tidligere fiender eller overgripere og ofre gjenoppretter et forhold, ofte gjennom å erkjenne urett, fortelle sannheten om det som skjedde og gi oppreisning.",,0,
+krig-arstall,fact,Verdenskrigene og andre konflikter,Årstall fra krigene på 1900-tallet,"første verdenskrig: 1914-1918
+Versaillestraktaten: 1919
+andre verdenskrig: 1939-1945
+Tyskland angriper Norge: 9. april 1940
+frigjøringen av Norge: 8. mai 1945
+FN opprettes: 1945
+NATO opprettes: 1949
+Berlinmuren bygges: 1961
+Cubakrisen: 1962",forste-verdenskrig;andre-verdenskrig;kalde-krigen,0,
+forklare-bakgrunn-forste-verdenskrig,skill,Verdenskrigene og andre konflikter,Drøfte bakgrunnen for første verdenskrig,"drøfte bakgrunnen for første verdenskrig, og vurdere hvor tungt allianser, opprustning, imperialisme, nasjonalisme og skuddene i Sarajevo veide.",forste-verdenskrig;forklare-flere-arsaker,0,
+forklare-bakgrunn-andre-verdenskrig,skill,Verdenskrigene og andre konflikter,Drøfte bakgrunnen for andre verdenskrig,"drøfte bakgrunnen for andre verdenskrig, med vekt på Versaillestraktaten, den økonomiske krisen, nazismen og stormaktenes ettergivenhet.",andre-verdenskrig;forklare-bakgrunn-forste-verdenskrig,0,
+drofte-fredsslutninger,skill,Verdenskrigene og andre konflikter,Drøfte om fredsslutninger har skapt fred og forsoning,"drøfte om fredsslutningene etter verdenskrigene og en annen sentral konflikt, for eksempel den kalde krigen, bidro til varig fred og forsoning, og hva som skilte de som lyktes fra de som ikke gjorde det.",forklare-bakgrunn-andre-verdenskrig;folkeforbundet-fn;kalde-krigen;forsoning;krig-arstall,0,
+utforske-handlingsrom-konflikt,skill,Verdenskrigene og andre konflikter,Utforske menneskers handlingsrom i en konfliktsituasjon,"utforske hvilke valgmuligheter mennesker hadde i en konfliktsituasjon - for eksempel under okkupasjonen av Norge - og vurdere konsekvensene av valgene de tok.",handlingsrom;motstand-samarbeid;historisk-empati,0,
+totalitarisme,concept,Ideologier og folkemord,Totalitarisme,"Totalitarisme: et styresett der én leder eller ett parti vil kontrollere alle sider av samfunnet og menneskers liv - politikk, økonomi, kultur, utdanning og privatliv - gjennom propaganda, overvåking og terror.",,0,
+fascisme-nazisme,concept,Ideologier og folkemord,Fascisme og nazisme,"Fascisme: en autoritær, ytterliggående nasjonalistisk ideologi som dyrker staten, føreren og kampen, og som avviser demokrati, liberalisme og sosialisme. Den fikk makten i Italia under Mussolini i 1922.
+Nazisme: den tyske varianten under Hitler, som fikk makten i 1933 og bygde på rasetenkning, antisemittisme og krav om «livsrom» for det tyske folket.",nasjonalisme;sosialdarwinisme;totalitarisme,0,
+stalinisme,concept,Ideologier og folkemord,Stalinisme,"Stalinisme: det totalitære styret i Sovjetunionen under Josef Stalin fra slutten av 1920-tallet til 1953, med tvangskollektivisering, utrenskninger, arbeidsleirer (Gulag) og millioner av døde.",totalitarisme;russiske-revolusjon,0,
+antisemittisme,concept,Ideologier og folkemord,Antisemittisme,"Antisemittisme: fiendtlighet mot og fordommer om jøder som gruppe. Den har dype religiøse røtter i Europa, og fikk på 1800- og 1900-tallet form av rasetenkning og konspirasjonsteorier.",sosialdarwinisme,0,
+folkemord,concept,Ideologier og folkemord,Folkemord,"Folkemord: handlinger begått med hensikt om helt eller delvis å ødelegge en nasjonal, etnisk, rasemessig eller religiøs gruppe som sådan. Begrepet ble formulert av Raphael Lemkin og slått fast i FNs folkemordkonvensjon i 1948.",,0,
+holocaust,concept,Ideologier og folkemord,Holocaust,"Holocaust: Nazi-Tysklands systematiske forfølgelse og drap på omkring seks millioner europeiske jøder under andre verdenskrig. Også rom, mennesker med funksjonsnedsettelser og andre grupper ble forfulgt og drept.",folkemord;antisemittisme;fascisme-nazisme,0,
+jodeforfolgelsen-norge,concept,Ideologier og folkemord,Jødeforfølgelsen i Norge,"Jødeforfølgelsen i Norge: høsten 1942 ble jøder i Norge arrestert med hjelp fra norsk politi og andre nordmenn, og rundt 770 ble deportert, de fleste til Auschwitz. Den største deportasjonen skjedde med skipet Donau 26. november 1942. Bare noen titalls overlevde.",holocaust;okkupasjonen,0,
+massevold-arstall,fact,Ideologier og folkemord,Folkemord og politisk terror,"folkemordet på armenerne i Det osmanske riket: fra 1915
+hungersnøden i Ukraina (Holodomor): 1932-1933
+holocaust: 1941-1945
+Røde Khmers styre i Kambodsja: 1975-1979
+folkemordet i Rwanda: 1994
+massakren i Srebrenica: 1995
+terrorangrepene i regjeringskvartalet og på Utøya: 22. juli 2011",folkemord,0,
+forklare-veien-til-holocaust,skill,Ideologier og folkemord,Forklare hvordan ideologi førte fram mot holocaust,"forklare hvordan nazismens ideologi, propaganda og lover trinn for trinn førte fra diskriminering av jøder til systematisk folkemord.",holocaust;forklare-flere-arsaker,0,
+reflektere-ideologi-undertrykkelse,skill,Ideologier og folkemord,"Reflektere over ideologier, undertrykkelse og folkemord","reflektere over hvordan ideologier og tankesett på 1900-tallet og fram til i dag har bidratt til undertrykkelse, terror og folkemord, og sammenligne minst to eksempler.",forklare-veien-til-holocaust;stalinisme;massevold-arstall;jodeforfolgelsen-norge,0,
+nasjonalromantikken,concept,Nasjon og frigjøring i Norge,Nasjonalromantikken,"Nasjonalromantikken: kulturbevegelsen på midten av 1800-tallet som søkte det ekte norske i bondekulturen, folkeeventyrene, folkemusikken, naturen og norrøn fortid, for å vise at nordmenn var en egen nasjon.",nasjonalisme,0,
+samene,concept,Nasjon og frigjøring i Norge,Samene,"Samene: urfolket i Sápmi, som strekker seg over deler av Norge, Sverige, Finland og Russland. Samene har eget språk og egen kultur og har levd i området siden lenge før de nasjonale grensene ble trukket.",,0,
+nasjonale-minoriteter,concept,Nasjon og frigjøring i Norge,Nasjonale minoriteter,"Nasjonale minoriteter: grupper med langvarig tilknytning til landet, som staten anerkjenner og har særlige forpliktelser overfor. Norge anerkjenner fem: jøder, kvener/norskfinner, skogfinner, rom og romanifolket/tatere.",,0,
+fornorskning,concept,Nasjon og frigjøring i Norge,Fornorskningspolitikken,"Fornorskningspolitikken: statens politikk fra midten av 1800-tallet til langt ut på 1900-tallet for å gjøre samer, kvener og andre minoriteter norske i språk og kultur, særlig gjennom skolen, internater og regler for kjøp av jord.",samene;nasjonale-minoriteter;nasjonalromantikken,0,
+sannhets-forsoningskommisjonen,concept,Nasjon og frigjøring i Norge,Sannhets- og forsoningskommisjonen,"Sannhets- og forsoningskommisjonen: kommisjonen Stortinget satte ned i 2018 for å granske fornorskningspolitikken og uretten mot samer, kvener/norskfinner og skogfinner. Den la fram rapporten sin i 2023.",fornorskning;forsoning,0,
+myndiggjoring,concept,Nasjon og frigjøring i Norge,Myndiggjøring og frigjøring,"Myndiggjøring: at en gruppe får makt over sitt eget liv og blir hørt i saker som angår den.
+Frigjøring: at en gruppe løses fra undertrykkelse eller formelle hindringer, som manglende stemmerett, forbud eller diskriminerende lover.",,0,
+arbeiderbevegelsen,concept,Nasjon og frigjøring i Norge,Arbeiderbevegelsen,"Arbeiderbevegelsen: fagforeningene og partiene som organiserte arbeiderne for bedre lønn, kortere arbeidstid og politisk innflytelse. I Norge ble Arbeiderpartiet stiftet i 1887 og LO i 1899.",arbeiderklassen;myndiggjoring,0,
+kvinnebevegelsen,concept,Nasjon og frigjøring i Norge,Kvinnebevegelsen,"Kvinnebevegelsen: kampen for kvinners rettigheter, fra kravet om stemmerett og rett til utdanning på 1800-tallet til kampen for likelønn, barnehager og selvbestemt abort på 1970-tallet.",myndiggjoring,0,
+samisk-rettighetskamp,concept,Nasjon og frigjøring i Norge,Samisk rettighetskamp,"Samisk rettighetskamp: samenes organiserte arbeid for språk, kultur og rettigheter, fra det første samiske landsmøtet i Trondheim i 1917 til Alta-saken rundt 1980, som førte til grunnlovsparagrafen om samene i 1988 og Sametinget i 1989.",samene;myndiggjoring,0,
+frigjoring-arstall,fact,Nasjon og frigjøring i Norge,Årstall for frigjøring og rettigheter i Norge,"Grunnloven vedtas: 1814
+jødeparagrafen oppheves: 1851
+parlamentarismen innføres: 1884
+allmenn stemmerett for menn: 1898
+unionen med Sverige oppløses: 1905
+allmenn stemmerett for kvinner: 1913
+det første samiske landsmøtet i Trondheim: 6. februar 1917
+likestillingsloven vedtas: 1978
+Sametinget åpnes: 1989",arbeiderbevegelsen;kvinnebevegelsen;samisk-rettighetskamp,0,
+analysere-nasjonsbygging,skill,Nasjon og frigjøring i Norge,Analysere hvordan fortiden ble brukt til å bygge nasjonal identitet,"analysere hvordan framstillinger av fortiden - som vikingtiden, bondesamfunnet, 1814 eller okkupasjonen - har blitt brukt i Norge for å skape nasjonal identitet.",nasjonalromantikken;analysere-historiebruk,0,
+drofte-nasjonsbygging-grupper,skill,Nasjon og frigjøring i Norge,Drøfte hva nasjonsbyggingen betydde for ulike grupper,"drøfte hvilke virkninger bruken av fortiden i nasjonsbyggingen har hatt for ulike grupper, særlig for samer og nasjonale minoriteter.",analysere-nasjonsbygging;fornorskning;sannhets-forsoningskommisjonen,0,
+utforske-frigjoringskamp,skill,Nasjon og frigjøring i Norge,Utforske kamp for myndiggjøring og frigjøring,"utforske hvordan en gruppe i norsk eller samisk historie har arbeidet for myndiggjøring og frigjøring, og gjøre rede for hvordan arbeidet samtidig bidro til å utvikle demokratiet.",arbeiderbevegelsen;kvinnebevegelsen;samisk-rettighetskamp;frigjoring-arstall,0,
+velferdsstat,concept,Velferdsstaten,Velferdsstat,"Velferdsstat: en stat som sikrer innbyggerne grunnleggende trygghet og tjenester - helse, utdanning, pensjon og stønad ved sykdom og arbeidsledighet - som en rettighet, finansiert over skatten.",,0,
+kriseforliket,concept,Velferdsstaten,Kriseforliket og Hovedavtalen,"Kriseforliket: avtalen i 1935 mellom Arbeiderpartiet og Bondepartiet, som ga Arbeiderpartiet regjeringsmakt og la grunnlaget for en aktiv statlig krisepolitikk.
+Hovedavtalen: avtalen samme år mellom LO og arbeidsgiverforeningen om spillereglene i arbeidslivet, grunnsteinen i det organiserte samarbeidet mellom partene.",arbeiderbevegelsen,0,
+gjenreisningen,concept,Velferdsstaten,Gjenreisningen og etterkrigstiden,"Gjenreisningen: perioden etter 1945 da Norge bygde opp igjen det krigen hadde ødelagt, med sterk statlig styring, bred politisk enighet og Arbeiderpartiet i regjering i nesten 20 år.",kriseforliket;andre-verdenskrig,0,
+folketrygden,concept,Velferdsstaten,Folketrygden,"Folketrygden: den samlede offentlige trygdeordningen fra 1967, som samlet pensjon, uføretrygd og andre ytelser i ett system og ga alle innbyggere rett til dem.",velferdsstat;gjenreisningen,0,
+oljealderen,concept,Velferdsstaten,Oljealderen,"Oljealderen: tiden etter at Ekofisk-feltet ble funnet i 1969, da olje og gass ble Norges viktigste eksportnæring. Fra 1996 har staten satt inntektene i Statens pensjonsfond utland (oljefondet).",,0,
+velferd-arstall,fact,Velferdsstaten,Årstall i velferdsstatens historie,"Kriseforliket og Hovedavtalen: 1935
+alderstrygd for alle uten behovsprøving: 1957
+folketrygden innføres: 1967
+Ekofisk-feltet blir funnet: 1969
+oljefondet får sitt første innskudd: 1996",folketrygden;oljealderen,0,
+gjore-rede-velferdsutvikling,skill,Velferdsstaten,Gjøre rede for velferdsutviklingen i Norge,"gjøre rede for hvordan velferdsstaten ble bygd ut i Norge på 1900-tallet, og hvilke politiske og økonomiske forutsetninger som gjorde det mulig.",folketrygden;oljealderen;velferd-arstall,0,
+drofte-velferd-konsekvenser,skill,Velferdsstaten,Drøfte hvilke konsekvenser velferdsstaten har hatt for menneskers liv,"drøfte hvilke konsekvenser velferdsutviklingen har hatt for menneskers liv - for kvinner, eldre, syke og barn, for forholdet mellom by og land, og for forholdet mellom individ og stat.",gjore-rede-velferdsutvikling;kvinnebevegelsen,0,
+rovdrift,concept,Natur og ressursforvaltning,Rovdrift,"Rovdrift: å hente ut en naturressurs raskere enn den fornyer seg, slik at den over tid blir uttømt - som overfiske, nedhogging av skog uten ny planting eller utarming av jorda.",,0,
+baerekraft,concept,Natur og ressursforvaltning,Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker behovene til dagens mennesker uten å ødelegge mulighetene for at kommende generasjoner skal få dekket sine. Den har en økonomisk, en sosial og en miljømessig side.",,0,
+forvaltning,concept,Natur og ressursforvaltning,Ressursforvaltning,"Ressursforvaltning: å bestemme hvordan naturressurser som fisk, skog, vannkraft og olje skal brukes, av hvem og i hvilket tempo, slik at de gir verdier uten å bli ødelagt.",rovdrift,0,
+miljobevegelsen,concept,Natur og ressursforvaltning,Miljøbevegelsen,"Miljøbevegelsen: organisasjonene og aksjonene som fra 1960- og 70-tallet satte naturvern og forurensning på dagsordenen, i Norge blant annet med aksjonen mot utbyggingen av Mardøla i 1970 og Alta-saken.",forvaltning,0,
+vurdere-forhold-til-naturen,skill,Natur og ressursforvaltning,Vurdere hvordan mennesker har forholdt seg til naturen,"vurdere hvordan mennesker i ulike perioder har forholdt seg til naturen, forvaltet og brukt ressurser, med eksempler fra industrialiseringen, vannkraftutbyggingen og oljealderen.",forvaltning;miljobevegelsen;industrialisering-norge;oljealderen,0,
+historisk-perspektiv-baerekraft,skill,Natur og ressursforvaltning,Bruke historiske perspektiver i samtale om bærekraft,"bruke historiske eksempler på rovdrift og god forvaltning i en samtale om bærekraftige løsninger i dag, og skille mellom det fortiden kan lære oss og det som er nytt.",vurdere-forhold-til-naturen;baerekraft,0,

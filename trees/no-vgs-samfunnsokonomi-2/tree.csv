@@ -1,0 +1,171 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Metode og modeller;Produksjon og kostnader;Markedsformer og effektivitet;Markedssvikt og samfunnsøkonomisk lønnsomhet;Økonomisk vekst og utvikling;Økonomisk politikk i Norge;Arbeidsledighet;Langsiktige utfordringer og bærekraft;Ulikhet og fattigdom i verden;Handel og proteksjonisme;Valuta og konkurranseevne;Økonomiske sjokk,,,
+,config,,title,Samfunnsøkonomi 2,,,
+,config,,description,"Monopol og fullkommen konkurranse, markedssvikt, vekst og utvikling, økonomisk politikk i Norge, ledighet, bærekraft, global ulikhet, handel, valuta, konkurranseevne og økonomiske sjokk — med beregningene eksamen krever.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-samfunnsokonomi-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,samfunnsøkonomi 2 (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"blander grensekostnad og gjennomsnittskostnad, skriver «etterspørselen øker» når det er etterspurt kvantum som øker langs kurven, sier at monopolisten setter prisen «så høyt den vil», blander bedriftsøkonomisk og samfunnsøkonomisk lønnsomhet, sier «sterk krone» uten å si mot hva, og tegner modeller uten navn på akser, kurver og skraverte arealer",,,
+,config,,slots.courseSpecifics,"Faget har én standpunktkarakter. Eleven kan trekkes ut til skriftlig eksamen, laget og sensurert sentralt, eller muntlig eksamen med forberedelsesdel, laget og sensurert lokalt. På skriftlig eksamen må eleven regne, tegne grafiske modeller og drøfte; la derfor eleven gjøre utregningene og tegningene selv, og vis fullstendige mellomregninger i eksemplene. Bruk norske forhold og offisielle kilder som SSB, Norges Bank og Finansdepartementet.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag økonomi, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"SAM3061, SAM3062",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,samfunnsøkonomi; SØK2; økonomi; programfag; skriftlig eksamen; monopol; fullkommen konkurranse; grensekostnad; grenseinntekt; dødvektstap; konsumentoverskudd; markedssvikt; Pigou-avgift; kollektive goder; nåverdi; handlingsregelen; inflasjonsmål; multiplikator; toll; proteksjonisme; valutakurs; konkurranseevne; hollandsk syke; økonomiske sjokk; AD-AS,,,
+,config,,updated,2026-10-08,,,
+okonomisk-modell,concept,Metode og modeller,Økonomisk modell og forutsetninger,"Økonomisk modell: en forenklet framstilling av en økonomisk sammenheng, i ord, grafer eller likninger.
+Forutsetning: det modellen tar for gitt, som ceteris paribus eller fullkommen informasjon, og som avgjør hvor langt konklusjonen holder i virkeligheten.",,0,
+marginalbetraktning,concept,Metode og modeller,Marginale størrelser,"Marginal størrelse: endringen i en størrelse når en annen øker med én enhet, som kostnaden ved å produsere én enhet til.
+Marginalbetraktning: å ta beslutninger ved å sammenligne gevinsten og kostnaden av én enhet til.",,0,
+tegne-modell,skill,Metode og modeller,Tegne en grafisk modell riktig,"tegne en grafisk modell med navn på aksene og kurvene, markere likevekter og skravere arealer, og forklare med ord hva grafen viser.",okonomisk-modell,0,
+lese-statistikk,skill,Metode og modeller,Tolke økonomisk statistikk,"tolke tidsserier, indekser og sammenligninger mellom land i tabeller og diagrammer, og vurdere hva tallene kan og ikke kan vise.",,0,
+vurdere-kilder,skill,Metode og modeller,Vurdere kilder i økonomiske spørsmål,"velge og vurdere kilder til et økonomisk spørsmål etter avsender og formål, og skille faglige analyser fra politiske og kommersielle innspill.",,0,
+bruke-teori-problemstilling,skill,Metode og modeller,Bruke teori og modeller på en problemstilling,"velge relevante teorier og modeller til en faglig problemstilling, bruke dem, og vurdere hvordan forutsetningene påvirker konklusjonen.",tegne-modell;lese-statistikk;vurdere-kilder,0,
+drofte-problemstilling,skill,Metode og modeller,Drøfte en sammensatt samfunnsøkonomisk problemstilling,"drøfte en sammensatt problemstilling ved å kombinere modeller, beregninger og kilder fra flere deler av faget, veie argumenter mot hverandre og trekke en begrunnet konklusjon.",bruke-teori-problemstilling;drofte-politikk-virkning;drofte-frihandel-proteksjonisme;drofte-sjokk-tiltak,0,
+kostnadsbegreper,concept,Produksjon og kostnader,Faste og variable kostnader,"Faste kostnader: kostnader som er de samme uansett hvor mye som produseres, som husleie.
+Variable kostnader: kostnader som øker med produksjonen, som råvarer og timelønn.
+Totalkostnad: faste og variable kostnader til sammen.",,0,
+grensekostnad,concept,Produksjon og kostnader,Grensekostnad og gjennomsnittskostnad,"Grensekostnad: økningen i totalkostnaden når produksjonen øker med én enhet.
+Gjennomsnittskostnad (enhetskostnad): totalkostnaden delt på antall produserte enheter.",kostnadsbegreper;marginalbetraktning,0,
+avtakende-utbytte,concept,Produksjon og kostnader,Avtakende utbytte,"Avtakende utbytte: når mer av én innsatsfaktor brukes sammen med en fast mengde av de andre, blir økningen i produksjonen for hver ekstra enhet etter hvert mindre; det får grensekostnaden til å stige.",grensekostnad,0,
+regne-kostnader,skill,Produksjon og kostnader,Regne ut grensekostnad og gjennomsnittskostnad,"regne ut grensekostnad og gjennomsnittskostnad fra en kostnadstabell eller en kostnadsfunksjon, og tegne kurvene i samme diagram.",grensekostnad,0,
+grenseinntekt,concept,Produksjon og kostnader,Grenseinntekt,"Salgsinntekt: pris ganger solgt mengde.
+Grenseinntekt: økningen i salgsinntekten når salget øker med én enhet.",marginalbetraktning,0,
+overskuddsmaksimering,concept,Produksjon og kostnader,Overskuddsmaksimering,"Overskuddsmaksimering: en bedrift får størst mulig overskudd ved å produsere mengden der grenseinntekten er lik grensekostnaden.",grensekostnad;grenseinntekt,0,
+regne-overskudd-bedrift,skill,Produksjon og kostnader,Finne mengden som gir størst overskudd,"finne den mengden som gir størst overskudd fra en tabell eller fra funksjoner for inntekt og kostnad, og regne ut overskuddet.",overskuddsmaksimering;regne-kostnader,0,
+stordriftsfordeler,concept,Produksjon og kostnader,Stordriftsfordeler,"Stordriftsfordeler: at gjennomsnittskostnaden faller når produksjonen øker, for eksempel fordi store faste kostnader fordeles på flere enheter.",grensekostnad,0,
+priselastisitet,concept,Markedsformer og effektivitet,Priselastisitet,"Priselastisitet: den prosentvise endringen i etterspurt kvantum når prisen øker med 1 prosent.
+Krysspriselastisitet: den prosentvise endringen i etterspørselen etter én vare når prisen på en annen vare øker med 1 prosent; positiv for substitutter og negativ for komplementer.",,0,
+regne-elastisitet,skill,Markedsformer og effektivitet,Regne ut og bruke elastisiteter,"regne ut pris- og krysspriselastisitet, og bruke elastisiteten til å si hvordan en prisendring påvirker omsatt mengde og salgsinntekt.",priselastisitet,0,
+fk-tilpasning,concept,Markedsformer og effektivitet,Tilpasning under fullkommen konkurranse,"Pristaker: en bedrift som må ta markedsprisen for gitt fordi den er for liten til å påvirke den.
+Tilpasning under fullkommen konkurranse: bedriften produserer der prisen er lik grensekostnaden, så grensekostnadskurven blir bedriftens tilbudskurve.",overskuddsmaksimering,0,
+regne-fk-tilpasning,skill,Markedsformer og effektivitet,Finne tilpasningen under fullkommen konkurranse,"finne bedriftens produksjon og overskudd under fullkommen konkurranse grafisk og ved regning, og vise hvordan markedsprisen påvirker tilpasningen.",fk-tilpasning;regne-overskudd-bedrift,0,
+langsiktig-likevekt,concept,Markedsformer og effektivitet,Langsiktig likevekt under fullkommen konkurranse,"Langsiktig likevekt: når overskudd lokker nye bedrifter inn og underskudd får bedrifter til å gå ut, presses prisen ned mot laveste gjennomsnittskostnad, og bedriftene tjener ikke mer enn normal avkastning.",fk-tilpasning,0,
+monopol-tilpasning,concept,Markedsformer og effektivitet,Monopolets tilpasning,"Monopol: én tilbyder møter hele markedets etterspørselskurve, så grenseinntekten er lavere enn prisen.
+Monopolets tilpasning: monopolisten produserer der grenseinntekt er lik grensekostnad og tar den prisen etterspørselskurven gir for den mengden.",overskuddsmaksimering,0,
+regne-monopol,skill,Markedsformer og effektivitet,Finne monopolets pris og mengde,"finne monopolistens mengde, pris og overskudd grafisk og ved regning, ut fra en lineær etterspørselsfunksjon og en kostnadsfunksjon.",monopol-tilpasning;regne-kostnader,0,
+konsument-produsentoverskudd,concept,Markedsformer og effektivitet,Konsumentoverskudd og produsentoverskudd,"Konsumentoverskudd: forskjellen mellom det kjøperne er villige til å betale og det de faktisk betaler, summert over alle enhetene.
+Produsentoverskudd: forskjellen mellom prisen produsentene får og grensekostnaden, summert over alle enhetene.",fk-tilpasning,0,
+regne-overskudd-marked,skill,Markedsformer og effektivitet,Regne ut konsument- og produsentoverskudd,"skravere og regne ut konsumentoverskudd, produsentoverskudd og samlet overskudd i en graf med lineære kurver.",konsument-produsentoverskudd;tegne-modell,0,
+samfunnsokonomisk-effektivitet,concept,Markedsformer og effektivitet,Samfunnsøkonomisk effektivitet,"Samfunnsøkonomisk effektivitet: ressursene brukes slik at det samlede overskuddet blir størst mulig, og ingen kan få det bedre uten at noen andre får det verre.
+Dødvektstap: tapet av samlet overskudd når omsatt mengde avviker fra den effektive mengden.",konsument-produsentoverskudd,0,
+sammenligne-monopol-fk,skill,Markedsformer og effektivitet,Sammenligne monopol og fullkommen konkurranse,"sammenligne pris, mengde og overskudd under monopol og fullkommen konkurranse i samme modell, regne ut dødvektstapet ved monopol, og analysere hva markedsformen betyr for ressursbruk og fordeling mellom kjøpere og selgere.",regne-monopol;regne-fk-tilpasning;regne-overskudd-marked;samfunnsokonomisk-effektivitet,0,
+avgift-virkning,skill,Markedsformer og effektivitet,Regne ut virkningen av en avgift,"regne ut ny likevekt etter en stykkavgift, fordele avgiften mellom kjøpere og selgere, og regne ut statens inntekt og dødvektstapet.",regne-overskudd-marked;samfunnsokonomisk-effektivitet;regne-elastisitet,0,
+oligopol-konkurranse,concept,Markedsformer og effektivitet,Oligopol og monopolistisk konkurranse,"Oligopol: få store tilbydere som må ta hensyn til hverandres reaksjoner, og som kan ha nytte av å samarbeide om prisen.
+Monopolistisk konkurranse: mange tilbydere av litt ulike produkter, som hver har en viss makt over sin egen pris.",monopol-tilpasning;fk-tilpasning,0,
+konkurransepolitikk,concept,Markedsformer og effektivitet,Konkurransepolitikk,"Konkurransepolitikk: myndighetenes tiltak for å sikre konkurranse, som forbud mot prissamarbeid, kontroll med fusjoner og regulering av naturlige monopoler.
+Naturlig monopol: et marked der stordriftsfordelene er så store at én tilbyder kan produsere billigere enn flere, som strømnettet.",oligopol-konkurranse;stordriftsfordeler,0,
+drofte-markedsformer,skill,Markedsformer og effektivitet,Drøfte muligheter og utfordringer ved markedsformene,"drøfte muligheter og utfordringer ved ulike markedsformer, som lave priser, stordriftsfordeler, innovasjon og markedsmakt, og vurdere når myndighetene bør gripe inn.",sammenligne-monopol-fk;konkurransepolitikk,0,
+markedssvikt,concept,Markedssvikt og samfunnsøkonomisk lønnsomhet,Markedssvikt,"Markedssvikt: et marked overlatt til seg selv gir ikke en samfunnsøkonomisk effektiv ressursbruk, for eksempel på grunn av markedsmakt, eksterne virkninger, kollektive goder eller ufullstendig informasjon.",samfunnsokonomisk-effektivitet,0,
+eksterne-virkninger,concept,Markedssvikt og samfunnsøkonomisk lønnsomhet,Eksterne virkninger,"Negativ ekstern virkning: en kostnad som rammer andre enn kjøper og selger, som utslipp; da produseres for mye.
+Positiv ekstern virkning: en gevinst for andre, som vaksinasjon eller forskning; da produseres for lite.
+Samfunnsøkonomisk grensekostnad: bedriftens grensekostnad pluss den eksterne grensekostnaden.",markedssvikt;grensekostnad,0,
+kollektive-goder,concept,Markedssvikt og samfunnsøkonomisk lønnsomhet,Kollektive goder,"Kollektivt gode: et gode der ingen kan holdes utenfor, og der én persons bruk ikke reduserer andres, som fyrlykter og forsvar.
+Gratispassasjer: en som nyter godt av et gode uten å betale, noe som gjør at markedet tilbyr for lite av kollektive goder.",markedssvikt,0,
+asymmetrisk-informasjon,concept,Markedssvikt og samfunnsøkonomisk lønnsomhet,Asymmetrisk informasjon,"Asymmetrisk informasjon: at den ene parten i en handel vet mer enn den andre, som selgeren av en bruktbil eller kjøperen av en forsikring, noe som kan føre til at markedet fungerer dårlig.",markedssvikt,0,
+pigou-avgift,skill,Markedssvikt og samfunnsøkonomisk lønnsomhet,Korrigere en ekstern virkning med avgift,"vise grafisk og ved regning hvordan en avgift lik den eksterne grensekostnaden flytter markedet til den samfunnsøkonomisk effektive mengden, og regne ut dødvektstapet som forsvinner.",eksterne-virkninger;avgift-virkning,0,
+rette-markedssvikt,skill,Markedssvikt og samfunnsøkonomisk lønnsomhet,Forklare hvordan myndighetene kan rette opp markedssvikt,"forklare hvilke virkemidler myndighetene kan bruke mot hver type markedssvikt, som avgifter og subsidier, offentlig produksjon, regulering og krav om informasjon.",pigou-avgift;kollektive-goder;asymmetrisk-informasjon,0,
+samfunns-vs-bedriftsokonomi,concept,Markedssvikt og samfunnsøkonomisk lønnsomhet,Samfunnsøkonomisk og bedriftsøkonomisk lønnsomhet,"Bedriftsøkonomisk lønnsomhet: et tiltak gir bedriften større inntekter enn kostnader.
+Samfunnsøkonomisk lønnsomhet: et tiltak gir større nytte enn kostnader for samfunnet som helhet, også når virkninger som ikke har noen markedspris er tatt med.",eksterne-virkninger,0,
+naverdi,concept,Markedssvikt og samfunnsøkonomisk lønnsomhet,Nåverdi og nytte-kostnadsanalyse,"Nåverdi: verdien i dag av et beløp som kommer i framtiden, funnet ved å diskontere beløpet med en kalkulasjonsrente.
+Nytte-kostnadsanalyse: en metode der alle nyttevirkninger og kostnader av et offentlig tiltak verdsettes i kroner og sammenlignes.",samfunns-vs-bedriftsokonomi,0,
+regne-naverdi,skill,Markedssvikt og samfunnsøkonomisk lønnsomhet,Regne ut nåverdien av et prosjekt,"regne ut nåverdien av et prosjekt med kostnader og inntekter over flere år, og avgjøre om prosjektet er lønnsomt.",naverdi,0,
+reflektere-samfunns-bedrift,skill,Markedssvikt og samfunnsøkonomisk lønnsomhet,Sammenligne samfunnsøkonomiske og bedriftsøkonomiske vurderinger,"reflektere over hvorfor et tiltak kan være lønnsomt for en bedrift og ulønnsomt for samfunnet, eller omvendt, med eksempler som et vindkraftverk eller en ny vei.",samfunns-vs-bedriftsokonomi;regne-naverdi;markedssvikt,0,
+vekstkilder,concept,Økonomisk vekst og utvikling,Kilder til økonomisk vekst,"Økonomisk vekst: økning i BNP i faste priser.
+Vekstkilder: mer arbeidskraft, mer realkapital, bedre utdanning (humankapital) og ny teknologi som gjør produksjonen mer effektiv.
+Produktivitet: produksjon per arbeidstime.",,0,
+institusjoner,concept,Økonomisk vekst og utvikling,Institusjoner og økonomisk utvikling,"Institusjoner: de formelle og uformelle spillereglene i et samfunn, som eiendomsrett, rettsstat, lite korrupsjon og tillit, som gjør det trygt å investere og handle.
+Økonomisk utvikling: bredere enn vekst, og omfatter også helse, utdanning og levekår.",vekstkilder,0,
+regne-vekstrate,skill,Økonomisk vekst og utvikling,Regne med vekstrater over tid,"regne ut gjennomsnittlig årlig vekst over flere år, framskrive BNP med en gitt vekstrate, og anslå hvor lang tid det tar før BNP dobles.",vekstkilder,0,
+utforske-vekst-land,skill,Økonomisk vekst og utvikling,Utforske årsaker til vekst i ulike land,"utforske og gjøre rede for hvorfor noen land har hatt høy vekst og andre lav, med tall og konkrete eksempler på land.",institusjoner;regne-vekstrate;lese-statistikk,0,
+drofte-vekst-virkemidler,skill,Økonomisk vekst og utvikling,Drøfte virkemidler for økonomisk utvikling,"drøfte hvilke virkemidler myndighetene kan bruke for å få økonomisk utvikling på kort sikt, som å øke etterspørselen, og på lengre sikt, som utdanning, infrastruktur, forskning og gode institusjoner.",utforske-vekst-land;finanspolitikk-pengepolitikk,0,
+finanspolitikk-pengepolitikk,concept,Økonomisk politikk i Norge,Finanspolitikk og pengepolitikk,"Finanspolitikk: bruk av offentlige utgifter og skatter for å påvirke økonomien, besluttet av regjering og Storting.
+Pengepolitikk: sentralbankens bruk av styringsrenten for å påvirke økonomien.",,0,
+inflasjonsstyring,concept,Økonomisk politikk i Norge,Fleksibel inflasjonsstyring,"Fleksibel inflasjonsstyring: retningslinjen for pengepolitikken, der Norges Bank skal holde prisstigningen nær målet over tid og samtidig bidra til høy og stabil produksjon og sysselsetting.",finanspolitikk-pengepolitikk,0,
+handlingsregelen,concept,Økonomisk politikk i Norge,Handlingsregelen,"Handlingsregelen: retningslinjen for finanspolitikken, som sier hvor mye av Statens pensjonsfond utland som kan brukes over statsbudsjettet hvert år, slik at fondet kommer også framtidige generasjoner til gode.
+Oljekorrigert underskudd: underskuddet på statsbudsjettet uten petroleumsinntektene, som dekkes fra fondet.",finanspolitikk-pengepolitikk,0,
+fakta-retningslinjer,fact,Økonomisk politikk i Norge,Tallene i retningslinjene,"inflasjonsmålet: 2 prosent årlig vekst i konsumprisene over tid
+handlingsregelen: om lag 3 prosent av verdien av Statens pensjonsfond utland over tid
+hvem som fastsetter styringsrenten: Norges Bank
+hvem som vedtar statsbudsjettet: Stortinget",inflasjonsstyring;handlingsregelen,0,
+keynes-modell,concept,Økonomisk politikk i Norge,Keynes-modellen,"Keynes-modell: en modell der etterspørselen bestemmer BNP på kort sikt, med Y = C + I + G + X − Q.
+Skattesats og importandel: skatten og importen øker med inntekten, T = tY og Q = mY, slik at en del av hver ekstra krone lekker ut av kretsløpet.",finanspolitikk-pengepolitikk,0,
+regne-multiplikator,skill,Økonomisk politikk i Norge,Regne med multiplikatoren,"regne ut likevekts-BNP og multiplikatoren i en Keynes-modell med inntektsavhengig skatt og import, og regne ut virkningen av en endring i offentlig kjøp, skatt eller eksport.",keynes-modell,0,
+automatiske-stabilisatorer,concept,Økonomisk politikk i Norge,Automatiske stabilisatorer,"Automatiske stabilisatorer: skatter og trygder som av seg selv demper konjunktursvingningene, fordi skatteinngangen faller og utbetalingene til ledige stiger i en nedgang, uten nye vedtak.",keynes-modell,0,
+pengepolitikk-transmisjon,skill,Økonomisk politikk i Norge,Forklare hvordan pengepolitikken virker,"forklare hvordan en endring i styringsrenten virker gjennom lånerenter, etterspørsel og kronekurs på produksjon, sysselsetting og prisstigning, og hvorfor virkningen kommer med forsinkelse.",inflasjonsstyring,0,
+gjore-rede-politikk-norge,skill,Økonomisk politikk i Norge,Gjøre rede for den økonomiske politikken i Norge,"gjøre rede for målene og retningslinjene for den økonomiske politikken i Norge, og hvordan ansvaret er delt mellom Norges Bank og regjeringen.",inflasjonsstyring;handlingsregelen;fakta-retningslinjer,0,
+drofte-politikk-virkning,skill,Økonomisk politikk i Norge,Drøfte hvordan den økonomiske politikken virker,"drøfte hvordan finanspolitikk og pengepolitikk virker hver for seg og sammen, og vurdere om politikken var riktig i en konkret situasjon.",gjore-rede-politikk-norge;regne-multiplikator;automatiske-stabilisatorer;pengepolitikk-transmisjon,0,
+typer-ledighet,concept,Arbeidsledighet,Typer arbeidsledighet,"Friksjonsledighet: kortvarig ledighet mens folk bytter jobb.
+Strukturledighet: ledighet fordi kompetansen eller bostedet til de ledige ikke passer med de ledige jobbene.
+Konjunkturledighet: ledighet fordi den samlede etterspørselen er for lav.",,0,
+likevektsledighet,concept,Arbeidsledighet,Likevektsledighet,"Likevektsledighet: ledigheten økonomien har når den verken er i høy- eller lavkonjunktur, bestemt av friksjoner og strukturelle forhold, og som ikke kan presses ned varig med økt etterspørsel uten at prisstigningen øker.",typer-ledighet,0,
+arbeidsmarked-modell,skill,Arbeidsledighet,Analysere ledighet i en modell for arbeidsmarkedet,"bruke tilbud av og etterspørsel etter arbeidskraft til å vise hvordan en reallønn over likevektslønnen gir ledighet, og hvordan lavere etterspørsel etter varer gir lavere etterspørsel etter arbeidskraft.",typer-ledighet;tegne-modell,0,
+arsaker-ledighet,skill,Arbeidsledighet,Gjøre rede for årsaker til arbeidsledighet,"gjøre rede for ulike årsaker til arbeidsledighet, som svikt i etterspørselen, omstilling i næringslivet, manglende kompetanse og høye lønnskostnader, og knytte hver årsak til en type ledighet.",arbeidsmarked-modell;likevektsledighet,0,
+vurdere-ledighetstiltak,skill,Arbeidsledighet,Vurdere virkemidler mot arbeidsledighet,"vurdere hvilke virkemidler som virker mot hvilken type ledighet, som ekspansiv finans- og pengepolitikk, kvalifisering og arbeidsmarkedstiltak, og hva de koster.",arsaker-ledighet;finanspolitikk-pengepolitikk,0,
+aldrende-befolkning,concept,Langsiktige utfordringer og bærekraft,Aldrende befolkning,"Eldrebølgen: at andelen eldre i befolkningen øker fordi vi lever lenger og får færre barn.
+Forsørgerbyrde: forholdet mellom antall eldre og antall i yrkesaktiv alder, som påvirker hvor mange som skal finansiere pensjoner og helsetjenester.",,0,
+oljeavhengighet,concept,Langsiktige utfordringer og bærekraft,Petroleumsavhengighet,"Petroleumsavhengighet: at en stor del av norsk eksport, statens inntekter og investeringene kommer fra olje og gass, en næring som skal trappes ned i takt med klimamålene.",handlingsregelen,0,
+drofte-langsiktige-utfordringer,skill,Langsiktige utfordringer og bærekraft,Drøfte Norges langsiktige økonomiske utfordringer,"reflektere over langsiktige økonomiske utfordringer for Norge, som eldrebølgen, lavere oljeinntekter, svak produktivitetsvekst og klimaomstillingen, og drøfte mulige løsninger.",aldrende-befolkning;oljeavhengighet;vekstkilder;handlingsregelen,0,
+baerekraftig-utvikling,concept,Langsiktige utfordringer og bærekraft,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker dagens behov uten å ødelegge mulighetene for kommende generasjoner, med en økonomisk, en sosial og en miljømessig dimensjon.",,0,
+klimavirkemidler,concept,Langsiktige utfordringer og bærekraft,Klimapolitiske virkemidler,"CO2-avgift: en avgift per tonn utslipp, som gjør utslippene dyrere for den som slipper ut.
+Kvotesystem: et tak på samlede utslipp der utslippsretter kjøpes og selges, som EUs kvotesystem.
+Grønne subsidier: støtte til teknologi og produksjon med lave utslipp.",eksterne-virkninger,0,
+forebygge-miljoproblemer,skill,Langsiktige utfordringer og bærekraft,Vurdere virkemidler mot miljøproblemer,"sammenligne avgifter, kvoter, subsidier og forbud som virkemidler mot miljøproblemer, og vurdere hvor effektivt og rettferdig hvert av dem er.",klimavirkemidler;pigou-avgift,0,
+drofte-baerekraft-vekst,skill,Langsiktige utfordringer og bærekraft,Drøfte forholdet mellom bærekraft og økonomisk utvikling,"utforske og drøfte om økonomisk vekst lar seg forene med bærekraftig utvikling, og hvordan myndighetene kan forebygge miljøproblemer.",baerekraftig-utvikling;forebygge-miljoproblemer;vekstkilder,0,
+fattigdom,concept,Ulikhet og fattigdom i verden,Absolutt og relativ fattigdom,"Absolutt fattigdom: å ikke ha nok til å dekke grunnleggende behov som mat, vann og bolig, målt med en fast grense i kjøpekraftsjusterte dollar per dag.
+Relativ fattigdom: å ha vesentlig lavere inntekt enn det som er vanlig i landet man bor i, ofte under 60 prosent av medianinntekten.",,0,
+kjopekraftsparitet,concept,Ulikhet og fattigdom i verden,Kjøpekraftsjustering,"Kjøpekraftsjustering (PPP): omregning av inntekter mellom land med en kurs som tar hensyn til at prisnivået er ulikt, slik at tallene viser hva inntekten faktisk kan kjøpe.",,0,
+lorenz-gini,concept,Ulikhet og fattigdom i verden,Lorenzkurve og Gini-koeffisient,"Lorenzkurve: en kurve som viser hvor stor andel av samlet inntekt de fattigste x prosentene har.
+Gini-koeffisient: et mål på ulikhet mellom 0 (helt likt) og 1 (én har alt).",,0,
+sammenligne-ulikhet-land,skill,Ulikhet og fattigdom i verden,Sammenligne ulikhet og fattigdom mellom land,"sammenligne inntekt, ulikhet og fattigdom mellom land og over tid med kjøpekraftsjusterte tall og Gini-koeffisienter, og si hva tallene skjuler.",fattigdom;kjopekraftsparitet;lorenz-gini;lese-statistikk,0,
+arsaker-ulikhet,skill,Ulikhet og fattigdom i verden,Utforske årsaker til økonomisk ulikhet,"utforske årsaker til økonomisk ulikhet mellom og innad i land, som ulik tilgang på utdanning og kapital, svake institusjoner, konflikt, geografi og handelsmønstre.",sammenligne-ulikhet-land;institusjoner,0,
+drofte-tiltak-fattigdom,skill,Ulikhet og fattigdom i verden,Drøfte tiltak mot ulikhet og fattigdom,"drøfte tiltak mot økonomisk ulikhet og fattigdom i verden, som bistand, handel, gjeldslette, utdanning, skattesystem og arbeid mot korrupsjon.",arsaker-ulikhet;drofte-vekst-virkemidler,0,
+komparative-fortrinn,concept,Handel og proteksjonisme,Komparative fortrinn,"Komparativt fortrinn: et land har lavere alternativkostnad enn et annet land ved å produsere en vare, og tjener derfor på å spesialisere seg i den.",,0,
+regne-komparative-fortrinn,skill,Handel og proteksjonisme,Vise gevinsten ved handel med komparative fortrinn,"regne ut alternativkostnader for to land og to varer, finne de komparative fortrinnene, og vise at samlet produksjon øker ved spesialisering og handel.",komparative-fortrinn,0,
+handel-graf,skill,Handel og proteksjonisme,Analysere frihandel i en markedsgraf,"vise i en graf for et lite land hvordan import til verdensmarkedspris endrer pris, innenlandsk produksjon og forbruk, og regne ut hvem som vinner og taper og hvor stor nettogevinsten er.",komparative-fortrinn;regne-overskudd-marked,0,
+proteksjonisme,concept,Handel og proteksjonisme,Proteksjonisme,"Proteksjonisme: tiltak som skjermer innenlandske produsenter mot utenlandsk konkurranse.
+Toll: en skatt på importerte varer.
+Importkvote: en øvre grense for hvor mye som kan importeres.
+Eksportsubsidie: støtte til produsenter som selger til utlandet.",,0,
+regne-toll,skill,Handel og proteksjonisme,Regne ut virkningen av en toll,"vise grafisk og regne ut hvordan en toll endrer pris, produksjon, import, tollinntekter og dødvektstap i et lite land.",handel-graf;proteksjonisme,0,
+handelsavtaler,concept,Handel og proteksjonisme,Handelsavtaler og WTO,"WTO: Verdens handelsorganisasjon, som lager regler for handel mellom medlemslandene og løser handelstvister.
+Frihandelsavtale: en avtale mellom land om å fjerne toll og andre handelshindringer seg imellom, som EØS-avtalen og EFTAs avtaler.",proteksjonisme,0,
+gjore-rede-handel,skill,Handel og proteksjonisme,Gjøre rede for hvorfor land handler,"gjøre rede for hvorfor land handler med hverandre, som komparative fortrinn, stordriftsfordeler, ulik tilgang på naturressurser og ønsket om variasjon.",regne-komparative-fortrinn;stordriftsfordeler,0,
+drofte-frihandel-proteksjonisme,skill,Handel og proteksjonisme,Drøfte frihandel og proteksjonisme,"drøfte argumenter for og mot frihandel og proteksjonisme, som effektivitet, arbeidsplasser, matsikkerhet, unge industrier og sikkerhetspolitikk, med norske og internasjonale eksempler.",gjore-rede-handel;regne-toll;handelsavtaler,0,
+valutakurs,concept,Valuta og konkurranseevne,Valutakurs og valutaregime,"Valutakurs: prisen på en valuta målt i en annen; kronen styrker seg når utenlandsk valuta blir billigere i kroner.
+Flytende valutakurs: kursen bestemmes av tilbud og etterspørsel i valutamarkedet, slik den norske kronen gjør.
+Fast valutakurs: sentralbanken holder kursen fast mot en annen valuta.",,0,
+regne-valuta,skill,Valuta og konkurranseevne,Regne med valutakurser,"regne om beløp mellom valutaer, regne ut prosentvis styrking eller svekkelse, og regne ut kryssvalutakurser.",valutakurs,0,
+valutafaktorer,concept,Valuta og konkurranseevne,Faktorer som påvirker valutakursen,"Renteforskjell: høyere rente i Norge enn i utlandet gjør det mer attraktivt å plassere penger i kroner.
+Bytteforhold: når prisene på det Norge eksporterer, som olje og gass, stiger, øker etterspørselen etter kroner.
+Risikovilje: i uro søker investorer mot store, likvide valutaer, og små valutaer som kronen svekkes.",valutakurs;pengepolitikk-transmisjon,0,
+analysere-valutakurs,skill,Valuta og konkurranseevne,Analysere hva som påvirker valutakursen,"utforske hvordan renteforskjeller, oljepris, prisstigning og uro i finansmarkedene påvirker kronekursen, og forklare en faktisk kursendring med disse faktorene.",valutafaktorer;regne-valuta;lese-statistikk,0,
+vurdere-valutavirkning,skill,Valuta og konkurranseevne,Vurdere virkninger av endret valutakurs,"vurdere hvordan en endring i kronekursen påvirker eksport, import, prisstigning, sysselsetting og renten, og hvem som tjener og taper.",analysere-valutakurs;keynes-modell,0,
+konkurranseevne,concept,Valuta og konkurranseevne,Kostnadsmessig konkurranseevne,"Konkurranseevne: evnen næringslivet har til å selge varer i konkurranse med utlandet og samtidig betale vanlig lønn.
+Relative lønnskostnader: lønnskostnadene i Norge sammenlignet med handelspartnerne, målt i felles valuta.
+Enhetslønnskostnad: lønnskostnaden per produserte enhet, som avhenger av både lønn og produktivitet.",valutakurs;vekstkilder,0,
+regne-konkurranseevne,skill,Valuta og konkurranseevne,Regne ut endring i konkurranseevnen,"regne ut hvordan relative lønnskostnader i felles valuta endres når lønnsvekst, produktivitetsvekst og valutakurs endres, og avgjøre om konkurranseevnen er blitt bedre eller dårligere.",konkurranseevne;regne-valuta,0,
+hollandsk-syke,concept,Valuta og konkurranseevne,Hollandsk syke,"Hollandsk syke: at store inntekter fra naturressurser trekker opp lønninger og valutakurs, svekker konkurranseevnen og bygger ned annen konkurranseutsatt industri.",konkurranseevne;oljeavhengighet,0,
+drofte-konkurranseevne,skill,Valuta og konkurranseevne,Drøfte konsekvenser av endret konkurranseevne,"utforske faktorer som påvirker konkurranseevnen, som lønnsoppgjør, produktivitet og valutakurs, og drøfte hva svekket eller styrket konkurranseevne betyr for næringsliv, sysselsetting og velferd i Norge.",regne-konkurranseevne;hollandsk-syke;vurdere-valutavirkning,0,
+okonomisk-sjokk,concept,Økonomiske sjokk,Økonomisk sjokk,"Økonomisk sjokk: en uventet hendelse som brått endrer økonomien.
+Etterspørselssjokk: et sjokk som endrer den samlede etterspørselen, som et brått fall i eksporten.
+Tilbudssjokk: et sjokk som endrer produksjonsmulighetene eller kostnadene, som et kraftig hopp i energiprisene.",,0,
+ad-as,concept,Økonomiske sjokk,AD-AS-modellen,"AD-AS-modell: en modell for hele økonomien med prisnivå på den loddrette aksen og BNP på den vannrette.
+Samlet etterspørsel (AD): hvor mye som etterspørres ved hvert prisnivå.
+Samlet tilbud (AS): hvor mye bedriftene produserer ved hvert prisnivå.",okonomisk-sjokk;keynes-modell,0,
+analysere-sjokk,skill,Økonomiske sjokk,Analysere virkningen av et økonomisk sjokk,"bruke AD-AS-modellen til å vise og forklare hvordan et etterspørselssjokk og et tilbudssjokk påvirker BNP, prisnivå og sysselsetting.",ad-as;tegne-modell,0,
+fakta-sjokk,fact,Økonomiske sjokk,Store økonomiske sjokk i nyere tid,"den globale finanskrisen: 2008
+oljeprisfallet som rammet norsk økonomi: 2014
+koronapandemien og nedstengingen: 2020
+Russlands fullskala invasjon av Ukraina og energikrisen i Europa: 2022",okonomisk-sjokk,0,
+drofte-sjokk-tiltak,skill,Økonomiske sjokk,Drøfte tiltak mot økonomiske sjokk,"reflektere over de økonomiske konsekvensene av et konkret sjokk, nasjonalt og globalt, og drøfte hvilke tiltak i finans- og pengepolitikken som kan motvirke dem.",analysere-sjokk;fakta-sjokk;drofte-politikk-virkning,0,

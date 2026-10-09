@@ -1,0 +1,205 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Reiselivet og destinasjonen;Merke- og verneordninger;Markedsføring og målgrupper;Kommunikasjon og vertskap;Kultur;Opplevelser og guiding;Reiselivsvirksomheten;Bærekraftig reiseliv,,,
+,config,,title,Reiseliv og språk 1,,,
+,config,,description,"Destinasjoner og det helhetlige reiselivsproduktet, merke- og verneordninger, markedsføring, kommunikasjon og vertskap på norsk og et målspråk, kultur, guiding, reiselivsvirksomheten og bærekraftig reiseliv.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-reiseliv-og-sprak-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"reiseliv og språk 1 (programfag, Vg2, videregående skole)",,,
+,config,,slots.motivationSubject,reiseliv,,,
+,config,,slots.expressionFocus,"bruker «bærekraftig» om alt som er litt miljøvennlig, blander sammen destinasjon og attraksjon, kaller alle gjester «turister», skriver «markedsføring» når de mener reklame, eller lister opp punkter der oppgaven ber dem drøfte",,,
+,config,,slots.courseSpecifics,"Reiseliv og språk er et reiselivsfag der språk er arbeidsverktøyet. Læreplanen nevner norsk eller samisk og engelsk, men læreren eller eleven velger hvilket målspråk språkøvingene skal foregå på. Noder som sier «på målspråket» øves på det språket eleven har valgt; har eleven ikke sagt hvilket, spør før du begynner. Forklaringer, og øving på reiselivsfaget ellers, foregår på norsk med mindre eleven ber om noe annet. Eksempler bør hentes fra virkelige destinasjoner og bedrifter, gjerne fra elevens eget nærområde.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag språk, Vg2",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3038,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,tourism,,,
+,config,,keywords,reiseliv; turisme; destinasjon; reiselivsprodukt; guiding; vertskap; markedsføring; bærekraftig reiseliv; samisk kultur; kulturforståelse; RSP01-03,,,
+,config,,updated,2026-10-08,,,
+reiseliv,concept,Reiselivet og destinasjonen,Reiseliv og turist,"Reiseliv: alt som har med det å gjøre at folk reiser til og oppholder seg et sted utenfor sitt vanlige miljø i mindre enn ett år, enten det er for ferie, arbeid eller et annet formål.
+Turist: en tilreisende som overnatter minst én natt på stedet.
+Dagsbesøkende: en tilreisende som reiser hjem eller videre samme dag uten å overnatte.",,0,
+reisetyper,concept,Reiselivet og destinasjonen,Ferie- og fritidsreiser og yrkesreiser,"Ferie- og fritidsreise: en reise der formålet er hvile, opplevelser, besøk hos venner og familie eller annen fritid.
+Yrkesreise: en reise i forbindelse med arbeid, som møter, kurs og konferanser.",reiseliv,0,
+turismeretninger,concept,Reiselivet og destinasjonen,"Innenlands, inngående og utgående turisme","Innenlandsturisme: nordmenn som reiser i Norge.
+Inngående turisme: utenlandske gjester som reiser til Norge.
+Utgående turisme: nordmenn som reiser til utlandet.",reiseliv,0,
+reiselivsnaeringen,concept,Reiselivet og destinasjonen,Reiselivsnæringen,"Reiselivsnæringen: bedriftene som helt eller delvis lever av tilreisende, innen transport, overnatting, servering, opplevelser og aktiviteter, og formidling av reiser.",reiseliv,0,
+reiselivsbedrifter,fact,Reiselivet og destinasjonen,Typer reiselivsbedrifter,"hotell: overnattingsbedrift med resepsjon og som regel servering
+camping og hytteutleie: enklere overnatting, ofte med selvhushold
+turoperatør: setter sammen og selger egne pakkereiser
+reisebyrå: selger og formidler reiser som andre har satt sammen
+opplevelsesbedrift: selger aktiviteter og opplevelser, som rafting, safari eller omvisninger
+destinasjonsselskap: utvikler og markedsfører en hel destinasjon på vegne av mange bedrifter",reiselivsnaeringen,0,
+pakkereise,concept,Reiselivet og destinasjonen,Pakkereise,"Pakkereise: minst to ulike reisetjenester, for eksempel transport og overnatting, som selges samlet for den samme reisen. Den som selger pakkereisen, har ansvar overfor den reisende for at hele pakken blir levert slik den ble lovet.",reiselivsbedrifter,0,
+destinasjon,concept,Reiselivet og destinasjonen,Destinasjon,"Destinasjon: et geografisk område som gjestene oppfatter som ett reisemål, med attraksjoner, tjenester og infrastruktur. Det kan være alt fra en bygd til et helt land.",reiseliv,0,
+attraksjon,concept,Reiselivet og destinasjonen,Attraksjon,"Attraksjon: noe som får folk til å reise til et sted. Den kan være naturbasert (en fjord, nordlyset), kulturbasert (en stavkirke, en festival) eller bygd for formålet (en fornøyelsespark).",destinasjon,0,
+image,concept,Reiselivet og destinasjonen,Image,"Image: det bildet folk har av en destinasjon eller en bedrift, enten bildet stemmer med virkeligheten eller ikke.",destinasjon,0,
+helhetlig-produkt,concept,Reiselivet og destinasjonen,Det helhetlige reiselivsproduktet,"Det helhetlige reiselivsproduktet: alt gjesten møter fra reisen planlegges til hen er hjemme igjen, satt sammen av tjenester fra mange ulike leverandører: attraksjoner og aktiviteter, transport, overnatting, servering, informasjon og tilgjengelighet, vertskapet og stedets image. Gjesten vurderer helheten, så ett svakt ledd trekker ned hele opplevelsen.",attraksjon;image;reiselivsnaeringen,0,
+kjerne-tillegg,concept,Reiselivet og destinasjonen,Kjerneprodukt og tilleggsprodukt,"Kjerneprodukt: det gjesten først og fremst kjøper, for eksempel overnattingen på et hotell.
+Tilleggsprodukt: det som kommer i tillegg og gjør tilbudet mer attraktivt eller skiller det fra konkurrentene, som frokost, badstue eller guidede turer.",helhetlig-produkt,0,
+finne-informasjon,skill,Reiselivet og destinasjonen,Finne informasjon om en destinasjon,"hente informasjon om en destinasjon fra flere kilder, som nettsider, kart, statistikk og anmeldelser, og vurdere hvor pålitelig og oppdatert hver kilde er",destinasjon,0,
+kartlegge-destinasjon,skill,Reiselivet og destinasjonen,Kartlegge reiselivet på en destinasjon,"kartlegge reiselivet på en destinasjon ved å gå gjennom hvert element i det helhetlige reiselivsproduktet og vise hva stedet tilbyr, og hva som mangler",helhetlig-produkt;kjerne-tillegg;reiselivsbedrifter;finne-informasjon,0,
+sammenligne-destinasjoner,skill,Reiselivet og destinasjonen,Sammenligne to destinasjoner,"sammenligne to destinasjoner element for element i det helhetlige reiselivsproduktet, og vurdere hvilke gjester hver av dem passer best for",kartlegge-destinasjon;malgruppe,0,
+merkeordning,concept,Merke- og verneordninger,Merkeordning,"Merkeordning: en sertifisering der en bedrift, et produkt eller en destinasjon må oppfylle bestemte krav for å få bruke et merke, og blir kontrollert jevnlig for å få beholde det.",,0,
+vern,concept,Merke- og verneordninger,Vern og fredning,"Vern: lovbestemte begrensninger på hvordan et naturområde kan brukes, for å ta vare på naturen og landskapet.
+Fredning: et lovbestemt vern av et kulturminne, som en bygning eller et fornminne, slik at det ikke kan endres eller ødelegges.",,0,
+merker,fact,Merke- og verneordninger,Merkeordninger i reiselivet,"Miljøfyrtårn: norsk miljøsertifisering for virksomheter, også reiselivsbedrifter
+Svanemerket: nordisk miljømerke, som blant annet hoteller og restauranter kan få
+Green Key: internasjonalt miljømerke for overnattingssteder og andre reiselivsbedrifter
+Blått flagg: internasjonalt miljømerke for badestrender og småbåthavner
+Olavsrosa: Norsk Kulturarvs kvalitetsmerke for opplevelser og produkter som bygger på kulturarv
+Merket for bærekraftig reisemål: Innovasjon Norges merkeordning for destinasjoner som arbeider systematisk med bærekraft",merkeordning,0,
+verneformer,fact,Merke- og verneordninger,Verneformer i Norge,"nasjonalpark: et større naturområde uten tyngre inngrep, vernet for å bevare natur og landskap
+landskapsvernområde: et område vernet for et særpreget eller vakkert natur- eller kulturlandskap, der vanlig bruk som landbruk kan fortsette
+naturreservat: den strengeste formen for områdevern, for natur med særlig verdi
+automatisk fredet kulturminne: et kulturminne fra før 1537, eller et samisk kulturminne som er mer enn 100 år gammelt
+verdensarv: et natur- eller kulturminne på UNESCOs verdensarvliste, som regnes å ha verdi for hele menneskeheten",vern,0,
+verdensarv-norge,fact,Merke- og verneordninger,Verdensarvsteder i Norge,"Bryggen: Bergen i Vestland
+Urnes stavkirke: Luster i Vestland
+Røros bergstad og Circumferensen: Trøndelag og Innlandet
+Helleristningene i Alta: Finnmark
+Vegaøyan: Nordland
+Struves meridianbue: Finnmark (de norske målepunktene)
+Vestnorsk fjordlandskap: Geirangerfjorden i Møre og Romsdal og Nærøyfjorden i Vestland
+Rjukan–Notodden industriarv: Telemark",verneformer,0,
+allemannsretten,concept,Merke- og verneordninger,Allemannsretten,"Allemannsretten: retten alle har etter friluftsloven til å ferdes og oppholde seg i utmark, også på privat grunn, så lenge det skjer hensynsfullt og uten å skade. Den gjelder ikke i innmark som hager, dyrket mark og gårdsplasser.",vern,0,
+forklare-merke,skill,Merke- og verneordninger,Forklare hva et merke eller et vern betyr for en bedrift,"forklare hva et bestemt merke eller vern innebærer for en reiselivsbedrift og for gjestene, og hvordan bedriften kan bruke det i markedsføringen",merker;verneformer,0,
+vurdere-merke,skill,Merke- og verneordninger,Vurdere verdien av en merkeordning,"vurdere om en merkeordning gir reelle forbedringer for natur, kultur eller lokalsamfunn, eller om den mest brukes som salgsargument",forklare-merke;gronnvasking,0,
+aktivitet-i-vernet-omrade,skill,Merke- og verneordninger,Planlegge en aktivitet i et vernet område,"planlegge en reiselivsaktivitet i et vernet område eller ved et kulturminne slik at den holder seg innenfor reglene som gjelder der og innenfor allemannsretten",verneformer;allemannsretten;verdensarv-norge,0,
+marked,concept,Markedsføring og målgrupper,Marked,"Marked: alle som kan tenkes å kjøpe et produkt, sammen med dem som tilbyr det samme eller noe som kan erstatte det.",,0,
+markedsforing,concept,Markedsføring og målgrupper,Markedsføring,"Markedsføring: alt en bedrift gjør for å finne ut hva gjestene ønsker, og for å utvikle, prise, distribuere og gjøre kjent et tilbud de vil kjøpe. Reklame er bare en liten del av det.",marked,0,
+tjenesteegenskaper,concept,Markedsføring og målgrupper,Tjenestenes særtrekk,"Tjeneste: et produkt som ikke kan tas på. Det produseres og brukes samtidig, mens gjesten er til stede; det kan ikke lagres, så et ledig hotellrom i natt er tapt for alltid; og kvaliteten varierer med hvem som leverer det og når.",markedsforing,0,
+segmentering,concept,Markedsføring og målgrupper,Segmentering og målgruppe,"Segmentering: å dele et marked inn i grupper med like behov og ønsker, for eksempel etter alder, bosted, livsstil eller reisemåte.
+Målgruppe: det eller de segmentene en bedrift velger å rette et tilbud mot.",marked,0,
+konkurransemidler,concept,Markedsføring og målgrupper,Konkurransemidlene (de 7 P-ene),"Produkt: det gjesten kjøper, inkludert tilleggsproduktene.
+Pris: hva produktet koster, og hvordan prisen varierer med sesong, bestillingstid og gruppe.
+Plass: hvor og hvordan produktet selges og bestilles, direkte eller gjennom andre.
+Påvirkning: hvordan bedriften gjør produktet kjent, gjennom reklame, sosiale medier, presse og salg.
+Personale: de ansatte som møter gjestene.
+Prosess: hvordan tjenesten blir levert, steg for steg.
+Fysiske omgivelser: det gjesten ser og møter av bygninger, interiør og utstyr.",markedsforing;tjenesteegenskaper,0,
+markedsdata,concept,Markedsføring og målgrupper,Primær- og sekundærdata,"Primærdata: opplysninger bedriften samler inn selv, til et bestemt formål, for eksempel gjennom en spørreundersøkelse blant egne gjester.
+Sekundærdata: opplysninger som allerede er samlet inn av andre, for eksempel overnattingsstatistikk fra SSB.",marked,0,
+kvant-kval,concept,Markedsføring og målgrupper,Kvantitative og kvalitative data,"Kvantitative data: opplysninger som kan telles og måles, som antall gjestedøgn eller andelen som er fornøyd.
+Kvalitative data: opplysninger i ord, som svar i intervjuer eller anmeldelser, som forteller hvorfor gjester mener det de mener.",markedsdata,0,
+lese-statistikk,skill,Markedsføring og målgrupper,Lese reiselivsstatistikk,"lese og tolke tabeller og diagrammer om reiselivet, som overnattingsstatistikk, og regne ut endring i antall og i prosent fra ett år til et annet",markedsdata;kvant-kval,0,
+markedsundersokelse,skill,Markedsføring og målgrupper,Lage en enkel markedsundersøkelse,"lage noen gode spørsmål til en spørreundersøkelse eller et intervju om hva en målgruppe ønsker, og oppsummere hva svarene viser",kvant-kval;segmentering,0,
+swot,concept,Markedsføring og målgrupper,SWOT,"SWOT: en oversikt over et produkts eller en bedrifts styrker og svakheter, som er interne forhold bedriften selv rår over, og muligheter og trusler, som er eksterne forhold i omgivelsene.",markedsforing,0,
+swot-analyse,skill,Markedsføring og målgrupper,Lage en SWOT-analyse,"lage en SWOT-analyse av et reiselivsprodukt eller en destinasjon, plassere hvert punkt riktig som internt eller eksternt, og trekke en konklusjon av den",swot;kartlegge-destinasjon,0,
+digitale-kanaler,concept,Markedsføring og målgrupper,Digitale markedsføringskanaler,"Egen nettside: kanalen bedriften styrer selv, der gjesten kan lese og bestille.
+Sosiale medier: kanaler der bedriften når gjester med bilder, video og innlegg, og der gjestene selv deler opplevelser.
+Bestillingsportal: et nettsted som selger mange bedrifters tilbud mot provisjon.
+Brukeranmeldelse: en vurdering gjester skriver offentlig, og som andre gjester legger stor vekt på.",konkurransemidler,0,
+malgruppe,skill,Markedsføring og målgrupper,Velge og beskrive en målgruppe,"velge en målgruppe for et reiselivsprodukt, beskrive hva den ønsker og hvordan den reiser, og begrunne valget med markedsdata",segmentering;lese-statistikk,0,
+bruke-markedsverktoy,skill,Markedsføring og målgrupper,Utforske et produkt og et marked med markedsføringsverktøy,"bruke de 7 P-ene, SWOT, segmentering og markedsdata til å utforske et reiselivsprodukt og markedet for det, og foreslå forbedringer",konkurransemidler;swot-analyse;malgruppe;markedsundersokelse,0,
+markedsforingstekst,skill,Markedsføring og målgrupper,Lage markedsføring for en målgruppe,"lage en markedsføringstekst eller et innlegg for sosiale medier om et reiselivsprodukt, tilpasset målgruppen og kanalen",malgruppe;digitale-kanaler,0,
+vertskap,concept,Kommunikasjon og vertskap,Vertskap,"Vertskap: måten gjestene blir tatt imot og tatt vare på, fra første henvendelse til de reiser hjem. Godt vertskap betyr at gjesten føler seg velkommen, trygg og godt informert.",,0,
+sannhetens-oyeblikk,concept,Kommunikasjon og vertskap,Sannhetens øyeblikk,"Sannhetens øyeblikk: hvert møte mellom en gjest og en medarbeider eller en del av tilbudet, der gjesten danner seg et inntrykk av hele bedriften.",vertskap,0,
+kvalitet,concept,Kommunikasjon og vertskap,Forventet og opplevd kvalitet,"Forventet kvalitet: det gjesten venter seg på forhånd, ut fra markedsføring, pris, omtaler og tidligere erfaringer.
+Opplevd kvalitet: det gjesten faktisk opplever. Gjesten blir fornøyd når det opplevde svarer til eller overgår det forventede.",sannhetens-oyeblikk,0,
+kommunikasjonsmodell,concept,Kommunikasjon og vertskap,Kommunikasjonsmodellen,"Sender: den som vil formidle noe.
+Mottaker: den budskapet er ment for.
+Kanal: veien budskapet går, som tale, e-post, skilt eller telefon.
+Støy: alt som gjør at budskapet ikke kommer fram slik det var ment, som bråk, språkvansker eller ulike forventninger.
+Tilbakemelding: mottakerens svar, som viser senderen om budskapet ble forstått.",,0,
+verbal-nonverbal,concept,Kommunikasjon og vertskap,Verbal og nonverbal kommunikasjon,"Verbal kommunikasjon: det vi uttrykker med ord, muntlig eller skriftlig.
+Nonverbal kommunikasjon: det vi uttrykker uten ord, med blikk, mimikk, gester, kroppsholdning, avstand og tonefall.",kommunikasjonsmodell,0,
+register,concept,Kommunikasjon og vertskap,Formelt og uformelt språk,"Formelt språk: et høflig og nøytralt språk med fullstendige setninger og høflighetsfraser, brukt overfor gjester man ikke kjenner og i skriftlige svar.
+Uformelt språk: et muntlig, avslappet språk brukt blant venner og kolleger.",kommunikasjonsmodell,0,
+universell-utforming,concept,Kommunikasjon og vertskap,Universell utforming,"Universell utforming: å utforme et tilbud slik at flest mulig kan bruke det på lik linje, uten at det trengs særskilte løsninger, for eksempel trinnfri adkomst, god skilting og informasjon i flere formater.",vertskap,0,
+tilpasse-kommunikasjon,skill,Kommunikasjon og vertskap,Tilpasse kommunikasjonen til ulike grupper,"tilpasse ordvalg, tempo, innhold og kanal til ulike grupper gjester, som barn, eldre, personer med funksjonsnedsettelse og gjester som ikke snakker språket ditt godt",register;verbal-nonverbal;universell-utforming,0,
+ordliste,skill,Kommunikasjon og vertskap,Bygge en fagordliste på målspråket,"bygge og øve inn en ordliste på målspråket med de vanligste ordene og frasene for overnatting, servering, transport, aktiviteter og veibeskrivelse",,0,
+ta-imot-gjest,skill,Kommunikasjon og vertskap,Ta imot en gjest på målspråket,"ta imot en gjest på målspråket i et rollespill: hilse, sjekke inn, gi praktisk informasjon om stedet og avslutte høflig",ordliste;register;vertskap,0,"Spill gjesten i en skriftlig samtale. Er eleven usikker på målspråket, la hen først skrive hele replikken og rett den etterpå."
+svare-henvendelse,skill,Kommunikasjon og vertskap,Svare skriftlig på en henvendelse,"svare på målspråket på en e-post eller melding fra en gjest, med riktig hilsen, et tydelig svar på det gjesten spør om, og en høflig avslutning",ordliste;register,0,
+veibeskrivelse,skill,Kommunikasjon og vertskap,Gi veibeskrivelse og anbefalinger,"gi en gjest veibeskrivelse og anbefale spisesteder, attraksjoner og aktiviteter på målspråket, tilpasset det gjesten forteller om seg selv",ordliste;attraksjon,0,
+klagebehandling,skill,Kommunikasjon og vertskap,Ta imot en klage,"ta imot en klage fra en gjest ved å lytte, beklage, finne en løsning sammen med gjesten og følge opp, på norsk og på målspråket",ta-imot-gjest;kvalitet,0,
+samhandle-aktorer,skill,Kommunikasjon og vertskap,Kommunisere med andre aktører i næringen,"kommunisere på målspråket med en samarbeidspartner eller leverandør i næringen, for eksempel for å bestille transport, rom eller en aktivitet til en gruppe",svare-henvendelse,0,
+reflektere-kommunikasjon,skill,Kommunikasjon og vertskap,Reflektere over hvordan du tilpasset kommunikasjonen,"reflektere over hvordan du tilpasset kommunikasjonen i en konkret situasjon med en gjest eller en aktør, hva som virket, og hva du ville gjort annerledes",tilpasse-kommunikasjon;ta-imot-gjest,0,
+medarbeiderens-ansvar,concept,Kommunikasjon og vertskap,Medarbeiderens ansvar,"Medarbeiderens ansvar: å gi gjestene riktig informasjon, ivareta deres sikkerhet, behandle alle likt og med respekt, ta vare på personopplysninger, og representere bedriften og stedet på en god måte.",sannhetens-oyeblikk,0,
+personopplysninger,concept,Kommunikasjon og vertskap,Personopplysninger,"Personopplysning: en opplysning som kan knyttes til en bestemt person, som navn, telefonnummer, passnummer og betalingskort. En reiselivsbedrift kan bare samle inn og bruke dem til et bestemt formål og må oppbevare dem trygt.",,0,
+drofte-medarbeider,skill,Kommunikasjon og vertskap,Drøfte reiselivsmedarbeiderens betydning,"drøfte hvilken betydning og hvilket ansvar reiselivsmedarbeidere har i møtet med lokale, nasjonale og internasjonale gjester, med eksempler",medarbeiderens-ansvar;personopplysninger;kvalitet;tilpasse-kommunikasjon,0,
+kultur,concept,Kultur,Kultur,"Kultur: de normene, verdiene, tradisjonene og uttrykksformene en gruppe mennesker deler, og som de lærer av hverandre.",,0,
+norm-verdi,concept,Kultur,Norm og verdi,"Norm: en skreven eller uskreven regel for hvordan man bør oppføre seg i en bestemt situasjon.
+Verdi: noe en gruppe mener er viktig og riktig, og som normene bygger på.",kultur,0,
+isfjellmodellen,concept,Kultur,Isfjellmodellen,"Isfjellmodellen: en modell der den synlige delen av en kultur, som mat, klær, språk og høytider, er toppen av isfjellet over vannet, mens verdiene og normene som styrer den, ligger skjult under.",norm-verdi,0,
+etnosentrisme,concept,Kultur,Etnosentrisme og kulturrelativisme,"Etnosentrisme: å bedømme andre kulturer ut fra sin egen, og ofte se sin egen som den riktige.
+Kulturrelativisme: å forsøke å forstå en kultur ut fra dens egne verdier og normer.",kultur,0,
+stereotypi,concept,Kultur,Stereotypi og fordom,"Stereotypi: et forenklet bilde av hvordan en hel gruppe mennesker er.
+Fordom: en negativ holdning til en person eller gruppe, dannet på forhånd og uten å kjenne dem.",kultur,0,
+kontekst,concept,Kultur,Høykontekst- og lavkontekstkultur,"Høykontekstkultur: en kultur der mye av budskapet ligger i situasjonen, relasjonen og det som ikke sies rett ut.
+Lavkontekstkultur: en kultur der budskapet sies direkte og tydelig med ord. Norsk kultur regnes som forholdsvis lavkontekst.",verbal-nonverbal;kultur,0,
+norsk-kultur,skill,Kultur,Beskrive norske normer og verdier,"beskrive normer, verdier og tradisjoner som preger norsk kultur, som likhet, en uformell tone, punktlighet og friluftsliv, og forklare hvordan de kan virke på en gjest fra en annen kultur",norm-verdi;isfjellmodellen,0,
+samisk-kultur-fakta,fact,Kultur,Samisk kultur,"Sápmi: det tradisjonelle samiske bosettingsområdet i Norge, Sverige, Finland og Russland
+joik: tradisjonell samisk sangform, der man ofte joiker en person, et dyr eller et sted
+duodji: samisk håndverk og kunsthåndverk
+gákti: den samiske drakten, med mønstre og farger som kan vise hvor bæreren kommer fra
+reindrift: tradisjonell samisk næring
+Samefolkets dag: 6. februar
+Sametinget: samenes folkevalgte organ i Norge, åpnet i 1989",kultur,0,
+samisk-kultur,skill,Kultur,Beskrive samiske normer og verdier,"beskrive normer, verdier og tradisjoner i samisk kultur, og forklare hva de betyr for hvordan reiselivet bør møte samiske lokalsamfunn",samisk-kultur-fakta;norm-verdi,0,
+annen-kultur,skill,Kultur,Beskrive en annen kultur,"beskrive normer, verdier og tradisjoner i en annen kultur, for eksempel i et land der målspråket snakkes, og sammenligne dem med norske",norm-verdi;etnosentrisme;stereotypi,0,
+kultur-samhandling,skill,Kultur,Vurdere hvordan kultur påvirker samhandling,"vurdere hvordan ulike normer og verdier kan påvirke kommunikasjon og samhandling i en reiselivssituasjon, og foreslå hvordan misforståelser kan unngås",norsk-kultur;annen-kultur;kontekst,0,
+autentisitet,concept,Kultur,Autentisitet,"Autentisitet: hvor ekte en kulturopplevelse er, eller hvor ekte gjesten opplever at den er.
+Iscenesatt autentisitet: en opplevelse som er tilrettelagt for gjester, men som framstilles som hverdagslivet på stedet.",kultur,0,
+kommersialisering,concept,Kultur,Kommersialisering av kultur,"Kommersialisering av kultur: at kulturuttrykk, som drakter, musikk, håndverk og ritualer, blir tilpasset og solgt som reiselivsprodukter. Det kan holde tradisjoner i live og gi inntekter, men også forenkle eller forvrenge dem.",autentisitet,0,
+etisk-kulturprodukt,skill,Kultur,Vurdere om et kulturprodukt er etisk,"vurdere om et reiselivsprodukt som bygger på norsk eller samisk kultur, er etisk og respektfullt, ut fra hvem som eier og formidler kulturen, om den framstilles riktig, og hvem som tjener på det",kommersialisering;samisk-kultur,0,
+presentere-kulturprodukt,skill,Kultur,Presentere et kulturbasert reiselivsprodukt,"utforske og presentere et reiselivsprodukt som bygger på norsk eller samisk kultur: hva det tilbyr, hvem det er laget for, og hvordan kulturen blir formidlet",etisk-kulturprodukt;norsk-kultur;malgruppe,0,
+opplevelsesokonomi,concept,Opplevelser og guiding,Opplevelsesøkonomi,"Opplevelsesøkonomi: en økonomi der kundene betaler for minneverdige opplevelser, ikke bare for varer og tjenester. Den samme kaffen kan selges dyrere når den serveres rundt et bål på en isbre.",kjerne-tillegg,0,
+opplevelsesrom,concept,Opplevelser og guiding,De fire opplevelsesrommene,"Underholdning: gjesten ser eller hører på noe uten å delta selv, som et show.
+Læring: gjesten deltar aktivt og lærer noe, som et kurs i fiske.
+Virkelighetsflukt: gjesten går helt inn i en annen verden og deltar aktivt, som et rollespill i en middelalderborg.
+Estetikk: gjesten nyter omgivelsene uten å påvirke dem, som å se på nordlyset.",opplevelsesokonomi,0,
+historiefortelling,concept,Opplevelser og guiding,Historiefortelling,"Historiefortelling: å formidle et sted eller et produkt gjennom en fortelling med personer, en konflikt eller et vendepunkt, og et poeng som gjesten husker.",,0,
+planlegge-reise,skill,Opplevelser og guiding,Planlegge en reise for en målgruppe,"planlegge en reise for en bestemt målgruppe, med reiserute, transport, overnatting, måltider, aktiviteter og en realistisk tidsplan",malgruppe;kartlegge-destinasjon;pakkereise,0,
+reisebudsjett,skill,Opplevelser og guiding,Sette opp et reisebudsjett,"sette opp et budsjett for en gruppereise og regne ut prisen per deltaker, med alle kostnader og et påslag for fortjeneste",planlegge-reise,0,
+reiseinformasjon,skill,Opplevelser og guiding,Presentere reiseinformasjon for en målgruppe,"presentere et reiseprogram og praktisk informasjon, skriftlig og muntlig, tilrettelagt for målgruppen, på norsk og på målspråket",planlegge-reise;tilpasse-kommunikasjon;svare-henvendelse,0,
+guidens-roller,concept,Opplevelser og guiding,Guidens roller,"Guide: en som viser en gruppe rundt og formidler stedet. Guiden er samtidig formidler, leder av gruppen, vert, og ansvarlig for at alle er trygge.",vertskap,0,
+risikovurdering,concept,Opplevelser og guiding,Risikovurdering,"Risikovurdering: å gå gjennom hva som kan gå galt under en aktivitet, hvor sannsynlig og hvor alvorlig det er, og hvilke tiltak som kan forebygge eller begrense skaden.",,0,
+planlegge-guiding,skill,Opplevelser og guiding,Planlegge en guidet tur,"planlegge en guidet tur med rute, stopp, innhold og fortellinger ved hvert stopp, tidsbruk og en risikovurdering",guidens-roller;historiefortelling;risikovurdering;finne-informasjon,0,
+stemme-og-kropp,skill,Opplevelser og guiding,Bruke stemme og kropp når du guider,"bruke stemmestyrke, tempo, blikk og plassering slik at hele gruppen ser og hører deg, kontrollert ved å se på et opptak av deg selv",verbal-nonverbal,0,
+guiding-malsprak,skill,Opplevelser og guiding,Formidle et stopp på målspråket,"presentere ett stopp på en guidet tur på målspråket i ett til to minutter, med en kort fortelling og svar på et par enkle spørsmål",ordliste;historiefortelling,0,
+gjennomfore-guiding,skill,Opplevelser og guiding,Gjennomføre en guidet tur,"gjennomføre en muntlig guiding med velkomst, praktisk informasjon, fortellinger ved stoppene og en avslutning, og svare på spørsmål fra gruppen",planlegge-guiding;stemme-og-kropp;guiding-malsprak;tilpasse-kommunikasjon,0,
+lede-aktivitet,skill,Opplevelser og guiding,Lede en reiselivsaktivitet,"lede en reiselivsaktivitet, som en tur, et verksted eller en lek, med tydelig instruksjon, sikkerhetsinformasjon og oppfølging av hver deltaker",guidens-roller;risikovurdering;tilpasse-kommunikasjon,0,
+uforutsett-hendelse,skill,Opplevelser og guiding,Håndtere en uforutsett hendelse,"håndtere en uforutsett hendelse under en tur eller aktivitet, som dårlig vær, en skade eller en forsinkelse, og informere gruppen rolig og tydelig",lede-aktivitet,0,
+aktorer,concept,Reiselivsvirksomheten,Aktører og omgivelser i reiselivet,"Profesjonelle aktører: bedrifter, destinasjonsselskaper, offentlige myndigheter og bransjeorganisasjoner som arbeider med reiseliv.
+Reiselivets omgivelser: alle som påvirkes av og påvirker reiselivet uten å være en del av næringen, som lokalbefolkningen, grunneiere, frivillige lag og andre næringer.",reiselivsnaeringen,0,
+aktorer-norge,fact,Reiselivsvirksomheten,Sentrale aktører i norsk reiseliv,"Innovasjon Norge: statlig selskap som blant annet markedsfører Norge som reisemål gjennom Visit Norway
+NHO Reiseliv: arbeidsgiver- og bransjeforening for reiselivsbedrifter
+destinasjonsselskap: selskap som utvikler og markedsfører en region på vegne av bedriftene der
+Statistisk sentralbyrå (SSB): publiserer blant annet overnattingsstatistikken
+kommunen: gir tillatelser, eier mye av infrastrukturen og planlegger arealbruken",aktorer,0,
+samarbeid,concept,Reiselivsvirksomheten,Horisontalt og vertikalt samarbeid,"Horisontalt samarbeid: samarbeid mellom bedrifter som tilbyr det samme, for eksempel flere hoteller som markedsfører destinasjonen sammen.
+Vertikalt samarbeid: samarbeid mellom bedrifter i ulike ledd av reisen, for eksempel et transportselskap, et hotell og en aktivitetsbedrift som selger en felles pakke.",aktorer,0,
+drofte-samarbeid,skill,Reiselivsvirksomheten,Drøfte betydningen av samarbeid,"drøfte hvorfor samarbeid mellom reiselivsaktører, og mellom næringen og lokalsamfunnet, er viktig for at gjesten skal få et godt helhetlig produkt, og hvilke ulemper og konflikter samarbeid kan føre med seg",samarbeid;aktorer-norge;helhetlig-produkt,0,
+arbeidsbetingelser,concept,Reiselivsvirksomheten,Interne og eksterne arbeidsbetingelser,"Interne arbeidsbetingelser: forhold bedriften selv rår over, som økonomien, de ansatte og deres kompetanse, lokalene og hvordan arbeidet er organisert.
+Eksterne arbeidsbetingelser: forhold utenfor bedriften som den må tilpasse seg, som lover og regler, markedet og konkurrentene, økonomien i samfunnet, vær og klima og politiske beslutninger.",swot,0,
+sesong,concept,Reiselivsvirksomheten,Sesongsvingninger,"Sesongsvingninger: at etterspørselen i reiselivet går opp og ned gjennom året, med høysesong og lavsesong. Fordi tjenester ikke kan lagres, gir det ledig kapasitet i lavsesongen og ofte behov for sesongarbeidere i høysesongen.",tjenesteegenskaper,0,
+lover-og-regler,fact,Reiselivsvirksomheten,Lover reiselivsbedrifter må følge,"pakkereiseloven: gir den reisende rettigheter ved kjøp av pakkereiser
+serveringsloven: krever bevilling for å drive et serveringssted
+alkoholloven: regulerer salg og skjenking av alkohol
+arbeidsmiljøloven: regulerer blant annet arbeidstid og arbeidsmiljø for de ansatte
+personopplysningsloven: regulerer hvordan personopplysninger kan samles inn og brukes
+friluftsloven: fastsetter allemannsretten",arbeidsbetingelser,0,
+beleggsprosent,skill,Reiselivsvirksomheten,Regne ut beleggsprosent og snittpris,"regne ut beleggsprosent (solgte rom delt på tilgjengelige rom) og gjennomsnittlig rompris for en overnattingsbedrift, og tolke hva tallene sier om bedriften gjennom året",sesong;lese-statistikk,0,
+drofte-arbeidsbetingelser,skill,Reiselivsvirksomheten,Drøfte en virksomhets arbeidsbetingelser,"drøfte hvordan interne og eksterne arbeidsbetingelser påvirker en konkret reiselivsvirksomhet, og hva den kan gjøre for å møte dem",arbeidsbetingelser;lover-og-regler;beleggsprosent,0,
+baerekraft,concept,Bærekraftig reiseliv,Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker behovene til dem som lever i dag, uten å ødelegge mulighetene for at kommende generasjoner kan dekke sine.
+Tre dimensjoner: miljømessig, sosial og økonomisk bærekraft, som alle må være til stede samtidig.",,0,
+ti-prinsipper,fact,Bærekraftig reiseliv,Prinsipper for bærekraftig reiseliv,"bevaring av natur, kultur og miljø: kulturell rikdom, landskapets fysiske og visuelle integritet, biologisk mangfold, rent miljø og ressurseffektivitet
+styrking av sosiale verdier: lokal livskvalitet og sosiale verdier, lokal kontroll og engasjement, jobbkvalitet for de ansatte, gjestetilfredshet og trygghet
+økonomisk levedyktighet: økonomisk levedyktige og konkurransedyktige destinasjoner og bedrifter",baerekraft,0,
+klimafotavtrykk,concept,Bærekraftig reiseliv,Klimafotavtrykk,"Klimafotavtrykk: hvor mye klimagasser en reise, en gjest eller en bedrift slipper ut. I reiselivet står transporten, og særlig flyreiser, for den største delen.",baerekraft,0,
+talegrense,concept,Bærekraftig reiseliv,Tålegrense og overturisme,"Tålegrense: hvor mange besøkende et sted tåler før naturen, kulturminnene eller livskvaliteten til dem som bor der, tar skade.
+Overturisme: når så mange besøker et sted at tålegrensen er overskredet.",baerekraft,0,
+gronnvasking,concept,Bærekraftig reiseliv,Grønnvasking,"Grønnvasking: å gi inntrykk av at et produkt eller en bedrift er mer miljøvennlig enn den faktisk er, for eksempel ved å framheve et lite tiltak og tie om de store utslippene.",baerekraft,0,
+utforske-baerekraft,skill,Bærekraftig reiseliv,Utforske hvordan en bedrift arbeider med bærekraft,"utforske og beskrive hvordan en reiselivsbedrift eller destinasjon arbeider med bærekraft, og vurdere arbeidet opp mot prinsippene for bærekraftig reiseliv",ti-prinsipper;klimafotavtrykk;talegrense;gronnvasking,0,
+baerekraftig-opplevelse,skill,Bærekraftig reiseliv,Utvikle en bærekraftig opplevelse,"bruke prinsippene for bærekraftig reiseliv til å utvikle eller forbedre en opplevelse, og forklare hvordan den ivaretar både miljøet, lokalsamfunnet og økonomien",utforske-baerekraft;opplevelsesrom,0,
+helhetlig-forslag,skill,Bærekraftig reiseliv,Utvikle og presentere et helhetlig reiselivsprodukt,"utvikle og presentere et helhetlig reiselivsprodukt for en målgruppe som bygger på stedets natur og kultur, er bærekraftig, og kan markedsføres og selges, og svare på spørsmål om valgene dine",baerekraftig-opplevelse;presentere-kulturprodukt;bruke-markedsverktoy;reiseinformasjon,0,

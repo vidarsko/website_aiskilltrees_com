@@ -1,0 +1,195 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Grunnlag fra Psykologi 1;Forskningsmetode;Sosial påvirkning og grupper;Utenforskap og sosial kompetanse;Kommunikasjon og konflikt;Normalitet og psykisk helse;Synet på psykisk helse i endring;Forebygging og behandling,,,
+,config,,title,Psykologi 2,,,
+,config,,description,"Forskningsmetode, sosial påvirkning og grupper, utenforskap og sosial kompetanse, kommunikasjon og konflikt, normalitet og psykisk helse, og forebygging og behandling — dekomponert i det elevene faktisk må kunne gjøre, med de begrepene fra Psykologi 1 som trengs underveis.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-psykologi-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
+,config,,slots.courseName,psykologi 2 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"bruker diagnoseord som «deprimert», «angst» og «OCD» i dagligtalebetydning, skriver at en studie «beviser» noe, blander sammen reliabilitet og validitet, kaller enhver uenighet en konflikt, gjengir teorier og modeller uten å knytte dem til situasjonen de skal forklare, eller «drøfter» uten å veie forklaringer opp mot hverandre",,,
+,config,,slots.courseSpecifics,"Den skriftlige eksamenen i faget har en kortsvarsoppgave på rundt 400 ord, som tar utgangspunkt i et vedlegg som ofte er en studie, og en langsvarsoppgave på rundt 1500 ord, der eleven drøfter en situasjonsbeskrivelse med psykologiske begreper, teorier og modeller. Når det passer, øv derfor på å bruke fagstoffet på en konkret situasjon eller en konkret studie framfor å gjengi det.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag samfunnsfag, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"SAM3073 (skriftlig), SAM3074 (muntlig)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,psychology,,,
+,config,,keywords,psykologi; forskningsmetode; reliabilitet; validitet; egen undersøkelse; sosialpsykologi; konformitet; lydighet; gruppetenkning; fordommer; utenforskap; mobbing; sosial kompetanse; kommunikasjon; konflikttrappen; normalitet; psykisk helse; psykiske lidelser; biopsykososial modell; forebygging; behandling; situasjonsbeskrivelse; eksamen,,,
+,config,,updated,2026-10-08,,,
+psykologiske-perspektiver,concept,Grunnlag fra Psykologi 1,Psykologiske perspektiver,"Biologisk perspektiv: forklarer ut fra hjernen, nervesystemet, hormoner, gener og evolusjon.
+Psykodynamisk perspektiv: forklarer ut fra ubevisste prosesser, indre konflikter og tidlige erfaringer.
+Atferdsperspektivet: forklarer atferd som lært gjennom konsekvenser og koblinger mellom stimuli.
+Kognitivt perspektiv: forklarer ut fra hvordan vi tar inn, bearbeider og husker informasjon.
+Humanistisk perspektiv: legger vekt på fri vilje, egen opplevelse og ønsket om vekst.
+Sosiokulturelt perspektiv: forklarer ut fra samspillet med andre, kultur og samfunn.",,0,
+empiri-teori,concept,Grunnlag fra Psykologi 1,"Empiri, teori og hypotese","Empiri: observasjoner og data som er samlet inn systematisk.
+Teori: en sammenhengende forklaring som kan prøves mot empiri og dermed styrkes eller svekkes.
+Hypotese: en presis påstand om hva en undersøkelse vil vise, formulert slik at resultatet kan støtte eller svekke den.",,0,
+emosjon,concept,Grunnlag fra Psykologi 1,Emosjon,"Emosjon: en kortvarig reaksjon på en hendelse, med en kroppslig side, en opplevd følelse, en vurdering av hva hendelsen betyr og en tendens til å handle.",,0,
+kognitivt-skjema,concept,Grunnlag fra Psykologi 1,Kognitivt skjema,"Kognitivt skjema: en organisert forestilling, bygd på erfaring, om hvordan noe pleier å være, og som styrer hva vi legger merke til og hvordan vi tolker det.",,0,
+selvbilde-selvfolelse,concept,Grunnlag fra Psykologi 1,Selvbilde og selvfølelse,"Selvbilde: de oppfatningene en har om seg selv - egenskaper, evner og utseende.
+Selvfølelse: hvor verdifull man opplever seg selv som person.",kognitivt-skjema,0,
+identitet,concept,Grunnlag fra Psykologi 1,Identitet,"Identitet: opplevelsen av hvem man er, som henger sammen over tid og på tvers av situasjoner, og som formes i møte med andre.",selvbilde-selvfolelse,0,
+sosialisering,concept,Grunnlag fra Psykologi 1,Sosialisering,"Primær sosialisering: det barnet lærer av normer, verdier og språk i familien de første årene.
+Sekundær sosialisering: det man lærer senere gjennom skole, venner, medier og arbeidsliv.",,0,
+modellaering,concept,Grunnlag fra Psykologi 1,Modellæring,"Modellæring: læring ved å observere hva andre gjør og hvilke følger det får for dem.",,0,
+tilknytning,concept,Grunnlag fra Psykologi 1,Tilknytning,"Tilknytning: det følelsesmessige båndet mellom et barn og omsorgspersonene, som barnet bruker som en trygg base. Tidlig trygg eller utrygg tilknytning kan prege senere relasjoner.",,0,
+arv-miljo,concept,Grunnlag fra Psykologi 1,Arv og miljø,"Arv: de genetiske anleggene man får fra foreldrene.
+Miljø: alle påvirkninger etter unnfangelsen. Arv og miljø virker sammen: hvordan et anlegg kommer til uttrykk, avhenger av miljøet.",,0,
+nevrotransmitter,concept,Grunnlag fra Psykologi 1,Nevrotransmitter,"Nevrotransmitter: et signalstoff som skilles ut mellom to nerveceller og påvirker om neste celle sender et signal. Serotonin, dopamin og noradrenalin er viktige for stemningsleie, motivasjon og beredskap.",,0,
+stress,concept,Grunnlag fra Psykologi 1,Stress,"Stressor: en belastning som utløser stress.
+Stressreaksjon: kroppens og psykens svar på belastningen. Stresset avhenger av hvordan man vurderer belastningen og egne ressurser, ikke bare av hendelsen.",,0,
+sarbarhet-resiliens,concept,Grunnlag fra Psykologi 1,Sårbarhet og resiliens,"Sårbarhet: hvor lett en person utvikler vansker når hun eller han utsettes for belastninger.
+Resiliens: evnen til å klare seg godt til tross for store belastninger.",stress,0,
+mestringsstrategier,concept,Grunnlag fra Psykologi 1,Mestringsstrategier,"Problemfokusert mestring: å gjøre noe med selve situasjonen som skaper stress.
+Emosjonsfokusert mestring: å regulere følelsene situasjonen skaper.",stress,0,
+holdning,concept,Grunnlag fra Psykologi 1,Holdning,"Holdning: en relativt varig vurdering av noe, med en tankemessig, en følelsesmessig og en atferdsmessig side.",,0,
+kognitiv-dissonans,concept,Grunnlag fra Psykologi 1,Kognitiv dissonans,"Kognitiv dissonans: ubehaget når handlinger og holdninger ikke stemmer overens, og som man ofte løser ved å endre holdningen eller bortforklare handlingen.",holdning,0,
+problemstilling,concept,Forskningsmetode,Problemstilling,"Problemstilling: et avgrenset og presist spørsmål som en undersøkelse skal besvare.",empiri-teori,0,
+variabler,concept,Forskningsmetode,Variabler og operasjonalisering,"Uavhengig variabel: det forskeren endrer eller sammenligner grupper på.
+Avhengig variabel: det som måles for å se om det påvirkes.
+Operasjonalisering: å gjøre et begrep målbart, for eksempel å måle stress som svar på et skjema eller som kortisolnivå.",empiri-teori,0,
+eksperiment,concept,Forskningsmetode,Eksperiment,"Eksperiment: forskeren endrer den uavhengige variabelen, holder andre forhold likt og fordeler deltakerne tilfeldig på en eksperimentgruppe og en kontrollgruppe. Bare eksperimentet kan i utgangspunktet vise årsak.",variabler,0,
+ikke-eksperimentelle-metoder,concept,Forskningsmetode,"Spørreundersøkelse, intervju og observasjon","Spørreundersøkelse: mange svarer på de samme spørsmålene, ofte med faste svaralternativer.
+Intervju: samtale med få personer, som gir dyp innsikt i hvordan de tenker og opplever.
+Observasjon: forskeren registrerer atferd slik den foregår, åpent eller skjult, og med eller uten å delta selv.
+Casestudie: grundig undersøkelse av én person, gruppe eller hendelse.",empiri-teori,0,
+kvantitativ-kvalitativ,concept,Forskningsmetode,Kvantitativ og kvalitativ metode,"Kvantitativ metode: data som kan telles og måles, fra mange personer, for å finne mønstre.
+Kvalitativ metode: tekst, samtaler eller observasjoner fra få personer, for å forstå meninger og opplevelser i dybden.",ikke-eksperimentelle-metoder,0,
+utvalg,concept,Forskningsmetode,Populasjon og utvalg,"Populasjon: hele gruppen man vil si noe om.
+Utvalg: de som faktisk deltar.
+Representativt utvalg: et utvalg som ligner populasjonen på de egenskapene som betyr noe for spørsmålet.",,0,
+korrelasjon-kausalitet,concept,Forskningsmetode,Korrelasjon og kausalitet,"Korrelasjon: at to variabler henger sammen, slik at når den ene endrer seg, endrer den andre seg også.
+Kausalitet: at endringen i den ene faktisk fører til endringen i den andre. En korrelasjon kan skyldes en tredje variabel.",variabler,0,
+reliabilitet-validitet,concept,Forskningsmetode,Reliabilitet og validitet,"Reliabilitet: hvor pålitelige målingene er - om man ville fått samme resultat om man målte på nytt på samme måte.
+Validitet: om man faktisk måler det man vil måle, og om konklusjonene holder.",variabler,0,
+generaliserbarhet,concept,Forskningsmetode,Generaliserbarhet,"Generaliserbarhet: i hvilken grad resultatene gjelder utover de som deltok og situasjonen de deltok i, for eksempel fra en laboratoriesituasjon til hverdagen.",utvalg;reliabilitet-validitet,0,
+feilkilder,concept,Forskningsmetode,Feilkilder,"Forskereffekt: at forskerens forventninger påvirker hva som registreres eller hvordan deltakerne oppfører seg.
+Deltakereffekt: at deltakerne endrer atferd fordi de vet at de blir studert.
+Sosial ønskverdighet: at deltakerne svarer det som virker riktig eller pent framfor det som er sant.
+Utvalgsskjevhet: at utvalget skiller seg systematisk fra populasjonen.",ikke-eksperimentelle-metoder;utvalg,0,
+forskningsetikk,concept,Forskningsmetode,Forskningsetikk,"Forskningsetikk: reglene som beskytter dem som blir forsket på - informert samtykke, rett til å trekke seg, konfidensialitet om opplysningene, vern mot skade og en forklaring i etterkant om deltakerne er blitt villedet.",,0,
+vurdere-informasjon,skill,Forskningsmetode,Finne og vurdere informasjon om et psykologisk spørsmål,"finne informasjon om et psykologisk spørsmål og vurdere hvor godt faglig forankret den er, ved å skille forskning og fagstoff fra populærpsykologi og synsing.",empiri-teori,0,
+formulere-problemstilling,skill,Forskningsmetode,Formulere problemstilling og hypotese,"formulere en avgrenset psykologisk problemstilling og en hypotese som kan undersøkes, og operasjonalisere variablene.",problemstilling;variabler,0,
+planlegge-undersokelse,skill,Forskningsmetode,Planlegge en undersøkelse,"velge og begrunne metode og utvalg for en egen undersøkelse, og vurdere hvilke etiske hensyn den krever.",formulere-problemstilling;eksperiment;kvantitativ-kvalitativ;utvalg;forskningsetikk,0,
+gjennomfore-undersokelse,skill,Forskningsmetode,Gjennomføre og beskrive en undersøkelse,"gjennomføre en liten undersøkelse, for eksempel en spørreundersøkelse eller en observasjon, og beskrive framgangsmåten så presist at andre kunne gjentatt den.",planlegge-undersokelse,0,
+analysere-resultater,skill,Forskningsmetode,Analysere og drøfte resultater,"presentere og analysere resultatene av en undersøkelse, og drøfte dem i lys av teori, feilkilder og det resultatene ikke kan si noe om.",gjennomfore-undersokelse;korrelasjon-kausalitet;feilkilder;reliabilitet-validitet,0,
+vurdere-studie,skill,Forskningsmetode,Vurdere styrker og svakheter ved en studie,"gjøre kort rede for funnene i en gitt studie, og vurdere styrker og svakheter ved metode, utvalg, reliabilitet, validitet, generaliserbarhet og etikk.",korrelasjon-kausalitet;generaliserbarhet;feilkilder;forskningsetikk;eksperiment;kvantitativ-kvalitativ,0,
+sammenligne-forklaringer,skill,Forskningsmetode,Sammenligne og vurdere forklaringer,"sammenligne og bruke ulike perspektiver, teorier og metoder på en psykologisk problemstilling, og vurdere hvilke forklaringer som har best støtte.",psykologiske-perspektiver;vurdere-studie;vurdere-informasjon,0,
+sosial-pavirkning,concept,Sosial påvirkning og grupper,Sosial påvirkning,"Sosial påvirkning: hvordan andres faktiske, forestilte eller underforståtte nærvær endrer tanker, følelser og atferd.",,0,
+gruppe-norm-rolle,concept,Sosial påvirkning og grupper,"Gruppe, norm og rolle","Gruppe: to eller flere personer som samhandler, har noe felles og opplever at de hører sammen.
+Gruppenorm: en uskreven regel for hvordan medlemmene skal tenke og oppføre seg.
+Rolle: forventningene som knytter seg til en bestemt posisjon i en gruppe.",sosialisering,0,
+konformitet,concept,Sosial påvirkning og grupper,Konformitet,"Konformitet: å endre atferd eller oppfatning for å passe inn i en gruppe. Informasjonell konformitet skyldes at man tror gruppen vet bedre; normativ konformitet skyldes ønsket om å bli likt. Kjent fra Solomon Aschs linjeforsøk.",sosial-pavirkning;gruppe-norm-rolle,0,
+lydighet,concept,Sosial påvirkning og grupper,Lydighet,"Lydighet: å følge ordre fra en autoritet, også når de går mot egen overbevisning. Kjent fra Stanley Milgrams forsøk med det man trodde var elektriske støt.",sosial-pavirkning,0,
+gruppetenkning,concept,Sosial påvirkning og grupper,Gruppetenkning,"Gruppetenkning: når ønsket om enighet i en sammensveiset gruppe går foran en realistisk vurdering av alternativene, slik at tvil holdes tilbake og dårlige beslutninger tas. Begrepet er fra Irving Janis.",konformitet,0,
+gruppepolarisering,concept,Sosial påvirkning og grupper,Gruppepolarisering,"Gruppepolarisering: at en diskusjon blant likesinnede gjør standpunktene mer ytterliggående enn de var hos hver enkelt på forhånd.",konformitet,0,
+tilskuereffekten,concept,Sosial påvirkning og grupper,Tilskuereffekten,"Tilskuereffekten: jo flere som er til stede i en nødsituasjon, desto mindre sannsynlig er det at den enkelte hjelper, blant annet fordi ansvaret fordeles på alle.",sosial-pavirkning,0,
+sosial-sammenligning,concept,Sosial påvirkning og grupper,Sosial sammenligning,"Sosial sammenligning: at vi vurderer egne evner, meninger og utseende ved å sammenligne oss med andre - med dem som har det bedre (oppover) eller dårligere (nedover).",selvbilde-selvfolelse,0,
+sosial-identitet,concept,Sosial påvirkning og grupper,Sosial identitet,"Sosial identitet: den delen av identiteten vi henter fra gruppene vi tilhører. Vi deler verden i inngrupper og utgrupper, og favoriserer egen gruppe for å styrke selvfølelsen. Teorien er fra Henri Tajfel og John Turner.",identitet;gruppe-norm-rolle,0,
+stereotypi-fordom,concept,Sosial påvirkning og grupper,"Stereotypi, fordom og diskriminering","Stereotypi: en forenklet forestilling om hvordan medlemmer av en gruppe er.
+Fordom: en negativ holdning til noen bare fordi de tilhører en gruppe.
+Diskriminering: å behandle noen dårligere på grunn av gruppen de tilhører.",kognitivt-skjema;holdning,0,
+kontakthypotesen,concept,Sosial påvirkning og grupper,Kontakthypotesen,"Kontakthypotesen: fordommer mellom grupper kan reduseres gjennom kontakt, særlig når partene har lik status, et felles mål og samarbeider, og når kontakten har støtte fra omgivelsene.",stereotypi-fordom,0,
+attribusjon,concept,Sosial påvirkning og grupper,Attribusjon,"Attribusjon: hvordan vi forklarer årsaken til egen og andres atferd - med indre årsaker som personlighet og vilje, eller med ytre årsaker i situasjonen.",,0,
+fundamental-attribusjonsfeil,concept,Sosial påvirkning og grupper,Den fundamentale attribusjonsfeilen,"Den fundamentale attribusjonsfeilen: tendensen til å forklare andres atferd med hvem de er, og undervurdere hvor mye situasjonen betyr.",attribusjon,0,
+overtalelse,concept,Sosial påvirkning og grupper,Sentral og perifer rute til overtalelse,"Sentral rute: man blir overbevist av hvor gode argumentene er, når man er motivert og har kapasitet til å tenke gjennom dem.
+Perifer rute: man blir overbevist av overflatetrekk, som at avsenderen er populær, attraktiv eller virker som en ekspert.",holdning,0,
+forklare-konformitet-lydighet,skill,Sosial påvirkning og grupper,Gjøre rede for studier av konformitet og lydighet,"gjøre rede for klassiske studier av konformitet og lydighet, og vurdere hva de viser, hvor godt resultatene kan generaliseres og hvilke etiske problemer de reiser.",konformitet;lydighet;vurdere-studie,0,
+forklare-holdningsendring,skill,Sosial påvirkning og grupper,Forklare hvordan holdninger endres,"forklare hvordan holdninger dannes og endres gjennom sosial påvirkning, overtalelse og kognitiv dissonans, med eksempler fra for eksempel reklame eller sosiale medier.",overtalelse;kognitiv-dissonans;konformitet,0,
+analysere-gruppeprosesser,skill,Sosial påvirkning og grupper,Analysere hva som skjer i en gruppe,"analysere hvordan normer, roller, gruppetenkning, polarisering og tilskuereffekten kan styre atferden til medlemmene i en konkret gruppe.",gruppetenkning;gruppepolarisering;tilskuereffekten,0,
+forklare-fordommer,skill,Sosial påvirkning og grupper,Forklare hvordan fordommer oppstår og kan reduseres,"forklare hvordan fordommer oppstår og holdes ved like, og vurdere tiltak som kan redusere dem.",sosial-identitet;stereotypi-fordom;kontakthypotesen;fundamental-attribusjonsfeil,0,
+drofte-sosial-pavirkning,skill,Sosial påvirkning og grupper,"Drøfte hvordan grupper påvirker holdninger, atferd og identitet","drøfte hvordan sosial påvirkning og samspill i grupper kan påvirke holdninger, atferd og identitet hos en person i en konkret situasjon, og veie ulike forklaringer mot hverandre.",forklare-konformitet-lydighet;forklare-holdningsendring;analysere-gruppeprosesser;forklare-fordommer;sosial-sammenligning,0,
+utenforskap,concept,Utenforskap og sosial kompetanse,Utenforskap,"Utenforskap: å stå utenfor fellesskap som andre tar del i, som skole, arbeid, vennskap eller fritid, ofte uten å ha valgt det selv.",,0,
+tilhorighetsbehov,concept,Utenforskap og sosial kompetanse,Tilhørighetsbehov,"Tilhørighetsbehov: det grunnleggende menneskelige behovet for å høre til og ha nære og stabile relasjoner til andre.",,0,
+ensomhet,concept,Utenforskap og sosial kompetanse,Ensomhet,"Ensomhet: opplevelsen av å ha færre eller dårligere relasjoner enn man ønsker seg. Det er noe annet enn å være alene: man kan være ensom blant mange.",tilhorighetsbehov,0,
+mobbing,concept,Utenforskap og sosial kompetanse,Mobbing,"Mobbing: gjentatte negative handlinger fra en eller flere mot en som har vanskelig for å forsvare seg - også utestenging og krenkelser på nett.",,0,
+sosial-kompetanse,concept,Utenforskap og sosial kompetanse,Sosial kompetanse,"Sosial kompetanse: kunnskaper, ferdigheter og holdninger som trengs for å skape og holde på gode relasjoner. En mye brukt inndeling har fem deler: empati, samarbeid, selvhevdelse, selvkontroll og ansvarlighet.",,0,
+empati-mentalisering,concept,Utenforskap og sosial kompetanse,Empati og mentalisering,"Empati: å forstå og leve seg inn i hva en annen føler.
+Mentalisering: å forstå egen og andres atferd ut fra indre tilstander som tanker, følelser og hensikter.",emosjon,0,
+forklare-utenforskap,skill,Utenforskap og sosial kompetanse,Forklare årsaker til utenforskap,"forklare individuelle, sosiale og samfunnsmessige årsaker til utenforskap, som mobbing, sosial angst, frafall fra skolen, fattigdom eller språk.",utenforskap;mobbing;sosial-identitet,0,
+drofte-utenforskap,skill,Utenforskap og sosial kompetanse,Drøfte årsaker til og konsekvenser av utenforskap,"drøfte årsaker til utenforskap hos en person i en konkret situasjon, og reflektere over konsekvensene for selvbildet, den psykiske helsen og mulighetene videre i livet.",forklare-utenforskap;ensomhet;psykisk-helse,0,
+forklare-sosial-kompetanse,skill,Utenforskap og sosial kompetanse,Forklare hva som former sosial kompetanse,"gjøre rede for hvordan tilknytning, sosialisering, modellæring, medfødte forskjeller og samvær med jevnaldrende påvirker utviklingen av sosial kompetanse.",sosial-kompetanse;empati-mentalisering;tilknytning;modellaering;arv-miljo,0,
+reflektere-sosial-kompetanse,skill,Utenforskap og sosial kompetanse,Reflektere over betydningen av sosial kompetanse,"reflektere over hva sosial kompetanse betyr for vennskap, skole, arbeidsliv og psykisk helse, og over hva som skjer når den mangler.",forklare-sosial-kompetanse;utenforskap,0,
+kommunikasjon,concept,Kommunikasjon og konflikt,Kommunikasjon,"Kommunikasjon: utveksling av budskap der en sender koder et budskap, sender det gjennom en kanal, og en mottaker tolker det - mens støy kan forstyrre underveis.",,0,
+verbal-ikkeverbal,concept,Kommunikasjon og konflikt,Verbal og ikke-verbal kommunikasjon,"Verbal kommunikasjon: det som formidles med ord, muntlig eller skriftlig.
+Ikke-verbal kommunikasjon: det som formidles uten ord - kroppsspråk, ansiktsuttrykk, blikk, tonefall og avstand.",kommunikasjon,0,
+metakommunikasjon,concept,Kommunikasjon og konflikt,Metakommunikasjon og dobbeltkommunikasjon,"Metakommunikasjon: kommunikasjon om kommunikasjonen, som å si hvordan noe var ment eller spørre hvordan det ble oppfattet.
+Dobbeltkommunikasjon: når det verbale og det ikke-verbale budskapet sier ulike ting.",verbal-ikkeverbal,0,
+aktiv-lytting,concept,Kommunikasjon og konflikt,Aktiv lytting og jeg-budskap,"Aktiv lytting: å vise at man lytter, gjenta med egne ord det den andre sier, og stille oppklarende spørsmål.
+Jeg-budskap: å si hvordan noe påvirker en selv framfor å anklage den andre.",kommunikasjon,0,
+digital-kommunikasjon,concept,Kommunikasjon og konflikt,Digital kommunikasjon,"Digital kommunikasjon: kommunikasjon via skjerm, ofte uten ikke-verbale signaler, med forsinkelse og med et publikum, noe som gjør det lettere å misforstå og lettere å skrive ting man ikke ville sagt ansikt til ansikt.",verbal-ikkeverbal,0,
+konflikt,concept,Kommunikasjon og konflikt,Konflikt,"Konflikt: når minst én part opplever at en annen hindrer egne mål, interesser eller verdier, slik at det oppstår motstand - mer enn en uenighet.",,0,
+konflikttyper,concept,Kommunikasjon og konflikt,Sakskonflikt og relasjonskonflikt,"Sakskonflikt: en konflikt om interesser, ressurser, verdier eller fakta.
+Relasjonskonflikt: en konflikt der forholdet mellom personene selv er blitt problemet.",konflikt,0,
+konflikttrappen,concept,Kommunikasjon og konflikt,Konflikttrappen,"Konflikttrappen: en modell av hvordan en konflikt kan trappes opp trinn for trinn - fra uenighet, via personifisering, at problemet vokser og at samtalen oppgis, til fiendebilder, åpen fiendtlighet og til slutt polarisering, der partene skiller lag.",konflikttyper,0,
+konfliktstiler,concept,Kommunikasjon og konflikt,Måter å håndtere konflikter på,"Konkurranse: å kjempe for sitt eget.
+Tilpasning: å gi etter for den andre.
+Unngåelse: å trekke seg unna konflikten.
+Kompromiss: begge gir litt.
+Samarbeid: å lete etter en løsning der begge får dekket det viktigste.",konflikt,0,
+megling,concept,Kommunikasjon og konflikt,Megling,"Megling: en nøytral tredjepart hjelper partene i en konflikt til å forstå hverandre og finne en løsning de selv står bak.",konfliktstiler,0,
+forklare-konfliktutvikling,skill,Kommunikasjon og konflikt,Gjøre rede for hvordan en konflikt oppstår og utvikler seg,"gjøre rede for hvordan en mellommenneskelig konflikt kan oppstå og trappes opp, brukt på personene i en situasjonsbeskrivelse.",konflikttrappen;fundamental-attribusjonsfeil;emosjon,0,
+drofte-kommunikasjon-konflikt,skill,Kommunikasjon og konflikt,Drøfte hvordan kommunikasjon kan skape og løse konflikter,"drøfte hvordan verbal og ikke-verbal kommunikasjon kan bidra både til å trappe opp og til å løse en konkret konflikt.",forklare-konfliktutvikling;metakommunikasjon;aktiv-lytting;megling;digital-kommunikasjon,0,
+drofte-konflikt-psykisk-helse,skill,Kommunikasjon og konflikt,Drøfte hvordan en konflikt kan påvirke psykisk helse,"drøfte hvordan konsekvensene av en konflikt kan påvirke den psykiske helsen til de involverte, og hva som kan beskytte dem.",forklare-konfliktutvikling;psykisk-helse;stress;mestringsstrategier,0,
+drofte-kommunikasjon-livskvalitet,skill,Kommunikasjon og konflikt,"Drøfte hvordan kommunikasjon påvirker samhandling og livskvalitet","drøfte hvordan ulike former for kommunikasjon, også digital, påvirker sosial samhandling og livskvalitet.",digital-kommunikasjon;metakommunikasjon;sosial-sammenligning;livskvalitet,0,
+psykisk-helse,concept,Normalitet og psykisk helse,Psykisk helse,"Psykisk helse: en tilstand der man kan utnytte egne evner, mestre vanlige belastninger i livet og bidra i fellesskapet. God psykisk helse er mer enn fravær av psykisk sykdom.",,0,
+livskvalitet,concept,Normalitet og psykisk helse,Livskvalitet,"Livskvalitet: hvor godt man opplever at livet er - tilfredshet, gode følelser, mening og gode relasjoner. Det er noe annet enn levestandard.",psykisk-helse,0,
+normalitet,concept,Normalitet og psykisk helse,Normalitetskriterier,"Statistisk normalitet: det som er vanlig, altså det de fleste gjør eller er.
+Sosial normalitet: det som er i tråd med normene i kulturen og tiden man lever i.
+Subjektiv normalitet: det personen selv ikke opplever som en plage.
+Funksjonell normalitet: at man fungerer i hverdagen, på skolen, i jobb og sammen med andre.",,0,
+vansker-lidelser,concept,Normalitet og psykisk helse,Psykiske vansker og psykiske lidelser,"Psykiske vansker: plager som nedstemthet, uro eller søvnproblemer, som går ut over livet, men ikke er så sterke eller varige at kriteriene for en diagnose er oppfylt.
+Psykisk lidelse: symptomer av en slik styrke og varighet, og med så stor svikt i fungeringen, at kriteriene for en diagnose er oppfylt.",psykisk-helse,0,
+diagnosesystem,concept,Normalitet og psykisk helse,Diagnosesystem,"Diagnosesystem: en samling kriterier for hva som skal til for å stille en bestemt diagnose. I Norge brukes Verdens helseorganisasjons ICD-system, mens det amerikanske DSM-systemet brukes mye i forskning.",vansker-lidelser,0,
+angstlidelser,concept,Normalitet og psykisk helse,Angstlidelser,"Angstlidelse: angst som er sterkere, varer lenger eller kommer i situasjoner der den ikke står i forhold til faren, og som begrenser livet - for eksempel sosial angst, panikklidelse, fobier og generalisert angst.",vansker-lidelser,0,
+depresjon,concept,Normalitet og psykisk helse,Depresjon,"Depresjon: en lidelse med senket stemningsleie, tap av glede og interesse og redusert energi gjennom minst to uker, ofte sammen med søvnvansker, skyldfølelse og konsentrasjonsvansker.",vansker-lidelser,0,
+andre-lidelser,concept,Normalitet og psykisk helse,Andre psykiske lidelser,"Spiseforstyrrelse: en lidelse der tanker om mat, vekt og kropp styrer livet og skader helsen, som anoreksi og bulimi.
+Posttraumatisk stresslidelse: en lidelse etter en traumatisk hendelse, der man gjenopplever hendelsen, unngår det som minner om den og er vedvarende på vakt.
+Psykose: en tilstand der man mister kontakten med virkeligheten, for eksempel med vrangforestillinger eller hallusinasjoner.",vansker-lidelser,0,
+stigma,concept,Normalitet og psykisk helse,Stigma,"Stigma: et negativt stempel knyttet til en gruppe, for eksempel mennesker med psykiske lidelser, som fører til skam, hemmelighold og utestenging.",stereotypi-fordom,0,
+drofte-normalitet,skill,Normalitet og psykisk helse,Drøfte hva som er normalt,"drøfte om en atferd eller opplevelse er normal ut fra ulike normalitetskriterier, og vise at kriteriene kan gi ulike svar i samme tilfelle og på tvers av kulturer og tider.",normalitet,0,
+skille-vansker-lidelser,skill,Normalitet og psykisk helse,Skille vanlige reaksjoner fra vansker og lidelser,"vurdere om en person i en situasjonsbeskrivelse har vanlige reaksjoner på en belastning, psykiske vansker eller mulig en psykisk lidelse, og begrunne vurderingen.",drofte-normalitet;angstlidelser;depresjon;andre-lidelser,0,
+drofte-diagnoser,skill,Normalitet og psykisk helse,Drøfte fordeler og ulemper ved diagnoser,"drøfte fordeler og ulemper ved å sette en psykiatrisk diagnose, som tilgang til hjelp og forståelse mot stempling og sykeliggjøring av normale reaksjoner.",diagnosesystem;stigma;skille-vansker-lidelser,0,
+milepaeler-psykisk-helse,fact,Synet på psykisk helse i endring,Milepæler i norsk psykisk helsevern,"Norges første lov om behandling av sinnssyke: 1848
+Gaustad asyl, Norges første statlige sinnssykeasyl, åpnet: 1855
+de første lobotomiene i Norge: 1941
+de første antipsykotiske legemidlene tatt i bruk: tidlig på 1950-tallet
+homofili fjernet som diagnose i Norge: 1977
+Opptrappingsplanen for psykisk helse: 1999-2008",,0,
+asyl-deinstitusjonalisering,concept,Synet på psykisk helse i endring,Asyl og avinstitusjonalisering,"Asyl: en stor institusjon der mennesker med alvorlige psykiske lidelser ble plassert, ofte i mange år og atskilt fra samfunnet.
+Avinstitusjonalisering: nedbyggingen av de store institusjonene til fordel for behandling og oppfølging nær der folk bor.",,0,
+psykofarmaka,concept,Synet på psykisk helse i endring,Psykofarmaka,"Psykofarmaka: legemidler som påvirker psykiske funksjoner ved å virke på signalstoffene i hjernen, som antidepressiva, antipsykotika og angstdempende midler.",nevrotransmitter,0,
+brukermedvirkning,concept,Synet på psykisk helse i endring,Brukermedvirkning og recovery,"Brukermedvirkning: at pasienten har rett til å være med og bestemme over egen behandling.
+Recovery: bedring forstått som å leve et meningsfullt liv med egne mål, også om symptomene ikke forsvinner helt.",,0,
+sykeliggjoring,concept,Synet på psykisk helse i endring,Sykeliggjøring,"Sykeliggjøring: at vanlige livsproblemer og normale reaksjoner, som sorg eller nervøsitet før en prøve, blir forstått og behandlet som sykdom.",vansker-lidelser,0,
+reflektere-historisk-endring,skill,Synet på psykisk helse i endring,Reflektere over hvordan synet på psykisk helse har endret seg,"reflektere over hvordan synet på psykisk helse og behandlingen av psykiske lidelser har endret seg fra asyltiden til i dag, og hvilke menneskesyn og perspektiver som lå bak endringene.",milepaeler-psykisk-helse;asyl-deinstitusjonalisering;psykofarmaka;psykologiske-perspektiver;normalitet,0,
+reflektere-endring-na,skill,Synet på psykisk helse i endring,Reflektere over endringer som pågår nå,"reflektere over endringer som pågår nå, som større åpenhet om psykisk helse, lavterskeltilbud, flere unge med diagnoser og debatten om sykeliggjøring.",sykeliggjoring;brukermedvirkning;stigma;reflektere-historisk-endring,0,
+biopsykososial-modell,concept,Forebygging og behandling,Den biopsykososiale modellen,"Den biopsykososiale modellen: psykisk helse og psykiske lidelser forstås som et resultat av at biologiske, psykologiske og sosiale faktorer virker sammen, ikke av én årsak alene.",psykologiske-perspektiver,0,
+sarbarhet-stress-modellen,concept,Forebygging og behandling,Sårbarhet-stress-modellen,"Sårbarhet-stress-modellen: en psykisk lidelse utløses når belastningene blir større enn det personen tåler. Jo større sårbarhet, desto mindre belastning skal til.",sarbarhet-resiliens;stress,0,
+risiko-beskyttelse,concept,Forebygging og behandling,Risikofaktor og beskyttelsesfaktor,"Risikofaktor: noe som øker sjansen for å utvikle psykiske vansker, som mobbing, rusbruk eller arvelige anlegg.
+Beskyttelsesfaktor: noe som minsker sjansen, som gode relasjoner, en trygg voksen og mestringserfaringer.",sarbarhet-resiliens,0,
+forebygging,concept,Forebygging og behandling,Forebygging,"Universell forebygging: tiltak rettet mot alle, som undervisning i livsmestring.
+Selektiv forebygging: tiltak rettet mot grupper med høyere risiko, som barn av foreldre med rusproblemer.
+Indikert forebygging: tiltak rettet mot dem som allerede har tegn på vansker.",risiko-beskyttelse,0,
+helsefremming,concept,Forebygging og behandling,Helsefremmende arbeid,"Helsefremmende arbeid: å styrke det som gir god psykisk helse, som mestring, tilhørighet og mening, framfor bare å hindre sykdom.",psykisk-helse,0,
+kognitiv-atferdsterapi,concept,Forebygging og behandling,Kognitiv atferdsterapi,"Kognitiv atferdsterapi: behandling som arbeider med sammenhengen mellom tanker, følelser og atferd, og hjelper personen å endre negative tankemønstre og unngåelse, ved angst ofte ved gradvis å møte det man frykter.",kognitivt-skjema,0,
+psykodynamisk-terapi,concept,Forebygging og behandling,Psykodynamisk terapi,"Psykodynamisk terapi: behandling som utforsker ubevisste konflikter og tidlige relasjoner, og hvordan de gjentar seg i livet nå, også i forholdet til terapeuten.",psykologiske-perspektiver,0,
+klientsentrert-systemisk,concept,Forebygging og behandling,Klientsentrert og systemisk terapi,"Klientsentrert terapi: behandling der terapeuten møter klienten med empati, ekthet og ubetinget aksept, slik at klienten selv finner veien videre. Den bygger på Carl Rogers' humanistiske psykologi.
+Systemisk terapi: behandling som ser vansker som en del av samspillet i familien eller nettverket, og arbeider med hele systemet.",psykologiske-perspektiver,0,
+forklare-biologiske-faktorer,skill,Forebygging og behandling,Forklare biologiske faktorer bak psykisk helse,"forklare hvordan biologiske faktorer, som gener, signalstoffer og kroppens stressystem, kan bidra til psykiske lidelser som depresjon og angst.",biopsykososial-modell;nevrotransmitter;arv-miljo;depresjon;angstlidelser,0,
+forklare-psykologiske-faktorer,skill,Forebygging og behandling,Forklare psykologiske faktorer bak psykisk helse,"forklare hvordan psykologiske faktorer, som tankemønstre, mestringsstrategier, selvbilde og tilknytningserfaringer, kan fremme eller hemme god psykisk helse.",biopsykososial-modell;kognitivt-skjema;mestringsstrategier;selvbilde-selvfolelse;tilknytning,0,
+forklare-sosiale-faktorer,skill,Forebygging og behandling,Forklare sosiale faktorer bak psykisk helse,"forklare hvordan sosiale faktorer, som nettverk, familie, mobbing, utenforskap og økonomi, kan fremme eller hemme god psykisk helse.",biopsykososial-modell;utenforskap;mobbing;tilhorighetsbehov,0,
+utforske-samspill-faktorer,skill,Forebygging og behandling,"Utforske samspillet mellom biologiske, psykologiske og sosiale faktorer","utforske hvordan biologiske, psykologiske og sosiale faktorer virker sammen i utviklingen av god eller dårlig psykisk helse hos en person i en situasjonsbeskrivelse.",forklare-biologiske-faktorer;forklare-psykologiske-faktorer;forklare-sosiale-faktorer;sarbarhet-stress-modellen;risiko-beskyttelse,0,
+drofte-forebygging,skill,Forebygging og behandling,Drøfte forebygging av psykiske vansker,"drøfte tiltak som kan forebygge psykiske vansker og fremme god psykisk helse hos unge, og begrunne dem med den biopsykososiale modellen.",utforske-samspill-faktorer;forebygging;helsefremming,0,
+sammenligne-behandling,skill,Forebygging og behandling,Sammenligne behandlingsformer,"sammenligne behandlingsformer for psykiske lidelser, og vurdere hvilke årsaksforklaringer og hvilket menneskesyn hver av dem bygger på.",kognitiv-atferdsterapi;psykodynamisk-terapi;klientsentrert-systemisk;psykofarmaka,0,
+drofte-behandling,skill,Forebygging og behandling,Drøfte behandling i lys av samspillet mellom faktorer,"drøfte hvilken behandling som kan passe for en person i en situasjonsbeskrivelse, i lys av samspillet mellom biologiske, psykologiske og sosiale faktorer.",utforske-samspill-faktorer;sammenligne-behandling;skille-vansker-lidelser,0,
+drofte-situasjonsbeskrivelse,skill,Forebygging og behandling,Drøfte en situasjonsbeskrivelse med psykologisk fagstoff,"analysere en situasjonsbeskrivelse og drøfte den med relevante psykologiske begreper, teorier og modeller, veie ulike forklaringer mot hverandre og komme fram til en begrunnet konklusjon.",sammenligne-forklaringer;drofte-sosial-pavirkning;drofte-utenforskap;drofte-konflikt-psykisk-helse;drofte-behandling,0,

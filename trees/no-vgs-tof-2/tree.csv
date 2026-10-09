@@ -1,0 +1,203 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Vitenskapelig kunnskap og metode;Datainnsamling og metodevalg;Statistisk analyse;Eget forskningsprosjekt;Vitenskapelig kommunikasjon;Forskningssystemet;Vitenskapshistorie og paradigmer;Etikk og bærekraft,,,
+,config,,title,Teknologi og forskningslære 2,,,
+,config,,description,"Vitenskapelig metode, datainnsamling, statistisk analyse, eget forskningsprosjekt, vitenskapelig artikkel, forskningssystemet, vitenskapshistorie og paradigmeskifter, og etikk og bærekraft — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,no-vgs-tof-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,teknologi og forskningslære 2 (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"skriver at data «beviser» en hypotese, blander korrelasjon og årsakssammenheng, blander reliabilitet og validitet, tolker p-verdien som sannsynligheten for at hypotesen er sann, tolker et konfidensintervall som området der 95 % av målingene ligger, oppgir resultater uten usikkerhet og enhet, bruker «signifikant» i hverdagsbetydningen «stor», eller trekker en konklusjon som er sterkere enn dataene tåler",,,
+,config,,slots.courseSpecifics,"Eleven kan trekkes ut til sentralt gitt skriftlig eksamen (fem timer, digital) eller lokalt gitt muntlig-praktisk eksamen med forberedelsesdel. Øv derfor både på å skrive begrunnede drøftinger og på å forklare muntlig, og knytt gjerne øvingen til elevens eget forskningsprosjekt.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag realfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3053,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,technology,,,
+,config,,keywords,TOF;forskningslære;vitenskapelig metode;hypotese;hypotetisk-deduktiv metode;falsifisering;statistikk;standardavvik;regresjon;konfidensintervall;t-test;p-verdi;forskningsprosjekt;vitenskapelig artikkel;fagfellevurdering;forskningsfinansiering;paradigmeskifte;Kuhn;forskningsetikk;bærekraftsmål,,,
+,config,,updated,2026-10-08,,,
+vk-empiri,concept,Vitenskapelig kunnskap og metode,Empiriske data,"Empiriske data: data som er samlet inn ved observasjon, måling eller eksperiment, og ikke bare tenkt ut.",,0,
+vk-hypotese-teori-lov,concept,Vitenskapelig kunnskap og metode,"Hypotese, teori og naturlov","Hypotese: en presis påstand som kan testes, og som kan vise seg å være feil.
+Vitenskapelig teori: et sammenhengende sett av forklaringer som har overlevd mange uavhengige tester og knytter sammen mange observasjoner. I vitenskapen betyr «teori» ikke en løs gjetning.
+Naturlov: en sammenheng, ofte matematisk, som har holdt i all testing og beskriver hva som skjer uten selv å forklare hvorfor.",vk-empiri,0,
+vk-modell,concept,Vitenskapelig kunnskap og metode,Modell og gyldighetsområde,"Vitenskapelig modell: en forenklet framstilling av en del av virkeligheten, laget for å forklare eller forutsi noe.
+Gyldighetsområde: de forholdene der modellen gir brukbare svar.",vk-hypotese-teori-lov,0,
+vk-simulering,concept,Vitenskapelig kunnskap og metode,Simulering,"Simulering: en beregning på datamaskin der en matematisk modell brukes til å etterligne et system og se hvordan det oppfører seg under ulike forhold, ofte der et eksperiment er umulig, farlig eller for dyrt.",vk-modell,0,
+vk-induksjon-deduksjon,concept,Vitenskapelig kunnskap og metode,Induksjon og deduksjon,"Induksjon: å slutte fra mange enkeltobservasjoner til en generell regel. Slutningen kan være feil selv om alle observasjonene er riktige.
+Deduksjon: å slutte fra en generell regel til hva som må gjelde i et bestemt tilfelle. Er premissene sanne, er konklusjonen sann.",vk-empiri,0,
+vk-falsifiserbarhet,concept,Vitenskapelig kunnskap og metode,Falsifiserbarhet,"Falsifiserbarhet: at en påstand er formulert slik at det finnes mulige observasjoner som ville vist at den er feil. Karl Popper brukte dette som skillet mellom vitenskapelige og ikke-vitenskapelige påstander.",vk-hypotese-teori-lov,0,
+vk-hd-metode,concept,Vitenskapelig kunnskap og metode,Hypotetisk-deduktiv metode,"Hypotetisk-deduktiv metode: å formulere en hypotese, utlede en prediksjon som kan testes, teste den med empiriske data, og så styrke eller forkaste hypotesen ut fra resultatet.",vk-induksjon-deduksjon;vk-falsifiserbarhet,0,
+vk-styrke-forkaste,skill,Vitenskapelig kunnskap og metode,Gjøre rede for hvordan data styrker eller forkaster en hypotese,"gjøre rede for hvordan empiriske data kan styrke eller forkaste en hypotese, og forklare hvorfor data som stemmer med hypotesen bare styrker den, mens data som strider mot den kan forkaste den.",vk-hd-metode,0,
+vk-vurdere-pastand,skill,Vitenskapelig kunnskap og metode,Skille vitenskapelige påstander fra andre forklaringer,"avgjøre om en påstand er vitenskapelig testbar, og skille kunnskap bygd på vitenskapelige metoder fra alternative forklaringer, som anekdoter, autoritetsargumenter og pseudovitenskap.",vk-falsifiserbarhet,0,"Legg fram en blanding av vitenskapelige påstander, pseudovitenskap og grensetilfeller, og be eleven begrunne vurderingen av hver."
+vk-korrelasjon-kausalitet,concept,Vitenskapelig kunnskap og metode,Korrelasjon og kausalitet,"Korrelasjon: at to størrelser varierer sammen, slik at den ene tenderer til å være høy når den andre er høy (eller lav).
+Kausalitet: at en endring i den ene størrelsen faktisk forårsaker en endring i den andre.
+Konfunderende variabel: en tredje størrelse som påvirker begge, og som kan skape en korrelasjon uten at den ene forårsaker den andre.",vk-empiri,0,
+vk-skille-korr-kaus,skill,Vitenskapelig kunnskap og metode,Skille korrelasjon fra årsakssammenheng,"avgjøre om en påstått årsakssammenheng er godt underbygd, foreslå konfunderende variabler som kan forklare en korrelasjon, og si hva slags undersøkelse som kunne avgjort spørsmålet.",vk-korrelasjon-kausalitet;dm-eksperiment-observasjon,0,
+vk-reproduserbarhet,concept,Vitenskapelig kunnskap og metode,Reproduserbarhet,"Reproduserbarhet: at andre forskere kan gjenta en undersøkelse ut fra beskrivelsen og få samme resultat. Et resultat som ikke lar seg gjenta, regnes ikke som etablert.",vk-empiri,0,
+vk-normer,concept,Vitenskapelig kunnskap og metode,Vitenskapens normer,"Fellesskap: forskningsresultater tilhører alle og skal offentliggjøres.
+Universalisme: påstander vurderes etter innhold og evidens, ikke etter hvem som framsetter dem.
+Uegennytte: forskere skal søke sannhet, ikke egen vinning.
+Organisert skepsis: alle resultater skal kunne prøves kritisk av andre før de godtas.",vk-reproduserbarhet,0,
+vk-fou,concept,Vitenskapelig kunnskap og metode,"Grunnforskning, anvendt forskning og utviklingsarbeid","Grunnforskning: forskning for å skaffe ny kunnskap uten et bestemt bruksområde i tankene.
+Anvendt forskning: forskning rettet mot å løse et bestemt praktisk problem.
+Utviklingsarbeid: systematisk arbeid som bruker eksisterende kunnskap til å lage nye produkter, prosesser eller tjenester.",vk-hypotese-teori-lov,0,
+vk-drofte-prosesser,skill,Vitenskapelig kunnskap og metode,Drøfte hvordan forskning gir ny kunnskap,"drøfte med konkrete eksempler hvordan observasjon, eksperiment, modellering og simulering brukes i forsknings- og utviklingsarbeid, og hvordan de kan føre til nye kunnskaper, teorier og modeller.",vk-fou;vk-simulering;vk-hd-metode;vk-reproduserbarhet,0,
+dm-eksperiment-observasjon,concept,Datainnsamling og metodevalg,Eksperiment og observasjonsstudie,"Eksperiment: en undersøkelse der forskeren selv endrer en variabel og holder de andre konstante.
+Observasjonsstudie: en undersøkelse der forskeren registrerer forhold slik de er, uten å gripe inn.",,0,
+dm-kontrollgruppe,concept,Datainnsamling og metodevalg,"Kontrollgruppe, randomisering og blinding","Kontrollgruppe: en gruppe som ikke får behandlingen, og som resultatene sammenlignes med.
+Randomisering: tilfeldig fordeling av deltakere eller prøver på gruppene, slik at gruppene blir like i alt annet enn behandlingen.
+Blinding: at deltakerne, og i dobbeltblinde forsøk også forskerne, ikke vet hvem som får hvilken behandling.
+Placebo: en virkningsløs behandling som ser ut som den ekte, og som brukes i kontrollgruppen.",dm-eksperiment-observasjon,0,
+dm-kvalitativ-kvantitativ,concept,Datainnsamling og metodevalg,Kvantitative og kvalitative data,"Kvantitative data: data i form av tall fra målinger eller tellinger, som kan behandles statistisk.
+Kvalitative data: data i form av beskrivelser, som intervjusvar og observasjonsnotater, som tolkes uten å gjøres om til tall.",,0,
+dm-primaer-sekundaer,concept,Datainnsamling og metodevalg,Primærdata og sekundærdata,"Primærdata: data forskeren selv samler inn til sin egen undersøkelse.
+Sekundærdata: data som andre allerede har samlet inn, for eksempel i offentlig statistikk eller åpne databaser.",dm-kvalitativ-kvantitativ,0,
+dm-populasjon-utvalg,concept,Datainnsamling og metodevalg,Populasjon og utvalg,"Populasjon: hele gruppen undersøkelsen skal si noe om.
+Utvalg: den delen av populasjonen som faktisk undersøkes.
+Representativt utvalg: et utvalg som ligner populasjonen i de egenskapene som betyr noe for spørsmålet.",,0,
+dm-utvalgsmetoder,concept,Datainnsamling og metodevalg,Utvalgsmetoder,"Tilfeldig utvalg: alle i populasjonen har like stor sjanse for å bli valgt.
+Stratifisert utvalg: populasjonen deles i grupper, og man trekker tilfeldig fra hver gruppe i riktig forhold.
+Bekvemmelighetsutvalg: man undersøker dem som er lettest å få tak i; billig, men ofte skjevt.",dm-populasjon-utvalg,0,
+dm-skjevhet,concept,Datainnsamling og metodevalg,Skjevhet (bias),"Seleksjonsskjevhet: utvalget skiller seg systematisk fra populasjonen.
+Svarskjevhet: deltakerne svarer det de tror er ønsket eller pent, ikke det som er sant.
+Bekreftelsesskjevhet: forskeren legger mer vekt på data som støtter det hen allerede tror.",dm-utvalgsmetoder,0,
+dm-reliabilitet-validitet,concept,Datainnsamling og metodevalg,"Reliabilitet, validitet og generaliserbarhet","Reliabilitet (pålitelighet): om man får samme resultat når undersøkelsen gjentas på samme måte.
+Validitet (gyldighet): om undersøkelsen faktisk måler det den skal måle.
+Generaliserbarhet: om resultatene gjelder utover utvalget og forholdene som ble undersøkt.",dm-populasjon-utvalg,0,
+dm-feiltyper,concept,Datainnsamling og metodevalg,Systematisk og tilfeldig feil,"Systematisk feil: en feil som trekker alle målingene i samme retning, og som ikke blir mindre av flere gjentak.
+Tilfeldig feil: en feil som varierer fra måling til måling, og som betyr mindre når man tar gjennomsnittet av mange målinger.",dm-reliabilitet-validitet,0,
+dm-sporreskjema,skill,Datainnsamling og metodevalg,Lage et spørreskjema,"lage et spørreskjema med entydige, ikke-ledende spørsmål og svaralternativer som lar seg behandle, og teste det på noen få personer før det sendes ut.",dm-skjevhet;dm-kvalitativ-kvantitativ,0,
+dm-sensorer-logging,skill,Datainnsamling og metodevalg,Samle inn data med sensorer og dataloggere,"samle inn data automatisk med sensorer eller dataloggere, velge måleintervall, og vurdere fordelene og feilkildene sammenlignet med manuelle målinger.",dm-feiltyper,0,
+dm-velge-metode,skill,Datainnsamling og metodevalg,Velge og begrunne en innsamlingsmetode,"velge en metode for å samle inn data til et gitt forskningsspørsmål, enten eksperiment, observasjon, spørreundersøkelse eller sekundærdata, og begrunne valget.",dm-kontrollgruppe;dm-primaer-sekundaer;dm-utvalgsmetoder,0,
+dm-drofte-metodevalg,skill,Datainnsamling og metodevalg,Drøfte hvordan metodevalget påvirker dataene,"drøfte hvordan valg av metode for å samle inn data påvirker reliabiliteten, validiteten og generaliserbarheten til dataene og hva de kan brukes til, og sammenligne to metoder for samme spørsmål.",dm-velge-metode;dm-skjevhet;dm-feiltyper,0,
+st-digitalt-verktoy,skill,Statistisk analyse,Behandle data i et digitalt verktøy,"legge inn og organisere et datasett i regneark eller Python, og bruke innebygde funksjoner til beregninger og grafer.",,0,
+st-framstille,skill,Statistisk analyse,Framstille data grafisk,"velge og lage en passende framstilling av et datasett, som histogram, spredningsplott, søylediagram med feilstolper eller boksplott, med akser, enheter og figurtekst.",st-digitalt-verktoy,0,
+st-sentralmal,skill,Statistisk analyse,Beregne gjennomsnitt og median,"beregne gjennomsnitt og median for et datasett, og avgjøre hvilket av dem som beskriver datasettet best når det har ekstreme verdier.",st-digitalt-verktoy,0,
+st-standardavvik,concept,Statistisk analyse,Standardavvik,"Standardavvik: et mål på hvor mye verdiene i et datasett typisk avviker fra gjennomsnittet.",st-sentralmal,0,
+st-beregne-sd,skill,Statistisk analyse,Beregne og tolke standardavvik,"beregne standardavviket til et datasett i et digitalt verktøy, og bruke det til å beskrive og sammenligne spredningen i to datasett.",st-standardavvik,0,
+st-normalfordeling,concept,Statistisk analyse,Normalfordeling,"Normalfordeling: en symmetrisk, klokkeformet fordeling der de fleste verdiene ligger nær gjennomsnittet.
+68–95–99,7-regelen: i en normalfordeling ligger omtrent 68 % av verdiene innenfor ett standardavvik fra gjennomsnittet, 95 % innenfor to og 99,7 % innenfor tre.",st-standardavvik,0,
+st-standardfeil,concept,Statistisk analyse,Standardfeil,"Standardfeil: et mål på hvor usikkert gjennomsnittet av et utvalg er som anslag på populasjonens gjennomsnitt, regnet som standardavviket delt på kvadratroten av antall målinger. Den blir mindre jo flere målinger man har.",st-normalfordeling,0,
+st-konfidensintervall,concept,Statistisk analyse,Konfidensintervall,"Konfidensintervall: et intervall rundt et anslag, regnet ut fra dataene, som med en valgt sikkerhet, ofte 95 %, fanger den sanne verdien. 95 % betyr at metoden fanger den sanne verdien i 95 av 100 tilfeller i det lange løp, ikke at 95 % av målingene ligger i intervallet.",st-standardfeil,0,
+st-beregne-ki,skill,Statistisk analyse,Beregne og tolke et konfidensintervall,"beregne et 95 % konfidensintervall for et gjennomsnitt i et digitalt verktøy, tolke det riktig, og avgjøre om to grupper kan ha samme sanne gjennomsnitt ut fra om intervallene overlapper.",st-konfidensintervall;st-beregne-sd,0,
+st-utvalgsstorrelse,skill,Statistisk analyse,Vurdere hvor stort utvalget må være,"forklare og vise med eksempler hvordan et større utvalg gir smalere konfidensintervall og gjør det lettere å påvise en forskjell, og vurdere om et utvalg er stort nok til spørsmålet.",st-beregne-ki;dm-populasjon-utvalg,0,
+st-regresjon,concept,Statistisk analyse,Regresjon,"Regresjon: å finne den funksjonen, for eksempel en rett linje, som passer best til dataene, slik at summen av de kvadrerte avvikene fra punktene blir minst mulig.
+Residual: avviket mellom en målt verdi og verdien modellen gir.",st-framstille,0,
+st-korrelasjonskoeffisient,concept,Statistisk analyse,Korrelasjonskoeffisient og forklaringsgrad,"Korrelasjonskoeffisient (r): et tall mellom −1 og 1 som sier hvor sterk og i hvilken retning den lineære sammenhengen mellom to størrelser er.
+Forklaringsgrad (R²): andelen av variasjonen i den avhengige størrelsen som modellen forklarer.",st-regresjon;vk-korrelasjon-kausalitet,0,
+st-utfore-regresjon,skill,Statistisk analyse,Utføre og tolke lineær regresjon,"utføre lineær regresjon på et datasett i et digitalt verktøy, og tolke stigningstall og konstantledd med enheter i sammenhengen dataene kommer fra.",st-regresjon;st-digitalt-verktoy,0,
+st-velge-modell,skill,Statistisk analyse,Velge og vurdere en regresjonsmodell,"velge mellom lineær, eksponentiell og polynomisk modell ut fra dataene og det man vet om fenomenet, og vurdere modellen ut fra residualer, forklaringsgrad og faren ved å ekstrapolere.",st-utfore-regresjon;st-korrelasjonskoeffisient;vk-modell,0,
+st-hypotesetest,concept,Statistisk analyse,Nullhypotese og alternativ hypotese,"Nullhypotese: antakelsen om at det ikke finnes noen forskjell eller sammenheng, som testen prøver å finne grunnlag for å forkaste.
+Alternativ hypotese: påstanden om at det finnes en forskjell eller sammenheng.",vk-hd-metode,0,
+st-p-verdi,concept,Statistisk analyse,p-verdi og signifikansnivå,"p-verdi: sannsynligheten for å få et resultat minst like ekstremt som det observerte dersom nullhypotesen er sann. Den er ikke sannsynligheten for at nullhypotesen er sann.
+Signifikansnivå: grensen, ofte 5 %, som p-verdien må være under for at man forkaster nullhypotesen.",st-hypotesetest,0,
+st-feiltyper,concept,Statistisk analyse,Type I- og type II-feil,"Type I-feil: å forkaste en nullhypotese som egentlig er sann, altså å «finne» en effekt som ikke finnes.
+Type II-feil: å beholde en nullhypotese som egentlig er gal, altså å overse en effekt som finnes.",st-p-verdi,0,
+st-t-test,concept,Statistisk analyse,t-test,"t-test: en hypotesetest som avgjør om forskjellen mellom to gjennomsnitt er større enn det tilfeldig variasjon lett kan gi. Den forutsetter at målingene er uavhengige og omtrent normalfordelte.
+Uavhengige utvalg: to ulike grupper som sammenlignes.
+Parede utvalg: de samme individene eller prøvene målt to ganger, for eksempel før og etter.",st-p-verdi;st-standardfeil,0,
+st-utfore-t-test,skill,Statistisk analyse,Utføre en t-test,"formulere nullhypotese og alternativ hypotese, velge riktig type t-test, utføre den i et digitalt verktøy og konkludere ut fra p-verdien og signifikansnivået.",st-t-test;st-digitalt-verktoy,0,
+st-signifikans-betydning,skill,Statistisk analyse,Skille statistisk signifikans fra praktisk betydning,"forklare forskjellen på at et resultat er statistisk signifikant og at det har praktisk betydning, og vurdere hvor stor en påvist forskjell faktisk er.",st-utfore-t-test;st-feiltyper,0,
+st-vurdere-metoder,skill,Statistisk analyse,Vurdere hvilken statistisk metode som gir relevant informasjon,"forklare hva standardavvik, regresjon, konfidensintervall og t-test hver forteller om et datasett, og vurdere hvilke av dem som gir relevant informasjon i en gitt undersøkelse.",st-beregne-sd;st-velge-modell;st-beregne-ki;st-signifikans-betydning,0,
+fp-forskningssporsmal,skill,Eget forskningsprosjekt,Formulere forskningsspørsmål og hypotese,"formulere et avgrenset forskningsspørsmål som kan besvares med de midlene man har, og en hypotese som kan testes.",vk-hd-metode,0,
+fp-litteratursok,skill,Eget forskningsprosjekt,Søke etter og vurdere forskningslitteratur,"søke etter forskningslitteratur om et tema i databaser og søkemotorer for forskning, og vurdere om en kilde er fagfellevurdert, relevant og troverdig.",vkom-fagfellevurdering,0,
+fp-prosjektplan,skill,Eget forskningsprosjekt,Lage en prosjektplan,"lage en plan for et forskningsprosjekt med forskningsspørsmål, hypotese, variabler, metode, utstyr, analyseplan og tidsplan.",fp-forskningssporsmal;dm-velge-metode,0,
+fp-risikovurdering,skill,Eget forskningsprosjekt,Gjøre en risikovurdering,"lage en risikovurdering for et forsøk der farer, sannsynlighet, konsekvens og tiltak er vurdert, og ta hensyn til etiske krav hvis prosjektet involverer mennesker eller dyr.",fp-prosjektplan,0,
+fp-pilotforsok,skill,Eget forskningsprosjekt,Gjennomføre et pilotforsøk,"gjennomføre et lite prøveforsøk før hovedforsøket, og justere metode, utstyr eller måleområde ut fra det man lærte.",fp-prosjektplan,0,
+fp-logg,skill,Eget forskningsprosjekt,Føre forskningslogg og håndtere data,"føre en forskningslogg fortløpende med dato, hva som ble gjort, rådata og avvik fra planen, og lagre data slik at de er sikkerhetskopiert og kan forstås av andre.",fp-prosjektplan,0,
+fp-gjennomfore,skill,Eget forskningsprosjekt,Gjennomføre et selvvalgt forskningsprosjekt,"gjennomføre et selvvalgt forskningsprosjekt etter planen, dokumentere alle avvik og analysere dataene med passende statistiske metoder.",fp-pilotforsok;fp-logg;fp-risikovurdering;st-vurdere-metoder,0,
+fp-drofte-resultater,skill,Eget forskningsprosjekt,Drøfte resultatene fra eget prosjekt,"drøfte resultatene fra eget prosjekt opp mot hypotesen og tidligere forskning, vurdere feilkildene, og vise hvordan valget av metode kan ha påvirket resultatene.",fp-gjennomfore;dm-drofte-metodevalg;vk-styrke-forkaste;fp-litteratursok,0,
+fp-presentere,skill,Eget forskningsprosjekt,Presentere eget forskningsprosjekt muntlig,"presentere eget forskningsprosjekt muntlig eller med plakat for et publikum, med problemstilling, metode, hovedfunn og begrensninger, og svare på spørsmål.",fp-drofte-resultater,0,
+fp-tilbakemelding,skill,Eget forskningsprosjekt,Gi tilbakemelding på andres forskningsarbeid,"vurdere en medelevs forskningsarbeid og gi konkret, konstruktiv tilbakemelding på metode, analyse og konklusjon.",vkom-fagfellevurdering;dm-drofte-metodevalg,0,
+vkom-artikkel-deler,fact,Vitenskapelig kommunikasjon,Delene i en vitenskapelig artikkel,"sammendrag (abstract): hele undersøkelsen kort, med hovedfunn
+innledning: bakgrunn, tidligere forskning og problemstilling
+metode: hvordan undersøkelsen ble gjort, så nøyaktig at andre kan gjenta den
+resultater: hva som ble funnet, i tekst, tabeller og figurer, uten tolkning
+diskusjon: tolkning av resultatene, feilkilder og sammenligning med annen forskning
+konklusjon: svaret på problemstillingen
+referanser: kildene det er vist til",,0,
+vkom-fagfellevurdering,concept,Vitenskapelig kommunikasjon,Fagfellevurdering,"Fagfellevurdering: at uavhengige forskere på samme felt vurderer en artikkel før et vitenskapelig tidsskrift publiserer den, og kan kreve endringer eller avvise den.
+Vitenskapelig tidsskrift: et tidsskrift som publiserer fagfellevurderte forskningsartikler.",vk-reproduserbarhet,0,
+vkom-lese-artikkel,skill,Vitenskapelig kommunikasjon,Lese en vitenskapelig artikkel,"lese en vitenskapelig artikkel og hente ut problemstillingen, metoden, hovedfunnene og begrensningene, og vurdere om konklusjonen følger av resultatene.",vkom-artikkel-deler;vkom-fagfellevurdering,0,
+vkom-referere,skill,Vitenskapelig kommunikasjon,Henvise til kilder,"henvise til kilder i teksten og i en referanseliste etter en fast referansestil, og skille tydelig mellom egne og andres funn og formuleringer.",,0,
+vkom-skrive-metode,skill,Vitenskapelig kommunikasjon,Skrive metodedelen,"skrive en metodedel som beskriver utstyr, prosedyre og analyse så nøyaktig at en annen kan gjenta undersøkelsen.",vkom-artikkel-deler;vk-reproduserbarhet,0,
+vkom-skrive-resultater,skill,Vitenskapelig kommunikasjon,Skrive resultatdelen,"presentere resultatene med nummererte figurer og tabeller med figurtekst, med usikkerhet og enheter, uten å tolke dem i resultatdelen.",vkom-artikkel-deler;st-framstille,0,
+vkom-skrive-sammendrag,skill,Vitenskapelig kommunikasjon,Skrive et sammendrag,"skrive et kort sammendrag av en undersøkelse som gir problemstilling, metode, hovedfunn og konklusjon på noen få setninger.",vkom-artikkel-deler,0,
+vkom-skrive-artikkel,skill,Vitenskapelig kommunikasjon,Skrive en vitenskapelig artikkel om eget arbeid,"skrive en vitenskapelig artikkel om eget forskningsarbeid med alle delene, der diskusjonen bygger på resultatene og konklusjonen svarer på problemstillingen.",vkom-skrive-metode;vkom-skrive-resultater;vkom-skrive-sammendrag;vkom-referere;fp-drofte-resultater,0,
+vkom-villedende,concept,Vitenskapelig kommunikasjon,Villedende framstilling,"Villedende framstilling: en framstilling der dataene er riktige, men valg av akser, utsnitt, sammenligningsgrunnlag eller ordbruk gir leseren et feil inntrykk.",st-framstille,0,
+vkom-presentasjonsform,skill,Vitenskapelig kommunikasjon,Vurdere hvordan presentasjonsformen påvirker budskapet,"vurdere hvordan samme resultat kan gi ulikt inntrykk avhengig av presentasjonsform, som graf, overskrift, artikkel, plakat eller nyhetssak, og velge en form som er ærlig overfor dataene.",vkom-villedende;vkom-skrive-artikkel,0,
+vkom-populaer,skill,Vitenskapelig kommunikasjon,Formidle forskning populærvitenskapelig,"formidle funn fra en undersøkelse til et allment publikum uten fagspråk, uten å overdrive hvor sikre eller viktige funnene er.",vkom-lese-artikkel;vkom-villedende,0,
+vkom-medieoppslag,skill,Vitenskapelig kommunikasjon,Vurdere et medieoppslag om forskning,"vurdere et medieoppslag om forskning ved å finne den opprinnelige studien og sjekke om oppslaget overdriver, blander korrelasjon og årsak eller generaliserer for langt.",vkom-lese-artikkel;vk-skille-korr-kaus,0,
+fs-finansiering,concept,Forskningssystemet,Forskningsfinansiering,"Offentlig finansiering: penger fra staten og internasjonale ordninger, i Norge blant annet gjennom Norges forskningsråd og i Europa gjennom EUs rammeprogram for forskning (Horisont Europa).
+Privat finansiering: penger fra bedrifter og stiftelser, ofte til forskning med et bestemt bruksområde.",vk-fou,0,
+fs-interessekonflikt,concept,Forskningssystemet,Interessekonflikt,"Interessekonflikt: at en forsker eller oppdragsgiver har interesser, ofte økonomiske, som kan påvirke hvordan forskningen gjøres eller hvilke resultater som publiseres. Den skal oppgis åpent.",fs-finansiering,0,
+fs-apen-forskning,concept,Forskningssystemet,Åpen forskning og datadeling,"Åpen tilgang: at forskningsartikler er gratis å lese for alle.
+Åpne data: at datagrunnlaget for forskningen deles, slik at andre kan kontrollere og bygge videre på det.",vk-normer,0,
+fs-samarbeid,skill,Forskningssystemet,Forklare hvorfor forskning er et samarbeid,"forklare med eksempler, som CERN eller kartleggingen av det menneskelige genomet, hvorfor store forskningsspørsmål krever samarbeid på tvers av fag, institusjoner og land.",vk-fou,0,
+fs-vurdere-pavirkning,skill,Forskningssystemet,Vurdere hvordan samarbeid og finansiering påvirker forskningen,"vurdere og beskrive hvordan samarbeid, datautveksling og finansiering påvirker hvilke spørsmål som blir forsket på, hvor raskt kunnskapen utvikler seg og hvor mye man kan stole på resultatene.",fs-samarbeid;fs-interessekonflikt;fs-apen-forskning,0,
+vh-vitenskapelig-revolusjon,concept,Vitenskapshistorie og paradigmer,Den vitenskapelige revolusjonen,"Den vitenskapelige revolusjonen: overgangen i Europa på 1500- og 1600-tallet fra å bygge kunnskap på autoriteter og gamle tekster til å bygge den på systematiske observasjoner, eksperimenter og matematikk.",vk-empiri,0,
+vh-paradigme,concept,Vitenskapshistorie og paradigmer,Paradigme og paradigmeskifte,"Paradigme: det felles rammeverket av teorier, metoder og spørsmål som forskerne i et fag tar for gitt i en periode.
+Normalvitenskap: forskning som løser problemer innenfor det rådende paradigmet.
+Anomali: et resultat som ikke passer inn i paradigmet.
+Paradigmeskifte: at et fag går over til et nytt rammeverk fordi anomaliene blir for mange eller for viktige. Begrepet stammer fra Thomas Kuhn (1962).",vh-vitenskapelig-revolusjon;vk-hypotese-teori-lov,0,
+vh-eksempler-skifter,fact,Vitenskapshistorie og paradigmer,Kjente paradigmeskifter,"fra jorda til sola i sentrum: Kopernikus, 1543
+evolusjon ved naturlig utvalg: Darwin, 1859
+spesiell relativitetsteori: Einstein, 1905
+kontinentaldrift foreslått: Wegener, 1912
+platetektonikk godtatt: 1960-tallet",vh-paradigme,0,
+vh-personer,fact,Vitenskapshistorie og paradigmer,Personer i vitenskapshistorien,"Galileo Galilei: brukte teleskopet til astronomi fra 1609 og forsvarte at jorda går rundt sola
+Isaac Newton: bevegelseslovene og gravitasjonsloven, 1687
+Charles Darwin: evolusjon ved naturlig utvalg, 1859
+Marie Curie: radioaktivitet, nobelpris i fysikk 1903 og i kjemi 1911
+Kristian Birkeland: nordlysforskning, og prosessen for kunstgjødsel som Norsk Hydro ble bygd på, 1903
+Rosalind Franklin: røntgenbildet som viste DNA-ets spiralform, 1952",vh-vitenskapelig-revolusjon,0,
+vh-beskrive-skifte,skill,Vitenskapshistorie og paradigmer,Beskrive et paradigmeskifte,"beskrive ett paradigmeskifte i detalj: det gamle synet, anomaliene som utfordret det, den nye teorien og hvordan og hvor raskt den ble godtatt.",vh-eksempler-skifter,0,
+vh-drofte-skifter,skill,Vitenskapshistorie og paradigmer,Drøfte hva som driver paradigmeskifter,"drøfte hvordan ny teknologi, som teleskopet, mikroskopet eller datamaskinen, og nye vitenskapelige tenkemåter har bidratt til paradigmeskifter i naturvitenskapen.",vh-beskrive-skifte;vk-falsifiserbarhet,0,
+vh-drofte-personer-samfunn,skill,Vitenskapshistorie og paradigmer,Drøfte enkeltpersoners og samfunnets betydning,"drøfte hvilken betydning enkeltpersoner og samfunnsforhold, som krig, økonomi, religion, institusjoner og hvem som fikk delta i forskningen, har hatt for den vitenskapelige og teknologiske utviklingen.",vh-personer;vh-paradigme,0,
+et-etiske-teorier,concept,Etikk og bærekraft,Etiske perspektiver,"Konsekvensetikk: en handling vurderes etter hvilke følger den får for alle som berøres.
+Pliktetikk: en handling vurderes etter om den følger plikter og regler, uansett følgene.
+Dydsetikk: en handling vurderes etter hva et klokt og godt menneske ville gjort.",,0,
+et-forskningsetikk,concept,Etikk og bærekraft,Forskningsetiske prinsipper,"Informert samtykke: at deltakere i forskning får vite hva den går ut på, og frivillig sier ja før de deltar.
+Konfidensialitet: at opplysninger om deltakerne beskyttes og ikke kan spores tilbake til dem.
+Redelighet: at forskeren er ærlig om metode, data og usikkerhet.",et-etiske-teorier,0,
+et-forskningsjuks,concept,Etikk og bærekraft,Forskningsjuks,"Fabrikering: å dikte opp data eller resultater.
+Forfalskning: å endre eller utelate data slik at resultatet blir et annet enn det egentlig var.
+Plagiering: å presentere andres tekst, ideer eller resultater som sine egne.",et-forskningsetikk,0,
+et-dyreforsok,concept,Etikk og bærekraft,De tre R-ene i dyreforsøk,"Erstatning (replacement): bruk andre metoder enn forsøksdyr der det er mulig.
+Reduksjon (reduction): bruk så få dyr som mulig.
+Forbedring (refinement): gjør forsøket så skånsomt for dyrene som mulig.",et-forskningsetikk,0,
+et-fore-var,concept,Etikk og bærekraft,Føre-var-prinsippet og dobbel bruk,"Føre-var-prinsippet: at man skal være forsiktig med å ta i bruk en teknologi når den kan gi alvorlig skade, selv om skaden ennå ikke er bevist.
+Dobbel bruk: at samme kunnskap eller teknologi kan brukes både til nytte og til skade.",et-etiske-teorier,0,
+et-drofte-forskning,skill,Etikk og bærekraft,Drøfte etiske problemstillinger i forskning,"drøfte etiske problemstillinger i forskning, som forsøk på mennesker og dyr, personvern og forskningsjuks, med argumenter fra ulike etiske perspektiver.",et-forskningsjuks;et-dyreforsok,0,
+et-drofte-teknologi,skill,Etikk og bærekraft,Drøfte etiske problemstillinger ved teknologi,"drøfte etiske problemstillinger ved utvikling og bruk av teknologi, som kunstig intelligens, genredigering eller overvåking, ut fra ulike berørte parter og etiske perspektiver, og komme fram til et begrunnet standpunkt.",et-fore-var,0,
+bk-baerekraft,concept,Etikk og bærekraft,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker behovene til mennesker i dag uten å ødelegge mulighetene for kommende generasjoner til å dekke sine behov (Brundtland-kommisjonen, 1987).
+De tre dimensjonene: miljø, økonomi og sosiale forhold, som må ivaretas samtidig.",,0,
+bk-fn-maal,fact,Etikk og bærekraft,FNs bærekraftsmål,"mål 1: utrydde fattigdom
+mål 2: utrydde sult
+mål 3: god helse og livskvalitet
+mål 4: god utdanning
+mål 5: likestilling mellom kjønnene
+mål 6: rent vann og gode sanitærforhold
+mål 7: ren energi til alle
+mål 8: anstendig arbeid og økonomisk vekst
+mål 9: industri, innovasjon og infrastruktur
+mål 10: mindre ulikhet
+mål 11: bærekraftige byer og lokalsamfunn
+mål 12: ansvarlig forbruk og produksjon
+mål 13: stoppe klimaendringene
+mål 14: livet i havet
+mål 15: livet på land
+mål 16: fred, rettferdighet og velfungerende institusjoner
+mål 17: samarbeid for å nå målene",bk-baerekraft,0,
+bk-konsekvensbegreper,concept,Etikk og bærekraft,Målkonflikt og rebound-effekt,"Målkonflikt: at et tiltak som hjelper ett bærekraftsmål, skader et annet, som når vindkraft gir ren energi men legger beslag på natur.
+Rebound-effekt: at en mer effektiv teknologi gjør noe billigere, slik at forbruket øker og spart energi eller ressurser delvis spises opp.
+Livsløpsanalyse: en vurdering av miljøbelastningen fra et produkt fra råvare til avfall.",bk-baerekraft,0,
+bk-analysere-tiltak,skill,Etikk og bærekraft,Analysere et teknologisk bærekraftstiltak,"analysere et teknologisk tiltak knyttet til ett av FNs bærekraftsmål og gjøre rede for hvordan teknologien virker og hvilket problem den skal løse.",bk-fn-maal,0,
+bk-vurdere-konsekvenser,skill,Etikk og bærekraft,Vurdere virkningene av et bærekraftstiltak,"vurdere de tilsiktede og utilsiktede virkningene av et teknologisk bærekraftstiltak, med målkonflikter, rebound-effekter og hvem som tjener og taper, og vurdere om tiltaket alt i alt bidrar til målet.",bk-analysere-tiltak;bk-konsekvensbegreper,0,

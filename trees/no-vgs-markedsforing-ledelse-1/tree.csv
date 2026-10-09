@@ -1,0 +1,222 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Grunnbegreper, kilder og modeller;Forbrukeratferd;Forretningsidé, mål og målgrupper;Markedsundersøkelser;Situasjonsanalyse;Produkt og merkevare;Distribusjon;Pris;Markedskommunikasjon og mediemiks;Markedsmiksen som helhet;Personale og ledelse;Regelverk og etikk;Bærekraft",,,
+,config,,title,Markedsføring og ledelse 1,,,
+,config,,description,"Forbrukeratferd, forretningsidé og målgrupper, markedsundersøkelser, situasjonsanalyse, de fire konkurransemidlene, mediemiks, personalets og lederens rolle, regelverk og bærekraft — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-markedsforing-ledelse-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"markedsføring og ledelse 1 (programfag i økonomi, norsk videregående skole, Vg2)",,,
+,config,,slots.expressionFocus,"bruker «markedsføring» som et annet ord for reklame, blander sammen segment og målgruppe, plasserer muligheter og trusler som interne forhold i SWOT-analysen, kaller alle konkurrenter direkte konkurrenter, blander sammen påslag og avanse eller glemmer om prisen er med eller uten merverdiavgift, ramser opp modeller uten å bruke dem på virksomheten i oppgaven, eller konkluderer uten å begrunne med fakta om den konkrete virksomheten",,,
+,config,,slots.courseSpecifics,"Faget har standpunktkarakter, og eleven kan trekkes ut til muntlig eksamen med forberedelsesdel, laget og sensurert lokalt. La eleven derfor øve på å forklare og drøfte muntlig med fagbegreper, og på å bruke teori og modeller på konkrete, gjerne norske, virksomheter framfor å gjengi teorien generelt.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag økonomi,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3045,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,MFL1; markedsføring; ledelse; økonomi og ledelse; forbrukeratferd; kjøpsprosess; forretningsidé; segmentering; målgruppe; markedsundersøkelse; SWOT; PEST; konkurransemidler; 4P; produktlivssyklus; merkevare; distribusjon; prissetting; påslag; AIDA; mediemiks; intern markedsføring; markedsføringsloven; grønnvasking; bærekraft; muntlig eksamen,,,
+,config,,updated,2026-10-08,,,
+marked,concept,"Grunnbegreper, kilder og modeller",Marked,"Marked: alle de faktiske og mulige kjøperne av et produkt, sammen med tilbyderne som konkurrerer om å selge til dem.",,0,
+behov-onske-ettersporsel,concept,"Grunnbegreper, kilder og modeller","Behov, ønske og etterspørsel","Behov: en følt mangel hos et menneske, som sult eller ønske om tilhørighet.
+Ønske: den konkrete formen et behov får, formet av kultur og personlighet, som lyst på en bestemt burger.
+Etterspørsel: et ønske om et produkt som er støttet av vilje og evne til å betale for det.",,0,
+markedsforing,concept,"Grunnbegreper, kilder og modeller",Markedsføring,"Markedsføring: virksomhetens arbeid med å finne ut hva kundene trenger, og å utvikle, prise, distribuere og kommunisere tilbud som dekker behovet bedre enn konkurrentene og gir virksomheten lønnsomhet. Reklame er bare én liten del av det.",marked;behov-onske-ettersporsel,0,
+konkurransemidler,concept,"Grunnbegreper, kilder og modeller",Konkurransemidler (de fire P-ene),"Konkurransemiddel: et virkemiddel en virksomhet bruker for å vinne kunder i konkurranse med andre. De fire klassiske er produkt, pris, plass (distribusjon) og påvirkning (markedskommunikasjon).",markedsforing,0,
+markedsandel,concept,"Grunnbegreper, kilder og modeller",Markedsandel,"Markedsandel: en virksomhets del av det samlede salget i et marked, oppgitt i prosent og målt enten i kroner eller i solgte enheter.",marked,0,
+teori-modell,concept,"Grunnbegreper, kilder og modeller",Teori og modell,"Modell: en forenklet framstilling av virkeligheten som trekker fram noen få forhold og ser bort fra resten, slik at et tilfelle blir lettere å analysere.
+Teori: en begrunnet forklaring på hvorfor noe henger sammen slik det gjør.",,0,
+bruke-modell-kritisk,skill,"Grunnbegreper, kilder og modeller",Bruke en modell på en virksomhet og vurdere den,"bruke en markedsførings- eller ledelsesmodell på en konkret virksomhet, og vise hva modellen får fram og hva den overser i akkurat dette tilfellet.",teori-modell,0,
+kildekritikk-fag,skill,"Grunnbegreper, kilder og modeller",Vurdere kilder om markeder og virksomheter,"vurdere hvor troverdige kilder om en virksomhet eller bransje er, som årsrapporter, pressemeldinger, bransjestatistikk og nyhetsartikler, ut fra hvem avsenderen er og hva den vil oppnå, og vise til kildene slik at de kan etterprøves.",,0,
+tolke-tallmateriale,skill,"Grunnbegreper, kilder og modeller",Lese og tolke tall om markeder,"hente ut og tolke informasjon fra tabeller og diagrammer om salg, markedsandeler og undersøkelsesresultater, regne om mellom antall og prosent, og si hva tallene viser og ikke viser.",markedsandel,0,
+arbeide-med-problemstilling,skill,"Grunnbegreper, kilder og modeller",Svare på en faglig problemstilling,"velge relevante teorier, modeller og kilder til en dagsaktuell problemstilling om en virksomhet, og bygge opp et begrunnet svar der teorien brukes på virksomheten og ikke bare gjengis.",bruke-modell-kritisk;kildekritikk-fag;tolke-tallmateriale,0,
+forbrukeratferd,concept,Forbrukeratferd,Forbrukeratferd,"Forbrukeratferd: hvordan og hvorfor enkeltpersoner velger, kjøper, bruker og kvitter seg med varer og tjenester.",behov-onske-ettersporsel,0,
+kjopsprosessen,concept,Forbrukeratferd,Kjøpsprosessen,"Kjøpsprosessen: trinnene en forbruker kan gå gjennom ved et kjøp — behovserkjennelse, informasjonssøk, vurdering av alternativer, kjøpsbeslutning og opplevelsen etter kjøpet.",forbrukeratferd,0,
+involvering,concept,Forbrukeratferd,Høy og lav involvering,"Involvering: hvor viktig, kostbart eller risikabelt et kjøp oppleves for kjøperen.
+Høyinvolveringskjøp: et kjøp der kjøperen bruker tid på å søke informasjon og sammenligne, som en mobiltelefon eller en bolig.
+Lavinvolveringskjøp: et rutine- eller impulskjøp med liten tenkning, som melk eller tyggegummi.",kjopsprosessen,0,
+analysere-kjopsprosess,skill,Forbrukeratferd,Analysere kjøpsprosessen for et konkret kjøp,"beskrive hvordan kjøpsprosessen forløper for et konkret kjøp, forklare hvordan den endrer seg med graden av involvering, og peke på hvor i prosessen en virksomhet kan påvirke kjøperen.",involvering,0,
+psykologiske-faktorer,concept,Forbrukeratferd,Psykologiske faktorer,"Psykologiske faktorer: forhold inne i forbrukeren som påvirker kjøpet — motiver, oppfatninger (persepsjon), holdninger, tidligere erfaringer og personlighet.",forbrukeratferd,0,
+maslow,concept,Forbrukeratferd,Maslows behovshierarki,"Maslows behovshierarki: en modell som ordner menneskelige behov i fem nivåer — fysiologiske behov, trygghet, sosial tilhørighet, anerkjennelse og selvrealisering — der behovene lenger ned i hovedsak må være dekket før de høyere blir styrende.",psykologiske-faktorer,0,
+sosiale-faktorer,concept,Forbrukeratferd,Sosiale faktorer og referansegrupper,"Sosiale faktorer: påvirkning fra andre mennesker på kjøpet — familie, venner, kolleger og grupper man tilhører eller ser opp til.
+Referansegruppe: en gruppe en person sammenligner seg med eller ønsker å høre til, og som derfor påvirker valgene hens.
+Opinionsleder: en person andre lytter til og etterligner innenfor et bestemt område.",forbrukeratferd,0,
+kulturelle-faktorer,concept,Forbrukeratferd,Kultur og subkultur,"Kultur: de verdiene, normene og vanene et samfunn deler, og som former hva folk ønsker og hvordan de kjøper.
+Subkultur: en gruppe innenfor samfunnet med egne verdier og vaner, for eksempel knyttet til alder, religion, bosted eller interesser.",forbrukeratferd,0,
+pavirker,concept,Forbrukeratferd,Påvirker (influencer),"Påvirker: en person med mange følgere i sosiale medier som virksomheter betaler eller samarbeider med for å nå følgerne, og som fungerer som en referanseperson for dem.",sosiale-faktorer,0,
+forklare-kjopsvalg,skill,Forbrukeratferd,Forklare hvorfor forbrukere velger som de gjør,"analysere et konkret kjøp eller en kjøpstrend ved hjelp av psykologiske, sosiale og kulturelle faktorer, og vurdere hvilke faktorer som veier tyngst for den aktuelle målgruppen.",analysere-kjopsprosess;maslow;sosiale-faktorer;kulturelle-faktorer,0,
+reflektere-pavirkning,skill,Forbrukeratferd,Reflektere over hvordan markedsføring påvirker forbrukere,"reflektere over hvor langt det er rimelig at virksomheter utnytter psykologiske og sosiale mekanismer, som kjøpspress gjennom påvirkere eller kunstig knapphet, og hvilke grupper som er mest sårbare.",forklare-kjopsvalg;pavirker,0,
+forretningside,concept,"Forretningsidé, mål og målgrupper",Forretningsidé,"Forretningsidé: en kort beskrivelse av hva virksomheten skal tilby, hvem den skal tilby det til, og hvordan den skal gjøre det bedre eller annerledes enn konkurrentene.",markedsforing,0,
+utvikle-forretningside,skill,"Forretningsidé, mål og målgrupper",Utvikle en forretningsidé,"utvikle en forretningsidé for en ny eller tenkt virksomhet med utgangspunkt i et behov som ikke er godt nok dekket, og formulere den slik at hva, hvem og hvordan kommer tydelig fram.",forretningside;behov-onske-ettersporsel,0,
+visjon-mal,concept,"Forretningsidé, mål og målgrupper","Visjon, hovedmål og delmål","Visjon: et ønsket framtidsbilde som skal inspirere og gi virksomheten retning.
+Hovedmål: det overordnede resultatet virksomheten vil oppnå i en periode.
+Delmål: et mindre, konkret mål som skal bidra til at hovedmålet nås.",forretningside,0,
+smart-mal,concept,"Forretningsidé, mål og målgrupper",SMART-mål,"SMART-mål: et mål som er spesifikt, målbart, akseptert (eller oppnåelig), realistisk og tidsbestemt, slik at man i ettertid kan avgjøre om det er nådd.",,0,
+formulere-mal,skill,"Forretningsidé, mål og målgrupper",Formulere mål for en virksomhet,"formulere økonomiske og markedsmessige mål for en virksomhet som oppfyller SMART-kravene, og vise hvordan delmålene henger sammen med hovedmålet og forretningsideen.",smart-mal;visjon-mal;utvikle-forretningside,0,
+forbruker-bedriftsmarked,concept,"Forretningsidé, mål og målgrupper",Forbrukermarked og bedriftsmarked,"Forbrukermarked: privatpersoner som kjøper til eget bruk (B2C).
+Bedriftsmarked: virksomheter og organisasjoner som kjøper til drift eller videresalg (B2B), ofte med flere personer med i beslutningen og mer formelle kjøp.",marked,0,
+segmentering,concept,"Forretningsidé, mål og målgrupper",Segmentering,"Segmentering: å dele et marked inn i grupper av kunder med like behov og lik kjøpsatferd, slik at hver gruppe kan møtes på sin egen måte.",marked,0,
+segmenteringskriterier,concept,"Forretningsidé, mål og målgrupper",Segmenteringskriterier,"Geografiske kriterier: hvor kundene bor, som land, landsdel eller by og bygd.
+Demografiske kriterier: alder, kjønn, inntekt, utdanning og livsfase.
+Psykografiske kriterier: livsstil, verdier, interesser og personlighet.
+Atferdskriterier: hvor ofte kunden kjøper, hvor lojal hen er, og hvilken fordel hen søker i produktet.",segmentering,0,
+krav-til-segment,concept,"Forretningsidé, mål og målgrupper",Krav til et segment,"Krav til et segment: det må kunne måles, være stort og kjøpesterkt nok til å være lønnsomt, være mulig å nå med markedsføring, og reagere annerledes enn de andre segmentene.",segmentering,0,
+malgruppe,concept,"Forretningsidé, mål og målgrupper",Målgruppe,"Målgruppe: det eller de segmentene en virksomhet velger å rette markedsføringen sin mot.",segmentering,0,
+markedsdekning,concept,"Forretningsidé, mål og målgrupper",Strategier for markedsdekning,"Udifferensiert markedsføring: det samme tilbudet til hele markedet.
+Differensiert markedsføring: et tilpasset tilbud til hvert av flere segmenter.
+Konsentrert markedsføring (nisje): all innsats rettet mot ett segment.",malgruppe,0,
+segmentere-marked,skill,"Forretningsidé, mål og målgrupper",Segmentere et marked,"dele et konkret marked inn i segmenter med passende kriterier, og beskrive hvert segment slik at det skiller seg tydelig fra de andre.",segmenteringskriterier;forbruker-bedriftsmarked,0,
+vurdere-malgrupper,skill,"Forretningsidé, mål og målgrupper",Vurdere aktuelle målgrupper,"vurdere hvilke segmenter en virksomhet bør velge som målgruppe og hvilken strategi for markedsdekning som passer, ut fra segmentenes størrelse og kjøpekraft, konkurransen og hvor godt de passer forretningsideen.",segmentere-marked;krav-til-segment;malgruppe;markedsdekning;utvikle-forretningside,0,
+markedsundersokelse,concept,Markedsundersøkelser,Markedsundersøkelse,"Markedsundersøkelse: en systematisk innsamling og analyse av opplysninger om et marked, for å gi et bedre grunnlag for en beslutning.",marked,0,
+primar-sekundar,concept,Markedsundersøkelser,Primærdata og sekundærdata,"Primærdata: opplysninger virksomheten samler inn selv, for akkurat dette formålet.
+Sekundærdata: opplysninger som allerede finnes, samlet inn av andre eller til andre formål, som offentlig statistikk og bransjerapporter.",markedsundersokelse,0,
+kval-kvant,concept,Markedsundersøkelser,Kvantitativ og kvalitativ metode,"Kvantitativ metode: innsamling av tallfestede svar fra mange, for eksempel med spørreskjema, som kan oppsummeres i tabeller og prosent.
+Kvalitativ metode: grundige samtaler med eller observasjoner av få, for å forstå begrunnelser, holdninger og opplevelser.",markedsundersokelse,0,
+undersokelsesmetoder,concept,Markedsundersøkelser,Metoder for datainnsamling,"Spørreundersøkelse: et skjema med faste spørsmål til mange respondenter.
+Dybdeintervju: en lang, åpen samtale med én person.
+Fokusgruppe: en ledet samtale med en liten gruppe om et produkt eller tema.
+Observasjon: å registrere hva folk faktisk gjør, for eksempel i butikken.
+Eksperiment (A/B-test): å prøve to versjoner av et tiltak på to like grupper og sammenligne resultatet.",kval-kvant,0,
+utvalg-populasjon,concept,Markedsundersøkelser,Populasjon og utvalg,"Populasjon: hele gruppen undersøkelsen skal si noe om.
+Utvalg: de i populasjonen som faktisk blir spurt.
+Representativt utvalg: et utvalg som ligner populasjonen på de egenskapene som betyr noe for spørsmålet.",markedsundersokelse,0,
+feilkilder,concept,Markedsundersøkelser,Feilkilder i undersøkelser,"Skjevt utvalg: utvalget ligner ikke populasjonen, for eksempel når bare de mest interesserte svarer.
+Ledende spørsmål: spørsmål formulert slik at de dytter respondenten mot et bestemt svar.
+Frafall: mange av de spurte svarer ikke, og de som svarer kan skille seg fra dem som lot være.",utvalg-populasjon,0,
+velge-metode,skill,Markedsundersøkelser,Planlegge en markedsundersøkelse,"formulere en problemstilling for en markedsundersøkelse og begrunne valget av sekundær- eller primærdata, metode og utvalg ut fra hva virksomheten trenger å vite.",primar-sekundar;undersokelsesmetoder;utvalg-populasjon,0,
+lage-sporreskjema,skill,Markedsundersøkelser,Lage et spørreskjema,"lage et kort spørreskjema med klare og nøytrale spørsmål og dekkende svaralternativer, og prøve det ut på noen få før det tas i bruk.",kval-kvant;feilkilder,0,
+gjennomfore-undersokelse,skill,Markedsundersøkelser,Gjennomføre og analysere en markedsundersøkelse,"gjennomføre en enkel markedsundersøkelse, sammenstille resultatene i tabeller og diagrammer, og trekke forsiktige konklusjoner om markedet eller målgruppen.",velge-metode;lage-sporreskjema;tolke-tallmateriale,0,
+vurdere-undersokelse,skill,Markedsundersøkelser,Vurdere hva en undersøkelse kan brukes til,"vurdere om en publisert eller egen undersøkelse gir grunnlag for de konklusjonene som trekkes, med vekt på utvalg, spørsmålsformulering og frafall.",feilkilder;kildekritikk-fag;gjennomfore-undersokelse,0,
+situasjonsanalyse,concept,Situasjonsanalyse,Situasjonsanalyse,"Situasjonsanalyse: en kartlegging av virksomhetens nåsituasjon — både forholdene i virksomheten selv og i omgivelsene — som grunnlag for mål og strategi.",markedsforing,0,
+interne-eksterne,concept,Situasjonsanalyse,Interne og eksterne forhold,"Interne forhold: forhold virksomheten selv rår over, som økonomi, kompetanse, produkter, beliggenhet og omdømme.
+Eksterne forhold: forhold i omgivelsene som virksomheten ikke styrer, men må tilpasse seg.",situasjonsanalyse,0,
+mikro-makro,concept,Situasjonsanalyse,Mikromiljø og makromiljø,"Mikromiljø (konkurransemiljø): aktørene virksomheten møter direkte — kunder, konkurrenter, leverandører og mellomledd.
+Makromiljø: brede samfunnsforhold som påvirker alle virksomhetene i en bransje.",interne-eksterne,0,
+pest,concept,Situasjonsanalyse,PEST-analyse,"PEST-analyse: en gjennomgang av politiske, økonomiske, sosiokulturelle og teknologiske forhold i makromiljøet. Utvidet med miljømessige og juridiske forhold kalles den PESTEL.",mikro-makro,0,
+konkurrenttyper,concept,Situasjonsanalyse,Direkte og indirekte konkurrenter,"Direkte konkurrent: en virksomhet som tilbyr samme type produkt til de samme kundene.
+Indirekte konkurrent: en virksomhet som dekker det samme behovet på en annen måte, slik en strømmetjeneste konkurrerer med kinoen.",mikro-makro,0,
+swot,concept,Situasjonsanalyse,SWOT-analyse,"SWOT-analyse: en oppsummering av situasjonen i fire felt — styrker og svakheter, som er interne, og muligheter og trusler, som er eksterne.",interne-eksterne,0,
+konkurrentanalyse,skill,Situasjonsanalyse,Gjennomføre en konkurrentanalyse,"finne de viktigste direkte og indirekte konkurrentene til en virksomhet, og sammenligne dem med virksomheten på produkt, pris, distribusjon, kommunikasjon og markedsandel.",konkurrenttyper;markedsandel;konkurransemidler,0,
+swot-analyse,skill,Situasjonsanalyse,Gjennomføre en SWOT-analyse,"sette opp en SWOT-analyse for en konkret virksomhet med utgangspunkt i opplysninger om virksomheten og makromiljøet, plassere hvert forhold riktig som internt eller eksternt, og begrunne hvert punkt.",swot;pest,0,
+situasjonsanalyse-beslutning,skill,Situasjonsanalyse,Bruke situasjonsanalysen som grunnlag for beslutninger,"trekke konklusjoner fra en situasjonsanalyse — hvordan styrker kan brukes til å utnytte muligheter, og hvor svakheter gjør virksomheten sårbar for trusler — og foreslå begrunnede tiltak.",swot-analyse;konkurrentanalyse;vurdere-undersokelse,0,
+produktnivaer,concept,Produkt og merkevare,Produktnivåer,"Kjerneprodukt: den grunnleggende nytten kunden egentlig kjøper, som transport eller trygghet.
+Faktisk produkt: det konkrete produktet med kvalitet, design, merkenavn og emballasje.
+Utvidet produkt: tilleggsytelser som garanti, levering, montering og kundeservice.",konkurransemidler,0,
+vare-tjeneste,concept,Produkt og merkevare,Vare og tjeneste,"Vare: et fysisk produkt som kan lagres og eies.
+Tjeneste: en ytelse som ikke kan tas på eller lagres, som produseres mens kunden bruker den, og som varierer med hvem som utfører den.",,0,
+produktlivssyklus,concept,Produkt og merkevare,Produktlivssyklusen,"Produktlivssyklus: en modell av hvordan salget av et produkt eller en produktkategori utvikler seg over tid, i fire faser — introduksjon, vekst, metning og nedgang.",,0,
+sortiment,concept,Produkt og merkevare,Sortiment,"Sortiment: alle produktene en virksomhet tilbyr.
+Sortimentsbredde: hvor mange ulike produktgrupper sortimentet har.
+Sortimentsdybde: hvor mange varianter det finnes innen hver produktgruppe.",,0,
+merkevare,concept,Produkt og merkevare,Merkevare,"Merkevare: et produkt med navn, logo og særpreg som kundene kjenner igjen, og som gir assosiasjoner og verdi utover det selve produktet gir.",produktnivaer,0,
+merkevarestrategier,concept,Produkt og merkevare,Merkevarestrategier,"Produsentmerke: et merke som eies av produsenten og selges i mange kjeder.
+Egne merkevarer (EMV): merker som eies av en butikkjede og bare selges der.
+Paraplymerke: ett merkenavn brukt på mange ulike produkter.
+Individuelle merker: et eget merkenavn for hvert produkt.",merkevare,0,
+posisjonering,concept,Produkt og merkevare,Posisjonering,"Posisjonering: å bestemme hvilken plass et produkt eller merke skal ha i kundenes bevissthet, sammenlignet med konkurrentene, for eksempel som det billigste, det sunneste eller det mest eksklusive.",merkevare;malgruppe,0,
+plc-tiltak,skill,Produkt og merkevare,Tilpasse konkurransemidlene til livssyklusfasen,"plassere et produkt i produktlivssyklusen ut fra salgsutvikling og konkurranse, og foreslå passende tiltak for produkt, pris, distribusjon og kommunikasjon i den fasen.",produktlivssyklus;konkurransemidler,0,
+utforske-produktstrategi,skill,Produkt og merkevare,Utforske produkt- og merkevarestrategien til en virksomhet,"beskrive produktene, sortimentet og merkevarestrategien til en konkret virksomhet, og vurdere hvordan den bruker produktet til å skille seg ut fra konkurrentene.",produktnivaer;vare-tjeneste;sortiment;merkevarestrategier;posisjonering,0,
+vurdere-emv,skill,Produkt og merkevare,Vurdere egne merkevarer i dagligvarehandelen,"drøfte hvorfor dagligvarekjedene satser på egne merkevarer, og hva det betyr for produsentene, kjedene og forbrukerne.",merkevarestrategier,0,
+distribusjon,concept,Distribusjon,Distribusjon og distribusjonskanal,"Distribusjon: å få produktet fra produsenten til kunden på rett sted, til rett tid og i rett mengde.
+Distribusjonskanal: veien produktet går fra produsent til sluttkunde, med de mellomleddene som er med.",konkurransemidler,0,
+direkte-indirekte,concept,Distribusjon,Direkte og indirekte distribusjon,"Direkte distribusjon: produsenten selger selv til sluttkunden, for eksempel i egen nettbutikk eller gårdsbutikk.
+Indirekte distribusjon: produktet går via mellomledd, som en grossist som kjøper inn store kvanta og selger videre, og en detaljist som selger til forbrukeren.",distribusjon,0,
+dekningsgrad,concept,Distribusjon,"Intensiv, selektiv og eksklusiv distribusjon","Intensiv distribusjon: produktet selges på flest mulig steder, typisk for dagligvarer.
+Selektiv distribusjon: produktet selges gjennom et utvalg forhandlere.
+Eksklusiv distribusjon: produktet selges bare hos én eller svært få forhandlere i et område, typisk for luksusvarer.",distribusjon,0,
+netthandel-omnikanal,concept,Distribusjon,Netthandel og omnikanal,"Netthandel: salg der kunden bestiller via nett eller app og får varen levert eller henter den.
+Omnikanal: at kunden kan bevege seg sømløst mellom fysisk butikk, nettbutikk og app i det samme kjøpet.",direkte-indirekte,0,
+kjeder-franchise,concept,Distribusjon,Kjeder og franchise,"Kjede: en gruppe butikker med felles navn, innkjøp og profil.
+Franchise: en avtale der en franchisegiver lar en selvstendig franchisetaker drive under sitt navn og konsept mot en avgift.",direkte-indirekte,0,
+velge-distribusjon,skill,Distribusjon,Velge distribusjonsstrategi for et produkt,"foreslå og begrunne en distribusjonsstrategi for et produkt, med valg av kanaler og dekningsgrad, ut fra produktets egenskaper, målgruppen og virksomhetens ressurser.",dekningsgrad;netthandel-omnikanal;malgruppe,0,
+vurdere-distribusjon,skill,Distribusjon,Vurdere distribusjon som konkurransemiddel,"analysere hvordan en konkret virksomhet distribuerer produktene sine, og vurdere hvilke fordeler og ulemper valget gir den i konkurransen.",velge-distribusjon;kjeder-franchise,0,
+kostnadsbegreper,concept,Pris,Faste og variable kostnader,"Faste kostnader: kostnader som ikke endrer seg med hvor mye som selges, som husleie og faste lønninger.
+Variable kostnader: kostnader som øker med hvor mye som selges, som innkjøp av varer og råvarer.
+Selvkost: alle kostnadene for en enhet, faste og variable, fordelt per solgte enhet.",,0,
+mva,concept,Pris,Merverdiavgift,"Merverdiavgift (mva): en avgift til staten som legges på salgsprisen til forbruker. Den alminnelige satsen i Norge er 25 prosent, og prisen til forbruker skal oppgis med mva.",,0,
+paslag-avanse,concept,Pris,Påslag og avanse,"Påslag: beløpet som legges på innkjøpsprisen eller selvkosten for å komme fram til salgsprisen, ofte oppgitt i prosent av innkjøpsprisen.
+Avanse: forskjellen mellom salgspris og innkjøpspris, ofte oppgitt i prosent av salgsprisen (uten mva).",kostnadsbegreper,0,
+dekningsbidrag,concept,Pris,Dekningsbidrag,"Dekningsbidrag: salgsprisen uten mva minus de variable kostnadene per enhet, altså det hver solgte enhet bidrar med til å dekke de faste kostnadene og gi overskudd.",kostnadsbegreper,0,
+beregne-paslagspris,skill,Pris,Beregne salgspris med påslag,"regne ut en salgspris med påslag på innkjøpspris eller selvkost, med og uten merverdiavgift, og regne baklengs fra en utsalgspris til avanse og påslag i prosent.",paslag-avanse;mva,0,
+beregne-nullpunkt,skill,Pris,Beregne nullpunktsalg,"regne ut hvor mange enheter som må selges for at inntektene skal dekke alle kostnadene, ved å dele de faste kostnadene på dekningsbidraget per enhet, og bruke svaret til å vurdere om en pris er realistisk.",dekningsbidrag,0,
+prissettingsmetoder,concept,Pris,Prissettingsmetoder,"Kostnadsbasert prissetting: prisen settes ved å legge et påslag på kostnadene.
+Konkurransebasert prissetting: prisen settes ut fra konkurrentenes priser — likt, over eller under.
+Etterspørselsbasert prissetting: prisen settes ut fra hva kundene er villige til å betale.",paslag-avanse,0,
+betalingsvilje,concept,Pris,Betalingsvilje og prisfølsomhet,"Betalingsvilje: den høyeste prisen en kunde er villig til å betale for et produkt.
+Prisfølsomhet: hvor mye etterspørselen endrer seg når prisen endres. Kunder er mer prisfølsomme når det finnes mange gode alternativer.",behov-onske-ettersporsel,0,
+prisstrategier,concept,Pris,Prisstrategier ved lansering,"Skummingsprising: en høy introduksjonspris for å ta ut betalingsviljen hos de ivrigste kjøperne først.
+Penetrasjonsprising: en lav introduksjonspris for raskt å vinne markedsandeler.",betalingsvilje,0,
+psykologisk-prising,concept,Pris,Psykologisk prising og prisdifferensiering,"Psykologisk prising: å utnytte hvordan kunder oppfatter priser, som 199 kroner i stedet for 200, tilbud som «3 for 2» eller å vise en førpris.
+Prisdifferensiering: å ta ulik pris for samme produkt av ulike kunder eller til ulike tider, som studentrabatt eller dyrere billetter i helgene.",betalingsvilje,0,
+velge-prisstrategi,skill,Pris,Velge prissettingsmetode og prisstrategi,"foreslå en prissettingsmetode og en prisstrategi for et produkt, og begrunne valget ut fra kostnader, betalingsvilje, konkurrentenes priser og fasen i produktlivssyklusen.",prissettingsmetoder;prisstrategier;beregne-paslagspris;beregne-nullpunkt;produktlivssyklus,0,
+vurdere-pris,skill,Pris,Vurdere pris som konkurransemiddel,"analysere prisstrategien til en konkret virksomhet, som en lavpriskjede eller et luksusmerke, og vurdere hvordan prisen henger sammen med målgruppen og posisjoneringen.",velge-prisstrategi;psykologisk-prising;posisjonering,0,
+kommunikasjonsprosessen,concept,Markedskommunikasjon og mediemiks,Kommunikasjonsprosessen,"Kommunikasjonsprosessen: en avsender koder et budskap som sendes gjennom en kanal til en mottaker, som tolker det. Støy kan forstyrre underveis, og tilbakemeldingen viser hvordan budskapet ble forstått.",,0,
+aida,concept,Markedskommunikasjon og mediemiks,AIDA-modellen,"AIDA-modellen: fire trinn markedskommunikasjon skal føre mottakeren gjennom — oppmerksomhet (attention), interesse, ønske (desire) og handling (action).",kommunikasjonsprosessen,0,
+appellformer,concept,Markedskommunikasjon og mediemiks,Appellformer i reklame,"Etos: overtalelse gjennom avsenderens troverdighet, som en kjent ekspert.
+Patos: overtalelse gjennom følelser, som humor, frykt eller nostalgi.
+Logos: overtalelse gjennom fakta, tall og fornuftsargumenter.",,0,
+kommunikasjonsmiks,concept,Markedskommunikasjon og mediemiks,Kommunikasjonsmiksen,"Reklame: betalt, upersonlig kommunikasjon i medier.
+Personlig salg: direkte kontakt mellom en selger og en kunde.
+Salgsfremmende tiltak: kortsiktige tilbud som gir kunden en grunn til å kjøpe nå, som rabatter, smaksprøver og konkurranser.
+PR: arbeid for å bygge et godt forhold til omverdenen og få omtale i mediene.
+Direkte markedsføring: kommunikasjon rettet mot enkeltpersoner, som nyhetsbrev og SMS.",konkurransemidler,0,
+kanaltyper,concept,Markedskommunikasjon og mediemiks,"Betalte, eide og fortjente kanaler","Betalte kanaler: plass virksomheten kjøper, som annonser i sosiale medier, TV og på søkemotorer.
+Eide kanaler: kanaler virksomheten selv kontrollerer, som nettside, app, nyhetsbrev og egne kontoer i sosiale medier.
+Fortjente kanaler: omtale virksomheten ikke betaler for, som deling, anmeldelser og redaksjonell omtale.",kommunikasjonsmiks,0,
+kommunikasjonsmal,concept,Markedskommunikasjon og mediemiks,Kommunikasjonsmål,"Kommunikasjonsmål: det kommunikasjonen skal oppnå hos mottakeren — kjennskap til merket, kunnskap om produktet, en positiv holdning eller en handling som kjøp.",aida,0,
+mediemiks,concept,Markedskommunikasjon og mediemiks,"Mediemiks, dekning og frekvens","Mediemiks: kombinasjonen av kanaler en kampanje bruker.
+Dekning: hvor stor del av målgruppen som nås minst én gang.
+Frekvens: hvor mange ganger hver person i målgruppen i snitt nås.",kanaltyper,0,
+analysere-reklame,skill,Markedskommunikasjon og mediemiks,Analysere en reklame,"analysere en annonse eller reklamefilm med AIDA-modellen og appellformene, og vurdere om den treffer målgruppen den er laget for.",aida;appellformer;malgruppe,0,
+utforske-kommunikasjon,skill,Markedskommunikasjon og mediemiks,Utforske kommunikasjonsstrategien til en virksomhet,"analysere hvordan en konkret virksomhet kommuniserer med målgruppen sin — budskap, virkemidler og kanaler — og vurdere hvordan kommunikasjonen bidrar i konkurransen.",kommunikasjonsmiks;kanaltyper;kommunikasjonsmal;analysere-reklame,0,
+planlegge-mediemiks,skill,Markedskommunikasjon og mediemiks,Planlegge en mediemiks,"planlegge en mediemiks for en kampanje med begrunnede valg av kanaler, en tidsplan og en fordeling av budsjettet, ut fra kommunikasjonsmål, målgruppe og ønsket dekning og frekvens.",mediemiks;kommunikasjonsmal;malgruppe,0,
+utvikle-innhold,skill,Markedskommunikasjon og mediemiks,Utvikle innhold for ulike kanaler,"lage markedsføringsinnhold for flere kanaler, som et innlegg i sosiale medier, en annonse og et nyhetsbrev, og tilpasse budskap, format og tone til hver kanal og til målgruppen, innenfor reglene for merking av reklame.",planlegge-mediemiks;analysere-reklame;merking-reklame,0,
+markedsmiks,concept,Markedsmiksen som helhet,Markedsmiks,"Markedsmiks: den samlede kombinasjonen av konkurransemidler en virksomhet bruker mot én målgruppe.
+Utvidet markedsmiks (7 P-er): for tjenester legges personale, prosess og fysiske omgivelser til de fire P-ene.",konkurransemidler;vare-tjeneste,0,
+vurdere-markedsmiks,skill,Markedsmiksen som helhet,Vurdere hvordan en virksomhet kombinerer konkurransemidlene,"analysere markedsmiksen til en konkret virksomhet og vurdere om konkurransemidlene trekker i samme retning og passer målgruppen og posisjoneringen.",markedsmiks;utforske-produktstrategi;vurdere-distribusjon;vurdere-pris;utforske-kommunikasjon,0,
+foresla-markedsmiks,skill,Markedsmiksen som helhet,Lage en markedsplan for et nytt produkt,"sette sammen en enkel markedsplan for et nytt produkt — situasjonsanalyse, mål, målgruppe og markedsmiks — og begrunne hvordan konkurransemidlene virker sammen.",vurdere-markedsmiks;vurdere-malgrupper;formulere-mal;situasjonsanalyse-beslutning,0,
+ledelse,concept,Personale og ledelse,Ledelse,"Ledelse: å få andre til å arbeide mot virksomhetens mål, ved å planlegge, organisere, motivere og følge opp.",,0,
+lederstiler,concept,Personale og ledelse,Lederstiler,"Autoritær ledelse: lederen bestemmer alene og gir klare ordrer.
+Demokratisk ledelse: lederen trekker de ansatte inn i beslutningene.
+Laissez-faire-ledelse: lederen griper lite inn og lar de ansatte styre seg selv.",ledelse,0,
+motivasjon,concept,Personale og ledelse,Indre og ytre motivasjon,"Indre motivasjon: lyst til å gjøre en jobb fordi arbeidet selv oppleves som meningsfullt eller interessant.
+Ytre motivasjon: lyst til å gjøre en jobb på grunn av belønning eller straff utenfra, som lønn, bonus eller ros.",,0,
+organisasjonskultur,concept,Personale og ledelse,Organisasjonskultur,"Organisasjonskultur: de felles verdiene, normene og vanene som preger hvordan de ansatte i en virksomhet tenker og handler, også når ingen leder ser på.",,0,
+intern-markedsforing,concept,Personale og ledelse,Intern markedsføring,"Intern markedsføring: å «selge» virksomhetens strategi, verdier og tilbud til de egne ansatte, slik at de forstår og vil gjennomføre det kundene er lovet.",markedsforing,0,
+sannhetens-oyeblikk,concept,Personale og ledelse,Sannhetens øyeblikk,"Sannhetens øyeblikk: et møte mellom en kunde og en ansatt der kunden danner seg et inntrykk av hele virksomheten.",vare-tjeneste,0,
+personalets-rolle,skill,Personale og ledelse,Forklare personalets rolle i markedsføringen,"forklare hvordan de ansattes holdninger, kunnskap og service påvirker kundeopplevelsen og om markedsføringsstrategien lykkes, særlig i en tjenestebedrift.",sannhetens-oyeblikk;intern-markedsforing;organisasjonskultur,0,
+lederens-rolle,skill,Personale og ledelse,Vurdere lederens rolle i gjennomføringen av strategien,"vurdere hvordan lederstil, motivasjon av de ansatte og intern markedsføring kan avgjøre om en markedsføringsstrategi blir gjennomført, med utgangspunkt i en konkret virksomhet.",personalets-rolle;lederstiler;motivasjon,0,
+markedsforingsloven,concept,Regelverk og etikk,Markedsføringsloven,"Markedsføringsloven: loven som regulerer markedsføring rettet mot forbrukere i Norge. Den krever at markedsføringen er i samsvar med god markedsføringsskikk, og forbyr urimelig og villedende handelspraksis.",markedsforing,0,
+villedende,concept,Regelverk og etikk,Villedende markedsføring,"Villedende markedsføring: markedsføring som gir uriktige eller misvisende opplysninger, eller holder tilbake vesentlige opplysninger, slik at forbrukeren kan ta et valg hen ellers ikke ville tatt.",markedsforingsloven,0,
+merking-reklame,concept,Regelverk og etikk,Merking av reklame,"Merking av reklame: reklame skal tydelig framstå som reklame, uansett kanal.
+Skjult reklame: markedsføring forkledd som noe annet, som et innlegg fra en påvirker som ikke er merket som reklame eller annonse.",markedsforingsloven,0,
+barn-reklame,concept,Regelverk og etikk,Vern av barn i markedsføring,"Vern av barn: markedsføring rettet mot barn skal ta særlig hensyn til at barn er lette å påvirke, og det er ikke lov å oppfordre barn direkte til å kjøpe eller til å mase på foreldrene om å kjøpe.",markedsforingsloven,0,
+personvern,concept,Regelverk og etikk,Personvern i markedsføring,"Personopplysning: en opplysning som kan knyttes til en enkeltperson, som navn, e-postadresse eller kjøpshistorikk.
+Personvernforordningen (GDPR): regelverket som krever et lovlig grunnlag, ofte samtykke, for å samle inn og bruke personopplysninger, også til målrettet reklame.",,0,
+regler-fakta,fact,Regelverk og etikk,Regler og tilsyn for markedsføring i Norge,"tilsyn med markedsføring rettet mot forbrukere: Forbrukertilsynet
+tilsyn med personvern: Datatilsynet
+reklame for tobakk: forbudt
+reklame for alkoholholdig drikk: forbudt
+reklame på e-post og SMS til privatpersoner: krever at mottakeren har samtykket på forhånd
+reklame der kroppens fasong, størrelse eller hud er endret ved retusjering: skal merkes med et eget retusjeringsmerke
+angrerett ved kjøp på nett: 14 dager",markedsforingsloven;personvern,0,
+etikk,concept,Regelverk og etikk,Etisk ansvar,"Etikk: refleksjon over hva som er rett og galt å gjøre.
+Etisk ansvar i markedsføring: å vurdere hvordan markedsføringen påvirker forbrukere, ansatte og samfunnet, også der loven ikke setter noen grense. Det lovlige er ikke alltid det etisk forsvarlige.",,0,
+vurdere-lovlighet,skill,Regelverk og etikk,Vurdere om markedsføring er lovlig,"vurdere om en konkret reklame eller kampanje følger markedsføringsloven og de særlige reglene, og begrunne svaret med reglene om villedning, merking av reklame og vern av barn.",villedende;merking-reklame;barn-reklame;regler-fakta,0,
+etisk-vurdering,skill,Regelverk og etikk,Vurdere virksomhetens etiske ansvar,"drøfte om en lovlig markedsføringspraksis likevel er etisk forsvarlig, og veie virksomhetens ønske om salg mot hensynet til forbrukerne, de ansatte og samfunnet.",vurdere-lovlighet;etikk;reflektere-pavirkning,0,
+baerekraftig-utvikling,concept,Bærekraft,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker behovene i dag uten å ødelegge mulighetene kommende generasjoner har til å dekke sine. Den har tre dimensjoner — sosial, økonomisk og miljømessig.",,0,
+trippel-bunnlinje,concept,Bærekraft,Trippel bunnlinje,"Trippel bunnlinje: at en virksomhet regner resultatet sitt på tre områder — økonomisk overskudd, sosialt ansvar og miljøpåvirkning — og ikke bare på det økonomiske.",baerekraftig-utvikling,0,
+gronnvasking,concept,Bærekraft,Grønnvasking,"Grønnvasking: å gi et mer miljøvennlig eller bærekraftig inntrykk av en virksomhet eller et produkt enn det er dekning for, for eksempel med vage ord som «grønn» eller «klimavennlig» uten dokumentasjon.",baerekraftig-utvikling;villedende,0,
+merkeordninger,fact,Bærekraft,Merkeordninger for bærekraft,"Svanemerket: det offisielle nordiske miljømerket
+EU Ecolabel (Blomsten): EUs offisielle miljømerke
+Debio-merket (Ø-merket): merket for økologisk produsert mat og andre produkter i Norge
+Fairtrade-merket: merket for produkter der produsentene i fattige land får en minstepris og bedre arbeidsvilkår",baerekraftig-utvikling,0,
+baerekraft-markedsmiks,skill,Bærekraft,Vurdere bærekraften i en markedsmiks,"vurdere hvordan valg av produkt, emballasje, distribusjon, pris og kommunikasjon påvirker sosial, økonomisk og miljømessig bærekraft for en konkret virksomhet.",trippel-bunnlinje;markedsmiks,0,
+vurdere-baerekraftspastand,skill,Bærekraft,Vurdere en bærekraftspåstand i markedsføringen,"vurdere om en miljø- eller bærekraftspåstand i en reklame er konkret og dokumentert, eller om den kan være grønnvasking, og bruke kjente merkeordninger i vurderingen.",gronnvasking;merkeordninger;vurdere-lovlighet,0,
+reflektere-baerekraft,skill,Bærekraft,Reflektere over spenningen mellom markedsføring og bærekraft,"reflektere over at markedsføring både kan øke forbruket og fremme bærekraftige valg, og drøfte hvordan en virksomhet kan håndtere denne spenningen ut fra sosiale, økonomiske og miljømessige hensyn.",baerekraft-markedsmiks;vurdere-baerekraftspastand;etisk-vurdering,0,

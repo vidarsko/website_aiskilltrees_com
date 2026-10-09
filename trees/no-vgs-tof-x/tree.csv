@@ -1,0 +1,168 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Produktutvikling;Elektriske kretser;Mikrokontroller og programmering;Sensorer;Forsøk og målinger;Dataanalyse og usikkerhet;Teknologi, etikk og samfunn",,,
+,config,,title,Teknologi og forskningslære X,,,
+,config,,description,"Produktutvikling med kravspesifikasjon og arbeidstegninger, elektriske kretser, mikrokontrollere og programmering, kvantitative forsøk, dataanalyse og usikkerhet, etikk og bærekraft — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,no-vgs-tof-x-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,teknologi og forskningslære X (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"oppgir måleresultater uten enhet eller uten usikkerhet, oppgir flere siffer enn målingen tåler, blander strøm og spenning (sier at det går spenning gjennom en komponent), blander analoge og digitale signaler, skriver krav som ikke kan testes («produktet skal være brukervennlig»), blander systematiske og tilfeldige feil, eller trekker en konklusjon som er sterkere enn dataene tåler",,,
+,config,,slots.courseSpecifics,"Faget er praktisk og prosjektbasert: elevene bygger og programmerer egne produkter med mikrokontroller og gjør egne forsøk. Faget vurderes med standpunktkarakter, og eleven kan trekkes ut til lokalt gitt muntlig-praktisk eksamen med forberedelsesdel. Knytt derfor gjerne øvingen til et produkt eller forsøk eleven selv har laget, og la eleven forklare muntlig hva hen gjorde og hvorfor.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag realfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3051,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,technology,,,
+,config,,keywords,TOF;teknologi;forskningslære;Arduino;micro:bit;mikrokontroller;programmering;elektronikk;Ohms lov;kravspesifikasjon;arbeidstegning;CAD;3D-printing;prototyp;måleusikkerhet;standardavvik;feilkilder;regresjon;etikk;bærekraft,,,
+,config,,updated,2026-10-08,,,
+prod-designprosess,concept,Produktutvikling,Iterativ designprosess og prototyp,"Iterativ designprosess: en arbeidsmåte der man går fra idé via krav, skisse, prototyp og test til forbedring, og gjentar runden til produktet er godt nok.
+Prototyp: en tidlig, enkel versjon av produktet som er laget for å teste en idé, ikke for å være ferdig.",,0,
+prod-kravspesifikasjon,concept,Produktutvikling,Kravspesifikasjon,"Kravspesifikasjon: en liste over de kravene et produkt skal oppfylle, formulert slik at hvert krav kan sjekkes med en test eller en måling.
+Funksjonskrav: hva produktet skal gjøre, for eksempel «lyset slår seg på når det er mørkere enn 50 lux».
+Rammekrav: grensene produktet må holde seg innenfor, som pris, størrelse, vekt, strømforbruk og materialer.",prod-designprosess,0,
+prod-skrive-krav,skill,Produktutvikling,Skrive en kravspesifikasjon,"skrive en kravspesifikasjon for et produkt med målbare funksjonskrav og rammekrav, og skrive om vage krav («skal være rask») til krav som kan testes.",prod-kravspesifikasjon,0,"Gi eleven en kort beskrivelse av et produkt og en liste med vage krav, og la eleven gjøre dem målbare. Spør etter hvert krav: hvordan vil du teste dette?"
+prod-arbeidstegning,concept,Produktutvikling,Arbeidstegning,"Arbeidstegning: en målsatt teknisk tegning som inneholder alt som trengs for å lage en del, uten at man må spørre konstruktøren.
+Riss: en tegning av delen sett rett forfra, ovenfra eller fra siden; en arbeidstegning har vanligvis flere riss.
+Målestokk: forholdet mellom lengde på tegningen og lengde i virkeligheten, for eksempel 1:2.",,0,
+prod-lese-tegning,skill,Produktutvikling,Lese en arbeidstegning,"lese mål, materialer og detaljer ut av en arbeidstegning, regne om fra målestokk til virkelige mål, og se for seg delen ut fra rissene.",prod-arbeidstegning,0,
+prod-lage-tegning,skill,Produktutvikling,Lage en arbeidstegning,"lage en målsatt arbeidstegning av en enkel del, for hånd eller i et tegneprogram, med de rissene som trengs, mål og målestokk.",prod-lese-tegning,0,
+prod-cad,skill,Produktutvikling,Modellere en del i 3D og gjøre den klar for produksjon,"modellere en enkel del i et 3D-modelleringsprogram ut fra en arbeidstegning, og eksportere den til 3D-printing eller laserkutting med riktige mål og toleranser.",prod-lage-tegning,0,
+prod-materialvalg,skill,Produktutvikling,Velge materialer og byggemåte,"velge materialer, verktøy og byggemåte for et produkt ut fra kravspesifikasjonen, og begrunne valget med styrke, vekt, pris, bearbeiding og miljøbelastning.",prod-skrive-krav,0,
+prod-blokkdiagram,skill,Produktutvikling,Dele et produkt inn i delsystemer,"tegne et blokkdiagram som deler et produkt inn i inngang (sensorer, knapper), behandling (mikrokontroller og program) og utgang (lys, lyd, motor, skjerm), og vise hvilke signaler som går mellom blokkene.",mc-mikrokontroller;sig-sensor-aktuator,0,
+prod-testplan,skill,Produktutvikling,Lage og gjennomføre en testplan,"lage en testplan som sjekker produktet mot hvert krav i kravspesifikasjonen, gjennomføre testene og føre resultatet i en tabell over bestått og ikke bestått.",prod-skrive-krav,0,
+prod-feilsoke,skill,Produktutvikling,Feilsøke et sammensatt produkt,"feilsøke et produkt som ikke virker ved å isolere delsystemene (krets, program, mekanikk) og teste dem hver for seg, og endre én ting om gangen.",prod-blokkdiagram;el-feilsoke-krets;pr-feilsoke-kode,0,
+prod-utvikle-produkt,skill,Produktutvikling,Utvikle og teste et produkt med mikrokontroller,"utvikle et funksjonelt produkt med mikrokontroller fra kravspesifikasjon og arbeidstegninger til en fungerende prototyp, og teste det mot kravene.",prod-testplan;prod-feilsoke;prod-materialvalg;prod-lage-tegning;mc-pwm-styre;sig-lese-analog;mc-knapp,0,
+prod-dokumentere,skill,Produktutvikling,Dokumentere en produktutvikling,"dokumentere utviklingen av et produkt i en logg eller rapport med krav, tegninger, koblingsskjema, kode, testresultater og hvilke endringer som ble gjort underveis og hvorfor.",prod-utvikle-produkt,0,
+prod-forbedringer,skill,Produktutvikling,Vurdere utvidelser og forbedringer,"vurdere ut fra testresultatene og brukernes behov hvilke forbedringer og utvidelser av et produkt som er mulige, og prioritere dem etter nytte og kostnad.",prod-utvikle-produkt,0,
+el-strom-spenning-resistans,concept,Elektriske kretser,"Strøm, spenning og resistans","Elektrisk strøm: mengden ladning som passerer et punkt i kretsen per sekund, målt i ampere (A). Strømmen går gjennom komponentene.
+Spenning: forskjellen i elektrisk potensial mellom to punkter, målt i volt (V). Spenningen ligger over en komponent.
+Resistans: hvor mye en komponent hindrer strømmen, målt i ohm (Ω).",,0,
+el-ohms-lov,skill,Elektriske kretser,Bruke Ohms lov,"bruke sammenhengen U = R · I til å regne ut spenning, strøm eller resistans når de to andre er kjent, med riktige enheter.",el-strom-spenning-resistans,0,
+el-koblingsskjema,concept,Elektriske kretser,Koblingsskjema og koblingsbrett,"Koblingsskjema: en tegning av en krets med standardsymboler, som viser hvordan komponentene henger sammen elektrisk, ikke hvordan de ligger fysisk.
+Koblingsbrett: et brett med hull der radene er koblet sammen innvendig, slik at man kan bygge kretser uten lodding.",el-strom-spenning-resistans,0,
+el-serie-parallell,concept,Elektriske kretser,Serie- og parallellkobling,"Seriekobling: komponentene ligger etter hverandre, så den samme strømmen går gjennom alle, og spenningene over dem summeres.
+Parallellkobling: komponentene ligger i hver sin gren mellom de samme to punktene, så de har samme spenning, og strømmene i grenene summeres.",el-koblingsskjema,0,
+el-beregne-kretser,skill,Elektriske kretser,Beregne strøm og spenning i enkle kretser,"regne ut samlet resistans, strøm og spenning over hver komponent i enkle serie- og parallellkoblinger av motstander.",el-ohms-lov;el-serie-parallell,0,
+el-spenningsdeler,skill,Elektriske kretser,Beregne en spenningsdeler,"regne ut utgangsspenningen fra to motstander i serie, og forklare hvordan utgangsspenningen endrer seg når den ene motstanden endrer seg.",el-beregne-kretser,0,
+el-fargekoder,fact,Elektriske kretser,Fargekodene på motstander,"svart: 0
+brun: 1
+rød: 2
+oransje: 3
+gul: 4
+grønn: 5
+blå: 6
+fiolett: 7
+grå: 8
+hvit: 9
+gull som toleransering: ±5 %
+sølv som toleransering: ±10 %",el-strom-spenning-resistans,0,
+el-diode-led,concept,Elektriske kretser,Diode og lysdiode,"Diode: en komponent som bare slipper strøm gjennom i én retning.
+Lysdiode (LED): en diode som lyser når strøm går gjennom den. Den har et fast spenningsfall og må ha en formotstand som begrenser strømmen, ellers brenner den.",el-strom-spenning-resistans,0,
+el-formotstand,skill,Elektriske kretser,Beregne formotstanden til en lysdiode,"regne ut hvor stor formotstand en lysdiode trenger ut fra forsyningsspenningen, spenningsfallet over dioden og ønsket strøm, og velge nærmeste standardverdi som gir trygg strøm.",el-diode-led;el-beregne-kretser,0,
+el-multimeter,skill,Elektriske kretser,Måle med multimeter,"måle spenning (parallelt over komponenten), strøm (i serie med komponenten) og resistans (med kretsen strømløs) med et multimeter, og velge riktig måleområde.",el-koblingsskjema;el-serie-parallell,0,
+el-kortslutning,concept,Elektriske kretser,Kortslutning,"Kortslutning: en forbindelse med nesten ingen resistans mellom pluss og minus, slik at strømmen blir svært stor og komponenter, batterier eller mikrokontrolleren kan bli ødelagt eller varme.",el-ohms-lov,0,
+el-feilsoke-krets,skill,Elektriske kretser,Feilsøke en krets systematisk,"finne feilen i en krets som ikke virker ved å sammenligne den med koblingsskjemaet, sjekke forsyning og jord, og måle spenninger punkt for punkt.",el-multimeter;el-kortslutning,0,
+mc-mikrokontroller,concept,Mikrokontroller og programmering,Mikrokontroller,"Mikrokontroller: en liten datamaskin på én brikke, med prosessor, minne og inn- og utganger, som kjører det samme programmet om og om igjen og styrer noe i den fysiske verden. Arduino og micro:bit er eksempler.",,0,
+mc-pinner,concept,Mikrokontroller og programmering,Pinnene på en mikrokontroller,"Digital pinne: en pinne som enten er høy (forsyningsspenning) eller lav (0 V), og som kan settes som inngang eller utgang.
+Analog inngang: en pinne som kan måle en spenning mellom 0 V og forsyningsspenningen.
+Jord (GND): referansepunktet på 0 V som alle spenninger i kretsen måles mot.",mc-mikrokontroller;el-strom-spenning-resistans,0,
+mc-programstruktur,concept,Mikrokontroller og programmering,Oppsett og hovedløkke,"Oppsett: den delen av programmet som kjøres én gang når mikrokontrolleren starter, der pinner og variabler gjøres klare.
+Hovedløkke: den delen av programmet som gjentas om og om igjen så lenge mikrokontrolleren har strøm.",mc-mikrokontroller,0,
+pr-variabler,concept,Mikrokontroller og programmering,Variabel og datatype,"Variabel: et navngitt sted i minnet som holder en verdi programmet kan lese og endre.
+Datatype: hva slags verdi en variabel kan holde, for eksempel heltall, desimaltall, sannhetsverdi (sann/usann) eller tekst.",,0,
+pr-betingelser,skill,Mikrokontroller og programmering,Bruke betingelser,"bruke hvis-ellers-setninger, sammenligninger og logiske operatorer (og, eller, ikke) til å la programmet gjøre ulike ting avhengig av verdier.",pr-variabler,0,
+pr-lokker,skill,Mikrokontroller og programmering,Bruke løkker,"bruke tellende løkker og løkker som går så lenge en betingelse er sann, og forutsi hvor mange ganger en løkke kjøres.",pr-betingelser,0,
+pr-funksjoner,skill,Mikrokontroller og programmering,Skrive egne funksjoner,"dele programmet inn i egne funksjoner med parametere og returverdi, slik at kode som brukes flere ganger bare skrives én gang.",pr-lokker,0,
+pr-lister,skill,Mikrokontroller og programmering,Lagre verdier i en liste,"lagre mange målinger i en liste (array), gå gjennom den med en løkke og regne ut for eksempel største verdi eller gjennomsnitt.",pr-lokker,0,
+mc-digital-utgang,skill,Mikrokontroller og programmering,Styre en digital utgang,"programmere en mikrokontroller til å slå en lysdiode eller annen digital utgang av og på, og la den blinke i et gitt mønster.",mc-pinner;mc-programstruktur;pr-variabler;el-formotstand,0,
+mc-pullup,concept,Mikrokontroller og programmering,Pull-up- og pull-down-motstand,"Pull-up- eller pull-down-motstand: en motstand som holder en digital inngang på et kjent nivå, høyt eller lavt, når knappen ikke er trykket, slik at inngangen ikke «flyter» og gir tilfeldige verdier.",mc-pinner,0,
+mc-knapp,skill,Mikrokontroller og programmering,Lese en knapp,"koble til og lese en trykknapp på en digital inngang med pull-up- eller pull-down-motstand, og la programmet reagere når knappen trykkes.",mc-pullup;pr-betingelser;mc-programstruktur,0,
+mc-seriell,skill,Mikrokontroller og programmering,Skrive ut verdier fra mikrokontrolleren,"sende verdier fra mikrokontrolleren til datamaskinen og følge dem i en seriell monitor eller plotter, for å se hva programmet gjør.",mc-programstruktur;pr-variabler,0,
+pr-feilsoke-kode,skill,Mikrokontroller og programmering,Feilsøke et program,"finne feil i et program ved å lese feilmeldinger, skrive ut mellomverdier og teste én del av programmet om gangen.",mc-seriell;pr-betingelser,0,
+mc-pwm,concept,Mikrokontroller og programmering,Pulsbreddemodulasjon (PWM),"Pulsbreddemodulasjon (PWM): en digital utgang som slås raskt av og på, der andelen av tiden den er på (arbeidssyklusen) bestemmer hvor mye effekt lasten får i gjennomsnitt.",mc-pinner,0,
+mc-pwm-styre,skill,Mikrokontroller og programmering,Styre lysstyrke og fart med PWM,"bruke PWM til å dimme en lysdiode eller styre farten til en motor, og regne ut gjennomsnittsspenningen for en gitt arbeidssyklus.",mc-pwm;mc-digital-utgang,0,
+sig-analog-digital,concept,Sensorer,Analogt og digitalt signal,"Analogt signal: et signal som kan ha alle verdier innenfor et område og endre seg gradvis, som en spenning fra 0 til 5 V.
+Digitalt signal: et signal som bare har et begrenset antall verdier, i enkleste fall høy og lav.",mc-pinner,0,
+sig-sensor-aktuator,concept,Sensorer,Sensor og aktuator,"Sensor: en komponent som gjør en fysisk størrelse, som lys, temperatur eller avstand, om til et elektrisk signal.
+Aktuator: en komponent som gjør et elektrisk signal om til en fysisk virkning, som bevegelse, lys eller lyd.",,0,
+sig-sensortyper,fact,Sensorer,Vanlige sensorer og hva de måler,"lysfølsom motstand (LDR): lysstyrke
+termistor: temperatur
+potensiometer: vinkel eller posisjon
+ultralydsensor: avstand
+akselerometer: akselerasjon og helning
+PIR-sensor: bevegelse, ut fra varmestråling
+fuktighetssensor: luftfuktighet
+mikrofon: lydnivå",sig-sensor-aktuator,0,
+sig-ad-omformer,concept,Sensorer,AD-omformer og oppløsning,"AD-omformer: kretsen i mikrokontrolleren som gjør en analog spenning om til et heltall.
+Oppløsning: hvor mange trinn omformeren deler måleområdet inn i. En n-bits omformer har 2ⁿ trinn, så en 10-bits omformer gir verdier fra 0 til 1023.",sig-analog-digital,0,
+sig-regne-ad,skill,Sensorer,Regne om fra AD-verdi til fysisk størrelse,"regne om en verdi fra AD-omformeren til spenning, og videre til den fysiske størrelsen sensoren måler, og regne ut hvor stor spenning ett trinn tilsvarer.",sig-ad-omformer;el-ohms-lov,0,
+sig-lese-analog,skill,Sensorer,Lese en analog sensor,"koble en analog sensor, som en lysfølsom motstand i en spenningsdeler, til en analog inngang, og lese og skrive ut verdiene i programmet.",sig-ad-omformer;el-spenningsdeler;mc-seriell,0,
+sig-egenskaper,concept,Sensorer,Egenskapene til en sensor,"Måleområde: fra minste til største verdi sensoren kan måle.
+Oppløsning: den minste endringen sensoren kan registrere.
+Nøyaktighet: hvor nær den sanne verdien sensoren måler.
+Responstid: hvor lang tid sensoren bruker på å reagere på en endring.",sig-sensortyper;sig-ad-omformer,0,
+sig-kalibrere,skill,Sensorer,Kalibrere en sensor,"kalibrere en sensor mot kjente referanseverdier, lage en kalibreringskurve og bruke den til å regne om sensorens rådata til riktig fysisk størrelse.",sig-regne-ad;dat-lineaer-tilpasning,0,
+met-storrelse-enhet,concept,Forsøk og målinger,Målt størrelse og enhet,"Målt størrelse: et tall og en enhet sammen; et tall uten enhet er ikke et måleresultat.
+SI-enhet: enhetene i det internasjonale enhetssystemet, som meter, kilogram, sekund, ampere og kelvin, og enhetene som er bygd av dem.",,0,
+met-prefikser,fact,Forsøk og målinger,SI-prefikser,"G (giga): 10⁹
+M (mega): 10⁶
+k (kilo): 10³
+m (milli): 10⁻³
+µ (mikro): 10⁻⁶
+n (nano): 10⁻⁹",met-storrelse-enhet,0,
+met-regne-enheter,skill,Forsøk og målinger,Regne om mellom enheter,"regne om mellom enheter og prefikser, for eksempel fra mA til A og fra km/h til m/s, og kontrollere svaret med en overslagsregning.",met-prefikser,0,
+met-gjeldende-siffer,concept,Forsøk og målinger,Gjeldende siffer,Gjeldende siffer: sifrene i et måletall som faktisk bærer informasjon fra målingen. Et svar regnet ut fra målinger skal ikke ha flere gjeldende siffer enn den minst presise målingen.,met-storrelse-enhet,0,
+met-kvantitativ,concept,Forsøk og målinger,Kvantitativ og kvalitativ metode,"Kvantitativ metode: undersøkelser der dataene er tall fra målinger eller tellinger, og der de behandles med regning og statistikk.
+Kvalitativ metode: undersøkelser der dataene er beskrivelser, som intervjuer og observasjoner, og der de tolkes uten å gjøres om til tall.",,0,
+met-variabler,concept,Forsøk og målinger,"Uavhengig, avhengig og kontrollert variabel","Uavhengig variabel: den størrelsen forskeren endrer med vilje i et forsøk.
+Avhengig variabel: den størrelsen som måles for å se om den endrer seg.
+Kontrollvariabel: en størrelse som holdes konstant, slik at den ikke påvirker resultatet.",met-kvantitativ,0,
+met-hypotese,concept,Forsøk og målinger,Hypotese,"Hypotese: en presis påstand om en sammenheng som kan testes med et forsøk, og som kan vise seg å være feil.",met-variabler,0,
+met-planlegge,skill,Forsøk og målinger,Planlegge et kvantitativt forsøk,"planlegge et forsøk som tester en hypotese ved å endre én variabel og holde de andre konstante, og bestemme måleutstyr, antall måleverdier og antall gjentak.",met-hypotese;met-storrelse-enhet,0,
+met-reliabilitet-validitet,concept,Forsøk og målinger,Reliabilitet og validitet,"Reliabilitet (pålitelighet): om man får samme resultat når målingen eller forsøket gjentas på samme måte.
+Validitet (gyldighet): om man faktisk måler det man har tenkt å måle.",met-planlegge,0,
+met-tabell-graf,skill,Forsøk og målinger,Framstille måledata i tabell og graf,"framstille måledata i en tabell med enheter i overskriftene og i en graf med riktig graftype, akser med størrelse og enhet, og den uavhengige variabelen på den vannrette aksen.",met-variabler;met-storrelse-enhet,0,
+met-gjennomfore,skill,Forsøk og målinger,Gjennomføre og dokumentere et forsøk,"gjennomføre et forsøk etter planen, føre alle måleverdier fortløpende med enheter, og notere avvik fra planen og forhold som kan ha påvirket resultatet.",met-planlegge;met-gjeldende-siffer,0,
+met-vurdere-palitelighet,skill,Forsøk og målinger,Vurdere påliteligheten til resultatene,"vurdere hvor pålitelige resultatene fra et kvantitativt forsøk er ut fra spredningen mellom gjentak, måleutstyret, kontrollvariablene og antall målinger, og om forsøket faktisk målte det det skulle.",met-reliabilitet-validitet;dat-standardavvik;met-gjennomfore,0,
+dat-regneark,skill,Dataanalyse og usikkerhet,Behandle måledata digitalt,"bruke regneark eller Python til å legge inn måledata, regne med formler over mange rader og lage grafer.",met-tabell-graf,0,
+dat-gjennomsnitt,skill,Dataanalyse og usikkerhet,Regne ut gjennomsnitt og median,"regne ut gjennomsnitt, median og variasjonsbredde for en serie måleverdier, og forklare hvorfor gjennomsnittet av flere gjentak er bedre enn én enkelt måling.",met-storrelse-enhet,0,
+dat-standardavvik,concept,Dataanalyse og usikkerhet,Standardavvik,Standardavvik: et mål på hvor mye måleverdiene typisk avviker fra gjennomsnittet. Et lite standardavvik betyr at gjentatte målinger ligger tett.,dat-gjennomsnitt,0,
+dat-beregne-standardavvik,skill,Dataanalyse og usikkerhet,Beregne standardavvik,"beregne standardavviket til en serie måleverdier med regneark eller kalkulator, og bruke det til å sammenligne spredningen i to måleserier.",dat-standardavvik;dat-regneark,0,
+dat-usikkerhet,concept,Dataanalyse og usikkerhet,Måleusikkerhet,"Måleusikkerhet: et anslag over hvor langt fra den sanne verdien måleresultatet kan ligge.
+Absolutt usikkerhet: usikkerheten oppgitt i samme enhet som målingen, som 2,4 m ± 0,1 m.
+Relativ usikkerhet: den absolutte usikkerheten delt på måleverdien, ofte oppgitt i prosent.",met-gjeldende-siffer,0,
+dat-feiltyper,concept,Dataanalyse og usikkerhet,Systematisk og tilfeldig feil,"Systematisk feil: en feil som trekker alle målingene i samme retning, for eksempel en vekt som viser 2 g for mye. Den forsvinner ikke ved å gjenta målingen.
+Tilfeldig feil: en feil som varierer uforutsigbart fra måling til måling, og som blir mindre viktig når man tar gjennomsnittet av mange gjentak.",dat-usikkerhet,0,
+dat-instrumentusikkerhet,skill,Dataanalyse og usikkerhet,Anslå usikkerheten i en enkeltmåling,"anslå usikkerheten i én måling ut fra instrumentets oppløsning og nøyaktighet, og ut fra hvor vanskelig det var å lese av.",dat-usikkerhet;sig-egenskaper,0,
+dat-usikkerhet-gjentak,skill,Dataanalyse og usikkerhet,Oppgi resultatet av gjentatte målinger,"oppgi resultatet av gjentatte målinger som gjennomsnitt ± usikkerhet, der usikkerheten anslås fra standardavviket, med fornuftig antall gjeldende siffer og enhet.",dat-beregne-standardavvik;dat-usikkerhet,0,
+dat-relativ-usikkerhet,skill,Dataanalyse og usikkerhet,Regne ut relativ usikkerhet,regne ut relativ usikkerhet og bruke den til å avgjøre hvilken av flere målinger som er mest presis.,dat-usikkerhet,0,
+dat-sammensatt-usikkerhet,skill,Dataanalyse og usikkerhet,Anslå usikkerheten i en utregnet størrelse,"anslå usikkerheten i en størrelse som er regnet ut fra flere målinger, ved å legge sammen absolutte usikkerheter ved addisjon og subtraksjon og relative usikkerheter ved multiplikasjon og divisjon.",dat-relativ-usikkerhet,0,
+dat-feilkilder,skill,Dataanalyse og usikkerhet,Vurdere feilkilder,"finne de viktigste feilkildene i et forsøk, avgjøre om hver er systematisk eller tilfeldig, og si hvilken retning en systematisk feil trekker resultatet.",dat-feiltyper;met-gjennomfore,0,
+dat-avvikende,skill,Dataanalyse og usikkerhet,Vurdere en avvikende måling,"avgjøre om en måling som skiller seg ut skyldes en feil i gjennomføringen og kan utelates, og begrunne valget åpent i rapporten framfor å fjerne den i stillhet.",dat-standardavvik;dat-feilkilder,0,
+dat-lineaer-tilpasning,skill,Dataanalyse og usikkerhet,Tilpasse en rett linje til måledata,"tilpasse en rett linje til måledata med regresjon i et digitalt verktøy, og tolke stigningstallet og konstantleddet med enheter.",dat-regneark,0,
+dat-analysere,skill,Dataanalyse og usikkerhet,Analysere datamaterialet fra et forsøk,"analysere datamaterialet fra et forsøk: behandle og framstille dataene, anslå usikkerheten i resultatet, vurdere feilkildene og avgjøre hvilken konklusjon dataene tåler.",dat-usikkerhet-gjentak;dat-sammensatt-usikkerhet;dat-feilkilder;dat-lineaer-tilpasning,0,
+dat-redusere-usikkerhet,skill,Dataanalyse og usikkerhet,Teste om usikkerheten kan reduseres,"foreslå tiltak som kan redusere usikkerheten i et forsøk, som flere gjentak, bedre måleutstyr, kalibrering eller et endret oppsett, gjennomføre ett av dem og vurdere om usikkerheten faktisk ble mindre.",dat-analysere;sig-kalibrere,0,
+sam-teknologi,concept,"Teknologi, etikk og samfunn",Teknologi og innovasjon,"Teknologi: redskaper, maskiner, systemer og metoder mennesker lager for å løse praktiske problemer.
+Innovasjon: en ny eller vesentlig forbedret løsning som faktisk tas i bruk.",,0,
+sam-etiske-perspektiver,concept,"Teknologi, etikk og samfunn",Etiske perspektiver,"Konsekvensetikk: en handling vurderes etter hvilke følger den får for alle som berøres.
+Pliktetikk: en handling vurderes etter om den følger plikter og regler, uansett følgene.
+Dydsetikk: en handling vurderes etter hva et klokt og godt menneske ville gjort.",,0,
+sam-etiske-tema,concept,"Teknologi, etikk og samfunn",Etiske tema i teknologi,"Personvern: retten til å bestemme over opplysninger om seg selv.
+Dobbel bruk: at samme teknologi kan brukes både til gode formål og til skade, som droner til redning og til krig.
+Automatisering: at maskiner og programmer overtar oppgaver mennesker gjorde før.",sam-teknologi,0,
+sam-drofte-etikk,skill,"Teknologi, etikk og samfunn",Drøfte en etisk problemstilling i teknologien,"drøfte en etisk problemstilling knyttet til teknologisk utvikling, som overvåking, kunstig intelligens eller selvkjørende biler, med argumenter fra ulike etiske perspektiver og ulike berørte parter, og komme fram til et begrunnet standpunkt.",sam-etiske-perspektiver;sam-etiske-tema,0,
+sam-baerekraft,concept,"Teknologi, etikk og samfunn",Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker behovene til mennesker i dag uten å ødelegge mulighetene for kommende generasjoner til å dekke sine behov.
+De tre dimensjonene: miljø, økonomi og sosiale forhold, som alle må ivaretas samtidig.",,0,
+sam-livslop,concept,"Teknologi, etikk og samfunn",Livsløp og sirkulær økonomi,"Livsløpsanalyse: en vurdering av miljøbelastningen fra et produkt gjennom hele livet, fra råvarer og produksjon via bruk til avfall eller gjenvinning.
+Sirkulær økonomi: en økonomi der produkter og materialer brukes om igjen, repareres og gjenvinnes så lenge som mulig.",sam-baerekraft,0,
+sam-kildekritikk,skill,"Teknologi, etikk og samfunn",Vurdere kilder om teknologi og virksomheter,"vurdere hvor troverdig en kilde om et teknologisk produkt eller en virksomhet er, ut fra hvem som står bak, hva formålet er, og om påstandene er dokumentert eller bare er markedsføring.",,0,
+sam-utforske-virksomhet,skill,"Teknologi, etikk og samfunn",Utforske hvordan en virksomhet bruker teknologi,"utforske hvordan en bedrift eller annen virksomhet bruker og utvikler teknologi, gjennom besøk, intervju eller egne kilder, og gjøre rede for hva virksomheten gjør.",sam-teknologi;sam-kildekritikk,0,
+sam-virksomhet-baerekraft,skill,"Teknologi, etikk og samfunn",Gjøre rede for en virksomhet i et bærekraftsperspektiv,"gjøre rede for en virksomhet i et bærekraftsperspektiv: hvordan produktene og produksjonen påvirker miljø, økonomi og sosiale forhold gjennom livsløpet, og hva virksomheten gjør for å bli mer bærekraftig.",sam-utforske-virksomhet;sam-livslop,0,

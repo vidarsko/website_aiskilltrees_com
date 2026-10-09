@@ -1,0 +1,231 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Trening og helse;Bevegelse og ferdigheter;Dans;Kropp og selvbilde;Samspill og inkludering;Skader og sykdom;Svømming og livredning;Førstehjelp;Kart og orientering;Friluftsliv;Trygg og sporløs ferdsel,,,
+,config,,title,Kroppsøving 8.–10. trinn,,,
+,config,,description,"Trening og helse, bevegelse og dans, kropp og selvbilde, samspill, svømming og livredning, førstehjelp, kart og orientering, og friluftsliv på ungdomstrinnet — teorien bak det elevene øver på i gymsalen, i bassenget og ute.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,storageKey,no-grunnskole-kroppsoving-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kroppsøving 8.–10. trinn (norsk ungdomsskole, KRO0020)",,,
+,config,,slots.motivationSubject,kroppsøving,,,
+,config,,slots.expressionFocus,"blander sammen kondisjon, styrke og bevegelighet; sier «puls» uten å skille hvilepuls fra arbeidspuls; skriver «jeg ble bedre» uten å si hva som ble målt og hvordan; tror at mageøvelser fjerner fett akkurat på magen; eller blander kartnord og retningen kompassnåla peker",,,
+,config,,slots.courseSpecifics,"Faget har standpunktkarakter på 10. trinn og ingen eksamen; læreren vurderer det eleven viser i timene, og innsatsen teller med. Mange ferdigheter sjekkes best sammen med en medelev som ser på eller filmer, så foreslå gjerne det. Livredning, hjerte-lunge-redning og ferdsel i vann og på is skal øves under tilsyn av en voksen: foreslå aldri at eleven øver alene i vann eller på is.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Ungdomstrinnet, 8.–10. trinn",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,KRO0020,,,
+,config,,country,NO,,,
+,config,,institution,grunnskole,,,
+,config,,division,8-10,,,
+,config,,subjectArea,physical-education,,,
+,config,,keywords,kroppsøving; gym; ungdomsskole; ungdomstrinnet; 10. trinn; standpunktkarakter; trening; treningsplan; puls; dans; kroppsbilde; svømming; livredning; førstehjelp; HLR; hjertestarter; orientering; kart og kompass; friluftsliv; allemannsretten; fjellvettreglene; sporløs ferdsel,,,
+,config,,updated,2026-10-08,,,
+bevegelsesaktivitet,concept,Trening og helse,Bevegelsesaktivitet og fysisk aktivitet,"Bevegelsesaktivitet: samlebetegnelse for lek, idrettsaktiviteter, dans, friluftsliv, svømming og annen aktivitet i vann, og også sykling, ski og skøyter.
+Fysisk aktivitet: all bevegelse der musklene bruker mer energi enn i hvile, fra å gå til skolen til å spille fotball.
+Trening: fysisk aktivitet som er planlagt og gjentatt for å bli bedre i noe bestemt, som kondisjon eller styrke.",,0,
+helseanbefaling,fact,Trening og helse,Helsedirektoratets anbefaling for barn og unge,"daglig aktivitet: minst 60 minutter med moderat eller høy intensitet
+høy intensitet, også aktivitet som styrker muskler og skjelett: minst 3 ganger i uka
+stillesitting: bør begrenses",bevegelsesaktivitet;intensitet,0,
+utholdenhet-styrke,concept,Trening og helse,Utholdenhet og styrke,"Utholdenhet (kondisjon): evnen til å holde på lenge med store muskelgrupper, fordi hjertet og lungene får nok oksygen ut til musklene.
+Styrke: evnen til å skape kraft med musklene.",bevegelsesaktivitet,0,
+bevegelighet-koordinasjon,concept,Trening og helse,"Bevegelighet, hurtighet og koordinasjon","Bevegelighet: hvor langt du kan bevege et ledd, for eksempel hvor langt ned du når med strake bein.
+Hurtighet: evnen til å utføre en bevegelse eller flytte seg raskt.
+Koordinasjon: evnen til å få kroppsdelene til å samarbeide i riktig rekkefølge og til riktig tid.",bevegelsesaktivitet,0,
+puls,concept,Trening og helse,"Puls, hvilepuls og makspuls","Puls: antall hjerteslag per minutt.
+Hvilepuls: pulsen når du har vært i ro en stund, helst målt rett etter at du har våknet.
+Arbeidspuls: pulsen mens eller rett etter at du er i aktivitet.
+Makspuls: den høyeste pulsen hjertet ditt klarer; et grovt anslag er 220 minus alderen.",,0,
+intensitet,concept,Trening og helse,Intensitet,"Intensitet: hvor hardt du jobber i en aktivitet.
+Lav intensitet: du kan prate i hele setninger.
+Moderat intensitet: du blir varm og pusten går fortere, men du kan fortsatt prate litt.
+Høy intensitet: du blir andpusten og klarer bare noen få ord om gangen.
+Pratetesten: å kjenne etter hvor mye du klarer å prate, som et mål på intensiteten.
+Borgs skala: en skala fra 6 til 20 der du selv angir hvor anstrengende du opplever en aktivitet; 6 er helt i ro, og 20 er det hardeste du klarer.",,0,
+maale-puls,skill,Trening og helse,Måle hvilepuls og arbeidspuls,"kjenne pulsen på håndleddet eller halsen, telle slagene i 15 sekunder og gange med 4, slik at to målinger på rad i ro ikke spriker med mer enn noen få slag.",puls,0,
+styre-intensitet,skill,Trening og helse,Styre intensiteten i en aktivitet,"legge en aktivitet på lav, moderat eller høy intensitet med pratetesten eller Borgs skala, og sjekke med pulsen etterpå at du traff.",intensitet;maale-puls,0,
+treningsprinsipper,concept,Trening og helse,Treningsprinsipper,"Progresjon: å øke belastningen gradvis etter hvert som kroppen tilpasser seg.
+Spesifisitet: kroppen blir best på akkurat det du trener på.
+Restitusjon: hvilen mellom øktene, der kroppen bygger seg opp igjen og blir sterkere enn før.
+Variasjon: å bytte på øvelser og aktiviteter, slik at du unngår belastningsskader og holder motivasjonen oppe.",utholdenhet-styrke;bevegelighet-koordinasjon,0,
+fettforbrenning,concept,Trening og helse,Fettforbrenning,"Fettforbrenning: kroppen henter energi fra fettlagre over hele kroppen, ikke fra den kroppsdelen du trener; mageøvelser gir sterkere magemuskler, men fjerner ikke fett akkurat der.",utholdenhet-styrke,0,
+oppvarming,concept,Trening og helse,Oppvarming,"Oppvarming: rolig aktivitet som gradvis øker i intensitet før hard innsats, slik at puls, kroppstemperatur og bevegelighet er klare for økten og risikoen for skader blir mindre.",intensitet,0,
+varme-opp,skill,Trening og helse,Varme opp før en aktivitet,"gjennomføre en oppvarming på 10–15 minutter som starter rolig, øker gradvis og ender med bevegelser fra aktiviteten som kommer, slik at du er varm og litt andpusten, men ikke sliten.",oppvarming;styre-intensitet,0,
+treningsokt,skill,Trening og helse,Sette opp en treningsøkt,"planlegge en økt med oppvarming, hoveddel og avslutning, og skrive ned øvelser, tid, antall repetisjoner og intensitet for hver del.",varme-opp;treningsprinsipper,0,
+sette-mal,skill,Trening og helse,Sette et mål for egen trening,"formulere et mål som er målbart, realistisk og har en tidsfrist, og si hvordan og når du skal måle om du nådde det.",treningsprinsipper,0,
+gjennomsnittsfart,skill,Trening og helse,Regne ut gjennomsnittsfart,"regne ut gjennomsnittsfarten fra distanse og tid, for eksempel i minutter per kilometer, og bruke den til å sammenligne to løp eller planlegge farten i et nytt.",,0,
+treningsplan,skill,Trening og helse,Lage en treningsplan over flere uker,"lage en plan for minst fire uker som følger et mål, øker belastningen gradvis, har hviledager og sier hvordan framgangen skal måles.",treningsokt;sette-mal,0,
+logge-trening,skill,Trening og helse,Følge med på egen trening digitalt,"registrere øktene i en app, en klokke eller et regneark, og bruke tallene for tid, distanse og puls til å si om planen ga framgang.",treningsplan;maale-puls;gjennomsnittsfart,0,
+aktivitet-velvaere,skill,Trening og helse,Forklare hvordan aktivitet påvirker helse og velvære,"forklare med eksempler hvordan regelmessig aktivitet kan påvirke søvn, humør, konsentrasjon og hjertet, og hvorfor aktivitet ikke må være hard trening for å telle.",helseanbefaling;utholdenhet-styrke,0,
+prove-ny-aktivitet,skill,Trening og helse,Prøve en ny bevegelsesaktivitet og vurdere den,"finne en aktivitet i nærmiljøet du ikke har drevet med før, organisert eller på egen hånd, prøve den, og skrive etterpå hva du likte, hva som var vanskelig, og om den passer for deg å fortsette med.",bevegelsesaktivitet,0,
+motorisk-laering,concept,Bevegelse og ferdigheter,Motorisk læring,"Motorisk læring: å bli bedre til å utføre en bevegelse gjennom øving, slik at den blir sikrere, mer presis og krever mindre oppmerksomhet.
+Grunnleggende bevegelser: løpe, hoppe, kaste, ta imot, sparke, rulle og balansere, som de fleste aktiviteter bygger på.",,0,
+laeringsfaser,concept,Bevegelse og ferdigheter,Fasene i motorisk læring,"Kognitiv fase: du må tenke på hver del av bevegelsen, og den går ujevnt.
+Assosiativ fase: bevegelsen sitter i grove trekk, og du retter på detaljer.
+Automatisk fase: bevegelsen går av seg selv, så oppmerksomheten er ledig for spillet eller omgivelsene.",motorisk-laering,0,
+teknikk,concept,Bevegelse og ferdigheter,Teknikk og kjennetegn på god utførelse,"Teknikk: måten en bevegelse utføres på; god teknikk gir mest mulig resultat for minst mulig krefter.
+Kjennetegn på god utførelse: noen få punkter som beskriver hvordan en bevegelse ser ut når den er godt utført, og som du kan se etter på en film.",motorisk-laering,0,
+filme-teknikk,skill,Bevegelse og ferdigheter,Analysere egen teknikk på film,"la en medelev filme deg, sammenligne filmen med kjennetegnene på god utførelse, og velge ett punkt du skal øve på neste gang.",teknikk,0,
+ovingsplan,skill,Bevegelse og ferdigheter,Planlegge øving på en ny ferdighet,"dele en vanskelig bevegelse i trinn fra lett til vanskelig, øve trinnene hver for seg før du setter dem sammen, og bestemme hva du må få til før du går videre til neste trinn.",laeringsfaser;teknikk,0,
+kaste-ta-imot,skill,Bevegelse og ferdigheter,Kaste og ta imot en ball,"kaste overhånd med motsatt fot fram og ta imot med myke hender, slik at ti kast og mottak i trekk med en medelev på ti meters avstand går uten at ballen treffer bakken.",teknikk,0,
+fore-sparke,skill,Bevegelse og ferdigheter,Føre og sparke en ball,"føre ballen med innsiden og utsiden av foten gjennom en kjeglebane uten å miste den, og treffe et mål på ti meters avstand med en innsidepasning minst sju av ti ganger.",teknikk,0,
+turn,skill,Bevegelse og ferdigheter,Utføre grunnleggende turnøvelser,"gjøre en forlengs rulle, en baklengs rulle og en hjulning eller en håndstand mot vegg, slik at en medelev kan krysse av for rett retning, haka mot brystet i rullene og en kontrollert avslutning.",teknikk,0,
+lagspill-begreper,concept,Bevegelse og ferdigheter,"Angrep, forsvar og rom","Angrep: laget som har ballen, og som prøver å skape sjanser.
+Forsvar: laget uten ballen, som prøver å hindre sjanser og vinne ballen.
+Rom: et åpent område på banen der en spiller kan ta imot ballen uten press.
+Spillbar: å stå slik at en medspiller kan sende ballen til deg uten at en motspiller er i veien.",,0,
+spille-lagspill,skill,Bevegelse og ferdigheter,Spille et lagspill,"delta i en kamp i et lagspill, holde reglene og bevege deg mot ledige rom når laget ditt har ballen, slik at en medelev som ser på, kan telle hvor mange ganger du gjorde deg spillbar.",lagspill-begreper;kaste-ta-imot,0,
+grunnslag-takt,concept,Dans,"Grunnslag, takt og åttetelling","Grunnslag: det jevne slaget i musikken som du klapper eller tramper til; ikke det samme som pulsen i hjertet.
+Takt: slagene samlet i grupper, oftest fire og fire.
+Åttetelling: dansernes måte å telle på, der to takter telles fra 1 til 8, slik at trinnene kan legges på bestemte tellinger.",,0,
+danseelementer,concept,Dans,"Kropp, rom, tid og kraft i dans","Kropp: hvilke kroppsdeler som beveger seg, og hvilke former kroppen lager.
+Rom: hvor dansen beveger seg, med retning, nivå (høyt, middels og lavt) og vei på gulvet.
+Tid: tempo og rytme, som raskt, sakte eller stopp.
+Kraft: hvordan bevegelsen utføres, som tungt, lett, mykt eller kantete.",,0,
+komposisjonsgrep,concept,Dans,Grep i en dansekomposisjon,"Motiv: en kort bevegelsesfrase som er utgangspunktet for dansen.
+Variasjon: å endre et motiv ved å bytte tempo, nivå, retning eller størrelse.
+Unison: alle danser det samme samtidig.
+Kanon: alle danser det samme, men starter etter hverandre.
+Formasjon: hvordan danserne står plassert i rommet, som i rekke, sirkel eller V.",danseelementer,0,
+dansetradisjoner,concept,Dans,Dansetradisjoner,"Ungdomskulturdans: dans som vokser fram blant unge, som hiphop, breaking og dansetrender i sosiale medier.
+Folkedans: tradisjonell dans som er gått i arv i et folk eller en region, som pardanser i Norge eller ringdanser fra andre land.",,0,
+holde-takt,skill,Dans,Bevege seg i takt med musikk,"finne grunnslaget i en låt og gå, klappe eller trampe på det gjennom minst åtte åttetellinger, slik at et opptak viser at du fortsatt er i takt med musikken på slutten.",grunnslag-takt,0,
+danse-ungdomskultur,skill,Dans,Danse en dans fra ungdomskulturen,"lære en dans fra hiphop eller en annen ungdomskultur fra en video ved å speile den, først i lavt tempo og så i full fart, slik at et opptak av deg ved siden av videoen viser de samme trinnene på de samme tellingene, og fortelle kort hvor stilen kommer fra.",holde-takt;dansetradisjoner,0,
+danse-annen-kultur,skill,Dans,Danse en dans fra en annen kultur,"danse en folkedans eller en dans fra en annen kultur sammen med andre, med riktige trinn og riktig formasjon, og fortelle hva dansen brukes til der den kommer fra.",holde-takt;dansetradisjoner,0,
+lage-dansefrase,skill,Dans,Lage en dansefrase,"lage en frase på minst fire åttetellinger der du bevisst bruker minst to nivåer og to retninger, og skrive ned hva som skjer på hver telling.",holde-takt;danseelementer,0,
+skape-komposisjon,skill,Dans,Skape en dansekomposisjon med medelever,"sette sammen frasene i gruppa til en dans med begynnelse, midtdel og slutt, der dere bruker minst ett grep som kanon, unison eller bytte av formasjon, og alle i gruppa har bidratt med noe.",lage-dansefrase;komposisjonsgrep,0,
+presentere-dans,skill,Dans,Presentere en dans,"framføre dansekomposisjonen for et publikum fra start til slutt uten å stoppe, og fortelle kort hva dere ville uttrykke og hvordan dere gjorde det.",skape-komposisjon,0,
+kroppsbilde,concept,Kropp og selvbilde,"Kroppsbilde, kroppsidentitet og selvbilde","Kroppsbilde: hvordan du ser på, tenker om og føler for din egen kropp.
+Kroppsidentitet: hvordan kroppen og det du gjør med den, er en del av hvem du opplever at du er.
+Selvbilde: hvordan du ser på deg selv som helhet, også det du kan og hva du er verdt.",,0,
+kroppsideal,concept,Kropp og selvbilde,Kroppsideal og kroppspress,"Kroppsideal: forestillingen i en tid og en kultur om hvordan en kropp bør se ut.
+Kroppspress: opplevelsen av å måtte endre kroppen for å passe inn i et ideal.",kroppsbilde,0,
+redigerte-bilder,concept,Kropp og selvbilde,Redigerte bilder og reklamemerking,"Redigert bilde: et bilde der kroppen er endret med filter, retusjering, lys eller vinkel.
+Reklamemerking: plikten til å merke et innlegg som reklame når noen får betalt eller får produkter for det; i Norge skal reklame også merkes når en kropp i den er retusjert.",,0,
+algoritme,concept,Kropp og selvbilde,Algoritmer i sosiale medier,"Algoritme (i sosiale medier): reglene en app bruker for å velge hva du får se, ut fra hva du og andre har sett på, likt og stoppet ved; ser du mye på et tema, får du mer av det.",,0,
+analysere-mediebilde,skill,Kropp og selvbilde,Analysere en framstilling av kropp i media,"velge et bilde, en reklame eller en video og vise hvilket kroppsideal den løfter fram, hva som kan være redigert eller utelatt, og hvem som tjener på at den blir sett.",kroppsideal;redigerte-bilder;algoritme,0,
+vurdere-treningsrad,skill,Kropp og selvbilde,Vurdere et treningsråd fra nettet kritisk,"finne ut hvem som står bak et trenings- eller kostholdsråd på nettet, om de selger noe, og om rådet stemmer med det du vet om trening og helse.",redigerte-bilder;treningsprinsipper;fettforbrenning;helseanbefaling,0,
+reflektere-kropp,skill,Kropp og selvbilde,Reflektere over hvordan kroppsideal påvirker aktivitet og selvbilde,"drøfte med eksempler hvordan framstillinger av kropp i media og samfunnet kan få noen til å trene mer, trene annerledes eller slutte med aktivitet, og hvordan det kan påvirke kroppsidentitet og selvbilde.",analysere-mediebilde;kroppsbilde,0,
+inkludering,concept,Samspill og inkludering,Inkludering og forutsetninger,"Inkludering: at alle får delta og bidra i aktiviteten på en måte som gir dem mestring, ikke bare at de er til stede.
+Forutsetninger: det hver enkelt har med seg inn i aktiviteten, som erfaring, ferdigheter, kropp, helse og språk.",,0,
+tilpasningsgrep,concept,Samspill og inkludering,Tilpasning av en aktivitet,"Tilpasning av en aktivitet: å endre noe ved aktiviteten så flere kan delta, for eksempel banens størrelse, reglene, utstyret, oppgaven eller hvordan lagene settes sammen.",inkludering,0,
+fair-play,concept,Samspill og inkludering,Fair play,"Fair play: å følge reglene og spille ærlig, og å behandle medspillere, motspillere og dommer med respekt, også når det går dårlig.",,0,
+konstruktiv-tilbakemelding,concept,Samspill og inkludering,Konstruktiv tilbakemelding,"Konstruktiv tilbakemelding: en konkret og vennlig beskjed om hva som fungerte, og ett tydelig punkt å jobbe videre med, knyttet til kjennetegnene på god utførelse.",teknikk,0,
+anerkjenne-ulikhet,skill,Samspill og inkludering,Anerkjenne ulikhet i en aktivitet,"gi eksempler på hvordan elever i samme gruppe kan ha ulike forutsetninger, og si hvordan du selv kan vise i ord og handling at alles innsats teller.",inkludering,0,
+tilpasse-aktivitet,skill,Samspill og inkludering,Tilpasse en aktivitet så alle kan delta,"endre minst to ting ved en lek eller et spill slik at en medelev med andre forutsetninger kan delta fullt ut, og sjekke etterpå med medeleven om endringen virket.",tilpasningsgrep;anerkjenne-ulikhet,0,
+gi-tilbakemelding,skill,Samspill og inkludering,Gi en medelev tilbakemelding på en ferdighet,"se på en medelev som utfører en ferdighet og gi én ting som fungerte og ett konkret forslag knyttet til kjennetegnene, slik at medeleven etterpå kan si hva hen skal prøve neste gang.",konstruktiv-tilbakemelding,0,
+laere-bort,skill,Samspill og inkludering,Lære bort en ferdighet til en medelev,"forklare og vise en ferdighet du kan, dele den i trinn som passer medeleven, og hjelpe til medeleven får til minst ett trinn mer enn da dere startet.",gi-tilbakemelding;ovingsplan,0,
+lede-oppvarming,skill,Samspill og inkludering,Lede en oppvarming for en gruppe,"lede gruppa gjennom en oppvarming du har planlagt, med tydelige beskjeder og et alternativ som gjør hver øvelse lettere eller vanskeligere.",varme-opp;tilpasningsgrep,0,
+ansvar-i-lag,skill,Samspill og inkludering,Ta ansvar i et lag,"ta en tydelig rolle i et lag, som kaptein, dommer, tidtaker eller medspiller, oppmuntre de andre og foreslå en løsning når laget er uenig, slik at laget etterpå kan si hva du bidro med.",fair-play,0,
+skadetyper,concept,Skader og sykdom,Akutt skade og belastningsskade,"Akutt skade: en skade som skjer plutselig, som en forstuet ankel eller et slag mot kneet.
+Belastningsskade: en skade som kommer gradvis av for mye av den samme belastningen over tid, som vondt i leggene etter mye løping på hardt underlag.",,0,
+rice,concept,Skader og sykdom,RICE,"RICE: førstehjelp ved en akutt skade i muskler eller leddbånd, som en forstuet ankel.
+Ro: stopp aktiviteten og avlast skaden.
+Is: kjøl ned, med et tøystykke mellom isen og huden.
+Kompresjon: press, for eksempel med et elastisk bind, for å begrense hevelsen.
+Elevasjon: hold den skadde kroppsdelen høyt.",skadetyper,0,
+nakkeregelen,concept,Skader og sykdom,Nakkeregelen,"Nakkeregelen: en tommelfingerregel om at rolig aktivitet kan gå greit ved symptomer bare over nakken, som tett nese, men at du skal la være å trene ved feber, verk i kroppen eller symptomer under nakken, som hoste eller vondt i brystet.",,0,
+alternativ-trening,concept,Skader og sykdom,Alternativ trening,"Alternativ trening: aktivitet som holder deg i form uten å belaste en skadet kroppsdel, for eksempel overkroppsøvelser med en skadet ankel eller svømming med vondt i en fot.",skadetyper,0,
+okt-ved-skade,skill,Skader og sykdom,Planlegge og gjennomføre en økt ved skade,"lage og gjennomføre en økt for en gitt skade, som en forstuet ankel eller en brukket arm, med øvelser som ikke belaster det skadde stedet, og skrive etterpå om noe gjorde vondt og hva du ville endret.",alternativ-trening;treningsokt,0,
+aktivitet-ved-sykdom,skill,Skader og sykdom,Tilpasse aktivitet ved sykdom,"avgjøre ut fra symptomene om du bør hvile, ta en rolig økt eller være med som vanlig, og foreslå en rolig aktivitet som passer når du er på bedringens vei.",nakkeregelen;intensitet,0,
+oppdrift,concept,Svømming og livredning,Oppdrift og vannmotstand,"Oppdrift: kraften fra vannet som presser kroppen opp; med luft i lungene flyter de fleste.
+Vannmotstand: vannet som bremser deg; jo flatere og mer strømlinjeformet kroppen ligger, jo mindre bremser det.",,0,
+svommearter,concept,Svømming og livredning,Svømmeartene,"Crawl: du ligger på magen, armene drar vekselvis, beina sparker vekselvis, og du snur hodet til siden for å puste.
+Brystsvømming: armer og bein jobber samtidig og likt på begge sider, med et frosketak med beina og en glideperiode etter hvert tak.
+Ryggsvømming: du ligger på ryggen, armene drar vekselvis, og beina sparker vekselvis.",oppdrift,0,
+flyte,skill,Svømming og livredning,Flyte og hvile i vannet,"flyte på ryggen med lite bevegelse og så tråkke vannet på dypt vann, til sammen i minst to minutter, slik at en medelev på kanten kan ta tiden.",oppdrift,0,
+crawl,skill,Svømming og livredning,Svømme crawl,"svømme 25 meter crawl med pust til siden og ansiktet i vannet mellom pustene, slik at en film viser at du ikke løfter hodet fram for å puste.",svommearter,0,
+bryst,skill,Svømming og livredning,Svømme bryst,"svømme 25 meter bryst med en glideperiode etter hvert tak og et likt beinspark på begge sider, slik at en medelev kan telle at du bruker færre tak per lengde enn før.",svommearter,0,
+rygg,skill,Svømming og livredning,Svømme rygg,"svømme 25 meter rygg uten å stoppe, med hoftene høyt i vannet og så rett kurs at du ikke treffer tauet.",svommearter,0,
+lang-distanse,skill,Svømming og livredning,Svømme en lengre distanse etter et eget mål,"sette et mål for en lengre distanse i et tempo du kan holde, svømme den uten å stoppe, og sammenligne tiden eller antall lengder med målet.",bryst;sette-mal;gjennomsnittsfart,0,
+drukning,concept,Svømming og livredning,Drukning og kuldesjokk,"Drukning: når en person ikke får puste fordi munn og nese er under vann; det skjer ofte stille og fort, uten at personen roper eller vinker.
+Kuldesjokk: den ukontrollerte gispingen og den raske pusten de første minuttene i kaldt vann.",,0,
+kaldt-vann-regel,fact,Svømming og livredning,1-10-1-regelen for kaldt vann,"1 minutt: kuldesjokket varer; få kontroll på pusten
+10 minutter: omtrent tiden du har til meningsfulle bevegelser før armer og bein blir for kalde
+1 time: omtrent tiden før nedkjølingen gjør deg bevisstløs",drukning,0,
+redningsrekkefolge,concept,Svømming og livredning,Redningsrekkefølgen ved vann,"Redningsrekkefølgen: velg alltid den tryggeste måten å redde på først: rop og snakk personen inn, rekk ut noe fra land, kast noe som flyter, bruk båt, og svøm ut bare som siste utvei og helst med noe som flyter.",drukning,0,
+redde-fra-land,skill,Svømming og livredning,Redde en person fra land,"legge deg lavt på land eller brygge og rekke ut en stang eller et klesplagg til en person i vannet, eller kaste en livbøye eller kastline så den lander innen rekkevidde minst tre av fem ganger på ti meters avstand, uten at du selv blir dratt uti.",redningsrekkefolge,0,
+slepe,skill,Svømming og livredning,Slepe en person i vannet,"svømme ut med noe som flyter, gi det til personen og slepe hen 25 meter til land, med personens ansikt over vannet hele veien.",redningsrekkefolge;rygg,0,
+gjennom-isen,skill,Svømming og livredning,Ta seg opp etter å ha gått gjennom isen,"snu deg mot den retningen du kom fra, bruke ispigger eller albuene og sparke deg opp på isen, og rulle deg bort fra hullet før du reiser deg.",kaldt-vann-regel,0,
+vurdere-badeplass,skill,Svømming og livredning,Vurdere en badeplass ute i naturen,"se etter strøm, dybde, kaldt vann og steiner under overflaten, si om plassen er trygg å bade fra, og finne ut hvor nærmeste redningsutstyr er.",drukning;redningsrekkefolge,0,
+nodnumre,fact,Førstehjelp,Nødnumrene,"brann: 110
+politi: 112
+medisinsk nødhjelp (ambulanse): 113",,0,
+livreddende-forstehjelp,concept,Førstehjelp,Livreddende førstehjelp og frie luftveier,"Livreddende førstehjelp: det som holder et menneske i live til helsepersonell kommer: sikre skadestedet, varsle, sørge for frie luftveier og pust, starte hjerte-lunge-redning og stanse store blødninger.
+Frie luftveier: at lufta har fri vei ned i lungene; hos en bevisstløs kan tunga falle bakover og stenge, og det løses ved å bøye hodet bakover og løfte haka.",,0,
+normal-pust,concept,Førstehjelp,Normal pust,"Normal pust: jevn og rolig pust du kan se, høre og kjenne; sjeldne gisp er ikke normal pust og kan bety at hjertet har stanset.",livreddende-forstehjelp,0,
+hlr-tall,fact,Førstehjelp,Hjerte-lunge-redning i tall,"forholdet mellom kompresjoner og innblåsninger: 30 kompresjoner og så 2 innblåsninger
+trykkdybde på en voksen: 5–6 cm
+tempo: 100–120 kompresjoner i minuttet
+ved drukning: start med 5 innblåsninger",livreddende-forstehjelp,0,
+hjertestarter,concept,Førstehjelp,Hjertestarter,"Hjertestarter: et apparat som analyserer hjerterytmen gjennom to elektroder på brystet og gir et elektrisk støt bare hvis rytmen er en som støt kan rette opp; det sier selv hva du skal gjøre.",livreddende-forstehjelp,0,
+sikre-varsle,skill,Førstehjelp,Sikre skadestedet og varsle,"sjekke at det er trygt å gå bort til den skadde, ringe riktig nødnummer, og si hvor du er, hva som har skjedd og hvor mange som er skadet.",nodnumre;livreddende-forstehjelp,0,
+undersoke,skill,Førstehjelp,Undersøke bevissthet og pust,"rope til personen og riste lett i skuldrene, åpne luftveiene, og se, lytte og kjenne etter normal pust i opptil ti sekunder.",normal-pust;sikre-varsle,0,
+sideleie,skill,Førstehjelp,Legge en person i stabilt sideleie,"legge en bevisstløs person som puster normalt i stabilt sideleie, slik at hodet er bøyd bakover, munnen peker skrått ned og personen ikke ruller over, og en medelev kan sjekke disse tre punktene.",undersoke,0,
+hlr,skill,Førstehjelp,Utføre hjerte-lunge-redning,"gi 30 kompresjoner midt på brystet og 2 innblåsninger på en øvingsdukke i minst to minutter, slik at dukkens måler eller en metronom-app viser at du holder riktig tempo og dybde.",undersoke;hlr-tall,0,
+bruke-hjertestarter,skill,Førstehjelp,Bruke en hjertestarter,"slå på hjertestarteren, feste elektrodene der tegningen viser, følge talebeskjedene, sørge for at ingen rører personen under støtet og fortsette hjerte-lunge-redningen etterpå.",hjertestarter;hlr,0,
+fremmedlegeme,skill,Førstehjelp,Hjelpe en som har satt noe i halsen,"be personen hoste hvis hen klarer det, og ellers gi 5 slag mellom skulderbladene og 5 støt mot øvre del av magen, vekselvis, til det løsner eller personen blir bevisstløs og trenger hjerte-lunge-redning.",livreddende-forstehjelp,0,
+stanse-blodning,skill,Førstehjelp,Stanse en kraftig blødning,"trykke direkte på såret med en kompress eller et klesplagg, holde trykket til hjelpen kommer eller legge en trykkbandasje, og ringe 113.",sikre-varsle,0,
+kartbegreper,concept,Kart og orientering,Målestokk og kartnord,"Målestokk: forholdet mellom en avstand på kartet og den samme avstanden i terrenget; 1 : 10 000 betyr at 1 cm på kartet er 10 000 cm, altså 100 meter, i terrenget.
+Kartnord: retningen mot toppen av kartet, vist med nordlinjene.",,0,
+kartfarger,fact,Kart og orientering,Fargene på et orienteringskart,"hvit: skog som er lett å løpe i
+gul: åpent område, som eng eller hogstflate
+grønn: tett skog eller kratt som er tungt å komme gjennom
+blå: vann, bekker og myrer
+brun: høydekurver og andre terrengformer
+svart: steiner, stup, stier, veier og bygninger",kartbegreper,0,
+hoydekurver,concept,Kart og orientering,Høydekurver og ekvidistanse,"Høydekurve: en linje på kartet som binder sammen punkter som ligger like høyt over havet; kurver tett i tett betyr at det er bratt.
+Ekvidistanse: høydeforskjellen mellom to kurver ved siden av hverandre, oppgitt i tegnforklaringen.",kartbegreper,0,
+kompass,concept,Kart og orientering,Kompassets deler,"Kompassnål: den magnetiske nåla; den røde enden peker mot nord.
+Retningspil: pila på kompassplata som peker dit du skal gå.
+Kompasshus: den dreibare ringen med nordpil og nordlinjer, som du stiller inn etter kartets nordlinjer.",,0,
+orientere-kartet,skill,Kart og orientering,Orientere kartet,"vri kartet så det ligger riktig vei i forhold til terrenget, ved hjelp av tydelige terrengformer eller kompassnåla, slik at det som er rett fram i terrenget, også er rett fram på kartet.",kartbegreper;kompass,0,
+finne-posisjon,skill,Kart og orientering,Finne ut hvor du er på kartet,"sammenligne det du ser rundt deg, som stier, bekker, høyder og myrer, med kartet, og peke ut hvor du står, slik at en kartapp med posisjon bekrefter at du har rett.",orientere-kartet;kartfarger,0,
+lese-terreng,skill,Kart og orientering,Lese terrenget fra høydekurvene,"avgjøre fra kartet om en rute går opp eller ned og hvor det er bratt, og finne topper, søkk og rygger.",hoydekurver,0,
+kompasskurs,skill,Kart og orientering,Ta ut og følge en kompasskurs,"legge kompasset langs strekningen på kartet, dreie kompasshuset så nordlinjene følger kartets nordlinjer, og gå etter retningspila med nåla i nordpila, slik at du treffer en post 200 meter unna.",kompass;orientere-kartet,0,
+digitalt-kart,skill,Kart og orientering,Bruke en digital kartapp,"finne din egen posisjon, måle en avstand og lagre eller følge en rute i en kartapp, og si hva du gjør hvis mobilen går tom for strøm eller mister dekning.",kartbegreper,0,
+planlegge-rute,skill,Kart og orientering,Planlegge en rute på kartet,"velge en rute mellom to punkter ut fra høydeforskjell og terreng, måle lengden på kartet og regne den om med målestokken, og anslå hvor lang tid ruten vil ta.",kartbegreper;lese-terreng;kartfarger,0,
+orienteringslop,skill,Kart og orientering,Finne fram i ukjent terreng med kart og kompass,"finne postene i riktig rekkefølge i et terreng du ikke kjenner, med kart og kompass, og fortelle etterpå hvilken vei du valgte mellom postene og hvorfor.",planlegge-rute;kompasskurs;finne-posisjon,0,
+friluftsliv,concept,Friluftsliv,Friluftsliv,"Friluftsliv: opphold og fysisk aktivitet ute i naturen i fritiden, for å oppleve naturen og få en forandring fra hverdagen.",bevegelsesaktivitet,0,
+allemannsretten,fact,Friluftsliv,Allemannsretten i praksis,"utmark (skog, fjell, strand og annen udyrket mark): fri ferdsel til fots hele året
+innmark (åker, eng, hage og gårdsplass): ikke fri ferdsel, bortsett fra på frossen eller snødekt mark om vinteren
+telting: minst 150 meter fra bebodd hus eller hytte
+å bli på samme sted mer enn to døgn: krever grunneierens tillatelse, unntatt høyt til fjells og langt fra bebyggelse
+bål i eller nær skog: forbudt fra 15. april til 15. september",friluftsliv,0,
+bekledning,concept,Friluftsliv,Lag-på-lag-prinsippet,"Lag-på-lag-prinsippet: flere tynne lag i stedet for ett tykt, så du kan ta av og på etter vær og aktivitet.
+Innerste lag: ull eller syntetisk stoff som fører svetten bort fra huden; bomull holder på fuktigheten og gjør deg kald.
+Mellomlag: isolerer og holder på varmen.
+Ytterlag: stopper vind og vann.",,0,
+nedkjoling,concept,Friluftsliv,Nedkjøling og varmetap,"Nedkjøling (hypotermi): kroppstemperaturen synker fordi kroppen taper mer varme enn den lager; tegn er skjelving, klossethet og forvirring.
+Varmetap: varme du mister til bakken, vinden, fuktige klær og pusten; et liggeunderlag stopper varmetapet ned i bakken.",bekledning,0,
+samisk-friluftsliv,concept,Friluftsliv,Friluftsliv i samisk kultur,"Lavvo (lávvu): samisk telt av stenger og duk med en åpning på toppen, slik at du kan ha bål inni.
+Lassokasting: en ferdighet fra reindrifta, der lassoen brukes til å fange enkeltdyr i flokken, og som i dag også er en konkurranseaktivitet.",friluftsliv,0,
+kle-seg,skill,Friluftsliv,Kle seg etter vær og aktivitet,"velge klær til en tur ut fra værmeldingen og hvor hardt du skal gå, og justere lagene underveis så du verken svetter mye eller fryser.",bekledning,0,
+pakke-dagstur,skill,Friluftsliv,Pakke sekken for en dagstur,"pakke kart, ekstra klær, mat, drikke, sitteunderlag og førstehjelpsutstyr etter en sjekkliste, slik at det tunge ligger inntil ryggen og ingenting mangler når dere går gjennom lista ved turmålet.",kle-seg,0,
+pakke-overnatting,skill,Friluftsliv,Pakke for en tur med overnatting,"lage en pakkeliste for en overnatting ute på en gitt årstid, med sovepose og underlag som tåler temperaturen, og begrunne hvert valg, slik at du etter natten kan si om du sov varmt nok og hva du ville pakket annerledes.",pakke-dagstur;nedkjoling,0,
+slaa-leir,skill,Friluftsliv,Slå opp leir,"velge en tørr og skjermet leirplass som er lov å bruke, og sette opp telt, lavvo, gapahuk eller hengekøye slik at duken er stram og tåler vind og regn.",allemannsretten,0,
+baal,skill,Friluftsliv,"Tenne, bruke og slukke et bål","samle tørt tennmateriale og ved i ulike tykkelser, tenne bålet med én fyrstikk eller et tennstål, og slukke det med vann til asken er kald å kjenne på.",allemannsretten,0,
+samisk-aktivitet,skill,Friluftsliv,Prøve en friluftsaktivitet fra samisk kultur,"prøve en aktivitet fra samisk friluftslivstradisjon, som å sette opp en lavvo eller kaste lasso etter et mål, og fortelle hva den har vært brukt til.",samisk-friluftsliv,0,
+arstider,skill,Friluftsliv,Gjennomføre friluftsliv til ulike årstider,"planlegge og gjennomføre en tur om vinteren og en i barmarkssesongen, og si hva hver årstid krevde av klær, utstyr og forberedelser.",kle-seg;pakke-dagstur,0,
+naturopplevelser,skill,Friluftsliv,Reflektere over hva naturopplevelser betyr,"fortelle om en naturopplevelse og drøfte hva opphold i naturen kan bety for deg og for andre, for eksempel for ro, mestring, fellesskap eller helse.",friluftsliv,0,
+risiko,concept,Trygg og sporløs ferdsel,Risiko og risikovurdering,"Risiko: hvor sannsynlig det er at noe går galt, sett sammen med hvor alvorlig det blir hvis det skjer.
+Risikovurdering: å tenke gjennom, før og underveis, hva som kan gå galt og hva du gjør for å hindre det.",,0,
+fjellvettreglene,fact,Trygg og sporløs ferdsel,Fjellvettreglene,"regel 1: planlegg turen og meld fra hvor du går
+regel 2: tilpass turen etter evne og forhold
+regel 3: ta hensyn til vær- og skredvarsel
+regel 4: vær forberedt på uvær og kulde, også på korte turer
+regel 5: ta med nødvendig utstyr, så du kan hjelpe deg selv og andre
+regel 6: velg trygg rute, og kjenn igjen skredterreng og usikker is
+regel 7: bruk kart og kompass, og vit alltid hvor du er
+regel 8: vend i tide; det er ingen skam å snu
+regel 9: spar på kreftene, og søk ly om nødvendig",risiko,0,
+skred-is,concept,Trygg og sporløs ferdsel,Skredterreng og usikker is,"Skredterreng: fjellsider som er brattere enn omtrent 30 grader, og områdene under dem der et snøskred kan løpe ut.
+Usikker is: is som kan være for tynn, for eksempel ved bekkeos, strøm, siv og brygger, og på nylagt is eller råtten vårsis.",,0,
+sjekke-varsel,skill,Trygg og sporløs ferdsel,Sjekke vær- og skredvarsel,"finne værvarselet og, om vinteren, skredvarselet for området du skal til, og si hva det betyr for turen og for valg av rute.",skred-is,0,
+risikovurdere-tur,skill,Trygg og sporløs ferdsel,Gjøre en risikovurdering før en tur,"liste opp det som kan gå galt på en planlagt tur, vurdere hvor sannsynlig og hvor alvorlig hvert punkt er, og skrive ned et tiltak for de viktigste og et punkt der dere snur hvis noe går galt.",risiko;fjellvettreglene;sjekke-varsel;planlegge-rute,0,
+sporlos-ferdsel,concept,Trygg og sporløs ferdsel,Sporløs ferdsel,"Sporløs ferdsel: å ferdes og overnatte i naturen slik at den neste som kommer, ikke ser at du har vært der: alt søppel blir med hjem, du bruker eksisterende bålplasser, skader ikke levende trær og tar hensyn til dyr og planter.",friluftsliv,0,
+sporlos-leir,skill,Trygg og sporløs ferdsel,Forlate en leirplass sporløst,"rydde leirplassen så den ser ut som da dere kom, med søppelet pakket med hjem, bålplassen slukket og ryddet og ingen skader på trær eller vegetasjon.",sporlos-ferdsel;slaa-leir;baal,0,
+baerekraftige-valg,skill,Trygg og sporløs ferdsel,Forklare hvordan valgene dine på tur påvirker naturen,"forklare med eksempler hvordan transport til turmålet, slitasje på stier, søppel og forstyrrelse av dyr henger sammen med valgene du gjør, og foreslå et mer bærekraftig alternativ.",sporlos-ferdsel,0,

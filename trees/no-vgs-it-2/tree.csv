@@ -1,0 +1,230 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Grunnlag fra IT 1;Objektorientert modellering;Objektorientert programmering;Feilsøking og testing;Gjenbrukbar kode;Design og brukervennlighet;Systemutvikling og samarbeid;Datastandarder og datasikkerhet;Analyse av reelle datasett;Teknologi, etikk og samfunn",,,
+,config,,title,Informasjonsteknologi 2,,,
+,config,,description,"Objektorientert modellering og programmering, feilsøking og testing, gjenbrukbar kode, brukervennlighet, systemutvikling, datastandarder og datasikkerhet, analyse av reelle datasett og etikk — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,mathematics,,,
+,config,,storageKey,no-vgs-it-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,informasjonsteknologi 2 (programfag i norsk videregående skole),,,
+,config,,slots.motivationSubject,IT,,,
+,config,,slots.expressionFocus,"blander sammen klasse og objekt eller attributt og metode, kaller enhver relasjon mellom klasser for arv, blander sammen = og ==, eller print og return, sier «funksjon» om en metode uten å se forskjellen, bruker «test» om å kjøre programmet én gang, eller skriver «det funker ikke» i stedet for å si hvilken feil som oppstår, med hvilke inndata og på hvilken linje",,,
+,config,,slots.courseSpecifics,"Python er brukt som eksempelspråk der et programmeringsspråk må velges. Sier eleven at klassen bruker et annet språk (den sentralt gitte skriftlige eksamenen finnes også for f.eks. JavaScript og C#), bruk det i stedet. Eleven kan trekkes ut til en sentralt gitt skriftlig eksamen eller en lokal muntlig-praktisk eksamen, så la eleven både skrive fungerende kode og forklare og begrunne valgene sine med fagbegreper.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag realfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3049,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,informatics,,,
+,config,,keywords,IT2; informatikk; programmering; Python; objektorientert programmering; klasser; arv; UML; klassediagram; testing; feilsøking; smidig utvikling; Scrum; git; JSON; CSV; kryptering; dataanalyse; etikk; eksamen,,,
+,config,,updated,2026-10-08,,,
+grunnlag-funksjoner,skill,Grunnlag fra IT 1,Skrive funksjoner med parametre og returverdi,"skrive funksjoner med parametre og returverdi, og bruke returverdien videre i programmet.",,0,"Dette er repetisjon fra IT 1. Gi eleven raskt to-tre oppgaver for å sjekke at det sitter, og gå videre hvis det gjør det."
+grunnlag-lister-lokker,skill,Grunnlag fra IT 1,Behandle lister med løkker og forgreninger,"gå gjennom en liste med en løkke, og filtrere, telle, summere eller finne største verdi med forgreninger underveis.",,0,"Dette er repetisjon fra IT 1. Sjekk raskt at det sitter, og gå videre hvis det gjør det."
+ordbok,concept,Grunnlag fra IT 1,Ordbok (dictionary),"Ordbok: en samling nøkkel–verdi-par der en verdi slås opp med nøkkelen sin, som {'navn': 'Ada', 'alder': 17}. Nøklene må være unike.",,0,
+bruke-ordbok,skill,Grunnlag fra IT 1,Bruke ordbøker,"lage, slå opp i, endre og gå gjennom ordbøker, og bruke en ordbok til å telle forekomster.",ordbok;grunnlag-lister-lokker,0,
+nostede-datastrukturer,skill,Grunnlag fra IT 1,Bruke nøstede datastrukturer,"bygge opp og hente data ut av nøstede strukturer, som en liste av ordbøker eller en ordbok med lister som verdier.",bruke-ordbok,0,"Gi eleven f.eks. en liste av ordbøker med elever og karakterer, og be dem finne gjennomsnittet for hver elev og eleven med høyest snitt."
+listeforstaelse,skill,Grunnlag fra IT 1,Bruke listeforståelse,"lage en ny liste fra en eksisterende med listeforståelse (list comprehension), med og uten betingelse, og skrive den om til en vanlig løkke og omvendt.",grunnlag-lister-lokker,0,
+lese-skrive-filer,skill,Grunnlag fra IT 1,Lese og skrive tekstfiler,"åpne en tekstfil med with, lese den linje for linje, dele linjene opp i verdier og skrive resultater til en ny fil.",grunnlag-lister-lokker,0,
+objektorientering,concept,Objektorientert modellering,"Objekt, klasse, attributt og metode","Objekt: en enhet i programmet som har en tilstand og kan gjøre ting, f.eks. én bestemt bankkonto.
+Klasse: malen som beskriver hvilke attributter og metoder alle objekter av en type har.
+Attributt: en egenskap som lagres i objektet, f.eks. saldo.
+Metode: en handling objektet kan utføre, f.eks. sett_inn().",grunnlag-funksjoner,0,
+klasse-vs-objekt,skill,Objektorientert modellering,Forklare forskjellen på klasse og objekt,"forklare forskjellen på en klasse og objektene som lages av den, med egne eksempler fra hverdagen og fra kode.",objektorientering,0,
+finne-klasser,skill,Objektorientert modellering,Finne klasser i en problembeskrivelse,"finne kandidater til klasser, attributter og metoder i en tekstlig problembeskrivelse, og begrunne hvilke som bør bli egne klasser.",objektorientering,0,"Gi eleven en kort beskrivelse av et system, f.eks. et utlånssystem for et bibliotek, og be dem lete etter substantiver (klasser og attributter) og verb (metoder)."
+klassediagram,concept,Objektorientert modellering,UML-klassediagram,"Klassediagram: en UML-tegning av klassene i et program, der hver klasse er en boks med navn, attributter og metoder.
+Synlighet: + foran et medlem betyr offentlig, - betyr privat.",objektorientering,0,
+tegne-klassediagram,skill,Objektorientert modellering,Tegne et klassediagram for én klasse,"tegne et klassediagram for en klasse med navn, attributter med type og synlighet, og metoder med parametre og returtype.",klassediagram;finne-klasser,0,
+klasserelasjoner,concept,Objektorientert modellering,Relasjoner mellom klasser,"Assosiasjon: to klasser kjenner til hverandre, f.eks. en Lånetaker og en Bok.
+Komposisjon: et objekt består av andre objekter som ikke finnes uten det, f.eks. et Hus og dets Rom.
+Aggregering: et objekt samler andre objekter som også kan finnes alene, f.eks. et Lag og dets Spillere.
+Multiplisitet: hvor mange objekter som kan være knyttet sammen, skrevet som 1, 0..1 eller *.",klassediagram,0,
+arv-begrep,concept,Objektorientert modellering,Arv,"Arv: at en klasse bygger på en annen og får alle attributtene og metodene dens.
+Superklasse: den generelle klassen det arves fra, f.eks. Kjøretøy.
+Subklasse: den spesielle klassen som arver, f.eks. Bil. En subklasse kan legge til og endre det den arver.
+Er-en-relasjon: testen for arv, en Bil er et Kjøretøy.",objektorientering,0,
+arv-eller-komposisjon,skill,Objektorientert modellering,Velge mellom arv og komposisjon,"avgjøre om to klasser bør knyttes sammen med arv (er-en) eller komposisjon (har-en), og begrunne valget.",arv-begrep;klasserelasjoner,0,"Gi eleven par som Bil–Motor, Bil–Kjøretøy, Elev–Person, Klasse–Elev og Kvadrat–Rektangel, og be dem velge og begrunne. Det siste paret er et grensetilfelle som er verdt å drøfte."
+modellere-system,skill,Objektorientert modellering,Modellere et system med flere klasser,"lage et klassediagram for et system med flere klasser, med arv, assosiasjoner og multiplisitet, ut fra en tekstlig beskrivelse.",tegne-klassediagram;arv-eller-komposisjon,0,
+diagram-til-kode,skill,Objektorientert modellering,Oversette mellom klassediagram og kode,"skrive klasseskjelettet som svarer til et klassediagram, og tegne klassediagrammet for et ferdig program.",modellere-system;definere-klasse,0,
+konstruktor-self,concept,Objektorientert programmering,Konstruktør og self,"Konstruktør: metoden som kjøres når et nytt objekt lages, og som gir attributtene startverdier. I Python heter den __init__.
+self: en referanse til det objektet metoden kalles på, som gjør at hvert objekt får sine egne attributter.",objektorientering,0,
+definere-klasse,skill,Objektorientert programmering,Definere en klasse med konstruktør,"definere en klasse med en konstruktør som tar imot parametre og lagrer dem som attributter.",konstruktor-self;grunnlag-funksjoner,0,
+lage-objekter,skill,Objektorientert programmering,Lage objekter og kalle metoder,"lage flere objekter av samme klasse, lese og endre attributtene deres og kalle metodene, og vise at hvert objekt har sin egen tilstand.",definere-klasse,0,
+skrive-metoder,skill,Objektorientert programmering,Skrive metoder,"skrive metoder som endrer objektets tilstand, og metoder som regner ut og returnerer en verdi fra attributtene.",lage-objekter,0,"Bruk f.eks. en Bankkonto-klasse med sett_inn, ta_ut og renteberegning, og la eleven bestemme hva som skal skje når saldoen ikke dekker uttaket."
+instans-klasseattributt,concept,Objektorientert programmering,Instansattributt og klasseattributt,"Instansattributt: et attributt som hvert objekt har sin egen verdi av, satt via self.
+Klasseattributt: et attributt som hører til klassen og deles av alle objektene, f.eks. en teller for hvor mange objekter som er laget.",konstruktor-self,0,
+innkapsling,concept,Objektorientert programmering,Innkapsling,"Innkapsling: å skjule hvordan et objekt lagrer dataene sine, slik at resten av programmet bare endrer dem gjennom metoder.
+Privat attributt: et attributt som ikke skal brukes utenfor klassen. I Python markeres det med understrek foran navnet, som self._saldo.
+Get- og set-metoder: metoder som leser og endrer et privat attributt, og der set-metoden kan sjekke at verdien er gyldig.",skrive-metoder,0,
+innkapsle-klasse,skill,Objektorientert programmering,Innkapsle data i en klasse,"gjøre attributter private og skrive metoder som endrer dem på en kontrollert måte, slik at objektet aldri kan få en ugyldig tilstand.",innkapsling,0,
+spesialmetoder,concept,Objektorientert programmering,Spesialmetoder,"Spesialmetode: en metode med to understreker før og etter navnet, som Python kaller av seg selv i bestemte situasjoner.
+__str__: gir tekstformen til objektet, som brukes av print() og str().
+__eq__: avgjør hva == betyr for to objekter av klassen.
+__lt__: avgjør hva < betyr, og gjør at objektene kan sorteres.",konstruktor-self,0,
+bruke-spesialmetoder,skill,Objektorientert programmering,Implementere spesialmetoder,"implementere __str__ for en lesbar utskrift, og __eq__ og __lt__ slik at objekter kan sammenlignes og sorteres.",spesialmetoder;skrive-metoder,0,
+lage-subklasse,skill,Objektorientert programmering,Lage en subklasse,"lage en subklasse som arver fra en superklasse, kaller superklassens konstruktør med super() og legger til egne attributter og metoder.",arv-begrep;skrive-metoder,0,
+overstyring-polymorfi,concept,Objektorientert programmering,Overstyring og polymorfi,"Overstyring: at en subklasse lager sin egen versjon av en metode den har arvet, med samme navn.
+Polymorfi: at samme metodekall gir ulik oppførsel avhengig av hvilken klasse objektet tilhører, f.eks. at lag_lyd() gir «voff» for en Hund og «mjau» for en Katt.",lage-subklasse,0,
+overstyre-metode,skill,Objektorientert programmering,Overstyre en arvet metode,"overstyre en arvet metode i en subklasse, både ved å erstatte den helt og ved å utvide den med super().",overstyring-polymorfi,0,
+bruke-polymorfi,skill,Objektorientert programmering,Bruke polymorfi,"gå gjennom en liste med objekter av ulike subklasser og kalle samme metode på hvert, og forklare hvorfor programmet ikke trenger å sjekke hvilken klasse hvert objekt har.",overstyre-metode,0,
+abstrakt-klasse,concept,Objektorientert programmering,Abstrakt klasse,"Abstrakt klasse: en superklasse som bare finnes for å bli arvet fra, og som det ikke gir mening å lage objekter av direkte, f.eks. Figur over Sirkel og Rektangel. Den bestemmer hvilke metoder alle subklassene skal ha.",overstyring-polymorfi,0,
+samarbeidende-objekter,skill,Objektorientert programmering,Lage objekter som samarbeider,"programmere klasser der et objekt holder på og bruker andre objekter, som et Bibliotek med en liste av Bok-objekter, med metoder for å legge til, søke etter og fjerne objekter.",skrive-metoder;klasserelasjoner;grunnlag-lister-lokker,0,
+folge-oo-kode,skill,Objektorientert programmering,Følge objektorientert kode og forutsi utskriften,"følge et program med klasser, arv og overstyrte metoder for hånd, holde rede på hvert objekts tilstand og forutsi hva som skrives ut.",bruke-polymorfi;instans-klasseattributt;bruke-spesialmetoder,0,"Gi eleven et program på 20–40 linjer med en superklasse, to subklasser og noen metodekall, og be dem forutsi utskriften uten å kjøre koden."
+utvikle-oo-program,skill,Objektorientert programmering,Utvikle et objektorientert program fra en beskrivelse,"utvikle et fungerende program med flere klasser, arv og samarbeidende objekter ut fra en tekstlig beskrivelse, fra klassediagram til ferdig kode.",diagram-til-kode;samarbeidende-objekter;bruke-polymorfi;innkapsle-klasse,0,"Gi eleven en oppgave i samme omfang som en større eksamensoppgave, f.eks. et system for en dyrepark, en nettbutikk eller et enkelt spill, og la dem jobbe seg gjennom den i trinn."
+feiltyper,concept,Feilsøking og testing,"Syntaksfeil, kjøretidsfeil og logiske feil","Syntaksfeil: koden bryter språkets regler, så programmet ikke starter.
+Kjøretidsfeil: programmet stopper med en feilmelding underveis, f.eks. ved deling på null eller en indeks som ikke finnes.
+Logisk feil: programmet kjører uten feilmelding, men gir feil resultat.",,0,
+lese-traceback,skill,Feilsøking og testing,Lese en feilmelding med sporingsinformasjon,"lese en feilmelding med sporingsinformasjon (traceback) gjennom flere funksjons- og metodekall, finne linjen der feilen faktisk oppstod og forklare hva feiltypen betyr.",feiltyper,0,
+unntak,concept,Feilsøking og testing,Unntak,"Unntak (exception): et objekt som signaliserer at noe gikk galt mens programmet kjørte, som ValueError eller FileNotFoundError.
+Å fange et unntak: å håndtere feilen med try og except, slik at programmet kan fortsette.
+Å heve et unntak: å signalisere en feil selv med raise.",feiltyper,0,
+handtere-unntak,skill,Feilsøking og testing,Håndtere unntak med try og except,"fange bestemte unntak med try og except der feil kan oppstå, som ved brukerinndata og filer, og gi brukeren en forståelig melding i stedet for at programmet krasjer.",unntak,0,
+heve-unntak,skill,Feilsøking og testing,Heve unntak ved ugyldige verdier,"heve et passende unntak med raise når en metode eller funksjon får en ugyldig verdi, f.eks. et negativt beløp.",unntak;innkapsle-klasse,0,
+feilsoke-systematisk,skill,Feilsøking og testing,Feilsøke systematisk,"feilsøke ved å gjenskape feilen, lage en hypotese om årsaken, isolere den minste koden som gir feilen, og teste hypotesen med utskrift av mellomverdier.",lese-traceback,0,"Gi eleven et program med en logisk feil som bare viser seg for noen inndata, og be dem beskrive hvert steg i feilsøkingen sin, ikke bare rette feilen."
+bruke-debugger,skill,Feilsøking og testing,Bruke en debugger,"sette stoppunkter, gå gjennom koden linje for linje og inspisere variabler med debuggeren i et utviklingsverktøy.",feilsoke-systematisk,0,
+testing-begreper,concept,Feilsøking og testing,Testing,"Testtilfelle: et sett inndata sammen med det resultatet programmet skal gi.
+Enhetstest: en test av én liten del av programmet, som én funksjon eller metode, skrevet som kode som kan kjøres igjen og igjen.
+Grensetilfelle: inndata på kanten av det gyldige, som 0, en tom liste eller den største lovlige verdien.
+Regresjonstesting: å kjøre alle testene på nytt etter en endring, for å se at ingenting som virket før, er ødelagt.",feiltyper,0,
+velge-testtilfeller,skill,Feilsøking og testing,Velge testtilfeller,"velge testtilfeller som dekker vanlige verdier, grensetilfeller og ugyldige inndata for en funksjon eller metode, og skrive opp forventet resultat for hvert.",testing-begreper,0,
+skrive-enhetstester,skill,Feilsøking og testing,Skrive enhetstester,"skrive automatiske enhetstester med assert eller et testrammeverk som pytest, kjøre dem og bruke resultatet til å rette koden.",velge-testtilfeller;grunnlag-funksjoner,0,
+teste-klasse,skill,Feilsøking og testing,Teste en klasse,"skrive tester som lager objekter, kaller metodene i en bestemt rekkefølge og sjekker at tilstanden blir riktig, også at ugyldige verdier gir unntak.",skrive-enhetstester;heve-unntak,0,
+testdrevet-utvikling,concept,Feilsøking og testing,Testdrevet utvikling,"Testdrevet utvikling: å skrive testen før koden, se at den feiler, skrive akkurat nok kode til at den går gjennom, og så rydde i koden.",testing-begreper,0,
+vurdere-teststrategi,skill,Feilsøking og testing,Vurdere strategier for feilsøking og testing,"vurdere hvilke strategier for feilsøking og testing som passer for et konkret program, og begrunne hva som bør testes automatisk, hva som bør testes av brukere, og hva som er godt nok testet.",teste-klasse;testdrevet-utvikling;bruke-debugger,0,
+gjenbruk-begreper,concept,Gjenbrukbar kode,Generalisering og abstraksjon,"Generalisering: å skrive en løsning slik at den virker for mange tilfeller, ikke bare det ene den ble laget for.
+Abstraksjon: å skjule detaljene bak et enkelt grensesnitt, slik at den som bruker koden, ikke trenger å vite hvordan den virker inni.
+Gjentakelse: kode som er kopiert flere steder, er et tegn på at noe bør generaliseres.",grunnlag-funksjoner,0,
+generalisere-funksjon,skill,Gjenbrukbar kode,Generalisere en funksjon,"skrive om en funksjon med faste verdier slik at den tar dem inn som parametre, eventuelt med standardverdier, og bruke den samme funksjonen i flere sammenhenger.",gjenbruk-begreper,0,"Gi eleven to-tre nesten like kodebiter, f.eks. utregning av karaktersnitt for tre ulike fag, og be dem lage én funksjon som erstatter alle."
+dokumentere-kode,skill,Gjenbrukbar kode,Dokumentere kode for gjenbruk,"skrive dokumentasjonsstrenger (docstrings) for funksjoner, klasser og metoder som sier hva de gjør, hva de tar imot og hva de returnerer.",generalisere-funksjon,0,
+modul-bibliotek,concept,Gjenbrukbar kode,Modul og bibliotek,"Modul: en fil med funksjoner og klasser som andre programmer kan importere.
+Bibliotek: en samling moduler laget for gjenbruk, enten standardbiblioteket som følger med Python, eller eksterne pakker som installeres med pip.
+Programmeringsgrensesnitt (API): de funksjonene, klassene og metodene en modul tilbyr andre, og hvordan de skal brukes.",gjenbruk-begreper,0,
+lage-modul,skill,Gjenbrukbar kode,Lage og importere en egen modul,"flytte funksjoner og klasser ut i en egen modul, importere dem i et annet program, og bruke if __name__ == '__main__' for kode som bare skal kjøres når modulen startes direkte.",modul-bibliotek;dokumentere-kode,0,
+bruke-bibliotek,skill,Gjenbrukbar kode,Bruke et bibliotek ut fra dokumentasjonen,"finne fram i dokumentasjonen til en modul i standardbiblioteket eller en ekstern pakke, installere pakken om nødvendig, og bruke funksjonene den tilbyr.",modul-bibliotek,0,
+gjenbruk-arv,skill,Gjenbrukbar kode,Gjenbruke kode med arv,"flytte felles kode fra flere klasser opp i en felles superklasse, slik at hver subklasse bare inneholder det som er særegent for den.",lage-subklasse;gjenbruk-begreper,0,
+alternative-losninger,skill,Design og brukervennlighet,Skissere alternative løsninger,"skissere to eller flere ulike måter å designe og implementere det samme programmet på, f.eks. med ulike datastrukturer eller klasseoppdelinger.",finne-klasser;nostede-datastrukturer,0,
+designkriterier,concept,Design og brukervennlighet,Kriterier for god programdesign,"Lesbarhet: hvor lett andre kan forstå koden.
+Vedlikeholdbarhet: hvor lett koden er å rette og endre.
+Utvidbarhet: hvor lett det er å legge til ny funksjonalitet.
+Effektivitet: hvor mye tid og minne løsningen bruker.",gjenbruk-begreper,0,
+vurdere-alternative-losninger,skill,Design og brukervennlighet,Vurdere og velge mellom alternative løsninger,"vurdere alternative løsninger for design og implementering opp mot kriterier som lesbarhet, vedlikeholdbarhet, utvidbarhet og effektivitet, og begrunne hvilken som er best for formålet.",alternative-losninger;designkriterier,0,"Vis eleven to løsninger på samme oppgave, f.eks. én med ordbøker og én med klasser, og be dem vurdere dem opp mot hverandre og si når hver av dem er å foretrekke."
+brukervennlighet,concept,Design og brukervennlighet,Brukervennlighet og universell utforming,"Brukervennlighet: hvor lett, effektivt og behagelig en bestemt bruker kan nå målet sitt med et program.
+Universell utforming: at programmet er laget slik at flest mulig kan bruke det, også personer med funksjonsnedsettelser, uten spesialtilpasning.",,0,
+nielsens-heuristikker,fact,Design og brukervennlighet,Nielsens ti heuristikker for brukervennlighet,"synlig systemstatus: brukeren ser alltid hva systemet holder på med
+samsvar med virkeligheten: programmet bruker ord og begreper brukeren kjenner
+brukerkontroll og frihet: brukeren kan angre og avbryte
+konsistens og standarder: like ting ser like ut og virker likt
+forebygge feil: det er vanskelig å gjøre feil i utgangspunktet
+gjenkjenning framfor hukommelse: valgene vises, så brukeren slipper å huske dem
+fleksibilitet og effektivitet: erfarne brukere har snarveier
+estetisk og minimalistisk design: ingen unødvendig informasjon
+hjelp med feil: feilmeldinger sier i klart språk hva som er galt og hvordan det rettes
+hjelp og dokumentasjon: hjelp er lett å finne når den trengs",brukervennlighet,0,
+validere-inndata,skill,Design og brukervennlighet,Lage et robust brukergrensesnitt,"lage et menystyrt tekstgrensesnitt eller et enkelt grafisk grensesnitt som sjekker inndata, gir tydelige feilmeldinger og lar brukeren prøve igjen.",handtere-unntak;brukervennlighet,0,
+brukertest,skill,Design og brukervennlighet,Gjennomføre en brukertest av et program,"planlegge og gjennomføre en enkel brukertest med konkrete oppgaver der testpersonen tenker høyt, og notere hvor hen stopper opp eller gjør feil.",brukervennlighet,0,
+vurdere-brukervennlighet,skill,Design og brukervennlighet,Vurdere brukervennligheten i et program,"vurdere brukervennligheten i et eget eller andres program ut fra heuristikker og resultatet av en brukertest, og foreslå og begrunne konkrete forbedringer.",nielsens-heuristikker;brukertest;validere-inndata,0,
+utviklingsmodeller,concept,Systemutvikling og samarbeid,Fossefallsmodellen og smidig utvikling,"Fossefallsmodellen: utviklingen går gjennom faste faser én gang, fra krav og design via programmering og testing til levering.
+Smidig utvikling: utviklingen skjer i korte runder der en fungerende del av programmet leveres, vises fram og forbedres ut fra tilbakemeldinger.",,0,
+scrum,concept,Systemutvikling og samarbeid,Scrum,"Scrum: en smidig metode der teamet jobber i korte, faste perioder.
+Sprint: en periode på typisk én til fire uker der teamet lager en fungerende del av produktet.
+Produktkø (product backlog): den prioriterte listen over alt som skal lages.
+Daglig standup: et kort møte der hver forteller hva de har gjort, hva de skal gjøre og hva som hindrer dem.
+Retrospektiv: et møte etter hver sprint der teamet ser på hvordan de kan jobbe bedre.",utviklingsmodeller,0,
+kanban,concept,Systemutvikling og samarbeid,Kanban,"Kanban-tavle: en tavle med kolonner som Å gjøre, Pågår og Ferdig, der hver oppgave er et kort som flyttes mot høyre.
+Grense for pågående arbeid: en øvre grense for hvor mange kort som kan stå i Pågår samtidig, slik at oppgaver blir ferdige før nye startes.",utviklingsmodeller,0,
+velge-utviklingsmetode,skill,Systemutvikling og samarbeid,Velge utviklingsmetode for et prosjekt,"velge en systemutviklingsmetode for et konkret prosjekt og begrunne valget ut fra hvor godt kravene er kjent, hvor stort teamet er og hvor ofte brukerne kan gi tilbakemelding.",scrum;kanban,0,
+krav-brukerhistorie,concept,Systemutvikling og samarbeid,Krav og brukerhistorie,"Funksjonelt krav: noe programmet skal kunne gjøre.
+Ikke-funksjonelt krav: en egenskap programmet skal ha, som at det skal svare raskt eller være universelt utformet.
+Brukerhistorie: et krav skrevet fra brukerens side, på formen «Som … vil jeg … slik at …».
+Akseptansekriterium: en konkret betingelse som må være oppfylt for at brukerhistorien er ferdig.",utviklingsmodeller,0,
+skrive-brukerhistorier,skill,Systemutvikling og samarbeid,Skrive brukerhistorier med akseptansekriterier,"skrive brukerhistorier med akseptansekriterier for et program, og prioritere dem i en produktkø.",krav-brukerhistorie;scrum,0,
+versjonskontroll,concept,Systemutvikling og samarbeid,Versjonskontroll,"Versjonskontroll: et system som tar vare på alle tidligere versjoner av koden og hvem som endret hva, f.eks. git.
+Repository: prosjektmappen med hele historikken, ofte lagret på en tjeneste som GitHub.
+Commit: et lagret øyeblikksbilde av endringene, med en melding som sier hva som ble endret.
+Gren (branch): en parallell utviklingslinje der man kan jobbe uten å forstyrre hovedgrenen.
+Sammenslåing (merge): å føre endringene fra en gren inn i en annen.",,0,
+bruke-git,skill,Systemutvikling og samarbeid,Bruke versjonskontroll i eget prosjekt,"lagre endringer med commit og en beskrivende melding, sende dem til og hente dem fra et felles repository, og gå tilbake til en tidligere versjon.",versjonskontroll,0,
+samarbeide-git,skill,Systemutvikling og samarbeid,Samarbeide om kode med grener,"jobbe på en egen gren, slå den sammen med hovedgrenen, og løse en sammenslåingskonflikt når to har endret de samme linjene.",bruke-git,0,
+planlegge-smidig-prosjekt,skill,Systemutvikling og samarbeid,Planlegge og gjennomføre et prosjekt i team,"planlegge et programmeringsprosjekt i team med produktkø, sprinter eller kanban-tavle og versjonskontroll, og vurdere etterpå hvordan metoden og verktøyene fungerte.",velge-utviklingsmetode;skrive-brukerhistorier;samarbeide-git,0,
+standard-begrep,concept,Datastandarder og datasikkerhet,Standard og åpent format,"Standard: en felles, offentlig beskrevet avtale om hvordan noe skal gjøres, slik at ulike systemer kan virke sammen.
+Åpent format: et filformat der beskrivelsen er fritt tilgjengelig, som PNG, CSV og JSON.
+Proprietært format: et format som eies og kontrolleres av ett firma.",,0,
+tegnkoding,concept,Datastandarder og datasikkerhet,Tegnkoding og UTF-8,"Tegnkoding: en avtale om hvilket tall som står for hvilket tegn.
+Unicode: en felles nummerering av nesten alle tegn i verdens skriftsystemer.
+UTF-8: den vanligste måten å lagre Unicode på, med 1 til 4 byte per tegn. Leses en UTF-8-fil med feil tegnkoding, blir æ, ø og å til rare tegn.",standard-begrep,0,
+dataformater,concept,Datastandarder og datasikkerhet,"CSV, JSON og XML","CSV: tabelldata der hver linje er en rad og verdiene skilles med et skilletegn.
+JSON: data som nøstede nøkkel–verdi-par og lister, mye brukt når programmer utveksler data over nett.
+XML: data merket opp med egne tagger i en trestruktur, som HTML men med fritt valgte navn.",standard-begrep,0,
+lese-skrive-csv-json,skill,Datastandarder og datasikkerhet,Lese og skrive CSV og JSON med program,"lese og skrive CSV- og JSON-filer med bibliotekene for det, med riktig skilletegn og tegnkoding, og gjøre dataene om til lister, ordbøker eller objekter.",dataformater;tegnkoding;lese-skrive-filer;nostede-datastrukturer,0,
+konvertere-format,skill,Datastandarder og datasikkerhet,Konvertere data mellom formater,"skrive et program som leser data i ett format og lagrer dem i et annet, f.eks. fra CSV til JSON, og vurdere hva som går tapt eller må endres underveis.",lese-skrive-csv-json,0,
+mediaformater,concept,Datastandarder og datasikkerhet,Formater og komprimering for bilde og lyd,"Tapsfri komprimering: originalen kan gjenskapes nøyaktig, som i PNG og FLAC.
+Tapsbasert komprimering: noe informasjon kastes for å spare mer plass, som i JPEG, MP3 og MP4.
+Vektorformat: et bilde lagret som former og linjer, som SVG, som kan skaleres uten tap.",standard-begrep,0,
+velge-format,skill,Datastandarder og datasikkerhet,Velge standard for lagring og utveksling,"velge filformat og standard for å lagre eller utveksle en bestemt type data, og begrunne valget ut fra kvalitet, størrelse, hvem som skal bruke dataene og hvor lenge de skal leve.",mediaformater;dataformater,0,
+http-api,concept,Datastandarder og datasikkerhet,HTTP og API på nett,"HTTP: protokollen klienter og tjenere bruker til å utveksle data på nettet, med forespørsler som GET og POST.
+HTTPS: HTTP der innholdet er kryptert.
+Nett-API: en adresse et program kan sende forespørsler til og få data tilbake fra, ofte som JSON.
+Statuskode: et tall i svaret som sier hvordan forespørselen gikk.",dataformater,0,
+statuskoder,fact,Datastandarder og datasikkerhet,Vanlige HTTP-statuskoder,"200: OK, forespørselen gikk bra
+201: opprettet, noe nytt ble laget
+400: ugyldig forespørsel
+401: ikke autentisert, du må logge inn
+403: forbudt, du har ikke tilgang
+404: ikke funnet
+500: intern feil hos tjeneren",http-api,0,
+sikkerhetsbegreper,concept,Datastandarder og datasikkerhet,"Konfidensialitet, integritet og tilgjengelighet","Konfidensialitet: bare de som skal ha tilgang, kan lese dataene.
+Integritet: dataene er korrekte og ikke endret uten lov.
+Tilgjengelighet: dataene kan brukes når de trengs.",,0,
+kryptering,concept,Datastandarder og datasikkerhet,Kryptering,"Kryptering: å gjøre data uleselige for alle som ikke har riktig nøkkel.
+Symmetrisk kryptering: samme nøkkel brukes til å kryptere og dekryptere.
+Asymmetrisk kryptering: en offentlig nøkkel krypterer, og bare den tilhørende private nøkkelen kan dekryptere.
+TLS: standarden som krypterer trafikken i HTTPS.",sikkerhetsbegreper,0,
+hashing,concept,Datastandarder og datasikkerhet,Hashfunksjon og salt,"Hashfunksjon: en funksjon som gjør data om til en kort verdi av fast lengde, der det er praktisk umulig å regne seg tilbake til originalen.
+Salt: en tilfeldig verdi som legges til hvert passord før det hashes, slik at like passord får ulike hashverdier.",sikkerhetsbegreper,0,
+forklare-passordlagring,skill,Datastandarder og datasikkerhet,Forklare sikker lagring av passord,"forklare hvorfor passord skal lagres som saltede hashverdier og ikke i klartekst eller bare kryptert, og hva som skjer ved innlogging.",hashing;kryptering,0,
+sikkerhetskopi,concept,Datastandarder og datasikkerhet,Sikkerhetskopi,"Sikkerhetskopi: en kopi av data som kan brukes hvis originalen går tapt.
+3-2-1-regelen: minst tre kopier, på to ulike lagringsmedier, der én oppbevares et annet sted.",sikkerhetsbegreper,0,
+vurdere-sikring,skill,Datastandarder og datasikkerhet,Vurdere sikring av data i et system,"gjøre rede for hvordan dataene i et konkret system bør lagres, utveksles og sikres, med kryptering, tilgangskontroll og sikkerhetskopi, og begrunne tiltakene ut fra konfidensialitet, integritet og tilgjengelighet.",forklare-passordlagring;sikkerhetskopi;velge-format;http-api,0,
+datasett-begreper,concept,Analyse av reelle datasett,Datasett,"Datasett: en samling data om et tema, ofte som en tabell.
+Observasjon: én rad i datasettet, f.eks. én måling eller én person.
+Variabel: én kolonne, altså én egenskap som er målt for hver observasjon.
+Metadata: beskrivelsen av datasettet, som hvem som har samlet det inn, når, hvordan og med hvilke enheter.",,0,
+apne-data,concept,Analyse av reelle datasett,Åpne data,"Åpne data: data som er gjort fritt tilgjengelige for alle å bruke, som fra SSB, Meteorologisk institutt eller data.norge.no.
+Lisens: vilkårene for hvordan dataene kan brukes, f.eks. at kilden må oppgis.",datasett-begreper,0,
+hente-data-api,skill,Analyse av reelle datasett,Hente data fra et nett-API,"sende en forespørsel til et åpent nett-API fra et program, sjekke statuskoden og hente ut de verdiene som trengs fra JSON-svaret.",http-api;apne-data;lese-skrive-csv-json,0,"I Python passer requests-biblioteket. Velg et åpent API uten innlogging, f.eks. fra Meteorologisk institutt eller SSB, og vær tydelig på at mange API-er krever at programmet oppgir hvem det er."
+lese-datasett,skill,Analyse av reelle datasett,Lese inn et reelt datasett,"lese inn et reelt datasett fra en CSV- eller JSON-fil, sjekke hvilke variabler og hvor mange observasjoner det har, og finne ut hva enhetene og kodene betyr.",apne-data;lese-skrive-csv-json,0,
+rense-data,skill,Analyse av reelle datasett,Rense et datasett,"finne og håndtere manglende verdier, feil datatyper, duplikater og åpenbart urimelige verdier, og gjøre rede for valgene som ble tatt.",lese-datasett;handtere-unntak,0,
+filtrere-gruppere,skill,Analyse av reelle datasett,"Filtrere, sortere og gruppere data","plukke ut observasjoner som oppfyller en betingelse, sortere dem, og gruppere dem etter en variabel for å sammenligne gruppene.",rense-data;bruke-ordbok,0,"Eleven kan gjøre dette med lister og ordbøker eller med et bibliotek som pandas. Spør hva klassen bruker."
+statistiske-mal,concept,Analyse av reelle datasett,Sentralmål og spredningsmål,"Gjennomsnitt: summen av verdiene delt på antallet.
+Median: den midterste verdien når verdiene er sortert. Den påvirkes lite av ekstreme verdier.
+Standardavvik: et mål på hvor mye verdiene typisk avviker fra gjennomsnittet.",datasett-begreper,0,
+beregne-statistikk,skill,Analyse av reelle datasett,Beregne nøkkeltall i et datasett,"beregne gjennomsnitt, median, største og minste verdi og standardavvik for en variabel, totalt og for hver gruppe, og velge det målet som beskriver dataene best.",statistiske-mal;filtrere-gruppere,0,
+visualisere-data,skill,Analyse av reelle datasett,Visualisere data med diagram,"lage diagrammer av data med et programbibliotek, velge diagramtype etter hva som skal vises, og sette titler, aksetitler med enheter og forklaring.",filtrere-gruppere,0,"I Python passer matplotlib. Be eleven forklare hvorfor diagramtypen passer, og hva en leser bør se først."
+korrelasjon-kausalitet,concept,Analyse av reelle datasett,Korrelasjon og kausalitet,"Korrelasjon: at to variabler har en tendens til å endre seg sammen.
+Kausalitet: at endringen i den ene faktisk fører til endringen i den andre. Korrelasjon alene viser ikke kausalitet, fordi en tredje faktor kan styre begge.",statistiske-mal,0,
+tolke-kritisk,skill,Analyse av reelle datasett,Tolke resultater kritisk,"tolke resultatene av en dataanalyse og vurdere hvor sikre konklusjonene er, med tanke på datakvalitet, utvalg, manglende verdier og forskjellen på korrelasjon og kausalitet.",korrelasjon-kausalitet;beregne-statistikk;visualisere-data,0,
+dataanalyse-prosjekt,skill,Analyse av reelle datasett,Gjennomføre en analyse av et reelt datasett,"gjennomføre en hel analyse fra problemstilling via innhenting, rensing og beregning til en presentasjon med diagrammer, en begrunnet konklusjon og en vurdering av begrensningene.",tolke-kritisk;hente-data-api,0,
+etiske-perspektiver,concept,"Teknologi, etikk og samfunn",Etiske perspektiver,"Konsekvensetikk: en handling er riktig hvis den gir de beste følgene for alle som berøres.
+Pliktetikk: en handling er riktig hvis den følger gode regler og plikter, uansett følgene.
+Dydsetikk: en handling er riktig hvis den er det et godt og klokt menneske ville gjort.",,0,
+ki-begreper,concept,"Teknologi, etikk og samfunn",Kunstig intelligens og skjevhet,"Kunstig intelligens: datasystemer som løser oppgaver vi forbinder med menneskelig intelligens.
+Maskinlæring: at et system lærer mønstre fra eksempler i stedet for å følge regler en programmerer har skrevet.
+Treningsdata: eksemplene systemet lærer av.
+Algoritmisk skjevhet: at et system behandler grupper ulikt fordi treningsdataene eller valgene til utviklerne var skjeve.",,0,
+personvern-overvaking,concept,"Teknologi, etikk og samfunn",Personvern og overvåking,"Personvern: retten til å bestemme over opplysninger om seg selv.
+Personopplysning: enhver opplysning som kan knyttes til en enkeltperson.
+Overvåking: systematisk innsamling av opplysninger om hva personer gjør, av stater, arbeidsgivere eller selskaper.
+Digitalt fotavtrykk: sporene en person etterlater seg på nettet.",,0,
+opphavsrett-lisenser,concept,"Teknologi, etikk og samfunn",Opphavsrett og åpne lisenser,"Opphavsrett: skaperens enerett til å bestemme over bruken av et verk, også programkode.
+Åpen kildekode: programvare der kildekoden kan leses, endres og deles under en lisens som tillater det.
+Creative Commons: en familie av lisenser som lar skaperen gi andre lov til bestemte typer bruk, f.eks. med krav om kreditering.",,0,
+miljoavtrykk,concept,"Teknologi, etikk og samfunn",Miljøavtrykket til IT,"Energibruk: datasentre, nettverk og trening av store KI-modeller bruker mye strøm.
+Elektronisk avfall: utrangerte enheter med miljøgifter og verdifulle metaller som må tas hånd om.",,0,
+utforske-konsekvenser,skill,"Teknologi, etikk og samfunn",Utforske muligheter og konsekvenser av IT,"utforske hvordan informasjonsteknologi brukes i en bestemt sammenheng, som helse, skole, transport eller arbeidsliv, og vurdere muligheter, utfordringer og konsekvenser for dem som berøres.",ki-begreper;personvern-overvaking;miljoavtrykk,0,
+drofte-etisk-dilemma,skill,"Teknologi, etikk og samfunn",Drøfte et etisk dilemma knyttet til IT,"drøfte et etisk dilemma som informasjonsteknologi skaper, fra både individets og samfunnets side og med minst to etiske perspektiver, og ende med en begrunnet vurdering.",etiske-perspektiver;utforske-konsekvenser;opphavsrett-lisenser,0,"Foreslå konkrete dilemmaer, f.eks. ansiktsgjenkjenning i det offentlige rom, KI som vurderer jobbsøkere, eller bruk av andres kode og data til å trene KI. Still motspørsmål."
+vurdere-eget-program-etisk,skill,"Teknologi, etikk og samfunn",Vurdere etiske sider ved eget program eller egen analyse,"vurdere hvem som kan bli berørt av et program eller en dataanalyse eleven selv har laget, hvilke personopplysninger og lisenser det handler om, og hva som kan gå galt hvis løsningen misbrukes.",drofte-etisk-dilemma;dataanalyse-prosjekt,0,

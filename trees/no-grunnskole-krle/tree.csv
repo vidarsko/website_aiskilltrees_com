@@ -1,0 +1,219 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Fagbegreper og kilder;Kristendom;Jødedom og islam;Hinduisme og buddhisme;Livssynshumanisme og ikke-religiøse livssyn;Samisk religion og urfolk;Religion i samfunnet;Etikk og filosofi;Dialog og eksistensielle spørsmål;Aktuelle etiske spørsmål,,,
+,config,,title,KRLE 8.–10. trinn,,,
+,config,,description,"Fagbegreper og kilder, kristendom, jødedom, islam, hinduisme, buddhisme, livssynshumanisme, samisk religion, religion i samfunnet, etikk og filosofi, dialog og eksistensielle spørsmål på ungdomstrinnet — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-grunnskole-krle-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"kristendom, religion, livssyn og etikk (KRLE) 8.–10. trinn (norsk ungdomsskole, RLE0030)",,,
+,config,,slots.expressionFocus,"bruker «myte» i dagligtale-betydningen «usannhet», blander sammen etikk og moral, skriver «muslimer mener» eller «kristne tror» som om alle i en religion mener det samme, framstiller en tolkning som religionens eneste lære, eller sier at de «drøfter» uten å faktisk veie argumenter mot hverandre",,,
+,config,,slots.courseSpecifics,"Faget har standpunktkarakter på 10. trinn og ingen skriftlig eksamen. Eleven kan trekkes ut til muntlig eksamen med forberedelsesdel, laget og sensurert lokalt. Undervisningen skal være objektiv, kritisk og pluralistisk: framstill hver religion og hvert livssyn saklig og slik tilhengerne selv ville kjent seg igjen, vis mangfoldet innad i tradisjonene, forkynn ikke, og ta aldri stilling til hvilken tro eller hvilket livssyn som er sant.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Ungdomstrinnet, 8.–10. trinn",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,RLE0030,,,
+,config,,country,NO,,,
+,config,,institution,grunnskole,,,
+,config,,division,8-10,,,
+,config,,subjectArea,religion,,,
+,config,,keywords,KRLE; RLE; religion; livssyn; etikk; filosofi; ungdomsskole; ungdomstrinnet; 10. trinn; muntlig eksamen; kristendom; islam; jødedom; hinduisme; buddhisme; livssynshumanisme; samisk religion; pliktetikk; konsekvensetikk; dydsetikk; eksistensielle spørsmål,,,
+,config,,updated,2026-10-08,,,
+religion,concept,Fagbegreper og kilder,Religion,"Religion: tro og praksis knyttet til noe som oppfattes som hellig eller overmenneskelig – én gud, flere guder, ånder eller en høyere virkelighet – og som deles i et fellesskap med fortellinger, ritualer og regler for livet. Religionsforskere er ikke enige om én definisjon.",,0,
+livssyn,concept,Fagbegreper og kilder,Livssyn,"Livssyn: et helhetlig syn på hva mennesket er, hva som er viktig i livet og hvordan man bør leve. Religioner er livssyn, men det er også ikke-religiøse syn som livssynshumanismen.",religion,0,
+religionens-dimensjoner,concept,Fagbegreper og kilder,Religionens dimensjoner,"Lære: det tilhengerne tror på, om Gud, mennesket og verden.
+Fortelling: de hellige fortellingene religionen bærer videre.
+Ritual: de faste handlingene, som bønn, gudstjeneste og overgangsriter.
+Etikk: reglene og idealene for hvordan man bør leve.
+Erfaring: det enkelte troende opplever, som nærhet til det hellige.
+Organisasjon: fellesskapet, med ledere, bygninger og medlemskap.
+Materiell dimensjon: gjenstander, bygninger, klær og kunst knyttet til troen.",religion,0,
+myte-ritual,concept,Fagbegreper og kilder,Myte og ritual,"Myte: en hellig fortelling som forklarer hvordan verden, mennesket eller en skikk ble til. I religionsfaget betyr ordet ikke «usannhet»; det sier hva fortellingen gjør for de troende, ikke om den er sann.
+Ritual: en fastlagt handling som gjentas på samme måte og har en religiøs betydning, som dåp, bønn eller et offer.",religion,0,
+teisme-ateisme,concept,Fagbegreper og kilder,"Monoteisme, polyteisme, ateisme og agnostisisme","Monoteisme: troen på at det finnes én gud.
+Polyteisme: troen på at det finnes mange guder.
+Ateisme: synet at det ikke finnes noen gud.
+Agnostisisme: synet at man ikke kan vite om det finnes en gud.",religion,0,
+sekularisering,concept,Fagbegreper og kilder,Sekularisering,"Sekularisering: at religion får mindre betydning i samfunnet – for lovverk, skole og offentlig liv – og ofte også i livet til den enkelte. Den skjer ikke likt overalt, og i store deler av verden vokser religionene.",religion,0,
+innenfra-utenfra,concept,Fagbegreper og kilder,Innenfra- og utenfraperspektiv,"Innenfraperspektiv: hvordan en religion eller et livssyn ser ut for en som selv tilhører det.
+Utenfraperspektiv: hvordan det beskrives av en som ikke tilhører det, for eksempel en forsker eller en journalist.",religion,0,
+levd-religion,concept,Fagbegreper og kilder,Normativ og levd religion,"Normativ religion: det en religion lærer slik det står i hellige skrifter eller blir slått fast av religiøse ledere.
+Levd religion: hvordan troende faktisk praktiserer og forstår troen i hverdagen, som kan avvike fra den offisielle læren.",religion,0,
+tolkning-tekst,concept,Fagbegreper og kilder,Tolkning av hellige tekster,"Bokstavelig lesning: at teksten forstås ordrett og gjelder uendret i dag.
+Kontekstuell lesning: at teksten leses i lys av tiden og samfunnet den ble skrevet i, og tolkes på nytt for vår tid.",religion,0,
+kilder-religion,concept,Fagbegreper og kilder,Kilder til kunnskap om religioner,"Primærkilde: en kilde fra tradisjonen selv, som en hellig tekst, en bønn, et ritual eller et intervju med en troende.
+Sekundærkilde: en kilde som beskriver eller tolker tradisjonen utenfra, som en lærebok, et leksikon eller en nyhetsartikkel.",innenfra-utenfra,0,
+bruke-fagbegreper,skill,Fagbegreper og kilder,Bruke fagbegreper om religioner og livssyn,"beskrive en religiøs praksis eller et livssyn med fagbegreper som myte, ritual, monoteisme og religionens dimensjoner, og begrunne hvorfor begrepet passer.",religionens-dimensjoner;myte-ritual;teisme-ateisme,0,
+drofte-religionsbegrepet,skill,Fagbegreper og kilder,Drøfte hva som skal regnes som religion,"drøfte styrker og svakheter ved ulike måter å avgrense religion på, med grensetilfeller som yoga, fotballsupportere eller livssynshumanisme.",bruke-fagbegreper;livssyn,0,
+forklare-innenfra-utenfra,skill,Fagbegreper og kilder,Forklare forskjellen på et innenfra- og et utenfraperspektiv,"forklare hva et innenfra- og et utenfraperspektiv hver kan og ikke kan få fram om en religion, med et konkret eksempel.",innenfra-utenfra,0,
+vurdere-kilder-religion,skill,Fagbegreper og kilder,Vurdere kilder til kunnskap om religioner og livssyn,"sammenligne ulike kilder om samme religion eller livssyn – for eksempel en lærebok, trossamfunnets egen nettside og et innlegg i sosiale medier – og vurdere kritisk hva hver av dem kan og ikke kan fortelle.",kilder-religion;forklare-innenfra-utenfra,0,
+treenigheten,concept,Kristendom,Treenigheten,"Treenigheten: den kristne læren om at Gud er én, men er Far, Sønn og Hellig Ånd.",teisme-ateisme,0,
+jesus-kristus,concept,Kristendom,Jesus i kristen tro,"Jesus i kristen tro: en jødisk forkynner fra Nasaret i det første århundret, som kristne tror er Guds sønn og Messias (Kristus). Kristen tro sentrerer om hans død på korset og hans oppstandelse.",,0,
+bibelen,concept,Kristendom,Bibelen,"Det gamle testamentet: de hebraiske skriftene, som kristendommen deler med jødedommen.
+Det nye testamentet: skriftene om Jesus og de første kristne – evangeliene, Apostlenes gjerninger, brevene og Johannes' åpenbaring.",,0,
+synd-nade,concept,Kristendom,"Synd, nåde og frelse","Synd: brudd på forholdet til Gud og andre mennesker.
+Nåde: at Gud tilgir uten at mennesket har fortjent det.
+Frelse: å bli satt fri fra synden og få evig liv med Gud, som kristne tror skjer ved Jesu død og oppstandelse.",jesus-kristus,0,
+sakrament,concept,Kristendom,Sakrament,"Sakrament: en hellig handling der kristne tror Gud virker gjennom et synlig tegn. Lutherske kirker har to, dåp og nattverd; den katolske og den ortodokse kirken har sju.",myte-ritual,0,
+kirkesamfunn,concept,Kristendom,"Katolsk, ortodoks og protestantisk kristendom","Katolsk kirke: den største kirken, ledet av paven i Roma.
+Ortodoks kirke: kirkene i øst, med tyngdepunkt i Øst-Europa og Midtøsten, ledet av patriarker.
+Protestantiske kirker: kirkene som vokste ut av reformasjonen, blant dem lutherske kirker og pinsebevegelsen, med vekt på Bibelen og troen alene.",,0,
+reformasjonen,concept,Kristendom,Reformasjonen,"Reformasjonen: bruddet med den katolske kirken på 1500-tallet, satt i gang av Martin Luther, som la vekt på at mennesket blir frelst ved tro og nåde alene og at Bibelen er den øverste autoriteten.",kirkesamfunn;synd-nade,0,
+kristne-hoytider,fact,Kristendom,Kristne høytider,"advent: de fire søndagene før jul, en forberedelsestid
+jul: Jesu fødsel
+langfredag: Jesu korsfestelse og død
+påske: Jesu oppstandelse
+Kristi himmelfartsdag: Jesus blir tatt opp til himmelen
+pinse: Den hellige ånd kommer over disiplene, regnet som kirkens fødselsdag",jesus-kristus,0,
+forklare-kristendom,skill,Kristendom,Gjøre rede for sentrale trekk ved kristendommen,"gjøre rede for kristendommens lære, hellige skrift, ritualer og høytider, og vise hvordan de henger sammen.",treenigheten;bibelen;synd-nade;sakrament;kristne-hoytider,0,
+misjon,concept,Kristendom,Misjon,"Misjon: å spre en religion til nye folk og områder. Kristen misjon fulgte ofte koloniseringen, og har både bygd skoler og sykehus og bidratt til at lokale tradisjoner ble undertrykt.",,0,
+statskirke,concept,Kristendom,Den norske kirke og statskirken,"Statskirke: en kirke som er en del av statens organisering. Den norske kirke var statskirke fra reformasjonen til 2017. Nå er den et eget trossamfunn, som Grunnloven kaller Norges folkekirke.",kirkesamfunn,0,
+kristendom-norge,skill,Kristendom,Forklare hvordan kristendommen har preget Norge,"forklare hvordan kristningen, reformasjonen og senere vekkelsesbevegelser har preget norsk lov, skole, kultur og høytider.",reformasjonen;statskirke;arstall-norge,0,
+judaisme-grunnlag,concept,Jødedom og islam,"Pakten, Toraen og Talmud","Pakten: avtalen jødedommen fører tilbake til Abraham og Moses, der Gud utvelger Israels folk og folket forplikter seg til å holde budene.
+Toraen: de fem mosebøkene, den helligste delen av den hebraiske bibelen (Tanakh).
+Talmud: samlingen av rabbinernes tolkninger og diskusjoner av Toraen.",teisme-ateisme,0,
+jodiske-retninger,concept,Jødedom og islam,"Ortodoks, konservativ og liberal jødedom","Ortodoks jødedom: holder fast ved at budene i Toraen gjelder uendret.
+Konservativ jødedom: holder fast ved budene, men tillater at de tolkes i lys av vår tid.
+Liberal jødedom (reformjødedom): ser budene som veiledning som kan tilpasses, og har for eksempel kvinnelige rabbinere.",judaisme-grunnlag,0,
+jodiske-hoytider,fact,Jødedom og islam,Jødiske høytider og riter,"sabbat: ukentlig hviledag fra fredag kveld til lørdag kveld
+pesach: minnet om utgangen fra Egypt
+rosh hashana: det jødiske nyttåret
+jom kippur: forsoningsdagen, med faste og bønn
+hanukka: lysfesten, til minne om gjeninnvielsen av tempelet i Jerusalem
+bar mitsva og bat mitsva: overgangsriten når en gutt (13 år) eller jente (12 år) blir religiøst myndig",judaisme-grunnlag,0,
+forklare-jodedom,skill,Jødedom og islam,Gjøre rede for sentrale trekk ved jødedommen,"gjøre rede for jødedommens lære, skrifter, retninger, høytider og hverdagspraksis, som sabbat og kosher.",judaisme-grunnlag;jodiske-retninger;jodiske-hoytider,0,
+islam-grunnlag,concept,Jødedom og islam,"Tawhid, Koranen og sunna","Tawhid: læren om at Gud (Allah) er én og ikke kan deles.
+Koranen: Guds ord slik muslimer tror det ble åpenbart for profeten Muhammad.
+Sunna: Muhammads eksempel – det han sa og gjorde – overlevert i fortellinger som kalles hadith.",teisme-ateisme,0,
+fem-soyler,fact,Jødedom og islam,Islams fem søyler,"shahada: trosbekjennelsen, at det ikke finnes noen gud utenom Gud, og at Muhammad er hans sendebud
+salat: bønn fem ganger om dagen, vendt mot Mekka
+zakat: en fast andel av formuen gitt til fattige
+sawm: faste fra daggry til solnedgang i måneden ramadan
+hajj: pilegrimsreise til Mekka minst én gang i livet, for den som har helse og råd til det",islam-grunnlag,0,
+sunni-sjia,concept,Jødedom og islam,Sunni og sjia,"Sunni: den største retningen i islam, som mener at lederen etter Muhammad skulle velges blant de troende.
+Sjia: retningen som mener at lederskapet skulle gå i Muhammads familie, gjennom svigersønnen Ali.",islam-grunnlag,0,
+sharia,concept,Jødedom og islam,Sharia,"Sharia: Guds vei eller lov for hvordan muslimer bør leve, utledet av Koranen og sunna. Sharia er ikke én nedskrevet lovbok; den tolkes av lærde, og tolkningene varierer mye mellom retninger og land.",islam-grunnlag,0,
+forklare-islam,skill,Jødedom og islam,Gjøre rede for sentrale trekk ved islam,"gjøre rede for islams lære, skrifter, retninger, de fem søylene og høytidene id al-fitr og id al-adha, og vise hvordan de henger sammen.",fem-soyler;sunni-sjia;sharia,0,
+sammenligne-abrahamittiske,skill,Jødedom og islam,"Sammenligne jødedom, kristendom og islam","sammenligne de tre abrahamittiske religionene på gudsbilde, hellige skrifter, synet på Jesus og viktige profeter, og forklare hva de har felles.",forklare-jodedom;forklare-kristendom;forklare-islam,0,
+karma-samsara,concept,Hinduisme og buddhisme,"Karma, samsara og moksha","Samsara: kretsløpet av fødsel, død og gjenfødelse.
+Karma: loven om at handlingene dine får følger, i dette livet og i det neste.
+Moksha: frigjøringen fra samsara, målet i hinduismen. Buddhismen kaller målet nirvana.",religion,0,
+hinduisme-gudsbilde,concept,Hinduisme og buddhisme,"Brahman, atman og gudene","Brahman: den guddommelige virkeligheten bak alt som finnes.
+Atman: sjelen i hvert menneske, som mange hinduer forstår som ett med Brahman.
+Gudene: Vishnu, Shiva, gudinnen Devi og mange andre, som mange hinduer ser som ulike ansikter av det samme guddommelige.",karma-samsara;teisme-ateisme,0,
+forklare-hinduisme,skill,Hinduisme og buddhisme,Gjøre rede for sentrale trekk ved hinduismen,"gjøre rede for hinduismens gudsbilde, synet på sjel og gjenfødelse, ritualer som puja, høytider som divali og holi, og synet på dharma og kaste, og vise variasjonen innad i tradisjonen.",hinduisme-gudsbilde,0,
+buddha-juveler,concept,Hinduisme og buddhisme,Buddha og de tre juvelene,"Buddha: «den oppvåknede», tittelen på Siddhartha Gautama, som ifølge tradisjonen levde i Nord-India for rundt 2500 år siden.
+De tre juvelene: Buddha, dharma (Buddhas lære) og sangha (fellesskapet av munker, nonner og lekfolk), som buddhister søker tilflukt i.",,0,
+fire-edle-sannheter,concept,Hinduisme og buddhisme,De fire edle sannhetene,"Lidelsen: livet er preget av lidelse og utilfredshet.
+Årsaken: lidelsen kommer av begjær og at man klamrer seg til ting.
+Opphøret: lidelsen kan ta slutt, i nirvana.
+Veien: den åttedelte veien – rett innsikt, tanke, tale, handling, levevei, innsats, oppmerksomhet og konsentrasjon.",buddha-juveler;karma-samsara,0,
+forklare-buddhisme,skill,Hinduisme og buddhisme,Gjøre rede for sentrale trekk ved buddhismen,"gjøre rede for buddhismens lære, hovedretningene theravada og mahayana, og praksis som meditasjon og klosterliv.",fire-edle-sannheter,0,
+sikhisme,concept,Hinduisme og buddhisme,Sikhismen,"Sikhismen: en monoteistisk religion grunnlagt av Guru Nanak i Punjab rundt år 1500. Sikher følger læren fra ti menneskelige guruer, som nå er samlet i den hellige boka Guru Granth Sahib, og legger vekt på likhet mellom alle mennesker, blant annet gjennom felleskjøkkenet langar.",teisme-ateisme;karma-samsara,0,
+livssynshumanisme,concept,Livssynshumanisme og ikke-religiøse livssyn,Livssynshumanisme,"Livssynshumanisme: et livssyn uten tro på noen gud eller noe overnaturlig, der mennesket, fornuften og vitenskapen er utgangspunktet. Det bygger på menneskeverd, frihet og ansvar for hverandre og for kommende generasjoner.",livssyn;teisme-ateisme,0,
+eksistensialisme,concept,Livssynshumanisme og ikke-religiøse livssyn,Eksistensialisme,"Eksistensialisme: en filosofisk retning, blant annet hos Jean-Paul Sartre, som sier at mennesket ikke er født med en gitt mening eller natur, men selv må skape den gjennom valgene sine – og står ansvarlig for dem.",livssyn,0,
+forklare-livssynshumanisme,skill,Livssynshumanisme og ikke-religiøse livssyn,Gjøre rede for sentrale ideer i livssynshumanismen,"gjøre rede for livssynshumanismens menneskesyn, etikk og syn på kunnskap, og hvordan Human-Etisk Forbund markerer viktige overganger i livet med humanistiske seremonier.",livssynshumanisme,0,
+presentere-ikke-religiost,skill,Livssynshumanisme og ikke-religiøse livssyn,Presentere sentrale ideer fra et ikke-religiøst livssyn,"undersøke og presentere sentrale ideer fra et ikke-religiøst livssyn, for eksempel eksistensialismen, og vise hvordan det svarer på spørsmål om mening og moral.",eksistensialisme;forklare-livssynshumanisme,0,
+sammenligne-humanisme-religion,skill,Livssynshumanisme og ikke-religiøse livssyn,Sammenligne livssynshumanisme med et religiøst livssyn,"sammenligne livssynshumanismen med en religion på menneskesyn, grunnlag for moral og syn på døden.",forklare-livssynshumanisme;forklare-kristendom,0,
+urfolk,concept,Samisk religion og urfolk,Urfolk,"Urfolk: et folk som bodde i et område før dagens statsgrenser ble trukket, og som har beholdt egne språk, kultur og samfunnsformer. Samene er urfolk i Norge, Sverige, Finland og Russland.",,0,
+animisme,concept,Samisk religion og urfolk,Besjelet natur (animisme),"Animisme: troen på at natur, dyr og steder har sjel eller ånd. Begrepet er omstridt, fordi europeiske forskere brukte det om urfolks religioner som om de var et tidlig, primitivt trinn.",religion,0,
+noaide,concept,Samisk religion og urfolk,Noaiden og runebomma,"Noaide: den religiøse spesialisten i tradisjonell samisk religion, som kunne reise til åndeverdenen for å hjelpe, helbrede og finne svar.
+Runebomme (goavddis): trommen med tegninger av guder og verden som noaiden brukte.",animisme,0,
+sieidi-joik,concept,Samisk religion og urfolk,Sieidi og joik,"Sieidi: et hellig sted eller en hellig stein i naturen der man ofret og ba om hjelp.
+Joik: en samisk sangform som uttrykker en person, et dyr eller et sted, og som lenge ble fordømt av kirken som hedensk.",animisme,0,
+kristning-fornorskning,concept,Samisk religion og urfolk,Kristning og fornorskning av samene,"Kristning: misjonen blant samene, særlig fra 1700-tallet, da runebommer ble tatt og brent og noaider straffet.
+Fornorskning: statens politikk fra midten av 1800-tallet for å få samer og kvener til å oppgi språket og kulturen sin.",misjon;urfolk,0,
+laestadianisme,concept,Samisk religion og urfolk,Læstadianismen,"Læstadianismen: en luthersk vekkelsesbevegelse startet av presten Lars Levi Læstadius på 1840-tallet, som fikk mange tilhengere blant samer og kvener i nord og fortsatt står sterkt der.",reformasjonen;urfolk,0,
+forklare-samisk-religion,skill,Samisk religion og urfolk,Gjøre rede for tradisjonell samisk religion,"gjøre rede for tradisjonell samisk religion – gudene, noaiden, hellige steder, joik og forholdet til naturen.",noaide;sieidi-joik;urfolk,0,
+samisk-religion-i-dag,skill,Samisk religion og urfolk,Forklare samiske religions- og livssynstradisjoner i dag,"forklare hvordan samisk religion og livssyn kommer til uttrykk i dag, både i kristen samisk tradisjon, i læstadianismen og i nyere interesse for den førkristne tradisjonen.",forklare-samisk-religion;laestadianisme,0,
+reflektere-kristning,skill,Samisk religion og urfolk,Reflektere over kristningen og fornorskningen av samene,"reflektere over hvilke følger kristningen og fornorskningen fikk for samisk religion og identitet, og hvordan samfunnet og kirken forholder seg til denne historien i dag.",kristning-fornorskning;forklare-samisk-religion,0,
+sammenligne-urfolk,skill,Samisk religion og urfolk,Sammenligne samisk religion med andre urfolks tradisjoner,"sammenligne samisk religion med religions- og livssynstradisjonene til et annet urfolk, for eksempel inuitter, maorier eller aboriginere, og peke på likheter og forskjeller.",forklare-samisk-religion,0,
+utbredelse-verden,fact,Religion i samfunnet,Religionenes utbredelse i verden,"kristne: ca. 2,3 milliarder (rundt 29 prosent av verdens befolkning)
+muslimer: ca. 2 milliarder (rundt 26 prosent)
+uten religiøs tilknytning: ca. 1,9 milliarder (rundt 24 prosent)
+hinduer: ca. 1,2 milliarder (rundt 15 prosent)
+buddhister: ca. 320 millioner (rundt 4 prosent)
+jøder: ca. 15 millioner
+landet med flest muslimer: Indonesia
+landet med flest hinduer: India",religion,0,"Tallene er Pew Research Centers anslag for 2020. Godta svar som ligger i riktig størrelsesorden og rekkefølge; det er rekkefølgen og omtrentlige størrelser eleven skal kunne, ikke eksakte tall."
+arstall-norge,fact,Religion i samfunnet,Årstall i norsk religionshistorie,"slaget på Stiklestad, der Olav Haraldsson faller og blir helgen: 1030
+reformasjonen innføres i Danmark-Norge: 1537
+dissenterloven gir rett til å stå utenfor statskirken: 1845
+jødeparagrafen i Grunnloven oppheves: 1851
+norske jøder deporteres med skipet «Donau»: 1942
+Human-Etisk Forbund stiftes: 1956
+første kvinnelige prest i Den norske kirke, Ingrid Bjerkås: 1961
+Den norske kirke blir skilt fra staten som eget trossamfunn: 2017",,0,
+arstall-verden,fact,Religion i samfunnet,Årstall i religionshistorien,"Jesus dør i Jerusalem: ca. år 30
+kristendommen blir tillatt i Romerriket: 313
+kristendommen blir statsreligion i Romerriket: 380
+hijra, Muhammads utvandring til Medina: 622
+bruddet mellom den katolske og den ortodokse kirken: 1054
+Martin Luther legger fram sine 95 teser: 1517",,0,
+religionsfrihet,concept,Religion i samfunnet,Religions- og livssynsfrihet,"Religions- og livssynsfrihet: retten til å tro det man vil, til å utøve troen alene eller sammen med andre, til å skifte religion og til ikke å tro. Den er en menneskerettighet og står i Grunnloven.",religion,0,
+tros-livssynssamfunn,concept,Religion i samfunnet,Tros- og livssynssamfunn,"Tros- og livssynssamfunn: en organisert sammenslutning for en religion eller et livssyn. I Norge kan de registrere seg og få offentlig tilskudd ut fra hvor mange medlemmer de har.",livssyn,0,
+pluralisme,concept,Religion i samfunnet,Religiøst mangfold og pluralisme,"Religiøst mangfold: at mange religioner og livssyn finnes side om side i samme samfunn.
+Pluralisme: holdningen at dette mangfoldet skal ha plass, og at ingen tro eller livssyn skal ha monopol på sannhet i det offentlige rommet.",religionsfrihet,0,
+alternativ-religiositet,concept,Religion i samfunnet,Alternativ religiøsitet,"Alternativ religiøsitet: religiøs eller åndelig praksis utenfor de etablerte trossamfunnene – healing, engletro, astrologi, sjamankurs, yoga eller meditasjon som åndelig vei – ofte satt sammen av den enkelte selv, gjerne uten å høre til noe trossamfunn.",religion;sekularisering,0,
+fundamentalisme,concept,Religion i samfunnet,Fundamentalisme,"Fundamentalisme: en holdning som krever bokstavelig lesning av hellige tekster og vil tilbake til det man ser som religionens opprinnelige form, i opposisjon til moderne tolkninger. Begrepet brukes om strømninger i mange religioner, og må ikke forveksles med ekstremisme.",tolkning-tekst,0,
+fordommer-religion,concept,Religion i samfunnet,Antisemittisme og muslimfiendtlighet,"Antisemittisme: fordommer, hat eller diskriminering rettet mot jøder fordi de er jøder.
+Muslimfiendtlighet: fordommer, hat eller diskriminering rettet mot muslimer, eller mot dem som blir oppfattet som muslimer, fordi de er muslimer.",,0,
+presentere-mangfold-norge,skill,Religion i samfunnet,Presentere det religiøse mangfoldet i Norge i dag,"bruke statistikk og andre kilder til å presentere hvilke religioner og livssyn som finnes i Norge i dag, og forklare hvordan bildet har endret seg.",tros-livssynssamfunn;pluralisme;statskirke,0,
+presentere-utbredelse,skill,Religion i samfunnet,Presentere en religions utbredelse i verden i dag,"bruke statistikk og kart til å presentere hvor en religion står sterkt i dag, og forklare noen årsaker til at den vokser eller går tilbake – for eksempel at kristendommens tyngdepunkt har flyttet seg fra Europa til Afrika, Latin-Amerika og Asia.",utbredelse-verden;misjon,0,
+utforske-alternativ,skill,Religion i samfunnet,Utforske religiøs praksis utenfor etablerte trossamfunn,"utforske og presentere en religiøs eller åndelig praksis utenfor de etablerte trossamfunnene, og forklare hvorfor slik praksis tiltrekker mennesker i dag.",alternativ-religiositet,0,
+religion-endringsprosess,skill,Religion i samfunnet,Drøfte religionens rolle i en historisk endringsprosess,"utforske og drøfte hvordan en religion har bidratt til eller blitt endret av en historisk endringsprosess, nasjonalt eller globalt – for eksempel reformasjonen, kolonialismen, borgerrettsbevegelsen eller sekulariseringen – med flere perspektiver.",kristendom-norge;presentere-utbredelse;arstall-verden;sekularisering,0,
+forklare-fordommer,skill,Religion i samfunnet,Forklare hvordan fordommer mot religiøse grupper oppstår,"forklare hvordan fordommer mot religiøse grupper oppstår og kommer til uttrykk, med eksempler fra historien og fra i dag.",fordommer-religion;forklare-jodedom;forklare-islam,0,
+religion-nyheter,skill,Religion i samfunnet,Analysere hvordan religion framstilles i nyhetsmediene,"analysere hvordan en religion eller en religiøs gruppe blir framstilt i en nyhetssak, og vurdere om framstillingen gir et rettferdig og nyansert bilde.",forklare-innenfra-utenfra;fundamentalisme;forklare-fordommer,0,
+religion-populaerkultur,skill,Religion i samfunnet,Presentere religiøse elementer i medier og populærkultur,"finne, tolke og presentere religiøse motiver, symboler og fortellinger i film, serier, musikk, spill eller reklame, og reflektere over hva framstillingen gjør med bildet folk har av tradisjonen.",bruke-fagbegreper;forklare-kristendom,0,
+syn-kjonn,skill,Religion i samfunnet,Gjøre rede for ulike syn på kjønn i religioner og livssyn,"gjøre rede for ulike syn på kjønn og kjønnsroller innad i og mellom religioner og livssyn, for eksempel om kvinner kan være prester, imamer eller rabbinere.",tolkning-tekst;sammenligne-abrahamittiske;forklare-livssynshumanisme,0,
+syn-seksualitet,skill,Religion i samfunnet,Gjøre rede for ulike syn på seksualitet i religioner og livssyn,"gjøre rede for ulike syn på seksualitet, samliv og likekjønnet ekteskap innad i og mellom religioner og livssyn, og forklare hvordan synene begrunnes.",tolkning-tekst;sammenligne-abrahamittiske;forklare-livssynshumanisme,0,
+reflektere-kjonn-seksualitet,skill,Religion i samfunnet,Reflektere over ulike syn på kjønn og seksualitet,"reflektere over hvorfor tilhengere av samme religion eller livssyn kan ha ulike syn på kjønn og seksualitet, og framstille flere syn saklig uten å latterliggjøre noen.",syn-kjonn;syn-seksualitet;levd-religion,0,
+etikk-moral,concept,Etikk og filosofi,Etikk og moral,"Moral: de oppfatningene om rett og galt et menneske eller en gruppe faktisk har og handler etter.
+Etikk: den systematiske refleksjonen over moralen – hva som er rett og galt, og hvorfor.",,0,
+menneskeverd,concept,Etikk og filosofi,Menneskeverd,"Menneskeverd: at alle mennesker har lik og ukrenkelig verdi, uavhengig av hva de presterer eller hvem de er. Det begrunnes ulikt: kristne og muslimer peker på at mennesket er skapt av Gud, humanister på fornuften og menneskets egenverdi.",etikk-moral,0,
+gylne-regel,concept,Etikk og filosofi,Den gylne regel,"Den gylne regel: regelen om å behandle andre slik man selv vil bli behandlet. Den finnes i en eller annen form i de fleste religioner og livssyn.",etikk-moral,0,
+nestekjaerlighet,concept,Etikk og filosofi,Nestekjærlighet,"Nestekjærlighet: kjærlighet til andre mennesker uttrykt i handling, slik Jesus lærer i lignelsen om den barmhjertige samaritan, der «nesten» er den som trenger hjelp – også en fremmed eller en fiende.",gylne-regel;jesus-kristus,0,
+ahimsa,concept,Etikk og filosofi,Ahimsa,"Ahimsa: idealet om ikke å skade noe levende, sentralt i hinduisme, buddhisme og jainisme.",karma-samsara,0,
+pliktetikk,concept,Etikk og filosofi,Pliktetikk,"Pliktetikk: en etisk teori som sier at en handling er rett eller gal i seg selv, ut fra plikter og regler, uansett følgene. Immanuel Kant mente man bare skal handle etter regler man kan ønske skulle gjelde for alle, og aldri bruke andre mennesker bare som et middel.",etikk-moral,0,
+konsekvensetikk,concept,Etikk og filosofi,Konsekvensetikk,"Konsekvensetikk: en etisk teori som sier at den rette handlingen er den som gir best følger. Utilitarismen, hos Jeremy Bentham og John Stuart Mill, sier at vi skal gi størst mulig lykke for flest mulig.",etikk-moral,0,
+dydsetikk,concept,Etikk og filosofi,Dydsetikk,"Dydsetikk: en etisk teori som spør hva slags menneske man bør være, ikke bare hva man bør gjøre. Aristoteles mente vi blir gode ved å øve opp dyder, som mot og rettferdighet, og at dyden ligger i midten mellom to ytterpunkter.",etikk-moral,0,
+sokrates,concept,Etikk og filosofi,Sokrates og den sokratiske samtalen,"Sokratisk samtale: en samtale der man stiller spørsmål for å finne ut hva begreper som rettferdighet eller mot egentlig betyr, og prøver egne og andres meninger kritisk. Metoden har navn etter filosofen Sokrates i Athen på 400-tallet f.Kr.",etikk-moral,0,
+jesus-etikk,skill,Etikk og filosofi,Forklare etiske ideer i Jesu forkynnelse,"forklare sentrale etiske ideer hos Jesus, som nestekjærlighet, den gylne regel og tilgivelse, med eksempler fra Bergprekenen eller lignelsene.",nestekjaerlighet;forklare-kristendom,0,
+buddha-etikk,skill,Etikk og filosofi,Forklare etiske ideer i Buddhas lære,"forklare sentrale etiske ideer i Buddhas lære, som ikke å skade, medfølelse og middelveien.",fire-edle-sannheter;ahimsa,0,
+muhammad-etikk,skill,Etikk og filosofi,Forklare etiske ideer knyttet til Muhammad,"forklare sentrale etiske ideer knyttet til Muhammad og islam, som rettferdighet, barmhjertighet og ansvar for de fattige.",forklare-islam;gylne-regel,0,
+ikkevold-skikkelser,skill,Etikk og filosofi,Forklare hvordan Gandhi og Martin Luther King brukte religiøse ideer,"forklare hvordan Mahatma Gandhi og Martin Luther King bygde sin ikkevoldelige kamp for rettferdighet på ideer fra hinduisme og kristendom.",ahimsa;nestekjaerlighet,0,
+sammenligne-religios-etikk,skill,Etikk og filosofi,Sammenligne etiske ideer fra ulike religiøse og livssynsbaserte tradisjoner,"utforske og sammenligne etiske ideer fra sentrale skikkelser i minst to religiøse eller livssynsbaserte tradisjoner, og forklare likheter og forskjeller i hvordan de begrunnes.",jesus-etikk;buddha-etikk;muhammad-etikk;ikkevold-skikkelser;forklare-livssynshumanisme,0,
+bruke-etiske-teorier,skill,Etikk og filosofi,Bruke etiske teorier på et dilemma,"bruke pliktetikk, konsekvensetikk og dydsetikk på et konkret etisk dilemma, og vise hva hver teori legger vekt på.",pliktetikk;konsekvensetikk;dydsetikk,0,
+analysere-dilemma,skill,Etikk og filosofi,Analysere et etisk dilemma trinn for trinn,"analysere et etisk dilemma ved å beskrive situasjonen, finne de berørte partene og verdiene som står på spill, sette opp handlingsalternativene og ta et begrunnet standpunkt.",bruke-etiske-teorier;menneskeverd,0,
+drofte-med-filosofi,skill,Etikk og filosofi,Drøfte et aktuelt etisk spørsmål med ideer fra filosofihistorien,"utforske etiske ideer fra sentrale skikkelser i filosofihistorien og bruke dem til å drøfte et aktuelt etisk spørsmål, med argumenter for og mot.",analysere-dilemma;sokrates,0,
+dialog-debatt,concept,Dialog og eksistensielle spørsmål,Dialog og debatt,"Debatt: en samtale der målet er å overbevise og få rett.
+Dialog: en samtale der målet er å forstå den andre og hvorfor hen mener det hen gjør, også når man er uenige.",,0,
+perspektivtaking,concept,Dialog og eksistensielle spørsmål,Perspektivtaking,"Perspektivtaking: å forsøke å se en sak slik en annen ser den, ut fra den andres erfaringer og verdier, uten at man selv må bli enig.",innenfra-utenfra,0,
+toleranse-respekt,concept,Dialog og eksistensielle spørsmål,Toleranse og respekt,"Toleranse: å tåle at andre mener, tror og lever annerledes enn en selv, også når man misliker det.
+Respekt: å anerkjenne at den andre har lik verdi og rett til sitt syn, uten at man må være enig.",menneskeverd,0,
+usaklig-argumentasjon,concept,Dialog og eksistensielle spørsmål,Usaklig argumentasjon,"Stråmann: å angripe en forvrengt versjon av det motparten faktisk mener.
+Personangrep: å angripe personen i stedet for argumentet.
+Generalisering: å tillegge hele gruppen det noen få i den mener eller gjør.",dialog-debatt,0,
+gjengi-andres-syn,skill,Dialog og eksistensielle spørsmål,Gjengi et syn man er uenig i,"gjengi et syn man selv er uenig i så godt at en som har synet, ville kjent seg igjen, og forklare hvilke verdier det bygger på.",perspektivtaking;forklare-innenfra-utenfra,0,
+handtere-uenighet,skill,Dialog og eksistensielle spørsmål,Håndtere uenighet og meningsbrytning,"delta i en samtale om et omstridt spørsmål ved å lytte, stille oppklarende spørsmål, argumentere saklig, avsløre stråmenn, personangrep og generaliseringer, og finne ut hva man egentlig er uenige om.",gjengi-andres-syn;usaklig-argumentasjon;toleranse-respekt,0,
+eksistensielle-sporsmal,concept,Dialog og eksistensielle spørsmål,Eksistensielle spørsmål,"Eksistensielle spørsmål: de store spørsmålene alle mennesker kan møte – om livets mening, døden, frihet, skyld, ensomhet og hvem man er – som religioner og livssyn gir ulike svar på.",livssyn,0,
+identitet,concept,Dialog og eksistensielle spørsmål,Identitet,"Identitet: oppfatningen av hvem man er. Den personlige identiteten er det som gjør deg til deg; den kollektive identiteten er fellesskapene du regner deg som en del av, for eksempel en familie, en religion, et folk eller en venneflokk.",,0,
+sammenligne-svar-doden,skill,Dialog og eksistensielle spørsmål,Sammenligne svar på spørsmålet om døden,"sammenligne hvordan minst tre religioner og livssyn svarer på hva som skjer når vi dør, og hvordan svarene preger ritualene ved død og gravferd.",eksistensielle-sporsmal;forklare-kristendom;forklare-islam;forklare-hinduisme;forklare-livssynshumanisme,0,
+reflektere-eksistensielle,skill,Dialog og eksistensielle spørsmål,Reflektere over eksistensielle spørsmål i et mangfoldig samfunn,"reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn – om identitet, tilhørighet, valg og mening – og trekke inn svar fra ulike religioner og livssyn.",eksistensielle-sporsmal;identitet;eksistensialisme;sammenligne-svar-doden,0,
+ytringsfrihet,concept,Aktuelle etiske spørsmål,Ytringsfrihet,"Ytringsfrihet: retten til å si, skrive og dele det man mener uten å bli straffet av staten for det. Den har grenser: for eksempel er hatefulle ytringer, trusler og alvorlige krenkelser av privatlivet straffbare.",,0,
+hatefulle-ytringer,concept,Aktuelle etiske spørsmål,Hatefulle ytringer og blasfemi,"Hatefull ytring: en ytring som angriper eller nedverdiger noen på grunn av for eksempel hudfarge, religion, livssyn, seksuell orientering eller funksjonsnedsettelse. Det kan være straffbart.
+Blasfemi: å håne eller vanære det en religion regner som hellig. Det har ikke vært straffbart i Norge siden 2015.",ytringsfrihet;fordommer-religion,0,
+drofte-kommunikasjon,skill,Aktuelle etiske spørsmål,Drøfte etiske sider ved kommunikasjon,"identifisere og drøfte en etisk problemstilling knyttet til kommunikasjon – for eksempel deling av bilder, ryktespredning, anonyme kommentarer eller KI-genererte bilder – og bruke etiske teorier til å veie hensyn mot hverandre.",etikk-moral;ytringsfrihet;bruke-etiske-teorier,0,
+drofte-ytringer-religion,skill,Aktuelle etiske spørsmål,Drøfte forholdet mellom ytringsfrihet og religiøse følelser,"drøfte hvor grensen bør gå mellom ytringsfrihet og hensynet til religiøse følelser, med eksempler som karikaturer eller brenning av hellige skrifter, og med argumenter fra flere sider.",hatefulle-ytringer;religionsfrihet;drofte-kommunikasjon,0,
+menneskerettigheter,concept,Aktuelle etiske spørsmål,Menneskerettigheter,"Menneskerettigheter: rettigheter hvert menneske har fordi det er et menneske, uavhengig av stat, kjønn, religion eller opprinnelse. FNs verdenserklæring om menneskerettighetene fra 1948 er grunnlaget.",menneskeverd,0,
+baerekraft,concept,Aktuelle etiske spørsmål,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker behovene til mennesker i dag uten å ødelegge mulighetene for kommende generasjoner. Den har tre sider: miljø, økonomi og sosiale forhold.",,0,
+forvalteransvar,concept,Aktuelle etiske spørsmål,Forvalteransvar,"Forvalteransvar: tanken om at mennesket har ansvar for å ta vare på naturen for andre og for dem som kommer etter. I jødedom, kristendom og islam begrunnes det med at jorda er skapt av Gud og gitt mennesket i forvaltning; i et ikke-religiøst syn med ansvaret for kommende generasjoner.",baerekraft;etikk-moral,0,
+fattigdom,concept,Aktuelle etiske spørsmål,Absolutt og relativ fattigdom,"Absolutt fattigdom: å mangle det man trenger for å overleve, som mat, rent vann, husly og helsehjelp.
+Relativ fattigdom: å ha så mye mindre enn de fleste i samfunnet at man ikke kan delta på vanlig måte. I Norge regnes det ofte som en inntekt under 60 prosent av medianinntekten.",,0,
+drofte-mr,skill,Aktuelle etiske spørsmål,Drøfte et aktuelt etisk spørsmål om menneskerettigheter,"identifisere og drøfte et aktuelt etisk spørsmål om menneskerettigheter, nasjonalt eller globalt, få fram hvilke rettigheter som står mot hverandre, og bruke argumenter fra ulike etiske teorier, religioner og livssyn.",menneskerettigheter;religionsfrihet;analysere-dilemma;sammenligne-religios-etikk,0,
+drofte-baerekraft,skill,Aktuelle etiske spørsmål,Drøfte et aktuelt etisk spørsmål om bærekraft,"identifisere og drøfte et aktuelt etisk spørsmål om bærekraft og menneskets ansvar for naturen, med argumenter fra ulike etiske teorier, religioner og livssyn.",forvalteransvar;analysere-dilemma,0,
+drofte-fattigdom,skill,Aktuelle etiske spørsmål,Drøfte et aktuelt etisk spørsmål om fattigdom,"identifisere og drøfte et aktuelt etisk spørsmål om fattigdom og rettferdig fordeling, nasjonalt eller globalt, og trekke inn hvordan religioner og livssyn begrunner ansvaret for de fattige.",fattigdom;analysere-dilemma;muhammad-etikk;jesus-etikk,0,

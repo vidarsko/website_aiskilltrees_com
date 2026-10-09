@@ -1,0 +1,207 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Psykologi som vitenskap;Biologisk grunnlag;Persepsjon og kognisjon;Hukommelse;Læring og motivasjon;Utvikling og personlighet;Stress og kriser;Rus og psykisk helse;Bærekraftige valg,,,
+,config,,title,Psykologi 1,,,
+,config,,description,"Psykologi som vitenskap, biologisk grunnlag, persepsjon og kognisjon, hukommelse, læring og motivasjon, utvikling og personlighet, stress og kriser, rus og bærekraftige valg — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-psykologi-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,psykologi 1 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"skriver at en studie «beviser» noe der den bare støtter det, tolker en sammenheng som en årsak, bruker «stress», «depresjon», «traume» og «angst» i dagligtalebetydning, blander sammen sansning og persepsjon eller korttidsminne og arbeidsminne, eller ramser opp teorier uten å bruke dem på saken de skal forklare",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag samfunnsfag, Vg2",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3072,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,psychology,,,
+,config,,keywords,psykologi; psykologiske perspektiver; forskningsmetode; nervesystemet; hjernen; hormoner; evolusjonspsykologi; persepsjon; kognisjon; hukommelse; læring; motivasjon; mestring; arv og miljø; personlighet; tilknytning; identitet; stress; resiliens; kriser; rus; bærekraft,,,
+,config,,updated,2026-10-08,,,
+empiri-teori,concept,Psykologi som vitenskap,"Empiri, teori og hypotese","Empiri: observasjoner og data som er samlet inn systematisk.
+Teori: en sammenhengende forklaring på et fenomen, som kan prøves mot empiri og dermed styrkes eller svekkes.
+Hypotese: en presis påstand om hva en undersøkelse vil vise, formulert slik at resultatet kan støtte eller svekke den.",,0,
+psykologisk-perspektiv,concept,Psykologi som vitenskap,Psykologisk perspektiv,"Psykologisk perspektiv: en grunnleggende måte å se mennesket på, som avgjør hvilke spørsmål man stiller og hvilke forklaringer man leter etter.",,0,
+biologisk-perspektiv,concept,Psykologi som vitenskap,Biologisk perspektiv,"Biologisk perspektiv: forklarer tanker, emosjoner og atferd ut fra hjernen, nervesystemet, hormoner, gener og evolusjon.",psykologisk-perspektiv,0,
+psykodynamisk-perspektiv,concept,Psykologi som vitenskap,Psykodynamisk perspektiv,"Psykodynamisk perspektiv: forklarer tanker, emosjoner og atferd ut fra ubevisste prosesser, indre konflikter og tidlige erfaringer. Perspektivet går tilbake til Sigmund Freud.",psykologisk-perspektiv,0,
+atferdsperspektiv,concept,Psykologi som vitenskap,Atferdsperspektivet (behaviorisme),"Atferdsperspektivet: forklarer atferd som lært gjennom koblinger mellom stimuli og gjennom konsekvensene atferden får, og studerer bare det som kan observeres utenfra.",psykologisk-perspektiv,0,
+kognitivt-perspektiv,concept,Psykologi som vitenskap,Kognitivt perspektiv,"Kognitivt perspektiv: forklarer atferd ut fra hvordan mennesket tar inn, bearbeider, lagrer og bruker informasjon - altså tenkning, oppmerksomhet og hukommelse.",psykologisk-perspektiv,0,
+humanistisk-perspektiv,concept,Psykologi som vitenskap,Humanistisk perspektiv,"Humanistisk perspektiv: legger vekt på menneskets frie vilje, egen opplevelse og ønske om vekst og selvrealisering. Kjente navn er Abraham Maslow og Carl Rogers.",psykologisk-perspektiv,0,
+sosiokulturelt-perspektiv,concept,Psykologi som vitenskap,Sosiokulturelt perspektiv,"Sosiokulturelt perspektiv: forklarer tanker, emosjoner og atferd ut fra samspillet med andre mennesker og ut fra kulturen og samfunnet man lever i.",psykologisk-perspektiv,0,
+forskningsmetoder,concept,Psykologi som vitenskap,Metoder i psykologisk forskning,"Eksperiment: forskeren endrer én faktor og måler virkningen, mens alt annet holdes likt.
+Spørreundersøkelse: mange svarer på de samme spørsmålene, ofte med faste svaralternativer.
+Intervju: samtale med få personer, som gir dyp innsikt i hvordan de tenker og opplever.
+Observasjon: forskeren registrerer atferd slik den faktisk foregår.
+Casestudie: grundig undersøkelse av én person eller én hendelse.",empiri-teori,0,
+kvantitativ-kvalitativ,concept,Psykologi som vitenskap,Kvantitativ og kvalitativ metode,"Kvantitativ metode: samler inn data som kan telles og måles, fra mange personer, for å finne mønstre.
+Kvalitativ metode: samler inn tekst, samtaler eller observasjoner fra få personer, for å forstå meninger og opplevelser i dybden.",forskningsmetoder,0,
+korrelasjon-kausalitet,concept,Psykologi som vitenskap,Korrelasjon og kausalitet,"Korrelasjon: at to variabler henger sammen, slik at når den ene endrer seg, endrer den andre seg også.
+Kausalitet: at endringen i den ene faktisk fører til endringen i den andre. En korrelasjon alene viser ikke kausalitet.",forskningsmetoder,0,
+forskningsetikk,concept,Psykologi som vitenskap,Forskningsetikk,"Forskningsetikk: reglene som beskytter dem som blir forsket på - informert samtykke, rett til å trekke seg, konfidensialitet om opplysningene og vern mot skade.",forskningsmetoder,0,
+anvendt-psykologi,concept,Psykologi som vitenskap,Anvendt psykologi,"Anvendt psykologi: bruk av psykologisk kunnskap til å løse praktiske problemer, for eksempel i skole, helsevesen, arbeidsliv, idrett, rettsvesen og markedsføring.",,0,
+vurdere-informasjon,skill,Psykologi som vitenskap,Finne og vurdere informasjon om et psykologisk spørsmål,"finne informasjon om et psykologisk spørsmål og vurdere hvor godt faglig forankret den er, ved å skille forskning og fagstoff fra populærpsykologi og synsing.",empiri-teori,0,
+sammenligne-perspektiver,skill,Psykologi som vitenskap,Sammenligne perspektiver på samme fenomen,"sammenligne hvordan minst to psykologiske perspektiver forklarer det samme fenomenet, for eksempel eksamensangst eller aggresjon, og vise hva hvert perspektiv får fram og overser.",biologisk-perspektiv;psykodynamisk-perspektiv;atferdsperspektiv;kognitivt-perspektiv;humanistisk-perspektiv;sosiokulturelt-perspektiv,0,
+velge-metode,skill,Psykologi som vitenskap,Velge metode for en problemstilling,"velge en metode som passer til en gitt psykologisk problemstilling, begrunne valget og peke på hva metoden ikke kan svare på.",empiri-teori;kvantitativ-kvalitativ;forskningsetikk,0,
+tolke-studie,skill,Psykologi som vitenskap,Tolke resultatet av en studie,"gjøre rede for hva en studie fant, og skille det studien faktisk kan si fra det den ikke kan si - for eksempel om en årsak når den bare har funnet en sammenheng.",korrelasjon-kausalitet;empiri-teori,0,
+vurdere-forklaringer,skill,Psykologi som vitenskap,Vurdere forklaringer på en psykologisk problemstilling,"analysere en psykologisk problemstilling med ulike teorier, perspektiver og metoder, og vurdere hvilke forklaringer som har best støtte i empiri.",sammenligne-perspektiver;tolke-studie;vurdere-informasjon,0,
+utforske-anvendt-psykologi,skill,Psykologi som vitenskap,Utforske psykologi i et yrke,"utforske et tema innen anvendt psykologi og vurdere hvordan psykologisk kunnskap brukes, og kan misbrukes, i et konkret yrke.",anvendt-psykologi;vurdere-informasjon,0,
+nervesystemet,concept,Biologisk grunnlag,Nervesystemet,"Sentralnervesystemet: hjernen og ryggmargen, som tar imot, bearbeider og sender ut signaler.
+Det perifere nervesystemet: nervene som forbinder sentralnervesystemet med resten av kroppen.",biologisk-perspektiv,0,
+autonomt-nervesystem,concept,Biologisk grunnlag,Det autonome nervesystemet,"Det sympatiske nervesystemet: den delen av det autonome nervesystemet som gjør kroppen klar til handling - høyere puls, raskere pust, mer energi i musklene.
+Det parasympatiske nervesystemet: den delen som roer kroppen ned og sørger for hvile og fordøyelse.",nervesystemet,0,
+nevron-synapse,concept,Biologisk grunnlag,Nevron og synapse,"Nevron: en nervecelle, som tar imot signaler fra andre celler og sender et elektrisk signal videre langs aksonet.
+Synapse: koblingen mellom to nevroner, der signalet overføres kjemisk over en smal spalte.",nervesystemet,0,
+nevrotransmitter,concept,Biologisk grunnlag,Nevrotransmitter,"Nevrotransmitter: et signalstoff som skilles ut i synapsen og gjør det mer eller mindre sannsynlig at neste nevron sender et signal.",nevron-synapse,0,
+nevrotransmittere-funksjoner,fact,Biologisk grunnlag,Sentrale nevrotransmittere,"dopamin: belønning, motivasjon og styring av bevegelser
+serotonin: stemningsleie, søvn og appetitt
+noradrenalin: årvåkenhet og beredskap ved stress
+glutamat: hjernens viktigste fremmende signalstoff, viktig for læring og hukommelse
+GABA: hjernens viktigste hemmende signalstoff, virker dempende
+acetylkolin: aktivering av muskler, oppmerksomhet og hukommelse
+endorfiner: demper smerte",nevrotransmitter,0,
+hjernens-oppbygning,concept,Biologisk grunnlag,Hjernens oppbygning,"Hjernebarken: det ytre laget av storhjernen, der bevisst tenkning, språk, planlegging og tolkning av sanseinntrykk foregår.
+Det limbiske systemet: strukturer dypt i hjernen som er sentrale for emosjoner og hukommelse.
+Hjernestammen: den nederste delen, som styrer livsnødvendige funksjoner som pust, puls og søvn.",nervesystemet,0,
+hjernens-omrader,fact,Biologisk grunnlag,Hjernens områder og funksjonene deres,"frontallappen: planlegging, impulskontroll, beslutninger og viljestyrte bevegelser
+parietallappen: berøring, kroppssans og oppfatning av rom
+temporallappen: hørsel, språkforståelse og hukommelse
+occipitallappen: syn
+lillehjernen: balanse og koordinasjon av bevegelser
+amygdala: rask vurdering av trusler og frykt
+hippocampus: danning av nye langtidsminner
+hypothalamus: styrer hormonsystemet, sult, tørst og kroppstemperatur",hjernens-oppbygning,0,
+sansesystemet,concept,Biologisk grunnlag,Sansning,"Sansning: at sanseceller (reseptorer) i for eksempel øyet, øret eller huden reagerer på en stimulus og omdanner den til nervesignaler som sendes til hjernen.",nevron-synapse,0,
+hormonsystemet,concept,Biologisk grunnlag,Hormonsystemet,"Hormon: et signalstoff som skilles ut fra en kjertel til blodet og virker på organer i hele kroppen, langsommere og mer langvarig enn et nervesignal.
+Hormonsystemet styres i stor grad fra hypothalamus og hypofysen i hjernen.",nervesystemet,0,
+sentrale-hormoner,fact,Biologisk grunnlag,Sentrale hormoner,"adrenalin: skilles ut fra binyrene og gir en rask stressrespons med høyere puls og mer blodsukker
+kortisol: skilles ut fra binyrene ved langvarig stress og frigjør energi
+oksytocin: knyttes til tilknytning og tillit, og til fødsel og amming
+melatonin: skilles ut fra koglekjertelen og regulerer døgnrytme og søvn
+testosteron og østrogen: skilles ut fra kjønnskjertlene og styrer pubertet og kjønnsutvikling",hormonsystemet,0,
+beskrive-nerve-hormon,skill,Biologisk grunnlag,Beskrive nervesystemet og hormonsystemet,"beskrive hovedtrekkene i hvordan sansesystemet, nervesystemet og hormonsystemet er bygd opp og virker, og sammenligne hvordan nerver og hormoner overfører signaler.",sansesystemet;nevrotransmitter;hjernens-oppbygning;hormonsystemet,0,
+emosjon,concept,Biologisk grunnlag,Emosjon,"Emosjon: en kortvarig reaksjon på en hendelse, med en kroppslig side (puls, hormoner), en opplevd følelse, en vurdering av hva hendelsen betyr og en tendens til å handle.",,0,
+forklare-samspill-systemer,skill,Biologisk grunnlag,Forklare hvordan kroppens systemer gir tanker og atferd,"forklare hvordan sansesystemet, nervesystemet og hormonsystemet sammen gir opphav til tanker, emosjoner og atferd i en konkret situasjon, for eksempel når man blir skremt.",beskrive-nerve-hormon;autonomt-nervesystem;hjernens-omrader;sansesystemet;sentrale-hormoner;emosjon;nevrotransmittere-funksjoner,0,
+evolusjonspsykologi,concept,Biologisk grunnlag,Evolusjonspsykologi,"Evolusjonspsykologi: forklarer tanker, emosjoner og atferd som tilpasninger som økte sjansen for å overleve og få barn i miljøet menneskene levde i gjennom hundretusener av år.",biologisk-perspektiv,0,
+tilpasning-mismatch,concept,Biologisk grunnlag,Tilpasning og mismatch,"Tilpasning: et arvelig trekk som ble vanligere fordi det ga en fordel i fortidens miljø.
+Mismatch: når en tilpasning passer dårlig i dagens miljø, som suget etter søt og fet mat der mat er lett tilgjengelig.",evolusjonspsykologi,0,
+forklare-evolusjonspsykologisk,skill,Biologisk grunnlag,Forklare et fenomen evolusjonspsykologisk,"gjøre rede for hvordan evolusjonspsykologien forklarer et fenomen som frykt for slanger, partnervalg eller behovet for å høre til, og vurdere svakheter ved forklaringen, for eksempel at den er vanskelig å etterprøve.",tilpasning-mismatch;empiri-teori,0,
+persepsjon,concept,Persepsjon og kognisjon,Persepsjon,"Persepsjon: hjernens tolkning og organisering av sanseinntrykk til en meningsfull opplevelse av omverdenen.",sansesystemet,0,
+bottom-up-top-down,concept,Persepsjon og kognisjon,Bottom-up og top-down,"Bottom-up-bearbeiding: persepsjonen bygges opp fra sanseinntrykkene selv.
+Top-down-bearbeiding: forventninger, erfaring og sammenheng styrer hvordan sanseinntrykkene tolkes.",persepsjon,0,
+gestaltlover,concept,Persepsjon og kognisjon,Gestaltlovene,"Gestaltlovene: prinsipper for hvordan hjernen samler sanseinntrykk til helheter - nærhet, likhet, lukkethet, kontinuitet og skillet mellom figur og bakgrunn.",persepsjon,0,
+selektiv-oppmerksomhet,concept,Persepsjon og kognisjon,Selektiv oppmerksomhet,"Selektiv oppmerksomhet: at vi velger ut en liten del av sanseinntrykkene og overser resten, slik at vi kan gå glipp av noe som skjer rett foran oss.",persepsjon,0,
+forklare-synsbedrag,skill,Persepsjon og kognisjon,Forklare et synsbedrag,"forklare hvorfor et gitt synsbedrag eller en tvetydig figur oppfattes som den gjør, og hva det viser om antakelsene hjernen gjør.",bottom-up-top-down;gestaltlover,0,
+kognisjon,concept,Persepsjon og kognisjon,Kognisjon,"Kognisjon: de mentale prosessene der vi tenker, husker, resonnerer, løser problemer og tar beslutninger.",kognitivt-perspektiv,0,
+kognitivt-skjema,concept,Persepsjon og kognisjon,Kognitivt skjema,"Kognitivt skjema: en organisert forestilling, bygd på erfaring, om hvordan noe pleier å være, og som styrer hva vi legger merke til og hvordan vi tolker det.",kognisjon,0,
+kognitive-skjevheter,concept,Persepsjon og kognisjon,Heuristikker og kognitive skjevheter,"Heuristikk: en mental tommelfingerregel som gir raske svar med lite anstrengelse, men som kan føre til systematiske feil.
+Bekreftelsesskjevhet: å legge merke til og huske det som støtter det man allerede mener.
+Tilgjengelighetsheuristikken: å vurdere noe som vanlig fordi eksempler lett dukker opp i tankene.
+Forankring: å la et første tall eller inntrykk styre den videre vurderingen.",kognisjon,0,
+rask-langsom-tenkning,concept,Persepsjon og kognisjon,Rask og langsom tenkning,"System 1: rask, automatisk og intuitiv tenkning som går av seg selv.
+System 2: langsom, bevisst og anstrengende tenkning som må settes i gang. Begrepene er kjent fra Daniel Kahneman.",kognisjon,0,
+selvbilde-selvfolelse,concept,Persepsjon og kognisjon,Selvbilde og selvfølelse,"Selvbilde: de oppfatningene en har om seg selv - egenskaper, evner og utseende.
+Selvfølelse: hvor verdifull man opplever seg selv som person.",kognitivt-skjema,0,
+forklare-ulike-oppfatninger,skill,Persepsjon og kognisjon,Forklare hvorfor folk oppfatter det samme ulikt,"forklare hvordan skjemaer, forventninger og oppmerksomhet kan gjøre at to personer oppfatter den samme situasjonen ulikt.",bottom-up-top-down;kognitivt-skjema;selektiv-oppmerksomhet,0,
+utforske-kognitive-feil,skill,Persepsjon og kognisjon,Utforske tankefeil i hverdagen,"utforske hvordan heuristikker og kognitive skjevheter påvirker vurderinger i hverdagen, for eksempel av nyheter eller risiko, og foreslå hvordan man kan motvirke dem.",kognitive-skjevheter;rask-langsom-tenkning,0,
+gjore-rede-persepsjon-selvforstaelse,skill,Persepsjon og kognisjon,Gjøre rede for hvordan persepsjon og kognisjon former forståelsen av seg selv og verden,"gjøre rede for hvordan persepsjon og kognisjon former menneskets forståelse av seg selv og omverdenen, og bruke det på et selvvalgt eksempel.",forklare-ulike-oppfatninger;utforske-kognitive-feil;selvbilde-selvfolelse,0,
+hukommelsesprosesser,concept,Hukommelse,Hukommelsens tre prosesser,"Koding: at informasjon blir tatt inn og gjort om til en form som kan lagres.
+Lagring: at informasjonen holdes over tid.
+Gjenhenting: at lagret informasjon hentes fram igjen når den trengs.",kognisjon,0,
+flerlagermodellen,concept,Hukommelse,Flerlagermodellen,"Flerlagermodellen: modell der informasjon går fra et sensorisk register (brøkdelen av et sekund), via korttidsminnet (sekunder, få enheter) til langtidsminnet (varig, nesten ubegrenset). Modellen er fra Atkinson og Shiffrin.",hukommelsesprosesser;selektiv-oppmerksomhet,0,
+arbeidsminne,concept,Hukommelse,Arbeidsminne,"Arbeidsminne: systemet som holder på og bearbeider noen få informasjonsenheter samtidig mens vi bruker dem, med svært begrenset kapasitet. Modellen er fra Alan Baddeley og utdyper korttidsminnet.",flerlagermodellen,0,
+langtidsminne-typer,concept,Hukommelse,Typer langtidsminne,"Episodisk hukommelse: minner om egne opplevelser, knyttet til tid og sted.
+Semantisk hukommelse: kunnskap om fakta og begreper.
+Prosedural hukommelse: ferdigheter vi utfører uten å tenke over dem, som å sykle.",flerlagermodellen,0,
+bearbeidingsdybde,concept,Hukommelse,Bearbeidingsdybde,"Bearbeidingsdybde: jo mer informasjon bearbeides etter hva den betyr og knyttes til det man kan fra før, desto bedre huskes den.",hukommelsesprosesser,0,
+glemsel,concept,Hukommelse,Forklaringer på glemsel,"Forfall: minnespor som ikke brukes, svekkes over tid.
+Interferens: annen informasjon forstyrrer - gammel lærdom hemmer ny, eller ny lærdom hemmer gammel.
+Gjenhentingssvikt: informasjonen er lagret, men vi mangler en ledetråd som får den fram.",hukommelsesprosesser,0,
+rekonstruktiv-hukommelse,concept,Hukommelse,Rekonstruktiv hukommelse,"Rekonstruktiv hukommelse: et minne bygges opp på nytt hver gang det hentes fram, og kan derfor endres av skjemaer, ledende spørsmål og ny informasjon - også til falske minner.",hukommelsesprosesser;kognitivt-skjema,0,
+forklare-hukommelsesmodell,skill,Hukommelse,Gjøre rede for hvordan noe blir husket,"gjøre rede for hvordan informasjon går fra sanseinntrykk til langtidsminnet, og bruke modellene til å forklare et hverdagsfenomen, for eksempel at man glemmer et navn rett etter å ha hørt det.",arbeidsminne;langtidsminne-typer;bearbeidingsdybde,0,
+forklare-glemsel,skill,Hukommelse,Forklare hvorfor vi glemmer,"forklare hvorfor noe er blitt glemt i en konkret situasjon, og vurdere hvilken forklaring på glemsel som passer best.",glemsel,0,
+reflektere-hukommelse,skill,Hukommelse,Reflektere over hva som påvirker hukommelsen,"reflektere over hvordan søvn, stress, emosjoner, rus og oppmerksomhet påvirker hukommelsesprosessen, og hva det betyr for for eksempel læring og vitneutsagn.",forklare-hukommelsesmodell;forklare-glemsel;rekonstruktiv-hukommelse,0,
+laering,concept,Læring og motivasjon,Læring,"Læring: en relativt varig endring i atferd eller kunnskap som skyldes erfaring.",,0,
+klassisk-betinging,concept,Læring og motivasjon,Klassisk betinging,"Klassisk betinging: læring der en nøytral stimulus, etter å ha opptrådt sammen med en stimulus som gir en automatisk reaksjon, selv begynner å utløse reaksjonen. Ivan Pavlov viste det med hunder som begynte å sikle av en lyd.",laering;atferdsperspektiv,0,
+operant-betinging,concept,Læring og motivasjon,Operant betinging,"Operant betinging: læring gjennom konsekvenser - atferd som blir fulgt av noe godt, eller av at noe ubehagelig forsvinner (forsterkning), gjentas oftere, mens atferd som blir fulgt av straff, gjentas sjeldnere. Kjent fra B. F. Skinner.",laering;atferdsperspektiv,0,
+forklare-med-betinging,skill,Læring og motivasjon,Forklare hverdagsatferd med betinging,"forklare en hverdagssituasjon, som en fobi, en reklame eller et belønningssystem i skolen, med klassisk og operant betinging, og vise hvor forklaringen kommer til kort.",klassisk-betinging;operant-betinging,0,
+modellaering,concept,Læring og motivasjon,Modellæring,"Modellæring: læring ved å observere hva andre gjør og hvilke følger det får for dem. Kjent fra Albert Banduras studier.",laering,0,
+konstruktivisme,concept,Læring og motivasjon,Kognitiv konstruktivisme,"Kognitiv konstruktivisme: den lærende bygger aktivt ny forståelse på det den kan fra før, ved å passe ny informasjon inn i eksisterende skjemaer (assimilasjon) eller endre skjemaene (akkommodasjon). Kjent fra Jean Piaget.",laering;kognitivt-skjema,0,
+sosiokulturell-laering,concept,Læring og motivasjon,Sosiokulturell læring,"Sosiokulturell læring: læring skjer i samspill med andre, gjennom språk og redskaper. Den nærmeste utviklingssonen er det en elev klarer med hjelp, men ikke ennå alene. Kjent fra Lev Vygotskij.",laering;sosiokulturelt-perspektiv,0,
+laeringsstrategier,concept,Læring og motivasjon,Læringsstrategier,"Læringsstrategi: en bevisst måte å arbeide på for å lære, for eksempel å teste seg selv framfor å lese om igjen, å spre repetisjonen over tid og å forklare stoffet med egne ord.",bearbeidingsdybde,0,
+metakognisjon,concept,Læring og motivasjon,Metakognisjon,"Metakognisjon: å tenke om egen tenkning - å planlegge, følge med på og vurdere sin egen læring.",laeringsstrategier,0,
+beskrive-laeringsperspektiver,skill,Læring og motivasjon,Sammenligne perspektiver på læring,"beskrive og sammenligne behavioristiske, kognitive og sosiokulturelle perspektiver på læring, med et eksempel fra skolen på hvert.",forklare-med-betinging;modellaering;konstruktivisme;sosiokulturell-laering,0,
+vurdere-egne-strategier,skill,Læring og motivasjon,Vurdere egne læringsstrategier,"vurdere egne læringsstrategier ut fra det forskningen sier om hukommelse og læring, og foreslå konkrete endringer.",laeringsstrategier;metakognisjon;forklare-hukommelsesmodell,0,
+reflektere-hemmer-fremmer,skill,Læring og motivasjon,Reflektere over hva som hemmer og fremmer læring,"reflektere over hva som hemmer og fremmer læring, som forkunnskaper, søvn, stress, mobilbruk og læringsmiljø, og knytte det til teorier om læring.",beskrive-laeringsperspektiver;reflektere-hukommelse,0,
+motivasjon,concept,Læring og motivasjon,Indre og ytre motivasjon,"Indre motivasjon: å gjøre noe fordi aktiviteten selv er interessant eller meningsfull.
+Ytre motivasjon: å gjøre noe for å oppnå noe utenfor aktiviteten, som karakterer, penger eller ros.",,0,
+behovshierarkiet,concept,Læring og motivasjon,Behovshierarkiet,"Behovshierarkiet: Maslows modell der fysiologiske behov, trygghet, tilhørighet og anerkjennelse må være dekket før behovet for selvrealisering blir drivende.",motivasjon;humanistisk-perspektiv,0,
+selvbestemmelsesteori,concept,Læring og motivasjon,Selvbestemmelsesteorien,"Selvbestemmelsesteorien: mennesker blir mer indre motivert når tre behov er dekket - autonomi, kompetanse og tilhørighet. Teorien er fra Edward Deci og Richard Ryan.",motivasjon,0,
+mestringsforventning,concept,Læring og motivasjon,Mestringsforventning,"Mestringsforventning: troen på at man klarer en bestemt oppgave. Den bygges særlig av egne erfaringer med å lykkes, og påvirker om man prøver og hvor lenge man holder ut. Begrepet er fra Albert Bandura.",motivasjon,0,
+laert-hjelpeloshet,concept,Læring og motivasjon,Lært hjelpeløshet,"Lært hjelpeløshet: at man etter gjentatte opplevelser av at innsatsen ikke nytter, slutter å prøve - også når det faktisk ville nyttet. Begrepet er fra Martin Seligman.",mestringsforventning;operant-betinging,0,
+drofte-motivasjon-mestring,skill,Læring og motivasjon,"Drøfte sammenhengen mellom motivasjon, mestring og læring","drøfte sammenhengen mellom motivasjon, mestring og læring med minst to teorier, brukt på en konkret elev eller situasjon.",behovshierarkiet;selvbestemmelsesteori;laert-hjelpeloshet;reflektere-hemmer-fremmer,0,
+arv-miljo,concept,Utvikling og personlighet,Arv og miljø,"Arv: de genetiske anleggene man får fra foreldrene.
+Miljø: alle påvirkninger etter unnfangelsen - familie, venner, kultur og opplevelser. Arv og miljø virker sammen: hvordan et anlegg kommer til uttrykk, avhenger av miljøet.",biologisk-perspektiv,0,
+tvillingstudier,concept,Utvikling og personlighet,Tvilling- og adopsjonsstudier,"Tvillingstudie: sammenligner eneggede tvillinger, som har tilnærmet like gener, med toeggede, for å anslå hvor mye av forskjellene mellom folk som skyldes arv.
+Adopsjonsstudie: sammenligner adopterte barn med både de biologiske foreldrene og adoptivforeldrene.",arv-miljo;forskningsmetoder,0,
+personlighet,concept,Utvikling og personlighet,Personlighet,"Personlighet: de relativt stabile mønstrene i hvordan en person tenker, føler og handler, og som skiller den fra andre. Personligheten bygger på temperamentet, de medfødte tendensene i hvordan et barn reagerer.",arv-miljo,0,
+femfaktormodellen,concept,Utvikling og personlighet,Femfaktormodellen,"Femfaktormodellen: beskriver personlighet med fem trekk som hver er en skala - åpenhet for erfaring, planmessighet, ekstroversjon, medmenneskelighet og nevrotisisme (følelsesmessig ustabilitet).",personlighet,0,
+freud-personlighetsmodell,concept,Utvikling og personlighet,Freuds personlighetsmodell,"Id: den ubevisste delen som vil ha behovene sine dekket straks.
+Ego: den delen som forholder seg til virkeligheten og megler mellom id og superego.
+Superego: samvittigheten og de innlærte normene.",personlighet;psykodynamisk-perspektiv,0,
+tilknytning,concept,Utvikling og personlighet,Tilknytning,"Tilknytning: det følelsesmessige båndet mellom et barn og omsorgspersonene, som barnet bruker som en trygg base å utforske fra og søke trøst hos. Teorien er fra John Bowlby.",,0,
+tilknytningsmonstre,concept,Utvikling og personlighet,Tilknytningsmønstre,"Trygg tilknytning: barnet søker trøst og lar seg trøste, og utforsker fritt.
+Utrygg-unnvikende tilknytning: barnet viser lite behov for omsorgspersonen.
+Utrygg-ambivalent tilknytning: barnet klamrer seg fast og er vanskelig å trøste.
+Desorganisert tilknytning: barnet har ingen fast måte å håndtere uro på. Mønstrene ble beskrevet av Mary Ainsworth.",tilknytning,0,
+identitet,concept,Utvikling og personlighet,Identitet,"Identitet: opplevelsen av hvem man er, som henger sammen over tid og på tvers av situasjoner, og som formes i møte med andre.",selvbilde-selvfolelse,0,
+eriksons-stadier,concept,Utvikling og personlighet,Eriksons psykososiale utvikling,"Eriksons psykososiale utvikling: livet delt i åtte stadier med hver sin utviklingskrise. I ungdomstiden står identitet mot rolleforvirring.",identitet,0,
+sosialisering,concept,Utvikling og personlighet,Sosialisering,"Primær sosialisering: det barnet lærer av normer, verdier og språk i familien de første årene.
+Sekundær sosialisering: det man lærer senere gjennom skole, venner, medier og arbeidsliv.",sosiokulturelt-perspektiv,0,
+sammenligne-personlighetsteorier,skill,Utvikling og personlighet,Sammenligne personlighetsteorier,"sammenligne hvordan trekkteori og psykodynamisk teori beskriver og forklarer personlighet, og vurdere hva hver av dem kan etterprøves på.",femfaktormodellen;freud-personlighetsmodell;empiri-teori,0,
+forklare-tilknytning-utvikling,skill,Utvikling og personlighet,Forklare hvordan tilknytning preger utviklingen,"forklare hvordan tidlig tilknytning kan prege senere relasjoner og utvikling, og hvorfor sammenhengen ikke er skjebnebestemt.",tilknytningsmonstre,0,
+drofte-arv-miljo,skill,Utvikling og personlighet,Drøfte samspillet mellom arv og miljø,"drøfte hvordan samspillet mellom arv og miljø har betydning for utviklingen av personlighet, identitet og tilknytning, med støtte i forskning.",tvillingstudier;sammenligne-personlighetsteorier;forklare-tilknytning-utvikling;eriksons-stadier;sosialisering,0,
+psykisk-helse,concept,Stress og kriser,Psykisk helse,"Psykisk helse: en tilstand der man kan utnytte egne evner, mestre vanlige belastninger i livet og bidra i fellesskapet. God psykisk helse er mer enn fravær av psykisk sykdom.",,0,
+stress,concept,Stress og kriser,Stressor og stressreaksjon,"Stressor: en belastning eller et krav som utløser stress, som en eksamen, en konflikt eller et dødsfall.
+Stressreaksjon: kroppens og psykens svar på belastningen.",,0,
+stressresponsen,concept,Stress og kriser,Kroppens stressrespons,"Kroppens stressrespons: det sympatiske nervesystemet og adrenalin gir en rask beredskap, og ved vedvarende stress holder kortisol kroppen i beredskap over lengre tid. Varer det for lenge, slites kroppen ned.",stress;autonomt-nervesystem;sentrale-hormoner,0,
+kognitiv-vurdering,concept,Stress og kriser,Kognitiv vurdering av stress,"Primær vurdering: om en hendelse oppleves som en trussel, et tap eller en utfordring.
+Sekundær vurdering: om man har ressurser til å håndtere den. Stresset avhenger av vurderingen, ikke bare av hendelsen. Modellen er fra Richard Lazarus.",stress,0,
+mestringsstrategier,concept,Stress og kriser,Mestringsstrategier,"Problemfokusert mestring: å gjøre noe med selve situasjonen som skaper stress.
+Emosjonsfokusert mestring: å regulere følelsene situasjonen skaper, når situasjonen ikke kan endres.",kognitiv-vurdering,0,
+sarbarhet-resiliens,concept,Stress og kriser,Sårbarhet og resiliens,"Sårbarhet: hvor lett en person utvikler vansker når hun eller han utsettes for belastninger.
+Resiliens: evnen til å klare seg godt til tross for store belastninger.",stress,0,
+risiko-beskyttelse,concept,Stress og kriser,Risikofaktor og beskyttelsesfaktor,"Risikofaktor: noe som øker sjansen for å utvikle vansker, som mobbing eller arvelige anlegg.
+Beskyttelsesfaktor: noe som minsker sjansen, som gode relasjoner, en trygg voksen eller mestringserfaringer.",sarbarhet-resiliens,0,
+drofte-stress-konsekvenser,skill,Stress og kriser,Drøfte konsekvenser av stress,"drøfte kortsiktige og langsiktige konsekvenser av stress for kropp, tanker, følelser og atferd, og skille stress som gjør en skjerpet fra stress som skader.",stressresponsen;kognitiv-vurdering,0,
+vurdere-sarbarhet-resiliens,skill,Stress og kriser,Vurdere hvorfor folk tåler belastninger ulikt,"vurdere hvorfor den samme belastningen gir ulike reaksjoner hos ulike personer, med sårbarhet, resiliens, risiko- og beskyttelsesfaktorer og kognitiv vurdering.",risiko-beskyttelse;kognitiv-vurdering,0,
+forebygge-stress,skill,Stress og kriser,Reflektere over hvordan negative stressreaksjoner kan forebygges,"reflektere over hvordan negative stressreaksjoner kan forebygges, både hos en selv og i skolen eller arbeidslivet, og begrunne tiltakene med teori.",drofte-stress-konsekvenser;mestringsstrategier;vurdere-sarbarhet-resiliens,0,
+psykisk-krise,concept,Stress og kriser,Psykisk krise,"Psykisk krise: en situasjon der tidligere erfaringer og vante måter å mestre på ikke strekker til.
+Traumatisk krise: utløses av en plutselig og uventet hendelse, som en ulykke eller et dødsfall.
+Livskrise: utløses av en overgang alle møter, som å flytte hjemmefra eller å bli forelder.",stress,0,
+krisefaser,concept,Stress og kriser,Krisefasene,"Krisefasene: en modell av hvordan en traumatisk krise forløper - sjokkfase, reaksjonsfase, bearbeidingsfase og nyorienteringsfase. Modellen er fra Johan Cullberg.",psykisk-krise,0,
+forsvarsmekanismer,concept,Stress og kriser,Forsvarsmekanismer,"Forsvarsmekanisme: en ubevisst måte å beskytte seg mot angst og smertefulle følelser på, for eksempel fortrengning, benekting, projeksjon og rasjonalisering.",psykodynamisk-perspektiv,0,
+krise-utfall,concept,Stress og kriser,Mulige utfall av en krise,"Posttraumatisk stresslidelse: en lidelse der man gjenopplever hendelsen, unngår det som minner om den og er vedvarende på vakt.
+Posttraumatisk vekst: en positiv endring, som nye prioriteringer eller sterkere relasjoner, som noen opplever etter å ha bearbeidet en krise.",psykisk-krise,0,
+gjore-rede-krise,skill,Stress og kriser,Gjøre rede for forløpet i en psykisk krise,"gjøre rede for hvordan en psykisk krise kan forløpe, med krisefasene og forsvarsmekanismer, brukt på et konkret eksempel.",krisefaser;forsvarsmekanismer,0,
+drofte-utfall-krise,skill,Stress og kriser,Drøfte mulige utfall av en krise,"drøfte hva som kan avgjøre om en krise ender i vekst eller i langvarige vansker, med vekt på sosial støtte, sårbarhet og mestring.",gjore-rede-krise;krise-utfall;vurdere-sarbarhet-resiliens;psykisk-helse,0,
+rusmiddel,concept,Rus og psykisk helse,Rusmiddel,"Rusmiddel: et stoff som virker på sentralnervesystemet og endrer bevissthet, stemning eller atferd, som alkohol, cannabis, nikotin og sentralstimulerende stoffer.",nervesystemet,0,
+belonningssystemet,concept,Rus og psykisk helse,Belønningssystemet,"Belønningssystemet: et nettverk i hjernen der dopamin gir en opplevelse av at noe er godt og verdt å gjenta. Rusmidler gir en kraftigere og raskere aktivering enn naturlige belønninger.",nevrotransmitter;rusmiddel,0,
+toleranse-avhengighet,concept,Rus og psykisk helse,"Toleranse, avhengighet og abstinens","Toleranse: at det trengs mer av et stoff for å få samme virkning.
+Avhengighet: et sterkt behov for stoffet og vansker med å kontrollere bruken, til tross for skadene.
+Abstinens: ubehagelige reaksjoner når man slutter med stoffet.",belonningssystemet,0,
+ungdomshjernen,concept,Rus og psykisk helse,Ungdomshjernen,"Ungdomshjernen: en hjerne der belønningssystemet er svært aktivt mens pannelappen, som styrer impulskontroll og planlegging, fortsatt modnes langt inn i tjueårene. Det gjør ungdom mer risikovillige og mer sårbare for rusens virkning.",hjernens-omrader;belonningssystemet,0,
+forklare-rus-hjernen,skill,Rus og psykisk helse,Beskrive hvordan rusmidler påvirker hjernen,"beskrive hvordan et rusmiddel som alkohol eller cannabis påvirker hjernens funksjon, og forklare hvorfor bruk i ungdomsårene gir større risiko enn senere.",toleranse-avhengighet;ungdomshjernen,0,
+reflektere-rus-psykisk-helse,skill,Rus og psykisk helse,Reflektere over rus og psykisk helse,"reflektere over hvordan bruk av rusmidler kan påvirke psykisk helse og livskvalitet på kort og lang sikt, og over hvordan psykiske vansker også kan føre til rusbruk.",forklare-rus-hjernen;psykisk-helse;risiko-beskyttelse,0,
+holdning,concept,Bærekraftige valg,Holdning,"Holdning: en relativt varig vurdering av noe, med en tankemessig side (hva man mener), en følelsesmessig side (hva man føler) og en atferdsmessig side (hvordan man er tilbøyelig til å handle).",,0,
+kognitiv-dissonans,concept,Bærekraftige valg,Kognitiv dissonans,"Kognitiv dissonans: det ubehaget man kjenner når handlinger og holdninger ikke stemmer overens, og som man ofte løser ved å endre holdningen eller bortforklare handlingen framfor å endre handlingen. Teorien er fra Leon Festinger.",holdning,0,
+sosiale-normer,concept,Bærekraftige valg,Sosiale normer,"Deskriptiv norm: hva folk flest faktisk gjør.
+Injunktiv norm: hva folk flest mener at man bør gjøre.",sosialisering,0,
+sosialt-dilemma,concept,Bærekraftige valg,Sosialt dilemma,"Sosialt dilemma: en situasjon der det som lønner seg for den enkelte på kort sikt, til sammen gir et dårligere resultat for alle på lang sikt, som når alle kjører bil framfor å ta kollektivt.",,0,
+natidsskjevhet,concept,Bærekraftige valg,Nåtidsskjevhet,"Nåtidsskjevhet: tendensen til å legge mer vekt på gevinster og kostnader nå enn på dem som kommer senere, selv når de senere er større.",kognitive-skjevheter,0,
+dulting,concept,Bærekraftige valg,Dulting,"Dulting: å utforme en valgsituasjon slik at det ønskede valget blir det enkleste, uten å forby noe - for eksempel at det miljøvennlige alternativet er standardvalget.",rask-langsom-tenkning;sosiale-normer,0,
+forklare-holdning-handling,skill,Bærekraftige valg,Forklare hvorfor folk ikke handler som de mener,"forklare hvorfor mange ikke handler i tråd med egne holdninger til miljø og klima, med kognitiv dissonans, nåtidsskjevhet og sosiale dilemmaer.",kognitiv-dissonans;natidsskjevhet;sosialt-dilemma,0,
+utforske-baerekraftige-valg,skill,Bærekraftige valg,Vurdere hva som får folk til å ta bærekraftige valg,"utforske og vurdere hvordan individuelle, sosiale og psykologiske faktorer påvirker om mennesker tar, eller lar være å ta, bærekraftige valg, og vurdere tiltak som kan endre atferden.",forklare-holdning-handling;dulting;motivasjon,0,

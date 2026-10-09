@@ -1,0 +1,534 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Grunnlag fra nivå I;Ordforråd;Verb og tider;Setningsbygning;Lesing og lytting;Skriving;Muntlig kommunikasjon;Samfunn og historie;Kunst og kultur;Språklæring,,,
+,config,,title,Spansk II,,,
+,config,,description,"Verb og tider, setningsbygning, ordforråd, lesing, skriving og muntlig kommunikasjon for spansk nivå II, med samfunn, historie og kultur i den spansktalende verden og strategier for språklæring.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,language-acquisition,,,
+,config,,storageKey,no-vgs-spansk-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"spansk nivå II (Vg1 og Vg2, videregående skole)",,,
+,config,,slots.motivationSubject,spansk,,,
+,config,,slots.expressionFocus,"glemmer aksenttegn og de omvendte tegnene ¿ og ¡, blander preteritum og imperfektum, bruker ser der det skal være estar, lar adjektivet stå ubøyd, bøyer gustar etter den som liker framfor det som blir likt, eller oversetter norske uttrykk ord for ord",,,
+,config,,slots.courseSpecifics,"Den skriftlige eksamenen etter Vg2 er sentralt gitt og skrives digitalt med spansk tastatur. Når eleven skriver spansk, forvent derfor aksenttegn, ñ, ¿ og ¡ der de hører hjemme, og si fra når de mangler.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fremmedspråk nivå II, studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"FSP6221 (1. år), FSP6222 (skriftlig), FSP6223 (muntlig)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,spanish,,,
+,config,,keywords,spansk; spansk 2; fremmedspråk; nivå II; preteritum; imperfektum; subjunktiv; ser og estar; por og para; objektspronomen; gloser; skriftlig eksamen; Spania; Latin-Amerika,,,
+,config,,updated,2026-10-08,,,
+uttaleregler,fact,Grunnlag fra nivå I,Bokstaver som uttales annerledes enn på norsk,"h: er stum (hola uttales «ola»)
+j, og g foran e og i: en hard h-lyd bak i halsen (jamón, gente)
+ll og y: omtrent som norsk j (llamo, yo)
+ñ: som «nj» (año)
+v: som b (vino)
+z, og c foran e og i: som engelsk «th» i store deler av Spania, som s i Latin-Amerika (cerveza, cine)
+qu foran e og i: som k, u-en høres ikke (queso)
+gu foran e og i: som g, u-en høres ikke (guitarra), mens gü uttales med u (pingüino)
+r: en kort tungespiss-r; rr, og r først i ordet, rulles (pero, perro, rojo)",,0,
+uttale,skill,Grunnlag fra nivå I,Lese høyt med riktig uttale,"lese en kort tekst høyt slik at h er stum, j og g foran e og i får riktig lyd, r og rr skilles og trykket ligger riktig, sjekket ved å sammenligne et opptak av deg selv med en innlest versjon",uttaleregler;trykk-aksent,0,
+trykk-aksent,concept,Grunnlag fra nivå I,Trykk og aksenttegn,"Trykkregel: et ord som ender på vokal, n eller s har trykk på nest siste stavelse, og andre ord har trykk på siste stavelse
+Aksenttegn: viser at trykket bryter med regelen (café, lápiz, canción), eller skiller to ord som ellers skrives likt (tú og tu, sí og si, qué og que)",,0,
+tastatur,skill,Grunnlag fra nivå I,Skrive spanske tegn på tastaturet,"skrive á, é, í, ó, ú, ü, ñ, ¿ og ¡ raskt og riktig på et spansk tastatur eller med tastekombinasjoner, slik du må på en digital eksamen",trykk-aksent,0,
+kjonn,concept,Grunnlag fra nivå I,Grammatisk kjønn og samsvar,"Grammatisk kjønn: at hvert substantiv er hankjønn eller hunkjønn, og at artikkelen og adjektivet bøyes etter det i kjønn og tall. De fleste ord på -o er hankjønn og de fleste på -a hunkjønn, men det finnes unntak som el día, la mano og el problema.",,0,
+artikler-adjektiv,skill,Grunnlag fra nivå I,Bøye artikkel og adjektiv etter substantivet,"sette riktig bestemt og ubestemt artikkel (el, la, los, las, un, una, unos, unas) foran et substantiv, og bøye adjektivet i kjønn og tall etter det (una casa blanca, dos perros negros)",kjonn,0,
+presens,skill,Grunnlag fra nivå I,Bøye regelrette verb i presens,"bøye regelrette verb på -ar, -er og -ir i alle personer i presens (hablo, comes, vivimos)",,0,
+vokalskifte,fact,Grunnlag fra nivå I,Verb med vokalskifte i presens,"e blir ie: querer (quiero), pensar (pienso), empezar (empiezo), preferir (prefiero), entender (entiendo)
+o blir ue: poder (puedo), dormir (duermo), volver (vuelvo), encontrar (encuentro), costar (cuesta)
+u blir ue: jugar (juego)
+e blir i: pedir (pido), servir (sirvo), repetir (repito), vestirse (me visto)
+skiftet skjer i alle personer unntatt nosotros og vosotros (queremos, podéis)",,0,
+presens-uregelrett,fact,Grunnlag fra nivå I,Uregelrette verb i presens,"ser: soy, eres, es, somos, sois, son
+estar: estoy, estás, está, estamos, estáis, están
+tener: tengo, tienes, tiene, tenemos, tenéis, tienen
+ir: voy, vas, va, vamos, vais, van
+hacer: hago, haces, hace, hacemos, hacéis, hacen
+venir: vengo, vienes, viene, venimos, venís, vienen
+decir: digo, dices, dice, decimos, decís, dicen
+haber: he, has, ha, hemos, habéis, han
+jeg-formen av salir, poner, traer, conocer, saber, dar og ver: salgo, pongo, traigo, conozco, sé, doy, veo",,0,
+presens-bruke,skill,Grunnlag fra nivå I,Bøye verb med vokalskifte og uregelrette verb i presens,"bøye verb med vokalskifte og de vanligste uregelrette verbene i alle personer i presens, i setninger om deg selv og andre (quiero, puedo, salgo, tienen)",presens;vokalskifte;presens-uregelrett,0,
+ser-estar,concept,Grunnlag fra nivå I,Ser og estar,"Ser: «å være» om hva noe eller noen er: identitet, yrke, opphav og varige egenskaper
+Estar: «å være» om hvor noe er, og om hvordan noe eller noen har det akkurat nå",,0,
+bruke-ser-estar,skill,Grunnlag fra nivå I,Velge mellom ser og estar,"velge mellom ser og estar og bøye dem riktig, også med adjektiv som skifter betydning (es aburrido, está aburrido; es listo, está listo)",ser-estar;presens-uregelrett;artikler-adjektiv,0,
+gustar,concept,Grunnlag fra nivå I,Gustar,"Gustar: «like», men bygd omvendt av norsk: det man liker er subjektet, og den som liker står som me, te, le, nos, os eller les (me gusta el chocolate, me gustan los perros)",,0,
+bruke-gustar,skill,Grunnlag fra nivå I,Si hva du og andre liker og ikke liker,"si og skrive hva du og andre liker og ikke liker, med riktig form av gustar (me gusta, me gustan, a mi hermano le gusta, no nos gusta)",gustar,0,
+tu-usted,concept,Grunnlag fra nivå I,Tú og usted,"Tú: «du», brukt til venner, familie og jevnaldrende
+Usted: høflig «De», brukt til eldre og fremmede, og bøyd som tredje person entall
+Vosotros og ustedes: «dere»; i Spania er vosotros vanlig og ustedes høflig, mens Latin-Amerika bruker ustedes i alle situasjoner",,0,
+sporreord,fact,Grunnlag fra nivå I,Spørreord,"¿qué?: hva?
+¿quién?: hvem?
+¿dónde?: hvor?
+¿adónde?: hvor hen?
+¿de dónde?: hvor fra?
+¿cuándo?: når?
+¿cómo?: hvordan?
+¿por qué?: hvorfor?
+¿cuánto?: hvor mye?
+¿cuántos?: hvor mange?
+¿cuál?: hvilken?",,0,
+sporsmal-nekting,skill,Grunnlag fra nivå I,Stille spørsmål og nekte,"lage spørsmål med spørreord og ¿?, og nekte med no foran verbet og med nunca, nada, nadie og tampoco (no hay nadie, no voy nunca)",sporreord;presens-bruke,0,
+tall,fact,Grunnlag fra nivå I,"Tall, årstall og ordenstall","0 til 15: cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce, trece, catorce, quince
+16 til 29 skrives i ett ord, som dieciséis, diecinueve, veintiuno og veintidós
+tierne: veinte, treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa
+fra 31 til 99 skrives et tall som ikke er en tier som tieren, y og eneren, for eksempel treinta y cuatro
+100: cien alene, men ciento i sammensatte tall (ciento veinte)
+hundrene: doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos, som bøyes i kjønn (doscientas personas)
+1000: mil (dos mil, ikke dos miles)
+1 000 000: un millón (dos millones de habitantes)
+årstall leses som vanlige tall: 1492 er mil cuatrocientos noventa y dos, og 2025 er dos mil veinticinco
+ordenstallene: primero, segundo, tercero, cuarto, quinto, sexto, séptimo, octavo, noveno, décimo",,0,
+tid-uttrykk,fact,Ordforråd,Tidsuttrykk,"ayer: i går
+anteayer: i forgårs
+anoche: i går kveld
+la semana pasada: forrige uke
+el año pasado: i fjor
+hace dos años: for to år siden
+de pequeño, de pequeña: da jeg var liten
+antes: før
+hoy: i dag
+esta semana: denne uken
+ya: allerede
+todavía no: ikke ennå
+nunca: aldri
+siempre: alltid
+a menudo: ofte
+a veces: noen ganger
+mañana: i morgen
+pasado mañana: i overmorgen
+la próxima semana: neste uke
+el año que viene: neste år
+dentro de dos años: om to år",,0,
+tener-uttrykk,fact,Ordforråd,Uttrykk med tener,"tener hambre: være sulten
+tener sed: være tørst
+tener frío: fryse
+tener calor: ha det for varmt
+tener sueño: være søvnig
+tener miedo: være redd
+tener prisa: ha det travelt
+tener razón: ha rett
+tener ganas de: ha lyst til
+tener suerte: være heldig
+tener quince años: være femten år",,0,
+hverdag-fritid,fact,Ordforråd,Fritid og interesser,"el tiempo libre: fritiden
+el fin de semana: helgen
+quedar con amigos: møte venner etter avtale
+hacer deporte: drive med idrett
+jugar al fútbol: spille fotball
+tocar la guitarra: spille gitar
+ir al cine: gå på kino
+ver una serie: se en serie
+ir de compras: shoppe
+entrenar: trene
+descansar: slappe av
+el partido: kampen
+el concierto: konserten
+el equipo: laget",,0,
+folelser,fact,Ordforråd,Følelser og tilstander,"contento, contenta: glad, fornøyd
+triste: trist
+cansado: sliten
+nervioso: nervøs
+enfadado: sint (enojado i Latin-Amerika)
+preocupado: bekymret
+estresado: stresset
+orgulloso: stolt
+harto: lei
+sentirse bien: føle seg bra
+sentirse mal: føle seg dårlig
+echar de menos: savne (extrañar i Latin-Amerika)",,0,
+kropp-helse,fact,Ordforråd,Kropp og helse,"la cabeza: hodet
+la garganta: halsen
+el estómago: magen
+la espalda: ryggen
+el brazo: armen
+la pierna: beinet
+el pie: foten
+me duele la cabeza: jeg har vondt i hodet
+tener fiebre: ha feber
+estar resfriado: være forkjølet
+la tos: hosten
+el médico, la médica: legen
+la farmacia: apoteket
+la receta: resepten
+comer sano: spise sunt
+hacer ejercicio: mosjonere",,0,
+reise,fact,Ordforråd,Reise og veibeskrivelse,"el viaje: reisen
+el billete: billetten (el boleto i Latin-Amerika)
+de ida y vuelta: tur-retur
+el aeropuerto: flyplassen
+el avión: flyet
+la estación: stasjonen
+el tren: toget
+la maleta: kofferten
+el pasaporte: passet
+reservar una habitación: bestille et rom
+la playa: stranden
+a la derecha: til høyre
+a la izquierda: til venstre
+todo recto: rett fram
+la esquina: hjørnet
+cruzar la calle: gå over gata",,0,
+klaer-handel,fact,Ordforråd,Klær og handel,"la ropa: klærne
+la camiseta: t-skjorten
+la camisa: skjorten
+los pantalones: buksa
+los vaqueros: olabuksa
+la falda: skjørtet
+el vestido: kjolen
+la chaqueta: jakken
+los zapatos: skoene
+la talla: størrelsen
+probarse: prøve på seg
+barato: billig
+caro: dyr
+las rebajas: salget
+pagar con tarjeta: betale med kort
+en efectivo: kontant",,0,
+mat,fact,Ordforråd,Mat og måltider,"el desayuno: frokosten
+la comida: lunsjen i Spania, og maten
+la cena: middagen, kveldsmaten
+el primer plato: forretten
+el postre: desserten
+las verduras: grønnsakene
+el pescado: fisken
+la carne: kjøttet
+el pollo: kyllingen
+la bebida: drikken
+la cuenta: regningen
+la propina: tipset",,0,
+miljo,fact,Ordforråd,Miljø og klima,"el medio ambiente: miljøet
+el cambio climático: klimaendringene
+el calentamiento global: den globale oppvarmingen
+la contaminación: forurensningen
+contaminar: forurense
+reciclar: resirkulere
+la basura: søppelet
+los residuos: avfallet
+el plástico: plasten
+ahorrar energía: spare energi
+la energía renovable: den fornybare energien
+la sequía: tørken
+proteger: beskytte
+el transporte público: kollektivtransporten",,0,
+teknologi,fact,Ordforråd,Teknologi og sosiale medier,"el móvil: mobilen (el celular i Latin-Amerika)
+la pantalla: skjermen
+las redes sociales: sosiale medier
+subir una foto: legge ut et bilde
+descargar: laste ned
+la aplicación: appen
+el mensaje: meldingen
+la contraseña: passordet
+el seguidor: følgeren
+compartir: dele
+navegar por internet: surfe på nettet
+estar enganchado a: være hekta på
+el ciberacoso: nettmobbingen",,0,
+jobb-utdanning,fact,Ordforråd,Utdanning og arbeid,"el instituto: den videregående skolen (i Spania)
+la asignatura: faget
+la nota: karakteren
+aprobar: bestå
+suspender: stryke (i Spania)
+la universidad: universitetet
+el trabajo: jobben
+trabajar de camarero: jobbe som servitør
+el sueldo: lønna
+el paro: arbeidsløsheten (i Spania)
+buscar trabajo: søke jobb
+la entrevista de trabajo: jobbintervjuet
+la experiencia: erfaringen
+el trabajo de verano: sommerjobben",,0,
+meningsuttrykk,fact,Ordforråd,Uttrykk for meninger og argumenter,"creo que: jeg tror at
+pienso que: jeg mener at
+me parece que: jeg synes at
+en mi opinión: etter min mening
+para mí: for meg
+estoy de acuerdo: jeg er enig
+no estoy de acuerdo: jeg er uenig
+es verdad que: det er sant at
+por un lado ... por otro lado: på den ene siden ... på den andre siden
+en primer lugar: for det første
+además: dessuten
+sin embargo: likevel, imidlertid
+por eso: derfor
+depende de: det kommer an på
+en conclusión: alt i alt",,0,
+bindeord,fact,Ordforråd,Bindeord og tidsmarkører,"y: og (e foran ord som begynner på i- eller hi-: padre e hijo)
+pero: men
+o: eller
+porque: fordi
+cuando: når, da
+aunque: selv om
+también: også
+tampoco: heller ikke
+primero: først
+luego: så, deretter
+después: etterpå
+entonces: da, så
+mientras: mens
+de repente: plutselig
+un día: en dag
+al final: til slutt",,0,
+brevfraser,fact,Ordforråd,Faste fraser i e-post og brev,"Querido Juan, Querida Ana: Kjære Juan, Kjære Ana
+¿Qué tal estás?: Hvordan har du det?
+Te escribo para contarte que: Jeg skriver for å fortelle deg at
+Estimado señor, Estimada señora: formell åpning, «Kjære herr» og «Kjære fru»
+Le escribo para: formelt «Jeg skriver til Dem for å»
+Espero tu respuesta: Jeg venter på svar fra deg
+Un abrazo: Klem
+Saludos: Hilsen
+Atentamente: Med vennlig hilsen, formell avslutning",,0,
+samtalefraser,fact,Ordforråd,Fraser for å holde en samtale i gang,"¿Cómo se dice ... en español?: Hvordan sier man ... på spansk?
+¿Qué significa ...?: Hva betyr ...?
+¿Puedes repetir, por favor?: Kan du gjenta?
+¿Puedes hablar más despacio?: Kan du snakke saktere?
+No entiendo: Jeg forstår ikke
+o sea: altså, det vil si
+es que: saken er den at
+bueno: vel, ok
+a ver: la oss se
+¿verdad?: ikke sant?
+¿y tú?: og du?
+¡Qué bien!: Så bra!
+¡Qué pena!: Så synd!",,0,
+preteritum-endelser,fact,Verb og tider,Endelser i preteritum (pretérito indefinido),"-ar (hablar): hablé, hablaste, habló, hablamos, hablasteis, hablaron
+-er (comer): comí, comiste, comió, comimos, comisteis, comieron
+-ir (vivir): viví, viviste, vivió, vivimos, vivisteis, vivieron",,0,
+preteritum,skill,Verb og tider,Bøye regelrette verb i preteritum,"bøye regelrette verb i alle personer i preteritum, også med skrivemåten som endrer seg i jeg-formen (busqué, llegué, empecé) og i tredje person (leyó, leyeron)",preteritum-endelser;presens,0,
+preteritum-uregelrett,fact,Verb og tider,Uregelrette verb i preteritum,"ser og ir: fui, fuiste, fue, fuimos, fuisteis, fueron
+tener: tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron
+estar: estuve, estuviste, estuvo, estuvimos, estuvisteis, estuvieron
+hacer: hice, hiciste, hizo, hicimos, hicisteis, hicieron
+poder: pude, pudiste, pudo, pudimos, pudisteis, pudieron
+poner: puse, pusiste, puso, pusimos, pusisteis, pusieron
+querer: quise, quisiste, quiso, quisimos, quisisteis, quisieron
+venir: vine, viniste, vino, vinimos, vinisteis, vinieron
+saber: supe, supiste, supo, supimos, supisteis, supieron
+decir: dije, dijiste, dijo, dijimos, dijisteis, dijeron
+dar: di, diste, dio, dimos, disteis, dieron
+ver: vi, viste, vio, vimos, visteis, vieron
+pedir: pidió og pidieron, med vokalskifte bare i tredje person
+dormir: durmió og durmieron, med vokalskifte bare i tredje person",,0,
+bruke-preteritum-uregelrett,skill,Verb og tider,Bruke uregelrette verb i preteritum,"bruke de vanligste uregelrette verbene i preteritum i setninger om noe som skjedde (ayer fui al cine, no pudimos venir, ¿qué hiciste?)",preteritum;preteritum-uregelrett,0,
+imperfektum,skill,Verb og tider,Bøye verb i imperfektum,"bøye verb i alle personer i imperfektum (hablaba, comía, vivía), også de tre uregelrette ser (era), ir (iba) og ver (veía)",presens,0,
+pret-impf,concept,Verb og tider,Preteritum og imperfektum,"Preteritum (pretérito indefinido): en avsluttet handling eller hendelse, det som driver en fortelling framover (ayer fui al cine)
+Imperfektum (pretérito imperfecto): bakgrunn, beskrivelse, vaner og det som pågikk da noe annet skjedde (de pequeño jugaba mucho; llovía cuando salí)",,0,
+velge-pret-impf,skill,Verb og tider,Velge mellom preteritum og imperfektum,"velge mellom preteritum og imperfektum når du forteller om noe som har skjedd, og forklare valget (era tarde y llovía cuando llegó el autobús)",pret-impf;bruke-preteritum-uregelrett;imperfektum;tid-uttrykk,0,
+partisipp,fact,Verb og tider,Partisipp,"-ar-verb får -ado (hablado), og -er- og -ir-verb får -ido (comido, vivido)
+hacer: hecho
+decir: dicho
+ver: visto
+escribir: escrito
+poner: puesto
+volver: vuelto
+abrir: abierto
+romper: roto
+morir: muerto
+descubrir: descubierto",,0,
+perfektum,skill,Verb og tider,Fortelle hva du har gjort med perfektum,"bruke haber og partisipp om noe du har gjort (he comido, hemos visitado Madrid), sammen med tidsuttrykk som hoy, esta semana, ya og nunca, og vite at Latin-Amerika ofte bruker preteritum der Spania bruker perfektum",partisipp;presens-uregelrett;tid-uttrykk,0,
+ir-a,skill,Verb og tider,Snakke om planer med ir a,"fortelle hva du og andre skal gjøre, med ir a og infinitiv (voy a estudiar, vamos a viajar a Perú)",presens-bruke,0,
+futurum-stammer,fact,Verb og tider,Futurum og kondisjonalis,"endelsene i futurum: -é, -ás, -á, -emos, -éis, -án
+endelsene i kondisjonalis: -ía, -ías, -ía, -íamos, -íais, -ían
+de fleste verb får endelsene på hele infinitiven: hablaré, comería, viviremos
+tener: tendr- (tendré)
+salir: saldr- (saldré)
+poder: podr- (podré)
+saber: sabr- (sabré)
+querer: querr- (querré)
+venir: vendr- (vendré)
+poner: pondr- (pondré)
+hacer: har- (haré)
+decir: dir- (diré)
+haber: habr- (habrá)",,0,
+futurum,skill,Verb og tider,Bøye verb i futurum,"bøye verb i futurum (hablaré, tendrás, haremos) og bruke det om framtid og om antakelser (será difícil)",futurum-stammer;presens,0,
+kondisjonalis,skill,Verb og tider,"Bruke kondisjonalis til ønsker, høflighet og råd","bøye verb i kondisjonalis og bruke det til ønsker, høflige spørsmål og råd (me gustaría viajar, ¿podría ayudarme?, deberías dormir más)",futurum-stammer,0,
+gerundium,skill,Verb og tider,Fortelle hva som pågår med estar og gerundium,"bruke estar og gerundium om noe som pågår, i presens og imperfektum (estoy leyendo, estábamos cenando), også med formene leyendo, durmiendo og diciendo",bruke-ser-estar;imperfektum,0,
+verb-infinitiv,skill,Verb og tider,Bruke verbuttrykk med infinitiv,"bruke tener que, hay que, deber, acabar de, volver a, empezar a, dejar de og soler med infinitiv (tengo que estudiar, acabo de llegar, suelo levantarme temprano)",presens-bruke,0,
+refleksive,skill,Verb og tider,Bøye refleksive verb i flere tider,"bøye refleksive verb som levantarse, ducharse, acostarse og divertirse i presens, preteritum og perfektum, med pronomenet på riktig plass (me levanté tarde, nos hemos divertido)",presens-bruke;preteritum;perfektum,0,
+imperativ,skill,Verb og tider,Gi beskjeder og råd med imperativ,"gi beskjeder og råd i du-form og dere-form, både regelrett (habla, come, escribe; hablad) og med de uregelrette formene ten, ven, pon, sal, haz, di, ve og sé",presens-bruke;tu-usted,0,
+subjunktiv,concept,Verb og tider,Subjunktiv,"Subjunktiv (subjuntivo): verbformen i en leddsetning som uttrykker noe ønsket, krevd, fryktet eller usikkert, ikke noe som slås fast. Den kommer typisk etter que når subjektet skifter (quiero que vengas), og etter ojalá, para que og cuando om framtid.
+Indikativ: verbformen som slår fast at noe er slik eller skjer (sé que vienes)",,0,
+subjunktiv-former,skill,Verb og tider,Bøye verb i presens subjunktiv,"bøye verb i presens subjunktiv ved å ta jeg-formen i presens og bytte vokal i endelsen (hablo blir hable, como blir coma, tengo blir tenga), og bøye de uregelrette ser (sea), ir (vaya), estar (esté), haber (haya), saber (sepa) og dar (dé)",subjunktiv;presens-bruke,0,
+subjunktiv-bruke,skill,Verb og tider,Bruke subjunktiv etter faste uttrykk,"bruke subjunktiv etter quiero que, espero que, ojalá, es importante que, para que og cuando om framtid (cuando tenga dinero, viajaré a Chile)",subjunktiv-former,0,
+nektende-imperativ,skill,Verb og tider,Gi forbud og høflige beskjeder,"gi forbud og råd med no og subjunktiv (no hables, no vayas), og gi beskjeder i høflig usted-form (pase, siga todo recto)",subjunktiv-former;imperativ,0,
+si-setninger,skill,Verb og tider,Lage betingelsessetninger med si,"lage betingelsessetninger med si og presens, fulgt av presens, futurum eller imperativ (si llueve, nos quedamos en casa; si tienes tiempo, llámame)",futurum;imperativ,0,
+gustar-lignende,skill,Setningsbygning,"Bruke encantar, interesar, doler og parecer","bruke encantar, interesar, importar, molestar, doler og parecer på samme måte som gustar (me encanta bailar, me duelen los pies, ¿qué te parece?)",bruke-gustar;kropp-helse,0,
+objekt,concept,Setningsbygning,Direkte og indirekte objekt,"Direkte objekt: det verbet virker direkte på (compro el libro), og som erstattes av lo, la, los eller las
+Indirekte objekt: den noe gis til eller gjøres for (doy el libro a María), og som erstattes av le eller les",,0,
+objektspronomen,fact,Setningsbygning,Objektspronomen,"direkte objekt: me, te, lo, la, nos, os, los, las
+indirekte objekt: me, te, le, nos, os, les
+le og les foran lo, la, los eller las: blir se (se lo doy)",,0,
+objpron-plassering,skill,Setningsbygning,Plassere objektspronomen,"bruke objektspronomen i stedet for å gjenta et substantiv, og plassere dem foran det bøyde verbet (lo veo, no la conozco) eller hengt på en infinitiv, et gerundium eller en bekreftende imperativ (quiero verlo, estoy haciéndolo, cómpralo)",objekt;objektspronomen;imperativ;gerundium,0,
+eiendomsord,fact,Setningsbygning,Eiendomsord og påpekende ord,"min, mine: mi, mis
+din, dine: tu, tus
+hans, hennes, Deres, deres: su, sus
+vår, våre: nuestro, nuestra, nuestros, nuestras
+deres (om dere): vuestro, vuestra, vuestros, vuestras
+min etter substantivet eller alene: mío, mía (un amigo mío, es mía)
+denne, dette: este, esta, esto
+den, det (nær den du snakker med): ese, esa, eso
+den, det (der borte): aquel, aquella, aquello",,0,
+komparativ,skill,Setningsbygning,Sammenligne og bruke superlativ,"sammenligne med más ... que, menos ... que og tan ... como, bruke mejor, peor, mayor og menor, og lage superlativ med el más og -ísimo (el más alto de la clase, buenísimo)",artikler-adjektiv,0,
+por-para,concept,Setningsbygning,Por og para,"Por: årsak, gjennom eller langs, bytte og pris, og omtrentlig tid (por la lluvia, por el parque, gracias por todo, por la mañana)
+Para: mål og hensikt, mottaker, retning og frist (para aprender, para ti, para Madrid, para el lunes)",,0,
+bruke-por-para,skill,Setningsbygning,Velge mellom por og para,"velge mellom por og para i setninger du skriver, og forklare valget",por-para,0,
+preposisjoner-sted,fact,Setningsbygning,Preposisjoner for sted,"en: i, på
+encima de: oppå
+debajo de: under
+al lado de: ved siden av
+delante de: foran
+detrás de: bak
+entre: mellom
+cerca de: nær
+lejos de: langt fra
+enfrente de: rett overfor
+dentro de: inni
+fuera de: utenfor",,0,
+hay-estar,concept,Setningsbygning,Hay og estar,"Hay: at noe finnes, om noe ubestemt eller nytt (hay un banco en la plaza)
+Estar: hvor noe bestemt og kjent er (el banco está en la plaza)",,0,
+muy-mucho,concept,Setningsbygning,"Muy, mucho, bueno og bien","Muy: «veldig» foran adjektiv og adverb, og bøyes ikke (muy grande, muy bien)
+Mucho: «mye, mange» foran substantiv, der det bøyes (muchas personas), og «mye» etter verb (trabajo mucho)
+Bueno: adjektivet «god», som bøyes og blir buen foran et hankjønnsord i entall (un buen libro)
+Bien: adverbet «bra», om hvordan noe gjøres eller hvordan noen har det (canta bien, estoy bien)",,0,
+relativ,skill,Setningsbygning,"Binde sammen setninger med que, donde og lo que","binde sammen setninger med que, donde, lo que og quien (el chico que vive aquí, la ciudad donde nací, lo que más me gusta)",presens-bruke,0,
+teksttyper,concept,Lesing og lytting,Teksttyper,"E-post og melding: personlig tekst til en bestemt mottaker, med hilsen og avslutning
+Blogginnlegg: personlig tekst for mange lesere, ofte om egne opplevelser og meninger
+Artikkel: saklig tekst som informerer om et emne
+Meningstekst: tekst som tar standpunkt og begrunner det med argumenter
+Fortelling: tekst som forteller hva som skjedde, i rekkefølge og oftest i fortid",,0,
+lese-hovedinnhold,skill,Lesing og lytting,Finne hovedinnholdet i en autentisk tekst,"lese en autentisk tekst om et kjent emne, som en avisartikkel eller et blogginnlegg, og si i to eller tre setninger hva den handler om, uten å forstå hvert ord",teksttyper;gjette-ord,0,
+svare-egne-ord,skill,Lesing og lytting,Svare på spørsmål om en tekst med egne ord,"svare på spørsmål om innhold og detaljer i en tekst med hele setninger på spansk og med egne ord, ikke ved å skrive av setninger fra teksten",lese-hovedinnhold;sporsmal-nekting,0,
+lytte,skill,Lesing og lytting,Forstå tydelig tale om kjente emner,"fange opp hovedinnholdet og detaljer som tall, tid og sted når noen snakker tydelig om kjente emner, sjekket mot en transkripsjon",uttaleregler;tall,0,
+sprakvarianter,concept,Lesing og lytting,Variasjon mellom Spania og Latin-Amerika,"Seseo: at z, og c foran e og i, uttales som s, slik det gjøres i Latin-Amerika og deler av Sør-Spania
+Voseo: at vos brukes i stedet for tú, med egne verbformer (vos tenés), særlig i Argentina og Uruguay
+Ustedes for «dere»: at Latin-Amerika bruker ustedes der Spania bruker vosotros",,0,
+ord-varianter,fact,Lesing og lytting,Ulike ord i Spania og Latin-Amerika,"bil: el coche (Spania), el carro eller el auto (Latin-Amerika)
+mobil: el móvil (Spania), el celular (Latin-Amerika)
+datamaskin: el ordenador (Spania), la computadora (Latin-Amerika)
+juice: el zumo (Spania), el jugo (Latin-Amerika)
+billett: el billete (Spania), el boleto (Latin-Amerika)
+potet: la patata (Spania), la papa (Latin-Amerika)
+buss: el autobús (Spania), el camión (Mexico), el colectivo (Argentina)",,0,
+lytte-autentisk,skill,Lesing og lytting,Følge med på en kort video eller podkast,"følge med på en kort video, podkast eller nyhetssak laget for spansktalende, først med og så uten spanske undertekster, og gjengi hovedinnholdet, sjekket mot transkripsjonen",lytte;sprakvarianter,0,
+tekststruktur,skill,Skriving,"Bygge opp en tekst med innledning, avsnitt og avslutning","bygge opp en tekst med innledning, avsnitt med én hovedtanke hver og avslutning, og binde avsnittene sammen med bindeord",teksttyper;bindeord,0,
+uformell-epost,skill,Skriving,Skrive en uformell e-post,"skrive en e-post eller melding til en venn, med hilsen, egne nyheter, spørsmål tilbake og avslutning",brevfraser;tu-usted;sporsmal-nekting,0,
+formell-henvendelse,skill,Skriving,Skrive en formell henvendelse,"skrive en formell e-post, for eksempel for å søke sommerjobb eller be om informasjon, i usted-form og med høflige formuleringer i kondisjonalis (me gustaría saber, ¿podría enviarme ...?)",brevfraser;tu-usted;kondisjonalis;jobb-utdanning,0,
+skrive-fortelling,skill,Skriving,Skrive en fortelling om noe du har opplevd,"skrive en sammenhengende fortelling om noe du har opplevd, med preteritum for hendelsene, imperfektum for bakgrunnen og bindeord som viser rekkefølgen",velge-pret-impf;tekststruktur,0,
+skrive-beskrive,skill,Skriving,Beskrive et bilde eller en situasjon skriftlig,"beskrive et bilde eller en situasjon skriftlig: hva som finnes der, hvor ting er, hvordan folk ser ut og hva de holder på med (en la foto hay ..., están bailando)",hay-estar;gerundium;preposisjoner-sted;artikler-adjektiv,0,
+skrive-planer,skill,Skriving,Skrive om planer og drømmer for framtiden,"skrive om planer, ønsker og drømmer for framtiden, med ir a, futurum, kondisjonalis og cuando med subjunktiv (cuando termine el instituto, viajaré a México)",futurum;ir-a;kondisjonalis;subjunktiv-bruke,0,
+skrive-mening,skill,Skriving,Skrive en meningstekst med begrunnelser,"skrive en tekst der du tar standpunkt i et spørsmål, begrunner det med to eller tre argumenter, tar med et motargument og avslutter med en konklusjon",meningsuttrykk;tekststruktur,0,
+variere-sprak,skill,Skriving,Variere språket i en tekst,"variere språket i en tekst med relativsetninger, varierte bindeord, pronomen i stedet for gjentatte substantiv og flere tider, slik at den ikke består av korte, like setninger",relativ;bindeord;objpron-plassering,0,
+korrektur,skill,Skriving,Gå gjennom egen tekst og rette feil,"gå gjennom en tekst du har skrevet og rette samsvar mellom substantiv og adjektiv, verbformer, valget mellom ser og estar og manglende aksenttegn, helst ut fra en liste over dine egne typiske feil",tastatur;artikler-adjektiv;bruke-ser-estar,0,
+samtale-hverdag,skill,Muntlig kommunikasjon,Delta i en samtale om hverdag og interesser,"spørre og svare i en samtale om deg selv, familie, skole, fritid og interesser, og holde samtalen i gang med oppfølgingsspørsmål",hverdag-fritid;sporsmal-nekting;bruke-gustar;bruke-ser-estar;samtalefraser,0,
+avtale,skill,Muntlig kommunikasjon,Gjøre en avtale,"foreslå, godta og avslå en avtale, og bli enige om tid og sted (¿quedamos el sábado?, ¿a qué hora?, lo siento, no puedo)",verb-infinitiv;sporsmal-nekting;tall,0,
+bestille-handle,skill,Muntlig kommunikasjon,Bestille og handle,"bestille mat på en restaurant, spørre om pris og størrelse i en butikk og betale (quisiera ..., ¿me trae la cuenta?, ¿tiene una talla más grande?)",mat;klaer-handel;kondisjonalis;tall,0,
+reise-situasjon,skill,Muntlig kommunikasjon,Klare deg på reise,"kjøpe billett, bestille rom, og spørre om og forklare veien (¿dónde está la estación?, siga todo recto y gire a la derecha)",reise;preposisjoner-sted;hay-estar;nektende-imperativ,0,
+hos-legen,skill,Muntlig kommunikasjon,Forklare hvordan du har det hos legen,"forklare hvordan du har det og hvor du har vondt, og forstå enkle råd fra lege eller apotek (me duele la garganta, tengo fiebre desde ayer)",kropp-helse;gustar-lignende;folelser;tener-uttrykk,0,
+fortelle-muntlig,skill,Muntlig kommunikasjon,Fortelle muntlig om noe du har opplevd,"fortelle muntlig i ett til to minutter om noe du har opplevd, med preteritum, imperfektum og bindeord, slik at du på et opptak av deg selv hører at fortellingen henger sammen",velge-pret-impf;bindeord;uttale,0,
+begrunne-muntlig,skill,Muntlig kommunikasjon,Uttrykke og begrunne en mening muntlig,"si hva du mener om et kjent tema i en samtale, begrunne det, og svare når noen er uenig",meningsuttrykk;samtale-hverdag,0,
+presentasjon,skill,Muntlig kommunikasjon,Holde en forberedt presentasjon,"holde en forberedt presentasjon på tre til fem minutter om et faglig emne, med støtteord framfor manus, slik at du på et opptak hører at du snakker fritt og tydelig",tekststruktur;begrunne-muntlig;uttale,0,
+spontan,skill,Muntlig kommunikasjon,Svare spontant på oppfølgingsspørsmål,"svare spontant på oppfølgingsspørsmål om et emne du har presentert, også når spørsmålet går utenfor det du forberedte",presentasjon;omformulere,0,
+land,fact,Samfunn og historie,Spansktalende land og hovedsteder,"España: Madrid
+México: Ciudad de México
+Guatemala: Ciudad de Guatemala
+Honduras: Tegucigalpa
+El Salvador: San Salvador
+Nicaragua: Managua
+Costa Rica: San José
+Panamá: Ciudad de Panamá
+Cuba: La Habana
+República Dominicana: Santo Domingo
+Colombia: Bogotá
+Venezuela: Caracas
+Ecuador: Quito
+Perú: Lima
+Bolivia: Sucre (grunnlovsfestet hovedstad) og La Paz (regjeringssete)
+Chile: Santiago
+Argentina: Buenos Aires
+Uruguay: Montevideo
+Paraguay: Asunción
+Guinea Ecuatorial: Malabo
+Puerto Rico (amerikansk territorium): San Juan",,0,
+historie,fact,Samfunn og historie,Sentrale årstall i spansk og latinamerikansk historie,"711: muslimske hærer går inn på Den iberiske halvøy, og al-Andalus blir til
+1492: Granada faller og reconquistaen avsluttes, jødene utvises fra Spania, og Columbus når Amerika
+1521: Cortés erobrer Tenochtitlan, hovedstaden i Aztekerriket
+1532–1533: Pizarro erobrer Inkariket
+1810–1825: de fleste spanske koloniene i Amerika kjemper seg til selvstendighet
+1898: Spania mister Cuba, Puerto Rico og Filippinene etter krigen mot USA
+1910–1920: den meksikanske revolusjonen
+1936–1939: den spanske borgerkrigen
+1939–1975: Francos diktatur i Spania
+1959: den cubanske revolusjonen
+1973: militærkuppet i Chile, og Pinochets diktatur varer til 1990
+1976–1983: militærdiktaturet i Argentina
+1978: Spania får en demokratisk grunnlov
+1986: Spania blir medlem av EF, i dag EU",,0,
+kolonisering,skill,Samfunn og historie,Gjøre rede for koloniseringen av Amerika,"gjøre rede for hvordan Spania erobret og koloniserte store deler av Amerika, og hvilke spor det har satt i dag, som språk, religion og situasjonen til urfolk",historie;land;velge-pret-impf,0,
+diktatur,skill,Samfunn og historie,Gjøre rede for et diktatur i den spansktalende verden,"gjøre rede for et diktatur i den spansktalende verden, som Franco i Spania eller militærdiktaturene i Chile og Argentina, og for hvordan landet tar et oppgjør med fortiden i dag",historie;velge-pret-impf,0,
+sprak-i-verden,fact,Samfunn og historie,Språk i den spansktalende verden,"castellano: spansk, offisielt i hele Spania og i de spansktalende landene
+catalán: offisielt i Catalonia og på Balearene, og som valenciano i Valencia
+gallego: offisielt i Galicia
+euskera: baskisk, offisielt i Baskerland og deler av Navarra, og ikke i slekt med noe annet kjent språk
+quechua: urfolksspråk i Andesfjellene, offisielt i blant annet Peru og Bolivia
+aymara: urfolksspråk rundt Titicacasjøen, offisielt i Bolivia og Peru
+guaraní: offisielt i Paraguay ved siden av spansk, og snakkes av flertallet der
+náhuatl: aztekernes språk, som fortsatt snakkes i Mexico
+mayaspråkene: en gruppe urfolksspråk i Guatemala og Sør-Mexico",,0,
+mangfold,skill,Samfunn og historie,Beskrive mangfoldet i et spansktalende land,"beskrive det språklige og kulturelle mangfoldet i et spansktalende land, som urfolk, regionale språk eller innvandring, og hva det betyr for dem som bor der",sprak-i-verden;sprakvarianter;land,0,
+samfunnssak,skill,Samfunn og historie,Gjøre rede for en aktuell samfunnssak,"gjøre rede for en aktuell samfunnssak i et spansktalende land, som migrasjon, ungdomsarbeidsløshet, turisme eller klimaendringer, med en spansk kilde som grunnlag",lese-hovedinnhold;meningsuttrykk,0,
+sammenligne-egen,skill,Samfunn og historie,Sammenligne samfunnsforhold med dine egne,"sammenligne et samfunnsforhold i et spansktalende land med forhold i Norge eller i ditt eget miljø, og si hva som er likt og ulikt og hvorfor",samfunnssak;mangfold;komparativ,0,
+hoytider,fact,Kunst og kultur,Høytider og festivaler,"Día de los Muertos: 1. og 2. november, til minne om de døde, særlig i Mexico
+Semana Santa: påskeuka, med prosesjoner, særlig i Sør-Spania
+Las Fallas: i mars i Valencia, der store figurer brennes
+San Fermín: i juli i Pamplona, kjent for oksene som slippes gjennom gatene
+La Tomatina: i august i Buñol, der folk kaster tomater på hverandre
+Nochevieja: nyttårsaften, da man i Spania spiser tolv druer ved midnatt
+Día de Reyes: 6. januar, da barn i Spania får gaver fra de hellige tre konger
+la quinceañera: feiringen av at en jente fyller femten år, særlig i Latin-Amerika",,0,
+tradisjon,skill,Kunst og kultur,Beskrive en tradisjon og sammenligne den med en du kjenner,"beskrive en høytid eller tradisjon fra et spansktalende land, og sammenligne den med en tradisjon du kjenner",hoytider;land;komparativ,0,
+kunstnere,fact,Kunst og kultur,Kjente kunstnere og verk,"Miguel de Cervantes: Don Quijote, spansk roman fra begynnelsen av 1600-tallet
+Diego Velázquez: Las Meninas, maleri fra 1656
+Francisco de Goya: spansk maler, kjent for El tres de mayo de 1808
+Pablo Picasso: Guernica, maleri fra 1937 om bombingen av byen under borgerkrigen
+Salvador Dalí: surrealistisk maler, kjent for de smeltende klokkene i La persistencia de la memoria
+Antoni Gaudí: arkitekten bak Sagrada Família i Barcelona
+Frida Kahlo: meksikansk maler, kjent for selvportretter
+Diego Rivera: meksikansk maler, kjent for store veggmalerier
+Gabriel García Márquez: colombiansk forfatter av Cien años de soledad, Nobelprisen i litteratur 1982
+Pablo Neruda: chilensk poet, Nobelprisen i litteratur 1971
+Gabriela Mistral: chilensk poet, den første latinamerikaneren med Nobelprisen i litteratur, i 1945
+Isabel Allende: chilensk forfatter av La casa de los espíritus
+Pedro Almodóvar: spansk filmregissør",,0,
+musikk,fact,Kunst og kultur,Musikk- og dansesjangre,"flamenco: Andalucía i Sør-Spania
+tango: Buenos Aires og Montevideo, rundt Río de la Plata
+son cubano: Cuba
+salsa: oppsto blant karibiske innvandrere i New York, med røtter i cubansk son
+cumbia: Colombia
+mariachi: Mexico
+bachata: Den dominikanske republikk
+reguetón: Puerto Rico og Panamá",,0,
+sang-film,skill,Kunst og kultur,"Presentere en sang, en film eller en serie","presentere en sang, en film eller en serie fra et spansktalende område: hva den handler om, hva den sier om stedet den kommer fra, og hva du synes om den og hvorfor",lytte-autentisk;meningsuttrykk;musikk,0,
+litteratur,skill,Kunst og kultur,Lese og fortelle om en kort litterær tekst,"lese en kort litterær tekst på spansk, som en mikronovelle, en novelle eller et dikt, gjenfortelle handlingen og si hva du tror teksten vil få fram",lese-hovedinnhold;velge-pret-impf,0,
+kunstverk,skill,Kunst og kultur,Beskrive et kunstverk og din opplevelse av det,"beskrive et maleri, et fotografi eller et annet kunstverk fra et spansktalende område, og fortelle om din egen opplevelse av det",kunstnere;skrive-beskrive;meningsuttrykk,0,
+gjette-ord,skill,Språklæring,Gjette betydningen av ukjente ord,"gjette betydningen av ukjente ord ut fra ord du kjenner fra engelsk og norsk (información, universidad) og fra sammenhengen i teksten",,0,
+falske-venner,fact,Språklæring,Falske venner,"embarazada: gravid
+constipado: forkjølet
+éxito: suksess
+carpeta: mappe
+librería: bokhandel
+actual: nåværende
+realizar: gjennomføre
+sensible: følsom
+largo: lang
+molestar: plage, forstyrre
+asistir: være til stede",,0,
+ordbok,skill,Språklæring,Bruke ordbok og verbtabell,"slå opp ord i en ordbok og bøyningsformer i en verbtabell, og velge den betydningen og formen som passer i setningen din",,0,
+ki-oversettelse,skill,Språklæring,Bruke oversettelsesverktøy og KI kritisk,"bruke oversettelsesverktøy og KI kritisk: vurdere om forslaget passer i setningen og på ditt nivå, og forklare hva du selv har lært av det",ordbok,0,
+omformulere,skill,Språklæring,Omformulere når du mangler et ord,"holde en samtale eller tekst i gang når du mangler et ord, ved å omskrive, bruke et enklere ord eller forklare (es una cosa que se usa para ...)",samtalefraser,0,
+gloser,skill,Språklæring,Lære gloser systematisk,"lære nye gloser med kjønn og i hele fraser, og repetere dem med mellomrom, for eksempel med en flashkort-app",,0,

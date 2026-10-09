@@ -1,0 +1,306 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Antikken og kildene;Gresk historie;Romersk historie;Styreformer;Samfunn, familie og makt;Religion, mytologi og festivaler;Filosofi og vitenskap;Kunst og arkitektur;Litteratur og historieskriving;Romertall og det greske alfabetet;Gresk og latin i dagens språk;Retorikk;Antikken i ettertid",,,
+,config,,title,Antikkens kultur,,,
+,config,,description,"Gresk og romersk historie, styreformer, samfunn og familie, religion og mytologi, filosofi og vitenskap, kunst, tekster, romertall og det greske alfabetet, gresk og latin i dagens språk, retorikk og antikkens ettermæle — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-antikkens-kultur-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,antikkens kultur (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"blander greske og romerske gudenavn, regner med årstall før Kristus som om de teller oppover, kaller Athen et demokrati uten å si hvem som var utelatt, bruker «myte» i betydningen usannhet, behandler en antikk forfatter som et nøytralt øyenvitne, kaller alt gammelt og hvitt «gresk», eller gjenforteller en myte eller et kunstverk der oppgaven ber om tolkning eller drøfting",,,
+,config,,slots.courseSpecifics,"Faget vurderes muntlig: eleven får standpunktkarakter og kan trekkes ut til en lokalt gitt muntlig eksamen med forberedelsedel. Når det passer, øv derfor på å forklare og drøfte med egne ord og fagbegreper, med utgangspunkt i en konkret kilde, et kunstverk, en myte eller en tekst.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag språk, Vg2 eller Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3022,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,classics,,,
+,config,,keywords,antikken; oldtiden; Hellas; Roma; Athen; Sparta; demokrati; republikk; keisertid; mytologi; gudene; festivaler; filosofi; Sokrates; Platon; Aristoteles; stoisisme; retorikk; etos; patos; logos; romertall; greske alfabetet; etymologi; latin; gresk; Homer; tragedie; søyleordener; resepsjon; muntlig eksamen,,,
+,config,,updated,2026-10-08,,,
+tidsregning-fkr,concept,Antikken og kildene,Før og etter Kristus,"Før Kristus (f.Kr.): årene før Kristi fødsel telles baklengs, så 490 f.Kr. kommer før 480 f.Kr.
+Etter Kristus (e.Kr.): årene telles forover fra år 1. Det finnes ikke noe år 0: år 1 f.Kr. følges direkte av år 1 e.Kr.",,0,
+regne-tidsavstand,skill,Antikken og kildene,Regne ut tidsavstander over tidsskillet,"regne ut hvor lang tid det gikk mellom to hendelser når den ene er før og den andre etter Kristus, og ta hensyn til at det ikke finnes noe år 0.",tidsregning-fkr,0,
+kildetyper,concept,Antikken og kildene,Skriftlige og materielle kilder,"Skriftlig kilde: tekst fra antikken, som litterære verk, brev, lover og innskrifter i stein eller på papyrus.
+Materiell kilde: fysiske spor etter mennesker, som ruiner, keramikk, mynter, skulpturer og gjenstander fra utgravninger.",,0,
+overlevering,concept,Antikken og kildene,Overlevering,"Overlevering: veien en antikk tekst har gått for å nå oss, gjennom avskrifter i klostre, i Bysants og i den arabiske verden, eller som funn av papyrus. Bare en liten del av det som ble skrevet, er bevart.",kildetyper,0,
+antikk-kildekritikk,concept,Antikken og kildene,Kildekritikk,"Kildekritikk: å vurdere en kilde ut fra hvem som laget den, når, for hvem og med hvilket formål, og hvordan den er overlevert, før den brukes som belegg for noe.",kildetyper;overlevering,0,
+vurdere-tekst-som-kilde,skill,Antikken og kildene,Vurdere en antikk tekst som historisk kilde,"vurdere hva en antikk tekst kan og ikke kan fortelle om sin tid, med vekt på forfatterens ståsted og formål og avstanden i tid til det som skildres.",antikk-kildekritikk,0,
+tolke-materiell-kilde,skill,Antikken og kildene,Tolke en materiell kilde,"bruke en materiell kilde, som en vase, en mynt eller et funn fra Pompeii, til å si noe om hverdagsliv, tro eller makt i antikken, og vise hva kilden ikke kan svare på.",antikk-kildekritikk,0,
+gresk-perioder,fact,Gresk historie,Periodene i gresk historie,"minoisk og mykensk tid (bronsealderen): ca. 2000–1100 f.Kr.
+den mørke tiden: ca. 1100–800 f.Kr.
+arkaisk tid: ca. 800–480 f.Kr.
+klassisk tid: 480–323 f.Kr.
+hellenistisk tid: 323–31 f.Kr.",tidsregning-fkr,0,
+gresk-hendelser,fact,Gresk historie,Nøkkelhendelser i gresk historie,"de første olympiske leker etter tradisjonen: 776 f.Kr.
+Kleisthenes' reformer og starten på demokratiet i Athen: 508/507 f.Kr.
+slaget ved Marathon: 490 f.Kr.
+slagene ved Thermopylene og Salamis: 480 f.Kr.
+Peloponneskrigen: 431–404 f.Kr.
+Sokrates dømt til døden: 399 f.Kr.
+Alexander den stores død: 323 f.Kr.
+Roma ødelegger Korint: 146 f.Kr.",gresk-perioder,0,
+polis,concept,Gresk historie,Polis,"Polis: en gresk bystat, en by med omland som styrte seg selv, med egne lover, guder og hær. Grekerne hørte til hver sin polis, ikke til én felles gresk stat.",,0,
+perserkrigene,concept,Gresk historie,Perserkrigene,"Perserkrigene: krigene der greske bystater under ledelse av Athen og Sparta slo tilbake to persiske invasjoner, i 490 og 480–479 f.Kr. Seieren la grunnlaget for Athens storhetstid og Delosforbundet.",polis,0,
+peloponneskrigen,concept,Gresk historie,Peloponneskrigen,"Peloponneskrigen: krigen 431–404 f.Kr. mellom Athen med sitt sjøforbund og Sparta med sine allierte på Peloponnes, som endte med at Athen tapte.",perserkrigene,0,
+hellenisme,concept,Gresk historie,Hellenismen,"Hellenismen: tiden etter Alexander den stores erobringer, da gresk språk og kultur spredte seg til Egypt og Midtøsten og blandet seg med lokale kulturer i nye riker, som Ptolemaienes Egypt med Alexandria som sentrum.",polis,0,
+gjore-rede-gresk-historie,skill,Gresk historie,Gjøre rede for hovedlinjene i gresk historie,"gjøre rede for hovedlinjene i gresk historie fra bronsealderen til romerne tok over, og forklare hvordan koloniseringen rundt Middelhavet, perserkrigene, Athens storhetstid og Peloponneskrigen henger sammen.",gresk-hendelser;peloponneskrigen;hellenisme,0,
+romerske-perioder,fact,Romersk historie,Periodene i romersk historie,"kongetiden (etter tradisjonen): 753–509 f.Kr.
+republikken: 509–27 f.Kr.
+keisertiden: 27 f.Kr.–476 e.Kr. i vest
+Østromerriket (Bysants): til 1453 e.Kr.",tidsregning-fkr,0,
+romerske-hendelser,fact,Romersk historie,Nøkkelhendelser i romersk historie,"Romas grunnleggelse etter sagnet: 753 f.Kr.
+de puniske krigene mot Kartago: 264–146 f.Kr.
+Caesar krysser Rubicon: 49 f.Kr.
+Caesar blir drept: 15. mars 44 f.Kr.
+slaget ved Actium: 31 f.Kr.
+Octavian får tittelen Augustus: 27 f.Kr.
+Vesuvs utbrudd begraver Pompeii: 79 e.Kr.
+nesten alle frie i riket får romersk borgerrett: 212 e.Kr.
+Milano-ediktet gir de kristne religionsfrihet: 313 e.Kr.
+kristendommen blir statsreligion: 380 e.Kr.
+Vestromerriket faller: 476 e.Kr.",romerske-perioder,0,
+puniske-kriger,concept,Romersk historie,De puniske krigene,"De puniske krigene: tre kriger mellom Roma og Kartago i 264–146 f.Kr. om makten i det vestlige Middelhavet, som gjorde Roma til regionens stormakt og endte med at Kartago ble ødelagt.",romerske-perioder,0,
+republikkens-krise,concept,Romersk historie,Republikkens krise,"Republikkens krise: hundreåret fra brødrene Gracchus (fra 133 f.Kr.) til slaget ved Actium (31 f.Kr.), da strid om jord, makt og hærens lojalitet førte til borgerkriger mellom mektige generaler som Marius, Sulla, Pompeius og Caesar.",puniske-kriger,0,
+pax-romana,concept,Romersk historie,Pax Romana,"Pax Romana: «den romerske freden», den lange og stort sett fredelige perioden i Romerriket fra Augustus til Marcus Aurelius' død i 180 e.Kr., med handel, veier og felles lover over hele riket. I denne tiden tok mange i provinsene opp latin, romersk lov og byliv (romanisering).",romerske-perioder,0,
+republikk-til-keiserdomme,skill,Romersk historie,Forklare hvordan republikken ble et keiserdømme,"forklare hvordan republikkens krise og borgerkrigene førte fram til at Augustus samlet makten, og hvorfor han beholdt republikkens former.",republikkens-krise;principat,0,
+drofte-romas-fall,skill,Romersk historie,Drøfte hvorfor Vestromerriket falt,"drøfte ulike forklaringer på hvorfor Vestromerriket gikk under, som indre maktkamp, økonomiske problemer, press fra germanske folk og delingen av riket, og vurdere hvilke som veier tyngst.",romerske-hendelser;pax-romana,0,
+gjore-rede-romersk-historie,skill,Romersk historie,Gjøre rede for hovedlinjene i romersk historie,"gjøre rede for hovedlinjene i romersk historie fra byens grunnleggelse til Vestromerrikets fall, og knytte de viktigste hendelsene til kongetid, republikk og keisertid.",romerske-hendelser;republikk-til-keiserdomme;drofte-romas-fall,0,
+gresk-romersk-sammenheng,skill,Romersk historie,Reflektere over forholdet mellom Hellas og Roma,"reflektere over hvordan Roma erobret de greske områdene, men samtidig tok opp og videreførte gresk kultur, og hva det betyr at vi ofte snakker om én gresk-romersk antikk.",gjore-rede-gresk-historie;gjore-rede-romersk-historie,0,
+styreformer,concept,Styreformer,Styreformer i antikken,"Monarki: én hersker, gjerne med arvelig makt.
+Tyrannis: én hersker som har tatt makten utenom lov og tradisjon. I Hellas var en tyrann ikke nødvendigvis grusom.
+Aristokrati: styre av «de beste», i praksis en adel.
+Oligarki: styre av noen få, gjerne de rikeste.
+Demokrati: styre av folket (demos).",polis,0,
+athensk-borger,concept,Styreformer,Borger i Athen,"Borger i Athen: en fri, voksen mann med athensk borgerrett, fra 451 f.Kr. bare den som hadde athenske foreldre på begge sider. Bare borgerne kunne delta i politikken; kvinner, slaver og metøker (frie innflyttere uten borgerrett) var holdt utenfor.",polis,0,
+athensk-demokrati,concept,Styreformer,Det athenske demokratiet,"Det athenske demokratiet: et direkte folkestyre der borgerne selv vedtok lovene i folkeforsamlingen (ekklesia). Rådet av 500 forberedte sakene, og de fleste embetene og jurymedlemmene i folkedomstolene ble trukket ut ved loddtrekning, mens de ti strategene (hærførerne) ble valgt. Med ostrakisme kunne borgerne sende en politiker i landflyktighet i ti år.",styreformer;athensk-borger,0,
+sparta-styre,concept,Styreformer,Spartas styre,"Spartas styre: to arvelige konger, et eldreråd (gerusia), fem årlig valgte eforer og en folkeforsamling av spartanske menn. Grekerne selv så det som en blanding av monarki, oligarki og demokrati, og samfunnet hvilte på at helotene, en ufri befolkning, drev jorda.",styreformer,0,
+romersk-republikk,concept,Styreformer,Den romerske republikken,"Den romerske republikken: et styre der to konsuler, valgt for ett år, ledet staten. Senatet av tidligere embetsmenn ga råd og hadde stor makt, folkeforsamlingene valgte embetsmenn og vedtok lover, og folketribunene kunne nedlegge veto for å verne vanlige borgere (plebeierne).",styreformer,0,
+principat,concept,Styreformer,Principatet,"Principatet: styreformen Augustus innførte, der republikkens institusjoner fortsatt fantes, men keiseren som princeps, «den første borgeren», satt med den reelle makten over hær, politikk og religion.",romersk-republikk,0,
+aristoteles-styreformer,concept,Styreformer,Aristoteles' styreformlære,"Aristoteles' styreformlære: en inndeling etter hvor mange som styrer (én, få eller mange) og om de styrer for fellesskapets beste eller for egen vinning. De gode formene er monarki, aristokrati og politeia; de forfalne er tyrannis, oligarki og demokrati.",styreformer,0,
+blandet-forfatning,concept,Styreformer,Blandet forfatning,"Blandet forfatning: ideen, særlig hos historikeren Polybios, om at det mest stabile styret blander monarki, aristokrati og demokrati. Polybios så den romerske republikken med konsulene, senatet og folket som et eksempel.",aristoteles-styreformer;romersk-republikk,0,
+forklare-athensk-demokrati,skill,Styreformer,Forklare hvordan demokratiet i Athen virket,"forklare hvordan demokratiet i Athen fungerte i praksis, hvem som deltok og hvem som var utelatt, og hvorfor athenerne brukte loddtrekning framfor valg til de fleste embetene.",athensk-demokrati,0,
+sammenligne-athen-sparta,skill,Styreformer,Sammenligne Athen og Sparta,"sammenligne styret og samfunnet i Athen og Sparta, og forklare hvordan forskjellene henger sammen med hvordan bystatene var bygd opp.",forklare-athensk-demokrati;sparta-styre,0,
+sammenligne-athen-roma,skill,Styreformer,Sammenligne demokratiet i Athen og republikken i Roma,"sammenligne demokratiet i Athen med den romerske republikken: hvem hadde makt, hvordan beslutninger ble tatt, og hvordan makten ble begrenset.",forklare-athensk-demokrati;blandet-forfatning,0,
+sammenligne-demokrati-i-dag,skill,Styreformer,Sammenligne athensk og norsk demokrati,"sammenligne det direkte demokratiet i Athen med det representative demokratiet i Norge i dag, og vurdere hva hver av dem vinner og taper.",forklare-athensk-demokrati,0,
+oikos,concept,"Samfunn, familie og makt",Oikos,"Oikos: den greske husholdningen — familien, slavene, huset og eiendommen — ledet av husets mann, og samfunnets grunnenhet.",polis,0,
+pater-familias,concept,"Samfunn, familie og makt",Pater familias,"Pater familias: det eldste mannlige overhodet i en romersk familie, som så lenge han levde hadde rettslig makt over barn, barnebarn og slaver, og i eldre ekteskapsformer også over kona.",,0,
+patron-klient,concept,"Samfunn, familie og makt",Patron og klient,"Patron og klient: et romersk avhengighetsforhold der en mektig patron ga beskyttelse og hjelp, og klienten til gjengjeld ga støtte, stemmer og tjenester.",,0,
+slaveri,concept,"Samfunn, familie og makt",Slaveri i antikken,"Slaveri i antikken: at mennesker var eiendom som kunne kjøpes, selges og straffes av eieren. Folk ble slaver gjennom krig, sjørøveri og gjeld, eller ved å bli født av en slavekvinne. I Roma kunne slaver bli frigitt og få borgerrett.",,0,
+barbar,concept,"Samfunn, familie og makt",Barbar,"Barbar: grekernes ord for alle som ikke snakket gresk, opprinnelig etter lyden av fremmed tale, og etter hvert ofte nedsettende. Romerne overtok ordet om folk utenfor riket.",,0,
+romersk-borgerrett,concept,"Samfunn, familie og makt",Romersk borgerrett,"Romersk borgerrett: en rettslig status som ga rett til å stemme og til vern i retten. Den ble gradvis utvidet fra byen Roma til Italia og provinsene, og i 212 e.Kr. til nesten alle frie i riket.",romersk-republikk,0,
+kvinner-i-antikken,skill,"Samfunn, familie og makt","Sammenligne kvinners stilling i Athen, Sparta og Roma","sammenligne kvinners stilling i Athen, Sparta og Roma når det gjelder eiendom, utdanning, offentlig liv og ekteskap, og forklare forskjellene.",oikos;pater-familias;sparta-styre,0,
+sammenligne-familie,skill,"Samfunn, familie og makt",Sammenligne familien i antikken og i dag,"sammenligne maktforholdene i en antikk familie med en familie i dag: hvem bestemte over hvem, og hva som avgjorde ekteskap, arv og barnas framtid.",oikos;pater-familias;kvinner-i-antikken,0,
+sammenligne-individ-samfunn,skill,"Samfunn, familie og makt",Sammenligne synet på enkeltmennesket i antikken og i dag,"sammenligne antikkens og dagens syn på enkeltmennesket i samfunnet, der borgerskap, kjønn og status som fri eller ufri i antikken avgjorde hvilke rettigheter man hadde, mens dagens samfunn bygger på like menneskerettigheter.",athensk-borger;slaveri;barbar;romersk-borgerrett,0,
+drofte-maktrelasjoner,skill,"Samfunn, familie og makt",Drøfte maktrelasjoner i det antikke samfunnet,"drøfte hvordan avhengighetsforhold som patron og klient, herre og slave og mann og kvinne preget det antikke samfunnet, og vurdere om noe tilsvarende finnes i dag.",patron-klient;slaveri;sammenligne-familie,0,
+polyteisme,concept,"Religion, mytologi og festivaler",Polyteisme,"Polyteisme: tro på mange guder, hver med sitt ansvarsområde. Gresk og romersk religion hadde ingen hellig skrift og ingen felles trosbekjennelse; det viktigste var å utføre ritualene riktig.",,0,
+gudene,fact,"Religion, mytologi og festivaler",Gudene med greske og romerske navn,"Zevs: Jupiter — himmelens hersker og gudenes konge
+Hera: Juno — ekteskapets gudinne, Zevs' kone
+Poseidon: Neptun — havet og jordskjelv
+Athene: Minerva — visdom, håndverk og krigskunst
+Apollon: Apollo — lys, musikk og spådom
+Artemis: Diana — jakt og ville dyr
+Afrodite: Venus — kjærlighet og skjønnhet
+Ares: Mars — krig
+Hermes: Merkur — gudenes budbringer, handel og reisende
+Hefaistos: Vulkan — ild og smiekunst
+Demeter: Ceres — jordbruk og korn
+Dionysos: Bacchus — vin, rus og teater
+Hestia: Vesta — arnen og hjemmet
+Hades: Pluto — dødsriket",polyteisme,0,
+myte,concept,"Religion, mytologi og festivaler",Myte,"Myte: en tradisjonell fortelling om guder og helter som forklarer hvordan verden, mennesket eller en skikk ble til. I faget betyr ordet ikke «usannhet».",,0,
+offer-ritual,concept,"Religion, mytologi og festivaler",Offer,"Offer: en gave til gudene — et dyr, mat, vin eller røkelse — gitt med forventning om noe tilbake. Romerne kalte prinsippet do ut des, «jeg gir for at du skal gi».",polyteisme,0,
+orakel,concept,"Religion, mytologi og festivaler",Orakel,"Orakel: et sted der man kunne spørre gudene til råds, og svaret man fikk der. Det mest kjente var Apollons orakel i Delfi, der prestinnen Pythia formidlet svarene, ofte tvetydige.",polyteisme,0,
+myter-sagnfigurer,fact,"Religion, mytologi og festivaler",Kjente myter og sagnfigurer,"Prometheus: stjal ilden fra gudene og ga den til menneskene
+Pandora: åpnet krukken som slapp ulykkene løs i verden
+Herakles: helten som utførte tolv nesten umulige arbeider
+Akilles: den største greske helten i trojanerkrigen
+Odyssevs: brukte ti år på å komme hjem etter trojanerkrigen
+Ødipus: drepte sin far og giftet seg med sin mor uten å vite det
+Narkissos: forelsket seg i sitt eget speilbilde
+Romulus og Remus: tvillingene som ble diet av en ulv og etter sagnet grunnla Roma
+Aeneas: trojaneren som flyktet til Italia og ble romernes stamfar",myte,0,
+festivaler,fact,"Religion, mytologi og festivaler",Festivaler i antikken,"De olympiske leker: idrettskonkurranser hvert fjerde år i Olympia, til ære for Zevs
+Panathenaia: Athens fest for byens gudinne Athene, med prosesjon opp til Akropolis
+De store dionysiene: Athens vårfest for Dionysos, med konkurranser i tragedie og komedie
+Saturnalia: romersk fest for Saturn i desember, der slaver og herrer kunne bytte roller",polyteisme,0,
+keiserkult,concept,"Religion, mytologi og festivaler",Keiserkult,"Keiserkult: dyrking av romerske keisere som guddommelige, særlig etter døden. Å ofre for keiseren var også et tegn på lojalitet mot riket.",offer-ritual;principat,0,
+kristendom-antikken,concept,"Religion, mytologi og festivaler",Kristendommen i Romerriket,"Kristendommen i Romerriket: en ny religion som spredte seg fra 1. århundre e.Kr. og ble forfulgt i perioder, blant annet fordi de kristne nektet å ofre til gudene og keiseren. Den fikk religionsfrihet i 313 og ble statsreligion i 380.",keiserkult,0,
+tolke-myte,skill,"Religion, mytologi og festivaler",Tolke en myte,"tolke en gresk eller romersk myte og forklare hva den forteller om hvordan menneskene i antikken forstod forholdet mellom guder, mennesker og naturen.",myter-sagnfigurer;gudene,0,
+religion-og-samfunn,skill,"Religion, mytologi og festivaler",Forklare religionens plass i samfunnet,"forklare hvordan religion i antikken var vevd inn i politikk og fellesskap, med eksempler fra festivaler, orakler, ofringer og keiserkult.",offer-ritual;orakel;festivaler;keiserkult,0,
+drofte-religion-emne,skill,"Religion, mytologi og festivaler",Drøfte et emne fra antikkens religion,"drøfte et emne fra gresk eller romersk religion, mytologi eller festivaler, som hvorfor de kristne ble forfulgt, eller hva festivalene betydde for fellesskapet, med støtte i kilder.",religion-og-samfunn;kristendom-antikken;tolke-myte,0,
+mythos-logos,concept,Filosofi og vitenskap,Fra mythos til logos,"Fra mythos til logos: overgangen, som begynte med naturfilosofene i de greske byene i Lilleasia på 500-tallet f.Kr., fra å forklare verden med myter om guder til å forklare den med fornuft og iakttakelse.",myte,0,
+atomlaere,concept,Filosofi og vitenskap,Atomlæren,"Atomlæren: ideen til Leukipp og Demokrit om at alt består av små, udelelige partikler (atomer) som beveger seg i tomrommet.",mythos-logos,0,
+sofister,concept,Filosofi og vitenskap,Sofister,"Sofist: en omreisende lærer i Hellas på 400-tallet f.Kr. som tok betalt for å undervise i retorikk og argumentasjon. Flere av dem mente at sannhet og moral er relative, som i Protagoras' «mennesket er alle tings mål».",,0,
+sokratisk-metode,concept,Filosofi og vitenskap,Den sokratiske metoden,"Den sokratiske metoden: å undersøke et spørsmål gjennom samtale, der man stiller spørsmål ved den andres påstander til motsigelser kommer fram, for å komme nærmere en holdbar forståelse.",,0,
+idelaeren,concept,Filosofi og vitenskap,Idélæren,"Idélæren: Platons lære om at sansene bare viser oss skygger av en evig og uforanderlig verden av ideer, og at sann kunnskap er kunnskap om ideene. Hulelignelsen i «Staten» illustrerer den.",sokratisk-metode,0,
+aristoteles-empiri,concept,Filosofi og vitenskap,Aristoteles' vitenskap,"Aristoteles' vitenskap: å bygge kunnskap på iakttakelse av den sansbare verden, sortere det man ser i kategorier, og trekke slutninger med logikk.",,0,
+dydsetikk,concept,Filosofi og vitenskap,Den gylne middelvei,"Den gylne middelvei: Aristoteles' idé om at en dyd ligger mellom to ytterpunkter — mot ligger mellom feighet og dumdristighet — og at det gode liv (eudaimonia) er et liv der man utøver dydene.",,0,
+stoisisme,concept,Filosofi og vitenskap,Stoisismen,"Stoisismen: en filosofi grunnlagt av Zenon fra Kition rundt 300 f.Kr., som lærer at man skal leve i samsvar med fornuften og skille mellom det man kan påvirke og det man ikke kan. Seneca, Epiktet og keiser Marcus Aurelius var kjente stoikere.",,0,
+epikureisme,concept,Filosofi og vitenskap,Epikureismen,"Epikureismen: Epikurs filosofi om at det gode liv er et liv i lyst, forstått som fravær av smerte og uro (ataraxia), som man når gjennom vennskap, nøkternhet og ved å slutte å frykte gudene og døden.",atomlaere,0,
+geosentrisk,concept,Filosofi og vitenskap,Det geosentriske verdensbildet,"Det geosentriske verdensbildet: modellen der jorda står stille i sentrum av universet og sola, månen og planetene går rundt den. Ptolemaios satte den i system rundt 150 e.Kr., og den var rådende i Europa til Kopernikus i 1543.",aristoteles-empiri,0,
+filosofer-forskere,fact,Filosofi og vitenskap,Filosofer og vitenskapsfolk,"Thales: regnet som den første filosofen; mente at alt kommer av vann
+Pythagoras: tall og forhold som grunnlaget for alt
+Demokrit: atomlæren
+Sokrates: skrev ingenting selv; kjent gjennom Platons dialoger
+Platon: idélæren; grunnla Akademiet i Athen
+Aristoteles: Platons elev og Alexander den stores lærer; grunnla Lykeion
+Hippokrates: legen som forklarte sykdom med naturlige årsaker
+Euklid: samlet geometrien i «Elementene»
+Arkimedes: oppdriftsloven og vektstangen
+Eratosthenes: regnet ut jordas omkrets
+Ptolemaios: det geosentriske verdensbildet",mythos-logos,0,
+sammenligne-platon-aristoteles,skill,Filosofi og vitenskap,Sammenligne Platon og Aristoteles,"sammenligne Platons og Aristoteles' syn på hvor sann kunnskap kommer fra, og vise hvordan forskjellen preger synet deres på vitenskap og samfunn.",idelaeren;aristoteles-empiri,0,
+drofte-det-gode-liv,skill,Filosofi og vitenskap,Drøfte antikke svar på hva et godt liv er,"drøfte hva Aristoteles, stoikerne og epikureerne mente med et godt liv, og vurdere hva tankene deres kan si oss om livsmestring i dag.",dydsetikk;stoisisme;epikureisme,0,
+vitenskap-ettertid,skill,Filosofi og vitenskap,Utforske antikk vitenskap i ettertid,"utforske hvordan en idé eller et funn fra antikkens filosofi eller vitenskap levde videre eller ble forkastet, som atomlæren, Euklids geometri, Hippokrates' legeetikk eller det geosentriske verdensbildet.",filosofer-forskere;atomlaere;geosentrisk,0,
+soyleordener,concept,Kunst og arkitektur,Søyleordenene,"Dorisk søyle: kraftig, uten fot, med en enkel, puteformet topp (kapitél).
+Jonisk søyle: slankere, med fot og en kapitél formet som sneglehus (voluter).
+Korintisk søyle: slank, med en kapitél dekket av akantusblader.",,0,
+gresk-tempel,concept,Kunst og arkitektur,Det greske templet,"Gresk tempel: gudens bolig, ikke et forsamlingslokale. Gudestatuen sto inne i templet, mens ofringene skjedde ved alteret utenfor. Parthenon på Akropolis i Athen, bygd 447–432 f.Kr., er det mest kjente.",polyteisme;soyleordener,0,
+skulptur-utvikling,concept,Kunst og arkitektur,Gresk skulptur gjennom periodene,"Arkaisk skulptur: stive, frontale figurer med et stilisert smil, som de nakne unge mennene (kouros).
+Klassisk skulptur: idealiserte kropper i naturlig balanse, med vekten på det ene beinet (kontrapost).
+Hellenistisk skulptur: mer bevegelse, følelser og realisme, også av gamle og lidende mennesker.",gresk-perioder,0,
+polykromi,concept,Kunst og arkitektur,Polykromi,"Polykromi: at antikke statuer og bygninger opprinnelig var malt i sterke farger. Den hvite marmoren vi ser i dag, er fargen som ble igjen, og idealet om en hvit antikk oppstod i ettertid.",skulptur-utvikling,0,
+vasemaleri,concept,Kunst og arkitektur,Svartfigur og rødfigur,"Svartfigurmaling: figurene malt i svart på den rødbrune leira.
+Rødfigurmaling: bakgrunnen malt svart, så figurene står igjen i leirens farge og kan få flere detaljer. Teknikken kom rundt 530 f.Kr. og tok etter hvert over.",,0,
+romersk-byggekunst,concept,Kunst og arkitektur,Romersk byggekunst,"Romersk byggekunst: bruken av buen, hvelvet, kuppelen og betong, som gjorde det mulig å bygge akvedukter, broer, amfiteatre som Colosseum og store rom som Pantheon i Roma.",,0,
+kunst-som-propaganda,concept,Kunst og arkitektur,Kunst som propaganda,"Kunst som propaganda: kunst og bygninger laget for å vise makt og vinne oppslutning, som keiserstatuer, mynter med keiserens portrett og triumfbuer.",principat,0,
+analysere-kunstverk,skill,Kunst og arkitektur,Analysere et antikt kunstverk eller en bygning,"analysere et antikt kunstverk eller en bygning: beskrive form, motiv og stil, plassere det i en periode, og forklare hva det ble laget for.",soyleordener;gresk-tempel;skulptur-utvikling;vasemaleri;romersk-byggekunst,0,
+kunst-forteller-om-samtid,skill,Kunst og arkitektur,Tolke kunst som vitnesbyrd om samtiden,"reflektere over hva et kunst- eller kulturuttrykk fra antikken forteller om samtidens idealer, tro og maktforhold, og hva det ikke forteller.",analysere-kunstverk;kunst-som-propaganda;polykromi;tolke-materiell-kilde,0,
+forfattere-verk,fact,Litteratur og historieskriving,Forfattere og verk,"Homer: Iliaden og Odysseen
+Hesiod: Theogonien, om gudenes opphav
+Sapfo: kjærlighetsdikt fra Lesbos
+Aiskylos: tragedietrilogien Orestien
+Sofokles: tragediene Kong Ødipus og Antigone
+Euripides: tragedien Medea
+Aristofanes: komedier, som Lysistrate
+Herodot: Historie, om perserkrigene
+Thukydid: historien om Peloponneskrigen
+Vergil: Aeneiden, Romas nasjonalepos
+Ovid: Metamorfoser, myter om forvandlinger
+Livius: Romas historie fra byens grunnleggelse
+Tacitus: Annaler, om de tidlige keiserne",,0,
+epos,concept,Litteratur og historieskriving,Epos,"Epos: et langt, fortellende dikt om helter og store hendelser, opprinnelig framført muntlig, som Homers Iliaden og Odysseen og Vergils Aeneiden.",,0,
+gresk-teater,concept,Litteratur og historieskriving,Tragedie og komedie,"Tragedie: et skuespill der en betydelig person går til grunne, ofte på grunn av overmot (hybris) eller en skjebne han ikke slipper unna. Publikum skulle gjennom medfølelse og frykt oppleve en renselse (katarsis).
+Komedie: et skuespill som gjør narr av kjente personer og samtidens politikk.",festivaler,0,
+historieskriving,concept,Litteratur og historieskriving,Antikk historieskriving,"Antikk historieskriving: Herodot, kalt «historiens far», samlet fortellinger fra mange folk om perserkrigene. Thukydid skrev om Peloponneskrigen som samtidsvitne, og la vekt på å kontrollere opplysninger og forklare hendelser uten å vise til gudene.",,0,
+analysere-homer,skill,Litteratur og historieskriving,Analysere en episode fra Homer,"analysere en episode fra Iliaden eller Odysseen og forklare hvilket heltideal og menneskesyn den viser, for eksempel jakten på ære og ettermæle.",epos;forfattere-verk,0,
+analysere-tragedie,skill,Litteratur og historieskriving,Analysere en gresk tragedie,"analysere konflikten i en gresk tragedie, som Antigones valg mellom statens lov og gudenes bud, og forklare hvordan den speiler spørsmål i det athenske samfunnet.",gresk-teater;forfattere-verk,0,
+sammenligne-historikere,skill,Litteratur og historieskriving,Sammenligne antikke historikere,"sammenligne hvordan to antikke historikere, som Herodot og Thukydid eller Livius og Tacitus, arbeidet, og vurdere hvor pålitelige de er som kilder.",historieskriving;vurdere-tekst-som-kilde,0,
+drofte-kildenes-betydning,skill,Litteratur og historieskriving,Drøfte tekstenes betydning for vårt bilde av antikken,"drøfte hvor mye vår forståelse av antikken hviler på et lite utvalg bevarte tekster skrevet av velstående menn, og hvem sine stemmer som mangler — som kvinner, slaver og folk utenfor den gresk-romerske verden.",sammenligne-historikere;overlevering,0,
+romertall-symboler,fact,Romertall og det greske alfabetet,Romertallene,"I: 1
+V: 5
+X: 10
+L: 50
+C: 100
+D: 500
+M: 1000",,0,
+romertall-regler,concept,Romertall og det greske alfabetet,Hvordan romertall bygges opp,"Romertall: tall skrevet med tegn som legges sammen fra venstre mot høyre, største først, så XVI = 16. Står et mindre tegn foran et større, trekkes det fra: IV = 4, IX = 9, XL = 40, XC = 90, CD = 400 og CM = 900.",romertall-symboler,0,
+gjore-om-romertall,skill,Romertall og det greske alfabetet,Gjøre om mellom romertall og arabiske tall,"gjøre om mellom romertall og arabiske tall begge veier, også årstall som MCMXCIX og MMXXVI, og tolke romertall der de brukes i dag, som på bygninger, urskiver og i navn på konger og paver.",romertall-regler,0,
+regne-romertall,skill,Romertall og det greske alfabetet,Regne med romertall,"legge sammen og trekke fra tall skrevet med romertall, for eksempel for å regne ut hvor gammel en bygning merket med et romersk årstall er.",gjore-om-romertall,0,
+greske-alfabet,fact,Romertall og det greske alfabetet,Det greske alfabetet,"Α α: alfa (a)
+Β β: beta (b)
+Γ γ: gamma (g)
+Δ δ: delta (d)
+Ε ε: epsilon (kort e)
+Ζ ζ: zeta (z)
+Η η: eta (lang e)
+Θ θ: theta (th)
+Ι ι: jota (i)
+Κ κ: kappa (k)
+Λ λ: lambda (l)
+Μ μ: my (m)
+Ν ν: ny (n)
+Ξ ξ: ksi (ks)
+Ο ο: omikron (kort o)
+Π π: pi (p)
+Ρ ρ: rho (r)
+Σ σ ς: sigma (s); ς brukes bare sist i et ord
+Τ τ: tau (t)
+Υ υ: ypsilon (y)
+Φ φ: fi (f)
+Χ χ: khi (kh)
+Ψ ψ: psi (ps)
+Ω ω: omega (lang o)",,0,
+alfabetets-historie,concept,Romertall og det greske alfabetet,Alfabetets historie,"Alfabetets historie: grekerne overtok fønikernes skrift rundt 800 f.Kr. Den hadde bare tegn for konsonanter, og grekerne la til tegn for vokaler. Gjennom etruskerne ble det greske alfabetet til det latinske, som vi bruker i dag.",,0,
+lese-greske-ord,skill,Romertall og det greske alfabetet,Lese og translitterere greske ord,"lese korte greske ord og skrive dem med latinske bokstaver, som δημοκρατία (demokratia) og φιλοσοφία (filosofia), og kjenne igjen greske bokstaver der de brukes i dag, som π og Δ i matematikken.",greske-alfabet;alfabetets-historie,0,
+etymologi,concept,Gresk og latin i dagens språk,Etymologi og ordelementer,"Etymologi: læren om ords opphav og historie.
+Ordelement: en del av et ord som bærer betydning, som en forstavelse, en stamme eller en endelse.",,0,
+greske-ordelementer,fact,Gresk og latin i dagens språk,Greske ordelementer,"bio: liv
+geo: jord
+logi: lære, vitenskap
+demo: folk
+krati: styre, makt
+filo: venn av, kjærlighet til
+sofi: visdom
+tele: fjern
+foto: lys
+grafi: skrift
+krono: tid
+poly: mange
+mono: én, alene
+auto: selv
+hydro: vann
+psyk: sjel
+teo: gud
+antropo: menneske
+fobi: frykt",etymologi,0,
+latinske-ordelementer,fact,Gresk og latin i dagens språk,Latinske ordelementer,"aqua: vann
+terra: jord
+manus: hånd
+pater: far
+mater: mor
+vox: stemme
+scribere: å skrive
+videre: å se
+audire: å høre
+portare: å bære
+bene: godt
+male: dårlig
+multi: mange
+sub: under
+super: over
+inter: mellom
+trans: over, gjennom
+post: etter
+prae (pre): før",etymologi,0,
+uttrykk-fra-myter,fact,Gresk og latin i dagens språk,Uttrykk fra mytologien,"akilleshæl: et svakt punkt hos noen som ellers er sterk
+sisyfosarbeid: et arbeid som aldri blir ferdig
+tantaluskvaler: å se noe man ønsker seg, uten å nå det
+pandoras eske: noe som slipper løs ulykker når det åpnes
+trojansk hest: noe skadelig skjult i noe uskyldig
+odyssé: en lang, eventyrlig reise
+mentor: en erfaren rådgiver
+panikk: plutselig, overveldende frykt (etter guden Pan)
+narsissisme: overdreven selvopptatthet (etter Narkissos)",myter-sagnfigurer,0,
+dele-opp-ord,skill,Gresk og latin i dagens språk,Tolke et fremmedord ut fra ordelementene,"dele opp et ukjent fremmedord i greske eller latinske ordelementer og bruke dem til å foreslå hva ordet betyr, som «hydrofobi», «antropologi» eller «multinasjonal».",greske-ordelementer;latinske-ordelementer,0,
+gjenkjenne-ord-moderne-sprak,skill,Gresk og latin i dagens språk,Gjenkjenne gresk og latin i moderne språk,"gjenkjenne ord og ordelementer fra gresk og latin i norsk, engelsk og andre moderne språk, og forklare hvordan de kom inn i språket, for eksempel gjennom kirken, vitenskapen og romanske språk.",dele-opp-ord;uttrykk-fra-myter,0,
+retorikk,concept,Retorikk,Retorikk,"Retorikk: kunsten å overbevise gjennom tale og tekst, og læren om hvordan det gjøres. Den vokste fram i det athenske demokratiet, der borgerne måtte tale for seg selv i folkeforsamlingen og domstolene.",athensk-demokrati,0,
+appellformer,concept,Retorikk,Appellformene,"Etos: overbevisning gjennom talerens troverdighet og karakter.
+Patos: overbevisning gjennom å vekke følelser hos publikum.
+Logos: overbevisning gjennom saklige argumenter og fornuft.",retorikk,0,
+talesjangre,concept,Retorikk,De tre talesjangrene,"Rådgivende tale: tale i politiske forsamlinger om hva man bør gjøre framover.
+Rettstale: tale i retten om hva som har skjedd, for eller mot en anklaget.
+Lovtale (epideiktisk tale): tale som hyller eller refser noen, som en minnetale eller festtale.",retorikk,0,
+talens-oppbygning,concept,Retorikk,Talens oppbygning,"Talens oppbygning: innledning (exordium) som vekker interesse og velvilje, fortelling (narratio) som legger fram saken, argumentasjon (argumentatio) med egne bevis og tilbakevisning av motpartens, og avslutning (peroratio) som oppsummerer og appellerer.",retorikk,0,
+stilfigurer,concept,Retorikk,Stilfigurer,"Antitese: å stille motsetninger opp mot hverandre.
+Anafor: å gjenta samme ord eller uttrykk i begynnelsen av flere setninger.
+Trikolon: en oppramsing i tre ledd, som Caesars «veni, vidi, vici».
+Retorisk spørsmål: et spørsmål som ikke venter svar, men gjør et poeng.",retorikk,0,
+analysere-retorisk,skill,Retorikk,Analysere en tekst retorisk,"analysere en tekst, antikk eller moderne, ut fra appellformene, kairos, talesjanger, oppbygning og stilfigurer, og vurdere hvor godt den treffer publikummet sitt.",appellformer;talesjangre;talens-oppbygning;stilfigurer,0,
+holde-tale,skill,Retorikk,Lage og holde en tale etter antikke prinsipper,"lage og holde en kort tale etter antikke retoriske prinsipper: finne stoffet, ordne det, formulere det, huske det og framføre det.",analysere-retorisk,0,
+retorikk-og-demokrati,skill,Retorikk,Drøfte retorikkens rolle i demokratiet,"drøfte retorikkens rolle i et demokrati, både som forutsetning for fri debatt og som fare når dyktige talere kan villede flertallet, slik Platon advarte mot, med eksempler fra antikken og i dag.",analysere-retorisk;sofister;forklare-athensk-demokrati,0,
+resepsjon,concept,Antikken i ettertid,Resepsjon,"Resepsjon: hvordan senere tider har lest, brukt, tolket og omformet antikken, ofte for å tjene sine egne formål.",,0,
+renessansen,concept,Antikken i ettertid,Renessansen,"Renessansen: «gjenfødelsen» av interessen for antikkens kunst, litteratur og vitenskap, fra Italia på 1300- og 1400-tallet, da humanistene lette fram, studerte og etterlignet antikke tekster og kunstverk.",resepsjon,0,
+nyklassisisme,concept,Antikken i ettertid,Nyklassisismen,"Nyklassisismen: en kunst- og arkitekturstil fra midten av 1700-tallet og inn på 1800-tallet som etterlignet gresk og romersk kunst, med søyler, tempelgavler og hvit stein, i alt fra museer og parlamenter til universiteter.",resepsjon;soyleordener,0,
+politisk-bruk,concept,Antikken i ettertid,Politisk bruk av antikken,"Politisk bruk av antikken: å låne antikkens symboler, begreper og forbilder for å gi egen politikk legitimitet, som de republikanske idealene i den amerikanske og den franske revolusjonen, Napoleons triumfbuer og fascismens romerske symboler. Ordet fascisme kommer fra fasces, risknippet romerske embetsmenn fikk båret foran seg.",resepsjon,0,
+analysere-politisk-bruk,skill,Antikken i ettertid,Analysere politisk bruk av antikken,"analysere hvordan en stat eller en politisk bevegelse har brukt antikken, og forklare hvilket bilde av antikken som ble trukket fram og hva som ble utelatt.",politisk-bruk;gjore-rede-romersk-historie;sammenligne-athen-roma,0,
+drofte-misbruk,skill,Antikken i ettertid,Drøfte ideologisk misbruk av antikken,"drøfte hvordan antikken er blitt brukt til å rettferdiggjøre undertrykking, som fascismens og nazismens dyrking av Roma og Sparta eller ideen om en «hvit» antikk, og reflektere over hvorfor slik bruk virker.",analysere-politisk-bruk;polykromi;sammenligne-athen-sparta,0,
+antikken-i-kulturuttrykk,skill,Antikken i ettertid,Utforske antikken i senere kulturuttrykk,"utforske hvordan antikken brukes som referanse eller tema i et senere kulturuttrykk — et maleri, en bygning, en roman, en film, et dataspill eller en reklame — og forklare hva det låner fra antikken.",renessansen;nyklassisisme;myter-sagnfigurer,0,
+vurdere-kulturuttrykk,skill,Antikken i ettertid,Vurdere et moderne kulturuttrykk med antikt motiv,"vurdere hvor tro et moderne kulturuttrykk med antikt motiv er mot det vi vet fra kildene, og forklare hvorfor det avviker der det gjør.",antikken-i-kulturuttrykk;vurdere-tekst-som-kilde,0,
+antikkens-aktualitet,skill,Antikken i ettertid,Drøfte antikkens betydning i dag,"drøfte hvilken betydning antikken har for samfunnet, språket og kulturen i dag, med eksempler fra flere av fagets områder.",vurdere-kulturuttrykk;drofte-misbruk;sammenligne-demokrati-i-dag;gjenkjenne-ord-moderne-sprak;vitenskap-ettertid,0,

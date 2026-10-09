@@ -1,0 +1,205 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Faglig arbeid med etablerte virksomheter;Innovasjon i etablerte virksomheter;Bærekraft og samfunnsansvar;Forretningsmodeller for videreutvikling;Strategi og vekst;Internasjonalisering;Ledelse og medarbeidere;Prosjekt og samarbeid;Organisasjonsutvikling;Finansiering og lønnsomhet;Entreprenøriell kompetanse i videreutvikling,,,
+,config,,title,Entreprenørskap og bedriftsutvikling 2,,,
+,config,,description,"Innovasjon, bærekraftig verdiskaping, samfunnsansvar, forretningsmodeller, strategi, internasjonalisering, ledelse, prosjekt, organisasjonsutvikling og finansiering når en virksomhet som finnes skal utvikles videre — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-entreprenorskap-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,entreprenørskap og bedriftsutvikling 2 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"ramser opp modeller (SWOT, Porter, Ansoff) uten å bruke dem på virksomheten i saken, kaller enhver endring en innovasjon, skriver «vurder» eller «drøft» men gir bare én side, blander strategi (veivalget) med tiltak (det som gjøres), sier «samfunnsansvar» om alt som er positivt for samfunnet, eller tror mer gjeld alltid øker lønnsomheten for eierne",,,
+,config,,slots.courseSpecifics,"Faget handler om å videreutvikle virksomheter som allerede finnes, og vurderes ofte med en case om en konkret virksomhet. Knytt svar og oppgaver til en navngitt eller oppdiktet virksomhet framfor å la teorien stå alene. Tall for satser, beløpsgrenser og støtteordninger gjelder Norge i 2026; si fra om at slike ordninger endres.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag økonomi,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"SAM3064 (skriftlig), SAM3065 (muntlig-praktisk)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,entreprenørskap; bedriftsutvikling; videreutvikling; innovasjon; disruptiv innovasjon; samfunnsansvar; bærekraft; åpenhetsloven; forretningsmodell; strategi; Porter; Ansoff; vekst; internasjonalisering; eksport; forretningskultur; Hofstede; lederstiler; prosjekt; nettverk; organisasjonsutvikling; endringsledelse; finansiering; giring; nøkkeltall; Innovasjon Norge; SkatteFUNN,,,
+,config,,updated,2026-10-08,,,
+fagmodell,concept,Faglig arbeid med etablerte virksomheter,Fagmodell,"Fagmodell: en forenklet framstilling av virkeligheten som hjelper deg å ordne og analysere en situasjon, for eksempel SWOT, Porters fem konkurransekrefter eller Ansoffs matrise. En modell viser bare det den er laget for å vise, og må fylles med opplysninger om den konkrete virksomheten.",,0,
+primaer-sekundaerdata,concept,Faglig arbeid med etablerte virksomheter,Primærdata og sekundærdata,"Primærdata: opplysninger du selv samler inn til akkurat ditt formål, for eksempel gjennom intervju med en leder eller en spørreundersøkelse.
+Sekundærdata: opplysninger som andre allerede har samlet inn, for eksempel årsrapporter, regnskap i Brønnøysundregistrene, statistikk fra SSB og bransjerapporter.",,0,
+bruke-kilder,skill,Faglig arbeid med etablerte virksomheter,Finne og vurdere kilder om en virksomhet,"finne relevante kilder om en virksomhet og bransjen den er i, vurdere hvor pålitelige og oppdaterte de er, og hvem som står bak, og oppgi dem slik at leseren kan sjekke dem.",primaer-sekundaerdata,0,
+bruke-modell-pa-sak,skill,Faglig arbeid med etablerte virksomheter,Bruke en fagmodell på en konkret virksomhet,"velge en fagmodell som passer problemstillingen, fylle den med opplysninger om virksomheten, trekke en konklusjon av den, og peke på hva modellen ikke får med seg.",fagmodell;bruke-kilder,0,
+innovasjon,concept,Innovasjon i etablerte virksomheter,Innovasjon,"Innovasjon: en ny eller vesentlig forbedret vare, tjeneste, prosess eller måte å organisere eller selge på, som er tatt i bruk og skaper verdi. En idé eller oppfinnelse er ikke en innovasjon før den er tatt i bruk.",,0,
+innovasjonstyper,concept,Innovasjon i etablerte virksomheter,Typer innovasjon,"Produktinnovasjon: en ny eller forbedret vare eller tjeneste.
+Prosessinnovasjon: en ny eller forbedret måte å produsere eller levere på.
+Markedsinnovasjon: en ny måte å selge, prise, distribuere eller markedsføre på.
+Organisasjonsinnovasjon: en ny måte å organisere arbeidet eller samarbeidet med andre på.",innovasjon,0,
+innovasjonsgrad,concept,Innovasjon i etablerte virksomheter,"Inkrementell, radikal og disruptiv innovasjon","Inkrementell innovasjon: små, stegvise forbedringer av noe som finnes fra før.
+Radikal innovasjon: noe grunnleggende nytt som endrer et marked eller en bransje.
+Disruptiv innovasjon: en løsning som starter som enklere og billigere, rettet mot kunder de etablerte aktørene overser, og som etter hvert blir god nok til å fortrenge dem.",innovasjon,0,
+klassifisere-innovasjon,skill,Innovasjon i etablerte virksomheter,Klassifisere en innovasjon,"avgjøre hvilken type innovasjon et konkret eksempel er, og om den er inkrementell, radikal eller disruptiv, og begrunne svaret.",innovasjonstyper;innovasjonsgrad,0,
+produktlivssyklus,concept,Innovasjon i etablerte virksomheter,Produktlivssyklusen,"Produktlivssyklusen: fasene et produkt går gjennom i markedet: introduksjon, vekst, metning og nedgang. Et produkt i metning eller nedgang er et signal om at virksomheten trenger fornyelse.",,0,
+innovasjonsprosess,concept,Innovasjon i etablerte virksomheter,Innovasjonsprosess,"Innovasjonsprosess: veien fra idé til en løsning som er tatt i bruk, i faser som idé, utvikling, testing og lansering. Prosessen er sjelden rettlinjet.",innovasjon,0,
+innovasjonsprosesser,concept,Innovasjon i etablerte virksomheter,Ulike innovasjonsprosesser,"Stage-Gate: en innovasjonsprosess med faste faser, der ledelsen ved en port etter hver fase avgjør om prosjektet skal videre, endres eller stoppes.
+Designtenkning: en brukersentrert prosess med fasene empati, definere, idéutvikling, prototype og testing.
+Lean startup: raske runder av bygg – mål – lær, der antakelser testes på ekte kunder med et minimum levedyktig produkt (MVP).",innovasjonsprosess,0,
+apen-innovasjon,concept,Innovasjon i etablerte virksomheter,Åpen innovasjon,"Åpen innovasjon: at en virksomhet henter ideer og kunnskap fra kunder, leverandører, forskere og andre utenfor egen organisasjon, og deler noe av sitt eget, i stedet for å utvikle alt alene.",innovasjon,0,
+innovasjonskultur,concept,Innovasjon i etablerte virksomheter,Innovasjonskultur og innovasjonshindringer,"Innovasjonskultur: verdier og vaner i en virksomhet som gjør at de ansatte foreslår, prøver ut og lærer av nye ideer, og at det er lov å feile.
+Innovasjonshindringer: det som bremser fornyelse i etablerte virksomheter, som mangel på tid og penger, frykt for risiko, faste rutiner og at man er fornøyd med det som allerede tjener penger.",innovasjon,0,
+sammenligne-innovasjonsprosesser,skill,Innovasjon i etablerte virksomheter,Sammenligne innovasjonsprosesser,"sammenligne hvordan to innovasjonsprosesser ville tatt seg ut i en bestemt virksomhet, og vurdere hvilken som passer best ut fra risiko, tid, kunder og bedriftens kultur.",innovasjonsprosesser;innovasjonskultur,0,
+drofte-innovasjon-videreutvikling,skill,Innovasjon i etablerte virksomheter,Drøfte hva innovasjon betyr for videreutvikling,"drøfte hvilken betydning innovasjon har for at en etablert virksomhet skal overleve og vokse, med argumenter både for og mot å satse på fornyelse, og knytte drøftingen til produktlivssyklusen og konkurransesituasjonen.",klassifisere-innovasjon;produktlivssyklus;sammenligne-innovasjonsprosesser;apen-innovasjon,0,
+baerekraft,concept,Bærekraft og samfunnsansvar,Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker behovene i dag uten å ødelegge mulighetene for at kommende generasjoner kan dekke sine. Den har tre dimensjoner som henger sammen: miljømessig, sosial og økonomisk bærekraft.",,0,
+trippel-bunnlinje,concept,Bærekraft og samfunnsansvar,Trippel bunnlinje,"Trippel bunnlinje: å vurdere en virksomhets resultat på tre områder, økonomisk (profit), sosialt (people) og miljømessig (planet), og ikke bare på overskuddet.",baerekraft,0,
+baerekraftsmal,fact,Bærekraft og samfunnsansvar,FNs bærekraftsmål,"antall bærekraftsmål: 17
+vedtatt av FN: 2015
+målåret for bærekraftsmålene: 2030
+mål 5: likestilling mellom kjønnene
+mål 8: anstendig arbeid og økonomisk vekst
+mål 9: industri, innovasjon og infrastruktur
+mål 12: ansvarlig forbruk og produksjon
+mål 13: stoppe klimaendringene",baerekraft,0,
+barekraftig-verdiskaping,concept,Bærekraft og samfunnsansvar,Bærekraftig verdiskaping,"Bærekraftig verdiskaping: at en virksomhet skaper økonomiske verdier på en måte som samtidig tar vare på miljøet og menneskene som berøres, slik at verdiskapingen kan fortsette over tid.",trippel-bunnlinje,0,
+samfunnsansvar,concept,Bærekraft og samfunnsansvar,Samfunnsansvar,"Samfunnsansvar (CSR): det ansvaret en virksomhet tar for hvordan driften påvirker mennesker, miljø og samfunn, ut over det loven krever, og i hele verdikjeden, også hos leverandører i andre land.",baerekraft,0,
+interessenter,concept,Bærekraft og samfunnsansvar,Interessenter,"Interessent: en person, gruppe eller organisasjon som påvirker eller blir påvirket av virksomheten, for eksempel eiere, ansatte, kunder, leverandører, lokalsamfunnet, myndigheter og miljøorganisasjoner. Interessentene har ofte motstridende krav.",,0,
+interessentanalyse,skill,Bærekraft og samfunnsansvar,Gjennomføre en interessentanalyse,"kartlegge interessentene til en virksomhet, vurdere hvor mye makt og interesse hver av dem har, og foreslå hvordan virksomheten bør håndtere dem.",interessenter;fagmodell,0,
+apenhetsloven,concept,Bærekraft og samfunnsansvar,Åpenhetsloven,"Åpenhetsloven: en norsk lov fra 2022 som pålegger større virksomheter å undersøke om det skjer brudd på menneskerettigheter og anstendige arbeidsforhold i egen drift og hos leverandørene (aktsomhetsvurderinger), gjøre noe med det de finner, offentliggjøre en redegjørelse hvert år, og svare på spørsmål fra allmennheten.",samfunnsansvar,0,
+gronnvasking,concept,Bærekraft og samfunnsansvar,Grønnvasking,"Grønnvasking: at en virksomhet gir et mer miljøvennlig eller ansvarlig inntrykk av seg selv eller produktene sine enn det er dekning for. Markedsføringsloven forbyr miljøpåstander som er villedende eller ikke kan dokumenteres.",samfunnsansvar,0,
+vurdere-baerekraftig-verdiskaping,skill,Bærekraft og samfunnsansvar,Vurdere konsekvensene av bærekraftig verdiskaping,"utforske hva det betyr for en bestemt virksomhet å satse på bærekraftig verdiskaping, og vurdere konsekvensene for kostnader, inntekter, omdømme, risiko og konkurransekraft på kort og lang sikt.",barekraftig-verdiskaping;baerekraftsmal;interessentanalyse,0,
+sammenligne-samfunnsansvar,skill,Bærekraft og samfunnsansvar,Sammenligne virksomheters samfunnsansvar lokalt og globalt,"reflektere over hva samfunnsansvar innebærer, og sammenligne hvordan to virksomheter tar samfunnsansvar lokalt og globalt, og skille reelle tiltak fra grønnvasking.",samfunnsansvar;apenhetsloven;gronnvasking;interessentanalyse,0,
+forretningsmodell,concept,Forretningsmodeller for videreutvikling,Forretningsmodell,"Forretningsmodell: en beskrivelse av hvordan en virksomhet skaper verdi for kundene, leverer den, og tar betalt for den slik at virksomheten kan leve av det.",,0,
+verdiforslag,concept,Forretningsmodeller for videreutvikling,Verdiforslag,"Verdiforslag: det samlede tilbudet som løser et problem eller dekker et behov for en bestemt kundegruppe, og som er grunnen til at kundene velger virksomheten framfor alternativene.",forretningsmodell,0,
+forretningsmodellerret,concept,Forretningsmodeller for videreutvikling,Forretningsmodellerretten,"Forretningsmodellerretten (Business Model Canvas): en modell som beskriver en forretningsmodell med ni byggeklosser: kundesegmenter, verdiforslag, kanaler, kunderelasjoner, inntektsstrømmer, nøkkelressurser, nøkkelaktiviteter, nøkkelpartnere og kostnadsstruktur.",verdiforslag;fagmodell,0,
+inntektsmodeller,fact,Forretningsmodeller for videreutvikling,Inntektsmodeller,"engangssalg: kunden betaler én gang for hver vare eller tjeneste
+abonnement: kunden betaler et fast beløp per periode
+freemium: grunnversjonen er gratis, og kunden betaler for mer
+provisjon: virksomheten tar en andel av en handel den formidler
+reklamefinansiering: brukerne får tilbudet gratis, og annonsører betaler
+utleie: kunden betaler for å bruke noe en periode uten å eie det",forretningsmodell,0,
+plattformmodell,concept,Forretningsmodeller for videreutvikling,Plattformmodell,"Plattformmodell: en forretningsmodell der virksomheten skaper verdi ved å koble sammen to eller flere grupper som trenger hverandre, for eksempel kjøpere og selgere, og tjener på formidlingen. Jo flere brukere på den ene siden, jo mer verdt er plattformen for den andre (nettverkseffekt).",forretningsmodell,0,
+sirkulaere-modeller,concept,Forretningsmodeller for videreutvikling,Sirkulære forretningsmodeller,"Sirkulær forretningsmodell: en forretningsmodell som tjener penger på at produkter og materialer holdes i bruk lenger, for eksempel gjennom utleie og deling, reparasjon og vedlikehold, salg av brukte produkter, eller at produktet selges som en tjeneste (betaling for bruk framfor eierskap).",forretningsmodell;baerekraft,0,
+digitalisering,concept,Forretningsmodeller for videreutvikling,Digitalisering,"Digitalisering: å bruke digital teknologi til å endre hvordan en virksomhet arbeider, hva den tilbyr eller hvordan den tjener penger, for eksempel med netthandel, dataanalyse, automatisering eller kunstig intelligens. Det er mer enn å gjøre den samme oppgaven på en skjerm.",forretningsmodell,0,
+analysere-forretningsmodell,skill,Forretningsmodeller for videreutvikling,Analysere forretningsmodellen til en etablert virksomhet,"beskrive forretningsmodellen til en etablert virksomhet med forretningsmodellerretten, ut fra opplysninger om den, og finne de svake punktene.",forretningsmodellerret;inntektsmodeller;bruke-kilder,0,
+videreutvikle-forretningsmodell,skill,Forretningsmodeller for videreutvikling,Vurdere og videreutvikle en forretningsmodell,"foreslå endringer i forretningsmodellen til en etablert virksomhet, for eksempel en ny inntektsmodell, plattform, digitalisering eller en sirkulær modell, og vurdere hva endringene betyr for kunder, kostnader, inntekter og bærekraft.",analysere-forretningsmodell;plattformmodell;sirkulaere-modeller;digitalisering,0,
+strategi,concept,Strategi og vekst,Strategi,"Strategi: de langsiktige veivalgene en virksomhet tar for å nå målene sine, ut fra hvordan virksomheten og omgivelsene ser ut.
+Tiltak: de konkrete handlingene som setter strategien ut i livet.",,0,
+strategisk-prosess,concept,Strategi og vekst,Strategisk planlegging,"Strategisk planlegging: en prosess i trinn: analysere situasjonen, sette mål, velge strategi, gjennomføre tiltak og evaluere resultatene.",strategi,0,
+swot-pestel,concept,Strategi og vekst,SWOT og PESTEL,"SWOT-analyse: en modell som ordner virksomhetens interne styrker og svakheter og de eksterne mulighetene og truslene.
+PESTEL-analyse: en modell for å kartlegge politiske, økonomiske, sosiokulturelle, teknologiske, miljømessige og juridiske forhold i omgivelsene.",fagmodell,0,
+fem-krefter,concept,Strategi og vekst,Porters fem konkurransekrefter,"Porters fem konkurransekrefter: en modell som forklarer hvor hard konkurransen og hvor lønnsom en bransje er ut fra fem krefter: rivaliseringen mellom eksisterende konkurrenter, trusselen fra nye aktører, trusselen fra erstatningsprodukter, kundenes forhandlingsmakt og leverandørenes forhandlingsmakt.",fagmodell,0,
+generiske-strategier,concept,Strategi og vekst,Porters generiske konkurransestrategier,"Kostnadslederskap: å konkurrere ved å ha lavere kostnader enn konkurrentene, slik at man kan holde lav pris.
+Differensiering: å konkurrere ved å tilby noe kundene oppfatter som unikt og er villige til å betale mer for.
+Fokusstrategi: å rette kostnadslederskap eller differensiering mot ett avgrenset segment.",strategi,0,
+konkurransefortrinn,concept,Strategi og vekst,Konkurransefortrinn,"Konkurransefortrinn: noe som gjør at kundene velger virksomheten framfor konkurrentene, og som konkurrentene har vanskelig for å kopiere, for eksempel kompetanse, teknologi, merkevare, beliggenhet eller lave kostnader.",strategi,0,
+ansoff,concept,Strategi og vekst,Ansoffs vekstmatrise,"Ansoffs vekstmatrise: en modell for vekststrategier ut fra om produktene og markedene er eksisterende eller nye.
+Markedspenetrasjon: selge mer av eksisterende produkter i eksisterende marked.
+Markedsutvikling: selge eksisterende produkter i nye markeder.
+Produktutvikling: selge nye produkter i eksisterende marked.
+Diversifisering: selge nye produkter i nye markeder, den mest risikable veien.",strategi,0,
+vekstmater,concept,Strategi og vekst,Organisk vekst og vekst gjennom andre,"Organisk vekst: vekst fra virksomhetens egen drift, med flere kunder, produkter eller ansatte.
+Oppkjøp og fusjon: vekst ved å kjøpe eller slå seg sammen med en annen virksomhet.
+Franchise: vekst ved at andre betaler for å drive etter virksomhetens konsept og merkevare.
+Strategisk allianse: et langsiktig samarbeid mellom selvstendige virksomheter om et felles mål.",strategi,0,
+markedsstrategi,concept,Strategi og vekst,"Segmentering, målgruppe og posisjonering","Segmentering: å dele markedet inn i grupper av kunder med like behov eller kjennetegn.
+Målgruppe: det eller de segmentene virksomheten velger å satse på.
+Posisjonering: å gi produktet en tydelig og ønsket plass i målgruppens bevissthet sammenlignet med konkurrentene.",strategi,0,
+strategisk-analyse,skill,Strategi og vekst,Gjennomføre en strategisk analyse,"analysere situasjonen til en etablert virksomhet med SWOT, PESTEL og Porters fem krefter, og trekke ut hvilke strategiske utfordringer og muligheter den har.",swot-pestel;fem-krefter;bruke-modell-pa-sak;strategisk-prosess,0,
+anbefale-vekststrategi,skill,Strategi og vekst,Anbefale en vekststrategi,"plassere mulige veier til vekst for en virksomhet i Ansoffs matrise, vurdere risikoen og hva hver vei krever, og anbefale og begrunne én av dem, også valget mellom organisk vekst og vekst gjennom andre.",ansoff;vekstmater;strategisk-analyse,0,
+velge-konkurransestrategi,skill,Strategi og vekst,Vurdere konkurransestrategien til en virksomhet,"avgjøre hvilken generisk konkurransestrategi og markedsstrategi en virksomhet følger, vurdere om den gir et varig konkurransefortrinn, og foreslå endringer.",generiske-strategier;konkurransefortrinn;markedsstrategi;strategisk-analyse,0,
+vurdere-strategier,skill,Strategi og vekst,"Vurdere vekst-, markeds- og konkurransestrategier","utforske hvordan en virksomhet kan bruke vekst-, markeds- og konkurransestrategier sammen når den skal videreutvikles, vurdere fordeler, ulemper og risiko, og anbefale en strategi med konkrete tiltak.",anbefale-vekststrategi;velge-konkurransestrategi,0,
+internasjonalisering,concept,Internasjonalisering,Internasjonalisering,"Internasjonalisering: at en virksomhet tar opp aktivitet i andre land, ved å selge, kjøpe inn, produsere eller samarbeide der. Drivkreftene er ofte et lite hjemmemarked, vekstmuligheter, lavere kostnader og tilgang til kompetanse; hindringene er blant annet kostnader, risiko, avstand, språk og kultur.",vekstmater,0,
+etableringsformer-utland,concept,Internasjonalisering,Måter å gå inn i et utenlandsk marked på,"Direkte eksport: virksomheten selger selv til kunder i utlandet.
+Indirekte eksport: virksomheten selger via en agent eller en importør i landet.
+Lisens: en utenlandsk virksomhet får betale for å bruke patent, varemerke eller teknologi.
+Joint venture: et nytt selskap som eies sammen med en lokal partner.
+Datterselskap: et eget selskap i landet, eid av virksomheten selv. Kontroll, risiko og kostnad øker nedover lista.",internasjonalisering;vekstmater,0,
+handelshindringer,concept,Internasjonalisering,Handelshindringer og EØS-avtalen,"Handelshindring: noe som gjør det dyrere eller vanskeligere å handle over grensen, som toll, kvoter, ulike tekniske krav og byråkrati.
+EØS-avtalen: avtalen som siden 1994 har gitt Norge del i EUs indre marked, med fri bevegelse av varer, tjenester, kapital og personer, uten at Norge er medlem av EU. Den omfatter ikke alle landbruks- og fiskevarer, og Norge er ikke med i EUs tollunion.",internasjonalisering,0,
+vurdere-internasjonal-mulighet,skill,Internasjonalisering,Vurdere en internasjonal forretningsmulighet,"vurdere om en virksomhet bør gå inn i et bestemt utenlandsk marked ved å analysere markedet og rammebetingelsene der, og velge og begrunne en måte å gå inn på.",etableringsformer-utland;handelshindringer;swot-pestel,0,
+forretningskultur,concept,Internasjonalisering,Forretningskultur,"Forretningskultur: de uskrevne reglene for hvordan man gjør forretninger i et land eller en bransje, for eksempel hvor viktig tillit og relasjoner er, hvor direkte man snakker, hvor punktlig man er, og hvem som tar beslutningene.",internasjonalisering,0,
+hofstede,concept,Internasjonalisering,Hofstedes kulturdimensjoner,"Hofstedes kulturdimensjoner: en modell som sammenligner land på maktdistanse, individualisme eller kollektivisme, maskulinitet eller femininitet, usikkerhetsunngåelse, langsiktig orientering og nytelse eller behersket livsførsel. Den beskriver gjennomsnitt i et land, ikke enkeltmennesker.",forretningskultur;fagmodell,0,
+kontekst-kultur,concept,Internasjonalisering,Høykontekst- og lavkontekstkultur,"Lavkontekstkultur: budskapet ligger i ordene, og man sier det man mener rett ut og skriftlig, slik det er vanlig i Norge.
+Høykontekstkultur: mye av budskapet ligger i relasjonen, situasjonen og det usagte, og det tar tid å bygge tillit før man gjør forretninger.",forretningskultur,0,
+sammenligne-forretningskulturer,skill,Internasjonalisering,Sammenligne norsk og utenlandsk forretningskultur,"sammenligne norsk forretningskultur med forretningskulturen i et annet land, ved hjelp av Hofstedes dimensjoner og høy- og lavkontekst, og vurdere hva forskjellene betyr for møter, forhandlinger, ledelse og markedsføring.",hofstede;kontekst-kultur,0,
+ledelse,concept,Ledelse og medarbeidere,Ledelse,"Ledelse: å påvirke andre til å arbeide mot felles mål.
+Lederoppgaver: å planlegge, organisere, motivere og samordne, og kontrollere at målene nås.",,0,
+lederstiler,concept,Ledelse og medarbeidere,Lederstiler,"Autoritær lederstil: lederen bestemmer alene og gir ordre.
+Demokratisk lederstil: lederen trekker medarbeiderne med i beslutningene.
+Delegerende lederstil (laissez-faire): lederen overlater beslutningene til medarbeiderne og blander seg lite inn.",ledelse,0,
+situasjonsbestemt-ledelse,concept,Ledelse og medarbeidere,Situasjonsbestemt ledelse,"Situasjonsbestemt ledelse: teorien om at ingen lederstil er best i alle tilfeller, og at lederen bør tilpasse hvor mye hun styrer og støtter etter hvor kompetent og motivert medarbeideren er i den aktuelle oppgaven.",lederstiler,0,
+transformasjonsledelse,concept,Ledelse og medarbeidere,Transaksjonsledelse og transformasjonsledelse,"Transaksjonsledelse: lederen styrer ved å sette krav og belønne eller korrigere ut fra resultatene.
+Transformasjonsledelse: lederen inspirerer med en visjon, er et forbilde og utfordrer og utvikler medarbeiderne, slik at de yter mer fordi de selv vil.",lederstiler,0,
+motivasjonsteori,concept,Ledelse og medarbeidere,Motivasjon i arbeidslivet,"Indre motivasjon: lysten til å gjøre noe fordi oppgaven i seg selv oppleves som meningsfull.
+Ytre motivasjon: lysten til å gjøre noe for en belønning utenfra, som lønn eller bonus.
+Herzbergs tofaktorteori: hygienefaktorer (lønn, arbeidsforhold, trygghet) fjerner misnøye, men bare motivasjonsfaktorer (ansvar, mestring, anerkjennelse, utvikling) gjør medarbeiderne motiverte.",ledelse,0,
+medarbeiderskap,concept,Ledelse og medarbeidere,Medarbeiderskap,"Medarbeiderskap: hvordan de ansatte selv tar ansvar for arbeidet, samarbeidet og utviklingen av virksomheten, ikke bare følger ordre. Lederskap og medarbeiderskap påvirker hverandre.",ledelse,0,
+organisasjonskultur,concept,Ledelse og medarbeidere,Organisasjonskultur,"Organisasjonskultur: de felles verdiene, normene og vanene i en virksomhet, som styrer hvordan folk tenker og oppfører seg, ofte uten at det står skrevet noe sted.",,0,
+vurdere-lederstil,skill,Ledelse og medarbeidere,Vurdere hvilken lederstil som passer,"vurdere hvilken lederstil som passer i en bestemt situasjon i en virksomhet, ut fra oppgaven, medarbeidernes kompetanse og motivasjon og tidspresset, og begrunne vurderingen.",situasjonsbestemt-ledelse;transformasjonsledelse;motivasjonsteori,0,
+drofte-leder-medarbeider,skill,Ledelse og medarbeidere,Drøfte hvordan ledere og medarbeidere påvirker utviklingen,"drøfte hvordan ledere og medarbeidere gjennom lederstil, motivasjon, medarbeiderskap og kultur kan fremme eller bremse utviklingen av en virksomhet, med argumenter fra flere sider.",vurdere-lederstil;medarbeiderskap;organisasjonskultur,0,
+prosjekt,concept,Prosjekt og samarbeid,Prosjekt,"Prosjekt: en tidsavgrenset og unik oppgave med eget mål, egne ressurser og et budsjett, som gjennomføres av en egen gruppe og avsluttes når målet er nådd.
+Linjeorganisasjon: den faste organisasjonen som tar seg av den daglige driften.",,0,
+prosjektfaser,concept,Prosjekt og samarbeid,Prosjektets faser og organisering,"Prosjektfaser: et prosjekt går gjennom forprosjekt (idé og mål), planlegging, gjennomføring og avslutning med evaluering.
+Prosjektorganisering: en prosjekteier eller styringsgruppe tar de store beslutningene, en prosjektleder har det daglige ansvaret, og en prosjektgruppe gjør arbeidet.",prosjekt,0,
+gantt,concept,Prosjekt og samarbeid,Gantt-diagram og milepæl,"Gantt-diagram: en tidsplan der hver aktivitet vises som en stolpe langs en tidslinje, slik at man ser hva som skjer når, og hva som overlapper.
+Milepæl: et tidspunkt der en bestemt del av prosjektet skal være ferdig.",prosjektfaser,0,
+planlegge-prosjekt,skill,Prosjekt og samarbeid,Planlegge et utviklingsprosjekt,"planlegge et utviklingsprosjekt for en virksomhet med mål, organisering, aktiviteter, milepæler i et Gantt-diagram, budsjett og en vurdering av risiko.",gantt;prosjektfaser,0,
+samarbeidsformer,concept,Prosjekt og samarbeid,Samarbeidsformer mellom virksomheter,"Nettverk: relasjoner til personer og virksomheter som kan gi kunnskap, kontakter, kunder eller kapital.
+Klynge: en samling virksomheter, forskningsmiljøer og andre aktører i samme bransje eller region som både samarbeider og konkurrerer.
+Strategisk allianse: et langsiktig samarbeid mellom selvstendige virksomheter om et felles mål.
+Joint venture: et nytt selskap som to eller flere virksomheter eier sammen.",,0,
+nettverksbygging,skill,Prosjekt og samarbeid,Planlegge nettverksbygging for en virksomhet,"kartlegge hvilke nettverk en virksomhet har og mangler, og foreslå konkrete måter å bygge de nettverkene den trenger for å utvikle seg.",samarbeidsformer,0,
+vurdere-prosjekt-samarbeid,skill,Prosjekt og samarbeid,Vurdere prosjekt og samarbeid i utviklingen av en virksomhet,"vurdere når en virksomhet bør organisere utviklingsarbeid som et prosjekt eller samarbeide med andre framfor å gjøre det i linjen alene, og hvilken betydning nettverk har for utviklingen.",planlegge-prosjekt;nettverksbygging,0,
+organisasjonsstruktur,concept,Organisasjonsutvikling,Organisasjonsstruktur,"Organisasjonsstruktur: hvordan oppgaver, ansvar og myndighet er fordelt i en virksomhet, vist i et organisasjonskart.
+Linjeorganisasjon: en ren kommandolinje fra toppen og ned.
+Linje- og stabsorganisasjon: linjen får hjelp av rådgivende stabsfunksjoner, som økonomi eller HR.
+Funksjonsorganisering: avdelinger etter fagfunksjon, som innkjøp, produksjon og salg.
+Divisjonsorganisering: avdelinger etter produkt, kundegruppe eller geografi.
+Matriseorganisering: medarbeiderne svarer både til en fagleder og til en prosjekt- eller produktleder.
+Flat organisasjon: få ledernivåer og mye ansvar til hver medarbeider.",,0,
+vurdere-organisasjonsstruktur,skill,Organisasjonsutvikling,Vurdere organisasjonsstrukturen til en virksomhet,"lese et organisasjonskart, avgjøre hvilken struktur virksomheten har, og vurdere fordeler og ulemper ved den, sett opp mot virksomhetens størrelse og strategi.",organisasjonsstruktur,0,
+organisasjonsutvikling,concept,Organisasjonsutvikling,Organisasjonsutvikling,"Organisasjonsutvikling: planlagte og langsiktige endringer i struktur, arbeidsmåter, kompetanse eller kultur, for at virksomheten skal fungere bedre og tilpasse seg endringer i omgivelsene, gjerne med medarbeiderne aktivt med i prosessen.",organisasjonsstruktur;organisasjonskultur,0,
+endringsdrivere,concept,Organisasjonsutvikling,Årsaker til endring,"Ytre endringsdrivere: forhold utenfor virksomheten som tvinger fram endring, som ny teknologi, nye konkurrenter, nye lover, endrede kundebehov og krav om bærekraft.
+Indre endringsdrivere: forhold i virksomheten, som vekst, svake resultater, ny ledelse eller dårlig arbeidsmiljø.",organisasjonsutvikling,0,
+endringsmodeller,concept,Organisasjonsutvikling,Modeller for endringsprosesser,"Lewins endringsmodell: endring i tre trinn: tine opp det gamle, gjennomføre endringen, og fryse det nye fast.
+Kotters åtte trinn: skape en følelse av at endring haster, bygge en styrende koalisjon, utforme visjon og strategi, kommunisere visjonen, fjerne hindringer, skape raske gevinster, bygge videre på resultatene, og forankre endringen i kulturen.",organisasjonsutvikling,0,
+endringsmotstand,concept,Organisasjonsutvikling,Motstand mot endring,"Endringsmotstand: at medarbeidere eller ledere bremser en endring, for eksempel av frykt for å miste jobb, status eller kompetanse, av usikkerhet, eller fordi de mener endringen er feil. Motstand kan også inneholde nyttige innvendinger.",organisasjonsutvikling,0,
+vurdere-behov-ou,skill,Organisasjonsutvikling,Vurdere behovet for organisasjonsutvikling,"vurdere ut fra en beskrivelse av en etablert virksomhet om den trenger organisasjonsutvikling, hva som driver behovet, og hva som bør endres.",endringsdrivere;vurdere-organisasjonsstruktur;strategisk-analyse,0,
+planlegge-endring,skill,Organisasjonsutvikling,Planlegge en endringsprosess,"planlegge hvordan en bestemt endring kan gjennomføres i en virksomhet med en endringsmodell, og foreslå hvordan ledelsen kan håndtere motstand og trekke med medarbeiderne.",endringsmodeller;endringsmotstand;vurdere-behov-ou;drofte-leder-medarbeider,0,
+kapitalbehov,concept,Finansiering og lønnsomhet,Kapitalbehov ved videreutvikling,"Kapitalbehov: hvor mye penger en videreutvikling krever, både til anleggsmidler (maskiner, lokaler, teknologi) og til omløpsmidler (større varelager, flere kundefordringer, lønn før inntektene kommer).",,0,
+egenkapital-gjeld,concept,Finansiering og lønnsomhet,Egenkapital og fremmedkapital,"Egenkapital: penger eierne har skutt inn, eller overskudd som er holdt tilbake i virksomheten.
+Fremmedkapital (gjeld): lånt kapital som skal betales tilbake, som regel med renter.",,0,
+finansieringsformer,concept,Finansiering og lønnsomhet,Finansiering av vekst,"Tilbakeholdt overskudd: virksomheten finansierer veksten med eget overskudd framfor å dele ut utbytte.
+Emisjon: virksomheten utsteder nye aksjer og henter ny egenkapital fra eksisterende eller nye eiere.
+Venturekapital: profesjonelle investorer skyter inn egenkapital i virksomheter med stort vekstpotensial, mot en eierandel og innflytelse.
+Banklån: lån med renter og avdrag, som regel mot sikkerhet.
+Leasing: virksomheten leier et driftsmiddel i stedet for å kjøpe det.
+Factoring: virksomheten selger kundefordringene sine for å få pengene raskere.
+Børsnotering: aksjene gjøres tilgjengelige for kjøp på børs, for å hente kapital fra mange investorer.",egenkapital-gjeld;kapitalbehov,0,
+stotteordninger,fact,Finansiering og lønnsomhet,Offentlige støtteordninger,"Innovasjon Norge: statens virkemiddelaktør for innovasjon og utvikling i næringslivet, med tilskudd, lån, rådgivning og hjelp til internasjonalisering
+Norges forskningsråd: finansierer forskning og forskningsbaserte innovasjonsprosjekter i bedrifter
+SkatteFUNN: skattefradrag for bedrifters forsknings- og utviklingsprosjekter, 19 % av godkjente kostnader i 2026
+Siva: statlig selskap som eier eller støtter næringshager og inkubatorer for oppstarts- og vekstbedrifter
+Eksfin (Eksportfinansiering Norge): statlig lån og garantier ved eksport
+Horisont Europa: EUs program for forskning og innovasjon 2021–2027, som norske virksomheter kan søke via EØS-avtalen
+kommunale næringsfond: tilskudd fra kommunen til lokale virksomheter",finansieringsformer,0,
+vurdere-stotteordninger,skill,Finansiering og lønnsomhet,Kartlegge og vurdere støtteordninger,"kartlegge hvilke nasjonale og internasjonale støtteordninger en bestemt virksomhet kan søke på for et utviklingsprosjekt, og vurdere hvilke som passer best ut fra prosjektets art, krav til egeninnsats og risiko.",stotteordninger;bruke-kilder,0,
+regnskap,concept,Finansiering og lønnsomhet,Resultatregnskap og balanse,"Resultatregnskap: viser inntektene, kostnadene og resultatet i en periode, trinnvis som driftsresultat, resultat før skatt og årsresultat.
+Balanse: viser eiendelene og hvordan de er finansiert med egenkapital og gjeld, på et bestemt tidspunkt. Eiendeler er alltid lik egenkapital pluss gjeld.",egenkapital-gjeld,0,
+lonnsomhet-likviditet-soliditet,concept,Finansiering og lønnsomhet,"Lønnsomhet, likviditet og soliditet","Lønnsomhet: hvor godt virksomheten forrenter kapitalen som er brukt.
+Likviditet: evnen til å betale regningene når de forfaller.
+Soliditet: evnen til å tåle underskudd, målt med hvor stor del av kapitalen som er egenkapital.",regnskap,0,
+nokkeltall,fact,Finansiering og lønnsomhet,Nøkkeltall: formler,"totalkapitalrentabilitet: (driftsresultat + finansinntekter) / gjennomsnittlig totalkapital × 100 %
+egenkapitalrentabilitet: resultat før skatt / gjennomsnittlig egenkapital × 100 %
+resultatgrad (driftsmargin): driftsresultat / driftsinntekter × 100 %
+likviditetsgrad 1: omløpsmidler / kortsiktig gjeld, og bør helst være over 2
+egenkapitalandel: egenkapital / totalkapital × 100 %",lonnsomhet-likviditet-soliditet,0,
+beregne-nokkeltall,skill,Finansiering og lønnsomhet,Beregne og tolke nøkkeltall,"beregne totalkapitalrentabilitet, egenkapitalrentabilitet, resultatgrad, likviditetsgrad og egenkapitalandel fra et regnskap, og tolke hva tallene sier om virksomheten over tid.",nokkeltall,0,
+giring,concept,Finansiering og lønnsomhet,Giringseffekten,"Giringseffekten: å finansiere med lån øker egenkapitalrentabiliteten så lenge totalkapitalrentabiliteten er høyere enn lånerenten, og reduserer den når den er lavere. Mer gjeld gir derfor både høyere mulig avkastning til eierne og høyere risiko.",lonnsomhet-likviditet-soliditet,0,
+forklare-giring,skill,Finansiering og lønnsomhet,Vise giringseffekten med et regneeksempel,"vise med et regneeksempel hvordan egenkapitalrentabiliteten endrer seg når en virksomhet finansierer mer med lån, både når totalkapitalrentabiliteten er over og under lånerenten.",giring;beregne-nokkeltall,0,
+investeringsvurdering,concept,Finansiering og lønnsomhet,Investeringsvurdering,"Investering: å binde kapital i noe nå for å få inntekter eller spare kostnader senere.
+Tilbakebetalingstid: hvor mange år det tar før investeringen har tjent inn igjen det den kostet.
+Nåverdi: verdien i dag av framtidige innbetalinger og utbetalinger, når de regnes om med et avkastningskrav. Er nåverdien positiv, er investeringen lønnsom gitt kravet.",kapitalbehov,0,
+vurdere-investering,skill,Finansiering og lønnsomhet,Vurdere om en investering er lønnsom,"regne ut tilbakebetalingstid og nåverdi for en enkel investering, og vurdere om den bør gjennomføres, også ut fra forhold som ikke kommer med i tallene.",investeringsvurdering,0,
+vurdere-finansiering-lonnsomhet,skill,Finansiering og lønnsomhet,Vurdere hvordan finansieringen påvirker framtidig lønnsomhet,"vurdere hvordan ulike måter å finansiere kapitalbehovet ved en videreutvikling på vil påvirke framtidig lønnsomhet, risiko, eiernes kontroll og verdiskapingen i virksomheten, og anbefale en finansiering.",finansieringsformer;forklare-giring;vurdere-investering;vurdere-stotteordninger,0,
+entreprenoriell-kompetanse,concept,Entreprenøriell kompetanse i videreutvikling,Entreprenøriell kompetanse og intraprenørskap,"Entreprenøriell kompetanse: evnen til å se muligheter og gjøre dem om til handling, med kreativitet, initiativ, utholdenhet, evne til å tåle usikkerhet og evne til å samarbeide.
+Intraprenørskap: entreprenørskap innenfor en virksomhet som allerede finnes, der ansatte driver fram nye ideer og prosjekter.",innovasjonskultur,0,
+analysere-case,skill,Entreprenøriell kompetanse i videreutvikling,Analysere en case om videreutvikling av en virksomhet,"analysere en case om en etablert virksomhet: finne de viktigste utfordringene, bruke relevante modeller og teorier fra flere emner på dem, og komme med begrunnede og realistiske anbefalinger.",vurdere-strategier;videreutvikle-forretningsmodell;vurdere-baerekraftig-verdiskaping;vurdere-finansiering-lonnsomhet;planlegge-endring,0,
+vurdere-entreprenoriell-kompetanse,skill,Entreprenøriell kompetanse i videreutvikling,Vurdere betydningen av entreprenøriell kompetanse for videreutvikling,"reflektere over og vurdere hvordan entreprenøriell kompetanse hos ledere og ansatte påvirker om en etablert virksomhet klarer å fornye seg, med eksempler, og hvordan virksomheten kan legge til rette for intraprenørskap.",entreprenoriell-kompetanse;drofte-innovasjon-videreutvikling;drofte-leder-medarbeider,0,

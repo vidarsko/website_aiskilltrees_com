@@ -39,7 +39,27 @@
     "spanish":        { "en": "Spanish",        "nb": "Spansk",           "sv": "Spanska" },
     "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" },
     "music":          { "en": "Music",          "nb": "Musikk",           "sv": "Musik" },
-    "wine":           { "en": "Wine",           "nb": "Vin",              "sv": "Vin" }
+    "wine":           { "en": "Wine",           "nb": "Vin",              "sv": "Vin" },
+    "english":        { "en": "English",        "nb": "Engelsk",          "sv": "Engelska" },
+    "latin":          { "en": "Latin",          "nb": "Latin",            "sv": "Latin" },
+    "greek":          { "en": "Ancient Greek",  "nb": "Gresk",            "sv": "Grekiska" },
+    "classics":       { "en": "Classical studies", "nb": "Antikkens kultur", "sv": "Antikens kultur" },
+    "communication":  { "en": "Communication and culture", "nb": "Kommunikasjon og kultur", "sv": "Kommunikation och kultur" },
+    "tourism":        { "en": "Tourism and languages", "nb": "Reiseliv og språk", "sv": "Turism och språk" },
+    "geography":      { "en": "Geography",      "nb": "Geografi",         "sv": "Geografi" },
+    "history":        { "en": "History",        "nb": "Historie",         "sv": "Historia" },
+    "religion":       { "en": "Religion and ethics", "nb": "Religion og etikk", "sv": "Religion och etik" },
+    "psychology":     { "en": "Psychology",     "nb": "Psykologi",        "sv": "Psykologi" },
+    "law":            { "en": "Law",            "nb": "Rettslære",        "sv": "Juridik" },
+    "media":          { "en": "Media studies",  "nb": "Medie- og informasjonskunnskap", "sv": "Medier och information" },
+    "environment":    { "en": "Climate and environment", "nb": "Klima og miljø", "sv": "Klimat och miljö" },
+    "economics":      { "en": "Economics and business", "nb": "Økonomi",  "sv": "Ekonomi" },
+    "earth-science":  { "en": "Earth science",  "nb": "Geofag",           "sv": "Geovetenskap" },
+    "informatics":    { "en": "Computing",      "nb": "Informatikk",      "sv": "Datavetenskap" },
+    "technology":     { "en": "Technology",     "nb": "Teknologi",        "sv": "Teknik" },
+    "arts-crafts":    { "en": "Art and crafts", "nb": "Kunst og håndverk", "sv": "Bild och slöjd" },
+    "food-health":    { "en": "Food and health", "nb": "Mat og helse",    "sv": "Hem- och konsumentkunskap" },
+    "physical-education": { "en": "Physical education", "nb": "Kroppsøving", "sv": "Idrott och hälsa" }
   },
 
   "institution": {
@@ -51,7 +71,8 @@
       "divisions": {
         "8":  { "en": "Year 8",  "nb": "8. trinn",  "sv": "Årskurs 8" },
         "9":  { "en": "Year 9",  "nb": "9. trinn",  "sv": "Årskurs 9" },
-        "10": { "en": "Year 10", "nb": "10. trinn", "sv": "Årskurs 10" }
+        "10": { "en": "Year 10", "nb": "10. trinn", "sv": "Årskurs 10" },
+        "8-10": { "en": "Years 8–10", "nb": "8.–10. trinn", "sv": "Årskurs 8–10" }
       }
     },
 

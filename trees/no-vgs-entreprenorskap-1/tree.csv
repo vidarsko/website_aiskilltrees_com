@@ -1,0 +1,237 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Entreprenørskap og faglig arbeid;Kreativitet og forretningsideer;Innovasjon og samhandling;Forretningsmodell og bærekraft;Marked og kjøpsatferd;Situasjonsanalyse og mål;Konkurransemidler;Selskapsformer og etablering;Ledelse og team;Pris og kostnader;Kapitalbehov og budsjett;Finansiering og risiko;Regnskap og lønnsomhet;Fra plan til oppstart,,,
+,config,,title,Entreprenørskap og bedriftsutvikling 1,,,
+,config,,description,"Kreativitet, innovasjon, forretningsmodeller, marked, konkurransemidler, selskapsformer, ledelse, pris, budsjett, finansiering og regnskap når en ny virksomhet skal etableres — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-entreprenorskap-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,entreprenørskap og bedriftsutvikling 1 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"blander sammen inntekt og innbetaling eller kostnad og utbetaling, tror overskudd betyr penger i banken, sier «innovasjon» om en idé som ikke er tatt i bruk, forveksler påslag og avanse, glemmer om en pris er med eller uten merverdiavgift, sier at eieren av et AS aldri kan tape mer enn innskuddet selv om han har kausjonert, eller ramser opp modeller uten å bruke dem på virksomheten saken gjelder",,,
+,config,,slots.courseSpecifics,"Faget handler om å starte en ny virksomhet. Tall for satser, beløpsgrenser og regler gjelder Norge i 2026; si fra om at slike tall endres, og be eleven sjekke gjeldende verdi hos Skatteetaten, Brønnøysundregistrene eller Altinn før de brukes i en ekte etablering.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag økonomi,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3063,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,entreprenørskap; bedriftsutvikling; gründer; etablering; forretningsidé; forretningsmodell; innovasjon; kreativitet; markedsføring; segmentering; SWOT; selskapsform; aksjeselskap; enkeltpersonforetak; merverdiavgift; budsjett; likviditet; kapitalbehov; finansiering; regnskap; nøkkeltall; bærekraft; ledelse; team,,,
+,config,,updated,2026-10-08,,,
+entreprenorskap,concept,Entreprenørskap og faglig arbeid,Entreprenørskap,"Entreprenør: en person som oppdager en mulighet og setter den ut i livet ved å etablere noe nytt, og som bærer risikoen det innebærer.
+Entreprenørskap: prosessen der noen oppdager, vurderer og utnytter en mulighet til å skape verdier, ofte ved å starte en ny virksomhet.
+Intraprenørskap: entreprenørskap innenfor en virksomhet som allerede finnes.",,0,
+verdiskaping,concept,Entreprenørskap og faglig arbeid,Verdiskaping,"Verdiskaping: at noe får større verdi enn ressursene som gikk med til å lage det. I en bedrift er det forskjellen mellom det kundene betaler og det bedriften har kjøpt inn av varer og tjenester fra andre. Verdier kan også være sosiale, kulturelle eller miljømessige, ikke bare økonomiske.",,0,
+entreprenoriell-kompetanse,concept,Entreprenørskap og faglig arbeid,Entreprenøriell kompetanse,"Entreprenøriell kompetanse: evnen til å se muligheter og gjøre dem om til handling. Den omfatter kreativitet, initiativ, utholdenhet, evne til å tåle usikkerhet og risiko, og evne til å samarbeide og bygge nettverk. Den kan læres og øves, den er ikke bare et medfødt personlighetstrekk.",entreprenorskap,0,
+fagmodell,concept,Entreprenørskap og faglig arbeid,Fagmodell,"Fagmodell: en forenklet framstilling av virkeligheten som hjelper deg å ordne og analysere en situasjon, for eksempel SWOT eller forretningsmodellerretten. En modell viser bare det den er laget for å vise, og må alltid fylles med opplysninger om den konkrete virksomheten.",,0,
+primaer-sekundaerdata,concept,Entreprenørskap og faglig arbeid,Primærdata og sekundærdata,"Primærdata: opplysninger du selv samler inn til akkurat ditt formål, for eksempel gjennom spørreundersøkelse, intervju eller observasjon.
+Sekundærdata: opplysninger som andre allerede har samlet inn til et annet formål, for eksempel statistikk fra SSB, opplysninger i Brønnøysundregistrene eller bransjerapporter.",,0,
+bruke-kilder,skill,Entreprenørskap og faglig arbeid,Finne og vurdere kilder til en faglig problemstilling,"finne relevante kilder til en problemstilling om en virksomhet, vurdere hvor pålitelige og oppdaterte de er, og oppgi dem slik at leseren kan sjekke dem.",primaer-sekundaerdata,0,
+bruke-modell-pa-sak,skill,Entreprenørskap og faglig arbeid,Bruke en fagmodell på en konkret virksomhet,"velge en fagmodell som passer problemstillingen, fylle den med opplysninger om den konkrete virksomheten, trekke en konklusjon av den, og peke på hva modellen ikke får med seg.",fagmodell;bruke-kilder,0,
+divergent-konvergent,concept,Kreativitet og forretningsideer,Divergent og konvergent tenkning,"Divergent tenkning: å få fram mange og ulike ideer uten å vurdere dem underveis.
+Konvergent tenkning: å sile, vurdere og velge blant ideene etterpå.",,0,
+kreativitetsteknikker,fact,Kreativitet og forretningsideer,Kreativitetsteknikker,"idémyldring (brainstorming): gruppen sier fram så mange ideer som mulig, uten kritikk, og bygger videre på hverandres
+skriftlig idémyldring (brainwriting): hver deltaker skriver ideer på et ark og sender det videre, så de neste bygger på dem
+omvendt idémyldring: man spør hvordan problemet kan gjøres verre, og snur svarene til løsninger
+tvungne koblinger: man kobler problemet til et tilfeldig ord eller en tilfeldig gjenstand for å få nye vinkler
+SCAMPER: man endrer et eksisterende produkt ved å erstatte, kombinere, tilpasse, modifisere, bruke til noe annet, fjerne eller snu noe
+tankekart: ideer skrives ut fra et sentralt tema i forgreininger, slik at sammenhenger blir synlige",,0,
+kreativ-prosess,concept,Kreativitet og forretningsideer,Kreativ prosess,"Kreativ prosess: en arbeidsmåte i faser for å komme fram til nye og nyttige ideer, typisk forberedelse (forstå problemet), idéutvikling, vurdering og valg, og utprøving. Fasene veksler mellom divergent og konvergent tenkning, og man går ofte tilbake til en tidligere fase.",divergent-konvergent,0,
+designtenkning,concept,Kreativitet og forretningsideer,Designtenkning,"Designtenkning: en kreativ prosess som tar utgangspunkt i brukeren, med fasene empati (forstå brukeren), definere problemet, idéutvikling, lage prototype og teste. Man går fram og tilbake mellom fasene etter hva testene viser.",kreativ-prosess,0,
+gjennomfore-idemyldring,skill,Kreativitet og forretningsideer,Lede en idémyldring,"planlegge og lede en idémyldring med en valgt kreativitetsteknikk, holde idéutvikling og vurdering atskilt, og sortere ideene etterpå.",kreativitetsteknikker;divergent-konvergent,0,
+kundebehov,concept,Kreativitet og forretningsideer,Kundebehov,"Kundebehov: noe en gruppe mennesker eller virksomheter mangler, eller ønsker å oppnå, og som de er villige til å bruke penger eller tid på å få løst. Et behov kan være uttalt eller ikke ennå oppdaget av kunden selv.",,0,
+finne-muligheter,skill,Kreativitet og forretningsideer,Finne muligheter for forretningsideer,"finne muligheter for nye forretningsideer i egne erfaringer, i problemer folk har, i trender og ny teknologi og i endringer i samfunnet, og knytte hver mulighet til et kundebehov.",kundebehov,0,
+forretningside,concept,Kreativitet og forretningsideer,Forretningsidé,"Forretningsidé: en kort beskrivelse av hva virksomheten skal tilby, til hvem, hvilket behov det dekker, og hvorfor kundene skal velge akkurat denne virksomheten framfor andre.",kundebehov,0,
+formulere-forretningside,skill,Kreativitet og forretningsideer,Formulere en forretningsidé,"formulere en forretningsidé som svarer tydelig på hva, til hvem, hvilket behov og hvorfor oss.",forretningside;finne-muligheter,0,
+vurdere-forretningsideer,skill,Kreativitet og forretningsideer,Vurdere og velge mellom forretningsideer,"vurdere flere forretningsideer etter kriterier som marked, mulig lønnsomhet, gjennomførbarhet, egen kompetanse og bærekraft, og velge og begrunne den som bør gå videre.",formulere-forretningside;gjennomfore-idemyldring,0,
+sammenligne-kreative-prosesser,skill,Kreativitet og forretningsideer,Utforske og sammenligne kreative prosesser,"bruke to ulike kreative prosesser på samme utfordring, og vurdere hva hver av dem fikk fram og hvilken som passet best.",kreativ-prosess;designtenkning;gjennomfore-idemyldring,0,
+innovasjon,concept,Innovasjon og samhandling,Innovasjon,"Innovasjon: en ny eller vesentlig forbedret vare, tjeneste, prosess eller måte å organisere eller selge på, som er tatt i bruk og skaper verdi. En oppfinnelse eller idé er ikke en innovasjon før den er tatt i bruk.",verdiskaping,0,
+innovasjonstyper,concept,Innovasjon og samhandling,Typer innovasjon,"Produktinnovasjon: en ny eller forbedret vare eller tjeneste.
+Prosessinnovasjon: en ny eller forbedret måte å produsere eller levere på.
+Markedsinnovasjon: en ny måte å selge, prise, distribuere eller markedsføre på.
+Organisasjonsinnovasjon: en ny måte å organisere arbeidet eller samarbeidet med andre på.",innovasjon,0,
+inkrementell-radikal,concept,Innovasjon og samhandling,Inkrementell og radikal innovasjon,"Inkrementell innovasjon: små, stegvise forbedringer av noe som finnes fra før.
+Radikal innovasjon: noe grunnleggende nytt som endrer et marked eller en hel bransje.",innovasjon,0,
+klassifisere-innovasjon,skill,Innovasjon og samhandling,Klassifisere en innovasjon,"avgjøre hvilken type innovasjon et konkret eksempel er, og om den er inkrementell eller radikal, og begrunne svaret.",innovasjonstyper;inkrementell-radikal,0,
+innovasjonsprosess,concept,Innovasjon og samhandling,Innovasjonsprosess,"Innovasjonsprosess: veien fra idé til en løsning som er tatt i bruk, i faser som idé, utvikling, testing og lansering. Prosessen er sjelden rettlinjet: tester sender en ofte tilbake til en tidligere fase.",innovasjon;kreativ-prosess,0,
+lean-startup,concept,Innovasjon og samhandling,Lean startup,"Lean startup: en innovasjonsprosess i raske runder av bygg – mål – lær, der antakelser om kundene testes så tidlig og billig som mulig.
+Minimum levedyktig produkt (MVP): den enkleste utgaven av et produkt som ekte kunder kan bruke eller kjøpe, laget for å lære hva de faktisk vil ha.
+Pivot: å endre retning på en del av forretningsideen når testene viser at en antakelse var feil.",innovasjonsprosess,0,
+teste-ide-med-kunder,skill,Innovasjon og samhandling,Teste en antakelse på ekte kunder,"formulere en antakelse om forretningsideen som kan testes, teste den på mulige kunder med intervju eller en enkel prototype, og trekke en ærlig konklusjon av resultatet.",lean-startup;primaer-sekundaerdata;formulere-forretningside,0,
+bruke-innovasjonsprosess,skill,Innovasjon og samhandling,Bruke en innovasjonsprosess ved etablering,"føre en forretningsidé gjennom en innovasjonsprosess fra idé til et testet tilbud, og dokumentere hva hver runde lærte deg og hva du endret.",teste-ide-med-kunder;innovasjonsprosess,0,
+nettverk-klynge,concept,Innovasjon og samhandling,Nettverk og klynge,"Nettverk: relasjoner til personer og virksomheter som kan gi kunnskap, kontakter, kunder eller kapital.
+Klynge: en samling virksomheter, forskningsmiljøer og andre aktører i samme bransje eller region som både samarbeider og konkurrerer, og som lærer av hverandre.",,0,
+trippel-helix,concept,Innovasjon og samhandling,Trippel helix,"Trippel helix: samspillet mellom næringsliv, forsknings- og utdanningsinstitusjoner og offentlige myndigheter, som til sammen driver fram innovasjon i et område.",nettverk-klynge,0,
+apen-innovasjon,concept,Innovasjon og samhandling,Åpen innovasjon,"Åpen innovasjon: at en virksomhet henter ideer og kunnskap fra kunder, leverandører, forskere og andre utenfor egen organisasjon, og deler noe av sitt eget, i stedet for å utvikle alt alene.",innovasjon,0,
+vurdere-samhandling,skill,Innovasjon og samhandling,Vurdere hvordan samhandling påvirker innovasjon,"utforske hvordan samarbeid med kunder, leverandører, andre virksomheter, forskningsmiljøer og det offentlige har bidratt til en konkret innovasjon, og vurdere fordeler og ulemper ved å samarbeide framfor å utvikle alene.",apen-innovasjon;trippel-helix;klassifisere-innovasjon,0,
+forretningsmodell,concept,Forretningsmodell og bærekraft,Forretningsmodell,"Forretningsmodell: en beskrivelse av hvordan en virksomhet skaper verdi for kundene, leverer den, og tar betalt for den slik at virksomheten kan leve av det.",forretningside;verdiskaping,0,
+verdiforslag,concept,Forretningsmodell og bærekraft,Verdiforslag,"Verdiforslag: det samlede tilbudet som løser et problem eller dekker et behov for en bestemt kundegruppe, og som er grunnen til at kundene velger virksomheten framfor alternativene.",kundebehov,0,
+forretningsmodellerret,concept,Forretningsmodell og bærekraft,Forretningsmodellerretten,"Forretningsmodellerretten (Business Model Canvas): en modell som beskriver en forretningsmodell med ni byggeklosser: kundesegmenter, verdiforslag, kanaler, kunderelasjoner, inntektsstrømmer, nøkkelressurser, nøkkelaktiviteter, nøkkelpartnere og kostnadsstruktur.",forretningsmodell;verdiforslag;fagmodell,0,
+inntektsmodeller,fact,Forretningsmodell og bærekraft,Inntektsmodeller,"engangssalg: kunden betaler én gang for hver vare eller tjeneste
+abonnement: kunden betaler et fast beløp per periode
+freemium: grunnversjonen er gratis, og kunden betaler for mer
+provisjon: virksomheten tar en andel av en handel den formidler
+reklamefinansiering: brukerne får tilbudet gratis, og annonsører betaler
+utleie: kunden betaler for å bruke noe en periode uten å eie det",,0,
+lage-forretningsmodell,skill,Forretningsmodell og bærekraft,Utvikle en forretningsmodell,"utvikle en forretningsmodell for en forretningsidé ved å fylle ut alle de ni byggeklossene i forretningsmodellerretten, og kontrollere at de henger sammen.",forretningsmodellerret;inntektsmodeller;formulere-forretningside,0,
+baerekraft,concept,Forretningsmodell og bærekraft,Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker behovene i dag uten å ødelegge mulighetene for at kommende generasjoner kan dekke sine. Den har tre dimensjoner som henger sammen: miljømessig, sosial og økonomisk bærekraft.",,0,
+trippel-bunnlinje,concept,Forretningsmodell og bærekraft,Trippel bunnlinje,"Trippel bunnlinje: å vurdere en virksomhets resultat på tre områder, økonomisk (profit), sosialt (people) og miljømessig (planet), og ikke bare på overskuddet.",baerekraft,0,
+baerekraftsmal,fact,Forretningsmodell og bærekraft,FNs bærekraftsmål,"antall bærekraftsmål: 17
+vedtatt av FN: 2015
+målåret for bærekraftsmålene: 2030
+mål 5: likestilling mellom kjønnene
+mål 8: anstendig arbeid og økonomisk vekst
+mål 9: industri, innovasjon og infrastruktur
+mål 12: ansvarlig forbruk og produksjon
+mål 13: stoppe klimaendringene",baerekraft,0,
+sirkulaer-okonomi,concept,Forretningsmodell og bærekraft,Sirkulær økonomi,"Sirkulær økonomi: et system der produkter og materialer holdes i bruk så lenge som mulig gjennom gjenbruk, reparasjon, deling og gjenvinning.
+Lineær økonomi: det motsatte, der man utvinner, produserer, bruker og kaster.",baerekraft,0,
+vurdere-modell-baerekraft,skill,Forretningsmodell og bærekraft,Vurdere en forretningsmodell opp mot bærekraft,"vurdere en forretningsmodell opp mot alle tre dimensjonene av bærekraft, peke ut hvor de trekker i hver sin retning, og foreslå endringer som gjør modellen mer bærekraftig uten at lønnsomheten forsvinner.",lage-forretningsmodell;trippel-bunnlinje;sirkulaer-okonomi;baerekraftsmal,0,
+marked,concept,Marked og kjøpsatferd,Marked,"Marked: alle nåværende og mulige kjøpere av en type produkt, sammen med dem som tilbyr det.
+Forbrukermarked (B2C): kjøperne er privatpersoner.
+Bedriftsmarked (B2B): kjøperne er andre virksomheter eller det offentlige.",,0,
+markedsundersokelse,concept,Marked og kjøpsatferd,Markedsundersøkelse,"Markedsundersøkelse: systematisk innsamling og analyse av opplysninger om kunder, konkurrenter og markedet, for å ta bedre beslutninger.
+Kvantitativ metode: gir tall fra mange, for eksempel spørreskjema med faste svaralternativer.
+Kvalitativ metode: gir dybde fra få, for eksempel intervju, fokusgruppe eller observasjon.",marked;primaer-sekundaerdata,0,
+lage-sporreundersokelse,skill,Marked og kjøpsatferd,Lage og vurdere en spørreundersøkelse,"lage en spørreundersøkelse med nøytrale og entydige spørsmål og et utvalg som passer målgruppen, og vurdere hvor mye resultatet kan si om hele markedet.",markedsundersokelse,0,
+kjopsatferd,concept,Marked og kjøpsatferd,Kjøpsatferd,"Kjøpsatferd: hvordan og hvorfor kunder velger, kjøper og bruker produkter. Den påvirkes av kulturelle forhold, sosiale forhold (familie, venner, referansegrupper), personlige forhold (alder, økonomi, livsstil) og psykologiske forhold (motivasjon, holdninger, oppfatninger).",marked,0,
+kjopsprosess,concept,Marked og kjøpsatferd,Kjøpsprosessen,"Kjøpsprosessen: fasene en kunde går gjennom ved et kjøp: behovserkjennelse, informasjonssøk, vurdering av alternativer, kjøpet og vurdering etter kjøpet. Ved rutinekjøp og impulskjøp hoppes flere faser over; ved store og sjeldne kjøp brukes alle.",kjopsatferd,0,
+analysere-kjopsatferd,skill,Marked og kjøpsatferd,Analysere kjøpsatferden til en målgruppe,"forklare hvorfor en bestemt målgruppe kjøper som den gjør, med kjøpsprosessen og faktorene som påvirker kjøpsatferd, og si hva det betyr for virksomheten.",kjopsprosess;malgruppe,0,
+segmentering,concept,Marked og kjøpsatferd,Segmentering,"Segmentering: å dele et marked inn i grupper av kunder med like behov eller kjennetegn, slik at hver gruppe kan nås med et tilpasset tilbud. Kriteriene kan være geografiske, demografiske (alder, kjønn, inntekt), psykografiske (livsstil, verdier) eller atferdsmessige (hvor ofte og hvorfor man kjøper).",marked,0,
+malgruppe,concept,Marked og kjøpsatferd,Målgruppe,"Målgruppe: det eller de segmentene virksomheten velger å rette tilbudet sitt mot.",segmentering,0,
+posisjonering,concept,Marked og kjøpsatferd,Posisjonering,"Posisjonering: arbeidet med å gi et produkt en tydelig og ønsket plass i målgruppens bevissthet, sammenlignet med konkurrentenes produkter. Et posisjoneringskart viser dette langs to egenskaper kundene bryr seg om, for eksempel pris og kvalitet.",malgruppe,0,
+segmentere-marked,skill,Marked og kjøpsatferd,Segmentere et marked og velge målgruppe,"dele et konkret marked inn i segmenter med passende kriterier, vurdere hvor attraktivt hvert segment er, og velge og begrunne en målgruppe for en ny virksomhet.",segmentering;malgruppe,0,
+markedsbeslutning,skill,Marked og kjøpsatferd,Ta en beslutning ut fra markedsinformasjon,"sammenligne informasjon fra flere kilder om marked, kjøpsatferd og segmenter, vurdere hvor pålitelig den er, og bruke den til å ta og begrunne en beslutning for en ny virksomhet.",segmentere-marked;analysere-kjopsatferd;lage-sporreundersokelse;bruke-kilder,0,
+interne-eksterne-forhold,concept,Situasjonsanalyse og mål,Interne og eksterne forhold,"Interne forhold: forhold virksomheten selv rår over, som kompetanse, økonomi, produkt og organisering.
+Eksterne forhold: forhold i omgivelsene som virksomheten ikke styrer selv, som kunder, konkurrenter, lover, økonomien og teknologien.",,0,
+swot,concept,Situasjonsanalyse og mål,SWOT-analyse,"SWOT-analyse: en modell som ordner virksomhetens interne styrker (strengths) og svakheter (weaknesses) og de eksterne mulighetene (opportunities) og truslene (threats), som grunnlag for mål og strategi.",interne-eksterne-forhold;fagmodell,0,
+pestel,concept,Situasjonsanalyse og mål,PESTEL-analyse,"PESTEL-analyse: en modell for å kartlegge forhold i samfunnet rundt virksomheten: politiske, økonomiske, sosiokulturelle, teknologiske, miljømessige og juridiske forhold.",interne-eksterne-forhold;fagmodell,0,
+kartlegge-konkurrenter,skill,Situasjonsanalyse og mål,Kartlegge konkurrentene,"kartlegge både direkte konkurrenter (som selger samme type produkt til de samme kundene) og indirekte konkurrenter (som dekker det samme behovet på en annen måte), og sammenligne dem med egen virksomhet.",marked;bruke-kilder,0,
+gjennomfore-swot,skill,Situasjonsanalyse og mål,Gjennomføre en situasjonsanalyse,"gjennomføre en situasjonsanalyse for en ny virksomhet med SWOT og PESTEL, plassere hvert forhold riktig som internt eller eksternt, og trekke ut hva analysen betyr for videre valg.",swot;pestel;kartlegge-konkurrenter,0,
+visjon-mal,concept,Situasjonsanalyse og mål,Visjon og mål,"Visjon: et langsiktig og inspirerende bilde av hva virksomheten vil oppnå.
+Hovedmål: det overordnede resultatet virksomheten skal nå i en periode.
+Delmål: konkrete mål som til sammen fører fram til hovedmålet.",,0,
+smart-mal,concept,Situasjonsanalyse og mål,SMART-mål,"SMART-mål: et mål som er spesifikt, målbart, akseptert, realistisk og tidsbestemt, slik at man i ettertid kan avgjøre om det er nådd.",visjon-mal,0,
+sette-smart-mal,skill,Situasjonsanalyse og mål,Sette mål for oppstartsfasen,"sette mål for oppstartsfasen som oppfyller SMART-kriteriene, og bryte et hovedmål ned i delmål.",smart-mal,0,
+vurdere-utviklingsmuligheter,skill,Situasjonsanalyse og mål,Vurdere utviklingsmuligheter ut fra situasjonsanalysen,"bruke situasjonsanalysen til å vurdere hvilke utviklingsmuligheter en ny virksomhet har, og velge mål som bygger på styrkene og utnytter mulighetene.",gjennomfore-swot;sette-smart-mal,0,
+konkurransemidler,concept,Konkurransemidler,Konkurransemidler (4P),"Konkurransemidler: virkemidlene en virksomhet bruker for å få kundene til å velge den. I 4P-modellen er de produkt, pris, plass (distribusjon) og påvirkning (markedskommunikasjon).
+Tjenester (7P): for tjenester legges personale, prosess og fysiske omgivelser til.",markedsundersokelse,0,
+produktlivssyklus,concept,Konkurransemidler,Produktlivssyklusen,"Produktlivssyklusen: fasene et produkt går gjennom i markedet: introduksjon, vekst, metning og nedgang. Salg, konkurranse og hvilke konkurransemidler som virker best, endrer seg fra fase til fase.",konkurransemidler,0,
+prisstrategi,concept,Konkurransemidler,Prisstrategi ved lansering,"Skumming: å starte med en høy pris mot kundene som er villige til å betale mest, og senke den senere.
+Penetrasjonspris: å starte med en lav pris for raskt å få mange kunder og en stor markedsandel.",konkurransemidler,0,
+distribusjon,concept,Konkurransemidler,Direkte og indirekte distribusjon,"Direkte distribusjon: virksomheten selger direkte til sluttkunden, for eksempel i egen nettbutikk.
+Indirekte distribusjon: varen går gjennom mellomledd, som grossist, butikkjede eller en digital plattform.",konkurransemidler,0,
+markedskommunikasjon,concept,Konkurransemidler,Markedskommunikasjon,"Markedskommunikasjon: all kommunikasjon en virksomhet bruker for å påvirke kundene: reklame, personlig salg, PR, salgsfremmende tiltak og innhold i sosiale medier.
+AIDA: en modell for budskap som skal vekke oppmerksomhet (attention), interesse (interest), lyst (desire) og handling (action).",konkurransemidler,0,
+markedsforingsloven,concept,Konkurransemidler,Regler for markedsføring,"Markedsføringsloven: markedsføring skal ikke være villedende eller urimelig, og reklame skal tydelig gå fram som reklame, også i sosiale medier.
+Samtykkekravet: reklame på e-post eller SMS til privatpersoner krever som hovedregel at mottakeren har sagt ja på forhånd.",markedskommunikasjon,0,
+velge-konkurransemidler,skill,Konkurransemidler,Sette sammen konkurransemidlene for en ny virksomhet,"velge og sette sammen produkt, pris, distribusjon og markedskommunikasjon for en ny virksomhet slik at de passer målgruppen, posisjoneringen og introduksjonsfasen, og holder seg innenfor reglene for markedsføring.",produktlivssyklus;prisstrategi;distribusjon;markedsforingsloven;posisjonering;segmentere-marked,0,
+selskapsform,concept,Selskapsformer og etablering,Selskapsform,"Selskapsform (organisasjonsform): den juridiske formen en virksomhet registreres i. Den avgjør hvem som eier virksomheten, hvem som hefter for gjelden, hvordan overskuddet skattlegges og hvilke plikter virksomheten har.",,0,
+juridisk-person,concept,Selskapsformer og etablering,Juridisk person,"Juridisk person: en virksomhet som er et eget rettssubjekt atskilt fra eierne. Den kan eie ting, inngå avtaler og ha gjeld i eget navn. Et aksjeselskap er en juridisk person; et enkeltpersonforetak er det ikke, der er eieren og virksomheten den samme.",selskapsform,0,
+ansvarsformer,concept,Selskapsformer og etablering,Ansvar for gjelden,"Ubegrenset ansvar: eieren hefter med hele sin private formue for virksomhetens gjeld.
+Begrenset ansvar: eierne kan høyst tape det de har skutt inn; selskapet selv hefter for gjelden.
+Solidarisk ansvar: hver deltaker kan kreves for hele gjelden og må selv kreve resten tilbake fra de andre.
+Delt ansvar: hver deltaker hefter bare for sin egen andel av gjelden.",selskapsform,0,
+selskapsformer,fact,Selskapsformer og etablering,Selskapsformene,"ENK (enkeltpersonforetak): én eier med ubegrenset personlig ansvar, og ingen krav til startkapital
+ANS (ansvarlig selskap): to eller flere deltakere med ubegrenset og solidarisk ansvar
+DA (selskap med delt ansvar): to eller flere deltakere med ubegrenset, men delt ansvar etter eierandel
+AS (aksjeselskap): eierne har begrenset ansvar, og aksjekapitalen må være minst 30 000 kroner
+ASA (allmennaksjeselskap): eierne har begrenset ansvar, aksjekapitalen må være minst 1 million kroner, og aksjene kan omsettes på børs
+SA (samvirkeforetak): eies av medlemmene, for eksempel kunder eller produsenter, og medlemmene har begrenset ansvar
+NUF (norskregistrert utenlandsk foretak): den norske avdelingen av et foretak som er registrert i et annet land",ansvarsformer;juridisk-person,0,
+skatt-enk-as,concept,Selskapsformer og etablering,Skatt i enkeltpersonforetak og aksjeselskap,"Skatt i ENK: overskuddet skattlegges som personinntekt hos eieren, med trygdeavgift og trinnskatt i tillegg til skatt på alminnelig inntekt.
+Skatt i AS: selskapet betaler skatt på overskuddet (22 % i 2026), og eieren betaler i tillegg skatt på lønn eller utbytte hun tar ut av selskapet.",selskapsformer,0,
+mva,concept,Selskapsformer og etablering,Merverdiavgift,"Merverdiavgift (MVA): en avgift til staten på salg av de fleste varer og tjenester. Den registrerte virksomheten legger avgiften på salgsprisen (utgående MVA), trekker fra avgiften den selv har betalt på innkjøp (inngående MVA), og betaler forskjellen til staten. Det er derfor sluttkunden som bærer avgiften.",,0,
+mva-satser,fact,Selskapsformer og etablering,Merverdiavgift: satser og grense (2026),"alminnelig sats: 25 %
+mat og drikke (næringsmidler): 15 %
+persontransport, overnatting, kino og en del kultur- og idrettsarrangementer: 12 %
+bøker og aviser: 0 % (fritatt, men virksomheten får trekke fra inngående MVA)
+helsetjenester, undervisning og finansielle tjenester: unntatt (ingen MVA, og ingen fradrag for inngående MVA)
+grensen for å registrere seg i Merverdiavgiftsregisteret: 50 000 kroner i avgiftspliktig salg i løpet av 12 måneder",mva,0,
+registre-plikter,fact,Selskapsformer og etablering,Registrering og plikter ved etablering,"Enhetsregisteret: alle virksomheter registreres her og får et organisasjonsnummer
+Foretaksregisteret: AS, ASA, ANS og DA må registreres her; et ENK må registreres hvis det driver handel eller har flere enn fem ansatte
+Merverdiavgiftsregisteret: virksomheten må registreres når avgiftspliktig salg passerer 50 000 kroner i løpet av 12 måneder
+Altinn: nettportalen der virksomheten registreres og leverer meldinger til det offentlige
+bokføringsplikt: alle næringsdrivende må dokumentere og bokføre inntekter og kostnader
+revisjonsplikt i et AS: selskapet kan velge bort revisor når driftsinntektene er under 7 millioner kroner, balansen er under 27 millioner kroner og det har høyst 10 årsverk",mva-satser;selskapsformer,0,
+vurdere-selskapsform,skill,Selskapsformer og etablering,Velge selskapsform for en ny virksomhet,"sammenligne selskapsformene etter ansvar, risiko, krav til kapital, skatt og administrative plikter, og velge og begrunne en selskapsform for en konkret ny virksomhet.",selskapsformer;skatt-enk-as,0,
+etableringsplikter,skill,Selskapsformer og etablering,Gjøre rede for hva som må på plass ved etablering,"gjøre rede for hva en bestemt ny virksomhet må ordne før og like etter oppstart: registrering, merverdiavgift, regnskap og bokføring, forsikring og eventuelle tillatelser.",registre-plikter;vurdere-selskapsform,0,
+ledelse,concept,Ledelse og team,Ledelse,"Ledelse: å påvirke andre til å arbeide mot felles mål.
+Lederoppgaver: å planlegge, organisere, motivere og samordne, og kontrollere at målene nås.",,0,
+indre-ytre-motivasjon,concept,Ledelse og team,Indre og ytre motivasjon,"Indre motivasjon: lysten til å gjøre noe fordi oppgaven i seg selv oppleves som meningsfull, interessant eller mestringsgivende.
+Ytre motivasjon: lysten til å gjøre noe for en belønning utenfra, som lønn, bonus eller ros, eller for å unngå straff.",ledelse,0,
+team,concept,Ledelse og team,Team,"Team: en liten gruppe med kompetanse som utfyller hverandre, som arbeider mot et felles mål og deler ansvaret for resultatet. En gruppe som bare arbeider side om side, er ikke et team.",,0,
+belbin,fact,Ledelse og team,Belbins teamroller,"idéskaper (plant): kreativ og kommer med nye ideer, men kan overse detaljer
+ressursutforsker: finner kontakter og muligheter utenfor gruppen
+koordinator: avklarer mål og fordeler oppgavene
+pådriver: presser på og holder tempoet oppe
+analysator: vurderer forslag nøkternt og kritisk
+lagspiller: tar vare på samarbeidet og stemningen i gruppen
+iverksetter: gjør planer om til praktiske oppgaver
+fullfører: passer på kvalitet, detaljer og frister
+spesialist: bidrar med dyp fagkunnskap på ett område",team,0,
+tuckman,concept,Ledelse og team,Fasene i teamutvikling,"Tuckmans faser: et team går typisk gjennom forming (høflig og usikker start), storming (uenighet om roller og arbeidsmåter), norming (felles regler og tillit), performing (effektivt samarbeid) og til slutt avslutning.",team,0,
+sette-sammen-team,skill,Ledelse og team,Sette sammen et team for en ny virksomhet,"sette sammen et team for en ny virksomhet ut fra hvilken kompetanse og hvilke teamroller oppgavene krever, og begrunne sammensetningen.",belbin;etableringsplikter,0,
+handtere-teamfase,skill,Ledelse og team,Lede et team gjennom utviklingsfasene,"avgjøre hvilken fase et team er i ut fra en beskrivelse av hvordan det fungerer, og foreslå hva lederen bør gjøre i den fasen.",tuckman;ledelse,0,
+reflektere-god-leder,skill,Ledelse og team,Reflektere over god ledelse i etableringsfasen,"reflektere over hva som kjennetegner en god leder i etableringsfasen, og hvordan leder og medarbeidere samhandler og motiverer hverandre for å bli et godt team.",indre-ytre-motivasjon;sette-sammen-team;handtere-teamfase,0,
+kostnadstyper,concept,Pris og kostnader,Faste og variable kostnader,"Faste kostnader: kostnader som ikke endrer seg med hvor mye virksomheten produserer og selger, i alle fall på kort sikt, for eksempel husleie.
+Variable kostnader: kostnader som øker med mengden som produseres og selges, for eksempel råvarer og innkjøpte varer.",,0,
+inntekt-innbetaling,concept,Pris og kostnader,Inntekt og innbetaling – kostnad og utbetaling,"Inntekt: verdien av det virksomheten har solgt i en periode, uansett om kunden har betalt ennå.
+Innbetaling: penger som faktisk kommer inn på konto.
+Kostnad: verdien av ressursene som er brukt i en periode for å skape inntektene.
+Utbetaling: penger som faktisk går ut av konto.",,0,
+pasag-avanse,concept,Pris og kostnader,Påslag og avanse,"Påslag: det beløpet som legges på innkjøpsprisen, regnet i prosent av innkjøpsprisen.
+Avanse: det samme beløpet regnet i prosent av salgsprisen uten MVA. Det samme kronebeløpet gir derfor et høyere påslag enn avanse.",kostnadstyper,0,
+beregne-pris-mva,skill,Pris og kostnader,"Regne ut pris med påslag, avanse og MVA","regne ut salgspris uten og med merverdiavgift ut fra innkjøpspris og påslag, regne ut påslag og avanse fra kjente priser, og trekke MVA ut av en pris som er oppgitt med MVA.",pasag-avanse;mva-satser,0,
+prisfastsettelse,concept,Pris og kostnader,Måter å fastsette pris på,"Kostnadsbasert prising: prisen settes ut fra hva produktet koster å lage eller kjøpe inn, pluss et påslag.
+Konkurransebasert prising: prisen settes ut fra hva konkurrentene tar.
+Kundebasert prising: prisen settes ut fra hva kundene er villige til å betale for verdien de får.",pasag-avanse,0,
+dekningsbidrag,concept,Pris og kostnader,Dekningsbidrag,"Dekningsbidrag per enhet: salgspris uten MVA minus variable kostnader per enhet. Det er det hver solgte enhet bidrar med til å dekke de faste kostnadene og gi overskudd.",kostnadstyper,0,
+beregne-nullpunkt,skill,Pris og kostnader,Beregne nullpunktet,"beregne hvor mange enheter og hvor stor omsetning virksomheten må ha for å gå i null (faste kostnader delt på dekningsbidrag per enhet), og forklare hva som skjer med nullpunktet når pris eller kostnader endres.",dekningsbidrag,0,
+beregne-vurdere-pris,skill,Pris og kostnader,Beregne og vurdere prisen for et nytt produkt,"beregne en pris ut fra kostnader og ønsket påslag, vurdere den opp mot konkurrentenes priser, kundenes betalingsvilje og nullpunktet, og velge og begrunne en pris.",beregne-pris-mva;prisfastsettelse;beregne-nullpunkt;prisstrategi,0,
+anleggs-omlopsmidler,concept,Kapitalbehov og budsjett,Anleggsmidler og omløpsmidler,"Anleggsmidler: eiendeler virksomheten skal bruke over lang tid, som maskiner, inventar, datautstyr og biler.
+Omløpsmidler: eiendeler som skifter raskt, som varelager, kundefordringer og penger i bank.",,0,
+kapitalbehov,concept,Kapitalbehov og budsjett,Kapitalbehov,"Kapitalbehov: hvor mye penger som trengs for å starte virksomheten og drive den fram til den tjener nok selv. Det består av kapitalbehov til anleggsmidler og kapitalbehov til omløpsmidler, som varelager, kundefordringer og en buffer for oppstartsperioden.",anleggs-omlopsmidler,0,
+beregne-kapitalbehov,skill,Kapitalbehov og budsjett,Beregne kapitalbehovet for en ny virksomhet,"sette opp og beregne kapitalbehovet for en ny virksomhet, fordelt på anleggsmidler og omløpsmidler, med en begrunnet buffer for oppstartsperioden.",kapitalbehov,0,
+avskrivning,concept,Kapitalbehov og budsjett,Avskrivning,"Avskrivning: at kostnaden ved et anleggsmiddel fordeles over årene det brukes, i stedet for at hele beløpet føres som kostnad det året det kjøpes. Avskrivningen er en kostnad, men ingen utbetaling.",anleggs-omlopsmidler;inntekt-innbetaling,0,
+resultatbudsjett,concept,Kapitalbehov og budsjett,Resultatbudsjett,"Resultatbudsjett: en oversikt over forventede inntekter og kostnader i en periode, som viser om virksomheten ventes å gå med overskudd eller underskudd.",inntekt-innbetaling,0,
+likviditetsbudsjett,concept,Kapitalbehov og budsjett,Likviditetsbudsjett,"Likviditetsbudsjett: en oversikt over forventede innbetalinger og utbetalinger, ofte måned for måned, som viser om virksomheten har nok penger til å betale regningene når de forfaller.",inntekt-innbetaling,0,
+lage-resultatbudsjett,skill,Kapitalbehov og budsjett,Sette opp et resultatbudsjett,"sette opp et resultatbudsjett for en ny virksomhet med begrunnede anslag for salg og kostnader, inkludert avskrivninger, og regne ut forventet resultat.",resultatbudsjett;avskrivning;kostnadstyper,0,
+lage-likviditetsbudsjett,skill,Kapitalbehov og budsjett,Sette opp et likviditetsbudsjett,"sette opp et likviditetsbudsjett måned for måned for en ny virksomhet, med tidspunktet for når kundene betaler og når regningene skal betales, og finne ut i hvilke måneder det blir for lite penger.",likviditetsbudsjett;beregne-kapitalbehov,0,
+resultat-vs-likviditet,skill,Kapitalbehov og budsjett,Forklare forskjellen på resultat og likviditet,"forklare med et konkret eksempel hvordan en virksomhet kan gå med overskudd og likevel gå tom for penger, og hvordan den kan ha penger på konto og likevel gå med underskudd.",lage-resultatbudsjett;lage-likviditetsbudsjett,0,
+egenkapital-gjeld,concept,Finansiering og risiko,Egenkapital og fremmedkapital,"Egenkapital: penger eierne selv har skutt inn i virksomheten, eller overskudd som er blitt stående i den.
+Fremmedkapital (gjeld): lånt kapital som skal betales tilbake, som regel med renter.",anleggs-omlopsmidler,0,
+finansieringsformer,concept,Finansiering og risiko,Måter å finansiere en ny virksomhet på,"Egne midler: eierens sparepenger, eventuelt med penger fra familie og venner.
+Banklån: lån som skal betales tilbake med renter, og som banken som regel krever sikkerhet for.
+Leverandørkreditt: at leverandøren gir virksomheten tid til å betale for varene.
+Engleinvestor: en privatperson som skyter inn penger og ofte erfaring mot en eierandel.
+Folkefinansiering (crowdfunding): mange små bidrag fra folk flest, ofte via en nettplattform, som gave, forhåndskjøp, lån eller eierandel.
+Offentlige tilskudd: penger fra for eksempel Innovasjon Norge eller kommunale næringsfond, som ikke skal betales tilbake hvis vilkårene følges.",egenkapital-gjeld,0,
+risiko,concept,Finansiering og risiko,Forretningsrisiko og finansiell risiko,"Forretningsrisiko: faren for at virksomheten taper penger fordi salg eller kostnader blir annerledes enn planlagt.
+Finansiell risiko: risikoen som følger av å ha gjeld, fordi renter og avdrag må betales uansett hvordan det går.",egenkapital-gjeld,0,
+sikkerhet-kausjon,concept,Finansiering og risiko,Sikkerhet og kausjon,"Sikkerhet (pant): en eiendel långiveren kan ta og selge hvis lånet ikke blir betalt.
+Kausjon: et løfte fra en person om å betale lånet hvis låntakeren ikke gjør det. Kausjonerer eieren for et lån til sitt eget AS, hefter hun personlig for det lånet til tross for at selskapet har begrenset ansvar.",ansvarsformer,0,
+vurdere-finansiering,skill,Finansiering og risiko,Vurdere finansieringen av en ny virksomhet,"vurdere ulike måter å finansiere kapitalbehovet til en ny virksomhet på ut fra kostnad, kontroll over virksomheten, risiko og personlig ansvar, og sette sammen og begrunne en finansieringsplan.",finansieringsformer;risiko;sikkerhet-kausjon;beregne-kapitalbehov;vurdere-selskapsform,0,
+regnskap,concept,Regnskap og lønnsomhet,Resultatregnskap og balanse,"Resultatregnskap: viser inntektene, kostnadene og resultatet i en periode, trinnvis som driftsresultat, resultat før skatt og årsresultat.
+Balanse: viser eiendelene og hvordan de er finansiert med egenkapital og gjeld, på et bestemt tidspunkt. Eiendeler er alltid lik egenkapital pluss gjeld.",resultatbudsjett;egenkapital-gjeld,0,
+lese-regnskap,skill,Regnskap og lønnsomhet,Lese et årsregnskap,"finne driftsinntekter, driftsresultat, resultat før skatt, årsresultat, egenkapital, gjeld og totalkapital i et årsregnskap, og forklare hva hvert av tallene forteller.",regnskap,0,
+lonnsomhet-likviditet-soliditet,concept,Regnskap og lønnsomhet,"Lønnsomhet, likviditet og soliditet","Lønnsomhet: hvor godt virksomheten forrenter kapitalen som er brukt. Et overskudd i kroner sier lite før det ses i forhold til kapitalen eller omsetningen.
+Likviditet: evnen til å betale regningene når de forfaller.
+Soliditet: evnen til å tåle underskudd uten å gå konkurs, målt med hvor stor del av kapitalen som er egenkapital.",regnskap,0,
+nokkeltall,fact,Regnskap og lønnsomhet,Nøkkeltall: formler,"totalkapitalrentabilitet: (driftsresultat + finansinntekter) / gjennomsnittlig totalkapital × 100 %
+egenkapitalrentabilitet: resultat før skatt / gjennomsnittlig egenkapital × 100 %
+resultatgrad (driftsmargin): driftsresultat / driftsinntekter × 100 %
+likviditetsgrad 1: omløpsmidler / kortsiktig gjeld, og bør helst være over 2
+likviditetsgrad 2: (omløpsmidler − varelager) / kortsiktig gjeld, og bør helst være over 1
+egenkapitalandel: egenkapital / totalkapital × 100 %",lonnsomhet-likviditet-soliditet,0,
+beregne-nokkeltall,skill,Regnskap og lønnsomhet,Beregne nøkkeltall fra et regnskap,"beregne totalkapitalrentabilitet, egenkapitalrentabilitet, resultatgrad, likviditetsgrad og egenkapitalandel fra et gitt årsregnskap.",nokkeltall;lese-regnskap,0,
+vurdere-lonnsomhet,skill,Regnskap og lønnsomhet,Vurdere lønnsomheten til en virksomhet,"tolke nøkkeltall for en virksomhet over flere år, eller sammenlignet med bransjen, vurdere om den er lønnsom og solid, og foreslå mulige forklaringer på utviklingen.",beregne-nokkeltall;resultat-vs-likviditet,0,
+forretningsplan,concept,Fra plan til oppstart,Forretningsplan,"Forretningsplan (etableringsplan): et dokument som samler forretningsidé, markedsanalyse, mål, forretningsmodell, markedsplan, organisering og budsjetter. Den brukes både til å planlegge og til å overbevise långivere, investorer og samarbeidspartnere.",forretningsmodell,0,
+skrive-forretningsplan,skill,Fra plan til oppstart,Lage en forretningsplan for en ny virksomhet,"lage en forretningsplan der idé, marked, forretningsmodell, mål, konkurransemidler, selskapsform, team, budsjetter og finansiering henger sammen, og vurdere planen kritisk med tanke på risiko og bærekraft.",forretningsplan;vurdere-modell-baerekraft;markedsbeslutning;vurdere-utviklingsmuligheter;velge-konkurransemidler;vurdere-finansiering;beregne-vurdere-pris;reflektere-god-leder,0,
+pitch,skill,Fra plan til oppstart,Presentere forretningsideen i en pitch,"presentere forretningsideen i en kort pitch tilpasset mottakeren, enten det er en investor, en bank eller en jury, med problemet, løsningen, markedet, inntektene og hva du ber om.",lage-forretningsmodell;markedsbeslutning,0,
+vurdere-entreprenoriell-kompetanse,skill,Fra plan til oppstart,Vurdere betydningen av entreprenøriell kompetanse,"reflektere over hvilken entreprenøriell kompetanse som trengs for å lykkes med en oppstart, vise med eksempler hvordan den påvirker utviklingen av en virksomhet, og vurdere egne sterke sider og hva du må utvikle videre.",entreprenoriell-kompetanse;skrive-forretningsplan,0,

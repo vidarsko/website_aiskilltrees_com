@@ -1,0 +1,189 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Kilder og fagteori;Internasjonal mediestruktur og mediepolitikk;Nyheter i et internasjonalt perspektiv;Mediemakt og informasjonskontroll;Ytringsfrihet og ytringsansvar;Medieetikk;Journalistrollen i endring;Samfunnsdebatt og deltakelse;Mediefortellinger,,,
+,config,,title,Medie- og informasjonskunnskap 2,,,
+,config,,description,"Kilder og fagteori, internasjonal mediestruktur og mediepolitikk, nyheter i et internasjonalt perspektiv, mediemakt og informasjonskontroll, ytringsfrihet og ytringsansvar, medieetikk, journalistrollen i endring, samfunnsdebatt og mediefortellinger — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-medie-informasjonskunnskap-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,medie- og informasjonskunnskap 2 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"bruker «mediene» som om de var én aktør med én vilje, kaller all påvirkning «propaganda» og alt de er uenige i «desinformasjon», blander sammen ytringsfrihet (vern mot staten) og fravær av kritikk fra andre, kaller Vær Varsom-plakaten en lov, eller påstår at mediene «styrer» folk uten å vise hvordan",,,
+,config,,slots.courseSpecifics,"Eleven kan trekkes ut til en skriftlig, sentralt gitt eksamen eller til en lokalt gitt muntlig-praktisk eksamen med forberedelsesdel; privatister har skriftlig eksamen. Øv derfor på å drøfte problemstillinger med fagbegreper, teorier og egne eksempler, både skriftlig og muntlig.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag samfunnsfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"SAM3049, SAM3050",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,media,,,
+,config,,keywords,MIK; medier; mediefag; mediesystemer; pressefrihet; nyhetsbyråer; nyhetsflyt; innramming; mediemakt; propaganda; desinformasjon; påvirkningsoperasjoner; algoritmer; plattformer; ytringsansvar; hatefulle ytringer; medieetikk; Vær Varsom-plakaten; journalistrollen; datajournalistikk; kunstig intelligens; samfunnsdebatt; dagsorden; stereotypier; mediefortellinger,,,
+,config,,updated,2026-10-08,,,
+kildekritikk,concept,Kilder og fagteori,Kildekritikk,"Kildekritikk: å vurdere hva en kilde er verdt før den brukes - hvem avsenderen er, hvilken hensikt avsenderen har, når og hvordan kilden ble til, og om opplysningene kan bekreftes andre steder.",,0,
+problemstilling,concept,Kilder og fagteori,Problemstilling,"Problemstilling: et presist og avgrenset spørsmål som en tekst, en presentasjon eller en undersøkelse skal besvare, formulert slik at det må drøftes med fagbegreper og kilder og ikke kan besvares med ett faktum.",,0,
+medieteori,concept,Kilder og fagteori,Medieteori,"Medieteori: en sammenhengende forklaring på hvordan medier virker - hvordan budskap blir til, spres og tas imot - som kan brukes til å tolke konkrete tilfeller. En teori er et verktøy for å forklare, ikke en fasit.",,0,
+finne-kilder,skill,Kilder og fagteori,Finne kilder fra flere land og språk,"finne relevante kilder til en problemstilling, også fra utenlandske medier, forskningsmiljøer og internasjonale organisasjoner, og velge ut dem som faktisk belyser spørsmålet.",problemstilling,0,
+vurdere-kilde,skill,Kilder og fagteori,Vurdere en kildes troverdighet og relevans,"vurdere en konkret kilde - også statskontrollerte medier, anonyme kontoer, bilder og video - ut fra avsender, hensikt, tid og sammenheng, og avgjøre om og hvordan den kan brukes.",kildekritikk,0,
+bruke-teori-problemstilling,skill,Kilder og fagteori,Bruke faglige teorier til å drøfte en problemstilling,"velge relevante teorier fra faget, bruke dem til å forklare et konkret tilfelle knyttet til problemstillingen, og vurdere hva teoriene får fram og hva de overser.",medieteori;finne-kilder;vurdere-kilde;dagsordenfunksjon;innramming,0,
+mediesystem,concept,Internasjonal mediestruktur og mediepolitikk,Mediesystem,"Mediesystem: samspillet mellom mediene og det politiske og økonomiske systemet i et land - hvem som eier og finansierer mediene, hvor fritt de kan arbeide, og hvilken rolle staten spiller.",,0,
+fire-presseteorier,concept,Internasjonal mediestruktur og mediepolitikk,Fire teorier om pressen,"Autoritær presseteori: mediene skal støtte makthaverne, og staten kontrollerer hva som publiseres.
+Liberal presseteori: mediene skal være frie fra staten, og et fritt marked av ideer skal sørge for sannheten.
+Samfunnsansvarsteorien: mediene er frie, men har et ansvar for å opplyse og slippe ulike stemmer til.
+Sovjetkommunistisk presseteori: mediene er et redskap for partiet og for å bygge det nye samfunnet.",mediesystem,0,
+hallin-mancini,concept,Internasjonal mediestruktur og mediepolitikk,Hallin og Mancinis tre mediesystemer,"Den liberale modellen: markedsstyrte medier og svak statlig regulering, som i USA og Storbritannia.
+Den demokratisk-korporative modellen: sterk og uavhengig presse, høy avislesing, offentlig støtte og sterke allmennkringkastere, som i Norden og Tyskland.
+Den polarisert-pluralistiske modellen: tette bånd mellom medier og politikk og svakere presse, som i Sør-Europa.",mediesystem,0,
+pressefrihet,concept,Internasjonal mediestruktur og mediepolitikk,Pressefrihet,"Pressefrihet: medienes frihet til å søke opplysninger og publisere uten sensur, trusler eller styring fra staten eller andre makthavere. Den bygger på ytringsfriheten.",ytringsfrihet,0,
+pressefrihetsindeks,concept,Internasjonal mediestruktur og mediepolitikk,Pressefrihetsindeksen,"Pressefrihetsindeksen: Reportere uten grensers årlige rangering av pressefriheten i rundt 180 land, basert på blant annet lovverk, politisk press, økonomiske vilkår og vold mot journalister. Norge har ligget øverst i en årrekke.",pressefrihet,0,
+medieglobalisering,concept,Internasjonal mediestruktur og mediepolitikk,Medieglobalisering,"Medieglobalisering: at medieinnhold, medieselskaper og mediebruk i økende grad krysser landegrensene, slik at de samme plattformene, seriene og nyhetene når publikum over hele verden.",mediesystem,0,
+mediekonglomerat,concept,Internasjonal mediestruktur og mediepolitikk,Mediekonglomerat og integrasjon,"Mediekonglomerat: et konsern som eier mange ulike medie- og teknologiselskaper.
+Horisontal integrasjon: å kjøpe opp konkurrenter på samme ledd, for eksempel flere aviser.
+Vertikal integrasjon: å eie flere ledd i kjeden - produksjon, distribusjon og visning.",medieglobalisering,0,
+globale-aktorer,fact,Internasjonal mediestruktur og mediepolitikk,Globale medie- og teknologiaktører,"Alphabet: Google og YouTube
+Meta: Facebook, Instagram og WhatsApp
+ByteDance: TikTok
+Netflix: global strømmetjeneste for film og serier
+Disney: film- og TV-konsern med Disney+
+Reuters, AP og AFP: de store internasjonale nyhetsbyråene",mediekonglomerat,0,
+plattformregulering,concept,Internasjonal mediestruktur og mediepolitikk,Plattformregulering,"Plattformregulering: regler som skal gjøre de store plattformselskapene ansvarlige for innholdet de sprer. EUs forordning om digitale tjenester (Digital Services Act, DSA) fra 2022 krever blant annet at de største plattformene håndterer ulovlig innhold, vurderer risiko og er åpne om hvordan anbefalingssystemene virker.",mediekonglomerat,0,
+sammenligne-mediesystemer,skill,Internasjonal mediestruktur og mediepolitikk,Sammenligne mediesystemer i ulike land,"sammenligne mediesystemet i Norge med mediesystemet i et annet land, ved hjelp av Hallin og Mancinis modeller eller de fire presseteoriene.",hallin-mancini;fire-presseteorier,0,
+beskrive-internasjonal-mediestruktur,skill,Internasjonal mediestruktur og mediepolitikk,Beskrive sentrale trekk ved internasjonal mediestruktur,"beskrive sentrale trekk ved den internasjonale mediestrukturen: globale konsern, eierkonsentrasjon, nyhetsbyråene og plattformenes plass.",globale-aktorer,0,
+forklare-plattformer-nasjonale-medier,skill,Internasjonal mediestruktur og mediepolitikk,Forklare hvordan globale plattformer påvirker nasjonale medier,"forklare hvordan globale plattformer påvirker nasjonale medier - annonseinntekter, distribusjon av nyheter og hvem som bestemmer hva publikum ser - og hvordan land og EU prøver å regulere dem.",beskrive-internasjonal-mediestruktur;plattformregulering,0,
+utforske-pressefrihet,skill,Internasjonal mediestruktur og mediepolitikk,Utforske pressefriheten i et land,"bruke pressefrihetsindeksen og andre kilder til å utforske pressefriheten i et land, og forklare hva som truer den der.",pressefrihetsindeks;finne-kilder,0,
+utforske-mediepolitikk-land,skill,Internasjonal mediestruktur og mediepolitikk,Utforske mediepolitikken i et annet land,"utforske mediepolitikken i et annet land - støtte, regulering, statlig kontroll - og sammenligne den med norsk mediepolitikk.",sammenligne-mediesystemer;utforske-pressefrihet,0,
+drofte-mediesystem-demokrati,skill,Internasjonal mediestruktur og mediepolitikk,"Drøfte sammenhengen mellom mediesystem, ytringsfrihet og demokrati","drøfte sammenhengen mellom mediesystem, ytringsfrihet og demokrati i ulike land, med eksempler fra egen utforsking.",utforske-mediepolitikk-land;forklare-plattformer-nasjonale-medier;grunnloven-100,0,
+nyhetsbyra,concept,Nyheter i et internasjonalt perspektiv,Nyhetsbyrå,"Nyhetsbyrå: et selskap som samler inn nyheter og selger dem videre til mange medier. Fordi mange medier bruker de samme byråene, påvirker byråenes valg hva publikum over hele verden får vite.",,0,
+nyhetsfaktorer,fact,Nyheter i et internasjonalt perspektiv,Galtung og Ruges nyhetsfaktorer,"elitenasjoner: hendelser i mektige land får mer plass
+elitepersoner: hendelser som angår kjente og mektige personer får mer plass
+negativitet: ulykker, konflikter og kriser blir lettere nyheter enn gradvise forbedringer
+kulturell nærhet: det som ligner på eller angår oss selv får mer plass
+personifisering: hendelser forklares gjennom enkeltpersoner framfor strukturer
+uventethet: det overraskende blir lettere en nyhet
+entydighet: hendelser som er lette å forstå blir lettere en nyhet",,0,
+skjev-nyhetsflyt,concept,Nyheter i et internasjonalt perspektiv,Skjev nyhetsflyt,"Skjev nyhetsflyt: at nyheter i hovedsak strømmer fra rike, mektige land til resten av verden, mens land i Sør stort sett kommer i nyhetene ved krig, katastrofer og kriser. Tanken omtales ofte som et forhold mellom sentrum og periferi.",nyhetsfaktorer;nyhetsbyra,0,
+innramming,concept,Nyheter i et internasjonalt perspektiv,Innramming (framing),"Innramming: å velge ut noen sider ved en sak og framheve dem, slik at publikum blir ledet mot en bestemt forståelse av hva problemet er, hvem som har skylden og hva som bør gjøres.",,0,
+etnosentrisme,concept,Nyheter i et internasjonalt perspektiv,Etnosentrisme,"Etnosentrisme: å se og bedømme andre samfunn ut fra sin egen kultur som målestokk. I nyheter viser det seg ofte som et skille mellom «oss» og «de andre».",,0,
+fallskjermjournalistikk,concept,Nyheter i et internasjonalt perspektiv,Fallskjermjournalistikk,"Fallskjermjournalistikk: at journalister sendes inn i et land de kjenner lite, for å dekke en krise i kort tid, og reiser når krisen er over. Det gir lite bakgrunn og avhengighet av noen få kilder.",,0,
+krigsjournalistikk,concept,Nyheter i et internasjonalt perspektiv,Krigsjournalistikk og innebygde journalister,"Krigsjournalistikk: dekning av væpnede konflikter, der tilgangen til området, sikkerheten og partenes propaganda gjør det vanskelig å få fram verifiserte opplysninger.
+Innebygd journalist: en journalist som følger én av partenes militære styrker, og får tilgang mot å godta deres vilkår.",propaganda,0,
+forklare-skjev-nyhetsflyt,skill,Nyheter i et internasjonalt perspektiv,Forklare hvorfor nyhetsbildet av verden blir skjevt,"forklare hvorfor nyhetsbildet av verden blir skjevt, ved hjelp av nyhetsfaktorene, nyhetsbyråenes rolle og fallskjermjournalistikk.",skjev-nyhetsflyt;fallskjermjournalistikk,0,
+analysere-innramming,skill,Nyheter i et internasjonalt perspektiv,Analysere innrammingen av en nyhetssak,"analysere hvordan en nyhetssak er rammet inn - ordvalg, kilder, bilder og hva som er utelatt - og hvilken forståelse innrammingen leder publikum mot.",innramming,0,
+sammenligne-dekning-land,skill,Nyheter i et internasjonalt perspektiv,Sammenligne hvordan medier i ulike land dekker samme hendelse,"sammenligne hvordan medier i ulike land dekker den samme hendelsen, og forklare forskjellene ut fra mediesystem, kulturell nærhet og innramming.",analysere-innramming;hallin-mancini;etnosentrisme,0,
+analysere-utenriksdekning,skill,Nyheter i et internasjonalt perspektiv,Analysere norske mediers dekning av et land i Sør,"analysere hvordan norske medier dekker et land i Sør over tid - hvilke saker, hvilke kilder og hvilke bilder - og vurdere om dekningen gir et dekkende bilde.",forklare-skjev-nyhetsflyt;etnosentrisme,0,
+analysere-nyhetsformidling-internasjonalt,skill,Nyheter i et internasjonalt perspektiv,Analysere nyhetsformidling i et internasjonalt perspektiv,"analysere nyhetsformidlingen om en internasjonal hendelse eller konflikt, og vurdere hvordan nyhetsflyt, mediesystem, innramming og krigens vilkår former det publikum får vite.",sammenligne-dekning-land;analysere-utenriksdekning;krigsjournalistikk,0,
+mediemakt,concept,Mediemakt og informasjonskontroll,Mediemakt,"Dagsordenmakt: makten til å avgjøre hvilke saker folk snakker om.
+Definisjonsmakt: makten til å avgjøre hvordan en sak forstås, gjennom innrammingen.
+Portvoktermakt: makten til å avgjøre hvem som slipper til med sine synspunkter.",dagsordenfunksjon;innramming,0,
+dagsordenfunksjon,concept,Mediemakt og informasjonskontroll,Dagsordenfunksjonen,"Dagsordenfunksjonen: teorien om at mediene ikke så mye bestemmer hva vi mener, som hva vi tenker på og hva vi regner som viktig, gjennom hvilke saker de velger ut og hvor mye plass de får.",,0,
+medialisering,concept,Mediemakt og informasjonskontroll,Medialisering,"Medialisering: at politikk, organisasjoner og andre deler av samfunnet tilpasser seg medienes logikk - korte budskap, konflikt, personer og bilder - for å nå fram.",mediemakt,0,
+sensur,concept,Mediemakt og informasjonskontroll,Sensur og selvsensur,"Sensur: at en myndighet eller en annen makthaver hindrer eller fjerner ytringer før eller etter at de er publisert.
+Selvsensur: at noen lar være å ytre seg av frykt for reaksjoner - straff, hets, tap av jobb eller trusler - uten at noen har forbudt det.",,0,
+propaganda,concept,Mediemakt og informasjonskontroll,Propaganda,"Propaganda: systematisk og ensidig kommunikasjon som skal påvirke holdninger og handlinger i en bestemt retning, ofte ved å spille på følelser, forenkle og skjule motforestillinger. Den brukes særlig av stater i krig og av autoritære regimer.",,0,
+desinformasjon,concept,Mediemakt og informasjonskontroll,Desinformasjon og påvirkningsoperasjoner,"Desinformasjon: uriktige eller villedende opplysninger som spres med vilje, for å påvirke eller skade.
+Påvirkningsoperasjon: en koordinert innsats, ofte fra en stat, for å påvirke opinionen i et annet land, gjerne med skjult avsender.",propaganda,0,
+botter-troll,concept,Mediemakt og informasjonskontroll,"Botter, troll og astroturfing","Bot: en automatisert konto som poster og deler innhold, ofte for å få noe til å se mer populært ut enn det er.
+Troll: en person som bevisst provoserer eller sprer splid i diskusjoner, noen ganger organisert i trollfabrikker.
+Astroturfing: en kampanje som later som den kommer fra vanlige folk, men som er organisert av en skjult aktør.",desinformasjon,0,
+pr-spinn,concept,Mediemakt og informasjonskontroll,PR og spinn,"PR: strategisk kommunikasjon på vegne av en virksomhet, et parti eller en organisasjon, for å fremme avsenderens interesser.
+Spinn: å vri framstillingen av en sak slik at den blir mest mulig gunstig for avsenderen, uten nødvendigvis å si noe som er usant.",,0,
+algoritmestyring,concept,Mediemakt og informasjonskontroll,Algoritmestyring og moderering,"Algoritmestyring: at plattformenes algoritmer avgjør hvilket innhold som blir vist og spredt, ut fra hva som holder på oppmerksomheten.
+Moderering: at plattformen fjerner, skjuler eller merker innhold som bryter reglene dens eller loven.",,0,
+dataokonomi,concept,Mediemakt og informasjonskontroll,Dataøkonomi,"Dataøkonomi: forretningsmodellen der plattformene tilbyr tjenester gratis, samler inn data om hva brukerne gjør, og tjener penger på å selge målrettet annonsering.",algoritmestyring,0,
+syntetisk-innhold,concept,Mediemakt og informasjonskontroll,Syntetisk innhold og deepfakes,"Syntetisk innhold: tekst, bilder, lyd eller video laget med kunstig intelligens.
+Deepfake: syntetisk video eller lyd der en ekte person ser ut til å si eller gjøre noe vedkommende aldri har sagt eller gjort.",,0,
+forklare-mediemakt,skill,Mediemakt og informasjonskontroll,Forklare mediemakt med et konkret eksempel,"forklare hvordan mediene utøvde dagsordenmakt, definisjonsmakt eller portvoktermakt i en konkret sak.",mediemakt,0,
+analysere-propaganda,skill,Mediemakt og informasjonskontroll,Analysere propagandateknikker,"finne propagandateknikker i en konkret tekst eller video - fiendebilder, forenkling, gjentakelse, følelsesappell - og forklare hva de skal oppnå.",propaganda,0,
+analysere-pr-strategi,skill,Mediemakt og informasjonskontroll,Analysere en PR-strategi,"analysere hvordan en virksomhet, et parti eller en organisasjon bruker PR og spinn for å få en sak framstilt slik den ønsker, og hvordan journalister kan avsløre det.",pr-spinn;innramming,0,
+analysere-pavirkningsoperasjon,skill,Mediemakt og informasjonskontroll,Analysere en påvirkningsoperasjon,"analysere en kjent påvirkningsoperasjon eller desinformasjonskampanje: hvem som sto bak, hvilke strategier og kanaler som ble brukt, og hvordan den ble avslørt.",botter-troll;vurdere-kilde,0,
+forklare-teknologi-kontroll,skill,Mediemakt og informasjonskontroll,Forklare hvordan teknologi styrer spredningen av informasjon,"forklare hvordan algoritmer, moderering og datainnsamling styrer hvilken informasjon som blir produsert og spredt, og hvem som tjener på det.",algoritmestyring;dataokonomi,0,
+vurdere-syntetisk-innhold,skill,Mediemakt og informasjonskontroll,Vurdere om et bilde eller en video er ekte,"vurdere om et bilde, en lydfil eller en video kan være laget eller manipulert med kunstig intelligens, ved å se etter spor i innholdet og sjekke opphav og andre kilder.",syntetisk-innhold;vurdere-kilde,0,
+drofte-styring-informasjon,skill,Mediemakt og informasjonskontroll,Drøfte hvordan informasjon styres og kontrolleres,"drøfte hvordan produksjon og distribusjon av informasjon kan styres og kontrolleres av stater, kommersielle interesser og andre aktører, gjennom teknologi, sensur, propaganda og PR.",analysere-propaganda;analysere-pr-strategi;analysere-pavirkningsoperasjon;forklare-teknologi-kontroll;sensur,0,
+drofte-mediemakt,skill,Mediemakt og informasjonskontroll,Drøfte hvor stor makt mediene har,"drøfte hvor stor makt mediene har, ved å sette teorier om sterk mediemakt opp mot motforestillinger som aktive mottakere og konkurranse fra plattformene.",forklare-mediemakt;medialisering;forklare-teknologi-kontroll,0,
+ytringsfrihet,concept,Ytringsfrihet og ytringsansvar,Ytringsfrihet,"Ytringsfrihet: retten til å uttrykke meninger og formidle opplysninger uten å bli straffet eller sensurert av staten for det. Den er vernet i Grunnloven § 100 og i Den europeiske menneskerettskonvensjonen artikkel 10, men er ikke grenseløs.",,0,
+grunnloven-100,fact,Ytringsfrihet og ytringsansvar,Grunnloven § 100 i hovedtrekk,"hovedregelen: Ytringsfrihet skal finne sted
+de tre begrunnelsene for ytringsfriheten: sannhetssøken, demokrati og individets frie meningsdannelse
+forhåndssensur: ikke tillatt, med visse unntak for å beskytte barn og unge mot levende bilder
+innsynsrett: alle har rett til innsyn i statens og kommunenes dokumenter, med lovbestemte unntak
+infrastrukturkravet: statens myndigheter skal legge forholdene til rette for en åpen og opplyst offentlig samtale",ytringsfrihet,0,
+ytringsansvar,concept,Ytringsfrihet og ytringsansvar,Ytringsansvar,"Ytringsansvar: at den som ytrer seg, kan holdes ansvarlig for ytringen - rettslig, når den bryter loven, og moralsk, for hvilke følger den får for andre og for samtalen.",ytringsfrihet,0,
+hatefulle-ytringer,concept,Ytringsfrihet og ytringsansvar,Hatefulle ytringer,"Hatefull ytring: en ytring, fremsatt offentlig eller i nærvær av andre, som truer eller forhåner noen eller fremmer hat eller ringeakt mot noen på grunn av hudfarge, nasjonal eller etnisk opprinnelse, religion, livssyn, seksuell orientering, kjønnsidentitet, kjønnsuttrykk eller nedsatt funksjonsevne. Den er straffbar etter straffeloven § 185.",ytringsansvar,0,
+aerekrenkelse,concept,Ytringsfrihet og ytringsansvar,Ærekrenkelse,"Ærekrenkelse: en ytring som skader en persons gode navn og rykte, for eksempel en uriktig beskyldning om kriminalitet. I Norge er den ikke lenger straffbar, men den som blir krenket, kan kreve erstatning (oppreisning) i retten.",ytringsansvar,0,
+privatlivets-fred,concept,Ytringsfrihet og ytringsansvar,Privatlivets fred,"Privatlivets fred: vernet mot at personlige forhold - helse, familie, seksualitet, økonomi - blir spredt offentlig uten grunn. Krenkelse av privatlivets fred er straffbart etter straffeloven.",ytringsansvar,0,
+redaktoransvar,concept,Ytringsfrihet og ytringsansvar,Redaktøransvar,"Redaktøransvar: at en ansvarlig redaktør i et redaktørstyrt medium bestemmer over og svarer for innholdet. Medieansvarsloven fra 2020 sikrer redaktørens uavhengighet fra eierne og krever at brukerskapt innhold holdes atskilt fra det redaksjonelle.",ytringsansvar,0,
+forklare-rettslige-grenser,skill,Ytringsfrihet og ytringsansvar,Forklare de rettslige grensene for ytringsfriheten,"forklare hvor de rettslige grensene for ytringsfriheten går i Norge - hatefulle ytringer, ærekrenkelser og krenkelse av privatlivets fred - og hvorfor de ble satt.",hatefulle-ytringer;aerekrenkelse;privatlivets-fred;grunnloven-100,0,
+vurdere-ytring,skill,Ytringsfrihet og ytringsansvar,Vurdere om en konkret ytring er vernet,"vurdere om en konkret ytring er vernet av ytringsfriheten eller kan bryte loven, og skille det fra om den er etisk forsvarlig.",forklare-rettslige-grenser,0,
+drofte-plattformansvar,skill,Ytringsfrihet og ytringsansvar,Drøfte hvem som skal sette grensene på plattformene,"drøfte hvem som bør bestemme hva som kan publiseres på de store plattformene - plattformselskapene, statene, EU eller brukerne - og hva det betyr for ytringsfriheten.",plattformregulering;algoritmestyring;redaktoransvar,0,
+drofte-ytringsfrihet-ansvar,skill,Ytringsfrihet og ytringsansvar,Drøfte forholdet mellom ytringsfrihet og ytringsansvar,"drøfte forholdet mellom ytringsfrihet og ytringsansvar, også hvordan hets og selvsensur kan begrense hvem som deltar i samfunnsdebatten.",vurdere-ytring;drofte-plattformansvar;sensur,0,
+etikk-juss,concept,Medieetikk,Etisk norm og lovregel,"Etisk norm: en regel for god oppførsel som bransjen eller en gruppe har satt selv, håndhevet med kritikk og tap av omdømme.
+Lovregel: en regel vedtatt av staten, håndhevet av domstolene med straff eller erstatning.",,0,
+vaer-varsom,concept,Medieetikk,Vær Varsom-plakaten og PFU,"Vær Varsom-plakaten: Norsk Presseforbunds etiske regler for pressen, første gang vedtatt i 1936 og sist revidert med virkning fra 2024.
+PFU: Pressens Faglige Utvalg, som behandler klager og konkluderer med ikke brudd, kritikk eller brudd på god presseskikk. Et medium som er felt, skal publisere uttalelsen.",etikk-juss,0,
+vvp-punkter,fact,Medieetikk,Sentrale punkter i Vær Varsom-plakaten,"kildekritikk: vær kritisk i valg av kilder, og kontroller at opplysningene er riktige
+kildevern: pressen skal ikke røpe hvem som er kilde for opplysninger gitt i fortrolighet
+samtidig imøtegåelse: den som utsettes for sterke beskyldninger, skal få svare så tidlig at svaret kan komme med i samme sak
+privatlivets fred: personlige forhold skal ikke omtales uten at det har allmenn interesse
+identifisering: vær varsom med navn og bilde i saker om lovbrudd, særlig tidlig i saken
+barn: tenk på følgene medieomtalen kan få for barnet, også når foreldrene har sagt ja
+titler og ingresser: skal ikke gå lenger enn teksten gir dekning for
+reklame og journalistikk: kommersielt innhold skal være tydelig skilt fra det redaksjonelle
+skjult metode: kan bare brukes unntaksvis, når det er eneste måte å avdekke forhold av vesentlig samfunnsmessig betydning på",vaer-varsom,0,
+etiske-teorier,concept,Medieetikk,Konsekvensetikk og pliktetikk,"Konsekvensetikk: en handling er riktig hvis den gir de beste følgene for alle som blir berørt.
+Pliktetikk: en handling er riktig hvis den følger en plikt eller et prinsipp - som å fortelle sannheten - uansett følger.",,0,
+etisk-dilemma,concept,Medieetikk,Etisk dilemma,"Etisk dilemma: en situasjon der to verdier eller plikter står mot hverandre, slik at man ikke kan oppfylle begge - for eksempel samfunnets behov for å vite mot hensynet til den som omtales.",etiske-teorier,0,
+drofte-etisk-dilemma-journalistikk,skill,Medieetikk,Drøfte et etisk dilemma i journalistikken,"drøfte et etisk dilemma i en konkret journalistisk sak ved å bruke Vær Varsom-plakaten og etiske teorier, og ta stilling med begrunnelse.",vvp-punkter;etisk-dilemma,0,
+vurdere-etikk-andre-medieuttrykk,skill,Medieetikk,Vurdere etiske problemstillinger i andre medieuttrykk,"vurdere etiske problemstillinger i medieuttrykk som ikke er journalistikk - påvirkerinnhold, reklame, true crime, dokumentar og realityserier - der presseetikken ikke nødvendigvis gjelder.",etisk-dilemma;vvp-punkter,0,
+vurdere-etikk-egen-produksjon,skill,Medieetikk,Vurdere etiske valg i egen medieproduksjon,"vurdere de etiske valgene i egen medieproduksjon - samtykke, framstilling av andre, kildebruk og bruk av kunstig intelligens - og begrunne dem.",etisk-dilemma;etikk-juss,0,
+drofte-etiske-problemstillinger,skill,Medieetikk,Drøfte etiske problemstillinger i medier og egen produksjon,"drøfte etiske problemstillinger i journalistikk, i andre medieuttrykk og i egen medieproduksjon, og sammenligne hvilke regler og hensyn som gjelder hvor.",drofte-etisk-dilemma-journalistikk;vurdere-etikk-andre-medieuttrykk;vurdere-etikk-egen-produksjon,0,
+redaktorstyrt-medium,concept,Journalistrollen i endring,Redaktørstyrt medium,"Redaktørstyrt medium: et medium der en ansvarlig redaktør bestemmer innholdet, uavhengig av eiere, og står ansvarlig for det som publiseres. En profil i sosiale medier er ikke det, selv om den når mange.",,0,
+journalistrolle,concept,Journalistrollen i endring,Journalistrollen,"Journalistrollen: forventningene til hva en journalist skal gjøre i samfunnet - kontrollere makten, informere, forklare sammenhenger og gi stemme til dem som ikke blir hørt - og normene for hvordan det skal gjøres.",redaktorstyrt-medium,0,
+borgerjournalistikk,concept,Journalistrollen i endring,Borgerjournalistikk,"Borgerjournalistikk: at vanlige folk uten journalistisk utdanning dokumenterer og publiserer nyheter, ofte med mobilen fra stedet der noe skjer, uten redaktør og uten presseetisk ansvar.",journalistrolle,0,
+datajournalistikk,concept,Journalistrollen i endring,Datajournalistikk,"Datajournalistikk: journalistikk som henter fram saker ved å samle inn, analysere og visualisere store datamengder, for eksempel offentlige registre eller lekkede dokumenter.",journalistrolle,0,
+klikkjournalistikk,concept,Journalistrollen i endring,Klikkjournalistikk og publikumsdata,"Publikumsdata: målinger av hva publikum leser, klikker på og hvor lenge, som redaksjonene følger i sanntid.
+Klikkjournalistikk: journalistikk der titler og saker velges for å få flest mulig klikk, på bekostning av vesentlighet og presisjon.",journalistrolle,0,
+konstruktiv-journalistikk,concept,Journalistrollen i endring,Konstruktiv journalistikk,"Konstruktiv journalistikk: journalistikk som i tillegg til å avdekke problemer også undersøker mulige løsninger, for å gi publikum et mer fullstendig bilde.",journalistrolle,0,
+ki-journalistikk,concept,Journalistrollen i endring,Kunstig intelligens i journalistikken,"Kunstig intelligens i journalistikken: bruk av KI-verktøy til å transkribere, oversette, oppsummere, analysere data og lage tekst eller bilder. Redaktøren har fortsatt ansvaret for alt som publiseres.",syntetisk-innhold;redaktorstyrt-medium,0,
+digitale-fortellerformer,concept,Journalistrollen i endring,Nye fortellerformer,"Nye fortellerformer: måter å fortelle journalistikk på som digitale medier har gjort mulige - vertikal video, podkast, nyhetsbrev, interaktiv grafikk og scrollende fortellinger der tekst, bilde og grafikk spiller sammen.",,0,
+drofte-journalistrollen,skill,Journalistrollen i endring,Drøfte hvordan medieutviklingen endrer journalistrollen,"drøfte hvilke konsekvenser medieutviklingen har for journalistrollen - konkurranse fra borgerjournalister og påvirkere, publikumsdata, kunstig intelligens og nye fortellerformer.",borgerjournalistikk;klikkjournalistikk;ki-journalistikk;datajournalistikk;konstruktiv-journalistikk,0,
+utforske-ny-fortellerform,skill,Journalistrollen i endring,Utforske en ny journalistisk fortellerform,"analysere en journalistisk sak fortalt i en ny form, og forklare hva formen gjør mulig og hva den gjør vanskelig sammenlignet med en vanlig artikkel.",digitale-fortellerformer,0,
+lage-journalistisk-produksjon-ny-form,skill,Journalistrollen i endring,Lage en journalistisk produksjon i en ny form,"planlegge og lage en journalistisk produksjon i en ny fortellerform, med verifiserte opplysninger, flere kilder og et formvalg som passer saken og målgruppen.",utforske-ny-fortellerform;vvp-punkter,0,
+reflektere-egen-journalistikk,skill,Journalistrollen i endring,Reflektere over nye medier i egen journalistikk,"reflektere over hvordan nye medier og fortellerformer påvirket egen journalistiske produksjon, og vurdere hva som ble bedre og hva som gikk tapt.",lage-journalistisk-produksjon-ny-form;drofte-journalistrollen,0,
+offentlighet,concept,Samfunnsdebatt og deltakelse,Offentligheten,"Offentligheten: arenaen der borgerne diskuterer felles saker åpent, og der meningene som dannes kan legge press på makthaverne. I dag er den splittet på mange kanaler, fra avisenes debattsider til sosiale medier.",,0,
+debattsjangre,concept,Samfunnsdebatt og deltakelse,Debattsjangre,"Debattinnlegg: en kort meningstekst om en aktuell sak, sendt inn av en leser.
+Kronikk: en lengre meningstekst, ofte av en fagperson, som drøfter en sak grundigere.
+Kommentarfelt og sosiale medier: åpne arenaer der alle kan delta, uten redaksjonell kontroll før publisering.",offentlighet,0,
+appellformer,concept,Samfunnsdebatt og deltakelse,"Etos, patos og logos","Etos: overbevisning gjennom avsenderens troverdighet.
+Patos: overbevisning gjennom følelser.
+Logos: overbevisning gjennom fakta og fornuftige argumenter.",,0,
+mediestrategi,concept,Samfunnsdebatt og deltakelse,Mediestrategi,"Mediestrategi: en plan for hvordan en person eller en gruppe skal få et budskap fram - hvilket budskap, til hvilken målgruppe, i hvilke kanaler og med hvilke virkemidler.",dagsordenfunksjon,0,
+skrive-debattinnlegg,skill,Samfunnsdebatt og deltakelse,Skrive et debattinnlegg,"skrive et debattinnlegg om en aktuell sak, med en tydelig påstand, begrunnelser, bruk av appellformer og imøtegåelse av motargumenter.",debattsjangre;appellformer,0,
+analysere-dagsordensetting,skill,Samfunnsdebatt og deltakelse,Analysere hvordan en sak ble satt på dagsordenen,"analysere hvordan en person, en bevegelse eller en organisasjon fikk en sak på dagsordenen, og hvilken rolle redaksjonelle medier og sosiale medier spilte.",dagsordenfunksjon;medialisering,0,
+planlegge-kampanje,skill,Samfunnsdebatt og deltakelse,Planlegge en kampanje for å sette en sak på dagsordenen,"planlegge en kampanje for å sette en egen sak på dagsordenen, med budskap, målgruppe, kanaler og en plan for å nå redaksjonelle medier.",mediestrategi;analysere-dagsordensetting,0,
+vurdere-egne-muligheter,skill,Samfunnsdebatt og deltakelse,Vurdere egne muligheter til å delta og sette dagsorden,"utforske og vurdere egne muligheter til å delta i samfunnsdebatten og sette dagsordenen, og hva som fremmer og hindrer ungdom i å bli hørt.",skrive-debattinnlegg;planlegge-kampanje;drofte-ytringsfrihet-ansvar,0,
+mediefortelling,concept,Mediefortellinger,Mediefortelling,"Mediefortelling: en historie fortalt gjennom et medium - en nyhetssak, en reklamefilm, en dokumentar, en serie eller en TikTok-video - der form og innhold sammen skaper mening.",,0,
+form-innhold,concept,Mediefortellinger,Form og innhold,"Innhold: hva en medietekst handler om og vil formidle.
+Form: hvordan den er laget - sjanger, medium, virkemidler og oppbygning. Formen er ikke innpakning; den påvirker hva innholdet betyr for mottakeren.",mediefortelling,0,
+sjanger,concept,Mediefortellinger,Sjanger,"Sjanger: en gruppe tekster med felles kjennetegn i form og innhold, som skaper forventninger hos publikum. Å bryte sjangerforventningene er selv et virkemiddel.",mediefortelling,0,
+berettermodellen,concept,Mediefortellinger,Berettermodellen,"Berettermodellen: en dramaturgisk modell for hvordan en fortelling bygges opp - anslag, presentasjon, utdyping, point of no return, konfliktopptrapping, klimaks og avslutning - der spenningen stiger mot klimaks.",mediefortelling,0,
+denotasjon-konnotasjon,concept,Mediefortellinger,Denotasjon og konnotasjon,"Denotasjon: det et tegn, et ord eller et bilde viser eller betyr helt bokstavelig.
+Konnotasjon: assosiasjonene og følelsene tegnet vekker, som avhenger av kultur og erfaring.",,0,
+bildeutsnitt,fact,Mediefortellinger,Bildeutsnitt og kameravinkler,"supertotal: viser et stort landskap eller miljø der mennesker er små
+total: viser hele personen i omgivelsene
+halvtotal: viser personen fra knærne og opp
+halvnært: viser personen fra livet og opp
+nært: viser ansiktet og skuldrene
+ultranært (detalj): viser en del av ansiktet eller en gjenstand helt tett
+normalperspektiv: kamera i øyehøyde, nøytralt
+fugleperspektiv: kamera ovenfra, får motivet til å virke lite eller sårbart
+froskeperspektiv: kamera nedenfra, får motivet til å virke stort eller mektig",,0,
+representasjon,concept,Mediefortellinger,Representasjon,"Representasjon: hvordan mediene framstiller en gruppe, et sted eller et fenomen - hvem som blir vist, i hvilke roller og sammenhenger, og hvem som får snakke selv.",,0,
+stereotypi-fordom,concept,Mediefortellinger,Stereotypi og fordom,"Stereotypi: et forenklet og fastlåst bilde av en gruppe, der noen få egenskaper blir stående for alle i gruppa.
+Fordom: en negativ holdning til en gruppe eller et medlem av den, uten grunnlag i kunnskap om personen.",representasjon,0,
+analysere-mediefortelling,skill,Mediefortellinger,Analysere en mediefortelling,"analysere en mediefortelling - oppbygning, sjanger, visuelle og auditive virkemidler, appellformer og symbolbruk - og forklare hvordan den skaper mening.",berettermodellen;bildeutsnitt;denotasjon-konnotasjon;sjanger;appellformer,0,
+reflektere-form-innhold,skill,Mediefortellinger,Reflektere over sammenhengen mellom form og innhold,"sammenligne to ulike mediefortellinger om samme tema, og reflektere over hvordan formen påvirker hva innholdet betyr.",analysere-mediefortelling;form-innhold,0,
+drofte-respekt-stereotypier,skill,Mediefortellinger,"Drøfte hvordan mediefortellinger skaper forståelse eller fordommer","drøfte hvordan mediefortellinger kan skape respekt og forståelse mellom folk og kulturer, men også stereotypier og fordommer, med konkrete eksempler.",reflektere-form-innhold;stereotypi-fordom;etnosentrisme;innramming,0,
+planlegge-egen-fortelling,skill,Mediefortellinger,Planlegge en egen mediefortelling på en ny måte,"planlegge en egen mediefortelling som prøver en ny form eller ny plattform, med målgruppe, sjanger, manus eller dreiebok og plan for rettigheter og samtykker.",reflektere-form-innhold;digitale-fortellerformer,0,
+utvikle-presentere-fortelling,skill,Mediefortellinger,Utvikle og presentere en egen mediefortelling,"utvikle og presentere en egen mediefortelling på en ny måte, og begrunne formvalgene og de etiske valgene for et publikum.",planlegge-egen-fortelling;vurdere-etikk-egen-produksjon,0,

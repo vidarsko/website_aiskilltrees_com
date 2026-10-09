@@ -1,0 +1,197 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Semiotikk;Pragmatikk;Samtale og språklige mønstre;Sosiale og kulturelle faktorer;Diskurs og makt;Kultur og identitet;Interkulturell kommunikasjon;Teknologi og selvrepresentasjon;Multimodal kommunikasjon;Fordypning og kilder,,,
+,config,,title,Kommunikasjon og kultur 3,,,
+,config,,description,"Teorier om diskurs, semiotikk, pragmatikk og kultur, brukt på samtaler, makt, identitet, interkulturell kommunikasjon og selvrepresentasjon på nett — og en egen fordypning i et selvvalgt faglig emne.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-vgs-kommunikasjon-kultur-3-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kommunikasjon og kultur 3 (programfag i språk, samfunnsfag og økonomi, norsk videregående skole)",,,
+,config,,slots.motivationSubject,kommunikasjon og kultur,,,
+,config,,slots.expressionFocus,"kaller alt som påvirker noen for «makt» eller «manipulasjon», bruker «diskurs» som et finere ord for debatt, generaliserer om hele kulturer ut fra én modell, ramser opp teoretikere uten å bruke teorien på eksempelet, eller skriver «symbol» om ethvert tegn",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag språk, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3036,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,communication,,,
+,config,,keywords,kommunikasjon og kultur; semiotikk; Barthes; myte; koding og dekoding; pragmatikk; talehandling; Grice; implikatur; høflighet; ansikt; samtaleanalyse; turtaking; kodeveksling; Bourdieu; kapital; diskurs; makt; hegemoni; hersketeknikker; identitet; andregjøring; interkulturell kommunikasjon; Goffman; selvrepresentasjon; kontekstkollaps; parasosiale relasjoner; fordypning,,,
+,config,,updated,2026-10-08,,,
+tegn,concept,Semiotikk,Tegn,"Semiotikk: læren om tegn og hvordan de skaper mening.
+Tegn: noe som står for noe annet enn seg selv for noen.
+Uttrykk og innhold: tegnets sansbare side og det det betyr, i Ferdinand de Saussures modell.",,0,
+ikon-indeks-symbol,concept,Semiotikk,"Ikon, indeks og symbol","Ikon: et tegn som ligner det det står for.
+Indeks: et tegn som har en årsakssammenheng med det det står for.
+Symbol: et tegn som står for noe fordi vi har avtalt det.",tegn,0,
+kode,concept,Semiotikk,Kode,"Kode: et system av tegn og regler for hvordan de brukes og tolkes, som deles av en gruppe, som et språk, en klesstil eller filmspråket.",tegn,0,
+paradigme-syntagme,concept,Semiotikk,Paradigme og syntagme,"Paradigme: settet av tegn man kan velge mellom på en bestemt plass, som ulike ord eller farger som kunne stått der.
+Syntagme: rekken av tegn som er valgt og satt sammen til en helhet, som en setning eller et bilde.",kode,0,
+denotasjon-konnotasjon,concept,Semiotikk,Denotasjon og konnotasjon,"Denotasjon: det et tegn direkte viser til.
+Konnotasjon: assosiasjonene og verdiene tegnet vekker i en bestemt kultur.",tegn,0,
+myte,concept,Semiotikk,Myte,"Myte: Roland Barthes' begrep for konnotasjoner som er blitt så innarbeidet i en kultur at de virker naturlige og selvsagte, og som dermed formidler verdier uten at de blir lagt merke til.",denotasjon-konnotasjon,0,
+koding-dekoding,concept,Semiotikk,Koding og dekoding,"Koding og dekoding: Stuart Halls modell der avsenderen legger en mening inn i teksten og mottakerne tolker den ut fra sin egen posisjon.
+Foretrukket lesning: mottakeren godtar meningen slik avsenderen la den inn.
+Forhandlet lesning: mottakeren godtar noe og avviser noe.
+Opposisjonell lesning: mottakeren forstår den tiltenkte meningen, men leser teksten mot den.",kode;denotasjon-konnotasjon,0,
+semiotisk-analyse,skill,Semiotikk,Gjøre en semiotisk analyse,"analysere tegnene i et bilde, en reklame eller et kulturuttrykk — hvilke tegn som er brukt, hva de denoterer og konnoterer, og hvilke koder mottakeren må kjenne.",ikon-indeks-symbol;denotasjon-konnotasjon;kode,0,
+bytteprove,skill,Semiotikk,Bruke byttemetoden,"bytte ut ett tegn i en tekst med et annet fra samme paradigme, som en farge, en person eller et ord, og forklare hvordan meningen endrer seg.",paradigme-syntagme;semiotisk-analyse,0,
+avdekke-myter,skill,Semiotikk,Avdekke myter i en tekst,"vise hvilke myter en tekst bygger på, og forklare hvilke verdier de formidler som om de var naturlige.",myte;semiotisk-analyse,0,
+ulike-lesninger,skill,Semiotikk,Forklare hvorfor mottakere leser ulikt,"forklare med Halls modell hvordan ulike mottakere kan lese den samme teksten foretrukket, forhandlet eller opposisjonelt, og hva som gjør utslaget.",koding-dekoding,0,
+pragmatikk,concept,Pragmatikk,Pragmatikk,"Pragmatikk: studiet av språk i bruk — hva ytringer betyr og gjør i en bestemt situasjon, ut over det ordene betyr hver for seg.
+Kontekst: situasjonen, relasjonen og det som er sagt før, som avgjør hva en ytring betyr.",,0,
+deiksis,concept,Pragmatikk,Deiksis,"Deiksis: ord som bare får mening ut fra situasjonen de sies i, som «jeg», «du», «her», «der», «nå» og «i går».",pragmatikk,0,
+talehandling,concept,Pragmatikk,Talehandling,"Talehandling: at vi gjør noe når vi sier noe — lover, ber, advarer, beklager — en teori utviklet av John L. Austin og John Searle.
+Direkte talehandling: formen passer handlingen, som «lukk vinduet».
+Indirekte talehandling: handlingen utføres gjennom en annen form, som «det er kaldt her» brukt som en bønn om å lukke vinduet.",pragmatikk,0,
+samarbeidsprinsippet,concept,Pragmatikk,Samarbeidsprinsippet,"Samarbeidsprinsippet: Paul Grices tanke om at samtalepartnere forventer at den andre bidrar slik samtalen krever.
+Kvantitet: si så mye som trengs, ikke mer.
+Kvalitet: si det du tror er sant.
+Relevans: hold deg til saken.
+Måte: vær klar og ordnet.",pragmatikk,0,
+implikatur,concept,Pragmatikk,Implikatur,"Implikatur: det en ytring formidler ut over det som sies direkte, og som mottakeren slutter seg til, ofte fordi en maksime ser ut til å være brutt, som når «hun har pen håndskrift» i en anbefaling betyr at hun ikke er særlig flink.",samarbeidsprinsippet,0,
+ansikt-hoflighet,concept,Pragmatikk,Ansikt og høflighet,"Ansikt: det selvbildet en person vil bli bekreftet i en samhandling, et begrep fra Erving Goffman.
+Ansiktstruende handling: en ytring som kan krenke selvbildet til den andre, som en kritikk eller en bønn.
+Positiv høflighet: å vise at man liker og verdsetter den andre.
+Negativ høflighet: å vise at man ikke vil trenge seg på eller begrense den andre.",talehandling,0,
+tolke-talehandlinger,skill,Pragmatikk,Tolke indirekte talehandlinger,"forklare hva en indirekte talehandling egentlig gjør, og hvilke trekk ved konteksten som gjør at mottakeren forstår det.",talehandling;deiksis,0,
+forklare-implikatur,skill,Pragmatikk,Forklare implikaturer,"forklare hvilken implikatur en ytring skaper, hvilken maksime som ser ut til å være brutt, og hvordan mottakeren kommer fram til den underforståtte meningen.",implikatur,0,
+analysere-hoflighet,skill,Pragmatikk,Analysere høflighetsstrategier,"vise hvilke høflighetsstrategier deltakerne i en samtale eller en e-post bruker for å dempe ansiktstruende handlinger, og forklare valgene ut fra relasjonen mellom dem.",ansikt-hoflighet;tolke-talehandlinger,0,
+pragmatisk-analyse,skill,Pragmatikk,Gjøre en pragmatisk analyse,"analysere en kort samtale eller meldingsutveksling med begreper fra pragmatikken — talehandlinger, implikaturer og høflighet — og vise hva deltakerne gjør med språket.",forklare-implikatur;analysere-hoflighet,0,
+turtaking,concept,Samtale og språklige mønstre,Turtaking,"Tur: det en deltaker sier fra hun begynner til en annen tar over.
+Turskifte: overgangen fra én taler til en annen, som kan skje ved at noen blir valgt eller tar ordet selv.
+Overlapp: at to snakker samtidig.
+Nærhetspar: to ytringer som hører sammen, som spørsmål og svar eller hilsen og hilsen.",,0,
+samtaleformer,concept,Samtale og språklige mønstre,Samtaleformer,"Samtaleform: en type samtale med egne normer for hvem som snakker, hvor lenge og om hva, som hverdagsprat, intervju, debatt, forhandling og undervisningssamtale.",turtaking,0,
+samtalestil,concept,Samtale og språklige mønstre,Samtalestil,"Høyinvolvert samtalestil: en stil med raskt tempo, korte pauser, overlapp og mange personlige spørsmål.
+Lavinvolvert samtalestil: en stil med lengre pauser, færre avbrytelser og mer avstand.
+Begrepene er hentet fra Deborah Tannen, som viste at ulike stiler kan bli tolket som henholdsvis påtrengende og uinteressert.",samtaleformer,0,
+sprakvarieteter,concept,Samtale og språklige mønstre,Språkvarieteter,"Dialekt: språkvarieteten knyttet til et geografisk område.
+Sosiolekt: språkvarieteten knyttet til en sosial gruppe.
+Etnolekt: språkvarieteten som har utviklet seg blant unge i flerspråklige miljøer.",,0,
+kodeveksling,concept,Samtale og språklige mønstre,Kodeveksling,"Kodeveksling: å veksle mellom språk eller språkvarieteter i samme samtale, ofte for å vise tilhørighet, skifte tema eller markere avstand.",sprakvarieteter,0,
+register,concept,Samtale og språklige mønstre,Register,"Register: hvor formelt eller uformelt man uttrykker seg, tilpasset situasjonen, mottakeren og mediet.",sprakvarieteter,0,
+transkribere,skill,Samtale og språklige mønstre,Transkribere en samtale,"skrive ned en kort samtale slik den faktisk ble sagt, med pauser, overlapp og avbrytelser markert, slik at den kan analyseres.",turtaking,0,
+analysere-samtale,skill,Samtale og språklige mønstre,Analysere en samtale,"analysere turtaking, nærhetspar, overlapp og avbrytelser i en transkribert samtale, og forklare hva mønstrene sier om relasjonen mellom deltakerne.",transkribere;samtalestil,0,
+sammenligne-samtaleformer,skill,Samtale og språklige mønstre,Sammenligne samtaleformer,"sammenligne normene og de språklige mønstrene i to samtaleformer, som et tv-intervju og en vennesamtale, og forklare forskjellene ut fra formålet med samtalene.",samtaleformer;analysere-samtale,0,
+analysere-kodeveksling,skill,Samtale og språklige mønstre,Analysere kodeveksling,"vise hvor og hvordan deltakerne i en samtale eller tekst veksler mellom språk eller varieteter, og tolke hva vekslingen signaliserer.",kodeveksling;register,0,
+sammenligne-spraklige-monstre,skill,Samtale og språklige mønstre,Sammenligne språklige mønstre,"sammenligne språklige mønstre, som ordvalg, forkortelser, emojier og setningsbygning, i to grupper eller medier, og forklare hva mønstrene sier om fellesskapet som bruker dem.",sprakvarieteter;register;analysere-kodeveksling,0,
+sosiale-faktorer,concept,Sosiale og kulturelle faktorer,Sosiale faktorer,"Sosiale faktorer: trekk ved deltakerne og forholdet mellom dem som påvirker kommunikasjonen, som alder, kjønn, sosial bakgrunn, utdanning, rolle og status.",,0,
+kapital,concept,Sosiale og kulturelle faktorer,Kapitalformer,"Økonomisk kapital: penger og eiendom.
+Kulturell kapital: utdanning, kunnskap og smak som gir status, som å vite hvordan man oppfører seg på en vernissasje.
+Sosial kapital: nettverket av relasjoner man kan dra nytte av.
+Begrepene er hentet fra Pierre Bourdieu.",sosiale-faktorer,0,
+habitus,concept,Sosiale og kulturelle faktorer,Habitus,"Habitus: Pierre Bourdieus begrep for de vanene, smakene og måtene å snakke og bevege seg på som vi tar med oss fra oppveksten, og som føles naturlige for oss selv men avslører bakgrunnen for andre.",kapital,0,
+normer-verdier,concept,Sosiale og kulturelle faktorer,Normer og verdier,"Verdi: en grunnleggende oppfatning av hva som er godt, riktig og viktig.
+Norm: en regel, ofte uskreven, for hvordan man bør oppføre seg i en situasjon.",,0,
+kulturdimensjoner,concept,Sosiale og kulturelle faktorer,Kulturdimensjoner,"Maktdistanse: hvor mye ulik makt og status som godtas.
+Individualisme og kollektivisme: om den enkeltes mål eller gruppens fellesskap veier tyngst.
+Høy- og lavkontekstkultur: hvor mye av budskapet som ligger i situasjonen og det usagte, og hvor mye i ordene.
+Dimensjonene stammer fra Geert Hofstede og Edward T. Hall.",normer-verdier,0,
+analysere-sosiale-faktorer,skill,Sosiale og kulturelle faktorer,Analysere sosiale faktorer i kommunikasjon,"analysere hvordan sosiale faktorer som rolle, status, alder og bakgrunn påvirker hvem som snakker, hvordan de snakker og hvordan de blir hørt i en konkret situasjon.",sosiale-faktorer;analysere-samtale,0,
+analysere-kapital,skill,Sosiale og kulturelle faktorer,Bruke Bourdieus begreper på kommunikasjon,"bruke begrepene kapital og habitus til å forklare hvorfor noen føler seg hjemme og blir tatt på alvor i en kommunikasjonssituasjon, som et jobbintervju eller en debatt, mens andre ikke gjør det.",habitus;analysere-sosiale-faktorer,0,
+drofte-verdier,skill,Sosiale og kulturelle faktorer,Drøfte hvordan verdier preger kommunikasjon,"drøfte hvordan kulturelle verdier preger kommunikasjonen i en konkret situasjon, og vurdere hvor langt kulturdimensjonene kan forklare den uten å bli stereotype.",kulturdimensjoner;analysere-sosiale-faktorer,0,
+diskurs,concept,Diskurs og makt,Diskurs,"Diskurs: en bestemt måte å snakke om og forstå et utsnitt av verden på, som gjør noen tanker selvsagte og andre vanskelige å tenke.
+Diskurskamp: at ulike diskurser konkurrerer om å definere hva et fenomen er.",,0,
+makt,concept,Diskurs og makt,Makt,"Makt: evnen til å få andre til å handle eller tenke på en bestemt måte, også mot sin vilje.
+Symbolsk makt: makten til å definere hva som er riktig, normalt og verdifullt, slik at andre godtar det som selvsagt.",,0,
+hegemoni,concept,Diskurs og makt,Hegemoni,"Hegemoni: at én gruppes syn er blitt så dominerende at det oppleves som sunn fornuft, slik at makten utøves gjennom samtykke heller enn tvang. Begrepet er knyttet til Antonio Gramsci.",makt;diskurs,0,
+kritisk-diskursanalyse,concept,Diskurs og makt,Kritisk diskursanalyse,"Kritisk diskursanalyse: Norman Faircloughs metode for å undersøke sammenhengen mellom språk og makt på tre nivåer.
+Tekst: ordvalg, grammatikk og oppbygning.
+Diskursiv praksis: hvordan teksten blir produsert, spredt og mottatt.
+Sosial praksis: hvilke maktforhold i samfunnet teksten bevarer eller utfordrer.",diskurs;makt,0,
+hersketeknikker,concept,Diskurs og makt,Hersketeknikker,"Hersketeknikk: en måte å undertrykke eller sette andre ut av spill på i en samhandling. Berit Ås beskrev fem: usynliggjøring, latterliggjøring, tilbakeholdelse av informasjon, fordobling av straff og påføring av skyld og skam.",makt,0,
+portvokter,concept,Diskurs og makt,Portvokter,"Portvokter: en person eller institusjon som avgjør hvilke stemmer og saker som slipper til i offentligheten, som redaktører, plattformenes algoritmer og arrangører av debatter.",makt,0,
+spraklig-dominans,concept,Diskurs og makt,Språklig dominans,"Språklig dominans: at ett språk får høyere status og tar over stadig flere områder på bekostning av andre, som engelsk i forskning og næringsliv.
+Domenetap: at et språk slutter å bli brukt på et område i samfunnet.",makt,0,
+fornorsking,concept,Diskurs og makt,Fornorskingspolitikken,"Fornorskingspolitikken: den norske statens politikk fra midten av 1800-tallet til etter andre verdenskrig for å få samer, kvener og andre minoriteter til å gå over til norsk språk og kultur, særlig gjennom skolen.",spraklig-dominans,0,
+makt-i-samtale,skill,Diskurs og makt,Analysere makt i en samtale,"vise hvordan makt kommer til uttrykk i en samtale, som hvem som styrer temaet, avbryter, får lengst taletid og bruker hersketeknikker.",hersketeknikker;analysere-samtale;analysere-sosiale-faktorer,0,
+gjore-kda,skill,Diskurs og makt,Gjøre en kritisk diskursanalyse,"analysere en tekst på de tre nivåene i kritisk diskursanalyse, fra ordvalg og grammatikk til hvilke maktforhold teksten bevarer eller utfordrer.",kritisk-diskursanalyse;hegemoni,0,
+makt-lokalt,skill,Diskurs og makt,Analysere kommunikasjon og makt lokalt,"analysere forholdet mellom kommunikasjon og makt i en lokal sammenheng, som klasserommet, kommunestyret eller lokalavisen, og vise hvem som får definere situasjonen.",makt-i-samtale;portvokter,0,
+makt-globalt,skill,Diskurs og makt,Analysere kommunikasjon og makt globalt,"analysere forholdet mellom kommunikasjon og makt i en global sammenheng, som engelsk som verdensspråk, minoritetsspråk eller hvem som får fortelle verdensnyhetene.",spraklig-dominans;fornorsking;gjore-kda,0,
+identitet,concept,Kultur og identitet,Identitet,"Personlig identitet: opplevelsen av hvem man er som enkeltmenneske.
+Sosial identitet: den delen av identiteten som kommer av gruppene man hører til.
+Identitet som konstruksjon: synet på at identitet skapes og forhandles i samspill med andre, og kan endre seg.",,0,
+kulturuttrykk,concept,Kultur og identitet,Kulturuttrykk,"Kulturuttrykk: det et fellesskap uttrykker sin kultur gjennom, som musikk, klær, mat, språk, ritualer, kunst og fortellinger.",identitet,0,
+inngruppe-utgruppe,concept,Kultur og identitet,Vi og de andre,"Inngruppe: gruppen man selv hører til, «vi».
+Utgruppe: gruppen man definerer seg mot, «de andre».
+Andregjøring: å framstille en gruppe som fremmed og grunnleggende annerledes enn «oss».",identitet,0,
+hybrid-identitet,concept,Kultur og identitet,Hybrid identitet,"Hybrid identitet: en identitet som henter fra flere kulturelle fellesskap samtidig, som hos mange med foreldre fra ulike land, og som kan oppleves både som en styrke og som et press fra flere kanter.",identitet;kulturuttrykk,0,
+virkelighetsforstaelse,concept,Kultur og identitet,Virkelighetsforståelse,"Virkelighetsforståelse: et fellesskaps forestillinger om hvordan verden er, hva som er normalt, sant og verdifullt.",normer-verdier,0,
+representasjon,concept,Kultur og identitet,Representasjon,"Representasjon: hvordan mennesker, grupper og fenomener blir framstilt i tekster — hvem som er med, hvem som mangler, og hvilke egenskaper de får.",virkelighetsforstaelse;inngruppe-utgruppe,0,
+analysere-identitetsuttrykk,skill,Kultur og identitet,Analysere kulturuttrykk og identitet,"analysere hvordan et kulturuttrykk, som en låt, en bunad, en joik eller en klesstil, brukes til å uttrykke og forhandle personlig og kulturell identitet.",kulturuttrykk;semiotisk-analyse,0,
+analysere-andregjoring,skill,Kultur og identitet,Analysere andregjøring i en tekst,"vise hvordan en tekst skaper et skille mellom «oss» og «dem» gjennom ordvalg, bilder og hvem som får ordet, og forklare hva skillet gjør.",inngruppe-utgruppe;representasjon,0,
+reflektere-identitet,skill,Kultur og identitet,Reflektere over kulturuttrykk i egen identitet,"reflektere over hvilke kulturuttrykk som er viktige for ens egen identitet, og hvordan de viser tilhørighet til ulike fellesskap.",analysere-identitetsuttrykk;hybrid-identitet,0,
+tekst-virkelighet,skill,Kultur og identitet,Drøfte hvordan tekster former virkelighetsforståelse,"drøfte og sammenligne hvordan to eller flere tekster skaper, bevarer eller utfordrer en kulturs virkelighetsforståelse, og hvilke midler de bruker.",representasjon;avdekke-myter;gjore-kda,0,
+interkulturell,concept,Interkulturell kommunikasjon,Interkulturell kommunikasjon,"Interkulturell kommunikasjon: kommunikasjon mellom mennesker som tolker hverandre ut fra ulike kulturelle forutsetninger.",normer-verdier,0,
+essensialisme-konstruktivisme,concept,Interkulturell kommunikasjon,Essensialistisk og konstruktivistisk kultursyn,"Essensialistisk kultursyn: å se en kultur som en fast kjerne som bestemmer hvordan medlemmene tenker og handler.
+Konstruktivistisk kultursyn: å se kultur som noe som skapes og endres i samhandling, der hvert menneske hører til mange fellesskap.",interkulturell,0,
+etnosentrisme,concept,Interkulturell kommunikasjon,Etnosentrisme og kulturrelativisme,"Etnosentrisme: å bedømme andre kulturer ut fra normene i sin egen.
+Kulturrelativisme: å forsøke å forstå en praksis ut fra den kulturens egne forutsetninger før man vurderer den.",normer-verdier,0,
+interkulturell-kompetanse,concept,Interkulturell kommunikasjon,Interkulturell kompetanse,"Interkulturell kompetanse: evnen til å kommunisere hensiktsmessig med mennesker med en annen kulturell bakgrunn, gjennom kunnskap, nysgjerrighet og evnen til å se egne normer utenfra.",interkulturell;etnosentrisme,0,
+vurdere-kulturmodeller,skill,Interkulturell kommunikasjon,Drøfte kulturmodellenes verdi,"drøfte hva kulturdimensjoner kan og ikke kan forklare i interkulturell kommunikasjon, med vekt på faren ved et essensialistisk kultursyn.",kulturdimensjoner;essensialisme-konstruktivisme,0,
+drofte-interkulturell,skill,Interkulturell kommunikasjon,Drøfte en interkulturell situasjon,"drøfte en konkret interkulturell kommunikasjonssituasjon fra flere perspektiver, med begreper fra pragmatikk, samtaleanalyse og kulturteori.",interkulturell-kompetanse;analysere-hoflighet;vurdere-kulturmodeller,0,
+egne-kulturbriller,skill,Interkulturell kommunikasjon,Reflektere over egne kulturelle briller,"reflektere over hvordan egne normer og verdier styrer hvordan man tolker andre, med et konkret eksempel på en situasjon man kunne ha tolket annerledes.",etnosentrisme;interkulturell-kompetanse,0,
+selvrepresentasjon,concept,Teknologi og selvrepresentasjon,Selvrepresentasjon,"Selvrepresentasjon: hvordan en person framstiller seg selv for andre, gjennom bilder, tekst, valg av innhold og hva som utelates, særlig på sosiale medier.",identitet,0,
+goffman-scener,concept,Teknologi og selvrepresentasjon,Frontstage og backstage,"Inntrykksstyring: Erving Goffmans begrep for hvordan vi bevisst og ubevisst styrer inntrykket andre får av oss.
+Frontstage: situasjoner der vi opptrer for et publikum og spiller en rolle.
+Backstage: situasjoner der vi kan slappe av fra rollen.",selvrepresentasjon,0,
+kontekstkollaps,concept,Teknologi og selvrepresentasjon,Kontekstkollaps,"Kontekstkollaps: at publikum fra ulike deler av livet, som familie, venner, lærere og fremmede, samles i ett publikum på sosiale medier, slik at det blir vanskelig å tilpasse seg hver av dem.",goffman-scener,0,
+parasosiale-relasjoner,concept,Teknologi og selvrepresentasjon,Parasosiale relasjoner,"Parasosial relasjon: en ensidig følelse av nærhet til en person man bare kjenner gjennom medier, som en influenser eller en programleder, mens personen ikke vet hvem man er.",selvrepresentasjon,0,
+medierte-relasjoner,concept,Teknologi og selvrepresentasjon,Medierte relasjoner,"Mediert relasjon: et forhold mellom mennesker som helt eller delvis foregår gjennom teknologi, som meldinger, videosamtaler og spill, der signaler som blikk og tonefall kan falle bort eller erstattes av emojier.",,0,
+analysere-selvrepresentasjon,skill,Teknologi og selvrepresentasjon,Analysere selvrepresentasjon,"analysere hvordan en person framstiller seg selv i en profil eller en serie innlegg, ved hjelp av semiotikk og Goffmans begreper.",goffman-scener;semiotisk-analyse,0,
+drofte-teknologi-relasjoner,skill,Teknologi og selvrepresentasjon,Drøfte hvordan teknologi påvirker relasjoner,"tolke og drøfte hvordan kommunikasjonsteknologi påvirker vennskap, familieliv og kjærlighet, med vekt på både nye muligheter og hva som går tapt.",medierte-relasjoner;parasosiale-relasjoner,0,
+tolke-kontekstkollaps,skill,Teknologi og selvrepresentasjon,Tolke en sak om kontekstkollaps,"forklare hvorfor et innlegg som var ment for én gruppe, fikk en helt annen mottakelse hos en annen, og hva avsenderen kunne ha gjort annerledes.",kontekstkollaps;ulike-lesninger,0,
+drofte-selvrepresentasjon,skill,Teknologi og selvrepresentasjon,Drøfte selvrepresentasjon og identitet på nett,"drøfte hvordan muligheten til å redigere sin egen framstilling på nett påvirker identitet og selvbilde, med teori og egne eksempler.",analysere-selvrepresentasjon;drofte-teknologi-relasjoner;identitet,0,
+verbal-ikkeverbal,concept,Multimodal kommunikasjon,Verbale og ikke-verbale uttrykksformer,"Verbale uttrykksformer: ord, muntlig eller skriftlig.
+Ikke-verbale uttrykksformer: kroppsspråk, stemmebruk, avstand, bilder, lyd, musikk, farge og layout.",,0,
+forankring-avlosning,concept,Multimodal kommunikasjon,Forankring og avløsning,"Forankring: at ordene låser hvordan et bilde skal forstås, som en bildetekst.
+Avløsning: at ord og bilde forteller hver sin del av historien og utfyller hverandre, som i en tegneserie.
+Begrepene er hentet fra Roland Barthes.",verbal-ikkeverbal;denotasjon-konnotasjon,0,
+samspill,concept,Multimodal kommunikasjon,Samspill mellom uttrykksformer,"Forsterkning: uttrykksformene sier det samme og gjør budskapet sterkere.
+Utfylling: uttrykksformene sier hver sin del.
+Motstrid: uttrykksformene sier noe ulikt, med vilje eller ikke, som ironi eller dobbeltkommunikasjon.",verbal-ikkeverbal,0,
+analysere-samspill,skill,Multimodal kommunikasjon,Analysere samspillet mellom uttrykksformer,"analysere hvordan ord, bilder, lyd og kroppsspråk virker sammen i en film, en reklame eller en tale, og forklare hva samspillet gjør med budskapet.",forankring-avlosning;samspill,0,
+ikkeverbal-prosess,skill,Multimodal kommunikasjon,Analysere ikke-verbal kommunikasjon i en samhandling,"analysere hvordan blikk, kroppsspråk og stemmebruk former en samhandling, som et møte eller en debatt, og hvordan de samspiller med det som blir sagt.",samspill;analysere-samtale,0,
+planlegge-kommunikasjon,skill,Fordypning og kilder,Planlegge egen kommunikasjon,"analysere formål, mottakere, medium og kulturell kontekst før man kommuniserer, og lage en plan for innhold, form og framføring ut fra analysen.",sosiale-faktorer;register;samspill,0,
+vurderingskriterier,concept,Fordypning og kilder,Vurderingskriterier,"Vurderingskriterier: en beskrivelse av hva som kjennetegner god kommunikasjon i en bestemt situasjon, som kan brukes til å planlegge, vurdere og forbedre den.",,0,
+vurdere-kommunikasjon,skill,Fordypning og kilder,Vurdere egen og andres kommunikasjon,"vurdere egen og andres kommunikasjon opp mot vurderingskriterier og teori, gi begrunnede tilbakemeldinger og bruke tilbakemeldinger til å forbedre egen kommunikasjon.",vurderingskriterier;planlegge-kommunikasjon,0,
+problemstilling,concept,Fordypning og kilder,Problemstilling,"Problemstilling: et avgrenset spørsmål som en fordypning skal undersøke og svare på, presist nok til at det kan besvares med teorien og materialet man har valgt.",,0,
+kvalitativ-metode,concept,Fordypning og kilder,Metoder i fordypningen,"Tekstanalyse: å undersøke tekster systematisk med bestemte analysebegreper.
+Intervju: å samle inn erfaringer og synspunkter ved å spørre utvalgte personer.
+Observasjon: å se på og notere hvordan mennesker faktisk kommuniserer i en situasjon.",problemstilling,0,
+forskningsetikk,concept,Fordypning og kilder,Forskningsetikk,"Forskningsetikk: reglene for å undersøke andre mennesker på en forsvarlig måte, som å be om samtykke, anonymisere deltakerne og ikke bruke opptak av andre uten tillatelse.",kvalitativ-metode,0,
+kilde-kildekritikk,concept,Fordypning og kilder,Kildekritikk,"Kildekritikk: å vurdere en kilde ut fra hvem som står bak, hvilket formål den har, når den ble laget, og om opplysningene kan bekreftes andre steder.
+Troverdighet: hvor mye man kan stole på opplysningene.
+Relevans: hvor godt kilden belyser problemstillingen.",,0,
+kildehenvisning,concept,Fordypning og kilder,Kildehenvisning,"Sitat: ordrett gjengivelse av en kilde, markert med anførselstegn.
+Parafrase: gjengivelse av innholdet i en kilde med egne ord.
+Kildehenvisning: en opplysning i teksten om hvor noe er hentet fra, knyttet til en fullstendig litteraturliste.",kilde-kildekritikk,0,
+vurdere-kilder,skill,Fordypning og kilder,Vurdere kilders relevans og troverdighet,"vurdere om en kilde er troverdig og relevant for problemstillingen, og begrunne hvorfor den tas med eller velges bort.",kilde-kildekritikk,0,
+bruke-kilder,skill,Fordypning og kilder,Bruke kilder etterrettelig,"flette sitater og parafraser inn i egen tekst med riktige kildehenvisninger og litteraturliste, og holde egne vurderinger atskilt fra kildenes.",kildehenvisning;vurdere-kilder,0,
+formulere-problemstilling,skill,Fordypning og kilder,Formulere en problemstilling,"velge et faglig emne og gjøre det om til en avgrenset problemstilling som kan besvares med teori fra faget.",problemstilling,0,
+velge-metode,skill,Fordypning og kilder,Velge teori og metode,"velge teori og metode som passer problemstillingen, og begrunne valgene, inkludert hvordan forskningsetiske krav skal ivaretas.",formulere-problemstilling;kvalitativ-metode;forskningsetikk,0,
+gjennomfore-fordypning,skill,Fordypning og kilder,Gjennomføre en fordypning,"samle inn og analysere materiale til en selvvalgt problemstilling, og trekke begrunnede konklusjoner ut fra funnene og teorien.",velge-metode;bruke-kilder,0,
+presentere-fordypning,skill,Fordypning og kilder,Presentere en fordypning,"presentere fordypningen for et publikum med problemstilling, teori og metode, funn og konklusjon, der form og uttrykksformer er tilpasset publikum.",gjennomfore-fordypning;planlegge-kommunikasjon;analysere-samspill,0,
+teoretikere,fact,Fordypning og kilder,Teoretikere og begrepene deres,"Ferdinand de Saussure: tegnet som uttrykk og innhold
+Charles S. Peirce: ikon, indeks og symbol
+Roland Barthes: konnotasjon, myte, forankring og avløsning
+Stuart Hall: koding og dekoding
+John L. Austin og John Searle: talehandlinger
+Paul Grice: samarbeidsprinsippet og implikatur
+Erving Goffman: ansikt og frontstage og backstage
+Deborah Tannen: samtalestiler
+Pierre Bourdieu: kapitalformer og habitus
+Antonio Gramsci: hegemoni
+Norman Fairclough: kritisk diskursanalyse
+Berit Ås: de fem hersketeknikkene
+Geert Hofstede: kulturdimensjoner",,0,
+oppgaveord,concept,Fordypning og kilder,"Redegjøre, analysere og drøfte","Redegjøre: å legge fram et stoff saklig og ordnet, slik at leseren forstår det.
+Analysere: å dele noe opp i delene og vise hvordan de virker sammen, med fagbegreper.
+Drøfte: å undersøke et spørsmål fra flere sider og veie argumenter mot hverandre før en begrunnet konklusjon.",,0,
+skrive-droftende,skill,Fordypning og kilder,Skrive en drøftende fagtekst,"skrive en sammenhengende fagtekst som drøfter et spørsmål om kommunikasjon, makt, kultur eller identitet, der teori brukes på konkrete eksempler og kildene oppgis.",oppgaveord;tekst-virkelighet;bruke-kilder,0,

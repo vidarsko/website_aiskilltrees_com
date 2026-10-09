@@ -1,0 +1,227 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Juridisk metode;Rett og rettferdighet;Menneskerettigheter og demokrati;Forvaltningsrett;Personvern og IKT;Erstatningsrett;Strafferett;Miljørett,,,
+,config,,title,Rettslære 2,,,
+,config,,description,"Juridisk metode, rett og rettferdighet, menneskerettigheter og samiske rettigheter, forvaltningsrett, personvern, erstatningsrett, strafferett og miljørett — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-rettslare-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,rettslære 2 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"skriver «loven sier» uten å oppgi lov og paragraf, konkluderer uten å subsumere faktum under hvert vilkår, blander erstatning og straff eller sivil sak og straffesak, bruker «skyld» både om erstatningsrettslig uaktsomhet og strafferettslig skyld uten å skille dem, kaller alle avgjørelser fra det offentlige «vedtak», og bruker «rettferdig» der spørsmålet er hva som er gjeldende rett",,,
+,config,,slots.courseSpecifics,"Juridiske oppgaver løses med fast metode: parter og krav, juridisk problemstilling, rettsregel med lov og paragraf, subsumsjon med argumenter for begge sider, og konklusjon. Faget har skriftlig sentralt gitt eksamen på fem timer, eller muntlig eksamen med forberedelsesdel. Kontroller frister, aldersgrenser og paragrafer mot gjeldende tekst på lovdata.no. Per oktober 2026 gjelder forvaltningsloven av 1967; en ny forvaltningslov (lov 20. juni 2025 nr. 81) er vedtatt, men trer i kraft når Kongen bestemmer. Voldtektsbestemmelsen i straffeloven § 291 bygger på manglende samtykke fra 1. juli 2025.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag samfunnsfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"SAM3058 (skriftlig), SAM3059 (muntlig)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,law,,,
+,config,,keywords,rettslære; juss; juridisk metode; rettskilder; juridisk drøfting; rett og rettferdighet; menneskerettigheter; EMK; samiske rettigheter; Fosen; forvaltningsloven; enkeltvedtak; klage; personvern; GDPR; erstatning; culpa; strafferett; straffbarhetsvilkår; samtykke; voldtekt; tyveri; miljørett; Grunnloven § 112; klimasøksmålet,,,
+,config,,updated,2026-10-08,,,
+rettskildefaktorer,concept,Juridisk metode,Rettskildefaktorer,"Lov: regler vedtatt av Stortinget, med Grunnloven øverst.
+Forskrift: utfyllende regler gitt av regjeringen eller et departement med hjemmel i lov.
+Forarbeider: dokumentene fra lovens tilblivelse (NOU, proposisjon, innstilling) som viser hva lovgiveren mente.
+Rettspraksis: tidligere avgjørelser fra domstolene, særlig Høyesterett.
+Internasjonale kilder: traktater Norge er bundet av, som EMK, og praksis fra Den europeiske menneskerettsdomstolen.
+Reelle hensyn: vurderinger av hva som er en rimelig og god løsning.",,0,
+prejudikat,concept,Juridisk metode,Prejudikat,"Prejudikat: en avgjørelse fra Høyesterett som er retningsgivende for hvordan senere saker med samme rettsspørsmål skal løses.",rettskildefaktorer,0,
+motstridsprinsipper,concept,Juridisk metode,Prinsipper ved motstrid,"Lex superior: en regel av høyere rang går foran en av lavere rang, slik at Grunnloven går foran lov og lov går foran forskrift.
+Lex specialis: en spesiell regel går foran en generell.
+Lex posterior: en nyere regel går foran en eldre.",rettskildefaktorer,0,
+vilkar-rettsvirkning,concept,Juridisk metode,Vilkår og rettsvirkning,"Vilkår: det som må være oppfylt for at en rettsregel skal gjelde.
+Rettsvirkning: det som følger av regelen når alle vilkårene er oppfylt.",,0,
+problemstilling-parter-krav,concept,Juridisk metode,"Parter, krav og rettslig grunnlag","Part: en person, virksomhet eller myndighet som saken direkte gjelder.
+Krav: det en part vil oppnå, for eksempel erstatning, at et vedtak oppheves eller at noen straffes.
+Rettslig grunnlag: den rettsregelen kravet bygger på.
+Juridisk problemstilling: spørsmålet som må avgjøres, formulert slik at det kan besvares med ja eller nei.",vilkar-rettsvirkning,0,
+subsumsjon,concept,Juridisk metode,Subsumsjon,"Subsumsjon: å vurdere om de faktiske forholdene i saken oppfyller vilkårene i rettsregelen, ett vilkår om gangen.",vilkar-rettsvirkning,0,
+finne-lov-lovdata,skill,Juridisk metode,Finne riktig lov og paragraf,"finne fram til riktig lov og bestemmelse på lovdata.no for et gitt rettsspørsmål, kontrollere at det er gjeldende versjon, og vise til den presist med lov, paragraf og ledd.",rettskildefaktorer,0,
+tolke-lovtekst,skill,Juridisk metode,Tolke en lovbestemmelse,"dele en lovbestemmelse opp i vilkår og rettsvirkning, tolke ordlyden, og bruke formål og forarbeider der ordlyden er uklar.",finne-lov-lovdata;vilkar-rettsvirkning,0,
+bruke-rettspraksis,skill,Juridisk metode,Bruke en høyesterettsdom som rettskilde,"finne hva en høyesterettsdom gjaldt og hva retten la avgjørende vekt på, og vurdere om avgjørelsen kan overføres til en ny sak.",prejudikat,0,
+identifisere-parter-krav,skill,Juridisk metode,Identifisere parter og krav i en sak,"lese en saksbeskrivelse og identifisere partene, hva hver av dem krever og hvilket rettslig grunnlag kravet bygger på, og formulere den juridiske problemstillingen.",problemstilling-parter-krav,0,
+juridisk-drofting,skill,Juridisk metode,Gjennomføre en juridisk drøfting,"gjennomføre en juridisk drøfting i fast struktur: problemstilling, rettsregel, subsumsjon med argumenter for begge parter, og en begrunnet konklusjon.",identifisere-parter-krav;tolke-lovtekst;subsumsjon,0,
+bruke-flere-rettskilder,skill,Juridisk metode,Løse en problemstilling med flere rettskilder,"bruke flere rettskilder sammen, som lov, forarbeider, rettspraksis og reelle hensyn, for å løse en juridisk problemstilling, og vekte dem mot hverandre når de trekker i ulik retning.",juridisk-drofting;bruke-rettspraksis;motstridsprinsipper,0,
+skrive-praktikumsbesvarelse,skill,Juridisk metode,Skrive en besvarelse på en praktisk oppgave,"skrive en sammenhengende besvarelse på en praktisk oppgave med flere spørsmål: ta problemstillingene i riktig rekkefølge, drøfte bare det som er tvilsomt, og konkludere på hvert spørsmål.",bruke-flere-rettskilder,0,
+rett-rettferdighet,concept,Rett og rettferdighet,Rett og rettferdighet,"Gjeldende rett: det rettsreglene faktisk sier, slik domstolene vil anvende dem.
+Rettferdighet: en vurdering av om en regel eller et resultat er riktig og rimelig, som folk kan være uenige om.",,0,
+formell-materiell-rettferdighet,concept,Rett og rettferdighet,Formell og materiell rettferdighet,"Formell rettferdighet: like saker behandles likt etter faste regler, uavhengig av hvem partene er.
+Materiell rettferdighet: at innholdet i reglene og resultatet i saken er rimelig.",rett-rettferdighet,0,
+naturrett-rettspositivisme,concept,Rett og rettferdighet,Naturrett og rettspositivisme,"Naturrett: synet at det finnes en rett som gjelder uavhengig av hva staten har vedtatt, og at en lov som strider grovt mot den, ikke er gyldig rett.
+Rettspositivisme: synet at retten er det staten faktisk har vedtatt, og at spørsmålet om en lov er rettferdig er et annet spørsmål enn om den gjelder.",rett-rettferdighet,0,
+rettslig-standard,concept,Rett og rettferdighet,Rettslig standard,"Rettslig standard: et vagt uttrykk i en lov, som «saklig», «rimelig» eller «forsvarlig», som overlater til skjønnet å avgjøre saken, og som kan endre innhold i takt med samfunnet.",rett-rettferdighet,0,
+sivil-ulydighet,concept,Rett og rettferdighet,Sivil ulydighet,"Sivil ulydighet: et bevisst, åpent og ikke-voldelig lovbrudd for å protestere mot noe man oppfatter som urett, der den som bryter loven godtar reaksjonen.",rett-rettferdighet,0,
+analysere-rett-mot-rettferd,skill,Rett og rettferdighet,Analysere en sak der rett og rettferd spriker,"analysere en sak der gjeldende rett gir et resultat mange oppfatter som urettferdig, og forklare hvorfor regelen likevel er utformet slik.",formell-materiell-rettferdighet;rettslig-standard,0,
+drofte-rett-og-rettferd,skill,Rett og rettferdighet,Drøfte skillet mellom rett og rettferd,"utforske og drøfte skillet mellom rett og rettferd i en rettsstat, med eksempler som sivil ulydighet og lovendringer som har kommet etter at folk har opplevd en regel som urettferdig.",analysere-rett-mot-rettferd;naturrett-rettspositivisme;sivil-ulydighet,0,
+utforske-aktuell-sak,skill,Rett og rettferdighet,Utforske en dagsaktuell juridisk problemstilling,"utforske en dagsaktuell juridisk problemstilling: finne de aktuelle rettsreglene og rettskildene, identifisere interessene som står mot hverandre, og drøfte mulige løsninger.",bruke-flere-rettskilder;drofte-rett-og-rettferd,0,
+presentere-juridisk-sak,skill,Rett og rettferdighet,Legge fram en juridisk sak muntlig,"legge fram en juridisk problemstilling muntlig med problemstilling, rettsregler, drøfting og konklusjon, og svare presist på oppfølgingsspørsmål om regler og avveininger.",utforske-aktuell-sak,0,
+menneskerettigheter,concept,Menneskerettigheter og demokrati,Menneskerettigheter,"Menneskerettigheter: grunnleggende rettigheter som gjelder for alle mennesker fordi de er mennesker, og som først og fremst verner den enkelte mot overgrep fra staten.",,0,
+grunnlovens-menneskerettigheter,concept,Menneskerettigheter og demokrati,Menneskerettighetene i Grunnloven,"Menneskerettighetene i Grunnloven: kapittel E (§§ 92–113) slår fast at statens myndigheter skal respektere og sikre menneskerettighetene (§ 92), og verner blant annet ytringsfriheten (§ 100), forenings- og forsamlingsfriheten (§ 101), privatlivet (§ 102) og barns rettigheter (§ 104).",menneskerettigheter,0,
+menneskerettsloven,concept,Menneskerettigheter og demokrati,Menneskerettsloven,"Menneskerettsloven: loven som gjør seks menneskerettskonvensjoner til norsk lov, med forrang foran annen lov ved motstrid (§§ 2–3): EMK, FN-konvensjonen om sivile og politiske rettigheter (SP), FN-konvensjonen om økonomiske, sosiale og kulturelle rettigheter, barnekonvensjonen, kvinnediskrimineringskonvensjonen og, fra 1. januar 2026, konvensjonen om rettighetene til mennesker med nedsatt funksjonsevne.",menneskerettigheter,0,
+emd,concept,Menneskerettigheter og demokrati,Den europeiske menneskerettsdomstolen (EMD),"Den europeiske menneskerettsdomstolen (EMD): domstolen i Strasbourg som avgjør om en stat har krenket EMK. Enkeltpersoner kan klage dit når saken er prøvd ferdig i landet, og Norge er folkerettslig forpliktet til å følge dommene.",menneskerettsloven,0,
+forholdsmessighet,concept,Menneskerettigheter og demokrati,Krav til inngrep i en rettighet,"Krav til inngrep i en rettighet: de fleste menneskerettigheter kan begrenses, men bare når inngrepet har hjemmel i lov, forfølger et legitimt formål og er nødvendig og forholdsmessig.",menneskerettigheter,0,
+demokratiske-rettigheter,concept,Menneskerettigheter og demokrati,Demokratiske rettigheter,"Stemmerett: norske borgere som har fylt 18 år eller fyller 18 i valgåret, har stemmerett ved stortingsvalg (Grunnloven § 50).
+Ytringsfrihet: retten til å meddele og motta opplysninger og meninger (Grunnloven § 100). Den har grenser, blant annet mot hatefulle ytringer (straffeloven § 185).
+Forenings- og forsamlingsfrihet: retten til å danne og melde seg inn i foreninger og partier, og til å møtes i fredelige demonstrasjoner (Grunnloven § 101).",grunnlovens-menneskerettigheter,0,
+samer-urfolk,concept,Menneskerettigheter og demokrati,Samene som urfolk,"Samene som urfolk: samene er anerkjent som urfolk i Norge, og Grunnloven § 108 pålegger statens myndigheter å legge forholdene til rette for at det samiske folk kan sikre og utvikle sitt språk, sin kultur og sitt samfunnsliv.",menneskerettigheter,0,
+samiske-rettighetsgrunnlag,concept,Menneskerettigheter og demokrati,Rettsgrunnlag for samiske rettigheter,"SP artikkel 27: minoriteters rett til å utøve sin egen kultur, som for samene omfatter reindrift og annen tradisjonell næring.
+ILO-konvensjon nr. 169: konvensjonen om urfolks rettigheter, som Norge ratifiserte i 1990 som første land.
+Sametinget: samenes folkevalgte organ, åpnet i 1989.
+Konsultasjonsplikt: statlige og kommunale myndigheter skal konsultere Sametinget og andre berørte samiske interesser før de vedtar tiltak som kan påvirke samiske interesser direkte (sameloven kapittel 4).",samer-urfolk;menneskerettsloven,0,
+fosen-saken,concept,Menneskerettigheter og demokrati,Fosen-saken,"Fosen-saken: Høyesterett kom i 2021 (HR-2021-1975-S) til at konsesjonsvedtakene for vindkraftverkene på Fosen var ugyldige, fordi utbyggingen krenket reindriftssamenes rett til å utøve sin kultur etter SP artikkel 27.",samiske-rettighetsgrunnlag,0,
+menneskerettighetsar,fact,Menneskerettigheter og demokrati,Årstall for menneskerettighetene,"FNs verdenserklæring om menneskerettighetene: 1948
+Den europeiske menneskerettskonvensjonen (EMK): 1950
+FN-konvensjonene om sivile og politiske og om økonomiske, sosiale og kulturelle rettigheter: 1966
+barnekonvensjonen: 1989
+menneskerettsloven: 1999
+menneskerettighetene samlet i Grunnloven: 2014",menneskerettigheter,0,
+forklare-menneskerettsvern,skill,Menneskerettigheter og demokrati,Gjøre rede for vernet av menneskerettighetene i Norge,"gjøre rede for hvordan menneskerettighetene er vernet i norsk rett: gjennom Grunnloven, menneskerettsloven, domstolskontroll og muligheten til å klage til EMD.",grunnlovens-menneskerettigheter;emd,0,
+vurdere-menneskerettsinngrep,skill,Menneskerettigheter og demokrati,Vurdere om et inngrep krenker en menneskerettighet,"vurdere om et inngrep fra staten i en konkret sak krenker en menneskerettighet, ved å ta stilling til hjemmel, formål og forholdsmessighet.",forholdsmessighet;forklare-menneskerettsvern,0,
+utforske-samiske-rettigheter,skill,Menneskerettigheter og demokrati,Utforske samenes rettigheter som urfolk,"utforske samenes stilling som urfolk og gjøre rede for rettsgrunnlaget for samiske rettigheter, med Fosen-saken som eksempel på hvordan de blir prøvd for domstolene.",fosen-saken,0,
+drofte-demokrati-norge-sapmi,skill,Menneskerettigheter og demokrati,Drøfte demokratiets stilling i Norge og Sápmi,"utforske demokratiets stilling i Norge og Sápmi, og drøfte hvordan menneskerettighetene og de samiske rettighetene verner demokratiet og minoritetene i det.",demokratiske-rettigheter;utforske-samiske-rettigheter;vurdere-menneskerettsinngrep,0,
+forvaltningen,concept,Forvaltningsrett,Forvaltningen,"Forvaltningen: de offentlige organene som setter lovene ut i livet og utøver myndighet overfor innbyggerne, som departementer, direktorater, statsforvalteren, Nav og kommunene.",,0,
+forvaltningsloven,concept,Forvaltningsrett,Forvaltningsloven,"Forvaltningsloven: loven med de alminnelige reglene for hvordan forvaltningen skal behandle saker. Gjeldende lov er fra 1967. En ny forvaltningslov ble vedtatt i 2025 (lov 20. juni 2025 nr. 81), men trer i kraft fra den tiden Kongen bestemmer, og har en annen paragrafnummerering.",forvaltningen,0,
+enkeltvedtak,concept,Forvaltningsrett,Enkeltvedtak og forskrift,"Enkeltvedtak: en avgjørelse fra forvaltningen som gjelder rettigheter eller plikter for én eller flere bestemte personer, som et avslag på søknad om førerkort (forvaltningsloven § 2).
+Forskrift: en avgjørelse som gjelder rettigheter eller plikter for et ubestemt antall eller en ubestemt krets av personer.
+Part: den en avgjørelse retter seg mot, eller som saken ellers direkte gjelder.",forvaltningsloven,0,
+saksbehandlingsregler,concept,Forvaltningsrett,Saksbehandlingsreglene,"Veiledningsplikt: forvaltningen skal veilede om regler og saksbehandling innenfor sitt område (forvaltningsloven § 11).
+Forhåndsvarsel: parten skal som hovedregel varsles før vedtak treffes, og få uttale seg (§ 16).
+Utredningsplikt: saken skal være så godt opplyst som mulig før vedtak treffes (§ 17).
+Partsinnsyn: parten har rett til å se sakens dokumenter (§ 18).
+Begrunnelse: enkeltvedtak skal begrunnes, med reglene og de faktiske forholdene vedtaket bygger på (§§ 24–25).",enkeltvedtak,0,
+habilitet,concept,Forvaltningsrett,Habilitet,"Habilitet: kravet om at den som forbereder eller avgjør en sak, ikke har en slik tilknytning til saken eller partene at det kan svekke tilliten til at avgjørelsen er upartisk, for eksempel som part selv eller i nær familie med en part (forvaltningsloven § 6).",forvaltningen,0,
+klage,concept,Forvaltningsrett,Klage over enkeltvedtak,"Klage over enkeltvedtak: en part kan klage over et enkeltvedtak til forvaltningsorganet nærmest over det som traff vedtaket (forvaltningsloven § 28). Klagefristen er tre uker fra underretningen om vedtaket kom fram (§ 29), og klageinstansen kan prøve alle sider av saken.",enkeltvedtak,0,
+offentlighet,concept,Forvaltningsrett,Allmennhetens innsyn,"Allmennhetens innsyn: alle kan kreve innsyn i saksdokumenter og journaler hos forvaltningen, uten å begrunne det, med mindre det er gjort unntak i lov eller forskrift (offentleglova § 3).
+Partsinnsyn: partens egen rett til å se dokumentene i sin egen sak, som går lenger enn allmennhetens.",forvaltningen,0,
+fritt-skjonn,concept,Forvaltningsrett,Forvaltningens frie skjønn,"Fritt skjønn: der loven sier at forvaltningen «kan» gjøre noe, kan domstolene ikke overprøve hvordan skjønnet er utøvd, bare om det er myndighetsmisbruk: at vedtaket bygger på utenforliggende hensyn, er vilkårlig, usaklig forskjellsbehandler eller er sterkt urimelig.",enkeltvedtak,0,
+forvaltningskontroll,concept,Forvaltningsrett,Kontroll med forvaltningen,"Statsforvalteren: statens representant i fylket og klageinstans for mange kommunale vedtak.
+Sivilombudet: Stortingets ombud, som behandler klager over urett fra forvaltningen og gir uttalelser forvaltningen i praksis følger.
+Domstolene: kan prøve om et vedtak er gyldig, men i utgangspunktet ikke det frie skjønnet.",forvaltningen,0,
+ugyldige-vedtak,concept,Forvaltningsrett,Ugyldige vedtak,"Ugyldig vedtak: et vedtak som ikke er bindende, fordi det mangler hjemmel, bygger på feil faktum eller myndighetsmisbruk, eller har saksbehandlingsfeil. En saksbehandlingsfeil gjør vedtaket ugyldig bare når det er grunn til å regne med at feilen kan ha virket inn på innholdet (forvaltningsloven § 41).",saksbehandlingsregler;fritt-skjonn,0,
+avgjore-enkeltvedtak,skill,Forvaltningsrett,Avgjøre om en avgjørelse er et enkeltvedtak,"avgjøre om en avgjørelse fra det offentlige i en konkret sak er et enkeltvedtak, og hvem som er part i saken.",enkeltvedtak,0,
+vurdere-saksbehandling,skill,Forvaltningsrett,Vurdere saksbehandlingen i en forvaltningssak,"vurdere om forvaltningen har fulgt reglene om veiledning, forhåndsvarsel, innsyn, habilitet og begrunnelse i en konkret sak.",avgjore-enkeltvedtak;saksbehandlingsregler;habilitet,0,
+skrive-klage,skill,Forvaltningsrett,Skrive en klage på et enkeltvedtak,"skrive en klage på et enkeltvedtak innen fristen, rettet til riktig organ, som sier hva som påklages, hvilken endring som ønskes og hvorfor.",avgjore-enkeltvedtak;klage,0,
+vurdere-gyldighet-vedtak,skill,Forvaltningsrett,Vurdere om et vedtak er gyldig,"vurdere om et vedtak i en konkret sak er ugyldig på grunn av manglende hjemmel, myndighetsmisbruk eller saksbehandlingsfeil som kan ha virket inn på innholdet.",ugyldige-vedtak;vurdere-saksbehandling,0,
+drofte-forvaltningssak,skill,Forvaltningsrett,Drøfte en sak mellom en innbygger og forvaltningen,"utforske rettsforholdet mellom en innbygger og forvaltningen i en konkret sak, drøfte om vedtaket står seg, og forklare hvilke muligheter innbyggeren har for klage og kontroll.",vurdere-gyldighet-vedtak;skrive-klage;forvaltningskontroll;juridisk-drofting,0,
+personopplysning,concept,Personvern og IKT,Personopplysning,"Personopplysning: enhver opplysning som kan knyttes til en enkeltperson, som navn, bilde, posisjon eller IP-adresse.
+Særlige kategorier av personopplysninger: opplysninger om helse, etnisk opprinnelse, religion, politisk oppfatning, seksuell orientering og biometri, som har et sterkere vern.",,0,
+personvernforordningen,concept,Personvern og IKT,Personvernforordningen (GDPR),"Personvernforordningen (GDPR): EUs personvernregler, som gjelder som norsk lov gjennom personopplysningsloven.
+Behandling: all bruk av personopplysninger, som innsamling, lagring, sammenstilling og deling.
+Behandlingsansvarlig: den som bestemmer formålet med behandlingen og hvilke midler som brukes.",personopplysning,0,
+personvernprinsipper,concept,Personvern og IKT,Personvernprinsippene,"Lovlighet, rettferdighet og åpenhet: behandlingen må ha lovlig grunnlag, og den registrerte skal vite om den.
+Formålsbegrensning: opplysningene skal bare brukes til det formålet de ble samlet inn for.
+Dataminimering: det skal ikke samles inn flere opplysninger enn nødvendig.
+Lagringsbegrensning: opplysningene skal slettes når de ikke lenger trengs.
+Integritet og konfidensialitet: opplysningene skal sikres mot uvedkommende.",personvernforordningen,0,
+behandlingsgrunnlag,concept,Personvern og IKT,Behandlingsgrunnlag og samtykke,"Behandlingsgrunnlag: det rettslige grunnlaget som må finnes for at en behandling er lovlig, for eksempel samtykke, avtale, rettslig plikt eller berettiget interesse (personvernforordningen artikkel 6).
+Samtykke: en frivillig, spesifikk, informert og utvetydig aksept, som kan trekkes tilbake. Barn under 13 år kan ikke selv samtykke til at nettjenester behandler opplysninger om dem (personopplysningsloven § 5).",personvernforordningen,0,
+registrertes-rettigheter,concept,Personvern og IKT,Den registrertes rettigheter,"Innsyn: retten til å få vite hvilke opplysninger som er lagret om deg, og hva de brukes til.
+Retting: retten til å få feil opplysninger rettet.
+Sletting: retten til å få opplysninger slettet, blant annet når de ikke lenger trengs eller samtykket trekkes tilbake.
+Protest: retten til å motsette seg bestemte typer behandling, som direkte markedsføring.",personvernforordningen,0,
+datatilsynet,concept,Personvern og IKT,Datatilsynet,"Datatilsynet: tilsynsmyndigheten for personvern, som behandler klager, fører kontroll og kan ilegge overtredelsesgebyr. Personvernnemnda er klageinstans for Datatilsynets vedtak.",personvernforordningen,0,
+retten-til-eget-bilde,concept,Personvern og IKT,Retten til eget bilde,"Retten til eget bilde: et fotografi av en person kan ikke vises eller deles offentlig uten samtykke fra den avbildede, med unntak blant annet for bilder av allmenn interesse og bilder der personen er mindre viktig enn helheten (åndsverkloven § 104).",personopplysning,0,
+straffbart-pa-nett,fact,Personvern og IKT,Straffebud som ofte rammer handlinger på nett,"hatefulle ytringer: straffeloven § 185
+identitetskrenkelse: straffeloven § 202
+trusler: straffeloven § 263
+forfølgelse og annen hensynsløs atferd: straffeloven § 266
+deling av krenkende bilder, film eller lydopptak: straffeloven § 267 a
+fremstilling av seksuelle overgrep mot barn: straffeloven § 311",,0,
+vurdere-personvernbehandling,skill,Personvern og IKT,Vurdere om en behandling av personopplysninger er lovlig,"vurdere om en behandling av personopplysninger i en konkret sak, for eksempel i en app eller på en skole, har behandlingsgrunnlag og følger personvernprinsippene.",personvernprinsipper;behandlingsgrunnlag,0,
+bruke-registrertes-rettigheter,skill,Personvern og IKT,Bruke rettighetene som registrert,"forklare hvordan en person kan kreve innsyn, retting eller sletting overfor en virksomhet, og hva vedkommende kan gjøre hvis virksomheten ikke følger opp.",registrertes-rettigheter;datatilsynet,0,
+vurdere-bildedeling,skill,Personvern og IKT,Vurdere om deling av bilder og video er lovlig,"vurdere om deling av bilder, film eller lydopptak av andre i en konkret sak er lovlig, både etter reglene om retten til eget bilde og etter straffeloven.",retten-til-eget-bilde;straffbart-pa-nett,0,
+drofte-ikt-sak,skill,Personvern og IKT,Drøfte en juridisk problemstilling knyttet til IKT,"utforske og drøfte en juridisk problemstilling som oppstår ved bruk av informasjons- og kommunikasjonsteknologi, som overvåking, kunstig intelligens eller sosiale medier, med personvernreglene som grunnlag.",vurdere-personvernbehandling;vurdere-bildedeling;juridisk-drofting,0,
+erstatning,concept,Erstatningsrett,Erstatning,"Erstatning: en pengeytelse som skal sette skadelidte i samme økonomiske stilling som om skaden ikke hadde skjedd.
+Skadevolder: den som har voldt skaden.
+Skadelidt: den som har lidt skaden.",,0,
+erstatningsvilkar,concept,Erstatningsrett,Vilkårene for erstatning,"Ansvarsgrunnlag: et rettslig grunnlag for å gjøre skadevolderen ansvarlig, som skyld, objektivt ansvar eller arbeidsgiveransvar.
+Økonomisk tap: skadelidte må ha lidt et tap som kan måles i penger.
+Årsakssammenheng: handlingen må være en nødvendig betingelse for skaden.
+Adekvans: skaden må være en påregnelig følge av handlingen, ikke for fjern eller avledet.",erstatning,0,
+culpa,concept,Erstatningsrett,Culpaansvar,"Culpaansvar: ansvar for skade voldt forsettlig eller uaktsomt. Uaktsomhet vurderes ut fra hva en fornuftig og forsvarlig person ville gjort i samme situasjon, blant annet hvor stor skaderisikoen var og hvor lett skaden kunne vært unngått. Regelen er ulovfestet.",erstatningsvilkar,0,
+objektivt-ansvar,concept,Erstatningsrett,Objektivt ansvar,"Objektivt ansvar: ansvar for skade uten at skadevolderen har utvist skyld. Det gjelder etter særlige lover, som bilansvarsloven, og ulovfestet for virksomhet som innebærer en stadig, typisk og ekstraordinær risiko for skade.",erstatningsvilkar,0,
+arbeidsgiveransvar,concept,Erstatningsrett,Arbeidsgiveransvar,"Arbeidsgiveransvar: arbeidsgiveren svarer for skade som en arbeidstaker volder forsettlig eller uaktsomt under arbeidet, men ikke når arbeidstakeren har gått ut over det som er rimelig å regne med i arbeidet (skadeserstatningsloven § 2-1).",culpa,0,
+barn-foreldre-ansvar,concept,Erstatningsrett,Barns og foreldres erstatningsansvar,"Barns ansvar: barn under 18 år kan bli ansvarlige for skade de volder forsettlig eller uaktsomt, så langt det er rimelig ut fra alder, utvikling, atferd og økonomi (skadeserstatningsloven § 1-1).
+Foreldres ansvar: foreldre svarer for skade når de har sviktet i tilsynet. Uten egen skyld svarer de med inntil 5 000 kroner per skadetilfelle for skade voldt av barn under 18 år som bor hos dem (§ 1-2).",culpa,0,
+medvirkning,concept,Erstatningsrett,Skadelidtes medvirkning,"Skadelidtes medvirkning: erstatningen kan settes ned eller falle bort når skadelidte selv har medvirket til skaden ved egen skyld, men ikke når skadelidte var under 10 år (skadeserstatningsloven § 5-1).",erstatningsvilkar,0,
+oppreisning,concept,Erstatningsrett,Oppreisning,"Oppreisning: erstatning for skade av ikke-økonomisk art, som krenkelse og lidelse, som kan tilkjennes når skaden er voldt forsettlig eller grovt uaktsomt (skadeserstatningsloven § 3-5).",erstatning,0,
+vurdere-uaktsomhet,skill,Erstatningsrett,Vurdere om skadevolderen var uaktsom,"vurdere om skadevolderen i en konkret sak har opptrådt uaktsomt, ved å veie skaderisikoen, hvor alvorlig skaden kunne bli, og hva det ville kostet å unngå den.",culpa,0,
+vurdere-arsak-adekvans,skill,Erstatningsrett,Vurdere årsakssammenheng og adekvans,"vurdere om det er årsakssammenheng mellom handlingen og skaden i en konkret sak, og om skaden var en påregnelig følge.",erstatningsvilkar,0,
+vurdere-ansvarsgrunnlag,skill,Erstatningsrett,Velge og vurdere ansvarsgrunnlag,"avgjøre hvilket ansvarsgrunnlag som er aktuelt i en konkret sak, culpa, objektivt ansvar, arbeidsgiveransvar eller barns og foreldres ansvar, og vurdere om det er oppfylt.",vurdere-uaktsomhet;objektivt-ansvar;arbeidsgiveransvar;barn-foreldre-ansvar,0,
+beregne-erstatning,skill,Erstatningsrett,Fastsette erstatningens størrelse,"fastsette hvor stort tapet er i en konkret sak, og vurdere om erstatningen skal settes ned fordi skadelidte har medvirket, eller suppleres med oppreisning.",medvirkning;oppreisning;erstatningsvilkar,0,
+drofte-erstatningssak,skill,Erstatningsrett,Drøfte et erstatningskrav,"drøfte et erstatningskrav i en konkret sak fra grunnvilkårene til utmålingen, med argumenter for begge parter og en begrunnet konklusjon.",vurdere-ansvarsgrunnlag;vurdere-arsak-adekvans;beregne-erstatning;juridisk-drofting,0,
+straff-formal,concept,Strafferett,Straff og straffens formål,"Straff: et onde staten bevisst påfører den som har begått et lovbrudd, på grunn av lovbruddet.
+Allmennprevensjon: at trusselen om straff skal avskrekke folk flest fra å begå lovbrudd.
+Individualprevensjon: at straffen skal hindre at den domfelte begår nye lovbrudd.",,0,
+straffbarhetsvilkar,concept,Strafferett,Straffbarhetsvilkårene,"Lovhjemmel: handlingen må rammes av et straffebud i lov (Grunnloven § 96 og straffeloven § 14).
+Objektiv gjerningsbeskrivelse: handlingen må oppfylle det straffebudet beskriver.
+Ingen straffrihetsgrunn: handlingen må ikke være lovlig etter for eksempel nødrett eller nødverge.
+Skyld: gjerningspersonen må ha handlet med forsett, eller uaktsomt når straffebudet sier det, og ha vært over 15 år og tilregnelig.",straff-formal,0,
+straffrihetsgrunner,concept,Strafferett,Straffrihetsgrunner,"Nødrett: en handling er lovlig når den redder liv, helse, eiendom eller en annen interesse fra en fare som ikke kan avverges på annen rimelig måte, og skaderisikoen er langt større enn ved handlingen (straffeloven § 17).
+Nødverge: en handling er lovlig når den avverger et ulovlig angrep, ikke går lenger enn nødvendig og ikke åpenbart går ut over det forsvarlige (§ 18).",straffbarhetsvilkar,0,
+forsett,concept,Strafferett,Forsett,"Hensiktsforsett: gjerningspersonen handler for å oppnå det straffebudet beskriver (straffeloven § 22 a).
+Sannsynlighetsforsett: gjerningspersonen regner det som sikkert eller mest sannsynlig at handlingen dekker straffebudet (§ 22 b).
+Eventuelt forsett: gjerningspersonen holder det for mulig, og velger å handle selv om det skulle være tilfellet (§ 22 c).",straffbarhetsvilkar,0,
+uaktsomhet-strafferett,concept,Strafferett,Uaktsomhet i strafferetten,"Uaktsomhet: å handle i strid med kravet til forsvarlig opptreden, når en ut fra sine personlige forutsetninger kan bebreides (straffeloven § 23).
+Grov uaktsomhet: handlingen er svært klanderverdig og gir grunnlag for sterk bebreidelse.
+Skyldkravet: straffeloven rammer bare forsettlige lovbrudd, med mindre det står at også uaktsomhet er straffbart (§ 21).",straffbarhetsvilkar,0,
+lavalder-tilregnelighet,concept,Strafferett,Kriminell lavalder og tilregnelighet,"Kriminell lavalder: den som var under 15 år da handlingen skjedde, kan ikke straffes (straffeloven § 20).
+Utilregnelighet: den som var psykotisk, hadde sterk bevissthetsforstyrrelse eller høygradig psykisk utviklingshemming da handlingen skjedde, kan heller ikke straffes (§ 20).",straffbarhetsvilkar,0,
+straffeprosess,concept,Strafferett,Straffesakens gang,"Politiet: etterforsker saken.
+Påtalemyndigheten: avgjør om saken skal henlegges, avgjøres med forelegg eller påtaleunnlatelse, eller føre til tiltale.
+Uskyldspresumsjonen: enhver regnes som uskyldig til skyld er bevist (Grunnloven § 96), og enhver rimelig tvil skal komme tiltalte til gode.",straffbarhetsvilkar,0,
+straffer,concept,Strafferett,Straffene,"Fengsel: ubetinget, eller betinget med en prøvetid.
+Forvaring: en reaksjon for farlige lovbrytere med en tidsramme som kan forlenges så lenge faren for nye alvorlige lovbrudd består.
+Samfunnsstraff: et antall timer samfunnsnyttig tjeneste og andre tiltak i stedet for fengsel.
+Ungdomsstraff: et opplegg gjennom konfliktrådet for lovbrytere under 18 år, i stedet for fengsel (straffeloven § 52 a).
+Bot: en pengestraff.
+Rettighetstap: for eksempel tap av retten til en stilling, eller kontaktforbud (straffeloven § 29 lister straffene).",straff-formal,0,
+andre-reaksjoner,concept,Strafferett,Andre strafferettslige reaksjoner,"Forelegg: påtalemyndighetens tilbud om å avgjøre saken med bot uten rettssak; vedtatt forelegg virker som en dom (straffeprosessloven § 255).
+Påtaleunnlatelse: skyld anses bevist, men påtalemyndigheten lar være å straffeforfølge.
+Overføring til konfliktråd: saken løses gjennom mekling mellom gjerningsperson og fornærmet, eller gjennom ungdomsoppfølging (straffeloven § 30).",straffeprosess,0,
+samtykke-strafferett,concept,Strafferett,Samtykke i seksuallovbruddene,"Samtykke (strafferett): fra 1. juli 2025 er det voldtekt å ha seksuell omgang med noen som verken i ord eller handling har samtykket (straffeloven § 291 første ledd). Bruk av vold eller trusler, at den andre gir uttrykk for ikke å ville, eller at den andre ikke er i stand til å motsette seg, gir strengere straff (§ 291 andre ledd).",straffbarhetsvilkar,0,
+seksuallovbrudd,fact,Strafferett,Sentrale seksuallovbrudd,"voldtekt: straffeloven § 291
+seksuell handling uten samtykke: straffeloven § 297
+seksuelt krenkende atferd offentlig eller uten samtykke: straffeloven § 298
+seksuell omgang med barn under 14 år: straffeloven § 299
+seksuell omgang med barn mellom 14 og 16 år: straffeloven § 302
+straff kan falle bort når de involverte er omtrent jevnbyrdige i alder og utvikling: straffeloven § 308",samtykke-strafferett,0,
+kroppskrenkelse-kroppsskade,concept,Strafferett,Kroppskrenkelse og kroppsskade,"Kroppskrenkelse: å øve vold mot en annen eller krenke en annen fysisk, uten at det oppstår skade (straffeloven § 271).
+Kroppsskade: å skade en annens kropp eller helse, eller gjøre noen maktesløs eller bevisstløs (§ 273).",straffbarhetsvilkar,0,
+voldslovbrudd,fact,Strafferett,Sentrale voldslovbrudd,"trusler: straffeloven § 263
+kroppskrenkelse: straffeloven § 271
+grov kroppskrenkelse: straffeloven § 272
+kroppsskade: straffeloven § 273
+grov kroppsskade: straffeloven § 274
+mishandling i nære relasjoner: straffeloven § 282",kroppskrenkelse-kroppsskade,0,
+vinningsforsett,concept,Strafferett,Vinningsforsett,"Vinningsforsett: forsett om å skaffe seg selv eller andre en uberettiget økonomisk fordel. Det skiller vinningslovbruddene fra for eksempel skadeverk, der noen ødelegger en annens ting uten å ville tjene på det.",forsett,0,
+vinningslovbrudd,fact,Strafferett,Sentrale vinningslovbrudd,"tyveri, å ta en gjenstand som tilhører en annen med vinningsforsett: straffeloven § 321
+grovt tyveri: straffeloven § 322
+mindre tyveri, når verdien er ubetydelig: straffeloven § 323
+underslag, å tilegne seg noe man besitter, men som tilhører en annen: straffeloven § 324
+ran, tyveri ved vold eller trusler om vold: straffeloven § 327
+bedrageri, å skaffe seg vinning ved å villede noen: straffeloven § 371",vinningsforsett,0,
+vurdere-skyld,skill,Strafferett,Vurdere skyldkravet,"vurdere om gjerningspersonen i en konkret sak handlet med forsett, og i så fall hvilken form, eller uaktsomt, og om skyldkravet i straffebudet er oppfylt.",forsett;uaktsomhet-strafferett;lavalder-tilregnelighet,0,
+vurdere-straffrihet,skill,Strafferett,Vurdere nødverge og nødrett,"vurdere om en handling i en konkret sak er lovlig som nødverge eller nødrett, med særlig vekt på om den gikk lenger enn nødvendig.",straffrihetsgrunner,0,
+subsumere-seksuallovbrudd,skill,Strafferett,Bruke straffebudene om seksuallovbrudd,"bruke straffebudene om seksuallovbrudd på en konkret sak: avgjøre hvilket straffebud som er aktuelt, og om den objektive gjerningsbeskrivelsen og skyldkravet er oppfylt.",seksuallovbrudd;vurdere-skyld,0,
+subsumere-voldslovbrudd,skill,Strafferett,Bruke straffebudene om voldslovbrudd,"bruke straffebudene om vold på en konkret sak: skille kroppskrenkelse fra kroppsskade, vurdere om lovbruddet er grovt, og ta stilling til skyld og eventuelt nødverge.",voldslovbrudd;vurdere-skyld;vurdere-straffrihet,0,
+subsumere-vinningslovbrudd,skill,Strafferett,Bruke straffebudene om vinningslovbrudd,"bruke straffebudene om vinningslovbrudd på en konkret sak: avgjøre om det er tyveri, underslag, ran eller bedrageri, og om vinningsforsettet er bevist.",vinningslovbrudd;vurdere-skyld,0,
+vurdere-straffereaksjon,skill,Strafferett,Vurdere hvilken straffereaksjon som er aktuell,"utforske reaksjonssystemet og vurdere hvilken reaksjon som er aktuell i en konkret sak, ut fra lovbruddets alvor, gjerningspersonens alder og straffens formål.",straffer;andre-reaksjoner,0,
+drofte-straffesak,skill,Strafferett,Drøfte straffeansvar i en konkret sak,"drøfte om en person i en konkret sak kan straffes, ved å gå gjennom straffbarhetsvilkårene ett for ett, og konkludere med hvilken reaksjon som er aktuell.",subsumere-seksuallovbrudd;subsumere-voldslovbrudd;subsumere-vinningslovbrudd;vurdere-straffereaksjon;juridisk-drofting,0,
+miljo-grunnloven,concept,Miljørett,Miljøparagrafen i Grunnloven,"Miljøparagrafen: Grunnloven § 112 gir enhver rett til et miljø som sikrer helsen og en natur der produksjonsevne og mangfold bevares, også for kommende generasjoner, og pålegger staten å iverksette tiltak som gjennomfører disse prinsippene.",,0,
+miljorettslige-prinsipper,concept,Miljørett,De miljørettslige prinsippene,"Kunnskapsgrunnlaget: beslutninger som berører naturen, skal bygge på tilstrekkelig kunnskap (naturmangfoldloven § 8).
+Føre-var-prinsippet: mangel på kunnskap skal ikke brukes som grunn til å la være å beskytte naturen når det er risiko for alvorlig skade (§ 9).
+Samlet belastning: et inngrep skal vurderes sammen med andre inngrep naturen allerede er utsatt for (§ 10).
+Miljøforringer betaler: tiltakshaveren skal dekke kostnadene ved å hindre eller begrense skade på naturmangfoldet (§ 11).",miljo-grunnloven,0,
+forurensningsloven,concept,Miljørett,Forurensningsloven,"Forurensningsloven: utgangspunktet er at ingen må ha, gjøre eller sette i verk noe som kan føre til forurensning, uten at det er lovlig etter loven eller tillatt ved vedtak (§ 7). Den som er ansvarlig for forurensningen, skal sørge for tiltak og bære kostnadene.",miljo-grunnloven,0,
+klimaloven,fact,Miljørett,Klimalovens mål,"klimamål for 2030: minst 55 prosent lavere klimagassutslipp enn i 1990 (klimaloven § 3)
+klimamål for 2035: minst 70–75 prosent lavere klimagassutslipp enn i 1990 (klimaloven § 4)",miljo-grunnloven,0,
+klimasakene,concept,Miljørett,Klimasakene mot staten,"Klimasøksmålet: Høyesterett kom i 2020 (HR-2020-2472-P) til at tildelingen av letelisenser i Barentshavet ikke var i strid med Grunnloven § 112, og at terskelen for at domstolene skal sette til side et vedtak etter § 112, er høy.
+Greenpeace Nordic mot Norge: Den europeiske menneskerettsdomstolen kom i oktober 2025 til at Norge ikke hadde krenket EMK artikkel 8, men slo fast at staten må gjøre en grundig og tidsriktig konsekvensutredning, også av klimavirkningene, før den godkjenner petroleumsvirksomhet.",miljo-grunnloven;emd,0,
+bruke-miljoprinsipper,skill,Miljørett,Bruke de miljørettslige prinsippene,"bruke de miljørettslige prinsippene på en konkret sak, for eksempel en utbygging i et naturområde, og vurdere hva de krever av myndighetene og tiltakshaveren.",miljorettslige-prinsipper,0,
+vurdere-forurensning,skill,Miljørett,Vurdere en forurensningssak,"vurdere om en forurensning i en konkret sak er ulovlig, og hvem som må sørge for og betale tiltakene.",forurensningsloven,0,
+drofte-miljosak,skill,Miljørett,Drøfte et rettsspørsmål om vern av miljøet,"utforske og drøfte et dagsaktuelt rettsspørsmål om vern av miljøet, med Grunnloven § 112, de miljørettslige prinsippene og klimasakene som grunnlag, og veie miljøhensyn mot andre interesser.",bruke-miljoprinsipper;vurdere-forurensning;klimasakene;klimaloven;juridisk-drofting,0,

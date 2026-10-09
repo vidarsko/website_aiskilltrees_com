@@ -1,0 +1,195 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Analyseverktøy;Realisme og naturalisme;Modernisme;Litteratur fra 1960 til i dag;Sakprosa og retorisk analyse;Sammensatte tekster;Talespråk, kultur og identitet;Formkrav og kildebruk;Skriving og muntlighet",,,
+,config,,title,Norsk Vg3,,,
+,config,,description,"Litteratur fra 1850 til i dag i den realistiske og den modernistiske tradisjonen, retorisk analyse, sammensatte tekster, talespråket i Norge i dag, formkrav på hovedmål og sidemål, og essay, litterær tolkning og fagartikkel — for Vg3 studieforberedende.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-vgs-norsk-vg3-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"norsk Vg3 (studieforberedende, norsk videregående skole)",,,
+,config,,slots.motivationSubject,norsk,,,
+,config,,slots.expressionFocus,"gjenforteller handlingen i stedet for å analysere, kaller alt som er fritt og uklart for modernisme, lister opp virkemidler uten å forklare virkningen, setter inn sitater uten å kommentere dem, skriver «jeg føler» der det trengs en begrunnet påstand, eller blander inn hovedmålsformer i sidemålet",,,
+,config,,slots.courseSpecifics,"Eleven skal opp til sentralt gitt skriftlig eksamen i norsk hovedmål i Vg3 og kan trekkes ut i sidemål. Eksamen har en kortsvarsoppgave og en langsvarsoppgave, så øv gjerne i disse formatene der det passer.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, Vg3 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"NOR1267 (hovedmål skriftlig), NOR1268 (sidemål skriftlig), NOR1269 (muntlig)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,norwegian,,,
+,config,,keywords,realisme; naturalisme; det moderne gjennombrudd; Ibsen; modernisme; postmodernisme; autofiksjon; litterær tolkning; essay; retorisk analyse; sammensatte tekster; dialekter; multietnolekt; språk og identitet; sidemål; nynorsk; kildebruk; fagartikkel; kortsvar; langsvar; eksamen,,,
+,config,,updated,2026-10-08,,,
+kulturhistorisk-kontekst,concept,Analyseverktøy,Kulturhistorisk kontekst,"Kulturhistorisk kontekst: tiden en tekst ble til i — samfunnsforholdene, idéene, kunstsynet og mediene — som former hva teksten handler om og hvordan den er skrevet.",,0,
+litterar-epoke,concept,Analyseverktøy,Litterær epoke og tradisjon,"Litterær epoke: en periode der mange tekster deler idéer, temaer og formtrekk. Epokegrensene er satt i ettertid og er ikke skarpe skiller.
+Litterær tradisjon: en måte å skrive på som lever videre på tvers av epokene, slik den realistiske og den modernistiske tradisjonen gjør.",kulturhistorisk-kontekst,0,
+menneske-natur-samfunn,concept,Analyseverktøy,"Menneskesyn, natursyn og samfunnssyn","Menneskesyn: oppfatningen en tekst eller en tid har av hva et menneske er og bør være.
+Natursyn: hvordan naturen blir sett på — som truende, nyttig, vakker, besjelet eller som et offer for mennesket.
+Samfunnssyn: hvordan samfunnet og menneskets plass i det blir framstilt.",kulturhistorisk-kontekst,0,
+tema-budskap,concept,Analyseverktøy,Tema og budskap,"Tema: hva teksten handler om på et overordnet plan, sagt med ett eller noen få ord, som skyld eller frihet.
+Budskap: hva teksten sier om temaet, en innsikt leseren tolker seg fram til.",,0,
+forteller-synsvinkel,concept,Analyseverktøy,Forteller og synsvinkel,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren.
+Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom — en allvitende forteller, en personal forteller som følger én persons tanker, eller en ytre forteller som bare viser det som kan ses og høres.",,0,
+komposisjon,concept,Analyseverktøy,Komposisjon,"Komposisjon: hvordan handlingen i en tekst er bygd opp og ordnet — kronologisk eller med tilbakeblikk, med konflikt, vendepunkt og slutt, i én eller flere handlingstråder.",,0,
+litterare-virkemidler,concept,Analyseverktøy,Litterære virkemidler,"Litterært virkemiddel: et grep som skaper mening og virkning i en tekst, som språklige bilder (sammenligning, metafor, besjeling), symboler, kontraster, gjentakelser, ironi og tidshopp.",,0,
+episke-sjangre,concept,Analyseverktøy,Roman og novelle,"Roman: en lang fortelling med mange personer, ofte flere handlingstråder og en utvikling over tid.
+Novelle: en kort fortelling med få personer og ett hovedforløp, som ofte begynner midt i handlingen og har en åpen slutt.
+Kortprosa: svært korte prosatekster som ofte fanger ett øyeblikk eller én stemning i stedet for en handling.",,0,
+lyrikkbegreper,concept,Analyseverktøy,Lyrikkbegreper,"Lyrisk jeg: stemmen som taler i et dikt, som ikke er det samme som dikteren.
+Bunden form: dikt med fast rytme, rim og strofeform.
+Fri vers: dikt uten fast rytme og rim, der linjebrudd, ordvalg og bilder bærer formen.
+Enjambement: at en setning fortsetter over linjeskiftet.",litterare-virkemidler,0,
+dramabegreper,concept,Analyseverktøy,Dramabegreper,"Replikk: det en person sier i et drama.
+Sceneanvisning: forfatterens beskjed om sted, handling og regi, skrevet utenom replikkene.
+Retrospektiv teknikk: at fortiden avdekkes bit for bit gjennom replikkene, slik at det som har skjedd før, driver handlingen på scenen.",,0,
+analysere-prosa,skill,Analyseverktøy,Analysere en roman eller novelle,"analysere fortellerteknikk, komposisjon, personer, språk og virkemidler i en roman, et romanutdrag eller en novelle, og samle analysen i en begrunnet tolkning.",forteller-synsvinkel;komposisjon;litterare-virkemidler;tema-budskap;episke-sjangre,0,"Ved tolkning av et verk eleven leser: be eleven lime inn utdraget de arbeider med, og ikke gjengi hele verket selv."
+analysere-lyrikk,skill,Analyseverktøy,Analysere et dikt,"analysere oppbygning, bilder, rytme og lydvirkninger i et dikt, og tolke hva diktet uttrykker.",lyrikkbegreper;tema-budskap,0,
+analysere-drama,skill,Analyseverktøy,Analysere et drama,"analysere konflikt, personer, replikker og sceneanvisninger i et drama eller dramautdrag, og tolke hva stykket tar opp.",dramabegreper;tema-budskap,0,
+lese-i-kontekst,skill,Analyseverktøy,Lese en tekst i lys av konteksten og egen samtid,"tolke en tekst fra 1850 til i dag i lys av tiden den ble skrevet i, og reflektere over hva den kan bety for lesere i dag.",litterar-epoke;menneske-natur-samfunn;tema-budskap,0,
+realismen,concept,Realisme og naturalisme,Realismen,"Realismen: en litterær retning fra midten av 1800-tallet som ville skildre virkeligheten slik den er, med vanlige mennesker, troverdige personer, hverdagslige miljøer og et nøkternt språk.",litterar-epoke,0,
+moderne-gjennombrudd,concept,Realisme og naturalisme,Det moderne gjennombrudd,"Det moderne gjennombrudd: 1870- og 1880-årene da litteraturen i Norden ble samfunnskritisk og skulle sette problemer under debatt, etter et krav den danske kritikeren Georg Brandes reiste i 1871.",realismen,0,
+problemlitteratur,concept,Realisme og naturalisme,Problemlitteratur,"Problemlitteratur: litteratur som tar opp et samfunnsproblem — som kvinners stilling, dobbeltmoralen, skolen eller kirken — for å skape debatt.",moderne-gjennombrudd,0,
+naturalismen,concept,Realisme og naturalisme,Naturalismen,"Naturalismen: en radikal form for realisme fra 1880-årene som så mennesket som bestemt av arv og miljø, og som skildret fattigdom, sykdom og seksualitet åpent.",realismen,0,
+realisme-verk,fact,Realisme og naturalisme,Sentrale verk fra realismen og naturalismen,"Camilla Collett, Amtmandens Døttre (1854–55): roman om unge kvinner uten rett til å velge ektefelle selv
+Henrik Ibsen, Et dukkehjem (1879): drama om Nora, som forlater mann og barn for å finne ut hvem hun er
+Henrik Ibsen, Gengangere (1881): drama om arv, løgn og dobbeltmoral i en borgerlig familie
+Alexander Kielland, Gift (1883): roman som kritiserer latinskolen
+Bjørnstjerne Bjørnson, En hanske (1883): drama om dobbeltmoralen i synet på menns og kvinners seksualitet
+Arne Garborg, Bondestudentar (1883): roman på landsmål om en bondegutt som studerer i byen
+Amalie Skram, Constance Ring (1885): naturalistisk roman om ekteskap og kvinners kår",moderne-gjennombrudd;naturalismen,0,
+analysere-realistisk-tekst,skill,Realisme og naturalisme,Vise realistiske og naturalistiske trekk i en tekst,"vise hvordan en tekst fra perioden 1850–1890 skildrer mennesket, miljøet og samfunnet realistisk eller naturalistisk, og hvilket samfunnsproblem den setter under debatt.",realismen;naturalismen;problemlitteratur;lese-i-kontekst,0,
+analysere-ibsen,skill,Realisme og naturalisme,Analysere et utdrag fra et Ibsen-drama,"analysere konflikt, personer og retrospektiv teknikk i et utdrag fra et drama av Ibsen, og knytte stykket til det moderne gjennombrudd.",analysere-drama;moderne-gjennombrudd,0,
+drofte-realisme-i-dag,skill,Realisme og naturalisme,Drøfte hva et problemdrama har å si i dag,"drøfte om problemet et verk fra det moderne gjennombrudd setter under debatt, fortsatt er aktuelt, med argumenter fra teksten og fra samfunnet i dag.",analysere-realistisk-tekst;drofte,0,
+nyromantikken,concept,Modernisme,Nyromantikken,"Nyromantikken: en reaksjon på naturalismen i 1890-årene som vendte seg mot sjelelivet, drømmer, det irrasjonelle og naturmystikk.",naturalismen,0,
+modernismen,concept,Modernisme,Modernismen,"Modernismen: kunst og litteratur fra slutten av 1800-tallet og utover som bryter med tradisjonelle former for å uttrykke et moderne liv preget av oppsplitting, fremmedfølelse og usikkerhet.",litterar-epoke,0,
+fremmedgjoring,concept,Modernisme,Fremmedgjøring,"Fremmedgjøring: følelsen av å være fremmed for omgivelsene, for andre mennesker eller for seg selv, et sentralt tema i modernistisk litteratur.",,0,
+moderne-fortellerteknikk,concept,Modernisme,Modernistiske fortellergrep,"Indre monolog: en persons tanker gjengitt direkte, i jeg-form, uten anførselstegn.
+Bevissthetsstrøm: tanker, sanseinntrykk og assosiasjoner gjengitt slik de flyter, ofte uten ordnet setningsbygning.
+Fri indirekte tale: en persons tanker gjengitt i fortellerens tredjeperson, men med personens ord og synsvinkel.",forteller-synsvinkel,0,
+modernistisk-lyrikk,concept,Modernisme,Modernistisk lyrikk,"Modernistisk lyrikk: dikt i fri vers med uvante, ofte gåtefulle bilder, brudd med vanlig syntaks og åpenhet for flere tolkninger.",lyrikkbegreper;modernismen,0,
+to-tradisjoner,concept,Modernisme,Den realistiske og den modernistiske tradisjonen,"Den realistiske tradisjonen: litteratur som skildrer en gjenkjennelig virkelighet med sammenhengende handling, troverdige personer og et klart språk, fra 1850 og fram til i dag.
+Den modernistiske tradisjonen: litteratur som bryter med slike konvensjoner i form, språk og fortellemåte for å uttrykke en oppsplittet virkelighet.",realismen;modernismen,0,
+modernisme-verk,fact,Modernisme,Sentrale verk i den modernistiske tradisjonen,"Knut Hamsun, Sult (1890): roman om en sultende skribent i Kristiania, skrevet tett på hovedpersonens skiftende sinnstilstand
+Sigbjørn Obstfelder, «Jeg ser» (1893): dikt om å føle seg fremmed i verden
+Rolf Jacobsen, Jord og jern (1933): diktsamling om teknikken og det moderne livet
+Paal Brekke, Skyggefektning (1949): diktsamling som var med på å bryte gjennom for modernismen i norsk lyrikk
+Tarjei Vesaas, Fuglane (1957): roman om den annerledes Mattis
+Tarjei Vesaas, Is-slottet (1963): roman om vennskap og sorg, Nordisk råds litteraturpris 1964
+Olav H. Hauge, «Det er den draumen» (1966): nynorskdikt om lengsel og håp",modernismen;nyromantikken,0,
+skille-tradisjonene,skill,Modernisme,Plassere en tekst i den realistiske eller den modernistiske tradisjonen,"avgjøre om en tekst hører mest til den realistiske eller den modernistiske tradisjonen, og begrunne det med trekk ved form, språk og fortellemåte.",to-tradisjoner;moderne-fortellerteknikk,0,
+analysere-modernistisk-prosa,skill,Modernisme,Analysere modernistisk prosa,"vise hvordan modernistiske fortellergrep som indre monolog, bevissthetsstrøm og brudd i kronologien uttrykker personenes indre liv og fremmedfølelse.",moderne-fortellerteknikk;fremmedgjoring;analysere-prosa,0,
+tolke-modernistisk-dikt,skill,Modernisme,Tolke et modernistisk dikt,"tolke et modernistisk dikt med åpne bilder og fri form, og begrunne tolkningen med detaljer fra teksten.",modernistisk-lyrikk;analysere-lyrikk,0,
+utforske-tradisjonene,skill,Modernisme,Sammenligne hvordan tradisjonene framstiller menneske og samfunn,"sammenligne hvordan tekster fra den realistiske og den modernistiske tradisjonen framstiller menneske, natur og samfunn, og reflektere over hvorfor framstillingene er så ulike.",skille-tradisjonene;analysere-realistisk-tekst;analysere-modernistisk-prosa,0,
+sosialrealisme,concept,Litteratur fra 1960 til i dag,Politisk litteratur i 1970-årene,"Sosialrealisme: realistisk litteratur med et politisk mål, som i 1970-årene skildret arbeidsliv, klassekamp og kvinners kår for å endre samfunnet.",realismen,0,
+postmodernisme,concept,Litteratur fra 1960 til i dag,Postmodernisme og metafiksjon,"Postmodernisme: en retning fra 1980-årene som leker med sjangre og fortellerformer, blander høy og lav kultur og er skeptisk til store sannheter.
+Metafiksjon: fiksjon som viser fram og kommenterer at den selv er fiksjon.",modernismen,0,
+autofiksjon,concept,Litteratur fra 1960 til i dag,Autofiksjon,"Autofiksjon: litteratur som blander forfatterens eget liv med fiksjon, ofte med en hovedperson som har forfatterens navn.",,0,
+samtid-verk,fact,Litteratur fra 1960 til i dag,Forfattere og verk fra 1970 til i dag,"Dag Solstad, Arild Asnes, 1970 (1971): roman om en forfatter som blir politisk radikal
+Jan Kjærstad, Homo falsus (1984): postmodernistisk roman som leker med fortelleren og fiksjonen
+Jon Fosse: dramatiker, lyriker og romanforfatter på nynorsk, Nobelprisen i litteratur 2023
+Karl Ove Knausgård, Min kamp (2009–2011): selvbiografisk romanverk i seks bind
+Maja Lunde, Bienes historie (2015): klimaroman i tre tidsplan
+Vigdis Hjorth, Arv og miljø (2016): roman om en familiekonflikt som utløste debatt om fiksjon og virkelighet
+Zeshan Shakar, Tante Ulrikkes vei (2017): roman om to unge gutter i Groruddalen, delvis skrevet på multietnolekt",postmodernisme;autofiksjon,0,
+analysere-samtidstekst,skill,Litteratur fra 1960 til i dag,Analysere en samtidstekst i lys av egen samtid,"analysere en nyere roman, novelle eller et nyere dikt, og reflektere over hvordan teksten tar opp spørsmål i vår egen tid, som klima, identitet eller teknologi.",analysere-prosa;lese-i-kontekst,0,
+vise-postmoderne-trekk,skill,Litteratur fra 1960 til i dag,Vise postmoderne trekk i en tekst,"vise hvordan en tekst bruker metafiksjon, sjangerblanding eller lek med fortellerformen, og hva grepene gjør med lesningen.",postmodernisme;analysere-prosa,0,
+drofte-autofiksjon,skill,Litteratur fra 1960 til i dag,Drøfte forholdet mellom fiksjon og virkelighet,"drøfte de litterære og etiske spørsmålene som oppstår når forfattere skriver om virkelige personer, med utgangspunkt i autofiksjon.",autofiksjon;drofte,0,
+lese-nynorsk-litteratur,skill,Litteratur fra 1960 til i dag,Analysere litteratur på nynorsk,"lese og analysere skjønnlitteratur og sakprosa på nynorsk, og kommentere hvordan språket og målformen bidrar til uttrykket.",analysere-prosa;analysere-lyrikk,0,
+retorisk-situasjon,concept,Sakprosa og retorisk analyse,Retorisk situasjon,"Retorisk situasjon: sammenhengen en ytring blir til i — et påtrengende problem, et publikum som kan gjøre noe med det, og føringer som begrenser hva avsenderen kan si.
+Kairos: å si det rette på rett tidspunkt.
+Aptum: at innhold, form og stil passer til emnet, publikummet og situasjonen.",,0,
+appellformer,concept,Sakprosa og retorisk analyse,Appellformene,"Etos: å overbevise gjennom avsenderens troverdighet, kunnskap og gode vilje.
+Patos: å overbevise ved å vekke følelser hos mottakeren.
+Logos: å overbevise gjennom fakta, fornuft og logiske argumenter.",,0,
+retoriske-virkemidler,concept,Sakprosa og retorisk analyse,Retoriske virkemidler,"Retorisk virkemiddel: et språklig grep som skal gjøre et budskap mer overbevisende eller lettere å huske, som gjentakelse, kontrast, retoriske spørsmål, tretall, metaforer, overdrivelse og ironi.",,0,
+argumentasjon,concept,Sakprosa og retorisk analyse,Påstand og argument,"Påstand: det avsenderen vil at mottakeren skal godta.
+Argument: en begrunnelse for påstanden.
+Hjemmel: den ofte underforståtte forutsetningen som får argumentet til å støtte påstanden.
+Motargument: en begrunnelse for et annet syn.",,0,
+sakprosasjangre,concept,Sakprosa og retorisk analyse,Sakprosasjangre i offentligheten,"Kronikk: en lengre debattekst, ofte skrevet av en fagperson, som argumenterer for et syn i en aktuell sak.
+Kommentar: en meningstekst skrevet av en journalist.
+Tale: en tekst skrevet for å framføres muntlig for et publikum.
+Reportasje: en levende, ofte personlig skildring av hendelser eller mennesker.",,0,
+gjore-rede-argumentasjon,skill,Sakprosa og retorisk analyse,Gjøre rede for argumentasjonen i en sakprosatekst,"finne hovedpåstanden, argumentene og de underforståtte hjemlene i en sakprosatekst, og vurdere hvor holdbar argumentasjonen er.",argumentasjon,0,
+analysere-retorikk,skill,Sakprosa og retorisk analyse,Analysere appellformer og retoriske virkemidler,"vise hvordan en sakprosatekst bruker appellformene og retoriske virkemidler, og vurdere hvor godt de passer formålet, publikummet og situasjonen.",appellformer;retoriske-virkemidler;retorisk-situasjon,0,
+tolke-sakprosa,skill,Sakprosa og retorisk analyse,Tolke det underforståtte i en sakprosatekst,"tolke hva en sakprosatekst egentlig vil oppnå — også verdier, holdninger og forestillinger om leseren som ikke står rett ut — og begrunne tolkningen med eksempler.",gjore-rede-argumentasjon;retorisk-situasjon;sakprosasjangre,0,
+skrive-retorisk-analyse,skill,Sakprosa og retorisk analyse,Skrive en retorisk analyse og tolkning,"skrive en sammenhengende tekst som gjør rede for den retoriske situasjonen til en sakprosatekst, analyserer argumentasjonen og virkemidlene, og ender i en tolkning og vurdering av hvor godt teksten virker.",analysere-retorikk;tolke-sakprosa;tekststruktur;bruke-kilder,0,
+sammensatt-tekst,concept,Sammensatte tekster,Sammensatt tekst,"Sammensatt tekst: en tekst som kombinerer flere uttrykksformer — skrift, bilde, lyd, film, grafikk eller layout — slik at de sammen skaper mening.",,0,
+bildebegreper,concept,Sammensatte tekster,Bildebegreper,"Utsnitt: hvor mye av motivet som vises, fra totalbilde til nærbilde.
+Perspektiv: fra hvilken høyde motivet er sett — fugleperspektiv, normalperspektiv eller froskeperspektiv.
+Komposisjon: hvordan elementene er plassert i bildeflaten, og hva blikket ledes mot.",sammensatt-tekst,0,
+film-lyd-virkemidler,concept,Sammensatte tekster,Film- og lydvirkemidler,"Klipp: overgangen mellom to bilder, som styrer tempo og hva seeren knytter sammen.
+Diegetisk lyd: lyd som hører hjemme i filmens verden, som replikker og trafikkstøy.
+Ikke-diegetisk lyd: lyd utenfor filmens verden, som filmmusikk og fortellerstemme.",sammensatt-tekst,0,
+samspill-uttrykksformer,concept,Sammensatte tekster,Samspill mellom uttrykksformer,"Forankring: at teksten låser hvilken av flere mulige betydninger bildet skal ha.
+Avløsning: at tekst og bilde gir hver sin del av budskapet.
+Motspill: at uttrykksformene spiller mot hverandre, ofte for å skape ironi eller humor.",sammensatt-tekst,0,
+medium,concept,Sammensatte tekster,Medium,"Medium: kanalen en tekst formidles gjennom, som avis, film, podkast eller sosiale medier, og som påvirker form, lengde, uttrykksformer og hvem som nås.",,0,
+analysere-bilde,skill,Sammensatte tekster,Analysere et bilde,"beskrive utsnitt, perspektiv, komposisjon og farger i et bilde, og forklare hva valgene gjør med inntrykket bildet gir.",bildebegreper,0,
+analysere-sammensatt,skill,Sammensatte tekster,Analysere uttrykksformene i en sammensatt tekst,"beskrive hvordan skrift, bilde, lyd og andre uttrykksformer brukes i en sammensatt tekst, som en reklame, en nettartikkel, en musikkvideo eller en kortfilm.",analysere-bilde;film-lyd-virkemidler,0,
+vurdere-samspill,skill,Sammensatte tekster,Vurdere samspillet i en sammensatt tekst,"vurdere hvordan uttrykksformene i en sammensatt tekst virker sammen, og hvor godt de samlet når formålet og mottakerne.",analysere-sammensatt;samspill-uttrykksformer;analysere-retorikk,0,
+sammenligne-medier,skill,Sammensatte tekster,Sammenligne samme stoff i ulike medier,"sammenligne hvordan samme fortelling eller sak formidles i ulike medier — for eksempel roman og film, eller avis og sosiale medier — og forklare hva mediet gjør med uttrykket.",analysere-sammensatt;medium,0,
+dialekt-sosiolekt,concept,"Talespråk, kultur og identitet",Dialekt og sosiolekt,"Dialekt: en variant av et språk knyttet til et geografisk område.
+Sosiolekt: en variant knyttet til en sosial gruppe, som klasse, yrke eller alder.
+Standardtalemål: en talemålsvariant som oppfattes som nøytral eller normal i et samfunn; Norge har ikke noe offisielt standardtalemål.",,0,
+dialekttrekk,concept,"Talespråk, kultur og identitet",Dialekttrekk,"Skarre-r: r uttalt bak i munnen, i drøvelen.
+Tjukk l: en slaglyd laget med tungespissen bøyd bakover, som i mange dialekter på Østlandet og i Trøndelag.
+Apokope: at den trykklette endevokalen faller bort, som «å kast» for «å kaste».
+Palatalisering: at konsonanter uttales med tungeryggen hevet mot ganen, som «mainn» for «mann».",dialekt-sosiolekt,0,
+multietnolekt,concept,"Talespråk, kultur og identitet",Multietnolekt,"Multietnolekt: en talemålsvariant som har oppstått blant unge i flerspråklige bymiljøer, med ord fra mange språk og trekk som brudd på V2-regelen («i dag jeg skal på trening»).",dialekt-sosiolekt,0,
+utjevning-regionalisering,concept,"Talespråk, kultur og identitet",Dialektutjevning og regionalisering,"Dialektutjevning: at særtrekk i dialektene forsvinner, så dialektene blir likere hverandre.
+Regionalisering: at dialektene i et område nærmer seg en sterk regional bydialekt, som talemålet i Oslo, Bergen, Trondheim eller Stavanger.",dialekt-sosiolekt,0,
+engelsk-pavirkning,concept,"Talespråk, kultur og identitet",Engelsk påvirkning,"Kodeveksling: å veksle mellom to språk i samme samtale eller setning.
+Domenetap: at et språk mister terreng på et samfunnsområde, som forskning, næringsliv eller underholdning, til et annet språk.",,0,
+sprak-identitet,concept,"Talespråk, kultur og identitet",Språk og identitet,"Språklig identitet: den delen av identiteten som er knyttet til hvordan en snakker og skriver, og hvilke språkfellesskap en hører til.
+Språkholdning: en vurdering av en språkvariant som pen, stygg, kul eller dannet, som sier mer om forholdet til brukerne enn om språket selv.",dialekt-sosiolekt,0,
+redegjore-talesprak,skill,"Talespråk, kultur og identitet",Gjøre rede for endringer i talespråket i dag,"gjøre rede for hvordan norsk talespråk endrer seg i dag — utjevning, regionalisering, multietnolekter og engelsk påvirkning — og forklare årsakene, som flytting, medier og innvandring.",utjevning-regionalisering;multietnolekt;engelsk-pavirkning;dialekttrekk,0,
+beskrive-talemal-i-tekst,skill,"Talespråk, kultur og identitet",Beskrive talemålstrekk i en tekst,"beskrive dialekt-, sosiolekt- og multietnolekttrekk i en skjønnlitterær tekst, en sangtekst eller et transkribert opptak med fagbegreper, og forklare hvilken virkning bruken har.",dialekttrekk;multietnolekt;sprak-identitet,0,
+reflektere-sprak-identitet,skill,"Talespråk, kultur og identitet","Reflektere over språk, kultur og identitet","reflektere over hvordan måten en snakker på henger sammen med kultur, tilhørighet og identitet, med eksempler fra dialekter, multietnolekter eller flerspråklighet.",redegjore-talesprak;sprak-identitet,0,
+drofte-sprakholdninger,skill,"Talespråk, kultur og identitet",Drøfte holdninger til talemål,"drøfte et spørsmål om språkholdninger — for eksempel dialektbruk i nyhetene, synet på multietnolekt eller engelske ord i norsk — med fagkunnskap og argumenter fra flere sider.",reflektere-sprak-identitet;drofte,0,
+hovedmal-sidemal,concept,Formkrav og kildebruk,Hovedmål og sidemål,"Hovedmål: den skriftlige målformen, bokmål eller nynorsk, eleven bruker mest.
+Sidemål: den andre målformen, som eleven også skal mestre skriftlig.",,0,
+formkrav,concept,Formkrav og kildebruk,Språklige formkrav,"Språklige formkrav: kravene til korrekt rettskriving, bøyning, tegnsetting og setningsbygning etter den offisielle normen for målformen.",hovedmal-sidemal,0,
+stilniva,concept,Formkrav og kildebruk,Stilnivå og nominalstil,"Stilnivå: hvor formelt eller uformelt språket i en tekst er, tilpasset sjanger og mottaker.
+Nominalstil: en tung stil med mange substantiv laget av verb, som «gjennomføringen av vurderingen», der verbalstil ville sagt «å vurdere».",,0,
+boye-sidemal,skill,Formkrav og kildebruk,Bøye ord riktig på sidemålet,"bruke riktige bøyningsformer av substantiv, verb, adjektiv og pronomen på sidemålet, uten å blande inn former fra hovedmålet.",formkrav,0,
+idiomatisk-sidemal,skill,Formkrav og kildebruk,Skrive naturlig og idiomatisk på sidemålet,"skrive setninger som er naturlige på sidemålet — for eksempel verbalstil i nynorsk og riktig bruk av passiv — og bytte ut ord og vendinger som hører hjemme i hovedmålet.",boye-sidemal;stilniva,0,
+tegnsetting,skill,Formkrav og kildebruk,Sette komma og andre skilletegn riktig,"sette komma, kolon, semikolon og tankestrek riktig i egen tekst, også i lange perioder med leddsetninger og innskutte ledd.",formkrav,0,
+presist-sprak,skill,Formkrav og kildebruk,Skrive presist og nyansert,"velge presise ord og fagbegreper, variere setningsbygningen, og uttrykke grader av sikkerhet og nyanser i egne vurderinger.",stilniva,0,
+korrekturlese,skill,Formkrav og kildebruk,Korrekturlese og bearbeide egen tekst,"lese egen tekst kritisk mot formkravene og tilbakemeldinger, og rette feil i rettskriving, bøyning, tegnsetting og setningsbygning på både hovedmål og sidemål.",tegnsetting;boye-sidemal,0,
+faglitteratur,concept,Formkrav og kildebruk,Faglitteratur og kildetyper,"Faglitteratur: tekster skrevet av fagpersoner om et fagområde, som fagbøker, vitenskapelige artikler og fagleksikon.
+Primærkilde: teksten eller materialet en undersøker, som en roman eller en tale.
+Sekundærkilde: en tekst om primærkilden, som en litteraturhistorie eller en analyse.",,0,
+kildekritikk,concept,Formkrav og kildebruk,Kildekritikk,"Kildekritikk: å vurdere om en kilde er troverdig og relevant, ut fra hvem som står bak, hvilket formål den har, når den ble laget, og om opplysningene kan bekreftes andre steder. Det gjelder også tekster laget med kunstig intelligens.",faglitteratur,0,
+kildebruk,concept,Formkrav og kildebruk,Sitat og kildehenvisning,"Sitat: ordrett gjengivelse av en tekst, markert med anførselstegn.
+Parafrase: gjengivelse av innholdet i en tekst med egne ord.
+Kildehenvisning: en opplysning om hvor noe er hentet fra, knyttet til en litteraturliste.
+Plagiat: å framstille andres tekst eller idéer som sine egne.",,0,
+orientere-faglitteratur,skill,Formkrav og kildebruk,Finne og velge relevant faglitteratur,"søke etter faglitteratur om et norskfaglig emne, skumme for å vurdere hva som er relevant, og velge ut kilder som svarer på problemstillingen.",faglitteratur,0,
+vurdere-kilder,skill,Formkrav og kildebruk,Vurdere kilder kritisk,"vurdere hvor troverdig og relevant en kilde er for en bestemt problemstilling, og begrunne vurderingen.",kildekritikk,0,
+bruke-kilder,skill,Formkrav og kildebruk,Bruke kilder etterrettelig,"flette sitater og parafraser inn i egen tekst, kommentere dem, holde egne vurderinger atskilt fra kildenes, og føre riktige henvisninger og litteraturliste.",kildebruk,0,
+redegjore-drofte,concept,Skriving og muntlighet,Redegjøre og drøfte,"Redegjøre: å legge fram et fagstoff saklig og ordnet, slik at leseren forstår det.
+Drøfte: å undersøke et spørsmål fra flere sider ved å veie argumenter mot hverandre, før en kommer fram til en begrunnet konklusjon.",,0,
+problemstilling,concept,Skriving og muntlighet,Problemstilling,"Problemstilling: et avgrenset spørsmål som en tekst eller presentasjon skal undersøke og svare på.",redegjore-drofte,0,
+tekststruktur,concept,Skriving og muntlighet,"Innledning, hoveddel og avslutning","Innledning: presenterer emnet og det teksten skal svare på.
+Hoveddel: utdyper emnet i ett avsnitt per hovedtanke, hvert med en tydelig temasetning.
+Avslutning: samler trådene og svarer på det innledningen lovet.",,0,
+essay,concept,Skriving og muntlighet,Essay,"Essay: en undersøkende og reflekterende sakprosatekst der skribenten tenker høyt med leseren rundt et spørsmål, med personlig stemme, konkrete eksempler og en tankegang som veksler mellom det nære og det allmenne, uten krav om en endelig konklusjon.",,0,
+litterar-tolkning,concept,Skriving og muntlighet,Litterær tolkning og sammenligning,"Litterær tolkning: en tekst som legger fram en begrunnet lesning av ett eller flere skjønnlitterære verk, der påstandene om verket støttes med analyse og sitater.
+Litterær sammenligning: en litterær tolkning av to eller flere tekster som ser dem i lys av hverandre, ut fra et felles tema eller grep.",tema-budskap,0,
+fagartikkel,concept,Skriving og muntlighet,Fagartikkel,"Fagartikkel: en saklig tekst som greier ut om og drøfter et faglig spørsmål ut fra en problemstilling, med faglitteratur, tydelig struktur og en begrunnet konklusjon.",problemstilling,0,
+kortsvar,concept,Skriving og muntlighet,Kortsvar,"Kortsvar: en kort, konsentrert tekst som svarer presist på én avgrenset oppgave — for eksempel å gjøre rede for, sammenligne eller karakterisere — med eksempler fra vedlegget og uten den innledningen og avslutningen en lengre tekst har.",,0,
+utforskende-samtale,concept,Skriving og muntlighet,Utforskende samtale,"Utforskende samtale: en samtale der deltakerne tenker høyt sammen, stiller spørsmål, bygger videre på hverandres innspill og prøver ut idéer, i stedet for å vinne en diskusjon.",,0,
+drofte,skill,Skriving og muntlighet,Drøfte et norskfaglig spørsmål,"drøfte et spørsmål ved å legge fram flere synspunkter, veie dem mot hverandre og ende i en begrunnet konklusjon.",redegjore-drofte;argumentasjon,0,
+skrive-kortsvar,skill,Skriving og muntlighet,Skrive et kortsvar,"svare presist og med fagbegreper på en avgrenset oppgave om en tekst eller et språklig fenomen på noen få avsnitt, med eksempler fra den eller de tekstene oppgaven gjelder.",kortsvar;presist-sprak,0,"Lag selv en kort vedleggstekst og en kortsvarsoppgave knyttet til den, og gi tilbakemelding på om svaret treffer det oppgaven ber om."
+skrive-litterar-tolkning,skill,Skriving og muntlighet,Skrive en litterær tolkning,"skrive en litterær tolkning der lesningen bygges opp avsnitt for avsnitt, påstandene om teksten støttes med sitater og analyse, og tolkningen knyttes til konteksten.",litterar-tolkning;analysere-prosa;analysere-lyrikk;lese-i-kontekst;tekststruktur;bruke-kilder,0,
+skrive-litterar-sammenligning,skill,Skriving og muntlighet,Skrive en litterær sammenligning,"skrive en sammenligning av to skjønnlitterære tekster ut fra et felles tema eller grep, bygd opp etter aspekter og ikke én tekst om gangen.",skrive-litterar-tolkning,0,
+skrive-essay,skill,Skriving og muntlighet,Skrive et essay,"skrive et essay som utforsker og reflekterer over innholdet i en eller flere tekster, med personlig stemme, konkrete eksempler og en tankegang som beveger seg.",essay;lese-i-kontekst;presist-sprak,0,
+skrive-fagartikkel,skill,Skriving og muntlighet,Skrive en fagartikkel,"skrive en fagartikkel som greier ut om og drøfter et norskfaglig emne ut fra en avgrenset problemstilling, med faglitteratur, tydelig struktur og etterrettelig kildebruk.",fagartikkel;drofte;orientere-faglitteratur;vurdere-kilder;bruke-kilder;tekststruktur,0,
+delta-utforskende-samtale,skill,Skriving og muntlighet,Delta i en utforskende samtale,"bidra i en utforskende samtale om en tekst eller et norskfaglig emne ved å stille spørsmål, bygge videre på andres innspill og bruke fagbegreper presist.",utforskende-samtale,0,
+delta-diskusjon,skill,Skriving og muntlighet,Argumentere i en norskfaglig diskusjon,"bruke fagkunnskap til å argumentere for et syn i en diskusjon, svare saklig på motargumenter og bruke appellformene bevisst.",drofte;appellformer,0,
+muntlig-presentasjon,skill,Skriving og muntlighet,Holde en muntlig presentasjon om et norskfaglig emne,"holde en muntlig presentasjon med problemstilling, tydelig struktur, presist fagspråk og tilpasning til tilhørerne, og svare utdypende på spørsmål etterpå.",problemstilling;appellformer;presist-sprak,0,

@@ -1,0 +1,325 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Trygg mat og hygiene;Planlegging og kjøkkenarbeid;Matlagingsmetoder og teknikker;Sanser, smak og anretning;Næringsstoffer og kostråd;Påstander og informasjon om kosthold;Matproduksjon og forbrukermakt;Klima, miljø og bærekraft;Matkultur, identitet og fellesskap",,,
+,config,,title,Mat og helse 8.–10. trinn,,,
+,config,,description,"Trygg mat og hygiene, planlegging, matlagingsmetoder, smak og anretning, næringsstoffer og kostrådene, kritisk vurdering av kostholdsråd, forbrukermakt, klimaavtrykk og matkultur på ungdomstrinnet — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,storageKey,no-grunnskole-mat-og-helse-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"mat og helse 8.–10. trinn (norsk ungdomsskole, MHE0010)",,,
+,config,,slots.motivationSubject,mat og helse,,,
+,config,,slots.expressionFocus,"kaller mat «sunn» eller «usunn» uten å si hva i den som gjør det; blander mattrygghet (at maten ikke gjør deg syk) og matsikkerhet (at alle har nok mat); sier at alt fett er usunt; blander «best før» og «siste forbruksdag»; oppgir mengder uten enhet eller blander ss, ts og dl; bruker «naturlig», «økologisk» og «kortreist» som om de betydde sunt eller klimavennlig; eller trekker en årsakssammenheng fra en studie som bare viser en sammenheng",,,
+,config,,slots.courseSpecifics,"Faget har standpunktkarakter etter 10. trinn og ingen eksamen. Karakteren bygger på praktisk og utforskende arbeid med mat og måltider og på hvordan eleven formidler kunnskap om faget. Bruk Helsedirektoratets kostråd (2024) og Mattilsynets råd om trygg mat som fasit for tall og regler, ikke andre lands anbefalinger. Spør om allergier og matregler før du foreslår en oppskrift.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Ungdomstrinnet,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,MHE0010,,,
+,config,,country,NO,,,
+,config,,institution,grunnskole,,,
+,config,,division,8-10,,,
+,config,,subjectArea,food-health,,,
+,config,,keywords,mat og helse; ungdomsskole; ungdomstrinnet; 8. trinn; kostrådene; Helsedirektoratet; Mattilsynet; hygiene; trygg mat; matlaging; oppskrift; næringsstoffer; kosthold; nøkkelhullet; brødskalaen; matsvinn; klimaavtrykk; forbrukermakt; samisk mat; matkultur,,,
+,config,,updated,2026-10-08,,,
+mattrygghet,concept,Trygg mat og hygiene,Mattrygghet og matsikkerhet,"Mattrygghet: at maten ikke gjør oss syke, fordi den er fri for farlige mengder bakterier, virus, giftstoffer og fremmedlegemer.
+Matsikkerhet: at alle mennesker til enhver tid har tilgang til nok, trygg og næringsrik mat.",,0,
+bakterier-mat,concept,Trygg mat og hygiene,Matforgiftning og bakterievekst,"Matforgiftning: sykdom, ofte med oppkast og diaré, fra mat som inneholder sykdomsfremkallende bakterier, virus eller giftstoffer som bakterier har laget.
+Farlig temperatursone: fra 8 til 60 °C, der bakterier i mat formerer seg raskt; kulde bremser veksten, og høy varme dreper de fleste.",mattrygghet,0,
+krysskontaminering,concept,Trygg mat og hygiene,Krysskontaminering,"Krysskontaminering: at bakterier overføres fra rå mat, særlig kjøtt, kylling og egg, til mat som ikke skal varmebehandles mer, via hender, redskaper, skjærefjøler eller kjøkkenkluter.",bakterier-mat,0,
+temperaturer-trygg,fact,Trygg mat og hygiene,Temperaturer for trygg mat,"kjøleskap: 4 °C eller kaldere
+fryser: −18 °C eller kaldere
+der bakterier vokser raskt: 8–60 °C
+varm mat som skal holdes varm: over 60 °C
+kjernetemperatur for kylling og kjøttdeig: minst 75 °C
+oppvarming av rester: til 75 °C i kjernen
+varme som dreper de fleste bakterier: over 70 °C i flere minutter",bakterier-mat,0,
+datomerking,concept,Trygg mat og hygiene,Best før og siste forbruksdag,"Best før: datoen produsenten garanterer kvaliteten til; maten er ofte god lenge etter, så se, lukt og smak før du kaster den.
+Siste forbruksdag: brukes på lettbedervelig mat som rått kjøtt og fisk; maten skal ikke spises etter denne datoen.",mattrygghet,0,
+personlig-hygiene,skill,Trygg mat og hygiene,Holde god personlig hygiene på kjøkkenet,"vaske hendene med såpe før matlaging, etter å ha tatt i rått kjøtt, kylling eller egg og etter toalettbesøk, sette opp håret, dekke til sår og la være å lage mat for andre når du har oppkast eller diaré.",bakterier-mat,0,
+holde-atskilt,skill,Trygg mat og hygiene,Holde rå og ferdig mat atskilt,"bruke egne skjærefjøler og redskaper til rått kjøtt, eller vaske dem grundig før de brukes til grønnsaker eller ferdig mat, slik at ingen ferdig mat kommer i kontakt med noe som har rørt rått kjøtt.",krysskontaminering;personlig-hygiene,0,
+steketermometer,skill,Trygg mat og hygiene,Sjekke kjernetemperaturen med steketermometer,"stikke steketermometeret inn i den tykkeste delen av kjøttstykket uten å treffe ben, og lese av om kjernetemperaturen har nådd minst 75 °C for kylling og kjøttdeig.",temperaturer-trygg,0,
+oppbevare-rester,skill,Trygg mat og hygiene,Kjøle ned og oppbevare rester trygt,"dele matrester i små porsjoner, kjøle dem raskt ned, for eksempel i kaldt vannbad, sette dem i kjøleskapet med lokk og varme dem til 75 °C i kjernen før de spises.",temperaturer-trygg,0,
+vurdere-holdbarhet,skill,Trygg mat og hygiene,Avgjøre om en matvare kan brukes,"avgjøre ut fra datomerkingen og sansene om en matvare kan brukes, og forklare hvorfor kjøttdeig etter siste forbruksdag skal kastes mens en yoghurt etter best før-datoen ofte er god.",datomerking;kvalitetstegn,0,
+allergi-intoleranse,concept,Trygg mat og hygiene,Matallergi og matintoleranse,"Matallergi: at immunforsvaret reagerer på et protein i en matvare; selv små mengder kan gi en alvorlig reaksjon (anafylaksi).
+Matintoleranse: at kroppen tåler en matvare dårlig uten at immunforsvaret er involvert, som ved laktoseintoleranse; plagene avhenger ofte av hvor mye man spiser.",,0,
+allergener,fact,Trygg mat og hygiene,Allergenene som skal merkes,"korn med gluten: hvete, rug, bygg og havre
+krepsdyr: reker, krabbe, hummer
+bløtdyr: blåskjell, østers, blekksprut
+egg
+fisk
+peanøtter
+nøtter: blant annet mandel, hasselnøtt, valnøtt og cashew
+soya
+melk, også laktose
+selleri
+sennep
+sesamfrø
+lupin
+sulfitt (svoveldioksid)
+antall allergener som skal merkes: 14
+hvordan de merkes i ingredienslisten: uthevet, for eksempel med fet skrift",allergi-intoleranse,0,
+kjokkensikkerhet,fact,Trygg mat og hygiene,Sikkerhetsregler på kjøkkenet,"fettbrann i en kasserolle: skru av varmen og kvel brannen med et lokk eller et brannteppe; aldri vann
+håndtak på kasseroller: vendt inn over benken, så ingen dytter borti dem
+varme formplater og stekebrett: tas ut med tørre grytekluter
+skarp kniv: tryggere enn sløv, fordi den ikke glipper
+kniv som faller: la den falle, ikke prøv å ta den imot
+elektriske apparater: brukes med tørre hender og trekkes ut før rengjøring",,0,
+tilpasse-allergi,skill,Trygg mat og hygiene,Lage et måltid som er trygt for en med matallergi,"lese ingredienslisten på alle varene, bytte ut ingredienser med allergenet, og rengjøre benk og redskaper slik at det ikke kommer spor av allergenet i maten.",allergener;holde-atskilt;lese-etikett,0,
+rengjoring,skill,Trygg mat og hygiene,Rydde og vaske opp underveis,"rydde benken og ta oppvasken underveis i varmt vann med oppvaskmiddel, fra det reneste til det mest tilgriste, og skylle og henge til tørk kjøkkenkluter, slik at kjøkkenet er rent når maten serveres.",personlig-hygiene,0,
+maleenheter,fact,Planlegging og kjøkkenarbeid,Måleenheter i oppskrifter,"1 liter (l): 10 dl
+1 desiliter (dl): 100 ml
+1 spiseskje (ss): 15 ml
+1 teskje (ts): 5 ml
+1 knivsodd (krm): 1 ml
+1 kilogram (kg): 1000 gram (g)
+1 dl vann: veier 100 g
+1 dl hvetemel: veier omtrent 60 g
+1 dl sukker: veier omtrent 85 g",,0,
+lese-oppskrift,skill,Planlegging og kjøkkenarbeid,Lese og følge en oppskrift,"lese hele oppskriften før du starter, finne fram ingrediensene og redskapene den krever, forklare forkortelsene og fagordene i den, og følge framgangsmåten i riktig rekkefølge.",maleenheter,0,
+male-veie,skill,Planlegging og kjøkkenarbeid,Måle og veie ingredienser nøyaktig,"måle tørre ingredienser i strøkne mål, lese av litermålet i øyehøyde og bruke kjøkkenvekt når oppskriften oppgir gram.",maleenheter,0,
+skalere,skill,Planlegging og kjøkkenarbeid,Skalere en oppskrift til et annet antall porsjoner,"regne ut forholdstallet mellom ønsket og oppgitt antall porsjoner og gange alle mengdene med det, også når svaret må gjøres om til en annen enhet, som fra ss til dl.",maleenheter;lese-oppskrift,0,
+arbeidsplan,skill,Planlegging og kjøkkenarbeid,Lage en arbeidsplan for et måltid,"sette opp hva som skal gjøres, i hvilken rekkefølge, hvor lang tid hvert trinn tar og hvem som gjør hva, slik at alle rettene blir ferdige samtidig.",lese-oppskrift,0,
+handleliste,skill,Planlegging og kjøkkenarbeid,Lage handleliste og regne ut pris per porsjon,"lage en handleliste ut fra oppskriften og det som allerede finnes hjemme, og regne ut hva måltidet koster per porsjon.",skalere,0,
+kilopris,skill,Planlegging og kjøkkenarbeid,Sammenligne varer på kilopris,"bruke kiloprisen eller literprisen på hylleetiketten til å finne den billigste av to varer i ulike pakningsstørrelser, og regne den ut selv når den ikke står der.",maleenheter,0,
+redskaper,fact,Planlegging og kjøkkenarbeid,Kjøkkenredskaper og hva de brukes til,"kokekniv: hakke og skjære grønnsaker, kjøtt og fisk
+skrelle- eller grønnsakskniv: skrelle og skjære små ting
+brødkniv: skjære brød og tomat med tagget egg
+slikkepott: få med alt fra bollen
+ballongvisp: piske inn luft og røre ut klumper
+stavmikser: mose suppe og saus glatt
+rivjern: rive ost, gulrot og sitronskall
+dørslag: sile vann fra pasta og poteter
+stekespade: snu mat i panna
+steketermometer: måle kjernetemperatur",,0,
+kuttemater,fact,Planlegging og kjøkkenarbeid,Kuttemåter,"terninger: like store biter med seks sider
+strimler: lange, tynne staver (julienne)
+skiver: jevne, flate stykker
+båter: biter skåret på langs fra midten, som av eple eller tomat
+finhakke: så smått som mulig, for eksempel løk og hvitløk
+grovhakke: ujevne, større biter",redskaper,0,
+knivteknikk,skill,Planlegging og kjøkkenarbeid,Skjære trygt og jevnt med kokekniv,"holde råvaren med bjørneklogrep, med fingertuppene bøyd inn, legge en fuktig klut under skjærefjøla, og skjære biter som er så like store at de blir ferdige samtidig.",redskaper;kuttemater;kjokkensikkerhet,0,
+planlegge-maltid,skill,Planlegging og kjøkkenarbeid,"Planlegge et trygt, sunt og bærekraftig måltid","planlegge et måltid fra meny til bord, med oppskrift, handleliste, arbeidsplan og hygienetiltak, og begrunne valgene med kostrådene og klimaavtrykket.",arbeidsplan;handleliste;sette-meny;bruke-kostrad;klimavennlig-rett;holde-atskilt,0,
+fuktig-torr-varme,concept,Matlagingsmetoder og teknikker,Fuktig og tørr varme,"Fuktig varme: maten varmes i vann eller damp og kommer ikke over omtrent 100 °C, som ved koking, trekking og damping.
+Tørr varme: maten varmes av luft, fett eller en varm flate til godt over 100 °C, som ved steking, baking og grilling; da kan overflaten bli brun og sprø.",,0,
+metoder,fact,Matlagingsmetoder og teknikker,Matlagingsmetoder,"koke: i vann som bobler kraftig
+trekke: i væske like under kokepunktet, uten at det bobler
+dampe: over kokende vann, under lokk
+steke i panne: i litt fett på høy varme
+steke i ovn: i tørr, varm luft
+grille: med sterk varme fra én side
+frityrsteke: dekket av varm olje
+braisere: brune først, så småkoke lenge under lokk i litt væske
+gratinere: i ovnen med sterk overvarme til overflaten blir gyllen",fuktig-torr-varme,0,
+bruning,concept,Matlagingsmetoder og teknikker,Bruning og karamellisering,"Bruning (Maillard-reaksjonen): når protein og sukker i maten varmes godt over 100 °C, dannes brun farge og nye smaker, som i stekeskorpe og brødskorpe.
+Karamellisering: når sukker alene varmes til det blir brunt og smaker karamell.",fuktig-torr-varme,0,
+velge-metode,skill,Matlagingsmetoder og teknikker,Velge matlagingsmetode til en råvare,"velge en egnet matlagingsmetode til en gitt råvare og begrunne valget, for eksempel braisering for seigt kjøtt og trekking for fisk.",metoder;bruning,0,
+koke-poteter-ris,skill,Matlagingsmetoder og teknikker,"Koke poteter, ris og pasta","koke poteter, ris og pasta til de er møre uten å bli kokt i stykker, med riktig mengde vann og riktig koketid.",metoder;male-veie,0,
+steke-kjott,skill,Matlagingsmetoder og teknikker,Steke kjøtt og kylling gjennom,"brune kjøtt i en varm panne uten å fylle den så full at kjøttet koker i sin egen saft, og steke kylling og kjøttdeig til kjernetemperaturen er minst 75 °C.",bruning;steketermometer;holde-atskilt,0,
+tilberede-fisk,skill,Matlagingsmetoder og teknikker,Tilberede fisk skånsomt,"trekke eller ovnsbake fisk til kjøttet akkurat har sluttet å være blankt og deler seg lett, uten at det blir tørt.",metoder,0,
+tilberede-gronnsaker,skill,Matlagingsmetoder og teknikker,Tilberede grønnsaker så de beholder farge og næring,"dampe eller koke grønnsaker kort i lite vann, servere dem rett etterpå, og forklare hvorfor lang koking i mye vann gir mindre C-vitamin.",metoder;vitaminer-mineraler,0,
+jevning,concept,Matlagingsmetoder og teknikker,Jevning,"Jevning: å gjøre en væske tykkere med mel, maisenna eller potetmel, som sveller når væsken varmes.
+Smørbolle (roux): smør og mel som freses sammen før væsken spes på litt om gangen, slik at sausen blir jevn uten klumper.",fuktig-torr-varme,0,
+lage-saus,skill,Matlagingsmetoder og teknikker,Lage en jevnet saus,"lage en hvit saus eller brun saus med smørbolle uten klumper, og smake den til.",jevning;male-veie;smake-til,0,
+heving,concept,Matlagingsmetoder og teknikker,Gjær og hevemidler,"Gjær: en sopp som spiser sukker og lager karbondioksid som får deigen til å heve; den trives i fingervarm væske, rundt 37 °C, og dør hvis væsken er for varm.
+Gluten: proteiner i hvete som danner et elastisk nett når deigen eltes, og holder på gassen.
+Bakepulver og natron: kjemiske hevemidler som lager gass når de blir fuktige og varme, så deigen ikke trenger å heve på forhånd.",,0,
+bake-gjaer,skill,Matlagingsmetoder og teknikker,Bake gjærbakst,"lage en gjærdeig med væske på rett temperatur, elte den til den er glatt og smidig, la den heve, forme den, etterheve og steke den til den er gyllen og hul når du banker under.",heving;male-veie,0,
+lage-gryte,skill,Matlagingsmetoder og teknikker,Lage en suppe eller gryterett fra grunnen av,"lage en suppe eller gryterett fra råvarer, med jevnt skårne grønnsaker, riktig rekkefølge for når ingrediensene legges i, og smaking underveis.",velge-metode;knivteknikk;smake-til,0,
+konservering,fact,Matlagingsmetoder og teknikker,Konserveringsmetoder,"tørking: fjerner vannet bakteriene trenger, som i tørrfisk
+salting: trekker ut vann, som i klippfisk og spekeskinke
+røyking: tørker og gir smak, som i røkelaks
+gravning: salt og sukker som trekker i rå fisk, som i gravlaks
+syrning og fermentering: melkesyrebakterier gjør maten sur, som i surkål, rakfisk og yoghurt
+sylting: mye sukker, som i syltetøy
+kjøling og frysing: kulde bremser eller stopper bakterieveksten",bakterier-mat,0,
+smak-aroma,concept,"Sanser, smak og anretning",Smak og aroma,"Smak: det tunga kjenner, nemlig grunnsmakene søtt, surt, salt, bittert og umami.
+Aroma: det nesa kjenner, både når du lukter på maten og bakfra gjennom munnen når du tygger.
+Konsistens: hvordan maten kjennes i munnen, som sprø, seig, kremet eller melen.",,0,
+grunnsmaker,fact,"Sanser, smak og anretning",Grunnsmakene,"søtt: sukker, honning, moden frukt
+surt: sitron, eddik, yoghurt
+salt: salt, soyasaus, spekemat
+bittert: kaffe, ruccola, grapefrukt, mørk sjokolade
+umami: parmesan, tomat, soyasaus, buljong, sopp",smak-aroma,0,
+kvalitetstegn,fact,"Sanser, smak og anretning",Tegn på kvalitet i råvarer,"fersk fisk: blanke øyne, fast kjøtt og frisk lukt av sjø
+fisk som har blitt gammel: matte øyne, slapt kjøtt og lukt av ammoniakk
+grønnsaker og frukt: faste og sprø, uten bløte eller mørke flekker
+brød med mugg: kastes helt, fordi muggen kan ha spredt seg inn i brødet
+hard ost med litt mugg: skjær bort muggen med god margin
+yoghurt og melk: lukt og smak avslører om de har blitt sure",smak-aroma,0,
+vurdere-kvalitet,skill,"Sanser, smak og anretning",Bruke sansene til å vurdere en råvare,"se, lukte og kjenne på en råvare, og smake når det er trygt, og si om den er fersk og god nok til retten du skal lage.",kvalitetstegn,0,
+smake-til,skill,"Sanser, smak og anretning",Smake til en rett underveis,"smake på retten med en ren skje flere ganger underveis, og justere med salt, syre, sødme eller umami til smakene er i balanse.",grunnsmaker,0,
+urter-krydder,fact,"Sanser, smak og anretning",Urter og krydder,"dill: fisk og skalldyr
+persille: fisk, supper og sauser
+basilikum: tomat og pasta
+timian og rosmarin: lam, kylling og rotgrønnsaker
+oregano: pizza og tomatsaus
+karve: kål og brød
+kardemomme: boller og julebakst
+kanel: boller, eple og gryteretter
+spisskummen: chili con carne og indiske retter
+koriander: meksikanske og asiatiske retter
+ingefær: asiatiske retter og pepperkaker
+chili: sterk smak i mange matkulturer",smak-aroma,0,
+kombinere-smaker,skill,"Sanser, smak og anretning",Kombinere smaker i en rett,"utforske hvordan smaker, krydder og konsistenser utfyller hverandre, og sette sammen en rett der for eksempel syre balanserer fett og noe sprøtt gir kontrast til noe mykt.",smake-til;urter-krydder,0,
+forbedre-oppskrift,skill,"Sanser, smak og anretning",Forbedre en oppskrift,"endre én ting i en oppskrift, som mer grønnsaker, mindre salt eller fullkorn i stedet for fint mel, lage den, sammenligne med originalen og begrunne om endringen ble en forbedring.",kombinere-smaker;lese-oppskrift;bruke-kostrad,0,
+anretning,concept,"Sanser, smak og anretning",Anretning,"Anretning: hvordan maten legges opp på tallerken eller fat, med farger, kontraster i form og konsistens, rene kanter og passende porsjoner, slik at måltidet blir innbydende.",,0,
+anrette,skill,"Sanser, smak og anretning",Anrette et måltid innbydende,"anrette en rett med kontraster i farge og form, rene kanter og en porsjon som passer, og sammenligne resultatet med et bilde av det du tok sikte på.",anretning,0,
+sette-meny,skill,"Sanser, smak og anretning","Sette sammen en meny med variasjon i smak, farge og næring","sette sammen en meny for et måltid eller noen dager der rettene utfyller hverandre i smak, farge, konsistens og næring, og forbedre en meny som mangler variasjon.",kombinere-smaker;anretning;bruke-kostrad,0,
+vurdere-maltid,skill,"Sanser, smak og anretning",Vurdere et ferdig måltid og foreslå forbedringer,"vurdere et måltid du har laget ut fra smak, konsistens, anretning og kostrådene, og foreslå én konkret ting du vil gjøre annerledes neste gang.",anrette;smake-til;bruke-kostrad,0,
+naeringsstoffer,concept,Næringsstoffer og kostråd,Næringsstoffer,"Næringsstoff: et stoff i maten som kroppen trenger for energi, vekst og vedlikehold.
+Energigivende næringsstoffer: karbohydrat, fett og protein.
+Vitaminer og mineraler: næringsstoffer kroppen trenger i små mengder, og som ikke gir energi.",,0,
+energiinnhold,fact,Næringsstoffer og kostråd,Energi per gram,"fett: 9 kcal (37 kJ)
+karbohydrat: 4 kcal (17 kJ)
+protein: 4 kcal (17 kJ)
+alkohol: 7 kcal (29 kJ)
+kostfiber: 2 kcal (8 kJ)
+1 kcal: omtrent 4,2 kJ",naeringsstoffer,0,
+karbohydrater,concept,Næringsstoffer og kostråd,Karbohydrater og kostfiber,"Sukker: de minste karbohydratene, som smaker søtt og tas raskt opp i blodet.
+Stivelse: lange kjeder av sukker, i korn, poteter og belgvekster.
+Kostfiber: karbohydrater vi ikke fordøyer, i fullkorn, grønnsaker, frukt og belgvekster; de gir metthet og god fordøyelse.
+Fullkorn: hele kornet, med skall, kime og kjerne, enten kornet er helt eller malt.",naeringsstoffer,0,
+fett,concept,Næringsstoffer og kostråd,Mettet og umettet fett,"Mettet fett: fett som er fast ved romtemperatur, mest i smør, fete meieriprodukter og kjøtt; mye av det øker LDL-kolesterolet i blodet.
+Umettet fett: fett som er flytende ved romtemperatur, mest i planteoljer, nøtter, avokado og fet fisk.
+Omega-3: en type umettet fett som kroppen ikke lager selv, særlig i fet fisk som laks, makrell og sild.",naeringsstoffer,0,
+protein,concept,Næringsstoffer og kostråd,Protein,"Protein: næringsstoff bygd av aminosyrer, som kroppen bruker til å bygge og reparere muskler og andre vev; finnes særlig i fisk, kjøtt, egg, melkeprodukter og belgvekster.",naeringsstoffer,0,
+belgvekster,concept,Næringsstoffer og kostråd,Belgvekster,"Belgvekster: bønner, linser og erter, som er rike på protein og kostfiber og har lavt klimaavtrykk.",protein;karbohydrater,0,
+vitaminer-mineraler,fact,Næringsstoffer og kostråd,Viktige vitaminer og mineraler,"D-vitamin: fet fisk, tran og berikede meieriprodukter; huden lager det i sommersol; trengs for skjelettet
+C-vitamin: frukt, bær og grønnsaker; bedrer opptaket av jern og ødelegges lett av varme
+folat: grønne grønnsaker, belgvekster og fullkorn
+B12-vitamin: bare i mat fra dyr, som kjøtt, fisk, melk og egg; den som spiser helt vegansk, trenger tilskudd
+jern: kjøtt, leverpostei, fullkorn og belgvekster; trengs for å frakte oksygen i blodet
+kalsium: melk og meieriprodukter; trengs for skjelett og tenner
+jod: melk, hvit fisk, egg og jodberiket salt; trengs for stoffskiftet",naeringsstoffer,0,
+energibalanse,concept,Næringsstoffer og kostråd,Energibalanse,"Energibalanse: at energien du får gjennom maten, er lik energien kroppen bruker; får du mer over tid, øker vekten, og får du mindre, går den ned.
+Energibehov: hvor mye energi kroppen trenger, som avhenger av alder, kjønn, kroppsstørrelse, vekst og fysisk aktivitet.",energiinnhold,0,
+kostradene,fact,Næringsstoffer og kostråd,Kostrådene fra Helsedirektoratet,"hovedrådet: et variert kosthold med mest mat fra planteriket, spist med glede
+frukt, bær og grønnsaker: minst fem og helst åtte porsjoner om dagen; én porsjon er 100 g
+juice: høyst ett halvt glass (1 dl) kan telle som én porsjon
+fullkorn: minst 90 g om dagen, fordelt på flere måltider
+fisk og sjømat: 300–450 g i uka, og minst 200 g av det fet fisk
+bønner, linser og erter: gjerne til middag minst én gang i uka
+rødt kjøtt: høyst 350 g spiseklart kjøtt i uka; minst mulig bearbeidet kjøtt
+melk og meieriprodukter: tre porsjoner om dagen, omtrent 5 dl, helst med mindre fett
+usaltede nøtter: 20–30 g om dagen, en liten håndfull
+matolje: planteoljer som rapsolje og olivenolje framfor smør
+salt: høyst 5,75 g om dagen for voksne, og mindre for barn og unge
+godteri, snacks og søte bakevarer: begrenses
+tørstedrikk: vann",naeringsstoffer;karbohydrater;fett,0,
+brodskala,fact,Næringsstoffer og kostråd,Brødskalaen,"ekstra grovt: 75–100 % sammalt mel, hele korn og kli
+grovt: 50–75 %
+halvgrovt: 25–50 %
+fint: 0–25 %",karbohydrater,0,
+nokkelhullet,concept,Næringsstoffer og kostråd,Nøkkelhullet,"Nøkkelhullet: et frivillig merke på matvarer som har mindre og sunnere fett, mindre sukker og salt, og mer kostfiber og fullkorn enn andre varer av samme type.",fett;karbohydrater,0,
+matmerking,concept,Næringsstoffer og kostråd,Ingrediensliste og næringsdeklarasjon,"Ingrediensliste: alle ingrediensene i en vare, i synkende rekkefølge etter hvor mye det er av dem, med allergenene uthevet.
+Næringsdeklarasjon: tabellen som oppgir energi og mengden fett, mettet fett, karbohydrat, sukker, protein og salt per 100 g eller 100 ml.",naeringsstoffer,0,
+lese-etikett,skill,Næringsstoffer og kostråd,Lese ingredienslisten og næringsdeklarasjonen,"bruke ingredienslisten og næringsdeklarasjonen til å sammenligne to lignende varer per 100 g, og si hvilken som inneholder mest sukker, salt, mettet fett og fiber.",matmerking;energiinnhold;allergener,0,
+velge-sunne-varer,skill,Næringsstoffer og kostråd,Velge sunnere matvarer i butikken,"bruke brødskalaen, Nøkkelhullet og næringsdeklarasjonen til å velge den sunneste av flere varer av samme type, og begrunne valget.",brodskala;nokkelhullet;lese-etikett,0,
+bruke-kostrad,skill,Næringsstoffer og kostråd,Bruke kostrådene til å vurdere et måltid,"sammenligne et måltid eller en dagsmeny med kostrådene, si hva som oppfyller dem og hva som mangler, og foreslå konkrete endringer.",kostradene,0,
+digitale-ressurser,fact,Næringsstoffer og kostråd,Digitale verktøy for kosthold,"Matvaretabellen (matvaretabellen.no): den offisielle oversikten over næringsinnholdet i norske matvarer
+Kostholdsplanleggeren (kostholdsplanleggeren.no): registrere hva du spiser eller hva en oppskrift inneholder, og sammenligne med anbefalingene
+Helsedirektoratets nettsider: kostrådene for befolkningen",,0,
+finne-naeringsinnhold,skill,Næringsstoffer og kostråd,Finne næringsinnholdet i en matvare eller oppskrift,"slå opp matvarer i Matvaretabellen eller legge inn en oppskrift i Kostholdsplanleggeren, og lese av energi, fiber, sukker, salt og mettet fett per porsjon.",digitale-ressurser;naeringsstoffer;skalere,0,
+vurdere-eget-kosthold,skill,Næringsstoffer og kostråd,Registrere og vurdere eget kosthold digitalt,"registrere det du spiser i et par dager i Kostholdsplanleggeren, sammenligne resultatet med kostrådene og foreslå én realistisk endring.",finne-naeringsinnhold;bruke-kostrad;energibalanse,0,
+livsstilssykdom,concept,Næringsstoffer og kostråd,Kosthold og livsstilssykdommer,"Livsstilssykdom: sykdom der levevaner som kosthold, fysisk aktivitet og røyking påvirker risikoen, som type 2-diabetes, hjerte- og karsykdommer og noen kreftformer.
+Risikofaktor: noe som øker sannsynligheten for å få en sykdom, uten at det gjør sykdommen sikker.",naeringsstoffer,0,
+drofte-kosthold-helse,skill,Næringsstoffer og kostråd,Drøfte hvordan kosthold kan bidra til god helse,"drøfte hvordan kostholdet kan påvirke helse og trivsel, med argumenter fra kostrådene, og ta med at matglede, måltidsfellesskap og økonomi også spiller inn.",livsstilssykdom;kostradene;energibalanse;fett;karbohydrater,0,
+kildetyper,concept,Påstander og informasjon om kosthold,Kilder om kosthold,"Offentlige kostråd: anbefalinger fra myndighetene, som Helsedirektoratet, bygd på en samlet vurdering av mye forskning.
+Enkeltstudie: én undersøkelse, som kan gi et annet svar enn summen av all forskningen på feltet.
+Kommersiell avsender: en som tjener penger på at du kjøper noe, som en produsent, en butikk eller en betalt influenser.
+Anekdote: én persons fortelling om hva som virket for dem.",,0,
+sammenheng-arsak,concept,Påstander og informasjon om kosthold,Sammenheng og årsak,"Sammenheng (korrelasjon): at to ting ofte opptrer sammen, som at de som spiser mye frukt, oftere er friske.
+Årsakssammenheng: at den ene tingen faktisk fører til den andre; en sammenheng alene viser ikke det, fordi noe tredje kan forklare begge.",kildetyper,0,
+pastander-merking,concept,Påstander og informasjon om kosthold,Ernæringspåstand og helsepåstand,"Ernæringspåstand: en påstand om hva en matvare inneholder, som «kilde til fiber» eller «lite fett».
+Helsepåstand: en påstand om at en matvare påvirker helsen, som «kalsium bidrar til å opprettholde normale knokler»; på matvarer i Norge kan bare godkjente helsepåstander brukes.",naeringsstoffer,0,
+vurdere-kilde,skill,Påstander og informasjon om kosthold,Vurdere hvem som står bak et kostholdsråd,"finne ut hvem som står bak et råd om kosthold, hva de vil oppnå, om de tjener penger på det og hva rådet bygger på, og sammenligne det med kostrådene.",kildetyper,0,
+vurdere-pastand,skill,Påstander og informasjon om kosthold,Vurdere en påstand om kosthold kritisk,"vurdere en påstand som «karbohydrater gjør deg tykk» eller «denne juicen renser kroppen» ved å sjekke kilden, skille mellom sammenheng og årsak og sammenligne med kostrådene, og si hva som holder og hva som ikke gjør det.",vurdere-kilde;sammenheng-arsak;pastander-merking;kostradene;energibalanse,0,
+forklare-kostrad,skill,Påstander og informasjon om kosthold,Gjøre rede for et kostråd og begrunnelsen for det,"forklare hva et av kostrådene sier, og begrunne det med næringsstoffene i maten og hvilken betydning de har for helsen.",kostradene;livsstilssykdom;fett;karbohydrater;vitaminer-mineraler,0,
+vurdere-sosiale-medier,skill,Påstander og informasjon om kosthold,Vurdere kostholdsinnhold i sosiale medier,"vurdere et innlegg om mat, kropp eller slanking i sosiale medier ved å se etter reklamemerking, avsenderens interesser og om rådene stemmer med kostrådene, og forklare hvordan slikt innhold kan skape kroppspress.",vurdere-pastand,0,
+matkjeden,concept,Matproduksjon og forbrukermakt,Matkjeden og selvforsyning,"Matkjeden: veien maten går fra jord og hav til bord, gjennom produksjon, foredling, transport, butikk og forbruker.
+Selvforsyningsgrad: hvor stor del av maten et land spiser som er produsert i landet selv.",mattrygghet,0,
+forbrukermakt,concept,Matproduksjon og forbrukermakt,Forbrukermakt,"Forbrukermakt: at summen av hva forbrukerne kjøper, velger bort og etterspør påvirker hva butikker og produsenter tilbyr, og hvordan maten blir produsert.",matkjeden,0,
+produksjonsformer,concept,Matproduksjon og forbrukermakt,Økologisk og konvensjonell produksjon,"Økologisk produksjon: matproduksjon uten kunstgjødsel og kjemiske sprøytemidler, og med strengere krav til dyrevelferd.
+Konvensjonell produksjon: den vanlige produksjonsformen, der kunstgjødsel og godkjente sprøytemidler kan brukes.
+Kortreist mat: mat som er produsert nær der den spises.",matkjeden,0,
+merkeordninger,fact,Matproduksjon og forbrukermakt,Merkeordninger på mat,"Ø-merket (Debio): økologisk produsert
+Nyt Norge: produsert i Norge av norske råvarer
+Fairtrade: produsentene i fattige land får en minstepris og et tillegg for å bedre lokalsamfunnet
+MSC: villfanget fisk og sjømat fra et bærekraftig fiskeri
+ASC: oppdrettsfisk fra et ansvarlig oppdrett
+Nøkkelhullet: sunnere valg innen samme type vare",produksjonsformer;nokkelhullet,0,
+markedsforing,concept,Matproduksjon og forbrukermakt,Markedsføring og grønnvasking,"Markedsføring: alt en produsent gjør for å få deg til å kjøpe en vare, fra reklame og emballasje til plassering i butikken og samarbeid med influensere.
+Grønnvasking: å få en vare eller et firma til å virke mer miljøvennlig enn det er, for eksempel med grønne farger, naturbilder og vage ord som «naturlig» og «bevisst».",kildetyper,0,
+vurdere-matinfo,skill,Matproduksjon og forbrukermakt,Vurdere informasjon om hvordan maten er produsert,"vurdere hva emballasje, reklame og merker faktisk sier om hvordan en vare er produsert, og skille mellom en kontrollert merkeordning og ord og bilder uten innhold.",markedsforing;merkeordninger;vurdere-kilde,0,
+drofte-forbrukermakt,skill,Matproduksjon og forbrukermakt,Drøfte hvordan forbrukermakt kan påvirke matproduksjonen,"drøfte hvordan valgene til forbrukere kan påvirke matproduksjonen lokalt og globalt, med eksempler som økologisk mat, rettferdig handel og bærekraftig fiske, og hvilke begrensninger pris og tilgang gir.",forbrukermakt;vurdere-matinfo;produksjonsformer,0,
+barekraft,concept,"Klima, miljø og bærekraft",Bærekraftig mat,"Bærekraft: å dekke behovene i dag uten å ødelegge mulighetene for dem som kommer etter oss.
+Bærekraftig mat: mat som er produsert og spist på en måte som tar hensyn til miljøet, økonomien og menneskene i hele matkjeden.",matkjeden,0,
+klimaavtrykk,concept,"Klima, miljø og bærekraft",Klimaavtrykk,"Klimaavtrykk: summen av klimagassene som slippes ut når en matvare blir produsert, foredlet, fraktet, oppbevart og kastet, målt i kilo CO₂-ekvivalenter (CO₂e) per kilo matvare.
+Metan: en sterk klimagass som dannes i magen til drøvtyggere som ku og sau.",barekraft,0,
+klimaavtrykk-grupper,fact,"Klima, miljø og bærekraft",Klimaavtrykket til ulike matvaregrupper,"storfe- og lammekjøtt: høyest, fordi drøvtyggere lager metan
+ost og smør: høyt
+svinekjøtt og kylling: middels
+fisk: varierer, men som regel lavere enn rødt kjøtt
+egg: lavt til middels
+bønner, linser, erter, korn, poteter og grønnsaker dyrket på friland: lavest
+mat fraktet med fly: høyt, fordi flyfrakt slipper ut mye
+frakt med båt, tog eller bil: vanligvis en liten del av klimaavtrykket",klimaavtrykk,0,
+matsvinn,concept,"Klima, miljø og bærekraft",Matsvinn,"Matsvinn: spiselig mat som kastes eller går tapt på veien fra jord til bord; når maten kastes, har alle utslippene fra produksjonen vært forgjeves.",klimaavtrykk;matkjeden,0,
+sesong,fact,"Klima, miljø og bærekraft",Norske råvarer i sesong,"rabarbra og asparges: mai–juni
+jordbær: juni–august
+multer og blåbær: juli–september
+epler: august–oktober
+kål og rotgrønnsaker: høsten, og fra lager gjennom vinteren
+makrell: sensommer og høst
+skrei: januar–april",,0,
+utforske-klimaavtrykk,skill,"Klima, miljø og bærekraft",Utforske klimaavtrykket til et måltid,"finne klimaavtrykket for ingrediensene i en rett i en klimakalkulator eller database, regne ut avtrykket per porsjon og sammenligne to varianter av retten.",klimaavtrykk-grupper;skalere,0,
+klimavennlig-rett,skill,"Klima, miljø og bærekraft",Gjøre en rett mer klimavennlig,"bytte ut noe av en rett, som en del av kjøttet med belgvekster eller importerte grønnsaker med norske i sesong, og vise at retten fortsatt følger kostrådene.",utforske-klimaavtrykk;belgvekster;sesong;bruke-kostrad,0,
+lage-belgvekstrett,skill,"Klima, miljø og bærekraft",Lage en middagsrett med belgvekster,"lage en middagsrett med bønner, linser eller erter, bløtlegge og koke tørre bønner eller bruke ferdigkokte, og smake retten til.",belgvekster;velge-metode;smake-til,0,
+redusere-matsvinn,skill,"Klima, miljø og bærekraft",Redusere matsvinn hjemme,"planlegge innkjøp, oppbevare maten riktig, skille mellom best før og siste forbruksdag og lage et nytt måltid av rester.",matsvinn;vurdere-holdbarhet;oppbevare-rester;handleliste,0,
+matvalg-miljo,skill,"Klima, miljø og bærekraft","Gjøre rede for hvordan matvalg påvirker miljø, klima og matsikkerhet","forklare hvordan valg som mengden kjøtt, sesongvarer og matsvinn påvirker miljøet, klimaet og matsikkerheten i verden, med eksempler.",klimaavtrykk-grupper;matsvinn;barekraft;mattrygghet,0,
+matkultur,concept,"Matkultur, identitet og fellesskap",Matkultur og måltidsskikker,"Matkultur: de råvarene, rettene, matlagingsmetodene og måltidsskikkene som er typiske for en gruppe mennesker.
+Måltidsskikk: faste vaner rundt et måltid, som når man spiser, hvem som spiser sammen, og hvordan maten serveres.
+Matauk: å hente mat fra naturen gjennom jakt, fiske og sanking av bær og sopp.",,0,
+norsk-mat,fact,"Matkultur, identitet og fellesskap",Norske tradisjonsretter,"fårikål: lam og kål i lag, kokt med hel pepper
+pinnekjøtt: saltet og tørket lammeribbe, dampet over pinner
+ribbe: svineribbe stekt med sprø svor
+lutefisk: tørrfisk lagt i lut og vann, så den blir geléaktig
+rakfisk: saltet ørret eller røye som er fermentert i flere måneder
+raspeballer (komle): kokte boller av revet potet og mel
+lefse: tynt, mykt brød av potet eller mel, stekt på takke
+flatbrød: tynt, sprøtt brød av mel, stekt på takke
+rømmegrøt: grøt av rømme og mel, med smør, sukker og kanel",matkultur;konservering,0,
+samisk-mat,fact,"Matkultur, identitet og fellesskap",Samisk mattradisjon,"reinkjøtt: hovedråvaren i reindriften, der hele dyret utnyttes, også blod, innmat og marg
+bidos: festrett av reinkjøtt, poteter og gulrot kokt i kraft
+suovas: saltet og lett røkt reinkjøtt
+gáhkku: brød, ofte stekt på takke eller ved bålet
+fisk fra elv og sjø: laks, røye og sik
+bær fra naturen: multer og blåbær
+tørking og røyking: tradisjonelle måter å konservere kjøtt og fisk på",matkultur;konservering,0,
+basisravarer,fact,"Matkultur, identitet og fellesskap",Basisråvarer i ulike matkulturer,"ris: Øst- og Sør-Asia
+mais: Mellom- og Sør-Amerika
+hvete: Europa og Midtøsten
+potet: opprinnelig fra Sør-Amerika; viktig i Nord-Europa
+linser og kikerter: Sør-Asia og Midtøsten
+teff: Etiopia, der det blir til surdeigsbrødet injera
+kassava: Vest- og Sentral-Afrika",matkultur,0,
+religiose-matregler,concept,"Matkultur, identitet og fellesskap",Matregler i religioner,"Halal: det som er tillatt i islam; blant annet ikke svinekjøtt eller alkohol, og dyret skal slaktes på en bestemt måte.
+Kosher: jødiske matregler; blant annet ikke svinekjøtt, og kjøtt og melk skal holdes atskilt.
+Vegetarkost i hinduismen: mange hinduer spiser ikke kjøtt, og de fleste spiser ikke storfekjøtt.
+Faste: å la være å spise i en periode, som under ramadan, da muslimer faster fra soloppgang til solnedgang.",matkultur,0,
+sammenligne-matkulturer,skill,"Matkultur, identitet og fellesskap",Sammenligne råvarer og matlagingsmetoder i to matkulturer,"sammenligne hvilke råvarer, krydder og matlagingsmetoder som brukes i to matkulturer, og forklare forskjellene med klima, natur og historie.",basisravarer;norsk-mat;metoder;urter-krydder,0,
+lage-norsk-samisk,skill,"Matkultur, identitet og fellesskap",Lage en rett fra norsk eller samisk mattradisjon,"lage en tradisjonsrett fra norsk eller samisk matkultur, og fortelle hvor retten kommer fra og når den tradisjonelt spises.",norsk-mat;samisk-mat;velge-metode;arbeidsplan,0,
+lage-annen-kultur,skill,"Matkultur, identitet og fellesskap",Lage en rett fra en annen matkultur,"lage en rett fra en annen matkultur med råvarene og krydderne som er typiske for den, og si hvordan den skiller seg fra en norsk rett.",sammenligne-matkulturer;arbeidsplan;smake-til,0,
+identitet-fellesskap,concept,"Matkultur, identitet og fellesskap","Måltid, identitet og fellesskap","Identitet: hvem en person eller gruppe opplever at de er; maten man vokser opp med og feirer med, er ofte en del av den.
+Måltidsfellesskap: at man spiser sammen, noe som skaper tilhørighet og gjør at tradisjoner føres videre.",matkultur,0,
+hoytidsmat,fact,"Matkultur, identitet og fellesskap",Høytidsmat,"julaften i Norge: ribbe, pinnekjøtt eller lutefisk, ulikt fra landsdel til landsdel
+julebakst: sju slag småkaker
+17. mai: pølser, is og bløtkake
+eid al-fitr: festmåltid og søtsaker når ramadan er over
+kinesisk nyttår: dumplings (jiaozi), som skal bringe lykke
+diwali: indiske søtsaker (mithai) som deles med familie og venner",identitet-fellesskap;religiose-matregler,0,
+felles-maltid,skill,"Matkultur, identitet og fellesskap",Planlegge og gjennomføre et felles måltid,"planlegge og gjennomføre et måltid for en gruppe, med dekket bord, mat alle kan spise uansett allergi og matregler, og en ramme der alle blir inkludert i samtalen.",identitet-fellesskap;religiose-matregler;tilpasse-allergi;planlegge-maltid;anrette,0,
+vise-identitet,skill,"Matkultur, identitet og fellesskap",Vise hvordan et måltid uttrykker identitet og fellesskap,"lage og presentere et måltid fra en tradisjon, og forklare hva rettene og måten de spises på betyr for dem som har tradisjonen.",hoytidsmat;lage-norsk-samisk;lage-annen-kultur,0,

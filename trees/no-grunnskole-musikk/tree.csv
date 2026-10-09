@@ -1,0 +1,275 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Grunnelementer;Gehør og notasjon;Utøve musikk;Øving og framføring;Lage musikk;Musikkteknologi;Lytte og virkemidler;Sjangre og historie;Folkemusikk og joik;Musikk i samfunnet,,,
+,config,,title,Musikk 8.–10. trinn,,,
+,config,,description,"Grunnelementer, gehør og notasjon, sang, spill og dans, øving, låtskriving og musikkteknologi, lytting og virkemidler, sjangre, folkemusikk og joik, og musikk i samfunnet på ungdomstrinnet.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,storageKey,no-grunnskole-musikk-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"musikk 8.–10. trinn (norsk ungdomsskole, MUS0010)",,,
+,config,,slots.motivationSubject,musikk,,,
+,config,,slots.expressionFocus,"sier «høy» om sterk lyd i stedet for lys tone, blander puls, rytme og tempo, beskriver musikk som «bra», «chill» eller «trist» uten å si hva i musikken som gir det inntrykket, og kaller alt fra en akkord til en hel låt for «en melodi»",,,
+,config,,slots.courseSpecifics,"Faget har standpunktkarakter på 10. trinn og ingen eksamen. Karakteren bygger på det eleven viser i arbeidet gjennom ungdomstrinnet: framføringer i sang, spill og dans, egne låter og produksjoner, og muntlig eller skriftlig refleksjon der fagbegrepene brukes presist.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Ungdomstrinnet, 8.–10. trinn",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,MUS0010,,,
+,config,,country,NO,,,
+,config,,institution,grunnskole,,,
+,config,,division,8-10,,,
+,config,,subjectArea,music,,,
+,config,,keywords,musikk; ungdomsskole; ungdomstrinnet; 10. trinn; noter; besifring; akkorder; gehør; låtskriving; komponere; improvisasjon; DAW; beatmaking; programmering; opptak; virkemidler; sjangre; folkemusikk; joik; dans; opphavsrett,,,
+,config,,updated,2026-10-08,,,
+puls-tempo,concept,Grunnelementer,Puls og tempo,"Puls: de jevne, underliggende slagene i musikken, som du kan klappe eller trampe til.
+Tempo: hvor raskt pulsen går.
+BPM: slag per minutt, målet på tempo; 60 BPM er ett slag i sekundet.",,0,
+takt-taktart,concept,Grunnelementer,Takt og taktart,"Takt: en gruppe slag der det første er tyngst, avgrenset av taktstreker i notene.
+Taktart: hvor mange slag det er i hver takt, skrevet som en brøk som 4/4 eller 3/4 i starten av stykket.",puls-tempo,0,
+rytme,concept,Grunnelementer,Rytme,"Rytme: mønsteret av lange og korte lyder og pauser som ligger oppå pulsen; pulsen er jevn, rytmen er det som varierer.",puls-tempo,0,
+tonehoyde-melodi,concept,Grunnelementer,Tonehøyde og melodi,"Tonehøyde: hvor lys eller mørk en tone er; en «høy» tone er en lys tone, ikke en sterk.
+Melodi: toner som kommer etter hverandre og danner en linje du kan synge eller nynne.",,0,
+klangfarge,concept,Grunnelementer,Klangfarge,"Klangfarge: det som gjør at samme tone med samme styrke låter ulikt på for eksempel fiolin, trompet og stemme.",,0,
+dynamikk,concept,Grunnelementer,Dynamikk,"Dynamikk: hvor sterkt eller svakt musikken spilles, og hvordan styrken endrer seg underveis.",,0,
+dynamikktegn,fact,Grunnelementer,Dynamikktegnene,"pp: pianissimo, svært svakt
+p: piano, svakt
+mp: mezzo piano, middels svakt
+mf: mezzo forte, middels sterkt
+f: forte, sterkt
+ff: fortissimo, svært sterkt
+crescendo (cresc.): gradvis sterkere
+diminuendo (dim.): gradvis svakere",dynamikk,0,
+akkord-harmoni,concept,Grunnelementer,Akkord og harmoni,"Akkord: tre eller flere toner som klinger samtidig.
+Harmoni: hvordan akkordene i et stykke klinger sammen og følger etter hverandre.",tonehoyde-melodi,0,
+dur-moll,concept,Grunnelementer,Dur og moll,"Dur: tonekjønnet som bygger på en stor ters over grunntonen, og som ofte oppleves lyst eller åpent.
+Moll: tonekjønnet som bygger på en liten ters over grunntonen, og som ofte oppleves mørkere eller mer vemodig.",akkord-harmoni,0,
+tekstur,concept,Grunnelementer,Tekstur,"Tekstur: hvordan lagene i musikken ligger oppå hverandre, fra én enkelt stemme til mange stemmer samtidig.
+Melodi og akkompagnement: den vanligste teksturen, der én melodi er tydeligst og resten støtter den.",tonehoyde-melodi;akkord-harmoni,0,
+form,concept,Grunnelementer,Form,"Form: hvordan et stykke er bygget opp av deler som gjentas, varieres eller veksler, ofte merket A, B, C.
+Gjentakelse og kontrast: de to virkemidlene formen bygger på; det som kommer igjen, og det som skiller seg ut.",,0,
+latform,concept,Grunnelementer,Låtformen i populærmusikk,"Intro: åpningen før sangen starter.
+Vers: delen der teksten forteller videre, med ny tekst hver gang.
+Refreng: delen som kommer igjen med samme tekst og ofte er den mest minneverdige.
+Bro (stikk): en kontrastdel, ofte før siste refreng.
+Outro: avslutningen.",form,0,
+finne-puls-taktart,skill,Grunnelementer,Finne pulsen og taktarten i en låt,"klappe pulsen til en låt jevnt fra start til slutt, og finne taktarten ved å telle hvor mange slag det er fra ett tungt slag til det neste.",takt-taktart,0,
+hore-dur-moll,skill,Grunnelementer,Høre om en låt er i dur eller moll,"avgjøre om en låt eller en akkord er i dur eller moll ved å lytte, og sjekke svaret mot besifringen eller en fasit.",dur-moll,0,
+kartlegge-form,skill,Grunnelementer,Kartlegge formen i en låt,"lage et formskjema for en låt med tidspunkt for hver del (intro, vers, refreng, bro, outro), og vise hvilke deler som gjentas.",latform,0,
+beskrive-grunnelementer,skill,Grunnelementer,Beskrive en låt med grunnelementene,"beskrive puls, tempo, rytme, melodi, klangfarge, dynamikk og tekstur i en låt du lytter til, med fagbegrepet for hvert av dem.",finne-puls-taktart;rytme;klangfarge;dynamikk;tekstur;hore-dur-moll,0,
+gehor,concept,Gehør og notasjon,Gehør,"Gehør: evnen til å oppfatte, huske og gjengi musikk ved å lytte, uten noter.
+Å spille etter gehør: å lære musikk ved å lytte og herme etter den.",tonehoyde-melodi;rytme,0,
+notasjon,concept,Gehør og notasjon,Notasjon,"Notasjon: å skrive ned musikk slik at den kan huskes, deles og spilles igjen.
+Noter: notasjonen der tonehøyde og lengde står nøyaktig på notelinjer.
+Besifring: akkordnavn skrevet over teksten eller i takter, som C eller Am.
+Tabulatur: notasjon for gitar og bass der tall viser hvilket bånd du skal ta på hvilken streng.
+Grafisk notasjon: tegn, streker og figurer du selv bestemmer betydningen av.",,0,
+laere-etter-gehor,skill,Gehør og notasjon,Lære en melodi etter gehør,"lære en kort melodi eller et riff etter gehør ved å lytte og herme etter én liten bit av gangen, og sjekke mot originalen at tonene og rytmen stemmer.",gehor,0,
+notelinjer-nokkel,concept,Gehør og notasjon,Notelinjer og G-nøkkel,"Notelinjer: de fem linjene notene skrives på; jo høyere en note står, jo lysere er tonen.
+G-nøkkel: tegnet i starten av linjene som viser at andre linje nedenfra er tonen g.",notasjon;tonehoyde-melodi,0,
+stamtoner,concept,Gehør og notasjon,Stamtoner og oktav,"Stamtoner: de sju tonene c, d, e, f, g, a og h, som gjentas oppover og nedover.
+Oktav: avstanden fra en tone til neste tone med samme navn.
+H og B: på norsk heter tonen over a h, mens engelsk besifring kaller den B; b betyr på norsk tonen en halvtone under h.",tonehoyde-melodi,0,
+klaviatur,concept,Gehør og notasjon,Klaviaturet,"Klaviatur: tangentene på et piano eller keyboard; de hvite er stamtonene, og de svarte ligger i grupper på to og tre.
+Halvtone: avstanden mellom to tangenter som ligger rett ved siden av hverandre; mellom e og f og mellom h og c er det ingen svart tangent.
+Heltone: to halvtoner.",stamtoner,0,
+fortegn,concept,Gehør og notasjon,Kryss og b,"Kryss (♯): hever tonen en halvtone, så c blir ciss.
+B (♭): senker tonen en halvtone, så e blir ess.",klaviatur,0,
+finne-tone-klaviatur,skill,Gehør og notasjon,Finne tonene på et klaviatur,"finne enhver stamtone og tonene med kryss og b på et klaviatur, med de svarte tangentgruppene som holdepunkt.",klaviatur;fortegn,0,
+noteverdier,fact,Gehør og notasjon,Noteverdiene,"helnote: fire slag i 4/4
+halvnote: to slag i 4/4
+fjerdedelsnote: ett slag i 4/4
+åttendedelsnote: et halvt slag i 4/4; to på hvert slag
+punktert note: noten varer halvparten så lenge til, så en punktert halvnote varer tre slag
+pause: hver noteverdi har en pause som varer like lenge",takt-taktart,0,
+lese-rytme,skill,Gehør og notasjon,Klappe en rytme fra noter,"klappe en rytme med hel-, halv-, fjerdedels- og åttendedelsnoter og pauser mens du teller høyt, med jevn puls til en metronom.",noteverdier;rytme,0,
+finne-notenavn,skill,Gehør og notasjon,Finne notenavnet til en note,"navngi noter i G-nøkkel, også på hjelpelinjene like over og under, og finne tonen på et klaviatur.",notelinjer-nokkel;stamtoner;finne-tone-klaviatur,0,
+treklang,concept,Gehør og notasjon,Treklang,"Treklang: en akkord av tre toner, grunntone, ters og kvint, der hver tone ligger annenhver stamtone over den forrige.
+Durtreklang: fire halvtoner fra grunntonen opp til tersen og tre videre opp til kvinten.
+Molltreklang: tre halvtoner opp til tersen og fire videre opp til kvinten.",akkord-harmoni;dur-moll;klaviatur,0,
+besifring,concept,Gehør og notasjon,Besifring,"Besifring: akkordnavn der bokstaven er grunntonen; C betyr C-dur, Am betyr a-moll, og en liten m betyr alltid moll.
+Akkordskifte: stedet i teksten eller takten der besifringen står, og der neste akkord skal begynne.",notasjon;treklang,0,
+akkordtoner,fact,Gehør og notasjon,Tonene i de vanligste akkordene,"C: c, e, g
+G: g, h, d
+D: d, fiss, a
+F: f, a, c
+Am: a, c, e
+Em: e, g, h
+Dm: d, f, a",treklang,0,
+bygge-akkord,skill,Gehør og notasjon,Bygge en treklang fra grunntonen,"finne tonene i en dur- eller molltreklang fra en hvilken som helst grunntone ved å telle halvtoner på klaviaturet.",treklang;finne-tone-klaviatur,0,
+lese-besifring,skill,Gehør og notasjon,Følge en besifring i en sang,"følge besifringen i en sangtekst eller et akkordskjema og vise hvor hvert akkordskifte kommer i forhold til ordene og slagene.",besifring;takt-taktart,0,
+grafisk-partitur,skill,Gehør og notasjon,Lage et grafisk partitur,"lage et grafisk partitur for et lydforløp med en forklaring på hva tegnene betyr, slik at en annen kan framføre det omtrent likt uten din hjelp.",notasjon;dynamikk;klangfarge,0,
+notere-egen-ide,skill,Gehør og notasjon,Notere en egen musikalsk idé,"skrive ned en egen melodi, rytme eller akkordrekke med noter, besifring, tabulatur eller grafisk notasjon, slik at du kan spille den riktig igjen en uke senere uten opptak.",lese-rytme;finne-notenavn;lese-besifring;grafisk-partitur,0,
+repertoar,concept,Utøve musikk,Repertoar,"Repertoar: de låtene og stykkene du kan framføre.
+Variert repertoar: låter i ulike sjangre, tempo, stemninger og uttrykksformer, ikke bare én type.",,0,
+stemmen,concept,Utøve musikk,Stemmen,"Stemmeleie: tonene en stemme kan synge komfortabelt, uten å presse.
+Stemmeskifte: når stemmen blir dypere i puberteten, kraftigst hos gutter, og leiet en stund kan være ustabilt.
+Pust og støtte: å puste dypt ned i magen og bruke pustemusklene til å holde tonen jevn.",tonehoyde-melodi,0,
+vokale-uttrykk,concept,Utøve musikk,Vokale uttrykk,"Vokalt uttrykk: alt som lages med stemmen, ikke bare sang.
+Rap: rytmisk tale over en beat, der ordene plasseres presist i forhold til pulsen.
+Beatboks: trommelyder og andre lyder laget med munnen.",stemmen;rytme,0,
+synge-i-leie,skill,Utøve musikk,Finne en starttone som passer stemmen,"finne den høyeste og laveste tonen i en sang og velge en starttone eller toneart som gjør at hele sangen ligger i ditt stemmeleie.",stemmen;finne-tone-klaviatur,0,
+synge-unison,skill,Utøve musikk,Synge en melodi sammen med andre,"synge en melodi sammen med andre eller til et opptak med riktige toner og innsatser, og høre på opptak av deg selv at du ligger på samme tone som de andre.",synge-i-leie;laere-etter-gehor,0,
+synge-flerstemt,skill,Utøve musikk,Holde en egen stemme i flerstemt sang,"synge en egen stemme mens andre synger en annen, uten å gli over på deres melodi, og sjekke på opptak at stemmen din holder seg hele veien.",synge-unison;akkord-harmoni,0,
+rappe,skill,Utøve musikk,Framføre en rap på takt,"framføre en rap eller et annet rytmisk vokalt uttrykk over en beat, og høre på opptak at de betonte stavelsene treffer slagene.",vokale-uttrykk;finne-puls-taktart,0,
+trommekomp,concept,Utøve musikk,Trommekomp,"Basstromme: den dype trommen som spilles med fotpedal.
+Skarptromme: trommen med den skarpe lyden, som i et vanlig komp spilles på slag 2 og 4.
+Hihat: cymbalparet som ofte holder jevne åttendeler.
+Backbeat: trykket på slag 2 og 4 som det meste av pop og rock bygger på.",takt-taktart;rytme,0,
+spille-trommekomp,skill,Utøve musikk,Spille et enkelt trommekomp,"spille et komp i 4/4 med basstromme, skarptromme på 2 og 4 og hihat i åttendeler, uten å miste pulsen når du teller til en metronom.",trommekomp;lese-rytme,0,
+spille-akkorder,skill,Utøve musikk,Spille akkorder til en sang,"spille tre eller fire akkorder på gitar, ukulele eller keyboard til en sang, og skifte akkord i tide uten at pulsen stopper opp.",lese-besifring;akkordtoner,0,"Eleven kan ha med seg gitar, ukulele eller keyboard. Spør hvilket instrument, og gi grep eller tangenter for akkordene i den sangen eleven øver på."
+band-og-roller,concept,Utøve musikk,Rollene i et band,"Rytmeseksjon: trommer, bass og ofte gitar og tangenter, som sammen lager kompet.
+Komp: rytmen og akkordene bak melodien.
+Innteller: tellingen før start som gir alle samme tempo, som «en, to, tre, fire».",trommekomp;akkord-harmoni;tekstur,0,
+spille-i-band,skill,Utøve musikk,Spille sammen i band eller gruppe,"holde din egen stemme i samspill: starte på inntelleren, følge formen, lytte til de andre og avslutte samtidig.",band-og-roller;kartlegge-form;spille-akkorder,0,
+dans,concept,Utøve musikk,Dans,"Dans: bevegelse som uttrykker noe eller følger musikken.
+Trinnmønster: en fast rekkefølge av steg som passer til pulsen og taktarten.
+Koreografi: en planlagt dans der bevegelsene er satt sammen i en bestemt rekkefølge.",puls-tempo;takt-taktart,0,
+danse-til-musikk,skill,Utøve musikk,Danse en innlært dans,"danse en innlært dans alene eller i gruppe med trinnene på pulsen, og se på en video av deg selv at trinnene treffer slagene og kommer i riktig rekkefølge.",dans;finne-puls-taktart,0,
+utove-repertoar,skill,Utøve musikk,Utøve et variert repertoar,"framføre flere låter med sang, spill, andre vokale uttrykk eller dans i minst tre ulike sjangre eller stemninger, og vise hvordan du endrer uttrykket fra låt til låt.",repertoar;synge-unison;rappe;spille-i-band;danse-til-musikk,0,
+ovingsprosess,concept,Øving og framføring,Øvingsprosess,"Øvingsprosess: arbeidet fra man velger en låt til den kan framføres, med mål, øving, opptak og justering.
+Delmål: et lite mål for én økt, som at refrenget sitter, i stedet for at «hele låta skal bli bra».",,0,
+ove-vanskelig-del,skill,Øving og framføring,Øve en vanskelig del,"skille ut den vanskeligste delen av en låt, øve den i lavere tempo med metronom, og øke tempoet gradvis til den sitter i originaltempo.",ovingsprosess;puls-tempo,0,
+opptak-av-seg-selv,skill,Øving og framføring,Bruke opptak av deg selv i øvingen,"gjøre opptak av egen øving, lytte etter rytme, toner og dynamikk, og skrive ned én eller to konkrete ting å øve på til neste gang.",ovingsprosess;beskrive-grunnelementer,0,
+lage-ovingsplan,skill,Øving og framføring,Planlegge og gjennomføre en øvingsprosess i gruppe,"lage og følge en øvingsplan sammen med en gruppe, med valgt låt, roller, delmål for hver økt og dato for framføring, og løse uenighet om musikalske valg ved å prøve ut alternativene.",ovingsprosess;latform,0,
+gi-tilbakemelding,skill,Øving og framføring,Gi tilbakemelding med fagbegreper,"gi en konkret tilbakemelding på en framføring med fagbegreper: én ting som fungerte og én ting å jobbe videre med, og hvor i låta det gjelder.",beskrive-grunnelementer,0,
+framfore,skill,Øving og framføring,Framføre for et publikum,"framføre resultatet av en øvingsprosess alene eller i gruppe med blikket og kroppen vendt mot publikum, fortsette i pulsen etter en feil, og se på opptak om du fikk fram uttrykket du ville.",lage-ovingsplan;ove-vanskelig-del;utove-repertoar,0,
+skapende-prosess,concept,Lage musikk,Skapende prosess,"Skapende prosess: veien fra idé til ferdig resultat, med utprøving, valg, bearbeiding og nye valg.
+Bearbeiding: å endre og forbedre noe du allerede har laget, i stedet for å begynne på nytt.",,0,
+improvisasjon-komposisjon,concept,Lage musikk,Improvisasjon og komposisjon,"Improvisasjon: å lage musikk mens du framfører den, uten å ha bestemt alt på forhånd.
+Komposisjon: musikk som er bestemt på forhånd, slik at den kan framføres likt igjen.",skapende-prosess,0,
+motiv,concept,Lage musikk,Motiv og variasjon,"Motiv: en kort musikalsk idé, noen få toner eller en rytme, som er lett å kjenne igjen.
+Variasjon: å endre et motiv, for eksempel rytmen, tonehøyden eller tempoet, slik at det fortsatt kan kjennes igjen.",rytme;tonehoyde-melodi,0,
+pentaton,concept,Lage musikk,Pentatonisk skala,"Skala: tonene i en toneart ordnet trinnvis oppover.
+Pentatonisk skala: en skala med fem toner, som de svarte tangentene på et klaviatur, der nesten ingen toner skurrer mot de vanligste akkordene.",klaviatur,0,
+improvisere-melodi,skill,Lage musikk,Improvisere en melodi over akkorder,"improvisere en melodi med en pentatonisk skala over en akkordrekke, og bygge den på et motiv du gjentar og varierer.",improvisasjon-komposisjon;motiv;pentaton;akkordrekke;finne-puls-taktart,0,
+akkordrekke,concept,Lage musikk,Akkordrekke,"Akkordrekke: akkordene i en låt i den rekkefølgen de kommer, ofte gjentatt i hver del.
+Toneart: tonene og akkordene en låt bygger på, oppkalt etter grunntonen den hviler på, som C-dur.",akkord-harmoni;besifring,0,
+lage-akkordrekke,skill,Lage musikk,Lage en akkordrekke,"sette sammen en akkordrekke på tre til fem akkorder i en toneart, spille den i loop og bytte ut én akkord om gangen til den gir stemningen du vil ha.",akkordrekke;spille-akkorder,0,
+lage-melodi,skill,Lage musikk,Lage en melodi over en akkordrekke,"lage en melodi over en akkordrekke der de lange tonene ligger i akkorden, og et motiv kommer igjen slik at melodien er lett å huske.",lage-akkordrekke;motiv,0,
+sangtekst,concept,Lage musikk,Sangtekst,"Rim: ord som slutter på samme lyd, ofte i slutten av linjene.
+Stavelser og betoning: antallet stavelser i en linje og hvilke som har trykk, som må passe til rytmen i melodien.
+Hook: en kort, fengende linje som gjentas, oftest i refrenget.",latform;rytme,0,
+skrive-sangtekst,skill,Lage musikk,Skrive en sangtekst,"skrive vers og refreng til en sangtekst der betoningen i ordene faller på de tunge slagene, og sjekke det ved å synge eller rappe teksten høyt.",sangtekst,0,
+lage-lat,skill,Lage musikk,Lage en låt fra idé til ferdig resultat,"lage en låt med vers og refreng ved å sette sammen akkordrekke, melodi og tekst, og bearbeide den etter å ha lyttet til et opptak.",lage-melodi;skrive-sangtekst;skapende-prosess,0,
+lage-koreografi,skill,Lage musikk,Lage en kort koreografi,"lage en kort koreografi til en låt der bevegelsene følger pulsen og endrer seg når formen endrer seg, og lære den bort til andre.",danse-til-musikk;kartlegge-form,0,
+prove-ut-versjoner,skill,Lage musikk,Prøve ut og velge mellom versjoner,"lage minst to versjoner av en del i egen musikk, lytte til begge og velge den som får fram det du vil uttrykke.",skapende-prosess;beskrive-grunnelementer,0,
+begrunne-valg,skill,Lage musikk,Begrunne valg i en skapende prosess,"forklare med fagbegreper hvilke valg du gjorde fra idé til ferdig resultat, hva du forkastet underveis, og hvorfor.",prove-ut-versjoner;virkemidler,0,
+daw,concept,Musikkteknologi,DAW,"DAW: et program for å ta opp, lage og redigere musikk, som GarageBand, BandLab eller Soundtrap.
+Spor: én linje i DAW-en med ett instrument eller én lyd.
+Tidslinje: den vannrette aksen der du ser hvor i låta hver del ligger.",,0,
+lydkilder,concept,Musikkteknologi,Lydkilder og samples,"Lydkilde: det som lager lyden, enten et instrument, en stemme, en elektronisk lyd eller en lyd fra omgivelsene.
+Sample: et kort lydopptak som brukes som byggestein i ny musikk.
+Loop: en bit musikk som er laget for å gjentas sømløst.",daw;klangfarge,0,
+midi-audio,concept,Musikkteknologi,MIDI og lydopptak,"MIDI: beskjeder om hvilke toner som spilles, når og hvor sterkt, men ikke selve lyden; du kan bytte instrument etterpå.
+Lydopptak (audio): selve lyden slik mikrofonen fanget den.
+Kvantisering: å flytte MIDI-noter til nærmeste rute i rutenettet, slik at rytmen blir helt presis.",daw,0,
+programmere-beat,skill,Musikkteknologi,Programmere en beat,"programmere et trommemønster i en DAW eller trinnsekvenser, et rutenett der hver rute er et underslag, med basstromme, skarptromme og hihat, og sjekke at backbeaten ligger på 2 og 4.",daw;trommekomp;noteverdier,0,
+kode-musikk,concept,Musikkteknologi,Musikk med kode,"Kode: instruksjoner skrevet i et programmeringsspråk, som i Sonic Pi, som datamaskinen spiller av.
+Løkke: en del av koden som gjentas, slik en loop gjentas i musikken.
+Tilfeldighet: kode som velger toner eller lyder tilfeldig, så musikken blir litt ulik hver gang.",lydkilder,0,
+programmere-forlop,skill,Musikkteknologi,Programmere et musikalsk forløp med kode,"skrive kode som spiller et forløp med minst to lyder, en løkke og en endring underveis, og forklare hvilken linje som gjør hva.",kode-musikk;programmere-beat,0,
+opptak,concept,Musikkteknologi,Opptak,"Mikrofon: gjør lyd om til et elektrisk signal; avstanden til lydkilden endrer både styrken og klangen.
+Nivå: hvor sterkt signalet tas opp.
+Klipping: forvrengning som oppstår når nivået er for høyt, slik at toppene i lyden kuttes av.",midi-audio,0,
+gjore-opptak,skill,Musikkteknologi,Gjøre et lydopptak,"gjøre et opptak av stemme eller instrument med passe avstand til mikrofonen og et nivå som aldri når rødt, og lytte gjennom etter klipping og støy.",opptak,0,
+redigere-lyd,skill,Musikkteknologi,Redigere lyd i en DAW,"klippe, flytte, kopiere og loope lyd og MIDI i en DAW, og kvantisere MIDI-noter slik at de ligger i takt.",midi-audio;lydkilder,0,
+effekter,concept,Musikkteknologi,Lydeffekter,"Romklang (reverb): får lyden til å høres ut som den er i et stort eller lite rom.
+Ekko (delay): gjentar lyden etter et lite øyeblikk.
+Forvrengning (distortion): gjør lyden rå og skitten, som på en el-gitar i rock.
+Tonehøydekorrigering (autotune): flytter tonene til nærmeste riktige tone, hørbart eller ikke.",lydkilder,0,
+eksperimentere-lyd,skill,Musikkteknologi,Eksperimentere med lyd fra ulike kilder,"ta opp lyder fra omgivelsene eller egne instrumenter og forandre dem med effekter, baklengs avspilling eller endret tonehøyde til en ny klang du kan bruke i musikk.",gjore-opptak;redigere-lyd;effekter,0,
+miksing,concept,Musikkteknologi,Miksing,"Miksing: å justere styrke, plassering og effekter på hvert spor, slik at alt høres sammen.
+Panorering: å plassere et spor mer til venstre eller høyre i lydbildet.",daw;effekter,0,
+mikse,skill,Musikkteknologi,Mikse en enkel produksjon,"justere volum, panorering og effekter i en produksjon slik at melodien eller vokalen høres tydelig, og sjekke miksen både på høyttaler og i hodetelefoner.",miksing;redigere-lyd,0,
+lage-produksjon,skill,Musikkteknologi,Skape et musikalsk forløp i en DAW,"skape et musikalsk forløp med lyd fra minst to ulike kilder, med en tydelig start, oppbygning og slutt.",programmere-beat;eksperimentere-lyd;mikse;form,0,
+virkemidler,concept,Lytte og virkemidler,Musikalske virkemidler,"Musikalsk virkemiddel: et valg i musikken som gir en bestemt virkning hos lytteren, som tempo, dynamikk, klangfarge, tonekjønn, gjentakelse, brudd og stillhet.",dynamikk;klangfarge;dur-moll;form,0,
+spenning-forlosning,concept,Lytte og virkemidler,Spenning og forløsning,"Spenning: når musikken bygger seg opp og gjør at du venter på noe, for eksempel med økende styrke, flere lag eller en akkord som ikke hviler.
+Forløsning: når spenningen slippes, ofte i refrenget eller på grunntonen.
+Klimaks: høydepunktet i et stykke.",virkemidler,0,
+beskrive-opplevelse,skill,Lytte og virkemidler,Beskrive en musikkopplevelse,"beskrive hva du opplever når du lytter til en låt, og knytte hvert inntrykk til noe konkret i musikken og et tidspunkt i låta.",beskrive-grunnelementer,0,
+analysere-virkemidler,skill,Lytte og virkemidler,Finne virkemidlene i en låt,"finne og navngi virkemidlene i en låt du lytter til, og forklare hvilken virkning hvert av dem har.",beskrive-opplevelse;virkemidler;spenning-forlosning,0,
+filmmusikk,concept,Lytte og virkemidler,Musikk til bilder,"Filmmusikk: musikk laget for å styre hva publikum føler og forventer i en scene.
+Diegetisk lyd: lyd og musikk som finnes i filmens egen verden, som en radio personene hører på.
+Ikke-diegetisk lyd: musikk som bare publikum hører.",virkemidler,0,
+analysere-filmmusikk,skill,Lytte og virkemidler,Forklare hvordan musikk virker i en filmscene,"forklare hvordan musikken påvirker en film- eller reklamescene ved å se den med og uten lyd og sammenligne opplevelsene.",filmmusikk;analysere-virkemidler,0,
+cover-remiks,concept,Lytte og virkemidler,Cover og remiks,"Cover: en ny innspilling av en låt som andre har laget først.
+Remiks: en ny versjon laget ved å bearbeide lydsporene fra originalinnspillingen.",,0,
+sammenligne-versjoner,skill,Lytte og virkemidler,Sammenligne to versjoner av samme låt,"sammenligne to versjoner av samme låt og forklare hvilke virkemidler som er endret, og hvordan det endrer uttrykket.",cover-remiks;analysere-virkemidler,0,
+sjanger,concept,Sjangre og historie,Sjanger,"Sjanger: en gruppe musikk med fellestrekk i instrumentering, rytme, form og ofte publikum, som blues, rock eller hiphop.
+Stil: det særpreget en artist eller periode har innenfor en sjanger.",,0,
+sjangertrekk,fact,Sjangre og historie,Kjennetegn ved noen sjangre,"blues: tolvtakters form med tre akkorder og «blå» toner som ligger litt lavt
+jazz: improvisasjon og swing, der åttendelene spilles ujevnt
+rock: el-gitar med forvrengning, bass og trommer med tydelig backbeat
+hiphop: rap over beats, ofte bygget av samples og loops
+elektronisk dansemusikk: basstromme på hvert slag og lyder laget på datamaskin
+country: akustisk gitar, fele eller steelgitar og fortellende tekster",sjanger;trommekomp;effekter,0,
+kjenne-igjen-sjanger,skill,Sjangre og historie,Kjenne igjen sjanger,"avgjøre hvilken sjanger en låt hører til, og vise til minst to kjennetegn i musikken som avgjorde det.",sjangertrekk;beskrive-grunnelementer,0,
+epoker,fact,Sjangre og historie,Epokene i kunstmusikken,"middelalderen: ca. 500–1400, gregoriansk sang
+renessansen: ca. 1400–1600, flerstemt vokalmusikk
+barokken: ca. 1600–1750, Johann Sebastian Bach
+wienerklassisismen: ca. 1750–1820, Wolfgang Amadeus Mozart
+romantikken: ca. 1820–1900, Edvard Grieg
+1900-tallet: nye klanger og brudd med dur og moll, og etter hvert elektronisk musikk",sjanger,0,
+populaermusikk-historie,fact,Sjangre og historie,Røttene til populærmusikken,"blues: oppsto blant afroamerikanere i sørstatene i USA rundt 1900
+jazz: oppsto i New Orleans tidlig på 1900-tallet
+rock'n'roll: slo gjennom i USA på 1950-tallet
+punk: oppsto i USA og Storbritannia på midten av 1970-tallet
+hiphop: oppsto i Bronx i New York på 1970-tallet
+techno: oppsto i Detroit på 1980-tallet",sjanger,0,
+forklare-historisk-pavirkning,skill,Sjangre og historie,Forklare hvordan historien preger musikken,"forklare hvordan en sjanger eller dans er preget av tiden og samfunnet den oppsto i, og hvordan den uttrykker noe om det samfunnet.",populaermusikk-historie;epoker;kjenne-igjen-sjanger,0,"Ta utgangspunkt i en sjanger eleven liker. Be eleven finne hvor og når den oppsto, hvem som laget den, og hva i musikken eller teksten som sier noe om livet til de menneskene."
+teknologi-historie,skill,Sjangre og historie,Forklare hvordan teknologi har endret musikken,"forklare med eksempler hvordan innspilling, radio, el-gitar, synthesizer og strømming har endret hvordan musikk lages og lyttes til.",populaermusikk-historie;daw,0,
+protestmusikk,concept,Sjangre og historie,Protestmusikk,"Protestmusikk: musikk som kritiserer eller vil forandre forhold i samfunnet, som krig, rasisme, undertrykking eller miljøødeleggelse.
+Musikalsk ytring: en mening som uttrykkes gjennom musikk, tekst eller framføring.",sjanger,0,
+analysere-protestsang,skill,Sjangre og historie,Analysere en protestsang,"forklare hva en protestsang protesterer mot, i hvilken tid den kom, og hvilke virkemidler i musikk og tekst som får fram budskapet.",protestmusikk;analysere-virkemidler,0,
+samtidsuttrykk,skill,Sjangre og historie,Skape musikk som tar opp en utfordring i samtiden,"lage et musikalsk uttrykk som tar opp en utfordring i samtiden, som klima, utenforskap eller krig, og forklare hvilke virkemidler du har valgt for å få fram budskapet.",analysere-protestsang;lage-lat;begrunne-valg,0,
+musikktradisjon,concept,Folkemusikk og joik,Musikktradisjon,"Musikktradisjon: musikk, sangmåter og danser som er gitt videre gjennom generasjoner i et folk eller et område.
+Muntlig overlevering: å lære musikk fra andre etter gehør i stedet for fra noter, slik mye folkemusikk er gitt videre.",gehor,0,
+folkemusikk,concept,Folkemusikk og joik,Norsk folkemusikk,"Folkemusikk: tradisjonell musikk som er gitt videre muntlig, ofte knyttet til dans, arbeid og høytider.
+Slått: et instrumentalt stykke i folkemusikken, ofte til dans.
+Kveding: tradisjonell norsk sang, ofte alene og uten akkompagnement.
+Stev: en kort, rimet vise på fire linjer, ofte improvisert.",musikktradisjon,0,
+folkemusikk-fakta,fact,Folkemusikk og joik,Folkemusikkens instrumenter og danser,"hardingfele: fele med understrenger som klinger med, mest brukt i vestlige og sørlige deler av Norge
+langeleik: et langt strengeinstrument som ligger på et bord, med én melodistreng og flere strenger som klinger med
+seljefløyte: en fløyte uten fingerhull, laget av bark
+springar: folkedans i tredelt takt
+halling: folkedans i todelt takt, kjent for høye spark og hopp
+kappleik: konkurranse i folkemusikk og folkedans",folkemusikk,0,
+joik,concept,Folkemusikk og joik,Joik,"Joik: den tradisjonelle samiske vokale uttrykksformen, der man joiker en person, et dyr eller et sted i stedet for å synge om det.
+Personlig joik: en joik som tilhører én bestemt person.",musikktradisjon,0,
+joik-fakta,fact,Folkemusikk og joik,Joik i historien og i dag,"fornorskningspolitikken: statens politikk fra midten av 1800-tallet og langt ut på 1900-tallet for å gjøre samer og kvener norske, da joik ble undertrykt og mange steder sett på som syndig
+Nils-Aslak Valkeapää: joiket under åpningen av OL på Lillehammer i 1994
+Mari Boine: samisk artist som blander joik med rock, jazz og verdensmusikk
+Sámi Grand Prix: samisk musikkonkurranse i Kautokeino i påsken, med egen klasse for joik
+KEiiNO: Norges bidrag i Eurovision 2019, med joik i låta «Spirit in the Sky»",joik,0,
+bevaring-fornyelse,concept,Folkemusikk og joik,Bevaring og fornyelse,"Bevaring: å ta vare på en tradisjon slik den har vært, gjennom opplæring, arkiver, opptak og kappleiker.
+Fornyelse: å ta en tradisjon inn i nye uttrykk, som når joik eller hardingfele blandes med pop, rock eller elektronisk musikk.
+Fusjon: musikk som blander uttrykk fra ulike tradisjoner eller sjangre.",musikktradisjon,0,
+forklare-bevaring-fornyelse,skill,Folkemusikk og joik,Forklare og vurdere hvordan en tradisjon bevares og fornyes,"forklare med et konkret eksempel fra norsk folkemusikk og et fra joik hvordan en musikktradisjon tas vare på og fornyes, og vurdere hva som vinnes og hva som kan gå tapt når den fornyes.",bevaring-fornyelse;folkemusikk-fakta;joik-fakta;sammenligne-versjoner,0,
+musikkens-funksjoner,concept,Musikk i samfunnet,Musikkens funksjoner,"Funksjon: hva musikken brukes til, i tillegg til å lyttes til.
+Ritual: en fast handling ved viktige anledninger, som bryllup, begravelse og 17. mai, der musikk ofte har en fast plass.
+Identitet: hvem du er og hvem du hører til, som musikkvalg ofte viser fram.",,0,
+forklare-funksjon,skill,Musikk i samfunnet,Forklare hvilken funksjon musikk har,"forklare hvilken funksjon musikken har i en konkret situasjon, som en fotballkamp, en minnestund, en reklame eller en fest, og hva i musikken som passer til den.",musikkens-funksjoner;virkemidler,0,
+ytringsfrihet,concept,Musikk i samfunnet,Ytringsfrihet og sensur,"Ytringsfrihet: retten til å si og uttrykke meningene sine, også gjennom musikk.
+Sensur: når myndigheter eller andre hindrer at musikk blir spilt eller gitt ut.
+Grenser for ytringsfriheten: for eksempel at hatefulle ytringer mot grupper er forbudt i Norge.",protestmusikk,0,
+opphavsrett,concept,Musikk i samfunnet,Opphavsrett,"Opphavsrett: retten den som har laget musikken har til å bestemme hvordan den brukes, og til å få betalt for den.
+Rettighetsfri musikk: musikk og lyder du har lov til å bruke uten å spørre, ofte på bestemte vilkår.
+Kreditering: å oppgi hvem som har laget det du bruker.",cover-remiks;lydkilder,0,
+opphavsrett-fakta,fact,Musikk i samfunnet,Opphavsrett i Norge,"vernetid for musikk og tekst: opphavsretten varer i 70 år etter at den som laget verket døde
+TONO: forvalter rettighetene til låtskrivere og tekstforfattere i Norge
+GRAMO: forvalter rettighetene til artister, musikere og plateselskaper når innspillingene spilles offentlig
+å publisere en video med andres musikk: krever som hovedregel tillatelse fra dem som har rettighetene",opphavsrett,0,
+bruke-musikk-lovlig,skill,Musikk i samfunnet,Avgjøre om du kan bruke musikk eller lyd,"avgjøre om du kan bruke en låt, et sample eller en lyd i noe du skal publisere, finne et lovlig alternativ når du ikke kan, og kreditere riktig.",opphavsrett-fakta;eksperimentere-lyd,0,
+nettetikk,concept,Musikk i samfunnet,Nettetikk og personvern,"Nettetikk: å oppføre seg ordentlig mot andre når man deler og kommenterer musikk på nett.
+Personvern: retten til å bestemme over opplysninger om seg selv; et opptak der andre synges, spilles eller danser, deles bare med deres samtykke.",,0,
+appropriasjon,concept,Musikk i samfunnet,Kulturell appropriasjon,"Kulturell appropriasjon: når noen fra en dominerende kultur tar i bruk uttrykk fra en minoritet eller en undertrykt kultur uten respekt, forståelse eller anerkjennelse, og ofte tjener på det.
+Kulturutveksling: når kulturer låner av hverandre på like fot, med respekt og anerkjennelse.",musikktradisjon,0,
+skille-appropriasjon,skill,Musikk i samfunnet,Forklare forskjellen på appropriasjon og utveksling,"forklare forskjellen på kulturell appropriasjon og kulturutveksling, og si hvilke spørsmål du stiller for å avgjøre hva et konkret eksempel er.",appropriasjon;joik-fakta,0,
+stromming,concept,Musikk i samfunnet,Strømming og algoritmer,"Strømmetjeneste: en tjeneste som Spotify eller YouTube der du lytter til musikk uten å eie den.
+Algoritme: regler som bestemmer hvilken musikk tjenesten anbefaler deg, ut fra hva du og andre har hørt på.
+Musikkindustri: plateselskaper, strømmetjenester, konsertarrangører og andre som tjener penger på musikk.",,0,
+drofte-etikk,skill,Musikk i samfunnet,Drøfte etiske spørsmål om musikk,"drøfte et etisk spørsmål om musikalske ytringer eller musikkulturer, som en låt med en krenkende tekst, en artist som har gjort noe galt, eller hvem som tjener på strømming, med argumenter fra flere sider.",ytringsfrihet;skille-appropriasjon;bruke-musikk-lovlig;nettetikk;stromming,0,"Ta utgangspunkt i et konkret og aktuelt eksempel eleven kjenner. Be eleven først finne de beste argumentene for et standpunkt de selv ikke har, før de konkluderer."
+drofte-musikkens-betydning,skill,Musikk i samfunnet,Drøfte musikkens og dansens betydning i samfunnet,"drøfte hvilken betydning musikk og dans har for fellesskap, helse, identitet og demokrati, med konkrete eksempler og motargumenter.",forklare-funksjon;forklare-historisk-pavirkning;analysere-protestsang;forklare-bevaring-fornyelse,0,

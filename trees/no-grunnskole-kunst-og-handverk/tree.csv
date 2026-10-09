@@ -1,0 +1,292 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Visuelle virkemidler;Tegning og visualisering;Materialer og teknikker;Bærekraft og holdbarhet;Designprosessen;Digitale verktøy og teknologi;Arkitektur og omgivelser;Identitet og kultur;Kunst og samfunn;Fordypning og presentasjon,,,
+,config,,title,Kunst og håndverk 8.–10. trinn,,,
+,config,,description,"Visuelle virkemidler, tegning, materialer og håndverksteknikker, bærekraft, designprosess, digitale verktøy, arkitektur, identitet og kultur, samfunnskritisk kunst og fordypning på ungdomstrinnet — dekomponert i det elevene faktisk må kunne gjøre og forklare.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,storageKey,no-grunnskole-kunst-og-handverk-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kunst og håndverk 8.–10. trinn (norsk ungdomsskole, KHV0010)",,,
+,config,,slots.motivationSubject,kunst og håndverk,,,
+,config,,slots.expressionFocus,"sier «fint», «kult» eller «stilig» i stedet for å navngi virkemidlet (kontrast, rytme, balanse, valør); beskriver hva et bilde forestiller, men ikke hvordan det er laget; kaller en løs skisse for en arbeidstegning eller oppgir mål uten enhet og målestokk; blander sammen form og funksjon; og påstår at noe er «miljøvennlig» eller «holdbart» uten å si sammenlignet med hva",,,
+,config,,slots.courseSpecifics,"Faget har standpunktkarakter etter 10. trinn og ingen eksamen. Karakteren bygger på praktisk arbeid i verkstedet, skisser og modeller, og på hvordan eleven reflekterer over egne og andres arbeider. Foreslå aldri at eleven bruker sag, kniv, drill, loddebolt, varmepistol, brennovn, laserkutter eller andre farlige verktøy og maskiner uten at læreren har gitt opplæring og er til stede.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Ungdomstrinnet, 8.–10. trinn",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,KHV0010,,,
+,config,,country,NO,,,
+,config,,institution,grunnskole,,,
+,config,,division,8-10,,,
+,config,,subjectArea,arts-crafts,,,
+,config,,keywords,kunst og håndverk; ungdomsskole; ungdomstrinnet; 10. trinn; visuelle virkemidler; fargelære; perspektivtegning; arbeidstegning; målestokk; designprosess; materialer; gjenbruk; reparasjon; arkitektur; universell utforming; duodji; samisk kunst; samfunnskritisk kunst; 3D-modellering; opphavsrett,,,
+,config,,updated,2026-10-08,,,
+visuelle-virkemidler,concept,Visuelle virkemidler,Visuelle virkemidler,"Visuelle virkemidler: grunnelementene i et bilde eller en gjenstand (punkt, linje, flate, form, farge og tekstur) og måtene de settes sammen på (komposisjon, kontrast, rytme og balanse), som til sammen avgjør hvordan det virker på den som ser.",,,
+linje-flate-form,concept,Visuelle virkemidler,"Linje, flate, form og tekstur","Linje: et spor mellom to punkter; kan være rett, buet, tynn, tykk, rolig eller urolig, og leder blikket i sin retning.
+Flate: et todimensjonalt område avgrenset av linjer eller fargeskifter.
+Form (volum): noe tredimensjonalt, eller noe som i et bilde er gitt dybde med lys og skygge.
+Tekstur: strukturen i en overflate, som ru, glatt eller kornete; enten følbar, eller tegnet og malt slik at den ser ut som den kan kjennes.",visuelle-virkemidler,,
+fargesirkel,concept,Visuelle virkemidler,Fargesirkelen,"Fargesirkel: fargene ordnet i en ring etter hvordan de blandes av hverandre.
+Primærfarge: farge som ikke kan blandes av andre farger; rød, gul og blå i den tradisjonelle fargesirkelen (magenta, gul og cyan i trykk).
+Sekundærfarge: farge blandet av to primærfarger, som oransje, grønn og fiolett.
+Komplementærfarger: to farger som står rett overfor hverandre i fargesirkelen og forsterker hverandre når de står side om side.",visuelle-virkemidler,,
+fargebegreper,concept,Visuelle virkemidler,"Kulør, valør og metning","Kulør (fargetone): hvilken farge det er, som rød, blågrønn eller oransje.
+Valør: hvor lys eller mørk en farge er; synes tydeligst når bildet gjøres svart-hvitt.
+Metning: hvor ren og kraftig en farge er, fra klar til grålig og dempet.",fargesirkel,,
+fargefakta,fact,Visuelle virkemidler,Komplementærfarger og varme og kalde farger,"komplementærfargen til rød: grønn
+komplementærfargen til blå: oransje
+komplementærfargen til gul: fiolett
+varme farger: gul, oransje og rød
+kalde farger: blå, blågrønn og blåfiolett
+nøytrale farger: hvit, grå, svart og brunt",fargesirkel,,
+blande-farger,skill,Visuelle virkemidler,Blande sekundærfarger og en valørskala,"blande de tre sekundærfargene av primærfarger, og blande en valørskala i én kulør med minst fem trinn fra lys til mørk, der hvert trinn er synlig mørkere enn det forrige også når du tar bilde av skalaen i svart-hvitt.",fargesirkel;fargebegreper,,
+kontrast,concept,Visuelle virkemidler,Kontrast,"Kontrast: en tydelig forskjell mellom to elementer, i lys og mørk, farge, størrelse, form eller tekstur; trekker blikket mot seg.
+Lys-mørk-kontrast: forskjell i valør.
+Komplementærkontrast: komplementærfarger satt ved siden av hverandre.",fargebegreper;fargefakta,,
+komposisjon,concept,Visuelle virkemidler,Komposisjon og blikkfang,"Komposisjon: måten elementene er plassert og ordnet på innenfor en flate eller et rom.
+Blikkfang: stedet i komposisjonen blikket går til først.
+Retning: linjer og former som leder blikket videre gjennom bildet.
+Tredjedelsregelen: å dele flaten i tre like deler på langs og på tvers og plassere blikkfanget nær et av skjæringspunktene i stedet for midt i.",linje-flate-form,,
+balanse,concept,Visuelle virkemidler,Symmetri og balanse,"Symmetri: at to halvdeler er speilbilder av hverandre om en akse; virker rolig og stabil.
+Asymmetrisk balanse: at ulike elementer veier hverandre opp, for eksempel én stor, lys form mot flere små, mørke; virker mer levende.
+Ubalanse: at vekten ligger tydelig på én side; skaper spenning eller uro.",komposisjon,,
+rytme,concept,Visuelle virkemidler,Rytme og gjentakelse,"Rytme: gjentakelse av elementer med et mønster i avstand, størrelse eller farge, som gir en følelse av bevegelse.
+Gjentakelse: at samme form, farge eller linje kommer igjen flere steder og binder helheten sammen.",komposisjon,,
+monster-rapport,concept,Visuelle virkemidler,Mønster og rapport,"Mønster: en form eller et motiv som gjentas etter en fast regel over en flate.
+Rapport: den minste enheten i et mønster som gjentas.
+Speiling, rotasjon og forskyvning: de tre måtene rapporten kan flyttes på for å bygge mønsteret.",rytme,,
+konstruere-monster,skill,Visuelle virkemidler,Konstruere et rapportmønster,"tegne en rapport og gjenta den med forskyvning, speiling eller rotasjon til et flatemønster, slik at overgangene mellom rapportene ikke synes når mønsteret sees på litt avstand.",monster-rapport,,
+lys-skygge,concept,Visuelle virkemidler,Lys og skygge,"Lyskilde: det lyset kommer fra; avgjør hvor lyset og skyggene faller.
+Egenskygge: den mørke siden av selve gjenstanden, bort fra lyskilden.
+Slagskygge: skyggen gjenstanden kaster på underlaget eller noe bak seg.
+Høylys: det lyseste punktet, der lyset treffer mest direkte.",linje-flate-form,,
+skyggelegge,skill,Visuelle virkemidler,Skyggelegge en form,"gi en tegnet kule, sylinder eller kube volum med minst fire valørtrinn, med høylys mot lyskilden, egenskygge på motsatt side og slagskygge på underlaget i retning bort fra lyskilden.",lys-skygge;fargebegreper,,
+typografi,concept,Visuelle virkemidler,Typografi,"Typografi: valg og oppsett av bokstaver i en tekst: skrifttype, størrelse, avstand og plassering.
+Skrift med seriffer (antikva): skrift med små tverrstreker i enden av strekene.
+Skrift uten seriffer (grotesk): skrift uten slike tverrstreker; vanlig på skjerm og skilt.
+Lesbarhet: hvor lett og raskt teksten kan leses i den størrelsen og på den avstanden den skal brukes.",,,
+layout,concept,Visuelle virkemidler,Layout,"Layout: hvordan tekst, bilder og tomrom er plassert på en side, en plakat eller en skjerm.
+Hierarki: at det viktigste er størst eller mest framtredende, slik at leseren ser det først.
+Rutenett (grid): usynlige linjer elementene justeres etter, så siden virker ordnet.
+Luft: tomrommet rundt elementene, som gjør dem lettere å se.",typografi;komposisjon,,
+lage-plakat,skill,Visuelle virkemidler,Lage en plakat med tekst og bilde,"lage en plakat der overskriften kan leses fra fem meters avstand, det viktigste budskapet er det første en tilfeldig seer peker på, og tekst og bilde følger samme rutenett.",layout;kontrast,,
+kunstanalyse,concept,Visuelle virkemidler,"Beskrive, analysere og tolke","Beskrive: si hva du faktisk ser, uten å tolke.
+Analysere: forklare hvordan verket er laget: hvilke virkemidler, materialer og teknikker som er brukt.
+Tolke: si hva verket kan bety eller vil oss, og begrunne det med det du har beskrevet og analysert.",visuelle-virkemidler,,
+analysere-virkemidler,skill,Visuelle virkemidler,Analysere virkemidlene i et bilde eller en gjenstand,"beskrive, analysere og tolke et bilde, en reklame eller en gjenstand, og forklare hvilken virkning minst tre av virkemidlene har på den som ser.",kunstanalyse;kontrast;balanse;rytme;fargebegreper,,
+bildeutsnitt,concept,Visuelle virkemidler,"Utsnitt, redigering og iscenesettelse","Utsnitt (beskjæring): hvilken del av et motiv som er tatt med i bildet, og dermed hva som er utelatt.
+Retusjering: å endre et bilde i etterkant, for eksempel glatte hud eller fjerne gjenstander.
+Iscenesettelse: at motivet er arrangert for bildet, men ser ut som det er tilfeldig fanget.",komposisjon,,
+kritisk-bilder,skill,Visuelle virkemidler,Vurdere kritisk hvordan bilder påvirker,"vurdere hvordan en reklame, et nyhetsbilde eller et innlegg i sosiale medier bruker virkemidler, utsnitt og redigering for å påvirke, og peke på hva bildet forsterker og hva det utelater.",analysere-virkemidler;bildeutsnitt,,
+eksperimentere-uttrykk,skill,Visuelle virkemidler,Eksperimentere med visuelle uttrykk,"lage minst tre versjoner av samme motiv der du endrer ett virkemiddel om gangen (farge, komposisjon, kontrast eller teknikk), og si hvilken forskjell hver endring gjorde for uttrykket.",analysere-virkemidler,,
+skisse,concept,Tegning og visualisering,Skisse og frihåndstegning,"Frihåndstegning: tegning uten linjal eller andre hjelpemidler.
+Skisse: en rask tegning for å utforske eller vise en idé, uten krav om nøyaktige mål.
+Idéskisse: en skisse som viser en mulig løsning, ofte med korte notater ved siden av.",,,
+proporsjon,concept,Tegning og visualisering,Proporsjon,"Proporsjon: størrelsesforholdet mellom delene i en form, og mellom delene og helheten, for eksempel hvor mange ganger bredden går opp i høyden.",linje-flate-form,,
+observasjonstegning,skill,Tegning og visualisering,Tegne en gjenstand etter observasjon,"tegne en gjenstand du har foran deg slik at forholdet mellom høyde og bredde på tegningen stemmer med gjenstanden når du måler begge med blyanten på strak arm.",skisse;proporsjon,,
+tegne-figur,skill,Tegning og visualisering,Tegne en menneskefigur i proporsjon,"tegne en stående menneskefigur der hodet går omtrent sju ganger opp i høyden, hoftene ligger omtrent midt på figuren og fingertuppene når til midt på låret.",proporsjon;skisse,,
+perspektiv,concept,Tegning og visualisering,Perspektiv,"Perspektiv: å vise dybde og avstand på en flat flate.
+Horisontlinje: den vannrette linjen i øyehøyde hos den som ser.
+Forsvinningspunkt: punktet på horisontlinjen der linjer som i virkeligheten er parallelle og går innover i bildet, møtes.
+Dybdelinje: en linje som går innover i bildet mot et forsvinningspunkt.",linje-flate-form,,
+ettpunkts,skill,Tegning og visualisering,Tegne i ettpunktsperspektiv,"tegne en kasse, et rom eller en gate sett rett forfra slik at alle dybdelinjene møtes i ett forsvinningspunkt på horisontlinjen, mens loddrette linjer er loddrette og vannrette linjer vannrette; sjekk dybdelinjene med linjal.",perspektiv,,
+topunkts,skill,Tegning og visualisering,Tegne i topunktsperspektiv,"tegne en kasse eller en bygning sett mot et hjørne, slik at de loddrette kantene er loddrette og linjene på hver side går mot hvert sitt forsvinningspunkt på samme horisontlinje; sjekk med linjal.",ettpunkts,,
+dybdevirkemidler,concept,Tegning og visualisering,Dybde uten forsvinningspunkt,"Overlapping: det som dekker noe annet, oppfattes som nærmest.
+Størrelse og plassering: det som er mindre og høyere opp i bildet, oppfattes som lenger unna.
+Luftperspektiv: det som er langt unna, blir lysere, blåere og får mindre kontrast og færre detaljer.",perspektiv;fargebegreper,,
+arbeidstegning,concept,Tegning og visualisering,Arbeidstegning,"Arbeidstegning: en nøyaktig tegning med mål som viser hvordan noe skal lages, slik at en annen kan lage det ut fra tegningen alene.
+Målsetting: mållinjer med piler og tall som viser lengder, vanligvis i millimeter.",skisse,,
+tre-riss,concept,Tegning og visualisering,"Frontriss, sideriss og grunnriss","Riss: en tegning av gjenstanden sett rett fra én side, uten perspektiv.
+Frontriss: gjenstanden sett rett forfra.
+Sideriss: gjenstanden sett rett fra siden.
+Grunnriss: gjenstanden sett rett ovenfra.",arbeidstegning,,
+malestokk,concept,Tegning og visualisering,Målestokk,"Målestokk: forholdet mellom et mål på tegningen eller modellen og det samme målet i virkeligheten; 1:10 betyr at 1 cm på tegningen er 10 cm i virkeligheten.
+Forstørrelse: målestokk der tallet til venstre er størst, som 2:1, brukt når noe er lite.",,,
+regne-malestokk,skill,Tegning og visualisering,Regne om med målestokk,"regne mål på en tegning om til virkelige mål og omvendt i målestokker som 1:2, 1:10, 1:50, 1:100 og 2:1, og velge en målestokk som gjør at tegningen får plass på arket.",malestokk,,
+lese-arbeidstegning,skill,Tegning og visualisering,Lese en arbeidstegning,"finne lengde, bredde, tykkelse og plassering av hull og sammenføyninger på en arbeidstegning, og regne ut hvor mye materiale som trengs.",tre-riss;regne-malestokk,,
+tegne-arbeidstegning,skill,Tegning og visualisering,Lage en arbeidstegning med mål,"tegne en enkel gjenstand i front-, side- og grunnriss med linjal, målsatt i millimeter og med målestokken oppgitt, slik at en medelev kan lage den uten å spørre deg om noe.",lese-arbeidstegning,,
+modell-prototyp,concept,Tegning og visualisering,Modell og prototyp,"Modell: en forenklet utgave av noe, ofte i en annen målestokk og et annet materiale, laget for å se hvordan det tar seg ut i rommet.
+Prototyp: en prøveversjon som er god nok til å testes for funksjon, før det endelige produktet lages.",malestokk,,
+bygge-modell,skill,Tegning og visualisering,Bygge en modell i målestokk,"bygge en modell av papp, papir eller lignende i en oppgitt målestokk, der målene på modellen stemmer med tegningen innenfor noen få millimeter.",modell-prototyp;regne-malestokk,,
+utbretting,concept,Tegning og visualisering,Utbretting,"Utbretting: en flat tegning av alle sideflatene i en tredimensjonal form, lagt slik at den kan klippes ut og brettes sammen til formen.
+Limflik: en smal ekstra kant som limes under nabosiden.",tre-riss,,
+tegne-utbretting,skill,Tegning og visualisering,Tegne og brette en utbretting,"tegne utbrettingen av en eske eller et prisme med riktige mål og limflik, klippe den ut og brette den sammen uten glipper eller overlapp mellom sidene.",utbretting;regne-malestokk,,
+materialgrupper,concept,Materialer og teknikker,"Harde, plastiske og myke materialer","Harde materialer: faste materialer som må sages, files eller bores for å endre form, som tre, metall, stein og hard plast.
+Plastiske materialer: materialer som kan formes fritt mens de er bløte, og som så stivner, som leire, gips, papirmasse og voks.
+Myke materialer: bøyelige materialer som kan sys, knyttes eller veves, som tekstil, garn, filt og skinn.",,,
+bearbeiding,concept,Materialer og teknikker,"Å fjerne, forme og bygge på","Subtraktiv bearbeiding: å endre form ved å ta bort materiale, som å sage, skjære, file, slipe og klippe.
+Formende bearbeiding: å endre form uten å ta bort materiale, som å bøye, banke, modellere og trykke.
+Additiv bearbeiding: å bygge opp form ved å legge til materiale, som å bygge i leire eller printe lag på lag.",materialgrupper,,
+sammenfoyning,concept,Materialer og teknikker,Sammenføyning,"Sammenføyning: å feste to deler sammen.
+Mekanisk sammenføyning: med skruer, spiker, nagler, bolter eller søm; kan ofte tas fra hverandre igjen.
+Liming: med lim som binder delene; krever at de holdes i ro til limet har herdet.
+Termisk sammenføyning: med varme, som lodding, sveising eller å smelte plast sammen.",materialgrupper,,
+verktoy-maskiner,concept,Materialer og teknikker,"Håndverktøy, elektroverktøy og digitalt styrte maskiner","Håndverktøy: verktøy som drives av kroppen, som sag, fil og hammer.
+Elektroverktøy: verktøy med motor, som drill, stikksag og symaskin.
+Digitalt styrt maskin: maskin som følger en digital fil, som laserkutter, 3D-printer og vinylkutter.
+Egnet teknologi: det verktøyet eller den maskinen som passer best til materialet, oppgaven og hvor mange som skal lages.",bearbeiding,,
+verktoy-navn,fact,Materialer og teknikker,Vanlige verktøy i sløyden,"fukssvans: håndsag til rette kutt i tre
+baufil: sag med smalt blad til metall og plast
+rasp: grov fil til å forme tre
+fil: verktøy til å forme og glatte metall og plast
+sandpapir: slipepapir; jo høyere korntall, jo finere sliping
+syl: lager et lite merke der bor eller skrue skal settes
+spiralbor: bor til å bore hull i tre, metall og plast
+forsenker: lager en grop så skruehodet ligger i flukt med overflaten
+skrutvinge: holder delene fast mens du sager, borer eller limet tørker
+vinkelhake: tegner og kontrollerer rette vinkler
+skyvelære: måler tykkelse og diameter nøyaktig",materialgrupper,,
+hms,concept,Materialer og teknikker,Sikkerhet i verkstedet,"HMS: helse, miljø og sikkerhet; regler og vaner som hindrer skader i verkstedet.
+Verneutstyr: utstyr som beskytter kroppen, som vernebriller, hørselvern, støvmaske og forkle.
+Sikker arbeidsstilling: arbeidsstykket er festet, hendene er bak eggen, og løst hår og løse klær er festet ved maskiner.",,,
+fiberretning-tre,concept,Materialer og teknikker,Fiberretning i tre,"Fiberretning: retningen trefibrene går i; synes som årringer og striper i treet.
+Langs fibrene: treet er sterkt, men kan sprekke når en skrue eller spiker settes nær enden.
+På tvers av fibrene: treet brekker lettere, og kuttflaten blir ru og flisete.",materialgrupper,,
+tradretning,concept,Materialer og teknikker,Trådretning i stoff,"Renning og innslag: de to trådsystemene i vevd stoff, som går på langs og på tvers.
+Rettråden: retningen langs renningen; stoffet strekker seg minst her, og mønsterdeler legges etter den.
+Skrådd: diagonalen i stoffet; der strekker vevd stoff seg mest.
+Strikket stoff: stoff av masker i rader, som strekker seg mer enn vevd stoff.",materialgrupper,,
+tre-saging,skill,Materialer og teknikker,"Sage, file og slipe tre","sage etter en strek slik at kuttet står vinkelrett på flaten (sjekk med vinkelhake), og file og slipe kanten med stadig finere sandpapir til ingen sagmerker synes.",verktoy-navn;fiberretning-tre;hms;bearbeiding,,"Eleven gjør dette i verkstedet, med læreren til stede. Forklar teknikk og sikkerhet, men ikke gi råd om å bruke elektriske sager."
+tre-sammenfoyning,skill,Materialer og teknikker,Sammenføye tre med lim og skruer,"forbore og forsenke for skruer, lime og skru sammen to deler i rett vinkel, slik at skjøten er stram, uten glipe, og uten at treet har sprukket.",sammenfoyning;fiberretning-tre;verktoy-navn;hms,,
+metall-trad,skill,Materialer og teknikker,Forme tynt metall eller ståltråd,"klippe, bøye og file tynn metallplate eller ståltråd til en form etter tegning, med kanter som kjennes glatte og ikke har skarpe grader.",bearbeiding;verktoy-navn;hms,,
+leire,concept,Materialer og teknikker,Leire og brenning,"Leire: plastisk materiale av fine mineralkorn og vann, som stivner når det tørker og blir hardt og varig når det brennes.
+Lærhard: leire som har tørket så mye at den holder formen, men fortsatt kan skjæres i og skjøtes.
+Skrøkbrenning: den første brenningen, som gjør leira hard, men porøs.
+Glasur: et glassaktig belegg som brennes fast i en ny brenning og gjør overflaten tett og farget.",materialgrupper,,
+bygge-leire,skill,Materialer og teknikker,Bygge i leire med pølse- eller plateteknikk,"bygge en form med pølse- eller plateteknikk der skjøtene er ripet og smurt med slikker, veggene er jevnt tykke (under omtrent én centimeter) og formen står uten å sige sammen.",leire;sammenfoyning,,
+tekstilteknikker,concept,Materialer og teknikker,Søm og tekstilteknikker,"Søm: sammenføyning av stoff med tråd, for hånd eller på symaskin.
+Sømmonn: kanten av stoffet mellom sømmen og stoffkanten.
+Tilbakesøm: noen sting fram og tilbake i starten og slutten av en maskinsøm, så den ikke rakner.
+Applikasjon: å sy en stoffbit på et annet stoff som dekor.",tradretning;sammenfoyning,,
+sy-maskin,skill,Materialer og teknikker,Sy en rett søm på symaskin,"træ symaskinen, sy en rett søm med jevnt sømmonn langs hele kanten, og sikre start og slutt med tilbakesøm slik at sømmen ikke rakner når du drar i stoffet.",tekstilteknikker;hms,,
+monster-tekstil,skill,Materialer og teknikker,Ta mål og lage et tekstilmønster,"ta mål av en kropp eller gjenstand, tegne mønsterdelene med sømmonn, legge dem etter rettråden og klippe slik at delene passer sammen når de sys.",tradretning;tekstilteknikker;regne-malestokk,,
+overflatebehandling,concept,Materialer og teknikker,Overflatebehandling,"Overflatebehandling: et lag som legges på et ferdig arbeid for å beskytte det og gi det et uttrykk, som olje, voks, beis, lakk, maling eller glasur.
+Beis: farge som trekker inn i treet så strukturen fortsatt synes.
+Lakk: et hardt, tett lag på overflaten.",materialgrupper,,
+utforske-teknikk,skill,Materialer og teknikker,Utforske en håndverksteknikk med prøvestykker,"lage en serie merkede prøvestykker der du endrer én ting om gangen (verktøy, materiale, trykk eller tid), og si hvilket valg som ga hvilket resultat.",bearbeiding;sammenfoyning;verktoy-maskiner,,
+velge-materiale,skill,Materialer og teknikker,Velge materiale og verktøy til en gjenstand,"begrunne valg av materiale, sammenføyningsmetode, overflatebehandling og verktøy for en gjenstand ut fra hvordan den skal brukes, og velge det alternativet som gir minst svinn og slitasje på miljøet.",verktoy-maskiner;overflatebehandling;holdbarhet;svinn,,
+holdbarhet,concept,Bærekraft og holdbarhet,Holdbarhet,"Holdbarhet: hvor lenge en gjenstand tåler å brukes før den slites ut, går i stykker eller ikke lenger blir brukt.
+Fysisk holdbarhet: hvor godt materialet og konstruksjonen tåler bruk og vask.
+Emosjonell holdbarhet: hvor lenge eieren fortsatt har lyst til å bruke og ta vare på gjenstanden.",materialgrupper,,
+livslop,concept,Bærekraft og holdbarhet,Livsløpet til et produkt,"Livsløp: hele livet til en gjenstand, fra råvaren hentes ut, via produksjon, transport og bruk, til den repareres, brukes på nytt, gjenvinnes eller kastes.
+Miljøavtrykk: summen av ressursbruk, utslipp og avfall langs hele livsløpet.",,,
+gjenbruk,concept,Bærekraft og holdbarhet,"Reparasjon, ombruk og gjenvinning","Reparasjon: å sette i stand det som er ødelagt, så gjenstanden kan brukes videre.
+Ombruk: å bruke en gjenstand eller et materiale igjen, i samme form eller omgjort til noe nytt (redesign).
+Materialgjenvinning: å bryte ned materialet, for eksempel ved å smelte eller rive det opp, så det blir råvare til nye produkter.",livslop,,
+avfallshierarki,concept,Bærekraft og holdbarhet,Avfallspyramiden,"Avfallspyramiden: rangeringen av hva som er best for miljøet, fra best til dårligst: å unngå avfall, ombruk, materialgjenvinning, energiutnyttelse (forbrenning) og deponi.",gjenbruk,,
+forbrukskultur,concept,Bærekraft og holdbarhet,Forbrukskultur,"Bruk-og-kast: at produkter er laget og kjøpt for å brukes kort og så kastes.
+Hurtigmote (fast fashion): klær produsert raskt, billig og i store mengder, med korte motesykluser og kort brukstid.
+Planlagt foreldelse: at et produkt lages slik at det går i stykker, ikke kan repareres eller går av moten etter kort tid.",livslop;holdbarhet,,
+svinn,concept,Bærekraft og holdbarhet,Svinn,"Svinn: materiale som går til spille i produksjonen, som kapp, avklipp og feilskjær.
+Utlegg: hvordan delene plasseres på en plate eller et stoff før de skjæres ut, som avgjør hvor stort svinnet blir.",,,
+vurdere-holdbarhet,skill,Bærekraft og holdbarhet,Vurdere holdbarheten til en gjenstand,"undersøke en gjenstand og peke på hvor den trolig vil slites eller gå i stykker først, forklare hva det skyldes i materialet eller konstruksjonen, og avgjøre om den kan repareres.",holdbarhet;sammenfoyning,,
+reparere,skill,Bærekraft og holdbarhet,Reparere et plagg eller en gjenstand,"reparere et hull, en løs søm eller en løs sammenføyning slik at stedet tåler vanlig bruk igjen, og velge bevisst om reparasjonen skal skjules eller vises som en del av uttrykket.",vurdere-holdbarhet;gjenbruk,,
+redesign,skill,Bærekraft og holdbarhet,Lage noe nytt av brukte materialer,"lage en ny gjenstand av kasserte klær eller materialer, der egenskapene ved det brukte materialet (fasong, mønster, slitasje) er utnyttet med vilje og ikke bare skjult.",gjenbruk;velge-materiale,,
+planlegge-svinn,skill,Bærekraft og holdbarhet,Planlegge utlegg med minst mulig svinn,"legge mønsterdeler eller emner på en plate eller et stoff slik at minst mulig blir kappet bort, og anslå hvor stor del av materialet som blir svinn.",svinn;lese-arbeidstegning,,
+miljovurdering,skill,Bærekraft og holdbarhet,Sammenligne miljøvirkningen av to løsninger,"sammenligne to materialer eller produkter langs livsløpet og avgjøre hvilket som er best for miljøet til et bestemt bruk, med en begrunnelse for hvert steg i livsløpet.",livslop;avfallshierarki;forbrukskultur;vurdere-holdbarhet,,
+design,concept,Designprosessen,"Design, form og funksjon","Design: planlegging og formgiving av en gjenstand, et rom eller et budskap, så det fungerer for brukeren og har et bevisst uttrykk.
+Funksjon: hva løsningen skal gjøre, og hvor godt den gjør det.
+Form (estetisk uttrykk): hvordan løsningen ser ut og kjennes, og hva den signaliserer.",visuelle-virkemidler,,
+designprosess,concept,Designprosessen,Designprosessen,"Designprosess: en stegvis arbeidsmåte der man undersøker behovet, lager mange ideer, velger og utvikler én, lager en prototyp, tester den og forbedrer den.
+Iterasjon: å gå tilbake og gjenta steg med det man har lært, i stedet for å gå rett fram én gang.",design;modell-prototyp,,
+brukerbehov,concept,Designprosessen,Brukerbehov og designkrav,"Bruker (målgruppe): den eller de som skal bruke løsningen.
+Brukerbehov: det brukeren faktisk trenger eller strever med, som ikke alltid er det de først sier.
+Designkrav: en liste over hva løsningen må oppfylle, helst slik at det kan sjekkes om den gjør det.",design,,
+kartlegge-behov,skill,Designprosessen,Kartlegge behovet til en bruker,"intervjue eller observere en bruker og formulere minst tre designkrav som kan sjekkes etterpå, som «får plass i en jakkelomme» i stedet for «er praktisk».",brukerbehov,,
+ideutvikling,concept,Designprosessen,Idéutvikling og kreative strategier,"Idémyldring: å få fram mange ideer raskt uten å vurdere dem underveis.
+Stemningstavle (moodboard): en samling bilder, farger og materialprøver som viser stemningen et arbeid skal ha.
+Kreativ strategi: en bevisst metode for å finne nye ideer, som å kombinere to ting, overdrive, snu på, forenkle eller bytte materiale.",skisse,,
+lage-ideer,skill,Designprosessen,Lage mange idéskisser til samme problem,"lage minst ti raske, ulike idéskisser til samme problem før du velger, og bruke minst én kreativ strategi for å komme forbi de første, opplagte ideene.",ideutvikling;kartlegge-behov,,
+velge-ide,skill,Designprosessen,Velge og begrunne en idé,"vurdere idéskissene mot designkravene, for eksempel i en enkel tabell, og begrunne hvilken idé du går videre med og hva du tar med deg fra de andre.",lage-ideer,,
+prototyp-test,skill,Designprosessen,Lage og teste en prototyp,"lage en enkel prototyp, la en bruker prøve den, og skrive ned hva som virket, hva som ikke virket og hva du endrer i neste versjon.",velge-ide;bygge-modell;designprosess,,
+vurdere-design,skill,Designprosessen,"Vurdere holdbarhet, funksjon og estetisk uttrykk","vurdere en ferdig løsning, egen eller andres, mot designkravene: om den fungerer, hvor holdbar den er og hvordan formen virker, og gi minst ett konkret forslag til forbedring.",designprosess;vurdere-holdbarhet;analysere-virkemidler;brukerbehov,,
+hel-designprosess,skill,Designprosessen,Utvikle en løsning gjennom en hel designprosess,"gjennomføre designprosessen fra behov til forbedret prototyp, med minst én runde der testen førte til en endring, og dokumentere hvert steg med skisser, bilder og korte notater.",prototyp-test;vurdere-design;tegne-arbeidstegning;velge-materiale,,
+raster-vektor,concept,Digitale verktøy og teknologi,Rastergrafikk og vektorgrafikk,"Rastergrafikk (punktgrafikk): et bilde bygd av små ruter, piksler; blir kornete når det forstørres for mye. Fotografier er rastergrafikk.
+Vektorgrafikk: et bilde bygd av linjer og former beskrevet matematisk; kan forstørres uten å miste skarphet. Brukes til logoer og til filer for laserkutter og vinylkutter.",,,
+redigere-bilde,skill,Digitale verktøy og teknologi,Redigere og sette sammen bilder digitalt,"beskjære et bilde, justere lys, kontrast og farger, sette sammen to bilder i lag i et bildeprogram, og lagre i et filformat som passer bruken.",raster-vektor;bildeutsnitt;fargebegreper,,
+cad-3d,concept,Digitale verktøy og teknologi,"3D-modell, laserkutting og 3D-printing","3D-modell: en digital tredimensjonal form som kan snus og sees fra alle kanter på skjermen.
+CAD (dataassistert konstruksjon): programmer for å tegne og modellere med nøyaktige mål.
+3D-printing: additiv framstilling der maskinen bygger formen lag på lag fra en 3D-modell.
+Laserkutting: subtraktiv framstilling der en laserstråle skjærer eller graverer etter en vektortegning.",raster-vektor;verktoy-maskiner;tre-riss,,
+lage-3d,skill,Digitale verktøy og teknologi,Lage en enkel 3D-modell i et dataprogram,"modellere en enkel gjenstand i et CAD-program med riktige mål i millimeter, og eksportere den til en fil som en 3D-printer eller laserkutter kan bruke.",cad-3d;tegne-arbeidstegning,,
+interaktivitet,concept,Digitale verktøy og teknologi,"Interaktivitet, sensorer og mikrokontroller","Interaktivt verk: et verk som endrer seg ut fra hva publikum gjør.
+Sensor: en komponent som måler noe i omgivelsene, som lys, lyd, bevegelse eller berøring.
+Mikrokontroller: en liten datamaskin, som micro:bit, som kan programmeres til å styre lys, lyd og motorer ut fra signaler fra sensorer.",,,
+programmere-uttrykk,skill,Digitale verktøy og teknologi,Programmere et enkelt interaktivt uttrykk,"programmere en mikrokontroller eller et tegneprogram slik at lys, lyd, farge eller form endrer seg når noen gjør noe, og teste at det reagerer slik du hadde planlagt.",interaktivitet,,
+digitale-opplevelser,concept,Digitale verktøy og teknologi,Digitale uttrykksformer,"Animasjon: bilder som vises etter hverandre så raskt at de ser ut til å bevege seg.
+Utvidet virkelighet (AR): digitalt innhold lagt oppå bildet av omgivelsene, for eksempel på en mobilskjerm.
+Virtuell virkelighet (VR): en helt digital omgivelse man opplever med briller.
+Projeksjonskunst: bilder og film projisert på bygninger, gjenstander eller rom.",,,
+ki-bilder,concept,Digitale verktøy og teknologi,KI-genererte bilder,"Bildegenerator: et KI-verktøy som lager bilder ut fra en tekstbeskrivelse (ledetekst), etter å ha blitt trent på store mengder bilder laget av andre.
+Merking: å si tydelig fra når et bilde er laget eller endret med KI.",opphavsrett,,
+utforske-teknologi,skill,Digitale verktøy og teknologi,Utforske hva ny teknologi gjør mulig,"prøve ut et digitalt verktøy eller en ny teknologi i et eget skapende arbeid, og forklare hvilken opplevelse eller måte å kommunisere på den ga som ikke hadde vært mulig uten.",digitale-opplevelser;eksperimentere-uttrykk,,
+opphavsrett,concept,Digitale verktøy og teknologi,Opphavsrett og kreditering,"Opphavsrett: retten den som har laget et verk har til å bestemme om det skal kopieres, endres og publiseres.
+Creative Commons: lisenser der skaperen på forhånd gir andre lov til å bruke verket på bestemte vilkår, for eksempel at navnet oppgis.
+Kreditering: å oppgi hvem som har laget et bilde eller verk du bruker, og hvor det er hentet fra.",,,
+personvern-bilder,concept,Digitale verktøy og teknologi,Personvern og samtykke ved bilder,"Personvern: retten til å bestemme over opplysninger og bilder av seg selv.
+Samtykke: et tydelig ja fra den som er avbildet; som hovedregel nødvendig før et bilde der en person er hovedmotivet publiseres.",,,
+bruke-andres-verk,skill,Digitale verktøy og teknologi,Bruke bilder og verk lovlig og redelig,"avgjøre om du kan bruke et bilde eller verk du har funnet, kreditere det riktig, merke det du har laget med KI, og innhente samtykke før du publiserer bilder av andre.",opphavsrett;personvern-bilder;ki-bilder,,
+arkitektur,concept,Arkitektur og omgivelser,Arkitektur og arkitekturtegninger,"Arkitektur: utformingen av bygninger og steder, både hvordan de fungerer og hvordan de ser ut og oppleves.
+Plantegning: en tegning av en etasje sett ovenfra, som om bygningen var skåret vannrett gjennom i omtrent brysthøyde.
+Fasade: en tegning av bygningens yttervegg sett rett forfra eller fra siden.
+Snitt: en tegning av bygningen som om den var skåret loddrett gjennom.",tre-riss;malestokk,,
+plantegning-symboler,fact,Arkitektur og omgivelser,Symboler på plantegninger,"dør: en åpning i veggen med en kvart sirkelbue som viser hvilken vei døra slår
+vindu: tynne parallelle streker i veggen
+trapp: trinnene tegnet som streker, med en pil som peker i retning oppover
+yttervegg: tegnes tykkere enn innervegg
+mål på plantegning: oppgis vanligvis i millimeter",arkitektur,,
+tegne-plantegning,skill,Arkitektur og omgivelser,Tegne en enkel plantegning i målestokk,"tegne en plantegning av et rom eller et lite bygg i målestokk 1:50 eller 1:100, med vegger, dører, vinduer og møbler, slik at målene kan leses av med linjal.",plantegning-symboler;regne-malestokk,,
+universell-utforming,concept,Arkitektur og omgivelser,Universell utforming,"Universell utforming: å utforme bygninger, uteområder og produkter slik at flest mulig kan bruke dem på en likeverdig måte, uten spesialtilpasning, uansett alder og funksjonsevne.",,,
+offentlig-rom,concept,Arkitektur og omgivelser,"Offentlige rom, stedsanalyse og medvirkning","Offentlig rom: steder alle har tilgang til, som gater, torg, parker og skolegårder.
+Stedsanalyse: en undersøkelse av hvordan et sted ser ut, brukes og oppleves, før man foreslår endringer.
+Medvirkning: at de som bruker et sted, får si sin mening før det endres.",arkitektur,,
+stedsanalyse,skill,Arkitektur og omgivelser,Gjennomføre en enkel stedsanalyse,"registrere med skisser, bilder og notater hvem som bruker et sted, når og hvordan, og peke på minst to behov stedet ikke dekker i dag.",offentlig-rom;skisse,,
+skisse-fornyelse,skill,Arkitektur og omgivelser,Skissere en fornyelse av et lokalt sted,"lage skisser av en endring av et sted i nærmiljøet som svarer på behovene fra stedsanalysen, og vise hvordan forslaget tar hensyn til minst to grupper med ulike behov, også dem som bruker rullestol eller ser dårlig.",stedsanalyse;universell-utforming;lage-ideer,,
+modellere-arkitektur,skill,Arkitektur og omgivelser,Modellere en arkitektonisk løsning,"bygge en fysisk eller digital modell av forslaget i målestokk, med menneskefigurer i samme målestokk som viser størrelsesforholdene.",skisse-fornyelse;bygge-modell;tegne-plantegning,,
+identitet,concept,Identitet og kultur,Identitet og stedstilhørighet,"Identitet: hvem en person eller gruppe er og opplever seg som, og hva de viser fram av det.
+Stedstilhørighet: følelsen av å høre hjemme et sted, ofte knyttet til landskap, bygninger, dialekt og tradisjoner.
+Visuell identitet: det en person, gruppe eller et sted viser om seg selv gjennom klær, gjenstander, bygninger og bilder.",,,
+kulturarv,concept,Identitet og kultur,"Kulturarv og kulturelle referanser","Kulturarv: det tidligere generasjoner har etterlatt seg og vi tar vare på, både materielt (gjenstander, bygninger) og immaterielt (kunnskap, håndverksteknikker, skikker).
+Kulturell referanse: et element hentet fra en kultur, en tradisjon eller et kjent verk, som et mønster, en form, en teknikk eller et motiv.",identitet,,
+byggeskikk,concept,Identitet og kultur,Byggeskikk,"Byggeskikk: måten det tradisjonelt er bygd på et sted, formet av klima, tilgjengelige materialer og levesett.
+Laft: å bygge med liggende tømmerstokker som er felt inn i hverandre i hjørnene.
+Gamme og lavvo: tradisjonelle samiske boliger; gammen er en fast bolig bygd med torv, lavvoen er et telt som kan flyttes.",kulturarv;arkitektur,,
+klestradisjoner,concept,Identitet og kultur,Bunad og kofte,"Folkedrakt: klærne som faktisk ble brukt i et område før fabrikkproduserte klær tok over.
+Bunad: festdrakt som bygger på eller er inspirert av eldre folkedrakter fra et bestemt område.
+Kofte (gákti): den samiske tradisjonelle drakten, der farger, mønster og snitt kan vise hvor bæreren hører til.",kulturarv,,
+duodji,concept,Identitet og kultur,Duodji,"Duodji: samisk håndverk og kunsthåndverk, der bruksgjenstander lages med vekt på både funksjon og estetikk.
+Hard duodji: arbeider i harde materialer som horn, bein og tre (for eksempel rot og bjørk).
+Myk duodji: arbeider i myke materialer som skinn, sener, ull og stoff.",kulturarv;materialgrupper,,
+analysere-identitet,skill,Identitet og kultur,Analysere hvordan identitet kommuniseres,"velge en bygning, et plagg, et kunstverk eller en gjenstand og forklare hvilke trekk som viser hvor den kommer fra eller hvem den hører til, og hva den sier om identitet.",identitet;kulturarv;analysere-virkemidler,,
+appropriasjon,concept,Identitet og kultur,Kulturell appropriasjon,"Kulturell appropriasjon: å ta i bruk elementer fra en annen kultur, særlig en minoritetskultur, uten forståelse, kreditering eller tillatelse, på en måte som kan oppleves som krenkende eller som tar bort betydningen elementet har.
+Kulturell utveksling: å la seg inspirere av en annen kultur med kunnskap om og respekt for det man låner fra.",kulturarv,,
+bruke-referanser,skill,Identitet og kultur,Bruke kulturelle referanser i eget arbeid,"bruke et motiv, mønster, en form eller en teknikk fra en kulturtradisjon i et eget arbeid, gjøre den til din egen, og kunne fortelle hvor den kommer fra, hva den betyr og hvorfor du brukte den slik.",analysere-identitet;appropriasjon,,
+samtidskunst,concept,Kunst og samfunn,Samtidskunst og kunstformer,"Samtidskunst: kunst laget i vår egen tid, ofte med nye materialer og formater.
+Installasjon: et verk som fyller eller forandrer et rom, og som publikum kan bevege seg i eller rundt.
+Performance: et kunstverk som er en handling kunstneren utfører foran et publikum.
+Gatekunst: kunst laget i det offentlige rom, ofte uten tillatelse.",,,
+samfunnskritisk-kunst,concept,Kunst og samfunn,Samfunnskritisk kunst,"Samfunnskritisk kunst: kunst som tar opp og kritiserer forhold i samfunnet, som urett, krig, miljøødeleggelse eller makt.
+Kunstaktivisme: kunst laget for å påvirke politikk eller mobilisere folk til handling.
+Kontekst: tiden, stedet og situasjonen et verk ble laget og vist i, som påvirker hva det betyr og hvordan det ble mottatt.",samtidskunst,,
+samfunnskritiske-verk,fact,Kunst og samfunn,Samfunnskritiske kunstverk,"Guernica: maleri av Pablo Picasso fra 1937 mot bombingen av den baskiske byen Guernica under den spanske borgerkrigen
+Albertine i politilægens venteværelse: maleri av Christian Krohg fra 1887, en kritikk av hvordan staten kontrollerte prostitusjon
+Banksy: anonym britisk gatekunstner som bruker sjablongbilder til å kommentere krig, overvåking og forbruk
+Ai Weiwei: kinesisk kunstner som blant annet har laget installasjoner av redningsvester etter båtflyktninger",samfunnskritisk-kunst,,
+samiske-kunstnere,fact,Kunst og samfunn,Samiske kunstnere og verk,"John Savio: grafiker som skar tresnitt fra samisk liv tidlig på 1900-tallet
+Iver Jåks: billedhugger som bygde på duodji og samisk formspråk
+Britta Marakatt-Labba: Historja, et broderi på rundt 24 meter om samisk historie og mytologi
+Máret Ánne Sara: Pile o' Sápmi, en installasjon av reinhodeskaller som protest mot pålagt reduksjon av reintallet, vist på documenta 14 i 2017
+Mázejoavku (Masi-gruppen): samisk kunstnergruppe dannet i Máze (Masi) i 1978, i de årene Alta-saken pågikk
+Joar Nango: arkitekt og kunstner som undersøker samisk arkitektur og byggeskikk",samfunnskritisk-kunst;duodji,,
+undersoke-kritisk-kunst,skill,Kunst og samfunn,Undersøke hvordan et kunstverk kritiserer samfunnet,"forklare hva et samfunnskritisk verk, også et samisk, tar opp, hvilke virkemidler kunstneren bruker, og hvorfor verket fikk den virkningen det fikk i sin samtid.",samfunnskritisk-kunst;analysere-virkemidler;samiske-kunstnere;samfunnskritiske-verk,,
+skape-kritisk,skill,Kunst og samfunn,Lage et kunstuttrykk om en utfordring i samtiden,"lage et verk som tar opp en utfordring i din egen samtid, si hvilket budskap du vil formidle og til hvem, og sjekke med to eller tre som ser verket om de oppfatter budskapet slik du mente det.",undersoke-kritisk-kunst;eksperimentere-uttrykk,,
+prosessdokumentasjon,concept,Fordypning og presentasjon,Prosessdokumentasjon,"Prosessdokumentasjon: bilder, skisser og notater tatt underveis som viser hvordan et arbeid utviklet seg, også det som ble forkastet.
+Prosessbok (skissebok): boka eller mappa der dokumentasjonen samles.",skisse,,
+dokumentere-prosess,skill,Fordypning og presentasjon,Dokumentere en skapende prosess,"ta bilder og skrive korte notater ved hvert viktig valg, slik at du etterpå kan vise minst tre stadier i arbeidet og si hvorfor du endret retning.",prosessdokumentasjon,,
+velge-fordypning,skill,Fordypning og presentasjon,Velge og avgrense en fordypning,"velge én visuell uttrykksform eller håndverksteknikk å gå i dybden på, og skrive et mål og en plan som passer tiden, materialene og verkstedet du har.",utforske-teknikk;eksperimentere-uttrykk,,
+utforske-fordypning,skill,Fordypning og presentasjon,Utforske en teknikk i dybden,"lage en serie arbeider eller prøver innenfor fordypningen der hvert steg bygger på det forrige, og vise med bilder hva som ble annerledes eller bedre fra første til siste.",velge-fordypning;dokumentere-prosess,,
+reflektere,skill,Fordypning og presentasjon,Reflektere over eget arbeid med fagbegreper,"beskrive hva du fikk til og hva du ville gjort annerledes i et eget arbeid, med både prosess og produkt, og bruke minst tre fagbegreper om virkemidler, materialer eller teknikk.",analysere-virkemidler;dokumentere-prosess,,
+presentere,skill,Fordypning og presentasjon,Presentere et arbeid fra idé til ferdig resultat,"presentere et arbeid muntlig, i en utstilling eller digitalt, og vise og begrunne de viktigste valgene fra idé til ferdig resultat innenfor en avtalt tid.",utforske-fordypning;reflektere;lage-plakat,,

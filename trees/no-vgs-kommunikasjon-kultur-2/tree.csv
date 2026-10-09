@@ -1,0 +1,168 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Diskurs;Sjanger;Retorikk;Estetikk og litteratur;Tekstanalyse;Tekstkulturer i endring;Kommunikasjonsteknologi;Egen kommunikasjon;Fordypning og kilder,,,
+,config,,title,Kommunikasjon og kultur 2,,,
+,config,,description,"Teorier om diskurs, sjanger, estetikk, retorikk og litteratur, analyse av hvordan tekster er komponert og skaper virkelighetsforståelse, tekstkulturer og teknologi i endring — og en egen sammenlignende analyse.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-vgs-kommunikasjon-kultur-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kommunikasjon og kultur 2 (programfag i språk, samfunnsfag og økonomi, norsk videregående skole)",,,
+,config,,slots.motivationSubject,kommunikasjon og kultur,,,
+,config,,slots.expressionFocus,"bruker «diskurs» som et finere ord for debatt, ramser opp retoriske virkemidler uten å si hva de gjør, gjenforteller i stedet for å analysere, sammenligner tekster ved å beskrive dem hver for seg, eller presenterer sin egen tolkning som det teksten «egentlig» betyr",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag språk, Vg3",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3034,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,communication,,,
+,config,,keywords,kommunikasjon og kultur; diskurs; diskursanalyse; innramming; sjanger; sjangerblanding; retorikk; retorisk situasjon; aptum; estetikk; litteratur; tolkning; modalitet; nominalisering; intertekstualitet; representasjon; virkelighetsforståelse; McLuhan; kommunikasjonsteknologi; sammenlignende analyse; fordypning; kildekritikk,,,
+,config,,updated,2026-10-08,,,
+tekst-kontekst,concept,Diskurs,Tekst og kontekst,"Tekst: alt som er skapt for å kommunisere og kan tolkes, også bilder, film, musikk og samtaler.
+Kontekst: situasjonen, tiden og kulturen en tekst blir skapt og lest i, som er med på å bestemme hva den betyr.",,0,
+diskurs,concept,Diskurs,Diskurs,"Diskurs (språkvitenskapelig): språk i bruk, slik det fungerer i sammenhengende tekster og samtaler.
+Diskurs (samfunnsvitenskapelig): en bestemt måte å snakke om og forstå et utsnitt av verden på, som gjør noen tanker selvsagte og andre vanskelige å tenke, som en helsediskurs eller en markedsdiskurs om skolen.",tekst-kontekst,0,
+innramming,concept,Diskurs,Innramming,"Innramming: hvordan valg av ord, vinkling, bilder og kilder løfter fram noen sider ved en sak og skyver andre i bakgrunnen, slik at saken blir forstått på en bestemt måte.",diskurs,0,
+naturalisering,concept,Diskurs,Naturalisering,"Naturalisering: at noe som er skapt av mennesker og kunne vært annerledes, blir framstilt og oppfattet som naturlig og selvsagt.",diskurs,0,
+diskurskamp,concept,Diskurs,Diskurskamp,"Diskurskamp: at ulike diskurser konkurrerer om å definere hva et fenomen er og hva som bør gjøres med det, som om ulven framstilles som en trussel mot beitenæringen eller som en truet art.",diskurs,0,
+finne-diskurser,skill,Diskurs,Finne diskurser i en tekst,"vise hvilke diskurser en tekst trekker på, ved å peke på ordvalg, metaforer, hvem som får ordet og hva som blir tatt for gitt.",innramming;naturalisering,0,
+sammenligne-innramming,skill,Diskurs,Sammenligne innrammingen av en sak,"sammenligne hvordan to tekster rammer inn den samme saken, og forklare hvilke diskurser de trekker på og hva leseren dermed blir ledet til å tenke.",finne-diskurser;diskurskamp,0,
+sjanger,concept,Sjanger,Sjanger,"Sjanger: en type tekst med kjente trekk i formål, innhold, form og språk, som både avsender og mottaker kjenner igjen.
+Sjangerkonvensjon: de forventningene en sjanger skaper hos mottakerne.",tekst-kontekst,0,
+sjanger-sosial-handling,concept,Sjanger,Sjanger som sosial handling,"Sjanger som sosial handling: synet på at sjangre oppstår fordi visse kommunikasjonssituasjoner gjentar seg, og at en sjanger derfor er en innarbeidet måte å løse en gjentatt oppgave på, som jobbsøknaden eller kondolansen.",sjanger,0,
+sjangerblanding,concept,Sjanger,Sjangerblanding og sjangerbrudd,"Sjangerblanding: at trekk fra flere sjangre kombineres i én tekst, som i reklame forkledd som nyhetssak.
+Sjangerbrudd: at en tekst bevisst bryter med forventningene i sjangeren for å skape en virkning.",sjanger,0,
+bestemme-sjanger,skill,Sjanger,Bestemme sjangeren til en tekst,"avgjøre hvilken sjanger en tekst hører til, og begrunne svaret med trekk ved formål, innhold, form og språk.",sjanger,0,
+analysere-sjangerbrudd,skill,Sjanger,Analysere sjangerblanding og sjangerbrudd,"vise hvordan en tekst blander sjangre eller bryter med sjangerforventninger, og forklare hvilken virkning det har på mottakeren.",bestemme-sjanger;sjangerblanding,0,
+forklare-sjangerfunksjon,skill,Sjanger,Forklare hvilken situasjon en sjanger løser,"forklare hvilken gjentatt kommunikasjonssituasjon en sjanger er et svar på, og hvorfor sjangeren ser ut som den gjør.",sjanger-sosial-handling,0,
+retorikk,concept,Retorikk,Retorikk,Retorikk: læren om og praksisen med å bruke språk og andre uttrykksformer for å overbevise eller påvirke andre.,,0,
+retorisk-situasjon,concept,Retorikk,Den retoriske situasjonen,"Retorisk situasjon: situasjonen som gjør det nødvendig å si noe — et påtrengende problem, et publikum som kan gjøre noe med det, og de begrensningene taleren må forholde seg til.
+Kairos: å si det rette på rett tidspunkt.",retorikk,0,
+appellformer,concept,Retorikk,Appellformene,"Etos: å overbevise gjennom avsenderens troverdighet, kunnskap og gode vilje.
+Patos: å overbevise ved å vekke følelser hos mottakeren.
+Logos: å overbevise gjennom fakta, fornuft og logiske resonnementer.",retorikk,0,
+aptum,concept,Retorikk,Aptum,"Aptum: det passende — at innhold, språk, form og framføring er tilpasset saken, publikum, taleren og situasjonen.",retorisk-situasjon,0,
+retoriske-virkemidler,concept,Retorikk,Retoriske virkemidler,"Anafor: gjentakelse av samme ord eller uttrykk i starten av flere setninger.
+Antitese: å sette motsetninger opp mot hverandre.
+Tretall: å nevne tre ting etter hverandre for å skape rytme og fullstendighet.
+Retorisk spørsmål: et spørsmål som ikke ventes besvart, men som skal få mottakeren til å tenke eller være enig.",retorikk,0,
+talens-deler,concept,Retorikk,Talens oppbygning,"Innledning: vekker interesse og bygger etos.
+Fortelling: legger fram saken og bakgrunnen.
+Argumentasjon: underbygger påstanden og imøtegår motargumenter.
+Avslutning: samler trådene og appellerer til publikum.",retorikk,0,
+finne-virkemidler,skill,Retorikk,Forklare virkningen av retoriske virkemidler,"finne retoriske virkemidler i en tale eller en reklame og forklare hvilken virkning hvert av dem skal ha på publikum.",retoriske-virkemidler;appellformer,0,
+retorisk-analyse,skill,Retorikk,Gjøre en retorisk analyse,"analysere en tale, en reklame eller et innlegg ut fra den retoriske situasjonen, appellformene, oppbygningen og virkemidlene, og vurdere om teksten er passende og overbevisende for publikumet sitt.",finne-virkemidler;retorisk-situasjon;aptum;talens-deler,0,
+estetikk,concept,Estetikk og litteratur,Estetikk,"Estetikk: læren om sanselig erfaring og om hvordan form, som rytme, farge, klang og komposisjon, vekker opplevelser og følelser.
+Estetisk virkemiddel: et formgrep som skal skape en sanselig opplevelse, som kontrast, gjentakelse, rytme og farge.",tekst-kontekst,0,
+form-innhold,concept,Estetikk og litteratur,Form og innhold,"Form: hvordan en tekst er laget — språk, oppbygning, bilder, lyd og stil.
+Innhold: hva teksten handler om og formidler.
+I en estetisk tekst bærer formen selv mening, så innholdet ikke kan skilles helt fra den.",estetikk,0,
+fin-populaerkultur,concept,Estetikk og litteratur,Finkultur og populærkultur,"Finkultur: kulturuttrykk som tradisjonelt har høy status, som opera, klassisk musikk og litterære romaner.
+Populærkultur: kulturuttrykk laget for og brukt av et bredt publikum, som popmusikk, serier og spill.
+Kulturell kapital: kunnskap og smak som gir status i et samfunn, et begrep fra Pierre Bourdieu.",estetikk,0,
+fiksjon,concept,Estetikk og litteratur,Fiksjon og litterære virkemidler,"Fiksjon: en oppdiktet verden som ikke må stemme med virkeligheten, men som kan si noe sant om den.
+Symbol: en konkret ting eller handling i en tekst som også står for noe større.
+Motiv: en gjenkjennelig situasjon eller et mønster som går igjen i mange tekster, som reisen eller den forbudte kjærligheten.",tekst-kontekst,0,
+forteller-synsvinkel,concept,Estetikk og litteratur,Forteller og synsvinkel,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren.
+Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom, for eksempel en allvitende forteller eller én persons tanker.",fiksjon,0,
+tolkning,concept,Estetikk og litteratur,Tolkning,"Tolkning: en begrunnet lesemåte av hva en tekst betyr, bygd på trekk i teksten og konteksten. En tekst kan ha flere holdbare tolkninger, men ikke hvilke som helst.",fiksjon,0,
+tolke-litteratur,skill,Estetikk og litteratur,Tolke en litterær tekst,"formulere en tolkning av en novelle, et dikt eller et romanutdrag og begrunne den med sitater og med virkemidler som fortellerteknikk, symboler og motiver.",tolkning;forteller-synsvinkel,0,
+analysere-estetiske,skill,Estetikk og litteratur,Analysere estetiske virkemidler,"finne estetiske virkemidler i en musikkvideo, et kunstverk eller en multimodal tekst, og forklare hvordan formen er med på å skape opplevelsen og meningen.",estetikk;form-innhold,0,
+drofte-kunstverdi,skill,Estetikk og litteratur,Drøfte hva som regnes som kunst,"drøfte hvorfor noen kulturuttrykk regnes som kunst og andre som underholdning, og hvem som har makt til å avgjøre det.",fin-populaerkultur,0,
+modalitet,concept,Tekstanalyse,Modalitet,"Modalitet: språklige trekk som viser hvor sikker avsenderen er, eller hva som er nødvendig eller ønskelig, som modale hjelpeverb («må», «kan», «bør») og adverb som «kanskje» og «utvilsomt».",tekst-kontekst,0,
+aktiv-passiv,concept,Tekstanalyse,Aktiv og passiv form,"Aktiv form: setningen sier hvem som utfører handlingen, som «politiet stoppet demonstrantene».
+Passiv form: handlingen står i sentrum og den som utfører den, kan utelates, som «demonstrantene ble stoppet».",tekst-kontekst,0,
+nominalisering,concept,Tekstanalyse,Nominalisering,"Nominalisering: å gjøre et verb eller et adjektiv om til et substantiv, som «kutte» til «kuttene» eller «redd» til «frykten», slik at handlingen og den som handler kan bli usynlig.",aktiv-passiv,0,
+pronomen-vi,concept,Tekstanalyse,Vi og dem,"Inkluderende vi: et «vi» som tar med mottakeren, som «vi må alle ta ansvar».
+Ekskluderende vi: et «vi» som setter avsenderens gruppe opp mot en annen gruppe, «dem».",tekst-kontekst,0,
+tekstbinding,concept,Tekstanalyse,Tekstbinding,"Tekstbinding: språklige midler som knytter setninger og avsnitt sammen til en helhet, som bindeord, gjentakelse, synonymer og pronomen som viser tilbake.",tekst-kontekst,0,
+komposisjon,concept,Tekstanalyse,Komposisjon,"Komposisjon: hvordan elementene i en tekst er ordnet og satt sammen — rekkefølge, plassering, blikkfang og overganger — og hvordan helheten styrer mottakerens oppmerksomhet.",tekst-kontekst,0,
+analysere-grammatikk,skill,Tekstanalyse,Analysere grammatiske valg,"vise hvordan valg av aktiv eller passiv form, nominalisering, modalitet og pronomen i en tekst påvirker hvem som framstår som ansvarlig, hvor sikker teksten virker, og hvem den snakker til.",modalitet;nominalisering;pronomen-vi,0,
+analysere-tekstuelle,skill,Tekstanalyse,Analysere tekstuelle valg,"vise hvordan komposisjon og tekstbinding i en tekst styrer leserens oppmerksomhet og bygger opp meningen fra start til slutt.",komposisjon;tekstbinding,0,
+helhetlig-analyse,skill,Tekstanalyse,Analysere en tekst helhetlig,"analysere hvordan grammatiske, tekstuelle og estetiske elementer virker sammen i en tekst, og knytte funnene til tekstens formål og kontekst.",analysere-grammatikk;analysere-tekstuelle;analysere-estetiske,0,
+sammenligne-tekster,skill,Tekstanalyse,Sammenligne to tekster,"sammenligne hvordan to tekster med felles tema er komponert, ved å ta for seg de samme analysepunktene i begge og forklare hva forskjellene gjør med budskapet.",helhetlig-analyse,0,
+tekstkultur,concept,Tekstkulturer i endring,Tekstkultur,"Tekstkultur: tekstene et fellesskap skaper og bruker, sammen med normene og forventningene som gjelder for dem, som nyhetsjournalistikk, fankultur eller muntlig fortellertradisjon.",tekst-kontekst;sjanger,0,
+intertekstualitet,concept,Tekstkulturer i endring,Intertekstualitet,"Intertekstualitet: at en tekst viser til, låner fra eller spiller på andre tekster, slik at den får mer mening for den som kjenner dem.
+Parodi: en etterligning som gjør narr av originalen.
+Pastisj: en etterligning av stilen til en annen tekst eller periode, uten å gjøre narr av den.",tekstkultur,0,
+remiks,concept,Tekstkulturer i endring,Remiks og deltakerkultur,"Remiks: en ny tekst laget ved å sette sammen og bearbeide deler av eksisterende tekster, som memer og fanfiksjon.
+Deltakerkultur: en tekstkultur der mottakerne selv lager, deler og bearbeider innhold.",intertekstualitet,0,
+kanon,concept,Tekstkulturer i endring,Kanon,Kanon: de tekstene en kultur regner som de viktigste og som blir lest og videreført i skole og offentlighet. Hvilke tekster som er med endrer seg over tid og blir stadig diskutert.,tekstkultur;fin-populaerkultur,0,
+normer-verdier,concept,Tekstkulturer i endring,Normer og verdier,"Verdi: en grunnleggende oppfatning av hva som er godt, riktig og viktig.
+Norm: en regel, ofte uskreven, for hvordan man bør oppføre seg i en situasjon.",,0,
+virkelighetsforstaelse,concept,Tekstkulturer i endring,Virkelighetsforståelse,"Virkelighetsforståelse: et fellesskaps forestillinger om hvordan verden er, hva som er normalt, sant og verdifullt, og hvordan ting henger sammen.",normer-verdier,0,
+representasjon,concept,Tekstkulturer i endring,Representasjon,"Representasjon: hvordan mennesker, grupper og fenomener blir framstilt i tekster — hvem som er med, hvem som mangler, og hvilke egenskaper de får.",virkelighetsforstaelse;tekst-kontekst,0,
+utforske-tekstkultur,skill,Tekstkulturer i endring,Utforske hvordan en tekstkultur endrer seg,"beskrive med eksempler hvordan en tekstkultur eller en sjanger har utviklet seg over tid, som fra dagbok til blogg og vlogg eller fra trykt avis til nettavis, og forklare hva som har drevet endringen.",tekstkultur;sjanger-sosial-handling,0,
+analysere-intertekstualitet,skill,Tekstkulturer i endring,Analysere intertekstualitet,"vise hvilke andre tekster en tekst spiller på, og forklare hva referansene tilfører for den som kjenner dem og hva som går tapt for den som ikke gjør det.",intertekstualitet;remiks,0,
+uttrykk-normer,skill,Tekstkulturer i endring,Analysere hvordan normer uttrykkes i kommunikasjon,"analysere hvordan kulturelle normer og verdier kommer til uttrykk i en konkret kommunikasjon, som en reklame, en hilsen eller en debatt, og forklare hva som tas for gitt.",normer-verdier;finne-diskurser,0,
+tekst-virkelighet,skill,Tekstkulturer i endring,Tolke hvordan tekster former virkelighetsforståelse,"tolke hvordan en tekst bidrar til å skape, bevare eller utfordre en kulturs virkelighetsforståelse gjennom hvem og hva den representerer og hvordan.",representasjon;innramming,0,
+drofte-tekst-virkelighet,skill,Tekstkulturer i endring,Drøfte tekstenes makt over virkelighetsforståelsen,"drøfte hvor stor makt tekster har til å forme eller endre en kulturs virkelighetsforståelse, med eksempler fra både skjønnlitteratur, medier og populærkultur.",tekst-virkelighet;kanon;diskurskamp,0,
+teknologi-milepaeler,fact,Kommunikasjonsteknologi,Milepæler i kommunikasjonsteknologien,"de eldste kjente skriftsystemene: Mesopotamia og Egypt, rundt 3200 f.Kr.
+boktrykkerkunsten med løse typer i Europa: Johannes Gutenberg, rundt 1450
+NRK startet radiosendinger: 1933
+regulære fjernsynssendinger i Norge: 1960
+World Wide Web gjort offentlig tilgjengelig: 1991
+den første iPhonen: 2007
+ChatGPT lansert: 2022",,0,
+muntlig-skriftkultur,concept,Kommunikasjonsteknologi,Muntlig kultur og skriftkultur,"Muntlig kultur: en kultur der kunnskap og fortellinger bevares og overføres gjennom tale og hukommelse.
+Skriftkultur: en kultur der skriften gjør det mulig å lagre, spre og analysere tekster uavhengig av tid og sted.",tekstkultur,0,
+mediet-budskapet,concept,Kommunikasjonsteknologi,Mediet er budskapet,"Mediet er budskapet: Marshall McLuhans tese om at et nytt medium endrer hvordan vi tenker og lever, uavhengig av innholdet det formidler.",muntlig-skriftkultur,0,
+interaktivitet,concept,Kommunikasjonsteknologi,Interaktivitet og brukerskapt innhold,"Interaktivitet: at mottakerne kan svare, kommentere, dele og endre innhold direkte.
+Brukerskapt innhold: tekster laget av vanlige brukere og ikke av profesjonelle redaksjoner.",tekstkultur,0,
+algoritmisk-utvalg,concept,Kommunikasjonsteknologi,Algoritmisk utvalg,"Algoritmisk utvalg: at plattformer bruker beregninger for å velge hvilket innhold hver bruker får se, ut fra hva brukeren og lignende brukere har gjort før.",interaktivitet,0,
+generativ-ki,concept,Kommunikasjonsteknologi,Generativ KI,"Generativ KI: dataprogrammer som lager tekst, bilder eller lyd ut fra mønstre i store mengder eksisterende innhold, uten å vite om resultatet er sant.",algoritmisk-utvalg,0,
+teknologi-utforming,skill,Kommunikasjonsteknologi,Analysere hvordan teknologi former tekster,"analysere hvordan en kommunikasjonsteknologi påvirker utformingen av tekster, som lengde, format, multimodalitet og tempo, med eksempler fra minst to medier.",mediet-budskapet;interaktivitet,0,
+teknologi-mottakelse,skill,Kommunikasjonsteknologi,Analysere hvordan teknologi former mottakelsen,"analysere hvordan en kommunikasjonsteknologi påvirker hvordan tekster blir lest, delt, kommentert og tolket, som skumlesing, kommentarfelt og algoritmisk utvalg.",algoritmisk-utvalg;mediet-budskapet,0,
+drofte-teknologi,skill,Kommunikasjonsteknologi,Drøfte konsekvenser av ny kommunikasjonsteknologi,"drøfte fordeler og ulemper ved en ny kommunikasjonsteknologi, som generativ KI eller kortvideo, for hvordan tekster lages og mottas, og sammenligne med et tidligere teknologiskifte.",teknologi-utforming;teknologi-mottakelse;generativ-ki;teknologi-milepaeler,0,
+vurderingskriterier,concept,Egen kommunikasjon,Vurderingskriterier,"Vurderingskriterier: en beskrivelse av hva som kjennetegner god kommunikasjon i en bestemt situasjon eller sjanger, som kan brukes til å planlegge, vurdere og forbedre den.",sjanger,0,
+planlegge-kommunikasjon,skill,Egen kommunikasjon,Planlegge egen kommunikasjon,"analysere situasjonen før man kommuniserer — formål, publikum, sjanger, medium og rammer — og lage en plan for innhold og form ut fra analysen.",retorisk-situasjon;aptum;forklare-sjangerfunksjon,0,
+skrive-tilpasset,skill,Egen kommunikasjon,Skrive en tekst tilpasset situasjonen,"skrive en tekst i en valgt sjanger der språk, oppbygning og virkemidler er tilpasset formål og mottaker, og forklare valgene.",planlegge-kommunikasjon;finne-virkemidler,0,
+lage-multimodal,skill,Egen kommunikasjon,Lage en multimodal tekst,"lage en multimodal tekst, som en kortfilm, en podkastepisode eller en digital plakat, der estetiske og retoriske valg er gjort bevisst for et bestemt publikum.",planlegge-kommunikasjon;analysere-estetiske,0,
+holde-tale,skill,Egen kommunikasjon,Holde en tale,"skrive og holde en tale med en tydelig oppbygning, bevisst bruk av appellformer og virkemidler, og en framføring som passer publikum og situasjonen.",planlegge-kommunikasjon;retorisk-analyse,0,
+presentere-tekst,skill,Egen kommunikasjon,Presentere en egen tekst,"presentere en egen tekst eller produksjon for et publikum og forklare hvilke faglige valg som ligger bak den.",skrive-tilpasset;lage-multimodal,0,
+vurdere-andres,skill,Egen kommunikasjon,Vurdere andres kommunikasjon,"vurdere en medelevs tekst eller framføring opp mot vurderingskriteriene, og gi konkrete og begrunnede tilbakemeldinger som peker framover.",vurderingskriterier;retorisk-analyse,0,
+vurdere-egen,skill,Egen kommunikasjon,Vurdere og forbedre egen kommunikasjon,"vurdere sin egen tekst eller framføring opp mot vurderingskriterier og tilbakemeldinger, og gjøre konkrete forbedringer i innhold, form og framføring.",vurderingskriterier;presentere-tekst,0,
+kilde-kildekritikk,concept,Fordypning og kilder,Kildekritikk,"Kildekritikk: å vurdere en kilde ut fra hvem som står bak, hvilket formål den har, når den ble laget, og om opplysningene kan bekreftes andre steder.
+Troverdighet: hvor mye man kan stole på opplysningene i en kilde.
+Relevans: hvor godt en kilde belyser akkurat den problemstillingen man arbeider med.",,0,
+kildehenvisning,concept,Fordypning og kilder,Kildehenvisning,"Sitat: ordrett gjengivelse av en kilde, markert med anførselstegn.
+Parafrase: gjengivelse av innholdet i en kilde med egne ord.
+Kildehenvisning: en opplysning i teksten om hvor noe er hentet fra, knyttet til en fullstendig litteraturliste.",kilde-kildekritikk,0,
+vurdere-kilder,skill,Fordypning og kilder,Vurdere kilders relevans og troverdighet,"vurdere om en kilde er troverdig og om den er relevant for problemstillingen, og begrunne hvorfor den tas med eller velges bort.",kilde-kildekritikk,0,
+bruke-kilder,skill,Fordypning og kilder,Bruke kilder etterrettelig,"flette sitater og parafraser inn i egen tekst med riktige kildehenvisninger og litteraturliste, og holde egne vurderinger atskilt fra kildenes.",kildehenvisning;vurdere-kilder,0,
+problemstilling,concept,Fordypning og kilder,Problemstilling,"Problemstilling: et avgrenset spørsmål som en analyse skal undersøke og svare på, presist nok til at det kan besvares ut fra tekstene og teorien man har valgt.",,0,
+teori-metode,concept,Fordypning og kilder,Teori og metode,"Teori: et sett av begreper og forklaringer som gir et perspektiv på tekstene, som retorikk eller diskursanalyse.
+Metode: den framgangsmåten man bruker for å undersøke tekstene systematisk, som å stille de samme analysespørsmålene til hver tekst.",problemstilling,0,
+sammenlignende-analyse,concept,Fordypning og kilder,Sammenlignende analyse,"Sammenlignende analyse: en analyse som undersøker likheter og forskjeller i et utvalg tekster ut fra en felles problemstilling og de samme analysepunktene, slik at tekstene belyser hverandre.",teori-metode,0,
+velge-tekstutvalg,skill,Fordypning og kilder,Velge og avgrense et tekstutvalg,"velge et tekstutvalg som har noe felles og noe som skiller, som samme tema i ulike tider, sjangre eller kulturer, og begrunne utvalget.",sammenlignende-analyse;bestemme-sjanger,0,
+formulere-problemstilling,skill,Fordypning og kilder,Formulere en problemstilling for en analyse,"gjøre et vidt interesseområde om til en avgrenset problemstilling som kan besvares gjennom en sammenlignende analyse av tekstutvalget.",problemstilling;velge-tekstutvalg,0,
+velge-teori,skill,Fordypning og kilder,Velge teori og metode,"velge hvilke teorier og analysebegreper som passer problemstillingen og tekstene, og forklare hvorfor de er egnet.",teori-metode;formulere-problemstilling;helhetlig-analyse,0,
+gjennomfore-analyse,skill,Fordypning og kilder,Gjennomføre en sammenlignende analyse,"gjennomføre en sammenlignende analyse av et selvvalgt tekstutvalg der de samme analysepunktene brukes på alle tekstene, og der funnene samles i et begrunnet svar på problemstillingen.",velge-teori;sammenligne-tekster;bruke-kilder,0,
+presentere-analyse,skill,Fordypning og kilder,Presentere en sammenlignende analyse,"presentere analysen muntlig eller skriftlig med problemstilling, teori og metode, funn og konklusjon, tilpasset publikum og med etterrettelig kildebruk.",gjennomfore-analyse;presentere-tekst,0,
+diskursendring,skill,Diskurs,Vise hvordan en diskurs endrer seg,"vise med tekster fra ulike tider hvordan måten det snakkes om et fenomen på har endret seg, som psykisk helse eller kjønn, og forklare hva endringen har gjort tenkelig.",finne-diskurser;diskurskamp,0,
+doxa,concept,Retorikk,Doxa,"Doxa: det et publikum allerede tar for gitt og mener, som en taler kan bygge argumentene sine på uten å begrunne det.",retorisk-situasjon,0,
+etos-faser,concept,Retorikk,"Innledende, avledet og endelig etos","Innledende etos: den troverdigheten taleren har hos publikum før hun sier noe.
+Avledet etos: den troverdigheten taleren bygger eller mister underveis i talen.
+Endelig etos: inntrykket publikum sitter igjen med etterpå.",appellformer,0,
+analysere-etos,skill,Retorikk,Analysere hvordan en taler bygger etos,"vise hvordan en taler bygger eller svekker sin egen troverdighet gjennom en tekst, fra innledende til endelig etos, og hvordan det spiller på publikums doxa.",etos-faser;doxa,0,
+sprakbilder,concept,Estetikk og litteratur,Språklige bilder,"Sammenligning: å beskrive noe ved å sammenligne det med noe annet med «som» eller «lik».
+Metafor: å beskrive noe ved å kalle det noe annet, uten «som».
+Besjeling: å gi ting, dyr eller naturen menneskelige egenskaper.",estetikk,0,
+analysere-dikt,skill,Estetikk og litteratur,Analysere et dikt,"analysere språklige bilder, rytme, oppbygning og andre formgrep i et dikt eller en sangtekst, og tolke hva diktet uttrykker gjennom formen.",sprakbilder;form-innhold;tolkning,0,
+litteratur-kontekst,skill,Estetikk og litteratur,Tolke litteratur i lys av sin tid og kultur,"tolke en litterær tekst i lys av tiden og kulturen den ble skrevet i, og vise hvordan den speiler eller bryter med normene der.",tolke-litteratur;normer-verdier,0,
+konnotasjon,concept,Tekstanalyse,Denotasjon og konnotasjon,"Denotasjon: det et ord eller bilde direkte viser til.
+Konnotasjon: assosiasjonene og vurderingene ordet eller bildet vekker, som forskjellen mellom «flyktning», «migrant» og «asylsøker».",tekst-kontekst,0,
+analysere-ordvalg,skill,Tekstanalyse,Analysere ordvalg,"vise hvordan ordvalget i en tekst gir det omtalte en bestemt valør, og forklare hva teksten hadde betydd med andre ord for det samme.",konnotasjon;innramming,0,
+analysere-ki-tekst,skill,Kommunikasjonsteknologi,Analysere KI-generert tekst,"analysere trekk ved en KI-generert tekst sammenlignet med en menneskeskrevet tekst i samme sjanger, og drøfte hva KI gjør med forfatterskap og tillit.",generativ-ki;helhetlig-analyse,0,
+drofte-kanon,skill,Tekstkulturer i endring,Drøfte hvem som hører hjemme i kanon,"drøfte hvilke tekster som bør regnes som kanon, hvem som har avgjort det, og hvilke stemmer og grupper som har vært utelatt.",kanon;representasjon,0,
+bevisst-sjangerbrudd,skill,Egen kommunikasjon,Bruke sjangerbrudd bevisst i egen tekst,"lage en egen tekst som blander sjangre eller bryter med sjangerforventninger for å skape en bestemt virkning, og forklare virkningen.",analysere-sjangerbrudd;skrive-tilpasset,0,
+oppgaveord,concept,Fordypning og kilder,"Redegjøre, analysere, tolke og drøfte","Redegjøre: å legge fram et stoff saklig og ordnet, slik at leseren forstår det.
+Analysere: å dele noe opp i delene og vise hvordan de virker sammen, med fagbegreper.
+Tolke: å foreslå og begrunne hva noe betyr.
+Drøfte: å undersøke et spørsmål fra flere sider og veie argumenter mot hverandre før en begrunnet konklusjon.",,0,
+skrive-droftende,skill,Fordypning og kilder,Skrive en drøftende fagtekst,"skrive en sammenhengende fagtekst som drøfter et spørsmål om tekst, kultur eller kommunikasjon, der teori brukes på konkrete eksempler og kildene oppgis.",oppgaveord;drofte-tekst-virkelighet;bruke-kilder,0,

@@ -1,0 +1,369 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Ordforråd og orddanning;Formlære;Partisipp, infinitiv og konjunktiv;Setningslære;Lesing og oversettelse;Tekster og sjangre;Antikkens kultur og politikk;Latin i dag;Samtale",,,
+,config,,title,Latin 2,,,
+,config,,description,"Videregående formlære og setningslære for å lese og oversette tyngre latinske tekster, med sjangre, romersk politikk og kultur, orddanning og antikkens ettermæle. Bygger på Latin 1. Et første forslag.",,,
+,config,,language,nb,,,
+,config,,learner,pupil,,,
+,config,,subjectFamily,language-acquisition,,,
+,config,,storageKey,no-vgs-latin-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"latin 2 (programfag, Vg3, videregående skole)",,,
+,config,,slots.motivationSubject,latin,,,
+,config,,slots.expressionFocus,"oversetter AcI og ablativus absolutus ord for ord i stedet for som leddsetninger, overser konjunktiven og tidsfølgen, forveksler passiv og deponente verb, lar et partisipp stå uten å tenke over tidsforholdet, eller lager en norsk oversettelse som følger latinsk setningsbygning så tett at den blir uforståelig",,,
+,config,,slots.courseSpecifics,"Latin er først og fremst et lesespråk: målet er å forstå, analysere og oversette tekster, ikke å klare seg på latin i hverdagen. Læreplanen ber likevel om samtale på latin om kjent stoff og hverdagslige temaer, så øv det skriftlig, på enkel latin. Forklar på norsk, og bruk norsk som oversettelsesspråk. Faget bygger på Latin 1, så bøyningsmønstrene derfra kan forutsettes. Lange vokaler kan være merket med strek (ā); godta at eleven skriver uten. Bruk klassisk, restituert uttale hvis ikke eleven sier at skolen bruker en annen. Faget har standpunktkarakter, og eleven kan trekkes ut til skriftlig eksamen, laget og sensurert sentralt, eller til muntlig eksamen, laget og sensurert lokalt. Øv derfor både på å oversette og gjøre rede for grammatikk skriftlig og på å forklare og drøfte muntlig.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag språk,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"SPR3027 (skriftlig), SPR3028 (muntlig)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,latin,,,
+,config,,keywords,latin; antikken; Roma; passiv; deponens; partisipp; AcI; ablativus absolutus; konjunktiv; oversettelse; etymologi; fremmedord; Cicero; Cæsar; Vergil; programfag språk,,,
+,config,,updated,2026-10-08,,,
+ord-samfunn,fact,Ordforråd og orddanning,Ord om politikk og samfunn,"cīvitās, cīvitātis f.: stat, borgerskap
+rēs pūblica, reī pūblicae f.: staten, republikken
+senātus, senātūs m.: senatet
+cōnsul, cōnsulis m.: konsul
+lēx, lēgis f.: lov
+iūs, iūris n.: rett
+imperium, imperiī n.: makt, kommando, rike
+potestās, potestātis f.: myndighet
+lībertās, lībertātis f.: frihet
+cīvis, cīvis m.: borger
+hostis, hostis m.: fiende
+exercitus, exercitūs m.: hær
+pāx, pācis f.: fred
+victōria, victōriae f.: seier
+patria, patriae f.: fedreland",,0,
+ord-tanke,fact,Ordforråd og orddanning,Ord om tanke og følelser,"animus, animī m.: sinn, mot
+mēns, mentis f.: forstand
+ratiō, ratiōnis f.: fornuft, metode
+sapientia, sapientiae f.: visdom
+virtūs, virtūtis f.: dyd, tapperhet
+amor, amōris m.: kjærlighet
+timor, timōris m.: frykt
+spēs, speī f.: håp
+fidēs, fideī f.: tillit, troskap
+dolor, dolōris m.: smerte, sorg
+gaudium, gaudiī n.: glede
+īra, īrae f.: sinne
+fātum, fātī n.: skjebne
+fortūna, fortūnae f.: lykke, skjebne",,0,
+ord-verb2,fact,Ordforråd og orddanning,Flere vanlige verb med stamformer,"cognōscō, cognōscere, cognōvī, cognitum: lære å kjenne
+putō, putāre, putāvī, putātum: mene, tro
+iubeō, iubēre, iussī, iussum: befale
+petō, petere, petīvī, petītum: søke, be om, angripe
+quaerō, quaerere, quaesīvī, quaesītum: spørre, lete etter
+relinquō, relinquere, relīquī, relictum: forlate
+trādō, trādere, trādidī, trāditum: overlevere
+vincō, vincere, vīcī, victum: seire, beseire
+gerō, gerere, gessī, gestum: bære, utføre
+pōnō, pōnere, posuī, positum: sette, legge
+accipiō, accipere, accēpī, acceptum: ta imot
+intellegō, intellegere, intellēxī, intellēctum: forstå
+occīdō, occīdere, occīdī, occīsum: drepe
+cadō, cadere, cecidī, cāsum: falle",,0,
+prefikser,fact,Ordforråd og orddanning,Prefikser,"ab-, ā-: fra, bort (abīre: gå bort)
+ad-: til (adīre: gå til)
+con-, com-: sammen, helt (convenīre: komme sammen)
+dē-: ned, bort fra (dēscendere: gå ned)
+dis-, dī-: fra hverandre (dīmittere: sende fra seg)
+ex-, ē-: ut (exīre: gå ut)
+in- foran verb: inn, i (inīre: gå inn)
+in- foran adjektiv: u-, ikke (incertus: usikker)
+inter-: mellom (intervenīre: komme imellom)
+per-: gjennom, helt (perficere: fullføre)
+prae-: foran, før (praedīcere: forutsi)
+prō-: fram, for (prōcēdere: gå fram)
+re-, red-: tilbake, igjen (redīre: gå tilbake)
+sub-: under (subīre: gå under)
+trāns-, trā-: over, på tvers (trānsīre: gå over)",,0,
+suffikser,fact,Ordforråd og orddanning,Suffikser,"-tor, -sor: en som gjør noe (victor: seierherre)
+-tiō, -siō: handlingen eller resultatet (nātiō: fødsel, folk)
+-tās, -tūdō: en egenskap (lībertās: frihet, magnitūdō: størrelse)
+-bilis: som kan (mōbilis: bevegelig)
+-ōsus: full av (perīculōsus: farlig)
+-ālis, -āris: som har med noe å gjøre (nātūrālis: naturlig)
+-mentum: et middel eller et resultat (ornāmentum: pynt)
+-ulus, -ula, -ulum: noe lite (puellula: liten jente)",,0,
+orddanning,concept,Ordforråd og orddanning,Avledning og sammensetning,"Avledning: et nytt ord dannes ved å sette et suffiks på stammen til et annet ord (lībertās av līber, fri).
+Sammensetning med prefiks: et prefiks foran et verb endrer betydningen (ex + īre gir exīre, gå ut); vokalen i stammen svekkes ofte (facere, men perficere).",prefikser;suffikser,0,
+etymologi,concept,Ordforråd og orddanning,Etymologi,"Etymologi: læren om hvor ord kommer fra og hvordan formen og betydningen deres har endret seg; også et enkelt ords opphav (ordet «student» kommer av latin studēre, å strebe etter).",,0,
+analysere-fremmedord,skill,Ordforråd og orddanning,Analysere fremmedord og fagbegreper,"dele et fremmedord eller fagbegrep i latinske deler (prefiks, stamme, suffiks), og forklare betydningen ut fra delene (transport, konstitusjon, akvedukt, intervensjon)",orddanning;etymologi,0,
+gjette-ord,skill,Ordforråd og orddanning,Slutte seg til betydningen av ukjente ord,"slutte seg til hva et ukjent latinsk ord betyr ut fra kjente ord i samme ordfamilie og ut fra prefiks og suffiks, og sjekke gjetningen mot sammenhengen",orddanning,0,
+utvide-ordforrad,skill,Ordforråd og orddanning,Utvide ordforrådet gjennom tekstarbeid,"føre en egen ordliste fra tekstene du leser, med oppslagsform og betydningen i sammenhengen, repetere den jevnlig og bruke de nye ordene når du skriver latin",ord-samfunn;ord-tanke;ord-verb2,0,
+dekl4,fact,Formlære,Fjerde deklinasjon (manus),"nominativ entall: manus
+genitiv entall: manūs
+dativ entall: manuī
+akkusativ entall: manum
+ablativ entall: manū
+nominativ flertall: manūs
+genitiv flertall: manuum
+dativ flertall: manibus
+akkusativ flertall: manūs
+ablativ flertall: manibus
+de fleste ord i fjerde deklinasjon er hankjønn; manus og domus er hunkjønn
+intetkjønn (cornū): cornū i alle kasus i entall, cornua, cornuum, cornibus i flertall",,0,
+dekl5,fact,Formlære,Femte deklinasjon (rēs),"nominativ entall: rēs
+genitiv entall: reī
+dativ entall: reī
+akkusativ entall: rem
+ablativ entall: rē
+nominativ flertall: rēs
+genitiv flertall: rērum
+dativ flertall: rēbus
+akkusativ flertall: rēs
+ablativ flertall: rēbus
+diēs bøyes likt, med lang ē: diēs, diēī, diēī, diem, diē",,0,
+dekl45,skill,Formlære,Kjenne igjen fjerde og femte deklinasjon,"bøye substantiv i fjerde og femte deklinasjon, og avgjøre ut fra sammenhengen hva en tvetydig form som manūs eller rēs står for",dekl4;dekl5,0,
+komparasjon,concept,Formlære,Komparasjon,"Positiv: grunnformen (altus: høy).
+Komparativ: den høyere graden, «høyere», men også «ganske høy» eller «for høy» (altior).
+Superlativ: den høyeste graden, «høyest», men også «svært høy» (altissimus).",,0,
+komp-regel,fact,Formlære,Regelrett komparasjon,"altus: altior, altissimus
+fortis: fortior, fortissimus
+pulcher: pulchrior, pulcherrimus
+ācer: ācrior, ācerrimus
+facilis: facilior, facillimus
+komparativ: stammen + -ior (n. -ius), bøyd i tredje deklinasjon (altior, altiōris)
+superlativ: stammen + -issimus, bøyd som bonus; adjektiv på -er får -errimus, og noen på -ilis får -illimus",komparasjon,0,
+komp-uregel,fact,Formlære,Uregelrett komparasjon,"bonus: melior, optimus
+malus: peior, pessimus
+magnus: maior, maximus
+parvus: minor, minimus
+multus: plūs, plūrimus",komparasjon,0,
+komparere,skill,Formlære,Komparere adjektiv og oversette sammenligninger,"bøye adjektiv i komparativ og superlativ, og oversette sammenligninger med quam og med ablativ (Mārcus altior est quam Quīntus; melle dulcior: søtere enn honning)",komp-regel;komp-uregel,0,
+adverb,fact,Formlære,Adverb laget av adjektiv,"adjektiv i første og andre deklinasjon får -ē (lātus: lātē; miser: miserē)
+adjektiv i tredje deklinasjon får -iter (fortis: fortiter; celer: celeriter)
+bonus: bene
+malus: male
+magnus: magnopere
+facilis: facile
+multus: multum",,0,
+pronomen2,fact,Formlære,Flere pronomen,"ipse, ipsa, ipsum: selv
+īdem, eadem, idem: den samme
+iste, ista, istud: den der (hos deg), ofte nedsettende
+quīdam, quaedam, quoddam: en viss, en
+aliquis, aliquid: noen, noe
+quisque, quidque: hver
+ipse og iste bøyes som ille (genitiv ipsīus, dativ ipsī), og īdem er is, ea, id med -dem bak (eiusdem, eundem)",,0,
+passiv,concept,Formlære,Aktiv og passiv,"Aktiv: subjektet utfører handlingen (pater fīlium laudat: faren roser sønnen).
+Passiv: subjektet utsettes for handlingen (fīlius ā patre laudātur: sønnen blir rost av faren); den som handler, står i ablativ med ā eller ab når det er en person, og i ablativ alene når det er et middel.",,0,
+passiv-pres,fact,Formlære,"Passiv i presens, imperfektum og futurum","personendelser i passiv: -or eller -r, -ris, -tur, -mur, -minī, -ntur
+1. konjugasjon, presens: amor, amāris, amātur, amāmur, amāminī, amantur
+3. konjugasjon, presens: regor, regeris, regitur, regimur, regiminī, reguntur
+4. konjugasjon, presens: audior, audīris, audītur, audīmur, audīminī, audiuntur
+imperfektum: amābar, amābāris, amābātur …
+futurum i 1. og 2. konjugasjon: amābor, amāberis, amābitur …
+futurum i 3. og 4. konjugasjon: regar, regēris, regētur …
+infinitiv presens passiv: amārī, monērī, audīrī, men regī i 3. konjugasjon",passiv,0,
+plusq-futex,fact,Formlære,Plusskvamperfektum og futurum exactum aktiv,"plusskvamperfektum: amāveram, amāverās, amāverat, amāverāmus, amāverātis, amāverant
+futurum exactum: amāverō, amāveris, amāverit, amāverimus, amāveritis, amāverint
+begge lages av perfektumstammen, med formene av sum (eram, erō) som endelser; i futurum exactum 3. person flertall -erint",,0,
+passiv-perf,fact,Formlære,"Passiv i perfektum, plusskvamperfektum og futurum exactum","perfektum passiv: amātus sum, amātus es, amātus est, amātī sumus, amātī estis, amātī sunt
+plusskvamperfektum passiv: amātus eram …
+futurum exactum passiv: amātus erō …
+partisippet samsvarer med subjektet i kasus, tall og kjønn (puella laudāta est; urbēs captae sunt)",passiv;plusq-futex,0,
+plusq-skill,skill,Formlære,Bøye og oversette plusskvamperfektum og futurum exactum,"bøye verb i plusskvamperfektum og futurum exactum, og oversette dem til norsk med riktig tidsforhold (hadde kommet; vil ha kommet, eller presens perfektum: når du har kommet)",plusq-futex,0,
+passiv-skill,skill,Formlære,Bøye og oversette verb i passiv,"bøye verb i passiv i alle tider i indikativ, og oversette passive setninger til norsk med «bli» eller s-passiv, eller ved å gjøre dem om til aktiv",passiv-pres;passiv-perf,0,
+deponens,concept,Formlære,Deponente verb,"Deponent: et verb som bare har passive former, men aktiv betydning (hortor: jeg oppfordrer; locūtus est: han snakket).",passiv,0,
+deponens-fact,fact,Formlære,Vanlige deponente verb,"hortor, hortārī, hortātus sum: oppfordre
+cōnor, cōnārī, cōnātus sum: forsøke
+vereor, verērī, veritus sum: frykte
+loquor, loquī, locūtus sum: snakke
+sequor, sequī, secūtus sum: følge
+proficīscor, proficīscī, profectus sum: dra av sted
+ūtor, ūtī, ūsus sum + ablativ: bruke
+patior, patī, passus sum: tåle, lide
+morior, morī, mortuus sum: dø
+orior, orīrī, ortus sum: oppstå, stå opp",deponens,0,
+deponens-skill,skill,Formlære,Kjenne igjen og oversette deponente verb,"kjenne igjen et deponent verb ut fra oppslagsformen, og oversette de passive formene med aktiv betydning (secūtī sunt: de fulgte)",deponens-fact;passiv-skill,0,
+uregelrette,fact,Formlære,Uregelrette verb,"ferō (bære), presens: ferō, fers, fert, ferimus, fertis, ferunt
+ferō, stamformer: ferre, tulī, lātum
+volō (ville), presens: volō, vīs, vult, volumus, vultis, volunt
+nōlō (ikke ville), presens: nōlō, nōn vīs, nōn vult, nōlumus, nōn vultis, nōlunt
+mālō (heller ville), presens: mālō, māvīs, māvult, mālumus, māvultis, mālunt
+fīō (bli, skje), presens: fīō, fīs, fit, fīmus, fītis, fīunt
+eō (gå), presens: eō, īs, it, īmus, ītis, eunt",,0,
+uregelrette-skill,skill,Formlære,Bøye og oversette uregelrette verb,"kjenne igjen formene av ferre, velle, nōlle, mālle, fierī og īre, også i sammensetninger (afferre, redīre), og oversette dem",uregelrette;prefikser,0,
+partisipp,concept,"Partisipp, infinitiv og konjunktiv",Partisipp,"Partisipp: en verbform som bøyes som et adjektiv og samsvarer med et substantiv, men som beholder verbets tid og kan ha eget objekt.
+Tidsforhold: presens partisipp (amāns) er samtidig med verbet i setningen, perfektum partisipp passiv (amātus) er fortidig og passivt, og futurum partisipp (amātūrus) er framtidig.",passiv,0,
+partisipp-fact,fact,"Partisipp, infinitiv og konjunktiv",Partisippene,"presens partisipp aktiv: amāns, amantis (bøyes i tredje deklinasjon; ablativ -e når det brukes som verb)
+perfektum partisipp passiv: amātus, amāta, amātum (fjerde stamform med adjektivendelser)
+futurum partisipp aktiv: amātūrus, amātūra, amātūrum
+regō: regēns, rēctus, rēctūrus
+audiō: audiēns, audītus, audītūrus
+deponente verb har perfektum partisipp med aktiv betydning (hortātus: som har oppfordret)",partisipp,0,
+partisipp-skill,skill,"Partisipp, infinitiv og konjunktiv",Oversette partisipper,"finne substantivet et partisipp samsvarer med, og oversette partisippet som adjektiv, som relativsetning eller som leddsetning med «da», «mens», «fordi» eller «selv om», med riktig tidsforhold",partisipp-fact;passiv-skill,0,
+infinitiver,fact,"Partisipp, infinitiv og konjunktiv",De seks infinitivene,"presens aktiv: amāre (å elske)
+presens passiv: amārī (å bli elsket)
+perfektum aktiv: amāvisse (å ha elsket)
+perfektum passiv: amātus, -a, -um esse (å ha blitt elsket)
+futurum aktiv: amātūrus, -a, -um esse (å skulle elske)
+futurum passiv: amātum īrī (å skulle bli elsket)",passiv-pres;partisipp-fact,0,
+konjunktiv,concept,"Partisipp, infinitiv og konjunktiv",Konjunktiv,"Indikativ: modusen for det som framstilles som virkelig.
+Konjunktiv: modusen for ønske, oppfordring, mulighet og det uvirkelige, og den faste formen i mange leddsetninger; konjunktiven oversettes derfor sjelden med en egen norsk form.",,0,
+konj-pres,fact,"Partisipp, infinitiv og konjunktiv",Konjunktiv presens,"1. konjugasjon: amem, amēs, amet, amēmus, amētis, ament
+2. konjugasjon: moneam, moneās, moneat …
+3. konjugasjon: regam, regās, regat …
+capiō: capiam, capiās, capiat …
+4. konjugasjon: audiam, audiās, audiat …
+sum: sim, sīs, sit, sīmus, sītis, sint
+passiv: amer, amēris, amētur … ; regar, regāris, regātur …
+kjennetegnet er -e- i 1. konjugasjon og -a- i de andre",konjunktiv,0,
+konj-imperf,fact,"Partisipp, infinitiv og konjunktiv",Konjunktiv imperfektum,"amārem, amārēs, amāret, amārēmus, amārētis, amārent
+regerem, audīrem, essem, possem
+passiv: amārer, amārēris, amārētur …
+konjunktiv imperfektum lages av infinitiv presens aktiv + personendelser",konjunktiv,0,
+konj-perf,fact,"Partisipp, infinitiv og konjunktiv",Konjunktiv perfektum og plusskvamperfektum,"perfektum aktiv: amāverim, amāveris, amāverit, amāverimus, amāveritis, amāverint
+plusskvamperfektum aktiv: amāvissem, amāvissēs, amāvisset …
+perfektum passiv: amātus sim …
+plusskvamperfektum passiv: amātus essem …
+sum: fuerim, fuissem",konjunktiv;passiv-perf,0,
+konj-kjenne,skill,"Partisipp, infinitiv og konjunktiv",Kjenne igjen konjunktivformer,"kjenne igjen konjunktiv i alle fire tider, aktiv og passiv, og skille den fra indikativ og futurum (regat og reget, amet og amat)",konj-pres;konj-imperf;konj-perf,0,
+konj-hoved,skill,"Partisipp, infinitiv og konjunktiv",Oversette konjunktiv i hovedsetninger,"oversette konjunktiv i hovedsetninger som oppfordring (eāmus: la oss gå), ønske (utinam veniat: om han bare ville komme), forbud (nē timueris: ikke vær redd) og mulighet",konj-kjenne,0,
+gerund,concept,"Partisipp, infinitiv og konjunktiv",Gerundium og gerundiv,"Gerundium: et verbalsubstantiv, «det å …», som bøyes i genitiv, dativ, akkusativ og ablativ (ars scrībendī: kunsten å skrive).
+Gerundiv: et verbalt adjektiv med betydningen «som må …» (liber legendus: en bok som må leses); det erstatter ofte gerundium med objekt (ad urbem capiendam: for å ta byen).",partisipp,0,
+gerund-fact,fact,"Partisipp, infinitiv og konjunktiv",Formene til gerundium og gerundiv,"gerundium av amāre: amandī, amandō, ad amandum, amandō
+gerundium av regere: regendī; av audīre: audiendī
+gerundiv: amandus, amanda, amandum; regendus; audiendus
+kjennetegnet er -nd- mellom presensstammen og endelsen",gerund,0,
+gerund-skill,skill,"Partisipp, infinitiv og konjunktiv",Oversette gerundium og gerundiv,"oversette gerundium og gerundiv, også som uttrykk for hensikt med ad, causā og grātiā (pācis petendae causā: for å be om fred)",gerund-fact,0,
+nodvendighet,skill,"Partisipp, infinitiv og konjunktiv",Oversette gerundiv som uttrykk for nødvendighet,"oversette gerundiv med esse som noe som må gjøres, med den som må handle i dativ (Carthāgō dēlenda est; mihi legendum est: jeg må lese)",gerund-skill,0,
+aci,concept,Setningslære,Akkusativ med infinitiv (AcI),"AcI: en konstruksjon etter verb for å si, tro, vite, føle og oppfatte, der et ord i akkusativ og et verb i infinitiv tilsvarer en norsk at-setning (dīcit puerum venīre: han sier at gutten kommer); infinitivens tid viser om handlingen er samtidig, fortidig eller framtidig i forhold til verbet den står til.",,0,
+aci-skill,skill,Setningslære,Oversette akkusativ med infinitiv,"finne verbet som utløser en AcI, oversette konstruksjonen som en at-setning med riktig tid, og oversette sē og suus i AcI-en slik at de viser til subjektet i hovedsetningen",aci;infinitiver,0,
+ablabs,concept,Setningslære,Ablativus absolutus,"Ablativus absolutus: et uttrykk i ablativ, oftest et substantiv og et partisipp, som står løst fra resten av setningen og tilsvarer en norsk leddsetning om tid, årsak eller omstendighet (urbe captā: da byen var tatt; Caesare duce: med Cæsar som leder).",partisipp,0,
+ablabs-skill,skill,Setningslære,Oversette ablativus absolutus,"kjenne igjen ablativus absolutus, og oversette den som en leddsetning med riktig tidsforhold og en konjunksjon som passer i sammenhengen",ablabs;partisipp-skill,0,
+ut-setninger,concept,Setningslære,Hensiktssetninger og følgesetninger,"Hensiktssetning: ut eller nē + konjunktiv, «for at», «for ikke å» (venit ut videat: han kommer for å se).
+Følgesetning: ut eller ut nōn + konjunktiv, «slik at», ofte varslet av ita, tam, tantus eller sīc i hovedsetningen.",konjunktiv,0,
+ut-skill,skill,Setningslære,Oversette ut-setninger,"avgjøre om en ut-setning med konjunktiv uttrykker hensikt, følge eller en befaling etter verb som imperāre og rogāre, og oversette den deretter; og skille den fra ut med indikativ («som», «da»)",ut-setninger;konj-kjenne,0,
+cum-setninger,concept,Setningslære,Cum-setninger,"Cum med konjunktiv: oversettes ut fra sammenhengen med «da» eller «etter at» i en fortelling, «fordi» om en årsak, eller «selv om» om en innrømmelse.
+Cum med indikativ: «når», om tid.",konjunktiv,0,
+cum-skill,skill,Setningslære,Oversette cum-setninger,"avgjøre om cum er preposisjon eller konjunksjon, og oversette en cum-setning med den norske konjunksjonen som passer i sammenhengen",cum-setninger;konj-kjenne,0,
+indir-sporsmal,skill,Setningslære,Oversette indirekte spørsmål,"kjenne igjen et indirekte spørsmål, med spørreord eller num og konjunktiv, og oversette det med «hva», «hvem», «om» og så videre (rogat quid faciās: han spør hva du gjør)",konj-kjenne,0,
+tidsfolge,concept,Setningslære,Tidsfølgen (consecutio temporum),"Tidsfølge: regelen for hvilken tid konjunktiven får i en leddsetning. Står hovedsetningen i en nåtid eller framtid, brukes konjunktiv presens om samtidig og perfektum om fortidig handling; står den i en fortid, brukes imperfektum om samtidig og plusskvamperfektum om fortidig handling.",konjunktiv,0,
+tidsfolge-skill,skill,Setningslære,Bruke tidsfølgen når du oversetter,"bruke tidsfølgen til å avgjøre om handlingen i en leddsetning med konjunktiv skjer samtidig med eller før handlingen i hovedsetningen, og velge norsk tid deretter",tidsfolge;ut-skill;cum-skill;indir-sporsmal,0,
+betingelse,concept,Setningslære,Betingelsessetninger,"Virkelig betingelse: sī + indikativ, om noe som framstilles som et faktum (sī venit, gaudeō: hvis han kommer, blir jeg glad).
+Mulig betingelse: sī + konjunktiv presens eller perfektum (sī veniat: hvis han skulle komme).
+Uvirkelig betingelse: sī + konjunktiv imperfektum om nåtid og plusskvamperfektum om fortid (sī vēnisset, gāvīsus essem: hvis han hadde kommet, ville jeg ha blitt glad).",konjunktiv,0,
+betingelse-skill,skill,Setningslære,Oversette betingelsessetninger,"avgjøre om en betingelse er virkelig, mulig eller uvirkelig, og oversette den med de norske verbformene som passer (hvis … ville …)",betingelse;konj-kjenne,0,
+indirekte-tale,concept,Setningslære,Indirekte tale (ōrātiō oblīqua),"Indirekte tale: gjengivelse av det noen sa uten å sitere det direkte; påstander står som AcI, leddsetninger og befalinger står i konjunktiv, og tidsfølgen gjelder. Mye brukt av historieskrivere som Cæsar og Livius.",aci;tidsfolge,0,
+kasusfunksjoner,concept,Setningslære,Flere kasusfunksjoner,"Partitiv genitiv: genitiv for helheten noe er en del av (pars mīlitum: en del av soldatene).
+Eiedativ: dativ med esse for den som eier (mihi est liber: jeg har en bok).
+Ablativ for sammenligning: ablativ i stedet for quam etter komparativ (melle dulcior).
+Akkusativ for utstrekning: hvor lenge eller hvor langt (trēs annōs: i tre år).
+Ablativ for tidspunkt: når noe skjer (eō diē: den dagen).",,0,
+kasus-skill,skill,Setningslære,Oversette kasusfunksjoner i originaltekst,"kjenne igjen partitiv genitiv, eiedativ, ablativ for sammenligning og kasus for tid og utstrekning i en tekst, og oversette dem til naturlig norsk",kasusfunksjoner;dekl45,0,
+perioder,skill,Setningslære,Analysere en lang periode,"dele en lang latinsk periode i hovedsetning og leddsetninger, og bestemme hvilken konstruksjon hver del er (AcI, ablativus absolutus, partisipp, ut-, cum- og relativsetninger)",aci-skill;ablabs-skill;partisipp-skill;tidsfolge-skill;betingelse-skill,0,
+beskrive-strukturer,skill,Setningslære,Beskrive grammatiske strukturer i en tekst,"beskrive form og funksjon for utvalgte ord og konstruksjoner i en tekst du har lest, med riktige grammatiske fagord, og forklare hvordan de påvirker oversettelsen",perioder;kasus-skill;deponens-skill,0,
+lesestrategi,skill,Lesing og oversettelse,Lese en lengre tekst med lesestrategier,"skaffe deg oversikt over en lengre tekst før detaljene, ved å bruke innledning, navn og kjente ord, merke verb og leddsetninger, og lese for helheten før du oversetter",perioder,0,
+ordbok,skill,Lesing og oversettelse,Bruke ordbok på originaltekst,"finne riktig oppslagsform også for deponente, uregelrette og sammensatte verb og for gradbøyde adjektiv, og velge betydning ut fra sammenhengen og sjangeren",deponens-skill;uregelrette-skill;komparere;gjette-ord,0,
+forsta-tekst,skill,Lesing og oversettelse,Forstå og gjengi innholdet i en tekst,"forstå en tilpasset eller lett bearbeidet originaltekst, og gjengi og kommentere innholdet på norsk",lesestrategi;ordbok,0,
+oversette-norsk,skill,Lesing og oversettelse,Oversette en latinsk tekst til godt norsk,"oversette en latinsk tekst med lange perioder til korrekt og naturlig norsk, der setningsbygningen er norsk, men innholdet, tiden og forholdet mellom setningene er bevart",forsta-tekst;perioder;konj-hoved;nodvendighet,0,
+oversettelsestyper,concept,Lesing og oversettelse,Ordrett og fri oversettelse,"Ordrett oversettelse: følger ordene og formene i latinen tett, nyttig for å vise at man har forstått grammatikken, men ofte stiv norsk.
+Fri oversettelse: gjengir meningen med norsk setningsbygning og ordvalg, slik en leser uten latin vil forstå teksten.",,0,
+reflektere-valg,skill,Lesing og oversettelse,Reflektere over valg i en oversettelse,"begrunne valgene du gjør når du oversetter (ordvalg, tid, setningsbygning, hva som går tapt), og sammenligne to oversettelser av samme tekst",oversettelsestyper;oversette-norsk,0,
+oversette-latin,skill,Lesing og oversettelse,Oversette til latin,"oversette norske setninger med passiv, partisipp, AcI og leddsetninger med konjunktiv til latin",passiv-skill;aci-skill;ablabs-skill;ut-skill;cum-skill,0,
+skrive-latin,skill,Lesing og oversettelse,Skrive en tekst på latin,"skrive en kort, sammenhengende tekst på latin, for eksempel et brev eller et sammendrag av en tekst du har lest, med varierte konstruksjoner",oversette-latin;utvide-ordforrad,0,
+digitale-verktoy,skill,Lesing og oversettelse,Bruke digitale ressurser kritisk,"bruke digitale ordbøker, tekstsamlinger og maskinoversettelse som støtte, vurdere hvor de tar feil, og oppgi kildene du har brukt",ordbok;beskrive-strukturer,0,
+sjangre,concept,Tekster og sjangre,Antikke sjangre,"Epos: et langt fortellende dikt på heksameter om helter og guder (Vergils Aeneiden).
+Historieskriving: fortelling om fortidens hendelser, ofte med taler og moralske eksempler (Livius).
+Tale: en tekst laget for å overbevise et publikum i retten, senatet eller folkeforsamlingen (Cicero).
+Brev: tekst skrevet til en bestemt mottaker, men ofte med tanke på å bli publisert (Plinius den yngre).
+Lyrikk: korte dikt om følelser og opplevelser (Catull, Horats).
+Komedie: et skuespill med typefigurer, forvekslinger og lykkelig slutt (Plautus).
+Fabel: en kort fortelling, ofte med dyr, som ender i en moral (Fædrus).",,0,
+forfattere,fact,Tekster og sjangre,Romerske forfattere og verkene deres,"Plautus: komedier
+Cicero: taler, brev og filosofiske skrifter
+Cæsar: Om gallerkrigen (Dē bellō Gallicō)
+Catull: kjærlighetsdikt og spottedikt
+Vergil: Aeneiden, eposet om Aeneas
+Horats: oder og satirer
+Livius: Romas historie fra byens grunnleggelse (Ab urbe conditā)
+Ovid: Metamorfosene, myter om forvandlinger
+Fædrus: fabler på vers
+Seneca: brev og skrifter om stoisk filosofi, og tragedier
+Plinius den yngre: brev, blant annet om Vesuvs utbrudd
+Tacitus: Annalene og Germania",,0,
+heksameter,concept,Tekster og sjangre,Daktylisk heksameter,"Daktylisk heksameter: versemålet i eposet, med seks versefotter der de fire første er daktyler (lang–kort–kort) eller spondeer (lang–lang), den femte nesten alltid en daktyl, og den siste har to stavelser.",,0,
+stilfigurer,fact,Tekster og sjangre,Stilfigurer,"anafor: samme ord gjentas først i flere setninger eller ledd
+allitterasjon: flere ord etter hverandre begynner med samme lyd
+antitese: to motsatte begreper stilles mot hverandre
+kiasme: to ledd ordnes i kryss, a b – b a
+trikolon: tre ledd i rekke, gjerne stadig lengre (vēnī, vīdī, vīcī)
+asyndeton: ledd ramses opp uten «og»
+retorisk spørsmål: et spørsmål som ikke venter svar
+litotes: noe sies ved å nekte det motsatte (nōn ignōtus: ikke ukjent, altså kjent)
+hyperbaton: ord som hører sammen, står langt fra hverandre",,0,
+retorikk,concept,Tekster og sjangre,Retorikk,"Retorikk: læren om å tale og skrive overbevisende, som romerne lærte av grekerne og Cicero utviklet videre.
+Appellformer: etos (talerens troverdighet), patos (tilhørernes følelser) og logos (fornuftsargumenter).",,0,
+stilanalyse,skill,Tekster og sjangre,Finne og tolke virkemidler i en latinsk tekst,"finne stilfigurer og appellformer i en latinsk tekst, og forklare hvilken virkning de har",stilfigurer;retorikk;forsta-tekst,0,
+sammenligne-sjanger,skill,Tekster og sjangre,Sammenligne antikke og moderne tekster,"sammenligne innhold og oppbygning i en antikk tekst med en moderne tekst i samme eller en beslektet sjanger (en tale av Cicero og en politisk tale i dag, et brev av Plinius og et innlegg i sosiale medier)",sjangre;forfattere;stilanalyse,0,
+embeter,fact,Antikkens kultur og politikk,Embetene i den romerske republikken,"konsul: de to øverste lederne av staten og hæren, valgt for ett år
+pretor: ledet rettsvesenet
+kvestor: hadde ansvar for statens finanser
+edil: hadde tilsyn med torg, offentlige bygninger og leker
+sensor: holdt folketelling og førte listen over senatorene
+folketribun: verget plebeierne og kunne legge ned veto
+diktator: fikk eneveldig makt i en krise, for høyst seks måneder",,0,
+cursus-honorum,concept,Antikkens kultur og politikk,Cursus honorum,"Cursus honorum: den faste rekkefølgen en romersk politiker måtte gå gjennom embetene i, fra kvestor via pretor til konsul, med minstealder og opphold mellom embetene.",embeter,0,
+senat-folk,concept,Antikkens kultur og politikk,Senatet og folkeforsamlingene,"Senatet: rådsforsamlingen av tidligere embetsmenn, som formelt bare ga råd, men i praksis styrte utenrikspolitikk og finanser.
+Folkeforsamlingene: forsamlingene der borgerne valgte embetsmenn og vedtok lover; de rikes stemmer veide tyngst.",,0,
+arstall2,fact,Antikkens kultur og politikk,Årstall fra republikkens fall og keisertiden,"Tiberius Gracchus blir folketribun og drepes: 133 f.Kr.
+Sulla blir diktator: 82 f.Kr.
+Cæsar krysser Rubicon: 49 f.Kr.
+Cæsar drepes: 44 f.Kr.
+slaget ved Actium: 31 f.Kr.
+Oktavian får tittelen Augustus: 27 f.Kr.
+Augustus dør: 14 e.Kr.
+Vesuvs utbrudd: 79 e.Kr.
+Milano-ediktet: 313 e.Kr.
+den siste vestromerske keiseren avsettes: 476 e.Kr.",,0,
+republikkens-fall,skill,Antikkens kultur og politikk,Forklare hvorfor republikken gikk under,"forklare med flere årsaker hvordan den romerske republikken gikk over til keiserdømme, og knytte forklaringen til personer og hendelser",embeter;senat-folk;arstall2;cursus-honorum,0,
+familie-samfunn,concept,Antikkens kultur og politikk,Familien og samfunnet i Roma,"Pater familiās: den eldste mannen i familien, som hadde rettslig makt over hele husstanden.
+Klientvesenet: forholdet mellom en mektig patronus og hans klienter, som fikk beskyttelse og hjelp mot å gi støtte og stemmer.",,0,
+slaveri,concept,Antikkens kultur og politikk,Slaveri i Roma,"Slaveri: at mennesker var eiendom som kunne kjøpes og selges; slaver arbeidet i alt fra gruver og jordbruk til husholdning og undervisning, og kunne bli frigitt (lībertus).",,0,
+myter,fact,Antikkens kultur og politikk,Kjente myter og sagnfigurer,"Aeneas: trojaneren som flyktet til Italia og ble romernes stamfar
+Romulus og Remus: tvillingene som ble diet av en ulvinne; Romulus grunnla Roma
+Dido: dronningen av Kartago som tok sitt eget liv da Aeneas forlot henne
+Orfeus: sangeren som hentet sin døde kone fra underverdenen, men mistet henne fordi han så seg tilbake
+Daidalos og Ikaros: far og sønn som flyktet med vinger av fjær og voks; Ikaros fløy for nær sola
+Narkissos: ungdommen som forelsket seg i sitt eget speilbilde
+Pygmalion: billedhuggeren som forelsket seg i en statue som ble levende
+Prometevs: titanen som stjal ilden fra gudene og ga den til menneskene",,0,
+presentere-emne,skill,Antikkens kultur og politikk,Presentere et emne fra antikken i kontekst,"presentere et emne fra antikkens kultur, litteratur eller politikk, sette det inn i sin historiske og kulturelle sammenheng, og bruke latinske tekster eller sitater som eksempler",republikkens-fall;familie-samfunn;slaveri;forfattere,0,
+muntlig-presentasjon,skill,Antikkens kultur og politikk,Presentere muntlig og svare på spørsmål,"holde en kort muntlig presentasjon av et emne fra antikken og svare på oppfølgingsspørsmål, sjekket med et opptak av deg selv eller en medelev som stiller spørsmål",presentere-emne,0,
+resepsjon,concept,Antikkens kultur og politikk,Resepsjon,"Resepsjon: hvordan senere tider har tatt imot, brukt og omformet antikken, for eksempel i renessansens kunst, i bygninger, i politiske symboler eller i filmer og spill.",,0,
+fremstillinger,skill,Antikkens kultur og politikk,Vurdere fremstillinger av antikken,"sammenligne hvordan antikken framstilles i en film, et spill, en roman eller en utstilling med det kildene forteller, og reflektere over hvordan framstillingen former bildet vårt av perioden",resepsjon;presentere-emne,0,
+latin-uttrykk,fact,Latin i dag,Latinske uttrykk i bruk i dag,"status quo: tingenes tilstand slik den er
+ad hoc: for dette ene formålet
+dē factō: i praksis
+per capita: per person
+alibi: et annet sted
+vice versa: omvendt
+et cetera: og så videre
+curriculum vītae: levnetsløp, CV
+persōna nōn grāta: uønsket person
+in vitrō: i glass, i laboratoriet
+post mortem: etter døden
+bonā fidē: i god tro
+prō et contrā: for og imot",,0,
+sitater2,fact,Latin i dag,Ordtak og sitater fra antikken,"vēnī, vīdī, vīcī: jeg kom, jeg så, jeg seiret (Cæsar, ifølge Sueton og Plutark)
+ālea iacta est: terningen er kastet (Cæsar ved Rubicon, ifølge Sueton)
+carpe diem: grip dagen (Horats)
+dulce et decōrum est prō patriā morī: det er søtt og ærefullt å dø for fedrelandet (Horats)
+ō tempora, ō mōrēs: for en tid, for noen skikker (Cicero)
+pānem et circēnsēs: brød og sirkusleker (Juvenal)
+quis custōdiet ipsōs custōdēs?: hvem skal vokte voktene selv? (Juvenal)
+audentēs fortūna iuvat: lykken står den djerve bi (Vergil)
+timeō Danaōs et dōna ferentēs: jeg frykter grekerne, også når de kommer med gaver (Vergil)
+Carthāgō dēlenda est: Kartago må ødelegges (Cato den eldre, ifølge senere forfattere)",,0,
+sitater-i-dag,skill,Latin i dag,Undersøke bruken av antikke sitater i dag,"finne et antikt ordtak eller sitat i en moderne sammenheng (reklame, politikk, motto, film), forklare hva det betydde opprinnelig, og drøfte om bruken i dag endrer meningen",sitater2;latin-uttrykk,0,
+sammenligne-strukturer,skill,Latin i dag,Sammenligne språkstrukturer i latin og moderne språk,"sammenligne en latinsk konstruksjon som passiv, partisipp, AcI eller konjunktiv med det tilsvarende i norsk, engelsk eller et romansk språk, og reflektere over likheter og forskjeller",passiv-skill;partisipp-skill;aci-skill;konj-kjenne,0,
+antikken-i-kunst,skill,Latin i dag,Drøfte antikken i kunst og kulturuttrykk i dag,"drøfte hvordan antikke myter, figurer, former og ideer brukes i kunst, arkitektur, litteratur, film eller musikk i dag, og hva bruken sier om vår egen tid",resepsjon;myter,0,
+samtale-tekst,skill,Samtale,Samtale på latin om en tekst,"stille og svare på spørsmål på latin om personer, handling og innhold i en tekst du har lest",forsta-tekst,0,
+samtale-hverdag,skill,Samtale,Samtale på latin om hverdagslige temaer,"føre en enkel skriftlig samtale på latin om deg selv, skole, vær og fritid, med hele setninger og ulike tider",utvide-ordforrad;konj-hoved,0,

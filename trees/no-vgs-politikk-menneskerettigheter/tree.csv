@@ -1,0 +1,241 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Statsvitenskapelig metode og teori;Makt og påvirkning;Demokrati og styreformer;Det norske politiske systemet;Partier og konfliktlinjer;Valg og politisk deltakelse;Menneskerettigheter;Urfolk og minoriteter;Folkerett og internasjonale institusjoner;Krig og fred;Bærekraft og fordeling,,,
+,config,,title,Politikk og menneskerettigheter,,,
+,config,,description,"Statsvitenskapelige teorier og metode, makt og påvirkning, demokrati og styreformer, det norske politiske systemet, valg, menneskerettigheter, urfolk og minoriteter, folkerett, krig og fred og bærekraft — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-politikk-menneskerettigheter-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,politikk og menneskerettigheter (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"kaller Verdenserklæringen en bindende konvensjon, skriver at «FN bestemte» om et vedtak i Generalforsamlingen som bare er en anbefaling, blander sammen Stortinget og regjeringen, mellomstatlig og overstatlig, eller ICJ og ICC, bruker «menneskerettighet» om alt som er ønskelig i stedet for om statens forpliktelser overfor individet, nevner en teori uten å bruke den på saken, eller «drøfter» uten å veie argumenter mot hverandre før konklusjonen",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag samfunnsfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3055,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,social-studies,,,
+,config,,keywords,politikk; statsvitenskap; menneskerettigheter; demokrati; makt; konfliktlinjer; valg; velgeratferd; Stortinget; parlamentarisme; folkerett; FN; Sikkerhetsrådet; EMK; EMD; urfolk; samer; nasjonale minoriteter; internasjonal politikk; realisme; liberalisme; krig og fred; bærekraft; fordeling; velferdsstat,,,
+,config,,updated,2026-10-08,,,
+statsvitenskap,concept,Statsvitenskapelig metode og teori,Statsvitenskap,"Statsvitenskap: faget som studerer politikk - hvordan samfunn fordeler makt, tar bindende beslutninger og løser konflikter, lokalt, nasjonalt og mellom stater. De tre store feltene er norsk og sammenlignende politikk, offentlig politikk og administrasjon, og internasjonal politikk.",,0,
+teori-modell,concept,Statsvitenskapelig metode og teori,Teori og modell,"Teori: en sammenhengende forklaring på hvorfor politiske fenomener oppstår og henger sammen slik de gjør, og som kan prøves mot det vi observerer.
+Modell: en forenklet framstilling av virkeligheten som får fram de sammenhengene vi vil undersøke, og med vilje lar resten ligge.",statsvitenskap,0,
+problemstilling,concept,Statsvitenskapelig metode og teori,Problemstilling,"Problemstilling: et avgrenset, presist spørsmål som en undersøkelse eller en tekst skal besvare, og som er åpent nok til at svaret krever analyse eller drøfting framfor oppramsing.",,0,
+kvantitativ-kvalitativ,concept,Statsvitenskapelig metode og teori,Kvantitativ og kvalitativ metode,"Kvantitativ metode: å samle inn data som kan telles og sammenlignes, for eksempel spørreskjema til mange eller valgstatistikk. Gir bredde og muliggjør generalisering.
+Kvalitativ metode: å samle inn data som gir dybde, for eksempel intervju, observasjon eller tekstanalyse av få enheter. Gir innsikt i begrunnelser og sammenhenger.",statsvitenskap,0,
+representativitet,concept,Statsvitenskapelig metode og teori,Utvalg og representativitet,"Utvalg: de enhetene - personer, kommuner, land - som faktisk blir undersøkt.
+Representativitet: at utvalget ligner populasjonen det skal si noe om, slik at funnene kan generaliseres. Et skjevt utvalg eller lav svarprosent svekker representativiteten, og en meningsmåling har alltid en feilmargin.",kvantitativ-kvalitativ,0,
+vurdere-informasjon,skill,Statsvitenskapelig metode og teori,Vurdere informasjon om et politisk spørsmål,"vurdere hvor relevant og pålitelig informasjon om et politisk spørsmål er, ut fra hvem avsenderen er, hvilke interesser avsenderen har, hvordan dataene er samlet inn, og hva informasjonen ikke sier noe om.",representativitet,0,
+lese-tabeller,skill,Statsvitenskapelig metode og teori,Tolke tabeller og grafer i politikk,"hente ut og tolke informasjon fra tabeller og grafer om for eksempel valgresultater, meningsmålinger eller ulikhet, skille mellom prosent og prosentpoeng, og bruke tallene som belegg i en argumentasjon.",representativitet,0,
+systemmodellen,concept,Statsvitenskapelig metode og teori,Eastons systemmodell,"Eastons systemmodell: en modell av det politiske systemet som en prosess der krav og støtte fra omgivelsene (input) blir behandlet av myndighetene og gjort om til vedtak og tiltak (output), som igjen påvirker omgivelsene og nye krav gjennom tilbakeføring.",teori-modell,0,
+analysere-med-systemmodellen,skill,Statsvitenskapelig metode og teori,Analysere en politisk sak med systemmodellen,"bruke systemmodellen til å følge en konkret politisk sak fra krav til vedtak og tilbakeføring, og peke på hva modellen får fram og hva den ikke fanger opp, som makt utenfor de formelle kanalene.",systemmodellen,0,
+bruke-teori,skill,Statsvitenskapelig metode og teori,Bruke en statsvitenskapelig teori på en sak,"velge en teori eller modell som passer til en problemstilling, bruke den til å forklare en konkret sak, og vurdere hva en annen teori ville fått fram annerledes.",teori-modell;problemstilling,0,
+analysere-politisk-sak,skill,Statsvitenskapelig metode og teori,Utforske en politisk sak i et statsvitenskapelig perspektiv,"utforske en nasjonal eller internasjonal sak eller konflikt ut fra en egen problemstilling: finne og vurdere kilder, kartlegge aktører, interesser og makt, og analysere saken med statsvitenskapelige begreper og teorier.",bruke-teori;vurdere-informasjon;analysere-maktforhold,0,
+makt,concept,Makt og påvirkning,Makt,"Makt: evnen en aktør har til å få gjennomført sin vilje, også når andre gjør motstand (Max Webers definisjon). Makt kan bygge på tvang, økonomiske ressurser, kunnskap, organisering eller oppslutning.",,0,
+legitimitet,concept,Makt og påvirkning,Myndighet og legitimitet,"Myndighet: makt som de som er underlagt den, aksepterer som rettmessig.
+Legitimitet: at makten oppfattes som rettmessig, for eksempel fordi den er valgt, følger lover og regler, eller leverer det innbyggerne forventer.",makt,0,
+maktdimensjoner,concept,Makt og påvirkning,Maktens tre dimensjoner,"Åpen makt: å vinne fram i en synlig beslutning der aktørene er uenige.
+Skjult makt: å bestemme hvilke saker som kommer på dagsordenen, og holde andre unna, slik at noen beslutninger aldri blir tatt.
+Bevissthetskontroll: å påvirke hva folk ønsker og oppfatter som naturlig, slik at en konflikt ikke engang blir merket (Steven Lukes).",makt,0,
+analysere-maktforhold,skill,Makt og påvirkning,Analysere maktforhold i en sak,"analysere hvem som har makt i en konkret sak, hvilke maktressurser de bruker, og hvilken av maktens tre dimensjoner som er i spill.",maktdimensjoner;legitimitet,0,
+kanaler,concept,Makt og påvirkning,Kanaler for politisk innflytelse,"Valgkanalen: å påvirke gjennom partier, valg og folkevalgte organer.
+Den korporative kanalen: å påvirke gjennom at interesseorganisasjoner blir tatt med i utvalg, høringer og forhandlinger med staten.
+Aksjonskanalen: å påvirke gjennom underskriftskampanjer, demonstrasjoner og sivil ulydighet.
+Mediekanalen: å påvirke gjennom å få en sak omtalt i tradisjonelle og sosiale medier.
+Rettskanalen: å påvirke gjennom å bringe en sak inn for domstolene.",,0,
+interesseorganisasjon,concept,Makt og påvirkning,Interesseorganisasjon og lobbyisme,"Interesseorganisasjon: en organisasjon som arbeider for å fremme medlemmenes eller en sak sine interesser overfor myndighetene, for eksempel en fagforening, en arbeidsgiverforening eller en miljøorganisasjon.
+Lobbyisme: å påvirke beslutningstakere direkte, gjerne gjennom møter og kontakt utenfor offentligheten.",kanaler,0,
+sivilsamfunn,concept,Makt og påvirkning,Sivilsamfunnet,"Sivilsamfunnet: den delen av samfunnet som verken er stat eller marked - frivillige organisasjoner, trossamfunn, idrettslag og bevegelser der folk organiserer seg av egen vilje.",,0,
+medienes-makt,concept,Makt og påvirkning,Medienes makt,"Medienes makt: mediene velger hvilke saker som blir omtalt og hvordan de blir vinklet (dagsordenmakt og rammer), og de skal granske dem som har makt (vaktbikkjerollen). Sosiale medier lar aktører nå velgerne direkte, men gjør det også lettere å spre desinformasjon.",maktdimensjoner,0,
+handlingsrom,concept,Makt og påvirkning,Nasjonalt handlingsrom,"Handlingsrom: hvor fritt myndighetene i et land faktisk kan velge politikk. Det blir begrenset av internasjonale avtaler, økonomiske aktører og markeder, sterke organisasjoner i sivilsamfunnet og domstolenes tolkning av lover og menneskerettigheter.",makt,0,
+sammenligne-kanaler,skill,Makt og påvirkning,Sammenligne kanaler for innflytelse,"forklare hvilke kanaler ulike aktører bruker for å påvirke en konkret sak, og vurdere hvorfor ressurser som penger, kunnskap, organisering og medietilgang gir noen aktører mer innflytelse enn andre.",kanaler;interesseorganisasjon;sivilsamfunn;medienes-makt,0,
+drofte-makt-i-praksis,skill,Makt og påvirkning,Drøfte makt og innflytelse i praktisk politikk,"drøfte hvordan maktforhold, konfliktlinjer og kanaler for innflytelse kom til uttrykk i en konkret norsk politisk sak, og vurdere hvem som fikk gjennomslag og hvorfor.",analysere-maktforhold;sammenligne-kanaler;analysere-partier-konfliktlinjer;handlingsrom,0,
+demokrati,concept,Demokrati og styreformer,Demokrati,"Demokrati: folkestyre - at innbyggerne har den endelige makten over de politiske beslutningene, direkte eller gjennom representanter de velger i frie valg, og at det finnes vern om de rettighetene som gjør frie valg mulig.",,0,
+dahls-kriterier,concept,Demokrati og styreformer,Dahls kriterier for demokrati,"Dahls kriterier: Robert Dahls minstekrav for at et land kan kalles demokratisk (han kalte det polyarki) - folkevalgte beslutningstakere, frie og rettferdige valg med jevne mellomrom, allmenn stemmerett, rett til å stille til valg, ytringsfrihet, tilgang på alternative informasjonskilder og organisasjonsfrihet.",demokrati,0,
+direkte-representativt,concept,Demokrati og styreformer,Direkte og representativt demokrati,"Direkte demokrati: innbyggerne tar selv beslutningene, for eksempel gjennom folkeavstemninger.
+Representativt demokrati: innbyggerne velger representanter som tar beslutningene på deres vegne, og som må stå til ansvar ved neste valg.",demokrati,0,
+demokratimodeller,concept,Demokrati og styreformer,Demokratimodeller,"Konkurransedemokrati: demokrati som konkurranse mellom eliter om velgernes stemmer; det viktigste er at velgerne kan skifte ut makthaverne ved valg.
+Deltakerdemokrati: demokrati der flest mulig deltar aktivt også mellom valgene, og der deltakelsen i seg selv utvikler borgerne.
+Deliberativt demokrati: demokrati der beslutningene skal springe ut av åpen, begrunnet diskusjon der det beste argumentet vinner.",direkte-representativt,0,
+rettsstat,concept,Demokrati og styreformer,Rettsstat,"Rettsstat: en stat der også myndighetene er bundet av lovene, der ingen kan straffes uten lovhjemmel og en rettferdig rettergang, og der uavhengige domstoler kan prøve om myndighetene holder seg innenfor loven.",demokrati,0,
+maktfordeling,concept,Demokrati og styreformer,Maktfordeling,"Maktfordeling: at statsmakten er delt mellom en lovgivende, en utøvende og en dømmende makt som kontrollerer hverandre, slik at ingen samler all makt (prinsippet knyttes til Montesquieu).",rettsstat,0,
+autoritaert-totalitaert,concept,Demokrati og styreformer,Autoritært og totalitært styre,"Autoritært styre: makthaverne kan ikke skiftes ut i frie valg, og opposisjon, presse og organisasjoner blir begrenset, men staten forsøker ikke å styre alle sider av livet.
+Totalitært styre: staten, ofte ett parti med én ideologi, forsøker å kontrollere alle sider av samfunnet og innbyggernes tanker, med massiv propaganda og overvåking.",demokrati,0,
+hybridregime,concept,Demokrati og styreformer,Hybridregime,"Hybridregime: en styreform som har valg og andre demokratiske institusjoner, men der makthaverne systematisk skjevvrir konkurransen - gjennom kontroll av medier, domstoler eller valggjennomføring - så opposisjonen i praksis har små sjanser.",autoritaert-totalitaert;dahls-kriterier,0,
+styresett,concept,Demokrati og styreformer,Parlamentarisme og presidentstyre,"Parlamentarisme: regjeringen sitter så lenge den ikke har flertallet i nasjonalforsamlingen mot seg.
+Presidentstyre: en folkevalgt president leder den utøvende makten og kan ikke felles av nasjonalforsamlingen ved mistillit, som i USA.
+Semipresidentielt styre: en folkevalgt president deler den utøvende makten med en statsminister som er avhengig av nasjonalforsamlingen, som i Frankrike.",maktfordeling,0,
+enhetsstat-foderasjon,concept,Demokrati og styreformer,Enhetsstat og forbundsstat,"Enhetsstat: én sentral statsmakt som gir lokale og regionale myndigheter den makten de har, som i Norge.
+Forbundsstat (føderasjon): delstatene har egen grunnlovsfestet makt som sentralmakten ikke kan ta fra dem, som i USA og Tyskland.",,0,
+sammenligne-styreformer,skill,Demokrati og styreformer,Sammenligne to staters styreform,"sammenligne styreformen i Norge med styreformen i et annet land - hvordan makten er fordelt, hvordan makthaverne velges og kontrolleres, og hvilke rettigheter innbyggerne har - og plassere begge ut fra kriteriene for demokrati.",styresett;enhetsstat-foderasjon;hybridregime,0,
+demokratisering,concept,Demokrati og styreformer,Demokratisering og demokratisk tilbakegang,"Demokratisering: overgangen fra en ikke-demokratisk styreform til demokrati. Samuel Huntington beskrev den som bølger, der den tredje startet i Sør-Europa på 1970-tallet.
+Demokratisk tilbakegang: at et demokrati gradvis svekkes innenfra, ofte ved at valgte ledere undergraver domstoler, presse og opposisjon uten å avskaffe valgene.",hybridregime,0,
+analysere-demokratiets-utvikling,skill,Demokrati og styreformer,Analysere demokratiets utvikling og utfordringer,"analysere hvordan demokratiet har utviklet seg i verden, og forklare hvilke forutsetninger - som rettsstat, fri presse, tillit og økonomisk utvikling - som gjør at demokratier styrkes eller svekkes, med eksempler fra konkrete land.",demokratisering;rettsstat;sammenligne-styreformer,0,
+medborgerskap,concept,Demokrati og styreformer,Medborgerskap,"Medborgerskap: å være en aktiv deltaker i et fellesskap - lokalt, nasjonalt eller globalt - med rettigheter og plikter, og med et ansvar for å holde demokratiet ved like i dialog med folk som mener noe annet.",demokrati,0,
+reflektere-medborger,skill,Demokrati og styreformer,Reflektere over hva det vil si å være medborger,"reflektere over hva det innebærer å være medborger i et demokrati, hvordan ulike politiske ressurser gir ulik mulighet til å delta, og hva medborgerskap betyr i et land uten demokrati.",medborgerskap;politisk-deltakelse;sammenligne-styreformer,0,
+norske-arstall,fact,Det norske politiske systemet,Viktige årstall i norsk demokrati,"Grunnloven ble vedtatt: 1814
+parlamentarismen ble innført i praksis: 1884
+allmenn stemmerett for menn: 1898
+allmenn stemmerett for kvinner: 1913
+folkeavstemninger der flertallet sa nei til medlemskap i EF/EU: 1972 og 1994
+EØS-avtalen trådte i kraft: 1994
+parlamentarismen ble skrevet inn i Grunnloven: 2007
+menneskerettighetskapittelet ble tatt inn i Grunnloven: 2014",,0,
+statsmaktene,concept,Det norske politiske systemet,De tre statsmaktene i Norge,"Stortinget: den lovgivende og bevilgende makten, som også kontrollerer regjeringen.
+Regjeringen: den utøvende makten, som setter vedtakene ut i livet og leder forvaltningen gjennom departementene. Formelt utøves den av Kongen i statsråd.
+Domstolene: den dømmende makten, med Høyesterett øverst.",maktfordeling,0,
+negativ-parlamentarisme,concept,Det norske politiske systemet,Negativ parlamentarisme,"Negativ parlamentarisme: regjeringen trenger ikke et aktivt flertall bak seg for å tiltre, men må gå av hvis et flertall på Stortinget vedtar mistillit. Derfor kan en mindretallsregjering styre så lenge flertallet ikke samler seg mot den.",statsmaktene;styresett,0,
+regjeringstyper,concept,Det norske politiske systemet,Flertalls- og mindretallsregjering,"Flertallsregjering: regjeringspartiet eller -partiene har til sammen flertall på Stortinget.
+Mindretallsregjering: regjeringen har ikke flertall og må forhandle fram støtte fra andre partier sak for sak eller gjennom en samarbeidsavtale.
+Koalisjonsregjering: en regjering med flere partier.",negativ-parlamentarisme,0,
+stortingets-kontroll,concept,Det norske politiske systemet,Stortingets kontroll med regjeringen,"Stortingets kontroll: Stortinget kontrollerer regjeringen gjennom spørsmål og interpellasjoner, kontroll- og konstitusjonskomiteen, Riksrevisjonen og i siste instans mistillitsforslag.",statsmaktene,0,
+domstolskontroll,concept,Det norske politiske systemet,Domstolskontroll,"Domstolskontroll: at domstolene kan prøve om en lov eller et vedtak strider mot Grunnloven eller menneskerettighetene, og i så fall la være å bruke den. Retten står i Grunnloven § 89.",statsmaktene;rettsstat,0,
+lovprosess,skill,Det norske politiske systemet,Forklare hvordan et lovforslag blir vedtatt,"forklare veien fra en idé til en vedtatt lov i Norge - utredning, høring, proposisjon fra regjeringen, komitébehandling og vedtak i Stortinget - og vise hvor ulike aktører kan påvirke underveis.",statsmaktene;kanaler,0,
+lokaldemokrati,concept,Det norske politiske systemet,Kommune og fylkeskommune,"Kommune: det lokale forvaltningsnivået, styrt av et folkevalgt kommunestyre med ordfører, og ansvarlig for blant annet grunnskole, barnehage, pleie og omsorg.
+Fylkeskommune: det regionale nivået, styrt av fylkestinget, og ansvarlig for blant annet videregående skole, fylkesveier og kollektivtransport.
+Lokalt selvstyre: retten kommunene har til å ta egne beslutninger innenfor de rammene staten setter.",statsmaktene,0,
+forklare-norsk-system,skill,Det norske politiske systemet,Gjøre rede for det norske politiske systemet,"gjøre rede for hvordan makten er fordelt mellom Stortinget, regjeringen og domstolene og mellom stat, fylkeskommune og kommune, og forklare hvordan parlamentarismen virker i praksis.",regjeringstyper;stortingets-kontroll;domstolskontroll;lokaldemokrati;norske-arstall,0,
+politisk-tillit,concept,Det norske politiske systemet,Politisk tillit,"Politisk tillit: hvor mye innbyggerne stoler på politikere, partier og offentlige institusjoner. Høy tillit gjør det lettere å styre og å få aksept for upopulære beslutninger.",legitimitet,0,
+utfordringer-norsk-demokrati,skill,Det norske politiske systemet,Drøfte utfordringer for det norske demokratiet,"drøfte utfordringer det norske demokratiet står overfor - for eksempel ulik valgdeltakelse, svekket tillit, polarisering, desinformasjon, rekruttering til lokalpolitikken og hvor mye makt som ligger utenfor folkevalgte organer - og vurdere tiltak mot dem.",forklare-norsk-system;politisk-tillit;drofte-ulik-deltakelse;medienes-makt,0,
+ideologier,concept,Partier og konfliktlinjer,Politiske ideologier,"Sosialisme: vekt på likhet og fellesskap, og på at staten og fellesskapet skal styre økonomien og utjevne forskjeller.
+Liberalisme: vekt på individets frihet, både fra statlig inngripen og gjennom markedet.
+Konservatisme: vekt på tradisjon, stabilitet og gradvis endring, og på familie og lokalsamfunn som grunnlag for samfunnet.
+Økologisme: vekt på at naturens tålegrenser skal sette rammene for økonomi og politikk.",,0,
+hoyre-venstre,concept,Partier og konfliktlinjer,Høyre-venstre-aksen,"Høyre-venstre-aksen: den viktigste dimensjonen i norsk partipolitikk, der venstresiden vil ha mer omfordeling og statlig styring av økonomien, og høyresiden mer vekt på markedet, private løsninger og lavere skatter.",ideologier,0,
+konfliktlinje,concept,Partier og konfliktlinjer,Konfliktlinje,"Konfliktlinje: en varig motsetning mellom grupper i samfunnet, med ulike interesser eller verdier, som partiene organiserer seg langs, og som derfor former partisystemet.",,0,
+rokkans-konfliktlinjer,concept,Partier og konfliktlinjer,Rokkans konfliktlinjer,"Sentrum-periferi: motsetningen mellom hovedstadsområdet og distriktene.
+By-land: motsetningen mellom primærnæringene og bynæringene om priser og vilkår.
+Arbeid-kapital: motsetningen mellom arbeidstakere og arbeidsgivere om lønn, eierskap og fordeling.
+Den religiøse og moralske konfliktlinjen: motsetningen mellom et kristent-konservativt og et sekulært-liberalt syn på moral og kirke.
+Den kulturelle konfliktlinjen: motsetningen mellom bykulturen og bygdekulturens motkulturer, som nynorsk og avholdsbevegelse.",konfliktlinje,0,
+nye-konfliktlinjer,concept,Partier og konfliktlinjer,Nye konfliktdimensjoner,"Nye konfliktdimensjoner: motsetninger som har vokst fram etter Rokkans tid og som skjærer på tvers av høyre-venstre-aksen - særlig vekst mot miljø og klima, og et liberalt mot et innvandringskritisk og tradisjonelt verdisyn. Spørsmålet om forholdet til EU har gått på tvers av partiene i flere tiår.",rokkans-konfliktlinjer,0,
+partisystem,concept,Partier og konfliktlinjer,Partisystem,"Partisystem: hvor mange partier som har reell betydning i et land, og hvordan de samarbeider og konkurrerer. Norge har et flerpartisystem der regjeringer som regel bygger på samarbeid mellom flere partier, ofte i to blokker.",konfliktlinje,0,
+analysere-partier-konfliktlinjer,skill,Partier og konfliktlinjer,Plassere partier og saker på konfliktlinjene,"bruke konfliktlinjene og høyre-venstre-aksen til å forklare hvor de norske partiene står i en konkret sak, og hvorfor saken kan splitte partier som ellers samarbeider.",hoyre-venstre;nye-konfliktlinjer;partisystem,0,
+valgordninger,concept,Valg og politisk deltakelse,Flertallsvalg og forholdstallsvalg,"Flertallsvalg: landet er delt i valgkretser der kandidaten med flest stemmer vinner hele kretsen, som i Storbritannia. Gir ofte få, store partier og en tydelig vinner.
+Forholdstallsvalg: mandatene fordeles etter partienes andel av stemmene, som i Norge. Gir et mer representativt parlament og flere partier.",demokrati,0,
+norsk-valgordning,concept,Valg og politisk deltakelse,Den norske valgordningen,"Den norske valgordningen: stortingsvalg med forholdstallsvalg i valgdistrikter, der mandatene i hvert distrikt fordeles etter en modifisert versjon av Sainte-Laguës metode. Utjevningsmandater skal rette opp skjevheter mellom partienes oppslutning og mandattall, men går bare til partier over sperregrensen.",valgordninger,0,
+valgtall,fact,Valg og politisk deltakelse,Nøkkeltall i det norske valgsystemet,"antall representanter på Stortinget: 169
+valgperiode for Stortinget: 4 år, uten mulighet for å utskrive nyvalg
+antall utjevningsmandater: 19
+sperregrense for utjevningsmandater: 4 prosent av stemmene nasjonalt
+alder for stemmerett: 18 år, året man fyller 18
+kommunestyre- og fylkestingsvalg: hvert fjerde år, to år etter stortingsvalget",norsk-valgordning,0,
+velgeratferd-teorier,concept,Valg og politisk deltakelse,Forklaringer på velgeratferd,"Sosial struktur: velgerne stemmer ut fra hvilken gruppe de tilhører - klasse, bosted, religion, utdanning.
+Partiidentifikasjon: velgerne har en langvarig tilknytning til et parti, ofte arvet hjemmefra.
+Sakstemming: velgerne stemmer på partiet de er mest enige med i de sakene de bryr seg mest om.",,0,
+velgervandring,concept,Valg og politisk deltakelse,Velgervandring og sakseierskap,"Velgervandring: at velgere bytter parti fra ett valg til det neste. Andelen som bytter har økt i Norge.
+Sakseierskap: at et parti blir sett på som det mest troverdige i en bestemt sak, slik at det tjener på at saken står høyt på dagsordenen.",velgeratferd-teorier,0,
+politisk-deltakelse,concept,Valg og politisk deltakelse,Politisk deltakelse,"Politisk deltakelse: alt innbyggerne gjør for å påvirke politikken - stemme ved valg, være medlem av et parti eller en organisasjon, ta kontakt med politikere, delta i aksjoner og debatt, også på nett.
+Valgdeltakelse: andelen av de stemmeberettigede som faktisk stemmer.",kanaler,0,
+analysere-velgeratferd,skill,Valg og politisk deltakelse,Analysere velgeratferd med data,"bruke tall fra valgresultater, meningsmålinger eller valgundersøkelser til å beskrive hvordan ulike grupper stemmer, og forklare mønstrene med teorier om velgeratferd.",velgeratferd-teorier;velgervandring;lese-tabeller;valgtall,0,
+lage-undersokelse,skill,Valg og politisk deltakelse,Gjennomføre en liten undersøkelse om politisk deltakelse,"planlegge og gjennomføre en liten spørreundersøkelse eller et intervju om politiske holdninger eller deltakelse, og drøfte hva feilkilder og utvalget betyr for hvor mye resultatene kan si.",kvantitativ-kvalitativ;representativitet;problemstilling;politisk-deltakelse,0,
+drofte-ulik-deltakelse,skill,Valg og politisk deltakelse,Drøfte ulik politisk deltakelse,"drøfte hvorfor deltakelsen er ulik mellom grupper - etter alder, utdanning, inntekt og innvandringsbakgrunn - og hva det betyr for hvem politikken blir laget for.",analysere-velgeratferd;lage-undersokelse,0,
+menneskerettighet,concept,Menneskerettigheter,Menneskerettigheter,"Menneskerettigheter: rettigheter alle mennesker har fordi de er mennesker, uavhengig av hvem de er og hvor de bor. De er universelle, udelelige og ukrenkelige, og de forplikter først og fremst staten overfor individet.",,0,
+generasjoner,concept,Menneskerettigheter,Typer menneskerettigheter,"Sivile og politiske rettigheter: friheter som vern mot statlig overgrep og rett til å delta, som retten til liv, ytringsfrihet, religionsfrihet og stemmerett.
+Økonomiske, sosiale og kulturelle rettigheter: krav på grunnleggende goder, som retten til utdanning, helse, arbeid og en tilfredsstillende levestandard.
+Kollektive rettigheter: rettigheter som tilhører en gruppe, som folks rett til selvbestemmelse og urfolks rett til sin kultur.",menneskerettighet,0,
+statens-plikter,concept,Menneskerettigheter,Statens plikter,"Plikten til å respektere: staten skal selv ikke krenke rettighetene.
+Plikten til å beskytte: staten skal hindre at andre - personer, bedrifter, grupper - krenker dem.
+Plikten til å oppfylle: staten skal sørge for at rettighetene blir virkelighet, for eksempel ved å bygge ut skoler og helsetjenester.",menneskerettighet,0,
+mr-dokumenter,fact,Menneskerettigheter,Sentrale menneskerettighetsdokumenter,"FNs verdenserklæring om menneskerettighetene: 1948
+Den europeiske menneskerettskonvensjonen (EMK): 1950
+FNs rasediskrimineringskonvensjon: 1965
+FNs konvensjon om sivile og politiske rettigheter (SP): 1966
+FNs konvensjon om økonomiske, sosiale og kulturelle rettigheter (ØSK): 1966
+FNs kvinnediskrimineringskonvensjon (CEDAW): 1979
+FNs torturkonvensjon: 1984
+FNs barnekonvensjon: 1989
+FNs konvensjon om rettighetene til personer med nedsatt funksjonsevne (CRPD): 2006",menneskerettighet,0,
+erklaering-konvensjon,concept,Menneskerettigheter,Erklæring og konvensjon,"Erklæring: en felles uttalelse om prinsipper som statene slutter seg til, men som ikke i seg selv er juridisk bindende. Verdenserklæringen fra 1948 er det viktigste eksempelet, selv om mye av innholdet regnes som bindende sedvanerett i dag.
+Konvensjon: en avtale mellom stater som er juridisk bindende for de statene som har ratifisert den.",menneskerettighet,0,
+ratifisering,concept,Menneskerettigheter,Ratifisering og inkorporering,"Ratifisering: at en stat formelt slutter seg til en konvensjon og blir folkerettslig bundet av den.
+Inkorporering: at en konvensjon blir gjort til en del av landets egen lovgivning, slik at domstolene kan bruke den direkte.",erklaering-konvensjon,0,
+mr-i-norsk-rett,concept,Menneskerettigheter,Menneskerettighetene i norsk rett,"Menneskerettighetene i norsk rett: Grunnloven har siden 2014 et eget kapittel om menneskerettigheter, og § 92 pålegger statens myndigheter å respektere og sikre dem. Menneskerettsloven fra 1999 inkorporerer EMK, SP, ØSK, barnekonvensjonen og kvinnediskrimineringskonvensjonen, og gir dem forrang foran annen norsk lov hvis de kolliderer.",ratifisering;mr-dokumenter,0,
+begrensning,concept,Menneskerettigheter,Inngrep i rettigheter,"Inngrep i rettigheter: de fleste rettigheter kan begrenses når inngrepet har hjemmel i lov, har et legitimt formål og er nødvendig og forholdsmessig.
+Absolutte rettigheter: noen rettigheter kan aldri begrenses, som forbudet mot tortur og slaveri.",statens-plikter,0,
+universalisme-relativisme,concept,Menneskerettigheter,Universalisme og kulturrelativisme,"Universalisme: synet at menneskerettighetene gjelder likt for alle mennesker i alle kulturer.
+Kulturrelativisme: synet at rettigheter må forstås ut fra hver kultur, og at menneskerettighetene bærer preg av vestlige verdier.",menneskerettighet,0,
+drofte-rettighetskonflikt,skill,Menneskerettigheter,Drøfte en konflikt mellom to rettigheter,"drøfte en konkret sak der to menneskerettigheter, eller en rettighet og et annet samfunnshensyn som sikkerhet eller folkehelse, trekker i hver sin retning, og vurdere om inngrepet er forholdsmessig.",begrensning;generasjoner,0,
+mr-og-demokrati,skill,Menneskerettigheter,Vurdere menneskerettighetenes betydning for demokratiet,"vurdere hvordan sivile og politiske rettigheter som ytringsfrihet, organisasjonsfrihet og retten til frie valg er forutsetninger for demokratiet, og drøfte spenningen mellom flertallets vilje og vernet om mindretallet.",generasjoner;dahls-kriterier;mr-i-norsk-rett,0,
+velferdsstat,concept,Menneskerettigheter,Velferdsstat,"Velferdsstat: en stat som tar et hovedansvar for innbyggernes grunnleggende velferd - helse, utdanning, inntektssikring og omsorg - finansiert gjennom skatter og avgifter.",,0,
+velferdsmodeller,concept,Menneskerettigheter,Velferdsmodeller,"Den sosialdemokratiske (universelle) modellen: staten gir alle rett til omfattende tjenester og ytelser, finansiert gjennom høye skatter, som i Norden.
+Den liberale modellen: staten gir et sikkerhetsnett til dem som trenger det mest, og resten skjer gjennom markedet og private forsikringer, som i USA.
+Den konservative modellen: ytelsene henger sammen med arbeid og yrkestilknytning, og familien har en stor rolle, som i Tyskland. (Inndelingen er Gøsta Esping-Andersens.)",velferdsstat,0,
+mr-og-velferdsstat,skill,Menneskerettigheter,Vurdere menneskerettighetenes betydning for velferdsstaten,"vurdere hvordan økonomiske og sosiale rettigheter, som retten til helse, utdanning og sosial trygghet, forplikter staten, og drøfte om ulike velferdsmodeller oppfyller dem like godt.",velferdsmodeller;statens-plikter;generasjoner,0,
+urfolk,concept,Urfolk og minoriteter,Urfolk,"Urfolk: etterkommere av folk som bodde i et område før dagens statsgrenser ble trukket, og som helt eller delvis har beholdt sine egne sosiale, økonomiske, kulturelle og politiske institusjoner. Samene er urfolk i Norge.",,0,
+nasjonal-minoritet,concept,Urfolk og minoriteter,Nasjonal minoritet,"Nasjonal minoritet: en gruppe med langvarig tilknytning til landet, som skiller seg ut med egen religion, språk eller kultur, og som vil bevare sin egenart. I Norge har jøder, kvener/norskfinner, rom, romanifolk/tatere og skogfinner denne statusen.",,0,
+fornorskning,concept,Urfolk og minoriteter,Fornorskning,"Fornorskning: den statlige politikken fra midten av 1800-tallet og langt ut på 1900-tallet som skulle få samer, kvener og andre minoriteter til å oppgi språket og kulturen sin og bli norske, særlig gjennom skolen.",urfolk;nasjonal-minoritet,0,
+urfolksrettigheter,concept,Urfolk og minoriteter,Urfolks rettigheter,"Retten til egen kultur: SP artikkel 27 gir minoriteter og urfolk rett til å utøve sin kultur, og for samene omfatter det næringer som reindrift.
+Konsultasjonsrett: urfolk har rett til å bli konsultert før myndighetene tar beslutninger som kan påvirke dem direkte.
+Selvbestemmelse: urfolks rett til å bestemme over egen utvikling, blant annet gjennom egne folkevalgte organer som Sametinget.",urfolk;generasjoner,0,
+urfolk-arstall,fact,Urfolk og minoriteter,Urfolk og minoriteter: lover og årstall,"ILO-konvensjon nr. 169 om urfolk vedtatt: 1989
+Norge ratifiserte ILO-konvensjon nr. 169, som første land: 1990
+Sametinget åpnet: 1989
+grunnlovsbestemmelsen om samene (i dag § 108): 1988
+Finnmarksloven: 2005
+FNs erklæring om urfolks rettigheter: 2007
+Høyesteretts dom om vindkraftverkene på Fosen: 2021
+Sannhets- og forsoningskommisjonens rapport om fornorskningen: 2023",urfolk,0,
+analysere-urfolkskonflikt,skill,Urfolk og minoriteter,Analysere en konflikt om urfolks rettigheter,"analysere en konkret sak der urfolks rettigheter står mot andre interesser, som Fosen-saken, ut fra aktørene, interessene, de rettslige argumentene og hvordan saken ble løst eller står fast.",urfolksrettigheter;urfolk-arstall;begrensning,0,
+drofte-urfolk-minoriteter,skill,Urfolk og minoriteter,Drøfte urfolks og minoriteters rettigheter og innflytelse,"drøfte hvordan rettighetene til urfolk og minoriteter blir ivaretatt i Norge og i et annet land, og vurdere hvilke kanaler disse gruppene har for politisk innflytelse og hvor godt de virker.",analysere-urfolkskonflikt;fornorskning;nasjonal-minoritet;sammenligne-kanaler,0,
+folkerett,concept,Folkerett og internasjonale institusjoner,Folkerett,"Folkerett: de rettsreglene som gjelder mellom stater, og mellom stater og internasjonale organisasjoner. Kildene er særlig traktater som statene har sluttet seg til, og sedvanerett - fast praksis som statene oppfatter som bindende.",,0,
+suverenitet,concept,Folkerett og internasjonale institusjoner,Suverenitet og ikke-intervensjon,"Suverenitet: at en stat har den øverste myndigheten over sitt eget territorium og ikke er underlagt noen høyere makt uten selv å ha samtykket.
+Ikke-intervensjon: prinsippet om at stater ikke skal blande seg inn i andre staters indre anliggender.",folkerett,0,
+mellomstatlig-overstatlig,concept,Folkerett og internasjonale institusjoner,Mellomstatlig og overstatlig,"Mellomstatlig samarbeid: statene samarbeider, men hver stat må selv samtykke, og ingen kan pålegges noe mot sin vilje, som i de fleste FN-organer og i NATO.
+Overstatlig myndighet: et organ over statene kan ta beslutninger som er bindende for dem, også mot en enkelt stats vilje, som i deler av EU-samarbeidet.",suverenitet,0,
+dualisme,concept,Folkerett og internasjonale institusjoner,Dualisme,"Dualisme: prinsippet om at folkeretten og den nasjonale retten er to atskilte rettssystemer, slik at en traktat først kan brukes direkte av norske domstoler når den er gjort til norsk rett. Norge følger dette prinsippet.",folkerett;ratifisering,0,
+fn-systemet,concept,Folkerett og internasjonale institusjoner,FN-systemet,"Generalforsamlingen: alle medlemsstatene med én stemme hver, som vedtar anbefalinger, ikke bindende beslutninger.
+Sikkerhetsrådet: rådet som har hovedansvaret for internasjonal fred og sikkerhet, og som kan vedta bindende tiltak.
+Generalsekretæren: lederen av FN-sekretariatet.
+Den internasjonale domstolen (ICJ): FNs domstol for tvister mellom stater.",mellomstatlig-overstatlig,0,
+institusjoner-fakta,fact,Folkerett og internasjonale institusjoner,Internasjonale institusjoner i tall,"FN ble opprettet: 1945
+antall medlemmer i Sikkerhetsrådet: 15
+de faste medlemmene i Sikkerhetsrådet med vetorett: USA, Russland, Kina, Storbritannia og Frankrike
+Europarådet ble opprettet: 1949
+sete for Den europeiske menneskerettsdomstolen (EMD): Strasbourg
+sete for ICJ og Den internasjonale straffedomstolen (ICC): Haag
+Romavedtektene om ICC ble vedtatt: 1998, og trådte i kraft i 2002
+FNs menneskerettighetsråd ble opprettet: 2006, i Genève, med 47 medlemsland",fn-systemet,0,
+internasjonale-domstoler,concept,Folkerett og internasjonale institusjoner,Internasjonale domstoler,"Den internasjonale domstolen (ICJ): avgjør tvister mellom stater som har godtatt domstolens myndighet.
+Den internasjonale straffedomstolen (ICC): straffeforfølger enkeltpersoner for folkemord, forbrytelser mot menneskeheten, krigsforbrytelser og aggresjon, når statene selv ikke vil eller kan.
+Den europeiske menneskerettsdomstolen (EMD): behandler klager fra enkeltpersoner mot stater som har sluttet seg til EMK, og dommene er bindende for staten.",fn-systemet;mellomstatlig-overstatlig,0,
+overvaking,concept,Folkerett og internasjonale institusjoner,Overvåking av menneskerettighetene,"Overvåking av menneskerettighetene: statene rapporterer jevnlig til FN-komiteer som følger opp hver konvensjon, og alle FN-land får sin situasjon gjennomgått av de andre i Menneskerettighetsrådet (Universal Periodic Review). Frivillige organisasjoner som Amnesty International og Human Rights Watch dokumenterer brudd og legger press på statene.",fn-systemet;mr-dokumenter,0,
+norske-mr-institusjoner,concept,Folkerett og internasjonale institusjoner,Norske tilsynsorganer for menneskerettigheter,"Norges institusjon for menneskerettigheter (NIM): et uavhengig organ under Stortinget som overvåker og rapporterer om hvordan Norge oppfyller menneskerettighetene.
+Sivilombudet: kontrollerer at forvaltningen behandler enkeltmennesker riktig, og forebygger umenneskelig behandling der folk er fratatt friheten.
+Barneombudet: arbeider for barns rettigheter etter barnekonvensjonen.",mr-i-norsk-rett,0,
+folkerettens-rolle,skill,Folkerett og internasjonale institusjoner,Vurdere folkerettens rolle og betydning,"vurdere hva folkeretten betyr for hvordan stater opptrer, både i Norge og internasjonalt, og drøfte hvorfor den ofte blir fulgt selv om det mangler en verdenspoliti, og når den ikke blir det.",folkerett;dualisme;internasjonale-domstoler;institusjoner-fakta,0,
+utforske-handheving,skill,Folkerett og internasjonale institusjoner,Utforske hvordan menneskerettighetene håndheves,"utforske hvordan nasjonale, mellomstatlige og overstatlige institusjoner og frivillige organisasjoner overvåker og håndhever menneskerettighetene i en konkret sak, og drøfte forholdet mellom statens suverenitet og internasjonal kontroll.",overvaking;internasjonale-domstoler;norske-mr-institusjoner;mellomstatlig-overstatlig,0,
+ip-teorier,concept,Krig og fred,Teorier om internasjonal politikk,"Realisme: stater er de viktigste aktørene i et internasjonalt system uten noen overordnet myndighet, og de handler ut fra egeninteresse og makt, særlig militær makt.
+Liberalisme: samarbeid, handel, internasjonale institusjoner og demokrati kan dempe konflikter og gjøre alle bedre stilt.
+Konstruktivisme: staters interesser og identiteter er ikke gitt, men formes av ideer, normer og samhandling.",teori-modell;suverenitet,0,
+hard-myk-makt,concept,Krig og fred,Hard og myk makt,"Hard makt: å påvirke andre stater gjennom tvang eller betaling - militær styrke, sanksjoner, økonomisk press.
+Myk makt: å påvirke gjennom tiltrekning - kultur, verdier og troverdighet som får andre til å ønske det samme som deg (begrepet er Joseph Nyes).",makt,0,
+sikkerhet,concept,Krig og fred,Sikkerhet,"Sikkerhet: vern mot trusler mot det man verdsetter. Tradisjonelt betyr det statens vern mot militære angrep; et utvidet sikkerhetsbegrep tar også med trusler som terror, digitale angrep, klimaendringer og trusler mot enkeltmenneskers liv og helse (menneskelig sikkerhet).",,0,
+kollektiv-sikkerhet,concept,Krig og fred,Kollektiv sikkerhet og kollektivt forsvar,"Kollektiv sikkerhet: alle statene i et system forplikter seg til å stå sammen mot den som bryter freden, uansett hvem det er - tanken bak FN.
+Kollektivt forsvar: en gruppe stater lover å forsvare hverandre mot angrep utenfra, som i NATOs artikkel 5.",sikkerhet;fn-systemet,0,
+maktforbudet,concept,Krig og fred,Maktforbudet,"Maktforbudet: FN-paktens forbud mot at stater bruker eller truer med militær makt mot andre stater. Unntakene er selvforsvar mot et væpnet angrep og maktbruk som Sikkerhetsrådet har gitt mandat til.",folkerett;fn-systemet,0,
+humanitaerretten,concept,Krig og fred,Krigens folkerett,"Krigens folkerett (humanitærretten): reglene som gjelder under væpnet konflikt, særlig Genèvekonvensjonene fra 1949. De krever blant annet at partene skiller mellom stridende og sivile, ikke bruker mer makt enn det militære målet tilsier, og behandler fanger og sårede humant.",folkerett,0,
+r2p,concept,Krig og fred,Ansvaret for å beskytte (R2P),"Ansvaret for å beskytte: prinsippet FN-landene sluttet seg til i 2005 om at hver stat har ansvar for å beskytte befolkningen sin mot folkemord, krigsforbrytelser, etnisk rensing og forbrytelser mot menneskeheten, og at verdenssamfunnet, gjennom Sikkerhetsrådet, kan gripe inn når staten svikter.",maktforbudet;suverenitet,0,
+konfliktlosning,concept,Krig og fred,Virkemidler for konfliktløsning,"Forhandling: partene kommer fram til en avtale direkte.
+Mekling: en tredjepart hjelper partene med å forhandle, slik Norge gjorde i Oslo-prosessen mellom Israel og PLO i 1993.
+Sanksjoner: økonomiske eller politiske tiltak som skal presse en stat til å endre atferd.
+Fredsoperasjoner: internasjonale styrker som overvåker en våpenhvile eller beskytter sivile.",kollektiv-sikkerhet,0,
+bruke-ip-teori,skill,Krig og fred,Forklare en internasjonal konflikt med ulike teorier,"forklare en internasjonal konflikt eller et samarbeid ut fra realisme, liberalisme og konstruktivisme, og vurdere hvilken teori som forklarer mest av akkurat denne saken.",ip-teorier;hard-myk-makt;bruke-teori,0,
+analysere-internasjonal-konflikt,skill,Krig og fred,Analysere en internasjonal konflikt,"analysere en aktuell internasjonal konflikt ut fra årsaker, aktører, interesser og maktforhold, og vurdere om partene og andre stater har handlet i tråd med folkeretten.",bruke-ip-teori;maktforbudet;humanitaerretten;vurdere-informasjon,0,
+drofte-internasjonal-handtering,skill,Krig og fred,Drøfte hvordan det internasjonale systemet håndterer krig og fred,"drøfte hvor godt FN, NATO og andre internasjonale aktører håndterer spørsmål om krig og fred, sikkerhet, samarbeid og konfliktløsning, med vekt på hvordan vetoretten, ulik makt og hensynet til suverenitet begrenser hva de får til.",analysere-internasjonal-konflikt;konfliktlosning;r2p;institusjoner-fakta,0,
+baerekraft,concept,Bærekraft og fordeling,Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker dagens behov uten å ødelegge mulighetene for kommende generasjoner til å dekke sine (Brundtland-kommisjonen). Den har tre dimensjoner som må sees sammen: miljø, økonomi og sosiale forhold.",,0,
+fordeling,concept,Bærekraft og fordeling,Fordeling og ulikhet,"Fordeling: hvordan inntekt, formue, makt og goder er fordelt mellom personer, grupper, regioner og land.
+Gini-koeffisienten: et mål på ulikhet i inntekt eller formue, fra 0 (alle har like mye) til 1 (én har alt).",lese-tabeller,0,
+virkemidler,concept,Bærekraft og fordeling,Politiske virkemidler,"Politiske virkemidler: verktøyene myndighetene bruker for å styre samfunnet - skatter og avgifter, subsidier og tilskudd, påbud og forbud, kvoter, offentlige tjenester og informasjon. Hvert virkemiddel treffer grupper ulikt.",,0,
+kollektivt-handlingsproblem,concept,Bærekraft og fordeling,Kollektivt handlingsproblem,"Kollektivt handlingsproblem: en situasjon der alle ville tjent på å samarbeide, men der hver enkelt aktør - en person eller en stat - tjener på å la andre ta kostnaden (gratispassasjer). Klimaspørsmålet er det store eksempelet.",baerekraft,0,
+baerekraft-fakta,fact,Bærekraft og fordeling,Internasjonale avtaler om bærekraft,"Brundtland-rapporten «Vår felles framtid»: 1987
+Kyotoprotokollen: 1997
+Parisavtalen: 2015, med mål om å holde oppvarmingen godt under 2 grader og helst 1,5 grader
+FNs bærekraftsmål: vedtatt 2015, 17 mål som skal nås innen 2030",baerekraft,0,
+analysere-fordelingsvirkninger,skill,Bærekraft og fordeling,Analysere hvem som vinner og taper på et tiltak,"analysere hvordan et konkret politisk tiltak, som en klimaavgift eller en endring i skattesystemet, slår ut for ulike grupper, regioner eller land, og hvilke spenninger det skaper mellom dem.",virkemidler;fordeling;konfliktlinje,0,
+drofte-baerekraft-fordeling,skill,Bærekraft og fordeling,Drøfte en aktuell sak om bærekraft og fordeling,"utforske og drøfte en dagsaktuell problemstilling om bærekraft og fordeling, nasjonalt eller globalt, og veie hensynet til miljø, økonomisk vekst og rettferdig fordeling mot hverandre.",analysere-fordelingsvirkninger;kollektivt-handlingsproblem;baerekraft-fakta;mr-og-velferdsstat,0,

@@ -1,0 +1,265 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Feltarbeid, kart og modeller;Jordsystemene;Jordas indre og platetektonikk;Mineraler og bergarter;Geologisk tid;Landformer;Løsmasser og lokal geologi;Vannets kretsløp;Naturfarer og risiko",,,
+,config,,title,Geofag X,,,
+,config,,description,"Jordsystemene, platetektonikk, mineraler og bergarter, landformer, løsmasser og lokal geologi, vannets kretsløp og risiko for naturfarer — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,no-vgs-geofag-x-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"geofag X (programfag realfag, norsk videregående skole, REA3041)",,,
+,config,,slots.expressionFocus,"blander sammen mineral og bergart, forvitring og erosjon, berggrunn og løsmasser, eller magnitude og intensitet; skriver «jordskorpa» der det menes litosfæren; sier at platene «flyter på flytende magma» selv om mantelen stort sett er fast; oppgir aldre og hastigheter uten enhet eller tidsskala; eller bruker «risiko» om selve faren uten å ta med sannsynlighet og konsekvens",,,
+,config,,slots.courseSpecifics,"Geofag X er et kort programfag (84 timer) med et utvalg av målene fra geofag 1. Faget har standpunktkarakter og ingen skriftlig eksamen. Eleven kan trekkes ut til muntlig-praktisk eksamen med forberedelsesdel, laget og sensurert lokalt, der eleven gjerne legger fram egne observasjoner, kart, bergartsprøver eller en modell og forklarer det muntlig med fagbegreper. Bruk norske eksempler og lokale forhold der det passer.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag realfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3041,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,earth-science,,,
+,config,,keywords,geofag; geologi; jordsystemer; platetektonikk; mineraler; bergarter; bergartssyklusen; landformer; isbreer; løsmasser; hydrologi; grunnvann; naturfarer; skred; kvikkleire; flom; risiko; muntlig-praktisk eksamen,,,
+,config,,updated,2026-10-08,,,
+modell,concept,"Feltarbeid, kart og modeller",Modell i geofag,"Modell: en forenklet framstilling av et geofaglig system eller en prosess — fysisk (f.eks. en sandkasse eller et skredforsøk), konseptuell (en tegning med bokser og piler) eller numerisk (et dataprogram som regner) — brukt til å forklare, undersøke eller forutsi.",,0,
+kart-koordinater,concept,"Feltarbeid, kart og modeller","Målestokk, koordinater og georeferering","Målestokk: forholdet mellom en lengde på kartet og den samme lengden i terrenget, f.eks. 1 : 50 000.
+Koordinater: tall som angir et punkts posisjon, enten som bredde- og lengdegrad eller i et rutenett i meter (UTM).
+Georeferering: å knytte en observasjon, et bilde eller en prøve til en bestemt posisjon, f.eks. med GPS.",,0,
+hoydekurver,concept,"Feltarbeid, kart og modeller",Høydekurver,"Høydekurve: en linje på kartet som binder sammen punkter med samme høyde over havet. Tett med kurver betyr bratt terreng, glisne kurver betyr slakt terreng.",kart-koordinater,0,
+terrengprofil-helning,skill,"Feltarbeid, kart og modeller",Tegne et terrengprofil og regne ut helningen,"tegne et terrengprofil langs en linje på et topografisk kart, og regne ut helningen mellom to punkter i prosent og i grader.",hoydekurver,0,"Gi eleven to punkter med høyder og avstanden mellom dem på kartet (med målestokk), f.eks. 400 moh. og 150 moh. med 2 cm mellom dem i 1 : 25 000. Be dem regne ut den faktiske avstanden, helningen i prosent og helningen i grader (med tangens), og si om skråningen er bratt nok til at skred kan være et tema."
+hms-felt,concept,"Feltarbeid, kart og modeller",Risikovurdering i felt,"Risikovurdering i felt: å vurdere på forhånd hva som kan gå galt på feltturen — vær, bratt terreng, rennende vann, is, steinsprang, trafikk — hvor alvorlig det kan bli, og hvilke tiltak og hvilket utstyr som trengs.",,0,
+registrere-felt,skill,"Feltarbeid, kart og modeller",Registrere observasjoner i felt,"registrere observasjoner i felt slik at andre kan etterprøve dem: posisjon, dato, notater og skisser, bilder med målestokk, og merkede prøver.",kart-koordinater,0,"Be eleven beskrive hvordan de ville dokumentert et blotningspunkt eller en målestasjon ved en bekk, og vurder om noen andre kunne funnet stedet igjen og forstått observasjonene ut fra notatene alene. Spør hva som mangler."
+bearbeide-data,skill,"Feltarbeid, kart og modeller",Bearbeide og framstille feltdata,"bearbeide innsamlede data med gjennomsnitt og spredning, lage hensiktsmessige diagrammer eller kart, og peke på trender, avvik og målefeil.",registrere-felt,0,"Gi eleven en liten tabell med feltdata (f.eks. kornstørrelser fra fem prøvepunkter, eller vannføring målt flere dager), be dem velge og beskrive en egnet framstilling, regne gjennomsnitt, og kommentere avvik og mulige målefeil."
+vurdere-modell,skill,"Feltarbeid, kart og modeller",Vurdere styrker og svakheter ved en modell,"vurdere hva en geofaglig modell får fram og hva den forenkler bort, og hvor sikre konklusjoner den gir grunnlag for.",modell,0,"Beskriv en enkel geofaglig modell (f.eks. et sandkasseforsøk med en elv, eller et regneark som anslår utløpslengden til et skred) og be eleven si hva modellen fanger opp, hva den utelater, og hvordan det påvirker hvor mye vi kan stole på resultatet."
+jordsystemene,concept,Jordsystemene,Jordsystemene,"Geosfæren: den faste jorda — bergarter, løsmasser og jordas indre.
+Atmosfæren: lufta rundt jorda.
+Hydrosfæren: alt flytende vann — hav, innsjøer, elver og grunnvann.
+Kryosfæren: alt frosset vann — isbreer, snø, sjøis og permafrost.
+Biosfæren: alt liv, og der livet finnes.",,0,
+reservoar-fluks,concept,Jordsystemene,Reservoar og fluks,"Reservoar: et sted der et stoff eller energi er lagret en tid, f.eks. vann i havet eller karbon i kalkstein.
+Fluks: hvor mye som flyttes mellom to reservoarer per tid, f.eks. kubikkmeter vann per sekund.
+Oppholdstid: hvor lenge stoffet i gjennomsnitt blir i et reservoar.",jordsystemene,0,
+drivkrefter-jordsystemer,concept,Jordsystemene,Energikildene som driver jordsystemene,"Solenergi: driver vær, vannets kretsløp, forvitring og erosjon — de ytre prosessene.
+Jordas indre varme: fra radioaktiv nedbrytning og restvarme fra jordas dannelse, driver mantelkonveksjon, vulkanisme og fjellkjededannelse — de indre prosessene.
+Tyngdekraften: får vann, is og løsmasser til å bevege seg nedover.",jordsystemene,0,
+indre-ytre-prosesser,concept,Jordsystemene,Indre og ytre prosesser,"Indre prosesser: drevet av jordas indre varme, og bygger opp relieff — platebevegelser, vulkanisme, folding og landheving.
+Ytre prosesser: drevet av sola og tyngdekraften, og bryter ned og jevner ut relieff — forvitring, erosjon, transport og avsetning.",drivkrefter-jordsystemer,0,
+uniformitarisme,concept,Jordsystemene,Uniformitarisme,"Uniformitarisme: prinsippet om at de prosessene vi ser virke i dag, også virket i fortiden, slik at vi kan tolke gamle bergarter og landformer ut fra prosesser vi kan observere nå — «nåtiden er nøkkelen til fortiden».",indre-ytre-prosesser,0,
+systemmodell,skill,Jordsystemene,Tegne en systemmodell av et geofaglig fenomen,tegne en enkel systemmodell med reservoarer og piler for flukser som viser hvordan et geofaglig fenomen henger sammen med flere jordsystemer.,reservoar-fluks;modell,0,"Be eleven tegne (eller beskrive i tekst) en boks-og-pil-modell for et fenomen som berører flere jordsystemer, f.eks. en isbre som smelter, eller en elv som frakter sand ut i en fjord. Spør hva hver boks og pil står for, og hva som skjer om én fluks øker."
+forklare-vekselvirkning,skill,Jordsystemene,Forklare vekselvirkninger mellom jordsystemene,"forklare med konkrete eksempler hvordan prosesser i atmosfæren, kryosfæren og biosfæren påvirker geosfæren og hydrosfæren, og omvendt.",systemmodell;indre-ytre-prosesser,0,"Gi eleven et eksempel (f.eks. et stort vulkanutbrudd, en istid, eller at en skråning blir hogd flatt) og be dem følge virkningene gjennom flere jordsystemer, steg for steg, til de kommer tilbake til geosfæren eller hydrosfæren."
+jordas-lag,concept,Jordas indre og platetektonikk,Jordas lag,"Jordskorpa: det tynne, ytterste laget av lette silikatbergarter.
+Mantelen: et tykt lag av tettere silikatbergart som er fast, men som kan sige sakte over lang tid.
+Ytre kjerne: flytende jern og nikkel.
+Indre kjerne: fast jern og nikkel, fast på grunn av det enorme trykket.",,0,
+litosfaere-astenosfaere,concept,Jordas indre og platetektonikk,Litosfæren og astenosfæren,"Litosfæren: det stive ytterlaget — jordskorpa pluss øverste del av mantelen — som er delt opp i plater.
+Astenosfæren: laget i mantelen under litosfæren, som er så varmt at det er plastisk og kan sige, slik at platene kan bevege seg over det.",jordas-lag,0,
+skorpetyper,concept,Jordas indre og platetektonikk,Havbunnsskorpe og kontinental skorpe,"Havbunnsskorpe: tynn (rundt 5–10 km), tett, mørk basaltisk skorpe som stadig dannes og forsvinner, og som derfor er ung.
+Kontinental skorpe: tykk (rundt 30–70 km), lettere, granittisk skorpe som ikke synker ned i mantelen, og som derfor kan være svært gammel.",jordas-lag,0,
+seismiske-boelger,concept,Jordas indre og platetektonikk,P-bølger og S-bølger,"P-bølge: en trykkbølge som går raskest og kan gå gjennom både fast stoff og væske.
+S-bølge: en skjærbølge som er langsommere og bare kan gå gjennom fast stoff.",jordas-lag,0,
+forklare-jordas-indre,skill,Jordas indre og platetektonikk,Forklare hvordan vi vet hvordan jorda ser ut inni,"forklare hvordan målinger av jordskjelvbølger avslører jordas lag, blant annet hvorfor skyggesonen for S-bølger viser at den ytre kjernen er flytende.",seismiske-boelger,0,"Be eleven forklare hvorfor seismografer på motsatt side av jorda fra et kraftig jordskjelv registrerer P-bølger, men ikke S-bølger, og hva det sier om kjernen. Spør hvorfor ingen har boret seg ned dit for å sjekke."
+isostasi,concept,Jordas indre og platetektonikk,Isostasi,"Isostasi: likevekten der litosfæren «flyter» på den seige mantelen under, slik at tykk eller lett skorpe stikker høyere opp, og skorpa synker ned når den får en ekstra last (f.eks. en innlandsis) og hever seg igjen når lasten forsvinner.",litosfaere-astenosfaere;skorpetyper,0,
+plategrenser,concept,Jordas indre og platetektonikk,Plategrenser,"Divergent plategrense: platene beveger seg fra hverandre, og ny havbunnsskorpe dannes, f.eks. ved en midthavsrygg.
+Konvergent plategrense: platene beveger seg mot hverandre; den ene kan presses ned (subduksjon), eller to kontinenter kan kollidere og danne en fjellkjede.
+Transformgrense: platene glir sidelengs forbi hverandre, uten at skorpe dannes eller forsvinner.",litosfaere-astenosfaere;skorpetyper,0,
+subduksjon,concept,Jordas indre og platetektonikk,Subduksjon,"Subduksjon: at en tett havbunnsplate synker ned under en annen plate ved en konvergent plategrense, med en dyphavsgrøft der den bøyer ned, og vulkaner på den overliggende plata fordi vann fra den synkende plata senker smeltepunktet i mantelen over.",plategrenser,0,
+varm-flekk,concept,Jordas indre og platetektonikk,Varm flekk,"Varm flekk (hotspot): et sted der varmt materiale stiger opp fra dypt i mantelen og gir vulkanisme midt på en plate, slik at plata som glir over danner en rekke vulkaner som blir eldre jo lenger fra den varme flekken de ligger.",litosfaere-astenosfaere,0,
+drivkrefter-plater,concept,Jordas indre og platetektonikk,Drivkreftene bak platebevegelsene,"Mantelkonveksjon: varmt materiale i mantelen stiger opp og kaldere materiale synker, slik at mantelen sakte sirkulerer.
+Platetrekk: den tunge, kalde plata som synker ned i en subduksjonssone, trekker resten av plata etter seg — trolig den viktigste drivkraften.
+Ryggskyv: plata glir ned og bort fra den høyere midthavsryggen.",subduksjon;drivkrefter-jordsystemer,0,
+forkastning-folding,concept,Jordas indre og platetektonikk,Forkastning og folding,"Forkastning: en sprekk i berggrunnen der blokkene på hver side har forskjøvet seg i forhold til hverandre, ofte i et jordskjelv.
+Folding: at lag i berggrunnen bøyes uten å brekke, når de presses sammen over lang tid ved høy temperatur og høyt trykk.",plategrenser,0,
+platetektonikk-belegg,skill,Jordas indre og platetektonikk,Argumentere for platetektonikk med belegg,"argumentere for at kontinentene flytter seg, med belegg fra kontinentenes form, fossiler og bergarter på tvers av hav, magnetiske striper på havbunnen og havbunnens alder.",plategrenser;varm-flekk,0,"Be eleven forklare for en skeptisk venn hvorfor geologer er sikre på at Atlanterhavet blir bredere. Krev minst tre uavhengige typer belegg, og spør hvilket av dem eleven synes er sterkest og hvorfor."
+eksempler-plategrenser,fact,Jordas indre og platetektonikk,Kjente eksempler på plategrenser,"Den midtatlantiske ryggen: divergent grense mellom havbunnsplater
+Island: divergent grense oppå en varm flekk
+Den østafrikanske riftdalen: divergent grense som er i ferd med å splitte et kontinent
+San Andreas-forkastningen: transformgrense
+Andesfjellene: havbunnsplate subduseres under et kontinent
+Japan: havbunnsplate subduseres under havbunnsplate og danner en øybue
+Himalaya: kollisjon mellom to kontinenter (India og Eurasia)
+Hawaii: varm flekk midt på en plate",plategrenser;subduksjon;varm-flekk,0,
+platehastighet,skill,Jordas indre og platetektonikk,Regne ut hvor fort en plate beveger seg,"regne ut farten til en plate ut fra en avstand og en alder (f.eks. mellom vulkaner i en kjede over en varm flekk, eller mellom magnetiske striper), og oppgi svaret i en fornuftig enhet som cm per år.",varm-flekk,0,"Gi eleven et konkret talleksempel, f.eks. to vulkanøyer i en kjede som ligger 300 km fra hverandre og har alderen 1 og 4 millioner år. Be dem regne ut farten i cm per år, med enhetsomregning vist, og vurdere om svaret er rimelig."
+tolke-plategrense,skill,Jordas indre og platetektonikk,Avgjøre hvilken plategrense et område ligger ved,"avgjøre hvilken type plategrense et område ligger ved ut fra kjennetegn som jordskjelv, vulkaner, dyphavsgrøfter, fjellkjeder og rygger, og forklare hvordan platebevegelsen gir disse kjennetegnene.",eksempler-plategrenser;forkastning-folding,0,"Beskriv et tenkt eller virkelig område med et par kjennetegn (f.eks. en dyphavsgrøft langs kysten, dype jordskjelv som blir dypere innover land, og en kjede av vulkaner), og be eleven avgjøre plategrensetypen og forklare hvorfor hvert kjennetegn passer."
+mineral-bergart,concept,Mineraler og bergarter,Mineral og bergart,"Mineral: et naturlig, fast, uorganisk stoff med en bestemt kjemisk sammensetning og atomer ordnet i et fast krystallmønster.
+Bergart: et fast stoff i berggrunnen som består av ett eller flere mineraler (eller av bergartsbiter eller organisk materiale).",,0,
+mineralgrupper,concept,Mineraler og bergarter,Mineralgrupper,"Silikater: bygd opp av silisium og oksygen (SiO4-enheter), og den klart største gruppen i jordskorpa.
+Karbonater: inneholder CO3, f.eks. kalkspat.
+Oksider: metall bundet til oksygen, f.eks. magnetitt og hematitt.
+Sulfider: metall bundet til svovel, f.eks. pyritt — ofte viktige malmmineraler.
+Rene grunnstoffer: f.eks. gull, kobber og grafitt.",mineral-bergart,0,
+mineralegenskaper,concept,Mineraler og bergarter,Egenskaper som skiller mineraler,"Hardhet: hvor lett mineralet blir ripet, målt på Mohs' skala.
+Kløv: at mineralet brekker langs plane flater; brudd er når det brekker ujevnt.
+Glans: hvordan overflaten reflekterer lys, f.eks. metallglans eller glassglans.
+Strekfarge: fargen på pulveret når mineralet gnis mot en uglasert porselensplate — sikrere enn fargen på selve mineralet.
+Syrereaksjon: at mineralet bruser i fortynnet saltsyre, slik karbonater gjør.",mineral-bergart,0,
+mohs,fact,Mineraler og bergarter,Mohs' hardhetsskala,"1: talk
+2: gips
+3: kalkspat
+4: flusspat
+5: apatitt
+6: feltspat (ortoklas)
+7: kvarts
+8: topas
+9: korund
+10: diamant
+fingernegl: ripes av hardhet 3, risser hardhet 2
+stålkniv og vindusglass: omtrent 5,5",mineralegenskaper,0,
+vanlige-mineraler,fact,Mineraler og bergarter,Vanlige bergartsdannende mineraler,"kvarts: hard (7), ingen kløv, glassglans, ofte grå eller hvit
+feltspat: hardhet 6, god kløv i to retninger, ofte hvit, grå eller rosa
+glimmer: kløyves i tynne, bøyelige flak; lys (muskovitt) eller mørk (biotitt)
+kalkspat: hardhet 3, bruser i fortynnet saltsyre
+amfibol og pyroksen: mørke, middels harde silikater i mørke bergarter
+olivin: grønn, i mantelbergarter og basalt
+granat: rødbrune, runde krystaller i metamorfe bergarter
+pyritt: messinggul metallglans, «kattegull»
+magnetitt: svart og magnetisk",mineralgrupper;mineralegenskaper,0,
+identifisere-mineral,skill,Mineraler og bergarter,Identifisere et mineral ut fra egenskapene,"identifisere vanlige mineraler ved å teste og beskrive hardhet, kløv, glans, strekfarge og syrereaksjon, og begrunne bestemmelsen.",mohs;vanlige-mineraler,0,"Beskriv et ukjent mineral med testresultater (f.eks. «ripes av kniv, men risser ikke glass; bruser i saltsyre; hvit strek»), og be eleven bestemme mineralet og si hvilken test som var avgjørende. Gi gjerne et tilfelle der fargen lurer."
+bergartsgrupper,concept,Mineraler og bergarter,De tre bergartsgruppene,"Magmatisk bergart: dannet når magma eller lava størkner.
+Sedimentær bergart: dannet når sedimenter avsettes i lag og blir presset og sementert sammen, eller når stoff felles ut fra vann.
+Metamorf bergart: dannet når en eldre bergart blir omdannet av høy temperatur og høyt trykk, uten å smelte.",mineral-bergart,0,
+magmatiske,concept,Mineraler og bergarter,Dypbergart og dagbergart,"Dypbergart: magma som har størknet sakte dypt i jordskorpa, slik at krystallene ble store og synlige (grovkornet), f.eks. granitt og gabbro.
+Dagbergart: lava som har størknet raskt på eller nær overflaten, slik at krystallene ble små (finkornet), f.eks. basalt og ryolitt.",bergartsgrupper,0,
+sedimentaere,concept,Mineraler og bergarter,Klastiske og kjemiske sedimentære bergarter,"Klastisk sedimentær bergart: bygd opp av korn og biter av eldre bergarter, sortert etter størrelse, f.eks. konglomerat, sandstein og leirskifer.
+Kjemisk eller biogen sedimentær bergart: dannet av stoff som felles ut av vann, eller av skall og rester fra organismer, f.eks. kalkstein og kull.
+Diagenese: prosessen der løse sedimenter blir pakket sammen og sementert til fast bergart.",bergartsgrupper,0,
+metamorfe,concept,Mineraler og bergarter,Metamorfose og foliasjon,"Metamorfose: omdanning av en fast bergart ved høyere temperatur og trykk, slik at mineralene vokser om eller nye mineraler dannes, uten at bergarten smelter.
+Foliasjon: lagdeling eller bånding i en metamorf bergart, der mineralene har ordnet seg på tvers av trykket, f.eks. i glimmerskifer og gneis.",bergartsgrupper,0,
+kornstorrelser,fact,Mineraler og bergarter,Kornstørrelser i sedimenter,"leire: mindre enn 0,002 mm
+silt: 0,002–0,063 mm
+sand: 0,063–2 mm
+grus: 2–64 mm
+stein: 64–256 mm
+blokk: større enn 256 mm",sedimentaere,0,
+sortering-rundingsgrad,concept,Mineraler og bergarter,Sortering og rundingsgrad,"Sortering: hvor like store kornene i et sediment er. Godt sortert sediment (f.eks. elvesand) er avsatt av vann eller vind; dårlig sortert sediment med alle kornstørrelser (f.eks. morene) er avsatt av is eller skred.
+Rundingsgrad: hvor avrundede kornene er. Jo lenger de har blitt transportert i vann, jo rundere blir de.",kornstorrelser,0,
+vanlige-bergarter,fact,Mineraler og bergarter,Vanlige bergarter og hvordan de kjennes igjen,"granitt: lys, grovkornet dypbergart med kvarts, feltspat og glimmer
+gabbro: mørk, grovkornet dypbergart
+basalt: mørk, finkornet dagbergart; havbunnen er laget av den
+larvikitt: grovkornet dypbergart fra Oslofeltet med blåskimrende feltspat; Norges nasjonalbergart
+sandstein: sementerte sandkorn som kjennes som sandpapir
+leirskifer: finkornet, lagdelt sedimentær bergart av leire
+konglomerat: runde steiner og grus sementert sammen
+kalkstein: sedimentær bergart av kalkspat, bruser i saltsyre
+gneis: grovkornet metamorf bergart med lyse og mørke bånd
+glimmerskifer: metamorf bergart som glitrer og kløyves i flak
+marmor: metamorf kalkstein
+kvartsitt: metamorf sandstein, svært hard",magmatiske;sedimentaere;metamorfe;vanlige-mineraler,0,
+identifisere-bergart,skill,Mineraler og bergarter,Bestemme en bergart,"bestemme hvilken bergartsgruppe en bergart hører til og gi den et navn, ut fra kornstørrelse, tekstur, lagdeling og mineraler, og begrunne hvert steg.",vanlige-bergarter;identifisere-mineral,0,"Beskriv en bergartsprøve i ord (f.eks. «grovkornet, lyse og mørke bånd som bølger seg, glitrende flak») og be eleven bestemme gruppe og navn, og si hvilke kjennetegn som utelukket de andre gruppene. Ta også med en prøve som er vanskelig å plassere."
+tolke-sediment,skill,Mineraler og bergarter,Tolke hvordan et sediment er avsatt,"tolke ut fra kornstørrelse, sortering og rundingsgrad hvordan et sediment eller en sedimentær bergart er transportert og avsatt.",sortering-rundingsgrad,0,"Beskriv to sedimentprøver (f.eks. én med godt sortert, rund sand og én med kantete stein, grus og leire blandet sammen) og be eleven tolke transportmiddel og avsetningsmiljø for hver, og begrunne svaret."
+bergartssyklusen,concept,Mineraler og bergarter,Bergartssyklusen,"Bergartssyklusen: modellen for hvordan bergarter omdannes fra én gruppe til en annen over geologisk tid — magmatiske, sedimentære og metamorfe bergarter kan forvitre til sedimenter, omdannes av trykk og temperatur, eller smelte til magma, drevet av indre og ytre prosesser.",magmatiske;sedimentaere;metamorfe;indre-ytre-prosesser,0,
+plassere-i-syklusen,skill,Mineraler og bergarter,Plassere en bergart eller et sediment i bergartssyklusen,"tolke hvilke prosesser som har dannet en gitt bergart eller et gitt sediment, plassere den i bergartssyklusen, og forklare hva den kan bli til videre.",bergartssyklusen;identifisere-bergart;tolke-sediment,0,"Gi eleven en bergart eller et sediment (f.eks. gneis, sandstein eller en morene) og be dem forklare hvilke prosesser som har laget den, hvor i bergartssyklusen den hører hjemme, og to mulige veier den kan gå videre. Krev at prosessene navngis."
+bergart-og-plategrense,skill,Mineraler og bergarter,Knytte bergartsdannelse til plategrensene,"forklare hvor ulike bergarter typisk dannes i forhold til plategrensene, f.eks. basalt ved midthavsrygger, granitt og andesitt over subduksjonssoner, og metamorfe bergarter i fjellkjeder.",plassere-i-syklusen;tolke-plategrense,0,"Be eleven ta utgangspunkt i en plategrense (f.eks. en kontinentkollisjon eller en subduksjonssone) og forklare hvilke bergarter som dannes der og hvorfor, med temperatur, trykk og smelting som stikkord."
+relativ-absolutt-alder,concept,Geologisk tid,Relativ og absolutt alder,"Relativ alder: om en bergart, et lag eller en hendelse er eldre eller yngre enn en annen, uten at vi vet hvor mange år det er snakk om.
+Absolutt alder: alderen i antall år, f.eks. målt med radioaktive isotoper.",,0,
+dateringsprinsipper,concept,Geologisk tid,Prinsippene for relativ datering,"Superposisjon: i en uforstyrret lagpakke ligger de eldste lagene nederst.
+Opprinnelig horisontalitet: sedimentlag avsettes omtrent vannrett, så skrå eller foldete lag er blitt deformert etterpå.
+Gjennomskjæring: en gang, et brudd eller en forkastning er yngre enn lagene den skjærer gjennom.
+Innesluttede biter: biter av en bergart som ligger inne i en annen bergart, er eldre enn bergarten rundt.",relativ-absolutt-alder,0,
+ledefossil-diskordans,concept,Geologisk tid,Ledefossil og diskordans,"Ledefossil: fossil av en art som levde i en kort periode og fantes over et stort område, slik at lag med samme ledefossil kan regnes som omtrent like gamle.
+Diskordans: en flate i lagrekka som viser en pause i avsetningen, ofte med erosjon, slik at en del av historien mangler.",dateringsprinsipper,0,
+relativ-rekkefolge,skill,Geologisk tid,Bestemme rekkefølgen av hendelser i et geologisk profil,"bestemme rekkefølgen av avsetning, folding, forkastning, gjennomsetting og erosjon i et tegnet geologisk profil, og begrunne hvert steg med et dateringsprinsipp.",ledefossil-diskordans;forkastning-folding,0,"Beskriv et geologisk profil i ord (f.eks. tre sedimentlag, en forkastning som skjærer de to nederste, en gang av basalt som skjærer alle tre, og et nytt lag på toppen etter en erosjonsflate). Be eleven sette hendelsene i rekkefølge og navngi prinsippet bak hvert steg."
+geologisk-tidsskala,fact,Geologisk tid,Den geologiske tidsskalaen,"jordas alder: omtrent 4,6 milliarder år
+prekambrium: fra jordas dannelse til omtrent 540 millioner år siden
+paleozoikum (jordas oldtid): omtrent 540–252 millioner år siden
+mesozoikum (jordas middelalder, dinosaurenes tid): omtrent 252–66 millioner år siden
+kenozoikum (jordas nytid): omtrent 66 millioner år siden til i dag
+kvartær (perioden med istider): omtrent 2,6 millioner år siden til i dag
+holocen (tiden etter siste istid): omtrent 11 700 år siden til i dag",relativ-absolutt-alder,0,
+norges-geologiske-historie,fact,Geologisk tid,Hovedtrekk i Norges geologiske historie,"grunnfjellet: prekambriske bergarter, mange av dem over en milliard år gamle
+den kaledonske fjellkjededannelsen: kontinentene Baltika og Laurentia kolliderte for omtrent 430–400 millioner år siden
+Oslofeltet: riftdannelse og vulkanisme for omtrent 300–250 millioner år siden
+Nordsjøens viktigste kildebergart for olje: skifer avsatt i sen jura, for omtrent 150 millioner år siden
+Nord-Atlanteren åpnet seg mellom Norge og Grønland: omtrent 55 millioner år siden
+siste istid var på sitt største: omtrent 20 000 år siden
+innlandsisen var borte fra det meste av fastlandet: omtrent 10 000 år siden",geologisk-tidsskala,0,
+forvitring,concept,Landformer,Forvitring,"Forvitring: at bergarter brytes ned der de står, uten å bli fraktet bort.
+Mekanisk forvitring: berget sprekker opp i biter, f.eks. ved frostsprengning når vann fryser i sprekker og utvider seg.
+Kjemisk forvitring: mineralene løses opp eller omdannes, f.eks. når kalkstein løses av svakt surt regnvann.
+Biologisk forvitring: planterøtter, lav og andre organismer bryter ned berget mekanisk eller kjemisk.",indre-ytre-prosesser,0,
+erosjon-avsetning,concept,Landformer,"Erosjon, transport og avsetning","Erosjon: at materiale løsner og blir fjernet av vann, is, vind eller tyngdekraften.
+Transport: at materialet blir fraktet videre.
+Avsetning: at materialet legger seg igjen når transportmidlet mister fart eller smelter.",forvitring,0,
+elvelandformer,concept,Landformer,Landformer laget av elver,"V-dal: trang dal med V-formet tverrsnitt, gravd ut av en elv som eroderer nedover.
+Meander: elvesving som vandrer fordi elva eroderer i yttersvingen og avsetter i innersvingen.
+Elveslette: flat dalbunn av elveavsetninger som oversvømmes ved flom.
+Delta: avsetning der elva munner ut i en innsjø eller i havet og mister farten.
+Elvevifte: vifteformet avsetning der en bratt elv kommer ut i en flatere dal.",erosjon-avsetning,0,
+breerosjon,concept,Landformer,Landformer laget av breerosjon,"U-dal: dal med bratte sider og flat bunn, gravd ut av en isbre.
+Fjord: U-dal som er gravd ut under havnivå og senere fylt av sjøen, ofte dypest innerst og grunnere ytterst.
+Botn: lenestolformet fordypning høyt i fjellsiden der en liten bre har gravd seg inn.
+Egg og horn: skarpe rygger og spisse topper som står igjen der flere botner har gravd seg inn mot hverandre.
+Skuringsstriper: riper i berget fra stein som isen har dratt med seg, og som viser hvilken vei isen beveget seg.",erosjon-avsetning,0,
+breavsetning,concept,Landformer,Landformer laget av breavsetning,"Morene: usortert blanding av leire, sand, grus, stein og blokk som isen har avsatt direkte.
+Endemorene: rygg av morene foran der brefronten sto lenge stille; store endemorener i Norge kalles «ra».
+Breelvavsetning: lagdelt og sortert sand og grus avsatt av smeltevann fra breen.
+Esker: smal, svingete rygg av sand og grus avsatt av en elv i en tunnel inne i eller under isen.",erosjon-avsetning;sortering-rundingsgrad,0,
+marin-grense,concept,Landformer,Landheving og marin grense,"Landheving: at landet har hevet seg siden siste istid fordi tyngden av innlandsisen forsvant (isostasi), og som fortsatt pågår mange steder i Norge.
+Marin grense: det høyeste nivået havet nådde etter at isen smeltet. Under marin grense kan det ligge havavsetninger som leire og strandavsetninger, høyt over dagens havnivå.",isostasi;breavsetning,0,
+sammenligne-landformer,skill,Landformer,Sammenligne landformer og hvordan de er dannet,"sammenligne to landformer og forklare forskjellen i hvordan de er dannet, f.eks. V-dal og U-dal, eller morene og breelvavsetning.",elvelandformer;breerosjon;breavsetning,0,"Be eleven sammenligne to landformer som lett forveksles (f.eks. V-dal og U-dal, eller en endemorene og en esker), og forklare både hvordan de ser forskjellige ut og hvilke prosesser som lager forskjellen."
+tolke-landformer-kart,skill,Landformer,Kjenne igjen landformer på kart og bilder,"kjenne igjen landformer på topografiske kart, terrengmodeller og flybilder, og forklare hvordan de er dannet.",sammenligne-landformer;hoydekurver,0,"Beskriv hva eleven ser på et kart eller et flybilde (f.eks. høydekurver som danner en halvsirkel høyt i en fjellside med et lite vann i bunnen, eller en flat, vifteformet slette der en elv møter en fjord). Be dem navngi landformen og forklare dannelsen."
+menneske-og-landformer,skill,Landformer,Forklare hvordan menneskelig aktivitet endrer landformer,"forklare hvordan menneskelig aktivitet som elveforbygning, uttak av sand og grus, utfylling, veibygging og avskoging endrer landformer og prosessene som former dem.",erosjon-avsetning,0,"Gi eleven et konkret inngrep (f.eks. at en elv blir rettet ut og forbygget, eller at en skog i en bratt li blir flatehogd) og be dem forklare hvilke prosesser som endres, og hva det kan føre til nedstrøms eller nedover lia på kort og lang sikt."
+forklare-norsk-landskap,skill,Landformer,Forklare hvordan det norske landskapet er formet,"forklare hvordan samspillet mellom landheving, istider, elver og havet har formet hovedtrekkene i det norske landskapet, som fjordene, dalene og strandflaten.",tolke-landformer-kart;marin-grense;norges-geologiske-historie,0,"Be eleven forklare for en turist hvorfor Vestlandet har dype fjorder og bratte daler, med både indre og ytre prosesser og riktig tidsskala. Spør hva som skjedde før istidene og hva istidene gjorde med landskapet."
+losmasser,concept,Løsmasser og lokal geologi,Berggrunn og løsmasser,"Berggrunn: det faste fjellet.
+Løsmasser: løst materiale som ligger oppå berggrunnen, og som deles inn etter hvordan det er avsatt — morene, breelvavsetning, elveavsetning, hav- og fjordavsetning, skredmateriale, forvitringsmateriale og torv.",breavsetning;elvelandformer,0,
+jordsmonn,concept,Løsmasser og lokal geologi,Jordsmonn,"Jordsmonn: det øverste laget av løsmassene, der forvitring, vann, planter og organismer har omdannet materialet og blandet inn organisk stoff, ofte delt i lag (horisonter) med ulik farge og innhold.",losmasser;forvitring,0,
+lese-geologiske-kart,skill,Løsmasser og lokal geologi,Lese berggrunns- og løsmassekart,"lese berggrunnskart og løsmassekart (f.eks. fra NGU) og hente ut hvilke bergarter og løsmasser som finnes i et område, og hvordan de er fordelt.",losmasser;vanlige-bergarter;kart-koordinater,0,"Beskriv utsnittet av et løsmassekart eller berggrunnskart for et område (f.eks. en dal med morene i liene, breelvavsetninger i dalbunnen og marin leire nær fjorden) og be eleven beskrive fordelingen og forklare hvorfor løsmassene ligger der de ligger."
+beskrive-lokalitet,skill,Løsmasser og lokal geologi,Undersøke berggrunn og løsmasser på en lokalitet,"undersøke en lokalitet i felt og beskrive bergart, strukturer, løsmassetype og landform, med begrunnede tolkninger av hvordan de er dannet.",registrere-felt;identifisere-bergart;tolke-sediment;losmasser,0,"La eleven beskrive en lokalitet de har besøkt eller kan se bilder av (f.eks. en veiskjæring eller en grustak). Hjelp dem skille mellom det de observerer og det de tolker, og be om begrunnelse for hver tolkning."
+lokal-geologisk-historie,skill,Løsmasser og lokal geologi,Fortelle den geologiske historien til et område,"sette sammen observasjoner og kart fra et område til en sammenhengende geologisk historie, fra dannelsen av berggrunnen til løsmassene og landformene i dag.",beskrive-lokalitet;lese-geologiske-kart;relativ-rekkefolge;forklare-norsk-landskap,0,"Gi eleven (eller la eleven velge) et område med noen få kjente opplysninger om berggrunn, løsmasser og landformer, og be dem fortelle områdets geologiske historie i riktig rekkefølge, med omtrentlig tidsskala og begrunnelse for hvert steg."
+lokale-ressurser,skill,Løsmasser og lokal geologi,Vurdere hva den lokale geologien betyr for ressursene,"vurdere hvilken betydning berggrunnen og løsmassene i et område har for lokale ressurser som grunnvann, byggeråstoff, jordbruksjord og naturstein.",lese-geologiske-kart;jordsmonn,0,"Ta utgangspunkt i et område med kjent geologi (f.eks. et stort breelvdelta, en dal med marin leire, eller et område med larvikitt) og be eleven vurdere hvilke ressurser geologien gir, og hvilke begrensninger den setter for bruk av området."
+vannets-kretslop,concept,Vannets kretsløp,Det hydrologiske kretsløpet,"Det hydrologiske kretsløpet: vannets vandring mellom hav, atmosfære, is og snø, innsjøer og elver, grunnvann og organismer, drevet av solenergi og tyngdekraften.
+Fordampning og transpirasjon: vann går over til vanndamp fra overflater og fra planter.
+Kondensasjon og nedbør: vanndamp blir til dråper eller iskrystaller som faller ned.
+Infiltrasjon og avrenning: vann trenger ned i bakken, eller renner av på overflaten mot bekker og elver.",reservoar-fluks,0,
+vannets-fordeling,fact,Vannets kretsløp,Hvor vannet på jorda finnes,"havet: omtrent 97 % av alt vann
+ferskvann: omtrent 3 % av alt vann
+isbreer, innlandsis og snø: omtrent to tredeler av ferskvannet
+grunnvann: omtrent en tredel av ferskvannet
+innsjøer, elver og atmosfæren: om lag én prosent av ferskvannet",vannets-kretslop,0,
+nedborfelt,concept,Vannets kretsløp,Nedbørfelt og vannskille,"Nedbørfelt: hele området som drenerer til et bestemt punkt i et vassdrag, slik at all nedbør som faller der, før eller senere passerer det punktet om den ikke fordamper.
+Vannskille: grensen mellom to nedbørfelt, ofte langs høydedrag.",vannets-kretslop;hoydekurver,0,
+vannbalanse,concept,Vannets kretsløp,Vannbalanse,"Vannbalanse: regnskapet for vannet i et nedbørfelt over en periode: nedbør = avrenning + fordampning + endring i lagret vann (i snø, is, innsjøer, jord og grunnvann).",nedborfelt,0,
+beregne-vannbalanse,skill,Vannets kretsløp,Regne med vannbalansen i et nedbørfelt,"regne ut en ukjent størrelse i vannbalansen for et nedbørfelt, og gjøre om mellom millimeter nedbør over et areal og volum vann.",vannbalanse,0,"Gi eleven et nedbørfelt med areal, årsnedbør i millimeter og målt avrenning i kubikkmeter, og be dem regne ut hvor mye som har fordampet (eller blitt lagret). Pass på at de viser omregningen fra millimeter over et areal til kubikkmeter."
+grunnvann,concept,Vannets kretsløp,Grunnvann,"Grunnvann: vann som fyller alle porer og sprekker i bakken under grunnvannsspeilet.
+Grunnvannsspeil: den øvre grensen for den mettede sonen.
+Porøsitet: hvor stor del av volumet som er hulrom.
+Permeabilitet: hvor lett vann strømmer gjennom materialet.
+Akvifer: en løsmasse eller bergart som både kan lagre og gi fra seg mye grunnvann, f.eks. sand og grus.",vannets-kretslop;losmasser,0,
+grunnvann-losmasser,skill,Vannets kretsløp,Forklare hvorfor noen løsmasser gir mye grunnvann,"forklare ut fra kornstørrelse, porøsitet og permeabilitet hvorfor sand og grus er gode grunnvannskilder, mens leire og morene sjelden er det.",grunnvann;kornstorrelser,0,"Spør eleven hvorfor en kommune heller vil bore etter grunnvann i et breelvdelta enn i marin leire, selv om leira kan ha minst like mye hulrom. Be dem bruke porøsitet og permeabilitet riktig."
+vannforing,concept,Vannets kretsløp,Vannføring og flomhydrograf,"Vannføring: hvor mye vann som renner forbi et punkt i en elv per tid, i kubikkmeter per sekund.
+Flomhydrograf: en graf som viser hvordan vannføringen endrer seg over tid etter et nedbørsfall, med forsinkelsen fra nedbøren til toppen og hvor høy toppen blir.",vannets-kretslop,0,
+male-vannforing,skill,Vannets kretsløp,Måle og regne ut vannføringen i en bekk,"måle bredde, dybde og strømhastighet i en bekk, regne ut vannføringen som tverrsnittsareal ganger fart, og vurdere hvor usikkert svaret er.",vannforing;registrere-felt,0,"Gi eleven måledata fra en bekk (f.eks. bredde 2,4 m, dybder målt på tre steder, og tiden en flottør bruker på 5 meter, målt tre ganger). Be dem regne ut vannføringen med enhet, og drøfte hvilke målinger som gir størst usikkerhet."
+tolke-hydrograf,skill,Vannets kretsløp,Tolke en flomhydrograf,"tolke en flomhydrograf og forklare hvordan nedbørfeltets størrelse, helning, løsmasser, vegetasjon og tette flater påvirker hvor raskt og hvor høyt vannføringen stiger.",vannforing;nedborfelt,0,"Beskriv to flomhydrografer etter samme regnvær (én fra et skogkledd nedbørfelt og én fra et nedbørfelt med mye asfalt og tak), og be eleven forklare forskjellene i forsinkelse og topp."
+mennesket-og-vannet,skill,Vannets kretsløp,Forklare hvordan mennesker påvirker vannets kretsløp,"forklare hvordan arealbruk, drenering, vannkraftregulering, vannuttak og klimaendringer påvirker vannets kretsløp lokalt.",tolke-hydrograf;grunnvann,0,"Be eleven velge (eller gi dem) et vassdrag i nærheten og forklare hvordan minst to menneskelige inngrep påvirker fordampning, infiltrasjon, avrenning eller grunnvann der, og hva det betyr for flom og tørke."
+undersoke-vann-lokalt,skill,Vannets kretsløp,Undersøke og presentere menneskelig påvirkning på et vassdrag,"undersøke hvordan menneskelig aktivitet påvirker et lokalt vassdrag ved hjelp av egne målinger eller offentlige data, og presentere funnene med begrunnede konklusjoner.",mennesket-og-vannet;male-vannforing;bearbeide-data,0,"Hjelp eleven formulere en undersøkbar problemstilling om et vassdrag (f.eks. forskjellen i vannføring eller vannkvalitet oppstrøms og nedstrøms et boligfelt), planlegge hvilke data som trengs, og øve på å presentere funnene muntlig med usikkerheten tatt med."
+naturfare-risiko,concept,Naturfarer og risiko,"Naturfare, sårbarhet og risiko","Naturfare: en naturlig prosess eller hendelse som kan skade mennesker, bygninger eller infrastruktur, f.eks. et skred eller en flom.
+Sårbarhet: hvor lett et samfunn eller et område blir skadet når faren inntreffer.
+Risiko: et mål som kombinerer sannsynligheten for at en uønsket hendelse inntreffer, og konsekvensen hvis den gjør det.",,0,
+jordskjelv,concept,Naturfarer og risiko,"Jordskjelv, magnitude og intensitet","Jordskjelv: rystelser når spenninger i berggrunnen utløses langs en forkastning.
+Hyposenter og episenter: punktet i dypet der bruddet starter, og punktet på overflaten rett over.
+Magnitude: et mål på hvor mye energi skjelvet frigjør, på en logaritmisk skala der ett trinn opp gir om lag 32 ganger så mye energi.
+Intensitet: hvor kraftig rystelsene oppleves og hvor stor skaden blir på et bestemt sted.",forkastning-folding;seismiske-boelger,0,
+vulkaner,concept,Naturfarer og risiko,Vulkantyper og vulkanske farer,"Skjoldvulkan: bred, slak vulkan av lettflytende basaltlava, med rolige utbrudd.
+Stratovulkan: bratt, lagdelt vulkan av seigere magma med mye gass, med eksplosive utbrudd.
+Pyroklastisk strøm: en glovarm sky av gass, aske og stein som raser nedover vulkanen.
+Lahar: et slamskred av vann, aske og stein fra en vulkan.",subduksjon;varm-flekk,0,
+skredtyper,concept,Naturfarer og risiko,Skredtyper,"Steinsprang og steinskred: enkeltsteiner eller større mengder stein som løsner fra en bratt fjellside.
+Fjellskred: svært store bergmasser (over en million kubikkmeter) som raser ut, og som kan lage flodbølger om de treffer en fjord eller et vann.
+Jordskred og flomskred: vannmettede løsmasser som raser ut i en skråning eller følger et bekkeløp.
+Kvikkleireskred: kvikkleire som plutselig går over til væske og flyter ut.
+Snøskred: snømasser som raser ut i bratt terreng.",naturfare-risiko;losmasser,0,
+kvikkleire,concept,Naturfarer og risiko,Kvikkleire,"Kvikkleire: marin leire der saltet som holdt leirpartiklene sammen er vasket ut av ferskt grunnvann, slik at leira kan gå over til en væske når den blir forstyrret. Den finnes bare under marin grense.",marin-grense;skredtyper,0,
+skredutlosning,skill,Naturfarer og risiko,Forklare hvorfor et skred ble utløst,"skille mellom bakenforliggende årsaker og den utløsende faktoren for et skred, og forklare hvordan helning, vann, løsmasser, tele og menneskelige inngrep virker inn.",skredtyper;terrengprofil-helning,0,"Beskriv et skred (f.eks. et jordskred i en bratt li etter flere dager med kraftig regn på tele, eller et kvikkleireskred etter at en bekk har gravd i foten av en skråning) og be eleven forklare hva som lå til rette for skredet, og hva som utløste det."
+norske-skred,fact,Naturfarer og risiko,Kjente skredulykker i Norge,"Verdal 1893: kvikkleireskred, 116 omkom
+Loen 1905 og 1936: fjellskred i Lovatnet laget flodbølger, 61 og 74 omkom
+Tafjord 1934: fjellskred ut i fjorden laget en flodbølge, 40 omkom
+Rissa 1978: stort kvikkleireskred, 1 omkom
+Gjerdrum 30. desember 2020: kvikkleireskred, 11 omkom",skredtyper;kvikkleire,0,
+flom,concept,Naturfarer og risiko,Flom og gjentaksintervall,"Flom: at vannføringen i et vassdrag blir så stor at elva går over sine bredder, f.eks. ved snøsmelting, kraftig regn, eller begge deler samtidig.
+Gjentaksintervall: hvor mange år det i gjennomsnitt går mellom hver gang en flom av en gitt størrelse inntreffer. En 200-årsflom har 1/200 = 0,5 % sannsynlighet for å inntreffe hvert eneste år.",vannforing;naturfare-risiko,0,
+gjentak-sannsynlighet,skill,Naturfarer og risiko,Regne ut sannsynligheten for en flom over flere år,"regne ut sannsynligheten for at en flom med et gitt gjentaksintervall inntreffer minst én gang i løpet av en periode, og forklare hvorfor en 100-årsflom kan komme to år på rad.",flom,0,"Be eleven regne ut sannsynligheten for minst én 200-årsflom i løpet av 50 år (via 1 − (1 − 1/200)^50), og deretter forklare for en huseier hvorfor «det var jo 100-årsflom i fjor» ikke betyr at de er trygge i 99 år."
+faresonekart,concept,Naturfarer og risiko,Faresonekart og aktsomhetskart,"Aktsomhetskart: et grovt kart over områder der en naturfare kan forekomme, laget med modeller ut fra terreng og løsmasser, som viser hvor en må undersøke nærmere.
+Faresonekart: et detaljert kart, laget etter undersøkelser i felt, som viser hvor sannsynlig det er at et område blir rammet, f.eks. sonene for skred med årlig sannsynlighet 1/100, 1/1000 og 1/5000.",naturfare-risiko;modell,0,
+utlopsmodell,skill,Naturfarer og risiko,Anslå hvor langt et skred kan nå med en enkel modell,"bruke en enkel modell, f.eks. en energilinje med en fast vinkel fra løsneområdet, til å anslå hvor langt et skred kan nå, og forklare hva modellen forenkler.",terrengprofil-helning;skredtyper;vurdere-modell,0,"Gi eleven et terrengprofil (f.eks. løsneområde 600 m over dalbunnen) og en vinkel for energilinjen (f.eks. 32° for steinsprang), og be dem regne ut omtrent hvor langt ut fra fjellfoten skredet kan nå. Diskuter deretter hvorfor ekte faresoner ikke kan lages bare med dette regnestykket."
+risiko-modellering,skill,Naturfarer og risiko,Vurdere risikoen for en naturfare i et bestemt område med modellering,"utforske en naturfare knyttet til geosfæren eller hydrosfæren i et bestemt område, og vurdere risikoen ved hjelp av modeller, kart og data — sannsynlighet, konsekvens og usikkerhet.",utlopsmodell;faresonekart;gjentak-sannsynlighet;skredutlosning,0,"Hjelp eleven velge et konkret område (gjerne lokalt) og en relevant naturfare. Veiled dem gjennom å finne aktsomhets- eller faresonekart, bruke en enkel modell eller et regnestykke for sannsynlighet eller utløp, vurdere hva som står i fare, og konkludere med en begrunnet risikovurdering der usikkerheten er tatt med."

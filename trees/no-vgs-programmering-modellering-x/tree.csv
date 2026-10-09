@@ -1,0 +1,180 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Python-grunnlag;Valg og løkker;Lister og arrayer;Funksjoner og programstruktur;Testing og feilsøking;Algoritmer og numeriske metoder;Data og visualisering;Matematiske modeller;Dynamiske system;Simulering;Selvstendig modelleringsarbeid,,,
+,config,,title,Programmering og modellering X,,,
+,config,,description,"Python-programmering fra grunnen av, strukturerte program, testing og feilsøking, algoritmer og numeriske metoder, data og visualisering, og modellering og simulering av dynamiske system — dekomponert i det elevene faktisk må kunne gjøre og forklare.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,mathematics,,,
+,config,,storageKey,no-vgs-programmering-modellering-x-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,programmering og modellering X (programfag realfag i norsk videregående skole),,,
+,config,,slots.motivationSubject,programmering,,,
+,config,,slots.expressionFocus,"bruker = (tilordning) og == (sammenlikning) om hverandre; skiller ikke mellom at en funksjon returnerer en verdi og at den skriver den ut; lager figurer uten aksetitler, enheter og tegnforklaring; oppgir simulerte resultater med langt flere desimaler enn modellen kan bære; sier at en modell «stemmer» uten å si i hvilket område og med hvor stort avvik; blander sammen variabel og parameter; kaller alle feil «bugs» uten å skille mellom syntaksfeil, kjøretidsfeil og logiske feil; og beskriver hva koden gjør linje for linje i stedet for hva den er til for",,,
+,config,,slots.courseSpecifics,"Programmering og modellering X har ingen sentralt gitt skriftlig eksamen. Eleven kan trekkes ut til en lokalt gitt muntlig-praktisk eksamen med forberedelsesdel, og standpunkt bygger i stor grad på programmerings- og modelleringsprosjekter. Bruk Python i eksempler og oppgaver, med numpy og matplotlib der det passer, med mindre eleven sier at klassen bruker et annet språk. La eleven skrive, kjøre og rette koden selv: gi hint og små kodebiter, ikke ferdige program. Faget kan tas på Vg2 eller Vg3, og mange elever har lite programmeringserfaring fra før.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag realfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3064,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,informatics,,,
+,config,,keywords,programmering; Python; modellering; simulering; numeriske metoder; Eulers metode; differensiallikninger; dynamiske system; algoritmer; feilsøking; testing; numpy; matplotlib; dataanalyse; regresjon; SIR-modell; Monte Carlo; muntlig-praktisk eksamen; PRM X,,,
+,config,,updated,2026-10-08,,,
+program-og-tolk,concept,Python-grunnlag,Program og tolk,"Program: en rekke instruksjoner som datamaskinen utfører i rekkefølge, ovenfra og ned.
+Tolk: programmet som leser Python-koden og utfører den linje for linje.",,0,
+variabel,concept,Python-grunnlag,Variabel og tilordning,"Variabel: et navn som peker på en verdi som er lagret i minnet.
+Tilordning: å gi en variabel en verdi med =, som i x = 5. Høyresiden regnes ut først, og resultatet lagres i navnet til venstre.",program-og-tolk,0,"Elever leser ofte = som likhet i matematisk forstand. Bruk x = x + 1 som eksempel på at tilordning ikke er en likning."
+datatyper,concept,Python-grunnlag,Datatyper,"Heltall (int): et helt tall, som 7 eller -3.
+Flyttall (float): et desimaltall, som 2.5 eller 9.81.
+Streng (str): tekst omsluttet av anførselstegn, som 'hei'.
+Sannhetsverdi (bool): True eller False.",variabel,0,
+flyttall-presisjon,concept,Python-grunnlag,Flyttall og avrundingsfeil,"Flyttall: datamaskinens tilnærming av et reelt tall med et begrenset antall siffer.
+Avrundingsfeil: den lille forskjellen mellom flyttallet og den eksakte verdien, som gjør at for eksempel 0.1 + 0.2 ikke blir nøyaktig 0.3.",datatyper,0,
+kjore-program,skill,Python-grunnlag,Skrive og kjøre et enkelt program,"skrive et kort Python-program som skriver ut tekst og tall med print, kjøre det, og forklare i hvilken rekkefølge linjene utføres.",program-og-tolk,0,
+oppdatere-variabler,skill,Python-grunnlag,Lagre og oppdatere verdier i variabler,"lagre verdier i variabler med beskrivende navn, oppdatere en variabel ut fra sin egen gamle verdi, og forutsi hva variablene inneholder etter noen linjer kode.",variabel;kjore-program,0,
+regneoperatorer,skill,Python-grunnlag,Regne med Pythons operatorer,"bruke +, -, *, /, //, % og ** riktig, inkludert regnerekkefølge og parenteser, og forutsi om resultatet blir et heltall eller et flyttall.",oppdatere-variabler;datatyper,0,"Ta med heltallsdivisjon og rest (// og %), og at 2**3 er potens mens 2^3 ikke er det i Python."
+input-typekonvertering,skill,Python-grunnlag,Lese inn verdier og konvertere mellom typer,"lese inn en verdi fra brukeren med input, gjøre den om til tall med int eller float, og forklare hvorfor '3' + '4' gir et annet svar enn 3 + 4.",datatyper;oppdatere-variabler,0,
+formatert-utskrift,skill,Python-grunnlag,Skrive ut resultater med riktig format,"skrive ut resultater med f-strenger, et fornuftig antall desimaler og riktig enhet.",oppdatere-variabler,0,
+modul-bibliotek,concept,Python-grunnlag,Modul og bibliotek,"Modul: en fil med ferdige funksjoner og konstanter som kan hentes inn i et program med import.
+Bibliotek: en samling moduler for ett formål, som numpy for tallberegninger og matplotlib for figurer.",kjore-program,0,
+matematiske-funksjoner,skill,Python-grunnlag,Bruke matematiske funksjoner fra et bibliotek,"importere math eller numpy og bruke funksjoner og konstanter som sqrt, exp, log, sin og pi i beregninger.",modul-bibliotek;regneoperatorer,0,"Pass på at eleven merker seg at log i Python er den naturlige logaritmen, og at vinkler regnes i radianer."
+boolsk-uttrykk,concept,Valg og løkker,Boolsk uttrykk,"Boolsk uttrykk: et uttrykk som blir enten True eller False, for eksempel x > 0 eller a == b.
+Logiske operatorer: and (begge må være sanne), or (minst én må være sann) og not (snur sannhetsverdien).",datatyper,0,
+if-test,skill,Valg og løkker,Velge mellom handlinger med if-tester,"bruke if, elif og else til å la programmet gjøre ulike ting avhengig av betingelser, med riktig innrykk.",boolsk-uttrykk;oppdatere-variabler,0,
+lokke,concept,Valg og løkker,Løkke,"Løkke: en kodeblokk som gjentas.
+For-løkke: gjentar blokken én gang for hvert element i en følge, for eksempel range(10).
+While-løkke: gjentar blokken så lenge en betingelse er sann.",boolsk-uttrykk,0,
+for-lokke,skill,Valg og løkker,Gjenta beregninger med en for-løkke,"bruke en for-løkke med range til å gjenta en beregning et gitt antall ganger, og forutsi hvilke verdier løkkevariabelen får.",lokke;oppdatere-variabler,0,"Vær tydelig på at range(n) starter på 0 og stopper før n."
+while-lokke,skill,Valg og løkker,Gjenta til en betingelse er oppfylt med en while-løkke,"bruke en while-løkke når antall gjentakelser ikke er kjent på forhånd, og sørge for at løkka stopper.",lokke;if-test,0,
+akkumulere,skill,Valg og løkker,Summere og telle i en løkke,"bruke en variabel som samler opp en sum, et produkt eller et antall gjennom en løkke, og velge riktig startverdi.",for-lokke,0,
+nostede-lokker,skill,Valg og løkker,Kombinere løkker og tester,"skrive løkker som inneholder if-tester eller andre løkker, og bruke break når løkka skal avsluttes tidlig.",for-lokke;while-lokke;if-test,0,
+spore-kode,skill,Valg og løkker,Følge koden steg for steg,"spore et kort program med løkker og tester for hånd, i en tabell over variablenes verdier, og forutsi hva programmet skriver ut.",for-lokke;if-test,0,"Gi eleven et kort program med en løkke og be om en sporingstabell før de kjører koden."
+liste,concept,Lister og arrayer,Liste og indeks,"Liste: en ordnet samling verdier i ett variabelnavn, skrevet som [3, 5, 8].
+Indeks: plassnummeret til et element, der det første elementet har indeks 0 og det siste har indeks -1.",variabel,0,
+indeksere-lister,skill,Lister og arrayer,Lage og hente ut fra lister,"lage lister, hente ut enkeltelementer og utsnitt med indekser, finne lengden med len, og endre et element.",liste,0,
+bygge-liste,skill,Lister og arrayer,Bygge opp en liste i en løkke,"starte med en tom liste og legge til et nytt element for hver runde i en løkke med append, for eksempel for å lagre verdier over tid.",indeksere-lister;for-lokke,0,
+iterere-liste,skill,Lister og arrayer,Gå gjennom en liste med en løkke,"gå gjennom elementene i en eller flere lister med for-løkke, både direkte og via indekser, og bruke det til å regne ut noe for hvert element.",indeksere-lister;for-lokke,0,
+array,concept,Lister og arrayer,Array,"Array: en numpy-tabell med tall av samme type, der regneoperasjoner virker på hvert element for seg, slik at a * 2 dobler hvert tall i a.",liste;modul-bibliotek,0,
+regne-med-arrayer,skill,Lister og arrayer,Regne med arrayer,"lage arrayer med linspace, arange og zeros, regne elementvis med dem, og bruke sum, mean, max og min.",array;matematiske-funksjoner,0,"Vis gjerne forskjellen mellom å regne med en løkke over en liste og elementvis med en array."
+ordbok,concept,Lister og arrayer,Ordbok,"Ordbok (dictionary): en samling par av nøkkel og verdi, skrevet som {'Oslo': 709000}, der verdien hentes fram med nøkkelen i stedet for med en indeks.",liste,0,
+bruke-ordbok,skill,Lister og arrayer,Lagre og slå opp data i en ordbok,"lage en ordbok, slå opp og endre verdier med nøkler, og gå gjennom alle parene med en løkke.",ordbok;for-lokke,0,
+strenger,skill,Lister og arrayer,Behandle tekststrenger,"dele opp en tekstlinje med split, fjerne mellomrom og linjeskift med strip, og gjøre tekstbiter om til tall.",indeksere-lister;input-typekonvertering,0,
+funksjon,concept,Funksjoner og programstruktur,Funksjon i programmering,"Funksjon: en navngitt kodeblokk som kan kalles flere ganger.
+Parameter: en variabel i funksjonsdefinisjonen som tar imot en verdi.
+Argument: verdien som sendes inn når funksjonen kalles.
+Returverdi: verdien funksjonen gir tilbake med return.",oppdatere-variabler,0,
+definere-funksjon,skill,Funksjoner og programstruktur,Definere og kalle en funksjon,"definere en funksjon med def, parametere og return, og kalle den med ulike argumenter, for eksempel en funksjon som regner ut en matematisk funksjon f(x).",funksjon;regneoperatorer,0,
+returnere-eller-skrive-ut,skill,Funksjoner og programstruktur,Forklare forskjellen på å returnere og å skrive ut,"forklare hvorfor en funksjon som bare skriver ut et resultat ikke kan brukes videre i en beregning, og skrive om en slik funksjon til å returnere verdien.",definere-funksjon,0,
+skop,concept,Funksjoner og programstruktur,Lokal og global variabel,"Lokal variabel: en variabel som lages inne i en funksjon og bare finnes mens funksjonen kjører.
+Global variabel: en variabel som er laget utenfor alle funksjoner og kan leses i hele programmet.",funksjon,0,
+flere-parametere,skill,Funksjoner og programstruktur,Lage funksjoner med flere parametere og flere returverdier,"lage funksjoner med flere parametere, standardverdier og flere returverdier, og kalle dem med navngitte argumenter.",definere-funksjon;skop,0,
+dele-opp-problem,skill,Funksjoner og programstruktur,Dele et problem opp i funksjoner,"dele en større oppgave opp i deloppgaver som hver løses av sin egen funksjon, og bestemme hva hver funksjon skal ta inn og gi tilbake.",definere-funksjon;returnere-eller-skrive-ut,0,
+lesbar-kode,skill,Funksjoner og programstruktur,Skrive lesbar kode,"velge beskrivende navn, skrive kommentarer og docstrings som forklarer hensikten, og unngå å gjenta den samme koden flere steder.",definere-funksjon,0,
+egen-modul,skill,Funksjoner og programstruktur,Samle egne funksjoner i en modul,"legge egne funksjoner i en egen fil og importere dem i et annet program.",modul-bibliotek;definere-funksjon,0,
+klasse-objekt,concept,Funksjoner og programstruktur,Klasse og objekt,"Klasse: en mal som beskriver hvilke egenskaper (attributter) og handlinger (metoder) en type ting har.
+Objekt: én konkret ting laget fra en klasse, med sine egne verdier for attributtene.",funksjon;variabel,0,
+lage-klasse,skill,Funksjoner og programstruktur,Lage en enkel klasse,"lage en klasse med en __init__-metode og noen få metoder, for eksempel for en partikkel med posisjon og fart, og lage og bruke flere objekter av den.",klasse-objekt;flere-parametere,0,"Hold det enkelt. Klasser er ikke nødvendig for å bestå faget, men nyttig i større modelleringsprosjekter."
+helhetlig-program,skill,Funksjoner og programstruktur,Bygge et helhetlig og strukturert program,"bygge et program med en tydelig struktur: import øverst, konstanter og parametere samlet, funksjoner for hver deloppgave, og en hoveddel som kaller dem i riktig rekkefølge.",dele-opp-problem;lesbar-kode;flere-parametere,0,
+feiltyper,concept,Testing og feilsøking,"Syntaksfeil, kjøretidsfeil og logisk feil","Syntaksfeil: koden bryter språkets regler, så programmet ikke kan starte.
+Kjøretidsfeil: programmet starter, men stopper med en feilmelding underveis, for eksempel ved deling på null.
+Logisk feil: programmet kjører uten feilmelding, men gir feil resultat.",kjore-program,0,
+lese-feilmelding,skill,Testing og feilsøking,Tolke en feilmelding,"lese en feilmelding fra Python, finne linjen feilen oppstod på, og forklare hva vanlige feiltyper som SyntaxError, NameError, TypeError, IndexError og ZeroDivisionError betyr.",feiltyper;indeksere-lister,0,"Gi eleven korte kodebiter som gir ulike feilmeldinger, og be dem forklare feilen før de retter den."
+feilsoke-systematisk,skill,Testing og feilsøking,Feilsøke systematisk,"finne en logisk feil ved å skrive ut mellomverdier, teste delene av programmet hver for seg og snevre inn hvor feilen oppstår, i stedet for å endre tilfeldig.",lese-feilmelding;spore-kode;definere-funksjon,0,
+testtilfelle,concept,Testing og feilsøking,Testtilfelle,"Testtilfelle: et valgt sett inndata der det riktige resultatet er kjent på forhånd, slik at programmets svar kan sjekkes.
+Grensetilfelle: et testtilfelle i ytterkanten av det programmet skal håndtere, som en tom liste, null eller et svært stort tall.",feiltyper,0,
+lage-testtilfeller,skill,Testing og feilsøking,Velge testtilfeller,"velge testtilfeller med kjent svar, inkludert grensetilfeller, og sjekke en funksjon mot dem.",testtilfelle;definere-funksjon,0,
+assert-tester,skill,Testing og feilsøking,Skrive automatiske tester med assert,"skrive testfunksjoner med assert, og sammenlikne flyttall med en toleranse i stedet for med ==.",lage-testtilfeller;flyttall-presisjon,0,
+unntak,concept,Testing og feilsøking,Unntak,"Unntak (exception): et signal Python sender når noe går galt under kjøring, og som stopper programmet hvis det ikke blir håndtert.",feiltyper,0,
+try-except,skill,Testing og feilsøking,Håndtere feil med try og except,"bruke try og except til å fange et bestemt unntak og la programmet gi en forståelig melding eller fortsette på en trygg måte.",unntak;if-test,0,"Pass på at eleven fanger bestemte unntak, ikke alle feil med en tom except."
+validere-input,skill,Testing og feilsøking,Sjekke at inndata er gyldige,"sjekke at verdier fra brukeren eller fra en fil er gyldige før de brukes, og be om ny verdi eller hoppe over linjen når de ikke er det.",try-except;while-lokke;input-typekonvertering,0,
+vurdere-teststrategi,skill,Testing og feilsøking,Vurdere en strategi for testing og feilsøking,"vurdere hvilke feil en gitt test- og feilsøkingsstrategi vil oppdage og hvilke den kan overse, og foreslå forbedringer.",assert-tester;feilsoke-systematisk;validere-input,0,
+algoritme,concept,Algoritmer og numeriske metoder,Algoritme og pseudokode,"Algoritme: en endelig, entydig oppskrift av steg som løser en bestemt type problem.
+Pseudokode: en beskrivelse av en algoritme med vanlige ord og programmeringslignende struktur, uavhengig av programmeringsspråk.",lokke;if-test,0,
+skrive-pseudokode,skill,Algoritmer og numeriske metoder,Beskrive en algoritme med pseudokode eller flytskjema,"beskrive en algoritme med pseudokode eller flytskjema før den programmeres, og oversette pseudokoden til Python.",algoritme,0,
+sok-og-maks,skill,Algoritmer og numeriske metoder,Lage algoritmer for søk og største verdi,"lage egne algoritmer, uten innebygde funksjoner, som finner største eller minste verdi i en liste, og som søker etter et element og returnerer plassen det står på.",skrive-pseudokode;iterere-liste,0,
+numerisk-metode,concept,Algoritmer og numeriske metoder,"Numerisk metode, tilnærming og feil","Numerisk metode: en algoritme som finner en tilnærmet tallverdi der en eksakt løsning er vanskelig eller umulig å finne.
+Absolutt feil: avstanden mellom tilnærmingen og den eksakte verdien.
+Relativ feil: den absolutte feilen delt på den eksakte verdien.",algoritme,0,
+trunkering-avrunding,concept,Algoritmer og numeriske metoder,Trunkeringsfeil og avrundingsfeil,"Trunkeringsfeil: feilen som kommer av at metoden selv er en tilnærming, for eksempel av å bruke et endelig steg h; den blir som regel mindre når h blir mindre.
+Avrundingsfeil: feilen fra at datamaskinen lagrer tall med begrenset presisjon; den kan bli stor når h blir svært liten.",numerisk-metode;flyttall-presisjon,0,
+vekstfart,concept,Algoritmer og numeriske metoder,Gjennomsnittlig og momentan vekstfart,"Gjennomsnittlig vekstfart: endringen i en størrelse delt på endringen i tid eller x over et intervall, altså stigningstallet til en sekant.
+Momentan vekstfart: grenseverdien for den gjennomsnittlige vekstfarten når intervallet går mot null, altså den deriverte.",,0,"Mange elever har derivasjon fra R1 eller 1T, men ikke alle. Forklar via stigningstall hvis eleven ikke kjenner den deriverte."
+akkumulert-storrelse,concept,Algoritmer og numeriske metoder,Integral som akkumulert størrelse,"Bestemt integral: den samlede endringen eller mengden som hoper seg opp når en vekstfart summeres over et intervall, tolket som arealet under grafen til vekstfarten.",vekstfart,0,
+numerisk-derivasjon,skill,Algoritmer og numeriske metoder,Derivere numerisk,"tilnærme den deriverte i et punkt med en differenskvotient (framover eller sentral) i Python, både for en gitt funksjon og for måledata.",vekstfart;numerisk-metode;definere-funksjon,0,
+numerisk-integrasjon,skill,Algoritmer og numeriske metoder,Integrere numerisk,"tilnærme et bestemt integral med venstre- eller midtpunktsummer eller trapesmetoden i Python, både for en gitt funksjon og for måledata.",akkumulert-storrelse;numerisk-metode;akkumulere;definere-funksjon,0,
+halveringsmetoden,skill,Algoritmer og numeriske metoder,Løse en likning med halveringsmetoden,"løse en likning f(x) = 0 med halveringsmetoden i Python, og forklare hvorfor metoden krever et intervall der f skifter fortegn.",numerisk-metode;while-lokke;definere-funksjon,0,
+newtons-metode,skill,Algoritmer og numeriske metoder,Løse en likning med Newtons metode,"løse en likning f(x) = 0 med Newtons metode i Python, med en stoppbetingelse basert på toleranse og et største antall iterasjoner.",numerisk-metode;vekstfart;while-lokke;definere-funksjon,0,
+utlede-algoritme,skill,Algoritmer og numeriske metoder,Utlede en algoritme fra en matematisk idé,"utlede en algoritme fra en matematisk idé, for eksempel fra definisjonen av den deriverte, en tangentlinje eller arealet av trapeser, og forklare hvert steg i algoritmen ut fra ideen.",numerisk-derivasjon;numerisk-integrasjon;skrive-pseudokode,0,"Be eleven først forklare ideen med en figur eller med ord, så skrive pseudokode, og først deretter Python."
+vurdere-noyaktighet,skill,Algoritmer og numeriske metoder,Vurdere nøyaktigheten til en numerisk metode,"undersøke hvordan feilen i en numerisk metode endrer seg med steglengden eller antall iterasjoner, ved å sammenlikne med en kjent eksakt verdi, og velge en fornuftig steglengde.",numerisk-derivasjon;numerisk-integrasjon;trunkering-avrunding,0,
+gyldighet-algoritme,skill,Algoritmer og numeriske metoder,Vurdere når en algoritme gir gale svar,"forklare og vise med eksempler når en algoritme ikke gir et gyldig svar, for eksempel når Newtons metode ikke konvergerer eller finner en annen løsning, eller når halveringsmetoden mangler fortegnsskifte.",halveringsmetoden;newtons-metode,0,
+lese-datafil,skill,Data og visualisering,Lese data fra en fil,"lese tallverdier fra en tekst- eller CSV-fil inn i lister eller arrayer, med header og skilletegn håndtert riktig.",strenger;bygge-liste;array,0,"Bruk gjerne både en løkke med split og numpy.loadtxt, slik at eleven ser hva som skjer bak den ferdige funksjonen."
+plotte-graf,skill,Data og visualisering,Plotte en graf,"tegne grafen til en funksjon eller en dataserie med matplotlib, både som linje og som punkter.",regne-med-arrayer,0,
+god-figur,skill,Data og visualisering,Lage en lesbar figur,"gi en figur aksetitler med enhet, tegnforklaring og et passende utsnitt, og vise flere dataserier i samme figur slik at de kan sammenliknes.",plotte-graf,0,
+velge-figurtype,skill,Data og visualisering,Velge riktig type figur,"velge mellom linjediagram, punktdiagram, histogram og logaritmisk akse ut fra hva dataene er og hva figuren skal vise, og begrunne valget.",god-figur,0,
+beskrivende-statistikk,skill,Data og visualisering,Beregne sentralmål og spredning med kode,"beregne gjennomsnitt, median og standardavvik for et datasett i Python, og tolke tallene i sammenhengen dataene kommer fra.",regne-med-arrayer,0,
+maleusikkerhet,concept,Data og visualisering,Måleusikkerhet og støy,"Måleusikkerhet: hvor mye en målt verdi kan avvike fra den sanne verdien.
+Støy: tilfeldige variasjoner i måledata som ikke skyldes fenomenet som måles.
+Uteligger: en måling som skiller seg kraftig fra de andre.",,0,
+samle-egne-data,skill,Data og visualisering,Samle inn egne måledata,"planlegge og gjennomføre en enkel måling eller et eksperiment, eller hente et åpent datasett, og lagre dataene i en fil med enheter og kilde oppgitt.",maleusikkerhet,0,
+regresjon,concept,Data og visualisering,Regresjon,"Regresjon: å finne parameterne i en funksjon av en valgt type slik at grafen passer best mulig til dataene.
+Minste kvadraters metode: å velge parameterne som gjør summen av de kvadrerte avvikene mellom data og modell så liten som mulig.",maleusikkerhet,0,
+regresjon-kode,skill,Data og visualisering,Gjøre regresjon i Python,"tilpasse en lineær, polynomisk eller eksponentiell funksjon til data i Python, for eksempel med numpy.polyfit, og tegne modellen sammen med dataene.",regresjon;god-figur;regne-med-arrayer,0,
+residualer,skill,Data og visualisering,Vurdere en tilpasning med residualer,"beregne og plotte residualene mellom data og en tilpasset modell, og avgjøre om avvikene ser tilfeldige ut eller viser et systematisk mønster.",regresjon-kode,0,
+modell,concept,Matematiske modeller,Matematisk modell,"Matematisk modell: en forenklet beskrivelse av en del av virkeligheten med matematiske sammenhenger, laget for å forklare eller forutsi noe bestemt.",,0,
+variabel-parameter,concept,Matematiske modeller,Variabel og parameter i en modell,"Variabel (i en modell): en størrelse som endrer seg, som tid, posisjon eller antall smittede.
+Parameter: en størrelse som holdes fast i én kjøring av modellen, men som kan velges eller justeres, som vekstraten eller luftmotstandstallet.",modell,0,"Skill tydelig mellom variabel i modellen og variabel i Python-koden; begge ordene brukes i faget."
+forenkling-antakelse,concept,Matematiske modeller,Forenkling og antakelse,"Antakelse: noe en velger å regne som sant om systemet for å kunne lage modellen, for eksempel at luftmotstanden er proporsjonal med farten i andre.
+Forenkling: å la være å ta med en faktor fordi den antas å ha liten betydning for det modellen skal svare på.",modell,0,
+gyldighetsomrade,concept,Matematiske modeller,Gyldighetsområde,"Gyldighetsområde: verdiene av variablene og parameterne der modellen gir svar som er gode nok for formålet.",modell;forenkling-antakelse,0,
+empirisk-teoretisk,concept,Matematiske modeller,Empirisk og teoretisk modell,"Empirisk modell: en modell funnet ved å tilpasse en funksjon til data, uten at den nødvendigvis forklarer hvorfor sammenhengen er slik.
+Teoretisk modell: en modell bygd opp fra antakelser om mekanismene i systemet, for eksempel fra kreftene som virker.",modell;regresjon,0,
+lineaer-eksponentiell,skill,Matematiske modeller,Lage lineære og eksponentielle modeller,"lage og programmere en lineær eller eksponentiell modell ut fra en beskrivelse av konstant endring eller konstant prosentvis endring, og tolke parameterne.",variabel-parameter;definere-funksjon,0,
+velge-modelltype,skill,Matematiske modeller,Velge funksjonstype til en modell,"velge en funksjonstype til en modell ut fra både formen på dataene og det en vet om fenomenet, og begrunne valget.",empirisk-teoretisk;lineaer-eksponentiell;regresjon-kode,0,
+enhetskontroll,skill,Matematiske modeller,Kontrollere en modell med enheter og størrelsesorden,"kontrollere at ledd i en modell har samme enhet, at parameterne har riktig enhet, og at resultatene har en rimelig størrelsesorden.",variabel-parameter,0,
+vurdere-modell,skill,Matematiske modeller,Vurdere om en modell er gyldig,"vurdere om en modell er gyldig ved å sammenlikne den med data, sjekke hva den gir for ekstreme verdier og over lang tid, og angi et gyldighetsområde.",gyldighetsomrade;residualer;enhetskontroll,0,
+modelleringssyklus,concept,Matematiske modeller,Modelleringsprosessen,"Modelleringsprosessen: en syklus der en formulerer et spørsmål, forenkler og gjør antakelser, setter opp en matematisk modell, implementerer og løser den, tolker resultatene, sammenlikner med virkeligheten og forbedrer modellen, og så gjentar ved behov.",modell;forenkling-antakelse,0,
+formulere-problemstilling,skill,Matematiske modeller,Formulere en problemstilling som kan modelleres,"formulere et konkret og avgrenset spørsmål om et fenomen som en modell kan gi svar på, og si hva svaret skal brukes til.",modelleringssyklus,0,
+velge-storrelser,skill,Matematiske modeller,Velge hvilke størrelser og sammenhenger modellen skal ha med,"bestemme hvilke variabler, parametere og sammenhenger modellen skal inneholde, og begrunne hvilke forenklinger som er gjort.",formulere-problemstilling;variabel-parameter;forenkling-antakelse,0,
+revidere-modell,skill,Matematiske modeller,Forbedre en modell etter vurdering,"bruke avvik mellom modell og virkelighet til å finne hvilken antakelse som svikter, endre modellen, og vise om endringen gjør modellen bedre.",vurdere-modell;velge-storrelser,0,
+dynamisk-system,concept,Dynamiske system,Dynamisk system,"Dynamisk system: et system der tilstanden endrer seg over tid etter en fast regel.
+Tilstandsvariabel: en størrelse som beskriver tilstanden ved et tidspunkt, som posisjon, fart eller antall individer.
+Startbetingelse: verdien tilstandsvariablene har ved starttidspunktet.",variabel-parameter;vekstfart,0,
+differenslikning,concept,Dynamiske system,Differenslikning,"Differenslikning: en regel som gir neste verdi i en følge ut fra den eller de forrige, for eksempel x_{n+1} = 1,05 · x_n.",dynamisk-system,0,
+simulere-differenslikning,skill,Dynamiske system,Simulere en differenslikning,"programmere en differenslikning med en løkke fra en startverdi, lagre verdiene og plotte utviklingen, for eksempel for et lån eller en dyrebestand år for år.",differenslikning;bygge-liste;plotte-graf,0,
+differensiallikning,concept,Dynamiske system,Differensiallikning,"Differensiallikning: en likning som sier hvordan den momentane vekstfarten til en størrelse avhenger av størrelsen selv og eventuelt av tiden, for eksempel N' = kN.
+Løsning: en funksjon som oppfyller likningen; startbetingelsen velger ut én bestemt løsning.",dynamisk-system;vekstfart,0,
+sette-opp-differensiallikning,skill,Dynamiske system,Sette opp en differensiallikning fra en beskrivelse,"oversette en beskrivelse av hvordan noe endrer seg, som «veksten er proporsjonal med antallet» eller «avkjølingen er proporsjonal med temperaturforskjellen», til en differensiallikning med startbetingelse.",differensiallikning;velge-storrelser,0,
+eulers-metode,skill,Dynamiske system,Løse en differensiallikning med Eulers metode,"løse en differensiallikning numerisk med Eulers metode i Python, med valgt tidssteg og startbetingelse, og plotte løsningen.",differensiallikning;numerisk-derivasjon;bygge-liste;plotte-graf,0,"La eleven først gjøre to eller tre steg for hånd, så programmere løkka."
+tidssteg,skill,Dynamiske system,Undersøke hvordan tidssteget påvirker løsningen,"kjøre Eulers metode med flere tidssteg, sammenlikne med en eksakt løsning der den finnes, og velge et tidssteg som gir god nok nøyaktighet.",eulers-metode;vurdere-noyaktighet,0,
+logistisk-vekst,concept,Dynamiske system,Logistisk vekst og bæreevne,"Bæreevne: den største bestanden miljøet kan holde ved like over tid.
+Logistisk vekst: vekst som er tilnærmet eksponentiell når bestanden er liten, og som flater ut mot bæreevnen, beskrevet ved N' = rN(1 - N/K).",differensiallikning,0,
+simulere-logistisk,skill,Dynamiske system,Simulere logistisk vekst,"simulere logistisk vekst med Eulers metode, og undersøke hvordan vekstraten og bæreevnen påvirker forløpet.",logistisk-vekst;eulers-metode,0,
+koblede-likninger,concept,Dynamiske system,Koblede differensiallikninger,"Koblede differensiallikninger: et sett differensiallikninger der endringen i én størrelse avhenger av en eller flere av de andre, slik at alle må løses samtidig.",differensiallikning,0,
+bevegelse-luftmotstand,skill,Dynamiske system,Modellere bevegelse med luftmotstand,"sette opp og simulere fart og posisjon for et legeme som faller eller kastes med luftmotstand, ut fra kreftene som virker, og finne grensefarten.",koblede-likninger;eulers-metode;sette-opp-differensiallikning,0,"Eleven trenger ikke ha fysikk fra før: forklar Newtons andre lov kort hvis den mangler, og hold modellen til tyngde og luftmotstand."
+sir-modell,skill,Dynamiske system,Simulere smittespredning med en SIR-modell,"sette opp og simulere en SIR-modell for smittespredning, tolke parameterne, og undersøke hvordan tiltak som endrer smittetallet påvirker forløpet.",koblede-likninger;eulers-metode;sette-opp-differensiallikning,0,
+rovdyr-byttedyr,skill,Dynamiske system,Simulere samspillet mellom rovdyr og byttedyr,"simulere en rovdyr–byttedyr-modell med to koblede differensiallikninger, og tolke svingningene i de to bestandene.",koblede-likninger;eulers-metode,0,
+likevekt,concept,Dynamiske system,Likevekt,"Likevekt: en tilstand der alle vekstfartene er null, så systemet blir værende der hvis det starter der.
+Stabil likevekt: en likevekt systemet går tilbake til etter en liten forstyrrelse.",differensiallikning,0,
+finne-likevekt,skill,Dynamiske system,Finne og tolke likevekter,"finne likevektene i en modell ved å sette vekstfartene lik null, kontrollere dem med simulering, og avgjøre om de er stabile.",likevekt;simulere-logistisk,0,
+simulering,concept,Simulering,Simulering,"Simulering: å kjøre en modell på datamaskinen for å produsere data om hvordan systemet oppfører seg, i stedet for eller i tillegg til å måle på det virkelige systemet.",modell;dynamisk-system,0,
+deterministisk-stokastisk,concept,Simulering,Deterministisk og stokastisk modell,"Deterministisk modell: en modell som alltid gir samme resultat med de samme startverdiene og parameterne.
+Stokastisk modell: en modell med tilfeldighet innebygd, slik at hver kjøring gir et litt ulikt resultat.",simulering,0,
+tilfeldige-tall,skill,Simulering,Bruke tilfeldige tall i et program,"trekke tilfeldige tall og tilfeldige valg med random eller numpy.random, og bruke et frø (seed) for å kunne gjenta en kjøring.",deterministisk-stokastisk;matematiske-funksjoner,0,
+monte-carlo,skill,Simulering,Bruke Monte Carlo-simulering,"anslå en sannsynlighet, et areal eller en forventningsverdi ved å gjenta et tilfeldig forsøk mange ganger, og vise hvordan anslaget blir sikrere med flere forsøk.",tilfeldige-tall;akkumulere,0,
+tilfeldig-vandring,skill,Simulering,Simulere en tilfeldig vandring,"simulere en tilfeldig vandring i én eller to dimensjoner, og bruke den til å modellere spredning, for eksempel av molekyler eller individer.",tilfeldige-tall;bygge-liste;plotte-graf,0,
+gjenta-simulering,skill,Simulering,Oppsummere mange kjøringer av en stokastisk modell,"kjøre en stokastisk modell mange ganger, samle resultatene, og beskrive både gjennomsnitt og spredning med et histogram.",monte-carlo;beskrivende-statistikk;velge-figurtype,0,
+simulert-mot-malt,skill,Simulering,Sammenlikne simulerte og målte data,"vise simulerte og målte data i samme figur, beskrive hvor modellen treffer og hvor den bommer, og tallfeste avviket.",eulers-metode;lese-datafil;god-figur,0,
+justere-parametere,skill,Simulering,Justere parameterne slik at simuleringen passer med data,"finne parameterverdier som gjør at simuleringen passer best mulig med målte data, ved systematisk prøving eller ved å minimere summen av kvadrerte avvik.",simulert-mot-malt;regresjon;nostede-lokker,0,
+sensitivitetsanalyse,skill,Simulering,Undersøke hvor følsom en modell er for parameterne,"endre én parameter om gangen og undersøke hvor mye resultatet av simuleringen endrer seg, og bruke det til å si hvilke parametere som må være mest nøyaktig kjent.",simulering;flere-parametere;god-figur,0,
+utforske-scenarier,skill,Simulering,Bruke en modell til å utforske scenarier,"bruke en vurdert modell til å utforske «hva skjer hvis»-spørsmål, som virkningen av vaksinasjon eller et annet fangstuttak, og drøfte hvor sikre svarene er.",sensitivitetsanalyse;vurdere-modell,0,
+planlegge-prosjekt,skill,Selvstendig modelleringsarbeid,Planlegge et modelleringsprosjekt,"lage en realistisk plan for et selvstendig modelleringsprosjekt med problemstilling, datakilde, modellvalg, delmål og tidsplan.",formulere-problemstilling;samle-egne-data,0,
+dokumentere-arbeid,skill,Selvstendig modelleringsarbeid,Dokumentere kode og valg underveis,"føre logg over valg, antakelser og endringer i modellen og koden underveis, slik at arbeidet kan forklares og gjentas av andre.",lesbar-kode;velge-storrelser,0,
+kilder-og-ki,skill,Selvstendig modelleringsarbeid,"Oppgi kilder for data, kode og KI-hjelp","oppgi hvor data, kodebiter og formler kommer fra, inkludert hjelp fra KI-verktøy, og skille tydelig mellom eget og andres arbeid.",dokumentere-arbeid,0,
+drofte-resultater,skill,Selvstendig modelleringsarbeid,Drøfte resultatene av en modell,"drøfte hva resultatene viser, hvor sikre de er, hvilke antakelser de hviler på, og hva modellen ikke kan si noe om.",vurdere-modell;sensitivitetsanalyse,0,
+presentere-modell,skill,Selvstendig modelleringsarbeid,Presentere et modelleringsarbeid,"presentere problemstilling, modell, resultater og vurdering for et publikum, med figurer som bærer hovedpoengene og et språk tilpasset mottakerne.",drofte-resultater;velge-figurtype,0,
+forklare-egen-kode,skill,Selvstendig modelleringsarbeid,Forklare og endre egen kode muntlig,"forklare muntlig hva hver del av eget program gjør og hvorfor den er laget slik, og gjøre en mindre endring i koden på stedet når noen ber om det.",helhetlig-program;dokumentere-arbeid,0,"Faget kan ha muntlig-praktisk eksamen. Opptre som en sensor: be eleven forklare en del av koden sin og deretter endre noe, for eksempel en parameter, en stoppbetingelse eller en figur."
+selvstendig-modellering,skill,Selvstendig modelleringsarbeid,Gjennomføre et selvstendig modelleringsarbeid,"gjennomføre hele modelleringsprosessen på et selvvalgt fenomen, fra problemstilling og data via et strukturert og testet program til vurdering, forbedring og presentasjon av modellen.",planlegge-prosjekt;helhetlig-program;vurdere-teststrategi;revidere-modell;utforske-scenarier;presentere-modell;kilder-og-ki,0,"Dette er en sammenfattende node. Hjelp eleven å planlegge og reflektere, men ikke skriv modellen eller koden for dem."

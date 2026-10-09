@@ -1,0 +1,175 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Lek og dans;Samspill;Øving og trening;Skader og førstehjelp;Kart og trygg ferdsel;Natur og årstider,,,
+,config,,title,Kroppsøving Vg1,,,
+,config,,description,"Lek og dans du lager selv, samspill, øving og trening mot egne mål, skadeforebygging og førstehjelp, kart og trygg ferdsel, og naturferdsel gjennom årstidene — teorien bak det du gjør i timene.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,storageKey,no-vgs-kroppsoving-vg1-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kroppsøving Vg1 (fellesfag, studieforberedende, norsk videregående skole)",,,
+,config,,slots.motivationSubject,kroppsøving,,,
+,config,,slots.expressionFocus,"bruker «trening» om all fysisk aktivitet, setter mål som «bli bedre» uten å si hva, hvor mye og innen når, blander målestokk og ekvidistanse på kartet, og sier «hardt» eller «rolig» uten å knytte det til puls eller snakketesten",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, Vg1 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,KRO1017,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg1,,,
+,config,,subjectArea,physical-education,,,
+,config,,keywords,gym; kroppsøving; lek; dans; dansekomposisjon; treningsplan; treningsprinsipper; puls; oppvarming; skadeforebygging; førstehjelp; HLR; kart og kompass; orientering; fjellvettreglene; allemannsretten; friluftsliv,,,
+,config,,updated,2026-10-08,,,
+bevegelsesaktivitet,concept,Lek og dans,Bevegelsesaktivitet,"Bevegelsesaktivitet: samlebetegnelse for alle aktivitetsformene i faget: lek, dans, idrettsaktiviteter, friluftsliv, svømming og andre aktiviteter i vann, og også sykling, ski og skøyter.",,0,
+lek-rammer,concept,Lek og dans,Regler og rammer i en lek,"Regel: det deltakerne har avtalt skal gjelde, som hvordan man får poeng og hva som ikke er lov.
+Rammefaktor: det som setter grenser for leken uten å være en regel, som størrelsen på området, utstyret, antall deltakere og tiden.",bevegelsesaktivitet,0,
+endre-lek,skill,Lek og dans,Lage en ny variant av en lek,"endre én regel eller én rammefaktor i en kjent lek eller et kjent spill, og si på forhånd hva endringen skal gjøre med aktiviteten, for eksempel gi flere ballberøringer per spiller eller mindre venting.",lek-rammer,0,
+teste-variant,skill,Lek og dans,Prøve ut og justere en variant,"prøve ut en ny variant sammen med gruppa, se etter om den virket slik den var tenkt, og justere den etter første runde.",endre-lek,0,
+bevegelseskvaliteter,concept,Lek og dans,Bevegelseskvaliteter,"Tid: hvor raskt eller langsomt en bevegelse utføres, og rytmen i den.
+Rom: hvor i rommet bevegelsen skjer: nivå (lavt, middels, høyt), retning og størrelse.
+Kraft: hvor mye energi bevegelsen har, fra lett og myk til tung og hard.
+Flyt: om bevegelsen er bundet og kontrollert eller fri og strømmende.",,0,
+slag-attere,concept,Lek og dans,Slag og åttere,"Slag: den jevne pulsen i musikken, den man klapper eller tramper til.
+Åtter: åtte slag talt som én enhet; danser læres og settes sammen i åttere.",,0,
+telle-musikk,skill,Lek og dans,Finne slaget og telle åttere,"finne slaget i et musikkstykke, gå eller klappe til det, og telle åttere fra et tydelig startpunkt slik at gruppa begynner på samme slag; sjekk mot et opptak om klappene faller sammen med slaget.",slag-attere,0,
+laere-dans,skill,Lek og dans,Lære en innøvd dans,"lære en kort innøvd dans fra en instruktør eller en video ved å dele den opp i åttere og øve del for del, til du kan danse hele uten å se på forbildet.",telle-musikk,0,
+dansetradisjoner,concept,Lek og dans,Dans fra ulike kulturer,"Folkedans: dans som er overlevert i et lokalsamfunn eller en folkegruppe, som halling, springar og reinlender i Norge.
+Sosial dans: dans man danser i par eller gruppe for samværets skyld, som swing og salsa.
+Ungdomskulturdans: dans som oppstår i ungdomsmiljøer og spres med musikk og sosiale medier, som hiphop og trenddanser.",bevegelsesaktivitet,0,
+komposisjonsgrep,concept,Lek og dans,Komposisjonsgrep i dans,"Motiv: en kort bevegelsesfrase som er utgangspunktet for dansen.
+Unison: alle gjør det samme samtidig.
+Kanon: de samme bevegelsene startet etter hverandre, forskjøvet i tid.
+Speiling: to dansere gjør bevegelsen som speilbilder av hverandre.
+Kontrast: et bevisst brudd i tid, rom eller kraft.",bevegelseskvaliteter,0,
+variere-motiv,skill,Lek og dans,Variere et bevegelsesmotiv,"lage minst to varianter av et motiv ved å endre tid, rom eller kraft, og si hvilken kvalitet som er endret i hver.",bevegelseskvaliteter,0,
+lage-dans,skill,Lek og dans,Lage en dans sammen med andre,"sette sammen en kort dans i gruppe med et motiv, minst to komposisjonsgrep og en tydelig start og slutt, og framføre den slik at alle teller seg inn på samme slag; sjekk på video at overgangene sitter.",komposisjonsgrep;variere-motiv;telle-musikk,0,
+laeringsfellesskap,concept,Samspill,Læringsfellesskap,"Læringsfellesskap: en gruppe der alle har ansvar for at både de selv og de andre lærer, ikke bare for sin egen prestasjon.",,0,
+inkludering,concept,Samspill,Inkludering,"Inkludering: å legge til rette slik at alle kan delta på en meningsfull måte, uavhengig av ferdighetsnivå, kropp, kjønn, funksjonsevne eller bakgrunn.",,0,
+tilpasse-for-alle,skill,Samspill,Tilpasse en aktivitet så alle kan delta,"foreslå en endring i regler, område eller utstyr som lar en medelev med andre forutsetninger delta fullt, uten at aktiviteten mister poenget sitt.",inkludering;endre-lek,0,
+samhandling,concept,Samspill,Samhandling i spill,"Samhandling: at spillerne tilpasser handlingene sine til hverandre, ved å bevege seg til ledig rom, gi pasninger medspilleren kan ta imot og si fra med ord og tegn.
+Rolle: oppgaven en spiller har i laget, som forsvar, angrep eller keeper.",,0,
+spille-andre-gode,skill,Samspill,Spille medspillere gode,"i et lagspill bevege deg til ledig rom, gi pasninger medspilleren kan ta imot i fart, og si fra hvor ballen bør gå; la en observatør telle vellykkede pasninger og bevegelser til ledig rom.",samhandling,0,
+tilbakemelding,concept,Samspill,Konstruktiv tilbakemelding,"Konstruktiv tilbakemelding: en kort, konkret beskjed om én ting som fungerte og én ting som kan gjøres annerledes, gitt slik at mottakeren kan bruke den i neste forsøk.",,0,
+gi-tilbakemelding,skill,Samspill,Gi en medelev tilbakemelding,"se en medelev utføre en bevegelse og gi én konkret ting som fungerte og ett tips til neste forsøk, med fagord der det passer.",tilbakemelding,0,
+vise-og-forklare,skill,Samspill,Vise og forklare en øvelse for andre,"dele en ferdighet du kan godt opp i små steg, vise den, forklare det viktigste kjennetegnet, og sjekke at medeleven har forstått ved å se dem prøve.",laeringsfellesskap;gi-tilbakemelding,0,
+fair-play,concept,Samspill,Fair play,"Fair play: å følge både reglene og meningen bak dem, respektere medspillere, motspillere og dommer, og sette en god opplevelse for alle foran å vinne for enhver pris.",,0,
+reflektere-samspill,skill,Samspill,Reflektere over egen rolle i samspillet,"beskrive etter en aktivitet hva du konkret gjorde som hjalp eller hindret de andre, og hva du vil gjøre annerledes neste gang.",laeringsfellesskap;fair-play,0,
+fysisk-aktivitet,concept,Øving og trening,Fysisk aktivitet,"Fysisk aktivitet: all kroppslig bevegelse som øker energiforbruket utover hvile, som å sykle til skolen, bære handleposer eller spille fotball.",,0,
+oving-trening,concept,Øving og trening,Øving og trening,"Øving: å gjenta en bevegelse for å bli bedre teknisk, som å treffe bedre på et skudd eller lære et nytt skiskjær.
+Trening: planlagt og gjentatt aktivitet som belaster kroppen for å forbedre en fysisk egenskap, som utholdenhet eller styrke.",fysisk-aktivitet,0,
+fysiske-egenskaper,concept,Øving og trening,Fysiske egenskaper,"Utholdenhet: evnen til å holde på med en aktivitet lenge.
+Styrke: evnen til å bruke musklene mot motstand.
+Bevegelighet: hvor langt man kan bevege et ledd.
+Koordinasjon: evnen til å få kroppsdelene til å samarbeide i riktig rekkefølge og til rett tid.
+Hurtighet: evnen til å utføre en bevegelse så raskt som mulig.",,0,
+belastning-restitusjon,concept,Øving og trening,Belastning og restitusjon,"Belastning: hvor mye en økt krever av kroppen, bestemt av varighet, intensitet og hvor ofte man trener.
+Restitusjon: hvilen etter belastning, der kroppen henter seg inn igjen.
+Tilpasning: at kroppen bygger seg opp litt sterkere enn før, når belastning og hvile står i forhold til hverandre.",oving-trening,0,
+intensitet,concept,Øving og trening,Intensitet og puls,"Intensitet: hvor hardt man jobber i øyeblikket, målt som fart, vekt, puls eller hvor anstrengende det kjennes.
+Puls: antall hjerteslag per minutt.",,0,
+male-puls,skill,Øving og trening,Måle pulsen,"telle pulsen på håndleddet eller halsen i 15 sekunder, gange med fire, og sammenligne hvilepulsen med pulsen rett etter en aktivitet.",intensitet,0,
+snakketesten,skill,Øving og trening,Styre intensiteten med snakketesten,"holde lav, moderat og høy intensitet ved hjelp av snakketesten: du kan prate i hele setninger, bare i korte setninger, eller bare få fram enkeltord.",intensitet,0,
+treningsprinsipper,concept,Øving og trening,Treningsprinsipper,"Progresjon: belastningen økes gradvis etter hvert som kroppen tilpasser seg.
+Spesifisitet: man blir best på det man faktisk trener.
+Kontinuitet: jevn trening over tid gir mer enn store økter med lange opphold.
+Variasjon: ulike øvelser og belastninger hindrer stillstand og ensidig slitasje.",belastning-restitusjon,0,
+malformulering,concept,Øving og trening,Resultatmål og prosessmål,"Resultatmål: det man vil oppnå, som å løpe 3 km uten å gå.
+Prosessmål: det man skal gjøre for å komme dit, som å løpe to ganger i uka.
+Etterprøvbart mål: et mål som sier hva, hvor mye og innen når, slik at man i ettertid kan avgjøre om det er nådd.",,0,
+teste-utgangspunkt,skill,Øving og trening,Teste utgangspunktet sitt,"velge en enkel test som passer målet, som en tidtatt løpetur, antall armhevinger eller treff på en ferdighetsøvelse, og gjennomføre den på samme måte før og etter en periode.",fysiske-egenskaper,0,
+sette-mal,skill,Øving og trening,Sette et individuelt mål,"formulere et etterprøvbart resultatmål og et prosessmål for en ferdighet eller fysisk egenskap, ut fra resultatet på en test du har tatt.",malformulering;teste-utgangspunkt,0,
+ovingsmetoder,concept,Øving og trening,Metoder for å øve en ferdighet,"Helhetsmetoden: å øve hele bevegelsen samlet.
+Delmetoden: å dele bevegelsen opp i deler som øves hver for seg og så settes sammen.
+Progresjon i øving: å gå fra enkle til mer krevende utgaver, som fra stillestående til i fart eller fra uten til med motstander.",oving-trening,0,
+velge-ovingsmetode,skill,Øving og trening,Lage en øvingsrekke for en ferdighet,"avgjøre om en gitt ferdighet bør øves som helhet eller i deler, og lage tre trinn i stigende vanskelighetsgrad fram mot full utførelse.",ovingsmetoder,0,
+treningsformer,concept,Øving og trening,Treningsformer,"Kontinuerlig trening: jevn innsats uten pauser over lengre tid.
+Intervalltrening: perioder med høy intensitet avbrutt av pauser.
+Sirkeltrening: flere øvelser etter hverandre i fast rekkefølge, med kort tid på hver.",intensitet,0,
+planlegge-okt,skill,Øving og trening,Planlegge en treningsøkt,"planlegge en økt med oppvarming, hoveddel og avslutning, med øvelser, varighet og intensitet for hoveddelen valgt ut fra målet ditt.",treningsformer;treningsprinsipper;oppvarming,0,
+gjennomfore-okt,skill,Øving og trening,Gjennomføre en planlagt økt,"gjennomføre en planlagt økt med den intensiteten planen sier, kontrollert med puls eller snakketesten underveis.",planlegge-okt;snakketesten,0,
+planlegge-periode,skill,Øving og trening,Lage en plan over flere uker,"sette opp en plan for fire til seks uker med antall økter per uke, en gradvis økning i belastningen og en ny test på slutten.",planlegge-okt;sette-mal,0,
+treningslogg,concept,Øving og trening,Treningslogg,"Treningslogg: en oversikt over hver økt — hva man gjorde, hvor lenge, hvor hardt og hvordan det kjentes — som gjør det mulig å se utviklingen over tid.",,0,
+justere-plan,skill,Øving og trening,Føre logg og justere planen,"føre logg over øktene i en periode, og bruke den til å avgjøre om planen må justeres fordi den er for lett, for hard eller ikke blir fulgt.",treningslogg;planlegge-periode,0,
+tilrettelagt-aktivitet,concept,Øving og trening,Tilrettelagt aktivitet,"Tilrettelagt aktivitet: en aktivitet som er endret slik at den kan gjøres med en skade, sykdom eller funksjonsnedsettelse, ved å avlaste det som er skadd og bruke resten av kroppen.",,0,
+trene-med-skade,skill,Øving og trening,Lage et opplegg når du ikke kan delta fullt,"lage et opplegg for en økt du ikke kan delta fullt i, som enten trener det du kan uten å belaste skaden, eller lar deg bidra som instruktør, dommer eller observatør.",tilrettelagt-aktivitet;planlegge-okt;akutt-belastningsskade,0,
+akutt-belastningsskade,concept,Skader og førstehjelp,Akutt skade og belastningsskade,"Akutt skade: en skade som oppstår plutselig ved et støt, et fall eller en vridning, som en overtråkk.
+Belastningsskade: en skade som utvikler seg gradvis fordi kroppen belastes mer enn den rekker å tilpasse seg, som beinhinnebetennelse.",belastning-restitusjon,0,
+oppvarming,concept,Skader og førstehjelp,Oppvarming,"Generell oppvarming: rolig aktivitet med store muskelgrupper som øker pulsen og kroppstemperaturen.
+Spesifikk oppvarming: bevegelser som ligner dem som kommer i hoveddelen, med gradvis økende fart og kraft.",,0,
+lede-oppvarming,skill,Skader og førstehjelp,Lede en oppvarming,"planlegge og lede en oppvarming på 10–15 minutter med en generell og en spesifikk del, tilpasset aktiviteten som kommer etterpå.",oppvarming,0,
+risikofaktorer,concept,Skader og førstehjelp,Risikofaktorer for skade,"Indre risikofaktor: forhold ved personen selv, som en tidligere skade, tretthet eller dårlig teknikk.
+Ytre risikofaktor: forhold rundt personen, som underlag, utstyr, vær og for mange på liten plass.",,0,
+forebygge-skade,skill,Skader og førstehjelp,Forebygge skader i en aktivitet,"peke ut de vanligste skadene i en gitt aktivitet, og foreslå tiltak mot både indre og ytre risikofaktorer, som oppvarming, riktig utstyr og trygg organisering.",risikofaktorer;akutt-belastningsskade;oppvarming,0,
+forstehjelp,concept,Skader og førstehjelp,Førstehjelp,"Førstehjelp: hjelpen som gis på stedet før helsepersonell kommer, for å redde liv, hindre at skaden blir verre og ta vare på den skadde.",,0,
+nodnummer,fact,Skader og førstehjelp,Nødnumrene,"brann: 110
+politi: 112
+medisinsk nødhjelp (ambulanse): 113",,0,
+skaffe-oversikt,skill,Skader og førstehjelp,Skaffe oversikt på et skadested,"sikre stedet for deg selv og andre, sjekke om den skadde er ved bevissthet og puster normalt, og ringe 113 med hvor du er, hva som har skjedd og hvor mange som er skadd.",forstehjelp;nodnummer,0,
+hlr-tall,fact,Skader og førstehjelp,Hjerte-lunge-redning i tall,"forholdet mellom brystkompresjoner og innblåsinger: 30 : 2
+takten på brystkompresjonene: 100–120 per minutt
+hvor dypt man trykker på en voksen: 5–6 cm
+hvor man trykker: midt på brystet, på nedre halvdel av brystbeinet",,0,
+hlr,skill,Skader og førstehjelp,Gi hjerte-lunge-redning,"gi hjerte-lunge-redning på en øvingsdukke med riktig takt, dybde og forhold mellom kompresjoner og innblåsinger, og ta i bruk en hjertestarter etter talebeskjedene; mange øvingsdukker og apper viser takt og dybde.",hlr-tall;skaffe-oversikt,0,
+stabilt-sideleie,skill,Skader og førstehjelp,Legge en person i stabilt sideleie,"legge en bevisstløs person som puster normalt i stabilt sideleie slik at luftveiene holdes åpne, og følge med på pusten til hjelpen kommer.",skaffe-oversikt,0,
+fremmedlegeme,skill,Skader og førstehjelp,Hjelpe ved fremmedlegeme i halsen,"hjelpe en person som ikke får puste fordi noe sitter fast i halsen, med inntil fem slag mellom skulderbladene vekslet med inntil fem magestøt, og ringe 113 om det ikke løsner.",forstehjelp;nodnummer,0,
+stoppe-blodning,skill,Skader og førstehjelp,Stoppe en kraftig blødning,"stoppe en kraftig ytre blødning med direkte trykk og en trykkbandasje, og legge den skadde ned.",forstehjelp,0,
+blotdelsskade,skill,Skader og førstehjelp,Gi førstehjelp ved forstuing,"gi førstehjelp ved en forstuing eller muskelskade med kompresjon, ro og høyt leie, og avgjøre når skaden bør undersøkes av lege.",akutt-belastningsskade;forstehjelp,0,
+hjernerystelse,concept,Skader og førstehjelp,Hjernerystelse,"Hjernerystelse: en forbigående forstyrrelse av hjernens funksjon etter et slag mot hodet eller kroppen, med tegn som hodepine, svimmelhet, forvirring, kvalme og hukommelsestap. Den som kan ha fått hjernerystelse, skal ut av aktiviteten og ikke tilbake samme dag.",forstehjelp,0,
+malestokk,concept,Kart og trygg ferdsel,Målestokk,"Målestokk: forholdet mellom en lengde på kartet og den samme lengden i terrenget. I målestokk 1 : 50 000 svarer 1 cm på kartet til 500 m i terrenget.",,0,
+male-avstand,skill,Kart og trygg ferdsel,Måle avstand på kartet,"måle en strekning på kartet, også langs en svingete sti, og regne den om til avstand i terrenget ut fra målestokken.",malestokk,0,
+hoydekurver,concept,Kart og trygg ferdsel,Høydekurver og ekvidistanse,"Høydekurve: en linje på kartet som binder sammen punkter med samme høyde over havet.
+Ekvidistanse: høydeforskjellen mellom to nabokurver, oppgitt i kartets tegnforklaring.",,0,
+lese-terreng,skill,Kart og trygg ferdsel,Lese terrengformer av høydekurvene,"avgjøre ut fra høydekurvene hvor det er bratt og hvor det er flatt, og kjenne igjen en topp, en dal, en rygg og et søkk.",hoydekurver,0,
+kartfarger,fact,Kart og trygg ferdsel,Fargene på et orienteringskart,"hvitt: skog som er lett å gå og løpe i
+grønt: tett skog eller kratt som er tungt å komme gjennom
+gult: åpent område, som eng, hogstflate eller snaufjell
+blått: vann, myr og bekker
+brunt: høydekurver og andre terrengformer
+svart: stier, veier, bygninger, gjerder, steiner og bergvegger",,0,
+kompass,concept,Kart og trygg ferdsel,Kompasset,"Kompassnål: nålen som peker mot magnetisk nord; den røde enden er nord.
+Retningspil: pilen på kompassplaten som viser retningen man skal gå.
+Kompasshus: den dreibare skiven med gradering og nordlinjer, som stilles inn etter kartet.
+Misvisning: vinkelen mellom kartets nord og retningen kompassnålen peker; den varierer med sted og tid og står i kartets marg.",,0,
+orientere-kart,skill,Kart og trygg ferdsel,Orientere kartet,"snu kartet slik at nord på kartet peker mot nord i terrenget, enten med kompasset eller ved hjelp av terrengformer du kjenner igjen.",kompass;kartfarger,0,
+kompasskurs,skill,Kart og trygg ferdsel,Ta ut og gå etter en kompasskurs,"ta ut en kurs mellom to punkter på kartet med kompasset, og gå etter den i terrenget ved å sikte mot faste punkter i retningen.",kompass;orientere-kart,0,
+velge-rute,skill,Kart og trygg ferdsel,Velge en trygg rute,"velge en rute mellom to punkter ut fra avstand, stigning, terreng og farer, og vise på kartet hvor det er naturlig å snu eller ta en annen vei.",male-avstand;lese-terreng,0,
+digitale-kartverktoy,concept,Kart og trygg ferdsel,Digitale kartverktøy,"GPS: satellittbasert posisjonering som viser hvor du er på et digitalt kart.
+Koordinater: tall som angir en nøyaktig posisjon, og som kan oppgis til redningstjenesten.
+Nedlastet kart: kart lagret på telefonen, slik at det virker uten nettdekning.",,0,
+bruke-kartapp,skill,Kart og trygg ferdsel,Bruke en kartapp på tur,"finne egen posisjon og koordinater i en kartapp, laste ned kart over området på forhånd, og forklare hvorfor telefonen ikke kan erstatte papirkart og kompass når batteri, kulde og dekning svikter.",digitale-kartverktoy,0,
+turplan,concept,Kart og trygg ferdsel,Turplan,"Turplan: en oversikt over rute, tidsplan, deltakere, utstyr, alternativ rute og når man senest er tilbake, som noen som ikke er med på turen har fått.",,0,
+fjellvettreglene,fact,Kart og trygg ferdsel,Fjellvettreglene,"regel 1: Planlegg turen og meld fra hvor du går.
+regel 2: Tilpass turen etter evne og forhold.
+regel 3: Ta hensyn til vær- og skredvarsel.
+regel 4: Vær forberedt på uvær og kulde, selv på korte turer.
+regel 5: Ta med nødvendig utstyr for å kunne hjelpe deg selv og andre.
+regel 6: Velg trygge ruter. Kjenn igjen skredfarlig terreng og usikker is.
+regel 7: Bruk kart og kompass. Vit alltid hvor du er.
+regel 8: Vend i tide, det er ingen skam å snu.
+regel 9: Spar på kreftene og søk ly om nødvendig.",,0,
+planlegge-trygg-tur,skill,Kart og trygg ferdsel,Planlegge en tur som er trygg for alle,"lage en turplan ut fra kart, vær- og skredvarsel og forutsetningene i gruppa, med en alternativ rute og et fast tidspunkt for å snu.",turplan;velge-rute;fjellvettreglene;bruke-kartapp;vurdere-forhold,0,
+allemannsretten,concept,Natur og årstider,Allemannsretten,"Allemannsretten: retten alle har til å ferdes og oppholde seg i utmark, til fots eller på ski, og telte for en kortere periode, så lenge man tar hensyn og ikke gjør skade.
+Utmark: udyrket mark, som skog, fjell, myr og strand.
+Innmark: dyrket mark, hager og gårdsplasser, der man ikke har fri ferdsel.",,0,
+lagprinsippet,concept,Natur og årstider,Lagprinsippet,"Lagprinsippet: å kle seg i flere lag som kan tas av og på: et innerste lag som leder fuktighet bort fra huden, gjerne av ull, et isolerende mellomlag, og et ytterlag som stopper vind og nedbør.",,0,
+kle-seg,skill,Natur og årstider,Kle seg etter vær og aktivitet,"velge og regulere klærne etter vær, årstid og aktivitet, slik at du verken blir gjennomsvett i aktivitet eller kald i pausene.",lagprinsippet,0,
+farer-gjennom-aret,concept,Natur og årstider,Farer gjennom året,"Snøskred: snømasser som løsner, oftest i terreng brattere enn 30 grader.
+Usikker is: is som ikke bærer, særlig tidlig og sent i sesongen og ved innløp, utløp og strøm.
+Nedkjøling: varmetap om vinteren, men også i regn og vind om sommeren og høsten.
+Flom: høy vannføring i bekker og elver ved snøsmelting og kraftig regn.",,0,
+skredfaregrader,fact,Natur og årstider,Faregradene for snøskred,"faregrad 1: liten
+faregrad 2: moderat
+faregrad 3: betydelig
+faregrad 4: stor
+faregrad 5: meget stor",,0,
+vurdere-forhold,skill,Natur og årstider,Vurdere forholdene før en tur,"hente og tolke værvarselet og, om vinteren, skredvarselet og isforholdene, og avgjøre om turen kan gå som planlagt eller må endres.",farer-gjennom-aret;skredfaregrader,0,
+nedkjoling,concept,Natur og årstider,Nedkjøling og frostskade,"Nedkjøling: at kroppstemperaturen synker fordi kroppen taper mer varme enn den lager, med skjelving, klossethet og etter hvert forvirring som tegn.
+Frostskade: skade på hud og vev som fryser, oftest på fingre, tær, nese og kinn.",,0,
+hjelpe-nedkjolt,skill,Natur og årstider,Hjelpe en som er nedkjølt,"hindre videre varmetap hos en nedkjølt person ved å skjerme mot vind, bytte ut våte klær, isolere mot underlaget og gi varm, søt drikke om personen er våken, og ringe 113 ved alvorlige tegn.",nedkjoling;skaffe-oversikt,0,
+ferdselstradisjoner,concept,Natur og årstider,Lokale ferdselstradisjoner,"Ferdselstradisjon: en måte å ferdes og bruke naturen på som er overlevert i et område, som skigåing, fiske, bærplukking, jakt og bruk av gamle stier, seterveier og vinterveier over islagte vann.",,0,
+samisk-friluftskultur,concept,Natur og årstider,Samisk friluftskultur,"Samisk friluftskultur: tradisjoner for ferdsel og bruk av naturen som har vokst fram med reindrift, fiske og fangst, med blant annet lavvo, bål, flytting etter årstidene og et syn på naturen som en ressurs som skal kunne brukes av kommende generasjoner.",ferdselstradisjoner,0,
+bruke-tradisjon,skill,Natur og årstider,Bruke en lokal tradisjon på tur,"planlegge og gjennomføre en aktivitet som bygger på en ferdselstradisjon i ditt område, tilpasset årstiden, og fortelle hva tradisjonen går ut på og hvor den kommer fra.",ferdselstradisjoner;kle-seg;vurdere-forhold,0,
+tenne-bal,skill,Natur og årstider,Tenne og slukke et bål trygt,"velge et trygt bålsted, tenne et lite bål med materiale fra naturen, og slukke det med vann til glørne er kalde; og vite at bål i eller nær skog er forbudt fra 15. april til 15. september, med mindre det åpenbart ikke kan føre til brann.",allemannsretten,0,

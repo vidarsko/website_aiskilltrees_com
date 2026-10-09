@@ -1,0 +1,195 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Metode og modeller;Marked og markedsformer;Nasjonalregnskap og vekst;Arbeidsmarked og ledighet;Prisstigning;Penger og finansmarkeder;Økonomisk politikk;Fordeling og ulikhet;Miljø og bærekraft;Valuta og internasjonal handel,,,
+,config,,title,Samfunnsøkonomi 1,,,
+,config,,description,"Marked og markedsformer, nasjonalregnskap og vekst, arbeidsledighet, prisstigning, finansmarkeder, penge- og finanspolitikk, fordeling, miljø, valuta og handel — med beregningene faget krever.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-samfunnsokonomi-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,samfunnsøkonomi 1 (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"skriver «etterspørselen øker» når det er etterspurt kvantum som øker langs kurven, blander prosent og prosentpoeng, nominelle og reelle størrelser eller inflasjon og prisnivå, tegner modeller uten navn på akser og kurver, og konkluderer i en drøfting uten å si hva som holdes konstant",,,
+,config,,slots.courseSpecifics,"Faget har én standpunktkarakter. Eleven kan trekkes ut til muntlig eksamen med forberedelsesdel, laget og sensurert lokalt; det finnes ingen skriftlig sentralt gitt eksamen i Samfunnsøkonomi 1. Bruk norske forhold og offisielle kilder som SSB og Norges Bank i eksemplene, og la eleven tegne og forklare grafiske modeller, ikke bare beskrive dem.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag økonomi, Vg2",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3060,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,samfunnsøkonomi; SØK1; økonomi; programfag; tilbud og etterspørsel; elastisitet; markedsformer; monopol; BNP; realligningen; arbeidsledighet; inflasjon; KPI; styringsrente; Norges Bank; finanspolitikk; pengepolitikk; multiplikator; finansmarked; Gini; valutakurs; komparative fortrinn; globalisering; muntlig eksamen,,,
+,config,,updated,2026-10-08,,,
+okonomisk-modell,concept,Metode og modeller,Økonomisk modell,"Økonomisk modell: en forenklet framstilling av en økonomisk sammenheng, i ord, grafer eller likninger, som tar med det viktigste og ser bort fra resten.
+Ceteris paribus: forutsetningen at alt annet holdes uendret, slik at virkningen av én endring kan studeres for seg.",,0,
+positiv-normativ,concept,Metode og modeller,Positiv og normativ påstand,"Positiv påstand: en påstand om hvordan økonomien er eller virker, som i prinsippet kan sjekkes mot data.
+Normativ påstand: en påstand om hvordan noe bør være, som bygger på verdier og ikke kan avgjøres med data alene.",,0,
+nominell-reell,concept,Metode og modeller,Nominelle og reelle størrelser,"Nominell størrelse: målt i kroner slik prisene var da, i løpende priser.
+Reell størrelse: justert for prisstigning, i faste priser, slik at den viser endringen i mengde eller kjøpekraft.",,0,
+prosent-prosentpoeng,concept,Metode og modeller,Prosent og prosentpoeng,"Prosentvis endring: endringen i en størrelse delt på startverdien, ganget med 100.
+Prosentpoeng: differansen mellom to prosenttall, som når renta går fra 4 til 5 prosent: en økning på 1 prosentpoeng, men 25 prosent.",,0,
+indeks,concept,Metode og modeller,Indekstall,"Indekstall: et tall som viser utviklingen i en størrelse i forhold til et basisår, der basisåret er satt til 100.",prosent-prosentpoeng,0,
+regne-prosentvis-endring,skill,Metode og modeller,Regne prosentvis endring og prosentpoeng,"regne ut prosentvis endring, endring i prosentpoeng og ny verdi etter en prosentvis endring, ut fra tall i en tabell.",prosent-prosentpoeng,0,
+regne-indeks,skill,Metode og modeller,Regne med indekstall,"gjøre om en tidsserie til indekstall med et valgt basisår, og lese prosentvis endring mellom to år ut av en indeks.",indeks;regne-prosentvis-endring,0,
+lese-statistikk,skill,Metode og modeller,Tolke økonomisk statistikk,"hente ut og tolke tall fra tabeller og diagrammer, for eksempel fra SSB, og si hva tallene kan og ikke kan fortelle om en sammenheng.",regne-prosentvis-endring;nominell-reell,0,
+vurdere-okonomiske-kilder,skill,Metode og modeller,Vurdere kilder i økonomiske spørsmål,"velge kilder til et økonomisk spørsmål og vurdere dem etter avsender, formål og om de gir positive eller normative påstander, for eksempel SSB mot en interesseorganisasjon.",positiv-normativ,0,
+institusjoner,fact,Metode og modeller,Sentrale økonomiske institusjoner i Norge,"Norges Bank: sentralbanken, setter styringsrenten og forvalter Statens pensjonsfond utland
+SSB (Statistisk sentralbyrå): lager offisiell statistikk, blant annet nasjonalregnskap, KPI og arbeidskraftundersøkelsen
+Finansdepartementet: legger fram forslaget til statsbudsjett og har ansvaret for finanspolitikken
+Finanstilsynet: fører tilsyn med banker, forsikringsselskaper og finansmarkedet
+Konkurransetilsynet: håndhever konkurranseloven og griper inn mot ulovlig samarbeid og misbruk av markedsmakt
+NAV: registrerer arbeidsledige og forvalter trygdeordningene",,0,
+bruke-modell-pa-sporsmal,skill,Metode og modeller,Bruke teori og modeller på en faglig problemstilling,"velge en relevant teori eller modell for en økonomisk problemstilling, bruke den på problemstillingen, og forklare hvordan forutsetningene i modellen påvirker konklusjonen.",okonomisk-modell;vurdere-okonomiske-kilder;lese-statistikk,0,
+drofte-okonomisk-problemstilling,skill,Metode og modeller,Drøfte en samfunnsøkonomisk problemstilling,"drøfte en sammensatt samfunnsøkonomisk problemstilling ved å bruke modeller, tall og kilder, veie argumenter mot hverandre og trekke en begrunnet konklusjon.",bruke-modell-pa-sporsmal;motkonjunkturpolitikk;drofte-baerekraftig-vekst;drofte-valutakursendring,0,
+knapphet-alternativkostnad,concept,Marked og markedsformer,Knapphet og alternativkostnad,"Knapphet: at ressursene ikke strekker til for å dekke alle behov, slik at samfunnet må velge hva de skal brukes til.
+Alternativkostnad: verdien av det beste alternativet man gir opp når man velger noe.",,0,
+produksjonsfaktorer,concept,Marked og markedsformer,Produksjonsfaktorer,"Produksjonsfaktorer: ressursene som brukes til å produsere varer og tjenester: arbeidskraft, realkapital (maskiner, bygninger, infrastruktur) og naturressurser.",knapphet-alternativkostnad,0,
+ettersporsel,concept,Marked og markedsformer,Etterspørsel,"Etterspørsel: sammenhengen mellom prisen på en vare og hvor mye kjøperne vil kjøpe, når alt annet er likt.
+Etterspørselskurve: kurven som viser etterspurt kvantum ved hver pris, og som normalt faller mot høyre.",,0,
+tilbud,concept,Marked og markedsformer,Tilbud,"Tilbud: sammenhengen mellom prisen på en vare og hvor mye produsentene vil selge, når alt annet er likt.
+Tilbudskurve: kurven som viser tilbudt kvantum ved hver pris, og som normalt stiger mot høyre.",,0,
+skift-vs-bevegelse,skill,Marked og markedsformer,Skille skift i kurven fra bevegelse langs kurven,"avgjøre om en endring gir en bevegelse langs tilbuds- eller etterspørselskurven eller et skift i kurven, og nevne faktorer som skifter hver av dem, som inntekt, prisen på andre varer, kostnader og forventninger.",ettersporsel;tilbud,0,
+markedslikevekt,concept,Marked og markedsformer,Markedslikevekt,"Likevektspris: prisen der tilbudt og etterspurt kvantum er like store.
+Overskuddstilbud: tilbudt kvantum er større enn etterspurt kvantum, noe som presser prisen ned.
+Overskuddsetterspørsel: etterspurt kvantum er større enn tilbudt kvantum, noe som presser prisen opp.",ettersporsel;tilbud,0,
+finne-likevekt,skill,Marked og markedsformer,Finne likevektspris og likevektskvantum,"finne likevektspris og likevektskvantum både grafisk og ved regning, ut fra lineære tilbuds- og etterspørselsfunksjoner.",markedslikevekt,0,
+analysere-markedsendring,skill,Marked og markedsformer,Analysere en endring i et marked,"tegne og forklare hvordan et skift i tilbud eller etterspørsel, eller begge, endrer likevektspris og omsatt kvantum i et konkret marked.",skift-vs-bevegelse;finne-likevekt,0,
+priselastisitet,concept,Marked og markedsformer,Priselastisitet,"Priselastisitet: den prosentvise endringen i etterspurt kvantum når prisen endres med 1 prosent.
+Elastisk etterspørsel: tallverdien av elastisiteten er større enn 1, så kvantum endres prosentvis mer enn prisen.
+Uelastisk etterspørsel: tallverdien er mindre enn 1, så kvantum endres prosentvis mindre enn prisen.",ettersporsel;prosent-prosentpoeng,0,
+inntektselastisitet,concept,Marked og markedsformer,Inntektselastisitet,"Inntektselastisitet: den prosentvise endringen i etterspurt kvantum når inntekten øker med 1 prosent.
+Normalt gode: et gode med positiv inntektselastisitet.
+Mindreverdig gode: et gode med negativ inntektselastisitet, der etterspørselen faller når inntekten stiger.",priselastisitet,0,
+regne-elastisitet,skill,Marked og markedsformer,Regne ut elastisiteter,"regne ut priselastisitet og inntektselastisitet fra prosentvise endringer eller fra to punkter, og avgjøre om etterspørselen er elastisk eller uelastisk og om varen er et normalt eller mindreverdig gode.",priselastisitet;inntektselastisitet;regne-prosentvis-endring,0,
+elastisitet-salgsinntekt,skill,Marked og markedsformer,Forklare hva elastisiteten betyr for salgsinntekten,"forklare og regne ut hvordan en prisendring påvirker salgsinntekten (pris ganger kvantum), avhengig av om etterspørselen er elastisk eller uelastisk.",regne-elastisitet,0,
+fullkommen-konkurranse,concept,Marked og markedsformer,Fullkommen konkurranse,"Fullkommen konkurranse: en markedsform med mange små tilbydere og etterspørrere, like produkter, full informasjon og fri etablering, slik at ingen enkeltaktør kan påvirke prisen.",markedslikevekt,0,
+monopol,concept,Marked og markedsformer,Monopol,"Monopol: en markedsform med én tilbyder av en vare uten nære erstatninger, beskyttet av etableringshindringer, slik at tilbyderen selv kan fastsette prisen.",ettersporsel,0,
+oligopol,concept,Marked og markedsformer,Oligopol,"Oligopol: en markedsform med få store tilbydere som hver må ta hensyn til hvordan konkurrentene reagerer på deres valg av pris og mengde.",monopol,0,
+monopolistisk-konkurranse,concept,Marked og markedsformer,Monopolistisk konkurranse,"Monopolistisk konkurranse: en markedsform med mange tilbydere som selger litt ulike produkter, for eksempel gjennom merkevare eller beliggenhet, og derfor har en viss makt over sin egen pris.",fullkommen-konkurranse;monopol,0,
+sammenligne-markedsformer,skill,Marked og markedsformer,Sammenligne markedsformene,"gjøre rede for kjennetegnene ved de fire markedsformene, og forklare hvordan antall tilbydere, etableringshindringer og hvor like produktene er påvirker pris, mengde og markedsmakt.",fullkommen-konkurranse;monopol;oligopol;monopolistisk-konkurranse,0,
+analysere-reelt-marked,skill,Marked og markedsformer,Analysere et virkelig marked,"analysere et konkret marked, som dagligvarer, strøm eller mobilabonnement, ved å avgjøre hvilken markedsform det ligner mest på og forklare hva det betyr for prisdannelsen og for forbrukerne.",sammenligne-markedsformer;analysere-markedsendring,0,
+avgift-marked,skill,Marked og markedsformer,Analysere virkningen av en avgift,"vise grafisk hvordan en avgift på en vare påvirker pris og omsatt kvantum, og forklare hvordan elastisitetene avgjør hvor mye av avgiften kjøperne og selgerne bærer.",analysere-markedsendring;priselastisitet,0,
+bnp,concept,Nasjonalregnskap og vekst,Bruttonasjonalprodukt (BNP),"BNP: verdien av alle ferdige varer og tjenester som produseres i et land i løpet av en periode, eller summen av verdiskapingen i alle næringer.
+BNP per innbygger: BNP delt på folketallet.",,0,
+bruttoprodukt,concept,Nasjonalregnskap og vekst,Bruttoprodukt og produktinnsats,"Produktinnsats: varer og tjenester som brukes opp i produksjonen, som råvarer og strøm.
+Bruttoprodukt: produksjonsverdien minus produktinnsatsen, det vil si verdiskapingen i én bedrift eller næring.",bnp,0,
+regne-bruttoprodukt,skill,Nasjonalregnskap og vekst,Regne ut verdiskaping i en produksjonskjede,"regne ut bruttoproduktet i hvert ledd i en produksjonskjede, og vise at summen er lik verdien av sluttproduktet, slik at ingenting telles dobbelt.",bruttoprodukt,0,
+kretslop,concept,Nasjonalregnskap og vekst,Det økonomiske kretsløpet,"Det økonomiske kretsløpet: en modell av strømmene mellom husholdninger, bedrifter, offentlig sektor og utlandet, der varer, tjenester og arbeidskraft går én vei og betalingen for dem den andre.",,0,
+realligningen,concept,Nasjonalregnskap og vekst,Realligningen,"Realligningen: BNP + import = privat konsum + offentlig konsum + realinvesteringer + eksport. Venstre side er tilgangen på varer og tjenester, høyre side er bruken av dem.",bnp;kretslop,0,
+regne-realligning,skill,Nasjonalregnskap og vekst,Regne med realligningen,"sette opp realligningen fra tall i nasjonalregnskapet og regne ut en ukjent størrelse, som BNP, import eller realinvesteringer.",realligningen,0,
+analysere-realligning,skill,Nasjonalregnskap og vekst,Analysere økonomien med realligningen,"bruke realligningen til å analysere hvordan en endring i én komponent, som fall i eksporten eller økt offentlig konsum, påvirker BNP eller import.",regne-realligning,0,
+handelsbalanse,concept,Nasjonalregnskap og vekst,Handelsbalanse og driftsbalanse,"Handelsbalansen: eksport minus import av varer og tjenester.
+Driftsbalansen: handelsbalansen pluss netto renter, utbytte og stønader fra utlandet; et overskudd betyr at landet sparer i utlandet.",realligningen,0,
+privat-offentlig-sektor,concept,Nasjonalregnskap og vekst,Privat og offentlig sektor,"Privat sektor: bedrifter og husholdninger som eies og styres privat.
+Offentlig sektor: stat, fylkeskommuner og kommuner, som produserer tjenester som skole og helse og står for skatter og overføringer.",kretslop,0,
+naeringsstruktur,concept,Nasjonalregnskap og vekst,Næringsstruktur,"Primærnæringer: jordbruk, skogbruk og fiske.
+Sekundærnæringer: industri, bygg og anlegg, kraftforsyning og utvinning av olje og gass.
+Tertiærnæringer: tjenesteytende næringer, som handel, transport, finans, helse og undervisning.",,0,
+beskrive-sektorer-norge,skill,Nasjonalregnskap og vekst,Beskrive privat og offentlig sektor i Norge,"beskrive hovedtrekkene i norsk økonomi: hvor mange som jobber i privat og offentlig sektor, hvilke næringer som skaper mest verdier, og hvilken plass olje og gass har, med tall fra SSB.",privat-offentlig-sektor;naeringsstruktur;lese-statistikk,0,
+drofte-framtid-sektorer,skill,Nasjonalregnskap og vekst,Drøfte framtiden for næringsliv og offentlig sektor,"drøfte muligheter og utfordringer for norsk næringsliv og offentlig sektor i årene framover, som en eldre befolkning, omstilling fra olje og gass og ny teknologi.",beskrive-sektorer-norge,0,
+okonomisk-vekst,concept,Nasjonalregnskap og vekst,Økonomisk vekst,"Økonomisk vekst: økningen i BNP i faste priser fra en periode til den neste, oppgitt i prosent.",bnp;nominell-reell,0,
+produktivitet,concept,Nasjonalregnskap og vekst,Produktivitet og humankapital,"Arbeidsproduktivitet: hvor mye som produseres per arbeidstime.
+Humankapital: kunnskapen, ferdighetene og helsen i arbeidsstyrken, som gjør arbeidskraften mer produktiv.",produksjonsfaktorer,0,
+regne-realvekst,skill,Nasjonalregnskap og vekst,Regne ut økonomisk vekst,"regne ut vekst i BNP i faste priser og i BNP per innbygger, og forklare hvorfor vekst i løpende priser overdriver veksten når prisene stiger.",okonomisk-vekst;regne-prosentvis-endring,0,
+drofte-arsaker-vekst,skill,Nasjonalregnskap og vekst,Drøfte årsaker til økonomisk vekst,"drøfte hva som gir økonomisk vekst: flere arbeidstimer, mer realkapital, ny teknologi, bedre utdanning og gode institusjoner, og vurdere hvilke som har betydd mest i Norge.",okonomisk-vekst;produktivitet,0,
+hdi,concept,Nasjonalregnskap og vekst,HDI,"HDI (Human Development Index): FNs indeks for menneskelig utvikling, satt sammen av forventet levealder, utdanning og inntekt per innbygger.",bnp,0,
+bnp-som-mal,skill,Nasjonalregnskap og vekst,Vurdere BNP som mål på verdiskaping og velferd,"reflektere over hva BNP fanger opp og ikke fanger opp, som ulønnet arbeid, fritid, miljøskader og fordeling, og sammenligne med andre mål som HDI.",bnp;regne-realvekst;hdi,0,
+arbeidsstyrke,concept,Arbeidsmarked og ledighet,Arbeidsstyrken,"Arbeidsstyrken: alle som er sysselsatt eller arbeidsledige.
+Yrkesdeltakelse: arbeidsstyrken som andel av befolkningen i en aldersgruppe.",,0,
+arbeidsledighet,concept,Arbeidsmarked og ledighet,Arbeidsledighet,"Arbeidsledig: en person uten arbeid som har søkt arbeid og kan begynne straks.
+Ledighetsrate: de arbeidsledige som andel av arbeidsstyrken.",arbeidsstyrke,0,
+regne-ledighet,skill,Arbeidsmarked og ledighet,Regne ut ledighetsrate og yrkesdeltakelse,"regne ut ledighetsrate og yrkesdeltakelse fra tall over befolkning, sysselsatte og ledige, og forklare hvorfor SSBs arbeidskraftundersøkelse og NAVs registrerte ledighet gir ulike tall.",arbeidsledighet;regne-prosentvis-endring,0,
+typer-ledighet,concept,Arbeidsmarked og ledighet,Typer arbeidsledighet,"Friksjonsledighet: kortvarig ledighet mens folk bytter jobb eller kommer inn på arbeidsmarkedet.
+Strukturledighet: ledighet fordi de ledige ikke har den kompetansen eller bor der det er ledige jobber.
+Konjunkturledighet: ledighet fordi den samlede etterspørselen i økonomien er for lav.
+Sesongledighet: ledighet som følger årstidene, som i turisme og bygg.",arbeidsledighet,0,
+klassifisere-ledighet,skill,Arbeidsmarked og ledighet,Bestemme typen ledighet i et konkret tilfelle,"avgjøre hvilken type arbeidsledighet et konkret tilfelle er et eksempel på, og begrunne svaret.",typer-ledighet,0,
+arbeidsmarked-modell,skill,Arbeidsmarked og ledighet,Analysere arbeidsmarkedet med tilbud og etterspørsel,"bruke tilbud av og etterspørsel etter arbeidskraft til å forklare lønnsnivå og ledighet, for eksempel hva en lønn over likevektslønnen gjør med sysselsettingen.",analysere-markedsendring;arbeidsstyrke,0,
+sysselsettingstiltak,concept,Arbeidsmarked og ledighet,Sysselsettingstiltak,"Etterspørselsrettet tiltak: tiltak som øker etterspørselen etter arbeidskraft, som økte offentlige utgifter, lavere skatt eller lavere rente.
+Tilbudsrettet tiltak: tiltak som gjør de ledige bedre rustet til ledige jobber, som kurs, omskolering og hjelp til å flytte.",typer-ledighet,0,
+drofte-sysselsettingstiltak,skill,Arbeidsmarked og ledighet,Drøfte tiltak mot arbeidsledighet,"reflektere over ulike sysselsettingstiltak og drøfte hvilke typer ledighet hvert tiltak kan redusere, og hvilke det ikke virker mot.",klassifisere-ledighet;sysselsettingstiltak;formal-okonomisk-politikk,0,
+prisstigning,concept,Prisstigning,Prisstigning,"Inflasjon (prisstigning): en vedvarende økning i det generelle prisnivået.
+Deflasjon: et vedvarende fall i det generelle prisnivået.",nominell-reell,0,
+kpi,concept,Prisstigning,Konsumprisindeksen (KPI),"KPI: SSBs indeks for prisene på varer og tjenester husholdningene kjøper, der hver vare vektes etter hvor stor del av forbruket den utgjør.
+KPI-JAE: KPI justert for avgiftsendringer og uten energivarer, brukt for å se den underliggende prisstigningen.",indeks;prisstigning,0,
+regne-inflasjon,skill,Prisstigning,Regne ut prisstigning fra KPI,"regne ut prisstigningen mellom to år ut fra KPI, og forklare hvordan SSB måler prisene og vekter varene.",kpi;regne-indeks,0,
+regne-reallonn,skill,Prisstigning,Regne om til faste priser,"regne om et beløp til faste kroner med KPI, og regne ut reallønnsvekst og realrente.",regne-inflasjon;rente,0,
+arsaker-inflasjon,concept,Prisstigning,Typer prisstigning,"Etterspørselsdrevet prisstigning: den samlede etterspørselen vokser raskere enn produksjonen kan følge med.
+Kostnadsdrevet prisstigning: produksjonskostnader som lønn, energi og råvarer stiger og veltes over i prisene.
+Importert prisstigning: prisene på importerte varer stiger, for eksempel fordi kronen svekkes.",prisstigning,0,
+drofte-arsaker-inflasjon,skill,Prisstigning,Drøfte årsaker til prisstigning,"forklare og drøfte hvilke årsaker som lå bak prisstigningen i en konkret periode, som 2022–2023, med tall fra SSB.",arsaker-inflasjon;regne-inflasjon,0,
+drofte-konsekvenser-inflasjon,skill,Prisstigning,Drøfte konsekvenser av prisstigning,"drøfte hvem som taper og hvem som tjener på prisstigning, som låntakere, sparere og folk med faste inntekter, og hvorfor høy og ustabil prisstigning skader økonomien.",regne-reallonn;arsaker-inflasjon,0,
+penger,concept,Penger og finansmarkeder,Penger,"Penger: det som brukes som betalingsmiddel, og som også er en måleenhet for verdi og en måte å oppbevare verdier på.",,0,
+rente,concept,Penger og finansmarkeder,Rente,"Rente: prisen for å låne penger, oppgitt i prosent per år.
+Nominell rente: renten slik banken oppgir den.
+Realrente: nominell rente minus prisstigningen, altså hva lånet faktisk koster i kjøpekraft.",penger;nominell-reell,0,
+bank,concept,Penger og finansmarkeder,Bank og kreditt,"Bank: en virksomhet som tar imot innskudd og gir lån, og som tjener på forskjellen mellom utlånsrenten og innskuddsrenten.
+Kreditt: lån; når bankene låner ut, skapes nye innskudd og dermed nye penger.",penger;rente,0,
+aksje-obligasjon,concept,Penger og finansmarkeder,Aksje og obligasjon,"Aksje: en eierandel i et selskap, som gir rett til en del av overskuddet og stemme på generalforsamlingen.
+Obligasjon: et rentebærende lån en bedrift eller stat tar opp ved å selge gjeldsbrev til investorer.",,0,
+risiko-avkastning,concept,Penger og finansmarkeder,Risiko og avkastning,"Avkastning: det en investering gir i renter, utbytte og verdiøkning.
+Risiko: usikkerheten om avkastningen; investorer krever høyere forventet avkastning for å ta høyere risiko.",aksje-obligasjon,0,
+finansmarked,concept,Penger og finansmarkeder,Finansmarked,"Finansmarked: markedet der sparing kanaliseres til lån og investering, gjennom banker, aksjemarkedet og obligasjonsmarkedet.",bank;aksje-obligasjon,0,
+forklare-finansmarked,skill,Penger og finansmarkeder,Forklare hva finansmarkedene gjør for økonomien,"forklare hvordan finansmarkedene kobler sparere og låntakere, fordeler risiko og gjør det mulig å finansiere investeringer.",finansmarked;risiko-avkastning,0,
+finanskrise,concept,Penger og finansmarkeder,Finansiell boble og finanskrise,"Finansiell boble: prisene på aksjer, boliger eller andre eiendeler stiger langt over det inntjeningen kan forsvare, drevet av forventninger om videre prisvekst.
+Finanskrise: banker og andre finansinstitusjoner får store tap og slutter å låne ut, slik at problemene sprer seg til resten av økonomien.",finansmarked,0,
+vurdere-finansmarked,skill,Penger og finansmarkeder,Vurdere finansmarkedenes muligheter og utfordringer,"vurdere hvilke muligheter og utfordringer finansmarkedene gir for samfunnsøkonomien, med et konkret eksempel som finanskrisen i 2008, og forklare hvorfor bankene er regulert.",forklare-finansmarked;finanskrise,0,
+konjunktur,concept,Økonomisk politikk,Konjunkturer,"Konjunkturer: svingningene i den økonomiske aktiviteten rundt den langsiktige trenden.
+Høykonjunktur: produksjonen er over det normale, ledigheten er lav og presset på prisene øker.
+Lavkonjunktur: produksjonen er under det normale og ledigheten stiger.",okonomisk-vekst,0,
+finanspolitikk,concept,Økonomisk politikk,Finanspolitikk,"Finanspolitikk: myndighetenes bruk av offentlige utgifter og skatter for å påvirke økonomien.
+Ekspansiv finanspolitikk: økte utgifter eller lavere skatter, som øker etterspørselen.
+Kontraktiv finanspolitikk: lavere utgifter eller høyere skatter, som demper etterspørselen.",privat-offentlig-sektor,0,
+statsbudsjett,concept,Økonomisk politikk,Statsbudsjettet,"Statsbudsjettet: statens plan for inntekter og utgifter for neste år, vedtatt av Stortinget.
+Oljekorrigert underskudd: underskuddet på statsbudsjettet når inntektene fra petroleumsvirksomheten holdes utenfor; det dekkes med overføringer fra Statens pensjonsfond utland.",finanspolitikk,0,
+pengepolitikk,concept,Økonomisk politikk,Pengepolitikk,"Pengepolitikk: sentralbankens styring av renten for å holde prisstigningen lav og stabil.
+Styringsrente: renten bankene får på innskudd i Norges Bank, som påvirker alle andre renter i økonomien.",rente,0,
+fakta-politikk,fact,Økonomisk politikk,Rammene for norsk økonomisk politikk,"Norges Banks mål for prisstigningen: 2 prosent over tid
+handlingsregelen: bruken av fondsmidler skal over tid tilsvare om lag 3 prosent av verdien av Statens pensjonsfond utland
+hvem som fastsetter styringsrenten: Norges Bank
+hvem som vedtar statsbudsjettet: Stortinget",pengepolitikk;statsbudsjett,0,
+konsumfunksjon,concept,Økonomisk politikk,Konsumfunksjonen,"Konsumfunksjon: sammenhengen mellom husholdningenes konsum og disponibel inntekt, ofte skrevet C = c0 + c1(Y − T).
+Marginal konsumtilbøyelighet (c1): hvor mye konsumet øker når disponibel inntekt øker med én krone.",realligningen,0,
+multiplikator,concept,Økonomisk politikk,Multiplikatoreffekten,"Multiplikatoreffekt: at en økning i etterspørselen gir en større økning i BNP, fordi økt produksjon gir inntekter som brukes til mer konsum i flere runder.
+Multiplikator: forholdet mellom endringen i BNP og den opprinnelige endringen i etterspørselen; i den enkleste modellen 1/(1 − c1).",konsumfunksjon,0,
+regne-multiplikator,skill,Økonomisk politikk,Regne med multiplikatoren,"regne ut likevekts-BNP i en enkel modell med konsumfunksjon, og regne ut hvor mye BNP endres når offentlig konsum, investeringer eller skatter endres.",multiplikator;regne-realligning,0,
+styringsrente-virkning,skill,Økonomisk politikk,Forklare hvordan styringsrenten virker,"forklare hvordan en endring i styringsrenten virker på lånerenter, konsum, investeringer, kronekursen og til slutt prisstigning og sysselsetting.",pengepolitikk;bank,0,
+formal-okonomisk-politikk,skill,Økonomisk politikk,Forklare mål og virkemidler i den økonomiske politikken,"gjøre rede for målene for den økonomiske politikken, som lav ledighet, stabil prisstigning, vekst og rimelig fordeling, og forklare hvordan finanspolitikk og pengepolitikk virker på økonomien.",finanspolitikk;pengepolitikk;konjunktur,0,
+motkonjunkturpolitikk,skill,Økonomisk politikk,Foreslå politikk for en konjunktursituasjon,"foreslå og begrunne finans- og pengepolitikk for en gitt konjunktursituasjon, og vise hvilke konflikter mellom målene som kan oppstå.",formal-okonomisk-politikk;regne-multiplikator;styringsrente-virkning;fakta-politikk,0,
+lonnsdannelse,concept,Fordeling og ulikhet,Lønnsdannelse,"Lønnsdannelse: hvordan lønningene fastsettes, gjennom forhandlinger, tariffavtaler og markedet.
+Frontfagsmodellen: at industrien som konkurrerer med utlandet forhandler først, og at resultatet blir en ramme for lønnsveksten i resten av arbeidslivet.",arbeidsstyrke,0,
+inntektsfordeling,concept,Fordeling og ulikhet,Inntektsfordeling,"Funksjonell inntektsfordeling: hvordan verdiskapingen fordeles mellom arbeid (lønn) og kapital (overskudd).
+Personlig inntektsfordeling: hvordan inntektene fordeles mellom personer eller husholdninger.",bnp,0,
+lorenz-gini,concept,Fordeling og ulikhet,Lorenzkurve og Gini-koeffisient,"Lorenzkurve: en kurve som viser hvor stor andel av den samlede inntekten de fattigste x prosentene av befolkningen har.
+Gini-koeffisient: et mål på ulikhet mellom 0 (alle har lik inntekt) og 1 (én har alt), basert på avstanden mellom Lorenzkurven og likhetslinjen.",inntektsfordeling,0,
+tolke-gini,skill,Fordeling og ulikhet,Tolke mål på ulikhet,"tegne og tolke Lorenzkurver og Gini-koeffisienter, og bruke dem til å sammenligne ulikhet mellom land eller over tid.",lorenz-gini;lese-statistikk,0,
+arsaker-lonnsforskjeller,skill,Fordeling og ulikhet,Forklare lønnsforskjeller,"forklare hva som påvirker lønnsforskjeller, som utdanning, produktivitet, fagforeninger, globalisering og kjønn, og bruke modellen for arbeidsmarkedet til å vise det.",lonnsdannelse;arbeidsmarked-modell,0,
+omfordeling,concept,Fordeling og ulikhet,Omfordeling,"Omfordeling: at det offentlige endrer inntektsfordelingen gjennom skatter, trygder og offentlige tjenester.
+Progressiv skatt: at skatteandelen øker med inntekten.",inntektsfordeling,0,
+utforske-ulikhet-tiltak,skill,Fordeling og ulikhet,Utforske ulikhet og drøfte tiltak,"utforske utviklingen i lønnsforskjeller, inntektsfordeling og formuesulikhet i Norge, og drøfte hvordan myndighetene kan påvirke den.",tolke-gini;arsaker-lonnsforskjeller;omfordeling,0,
+eksterne-virkninger,concept,Miljø og bærekraft,Eksterne virkninger,"Ekstern virkning: en kostnad eller gevinst som rammer andre enn kjøper og selger, og som derfor ikke er med i markedsprisen.
+Negativ ekstern virkning: en kostnad for andre, som utslipp og støy.",markedslikevekt,0,
+miljovirkemidler,concept,Miljø og bærekraft,Miljøpolitiske virkemidler,"Miljøavgift: en avgift på utslipp eller forurensende varer, som CO2-avgiften.
+Kvotesystem: et tak på samlede utslipp, der retten til å slippe ut kjøpes og selges.
+Direkte regulering: påbud og forbud, som utslippskrav eller forbud mot oljefyr.",eksterne-virkninger,0,
+baerekraftig-utvikling,concept,Miljø og bærekraft,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker dagens behov uten å ødelegge mulighetene for kommende generasjoner, med en økonomisk, en sosial og en miljømessig dimensjon.",,0,
+gronn-vekst,concept,Miljø og bærekraft,Grønn vekst,"Grønn vekst: økonomisk vekst som skjer samtidig som utslipp og naturbelastning går ned, fordi produksjonen blir renere og mindre ressurskrevende.",okonomisk-vekst;baerekraftig-utvikling,0,
+forklare-aktivitet-miljo,skill,Miljø og bærekraft,Forklare sammenhengen mellom økonomisk aktivitet og miljø,"forklare hvordan produksjon og forbruk gir utslipp og naturinngrep, og hvorfor markedet ikke tar hensyn til disse kostnadene av seg selv.",eksterne-virkninger;okonomisk-vekst,0,
+sammenligne-miljovirkemidler,skill,Miljø og bærekraft,Sammenligne miljøpolitiske virkemidler,"sammenligne avgifter, kvoter og direkte regulering som virkemidler mot utslipp, og vurdere hvor godt hvert virkemiddel treffer, hva det koster og hvem som bærer kostnaden.",miljovirkemidler;forklare-aktivitet-miljo;avgift-marked,0,
+drofte-baerekraftig-vekst,skill,Miljø og bærekraft,Drøfte hva som skal til for bærekraftig vekst,"reflektere over sammenhengen mellom økonomisk vekst og miljøutfordringer, og drøfte hva som skal til for å oppnå bærekraftig vekst og utvikling.",sammenligne-miljovirkemidler;gronn-vekst;bnp-som-mal,0,
+valutakurs,concept,Valuta og internasjonal handel,Valutakurs,"Valutakurs: prisen på en valuta målt i en annen, som hvor mange kroner én euro koster.
+Styrking (appresiering): kronen blir verdt mer, så utenlandsk valuta blir billigere.
+Svekkelse (depresiering): kronen blir verdt mindre, så utenlandsk valuta blir dyrere.",,0,
+regne-valuta,skill,Valuta og internasjonal handel,Regne med valutakurser,"regne om beløp mellom valutaer, og regne ut hvor mange prosent kronen har styrket eller svekket seg mot en annen valuta.",valutakurs;regne-prosentvis-endring,0,
+valutamarked,skill,Valuta og internasjonal handel,Forklare valutakursen som en markedspris,"bruke tilbud og etterspørsel etter kroner til å forklare hvordan valutakursen bestemmes i et flytende valutamarked.",valutakurs;analysere-markedsendring,0,
+analysere-valutapavirkning,skill,Valuta og internasjonal handel,Analysere hva som påvirker kronekursen,"analysere hvordan renteforskjeller mot utlandet, oljeprisen, prisstigning og uro i finansmarkedene påvirker kronekursen.",valutamarked;styringsrente-virkning,0,
+drofte-valutakursendring,skill,Valuta og internasjonal handel,Drøfte konsekvenser av endret valutakurs,"drøfte hva en svakere eller sterkere krone betyr for eksportbedrifter, importører, forbrukere, turister og prisstigningen i Norge.",analysere-valutapavirkning;arsaker-inflasjon,0,
+komparative-fortrinn,concept,Valuta og internasjonal handel,Komparative fortrinn,"Absolutt fortrinn: et land kan produsere en vare med mindre ressurser enn et annet land.
+Komparativt fortrinn: et land har lavere alternativkostnad enn et annet land ved å produsere en vare.",knapphet-alternativkostnad,0,
+regne-komparative-fortrinn,skill,Valuta og internasjonal handel,Finne komparative fortrinn i et talleksempel,"regne ut alternativkostnader for to land og to varer, finne hvilket land som har komparativt fortrinn i hvilken vare, og vise at begge kan tjene på spesialisering og handel.",komparative-fortrinn,0,
+arsaker-handel,skill,Valuta og internasjonal handel,Gjøre rede for årsaker til internasjonal handel,"gjøre rede for hvorfor land handler med hverandre: komparative fortrinn, ulik tilgang på naturressurser, stordriftsfordeler og ønsket om variasjon.",regne-komparative-fortrinn,0,
+globalisering,concept,Valuta og internasjonal handel,Økonomisk globalisering,"Økonomisk globalisering: at landenes økonomier knyttes tettere sammen gjennom handel, investeringer, kapitalflyt og arbeidsinnvandring.",,0,
+drofte-globalisering,skill,Valuta og internasjonal handel,Drøfte muligheter og utfordringer ved globalisering,"drøfte muligheter og utfordringer ved økonomisk globalisering for Norge og for andre land, som billigere varer, større markeder, utflagging, sårbare leverandørkjeder og konkurranse om arbeidsplasser.",arsaker-handel;globalisering;handelsbalanse,0,

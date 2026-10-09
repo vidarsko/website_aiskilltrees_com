@@ -1,0 +1,155 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Motorisk læring;Egentrening;Aktiv livsstil;Kropp og helse i samfunnet;Læringsfellesskap;Friluftsliv i nærområdet,,,
+,config,,title,Kroppsøving Vg3,,,
+,config,,description,"Motorisk læring ut fra egne forutsetninger, egentrening du planlegger, gjennomfører og vurderer selv, en aktiv livsstil etter skolen, drøfting av kropp, trening og helse i samfunnet, læringsfellesskap og friluftsliv i nærområdet.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,storageKey,no-vgs-kroppsoving-vg3-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kroppsøving Vg3 (fellesfag, studieforberedende, norsk videregående skole)",,,
+,config,,slots.motivationSubject,kroppsøving,,,
+,config,,slots.expressionFocus,"vurderer en treningsperiode med «det gikk bra» uten å vise til test eller logg, kaller en tekst drøftende når den bare legger fram ett syn, blander kroppsideal og helse, og oppgir intensitet uten å si hva prosenten er prosent av",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, Vg3 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,KRO1019,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,physical-education,,,
+,config,,keywords,gym; kroppsøving; motorisk læring; egentrening; treningsplan; periodisering; intensitetssoner; Borgs skala; fysiske tester; treningsdagbok; livsstil; folkehelse; sosial ulikhet i helse; kroppsideal; kroppspress; RED-S; doping; mestringsklima; friluftsliv; overnatting ute,,,
+,config,,updated,2026-10-08,,,
+motorisk-laering,concept,Motorisk læring,Motorisk læring,"Motorisk læring: en varig forbedring i evnen til å utføre en bevegelse, som følge av øving; en god dag er ikke læring, men det man kan gjenta neste uke, er det.",,0,
+laeringsfaser,concept,Motorisk læring,Faser i motorisk læring,"Den kognitive fasen: man må tenke gjennom hvert ledd i bevegelsen, og utførelsen er ujevn med mange feil.
+Den assosiative fasen: bevegelsen henger sammen, feilene blir færre, og man begynner å rette dem selv.
+Den autonome fasen: bevegelsen går nesten av seg selv, og oppmerksomheten blir fri til taktikk og omgivelser.",motorisk-laering,0,
+tilbakemeldingstyper,concept,Motorisk læring,Tilbakemelding i motorisk læring,"Indre tilbakemelding: det man selv kjenner og ser mens man utfører bevegelsen.
+Ytre tilbakemelding: informasjon utenfra, fra lærer, medelev, et resultat eller et videoopptak.
+Resultatkunnskap: å vite hvordan det gikk, som om ballen gikk i mål.
+Utførelseskunnskap: å vite hvordan bevegelsen ble utført, som hvor på foten ballen ble truffet.",motorisk-laering,0,
+ovingsformer,concept,Motorisk læring,Øvingsformer,"Blokkøving: samme ferdighet gjentas mange ganger på rad på samme måte.
+Variert øving: ferdigheten øves i ulike utgaver og situasjoner, eller blandet med andre ferdigheter.
+Fordelt øving: øvingen spres over mange korte økter i stedet for noen få lange.",motorisk-laering,0,
+forutsetninger,concept,Motorisk læring,Egne forutsetninger,"Forutsetning: det en person har med seg inn i en aktivitet, som tidligere erfaring, kroppsbygning, fysisk form, skader, motivasjon og hvor trygg man er i situasjonen.",,0,
+overforing,concept,Motorisk læring,Overføring,"Overføring: at øving på én ferdighet gjør det lettere å lære en annen, fordi de ligner i bevegelse eller i hva man må se etter, som fra håndball til basketball eller fra langrenn til skøyter.",motorisk-laering,0,
+plassere-fase,skill,Motorisk læring,Avgjøre hvilken læringsfase du er i,"avgjøre for en ferdighet du øver på hvilken læringsfase du er i, ut fra hvor mye du må tenke, hvor jevn utførelsen er og om du ser egne feil.",laeringsfaser,0,
+velge-ovingsform,skill,Motorisk læring,Velge øvingsform ut fra mål og nivå,"velge øvingsform for en ferdighet ut fra læringsfasen, og begrunne hvorfor blokkøving ofte passer tidlig, mens variert og fordelt øving gir en ferdighet som sitter og kan brukes i spill.",ovingsformer;plassere-fase,0,
+videoanalyse,skill,Motorisk læring,Analysere egen bevegelse med video,"filme egen utførelse av en ferdighet, sammenligne med en modell eller med kjennetegn på god utførelse, og velge ett punkt å forbedre til neste økt.",tilbakemeldingstyper,0,
+ovingsplan,skill,Motorisk læring,Lage en øvingsplan for en ferdighet,"lage en plan for å lære eller forbedre en ferdighet ut fra egne forutsetninger, med delmål, øvingsform og hvordan du skal få tilbakemelding underveis.",velge-ovingsform;forutsetninger;videoanalyse,0,
+ove-over-tid,skill,Motorisk læring,Øve en ferdighet over tid,"øve på en valgt ferdighet over flere uker etter planen din, og vise framgangen ved å sammenligne opptak eller resultater fra starten og slutten.",ovingsplan,0,
+nye-aktiviteter,skill,Motorisk læring,Utvikle ferdigheter i nye aktiviteter,"prøve og utvikle ferdigheter i bevegelsesaktiviteter du er ny i, og beskrive hva du kunne ta med deg fra det du kunne fra før.",overforing;forutsetninger,0,
+belastning-superkompensasjon,concept,Egentrening,Belastning og superkompensasjon,"Restitusjon: hvilen etter belastning, der kroppen henter seg inn igjen.
+Superkompensasjon: at kroppen etter en økt og nok hvile bygger seg opp til et litt høyere nivå enn før.
+Overtrening: vedvarende tretthet og fall i prestasjon når belastningen over lang tid er større enn restitusjonen.",,0,
+treningsprinsipper,concept,Egentrening,Treningsprinsippene,"Progresjon: belastningen økes gradvis etter hvert som kroppen tilpasser seg.
+Spesifisitet: man blir best på det man faktisk trener.
+Individualitet: den samme treningen virker ulikt på ulike personer.
+Kontinuitet: jevn trening over tid gir mer enn store økter med lange opphold.
+Variasjon: ulike øvelser og belastninger hindrer stillstand og slitasje.
+Reversibilitet: det man har bygd opp, går gradvis tapt når man slutter.",belastning-superkompensasjon,0,
+fysiske-egenskaper,concept,Egentrening,Fysiske egenskaper,"Utholdenhet: evnen til å holde på lenge, aerobt med nok oksygen eller anaerobt med svært høy intensitet over kort tid.
+Styrke: evnen til å bruke musklene mot motstand, som maksimal, eksplosiv eller utholdende styrke.
+Bevegelighet: hvor langt et ledd kan beveges.
+Koordinasjon: evnen til å få kroppsdelene til å samarbeide i riktig rekkefølge og til rett tid.",,0,
+intensitetssoner,fact,Egentrening,Intensitetssonene,"sone 1, rolig: 60–72 % av makspuls
+sone 2, moderat: 72–82 % av makspuls
+sone 3, ganske hardt: 82–87 % av makspuls
+sone 4, hardt: 87–92 % av makspuls
+sone 5, svært hardt: 92–97 % av makspuls",,0,
+borg,concept,Egentrening,Opplevd anstrengelse,"Borgs skala: en skala fra 6 til 20 der man angir hvor anstrengende en økt kjennes, fra «svært, svært lett» til «maksimalt»; den brukes når puls ikke kan måles, eller sammen med pulsen.",,0,
+pulssoner,skill,Egentrening,Finne egne pulssoner,"anslå makspulsen din med en praktisk test eller ut fra alder, og regne ut pulsgrensene for hver intensitetssone.",intensitetssoner,0,
+fysiske-tester,concept,Egentrening,Fysiske tester,"Fysisk test: en standardisert måling av en fysisk egenskap, som Coopers test (lengst mulig løping på 12 minutter) for utholdenhet eller maks antall armhevinger for utholdende styrke.
+Standardisering: at testen gjennomføres likt hver gang, med samme oppvarming, underlag og regler, slik at resultatene kan sammenlignes.",fysiske-egenskaper,0,
+gjennomfore-test,skill,Egentrening,Gjennomføre og tolke en test,"gjennomføre en fysisk test standardisert, og avgjøre om endringen fra en tidligere test er stor nok til å skyldes trening og ikke dagsform, vær eller underlag.",fysiske-tester,0,
+malformulering,concept,Egentrening,Mål og delmål,"Resultatmål: det man vil oppnå, som en bestemt tid på Coopers test.
+Prosessmål: det man skal gjøre for å komme dit, som tre økter i uka.
+Delmål: et etappemål på veien, som gjør det mulig å se om man er i rute.",,0,
+sette-mal,skill,Egentrening,Sette mål for egentreningen,"sette et etterprøvbart langsiktig mål med delmål for egentreningen, ut fra testresultater og egne forutsetninger.",malformulering;gjennomfore-test;forutsetninger,0,
+treningsmetoder,concept,Egentrening,Treningsmetoder,"Langkjøring: kontinuerlig trening med lav intensitet over lang tid.
+Terskeltrening: lange drag rett under den intensiteten der syra begynner å hope seg opp i musklene.
+Intervalltrening med høy intensitet: drag nær maksimal innsats med pauser, som 4 × 4 minutter.
+Styrketrening i serier: et antall repetisjoner av en øvelse, gjentatt i flere serier med pause mellom.",fysiske-egenskaper;intensitetssoner,0,
+periodisering,concept,Egentrening,Periodisering,"Periodisering: å dele en lengre treningsperiode i faser med ulik vekt, som en grunnperiode med mye rolig mengde, en periode med mer intensitet, og en lettere periode før en test.
+Hvileuke: en uke med tydelig lavere belastning, som gir kroppen tid til å tilpasse seg.",belastning-superkompensasjon,0,
+lage-treningsplan,skill,Egentrening,Lage en treningsplan over flere uker,"lage en plan for egentrening over seks til åtte uker med mål og delmål, antall økter per uke, treningsmetoder, intensitet, progresjon og en test ved start og slutt.",sette-mal;treningsmetoder;periodisering;treningsprinsipper;pulssoner,0,
+trene-forebyggende,skill,Egentrening,Bygge skadeforebygging inn i planen,"bygge oppvarming, variasjon og gradvis økning inn i planen slik at risikoen for belastningsskader holdes lav, og kjenne igjen tegnene på at du trener mer enn du restituerer fra.",belastning-superkompensasjon;treningsprinsipper,0,
+gjennomfore-plan,skill,Egentrening,Gjennomføre egentrening etter plan,"gjennomføre øktene etter planen gjennom hele perioden med den intensiteten planen sier, og justere når sykdom, skade eller hverdagen krever det.",lage-treningsplan;trene-forebyggende,0,
+treningsdagbok,concept,Egentrening,Treningsdagbok,"Treningsdagbok: en løpende oversikt over gjennomførte økter med innhold, varighet, intensitet og hvordan kropp og humør var, som gjør det mulig å se sammenhengen mellom treningen og utviklingen.",,0,
+fore-dagbok,skill,Egentrening,Føre treningsdagbok,"føre dagbok over hver økt i perioden med nok detaljer til at du etterpå kan se hva du gjorde og hvordan det gikk.",treningsdagbok;borg,0,
+digitale-verktoy,skill,Egentrening,Bruke digitale verktøy i egentreningen,"bruke en app eller klokke til å planlegge og registrere treningen, og vurdere hvilke tall som er pålitelige og hvilke som bare er grove anslag.",treningsdagbok;pulssoner,0,
+vurdere-periode,skill,Egentrening,Vurdere egen treningsperiode,"vurdere en gjennomført treningsperiode ut fra testresultater og dagbok: om målet ble nådd, hvorfor eller hvorfor ikke, og hva du vil endre i neste periode.",fore-dagbok;gjennomfore-plan;gjennomfore-test,0,
+livsfaser,concept,Aktiv livsstil,Aktivitet gjennom livsfasene,"Livsfase: en periode i livet med egne rammer for aktivitet, som studietid, første jobb, småbarnsfase og alderdom; overgangene mellom fasene er typiske tidspunkter for å endre eller miste aktivitetsvaner.",,0,
+aktivitetsformer,concept,Aktiv livsstil,Organisert og egenorganisert aktivitet,"Organisert aktivitet: aktivitet i klubb, lag, studentidrett eller treningssenter med faste tider.
+Egenorganisert aktivitet: aktivitet man legger opp selv, alene eller med venner, som turer, løping og styrketrening hjemme.
+Hverdagsaktivitet: aktivitet som en del av gjøremål, som å sykle til jobb eller ta trappa.",,0,
+motivasjon,concept,Aktiv livsstil,Motivasjon for varig aktivitet,"Indre motivasjon: å gjøre noe fordi det i seg selv er gøy, meningsfullt eller interessant.
+Ytre motivasjon: å gjøre noe for en belønning eller for å unngå noe.
+Selvbestemmelse: opplevelsen av å ha valgt aktiviteten selv, som sammen med mestring og tilhørighet styrker den indre motivasjonen.",,0,
+barrierer,concept,Aktiv livsstil,Barrierer og tilretteleggere,"Barriere: det som hindrer en i å være aktiv selv om man vil, som tid, penger, avstand eller at man ikke kjenner noen.
+Tilrettelegger: det som gjør det lettere, som en treningsvenn, kort vei til et tilbud, faste tidspunkt eller en aktivitet man liker.",,0,
+anbefalinger-voksne,fact,Aktiv livsstil,Anbefalingene for voksne,"voksne, moderat intensitet per uke: 150–300 minutter
+voksne, høy intensitet per uke (i stedet for moderat): 75–150 minutter
+voksne, muskelstyrkende aktivitet: minst to dager i uka
+voksne, stillesitting: redusere den samlede tiden og bryte den opp",,0,
+forklare-egentrening-livsstil,skill,Aktiv livsstil,Forklare hvordan egentrening gir en aktiv livsstil,"forklare hvordan det å kunne planlegge, gjennomføre og vurdere egen trening gjør det lettere å holde seg aktiv etter skolen, når ingen lenger lager timeplanen for deg.",vurdere-periode;livsfaser;motivasjon,0,
+hverdagsaktivitet,skill,Aktiv livsstil,Bygge aktivitet inn i hverdagen,"finne konkrete måter å bygge aktivitet inn i en vanlig studie- eller arbeidsdag, og regne ut hvor stor del av anbefalt ukentlig aktivitet de dekker.",aktivitetsformer;anbefalinger-voksne,0,
+plan-etter-skolen,skill,Aktiv livsstil,Lage en plan for aktivitet etter videregående,"lage en realistisk plan for hvordan du vil være fysisk aktiv det første året etter videregående, med konkrete tilbud der du skal bo og løsninger på det som kan stå i veien.",forklare-egentrening-livsstil;hverdagsaktivitet;barrierer,0,
+helse,concept,Kropp og helse i samfunnet,Helsebegrepet,"Helse: fysisk, psykisk og sosialt velvære, ikke bare fravær av sykdom.
+Helse som ressurs: at god helse gjør det mulig å mestre hverdagen og leve det livet man ønsker.",,0,
+livsstilssykdommer,concept,Kropp og helse i samfunnet,Livsstilssykdommer,"Livsstilssykdom: sykdom som i stor grad påvirkes av levevaner som aktivitet, kosthold, røyk og alkohol, som hjerte- og karsykdom, type 2-diabetes, høyt blodtrykk og noen kreftformer.",helse,0,
+stillesitting,concept,Kropp og helse i samfunnet,Stillesitting,"Stillesitting: våken tid i sittende eller liggende stilling med lavt energiforbruk; lange, uavbrutte perioder er en helserisiko i seg selv, også for den som trener ellers.",,0,
+folkehelse,concept,Kropp og helse i samfunnet,Folkehelse,"Folkehelse: helsetilstanden i befolkningen og hvordan den fordeler seg.
+Folkehelsearbeid: samfunnets innsats for å fremme helse og forebygge sykdom, som sykkelveier, turstier, gratis aktivitetstilbud og fysisk aktivitet i skolen.",helse,0,
+sosial-ulikhet,concept,Kropp og helse i samfunnet,Sosial ulikhet i helse,"Sosial ulikhet i helse: at helse og levealder følger utdanning, inntekt og bosted, slik at grupper med lengre utdanning og høyere inntekt i gjennomsnitt er mer fysisk aktive, har bedre helse og lever lenger.",folkehelse,0,
+beskrive-sammenheng,skill,Kropp og helse i samfunnet,Beskrive sammenhengen mellom aktivitet og helse i samfunnet,"beskrive med fagbegreper hvordan fysisk aktivitet, stillesitting og helse henger sammen i befolkningen, og bruke sosial ulikhet i helse som eksempel.",livsstilssykdommer;stillesitting;sosial-ulikhet,0,
+kroppsideal,concept,Kropp og helse i samfunnet,Kroppsideal og kroppspress,"Kroppsideal: forestillingen i en kultur eller et miljø om hvordan en kropp bør se ut; idealene endrer seg over tid og formes av medier, reklame og idrett.
+Kroppspress: opplevd press om å endre kroppen for å ligne idealet.",,0,
+kroppsbilde,concept,Kropp og helse i samfunnet,Kroppsbilde og selvbilde,"Kroppsbilde: hvordan man selv oppfatter, tenker og føler om sin egen kropp.
+Selvbilde: hvordan man ser på seg selv som person; et negativt kroppsbilde kan trekke selvbildet ned.",kroppsideal,0,
+kropp-i-medier,concept,Kropp og helse i samfunnet,Kropp i medier og reklame,"Redigert bilde: et bilde der kropp eller hud er endret med filter, retusjering, lys eller vinkling.
+Merking av retusjert reklame: norsk lov krever at reklame der en kropps fasong, størrelse eller hud er endret, skal merkes med et eget merke.",kroppsideal,0,
+identitet,concept,Kropp og helse i samfunnet,Bevegelse og identitet,"Bevegelseskultur: aktivitetene og verdiene et samfunn eller miljø knytter til bevegelse, som skigåing og friluftsliv i Norge.
+Identitet: hvem man oppfatter seg selv som; aktivitetene man driver med, kan bli en del av den.",,0,
+helse-prestasjon,concept,Kropp og helse i samfunnet,Trening for helse og for prestasjon,"Helsetrening: trening der målet er å holde seg frisk og i form.
+Prestasjonstrening: trening der målet er å bli best mulig i en idrett, og der belastningen kan bli så høy at den går ut over helsen.",helse,0,
+energimangel,concept,Kropp og helse i samfunnet,Relativ energimangel,"Relativ energimangel (RED-S): at man over tid får i seg for lite energi i forhold til treningsmengden, med følger som flere skader, svakere skjelett, dårligere prestasjon og forstyrret menstruasjon.",helse-prestasjon,0,
+doping,concept,Kropp og helse i samfunnet,Doping,"Doping: bruk av forbudte stoffer eller metoder for å prestere bedre eller endre kroppen, som anabole steroider; i Norge er bruk og besittelse av slike dopingmidler straffbart for alle, ikke bare for idrettsutøvere.",helse-prestasjon,0,
+drofting,concept,Kropp og helse i samfunnet,Drøfting,"Drøfting: å belyse en sak fra flere sider, veie argumentene for og mot opp mot hverandre, og komme fram til en begrunnet konklusjon.",,0,
+drofte-kroppsideal,skill,Kropp og helse i samfunnet,Drøfte hvordan kroppsidealer påvirker aktivitet,"drøfte hvordan kroppsidealer i medier og sosiale medier både kan motivere og hemme fysisk aktivitet, og hvordan de kan påvirke kroppsbilde og helse.",kroppsbilde;kropp-i-medier;drofting,0,
+drofte-sunn-trening,skill,Kropp og helse i samfunnet,Drøfte når trening slutter å være sunt,"drøfte hvor grensen går mellom sunn trening og trening som skader helsen, med eksempler som energimangel, overtrening og doping.",energimangel;doping;drofting;belastning-superkompensasjon,0,
+drofte-folkehelsetiltak,skill,Kropp og helse i samfunnet,Drøfte et folkehelsetiltak,"drøfte et konkret tiltak for å øke den fysiske aktiviteten i befolkningen, som en time daglig fysisk aktivitet i skolen eller gratis treningstilbud, ut fra hvem det når og hvem det ikke når.",beskrive-sammenheng;drofting,0,
+vurdere-treningsrad,skill,Kropp og helse i samfunnet,Vurdere trenings- og helseråd kritisk,"vurdere et trenings- eller helseråd fra sosiale medier eller reklame ut fra hvem avsenderen er, hva de vil oppnå og om rådet bygger på forskning.",kropp-i-medier,0,
+laeringsfellesskap,concept,Læringsfellesskap,Læringsfellesskap,"Læringsfellesskap: en gruppe der alle har ansvar for at både de selv og de andre lærer, ikke bare for sin egen prestasjon.",,0,
+medvirkning,concept,Læringsfellesskap,Medvirkning,"Medvirkning: at deltakerne er med på å planlegge, gjennomføre og vurdere aktivitetene, og dermed tar ansvar for både egen og andres læring.",laeringsfellesskap,0,
+mestringsklima,concept,Læringsfellesskap,Mestringsklima og prestasjonsklima,"Mestringsklima: et miljø der innsats, framgang og læring står i sentrum, og feil er en del av å lære.
+Prestasjonsklima: et miljø der det å være bedre enn andre står i sentrum, og feil oppleves som nederlag.",laeringsfellesskap,0,
+roller,concept,Læringsfellesskap,Roller i gruppa,"Rolle: en avklart oppgave i gruppa, som leder, tidtaker, observatør, sikkerhetsansvarlig eller instruktør.",,0,
+inkludering,concept,Læringsfellesskap,Inkludering,"Inkludering: å legge til rette slik at alle kan delta på en meningsfull måte, uavhengig av ferdighetsnivå, kropp, kjønn, funksjonsevne eller bakgrunn.",,0,
+fremovermelding,concept,Læringsfellesskap,Fremovermelding,"Fremovermelding: en tilbakemelding som peker på hva den andre kan gjøre neste gang, i stedet for å oppsummere hva som var galt.",,0,
+samarbeide-oppgave,skill,Læringsfellesskap,Samarbeide om å løse en praktisk oppgave,"løse en praktisk bevegelsesoppgave sammen med gruppa, som å lage en turnrekke, en dans eller en løsning på en hinderløype, ved å fordele roller og prøve ut flere løsninger.",roller;laeringsfellesskap,0,
+inkludere-alle,skill,Læringsfellesskap,Inkludere alle i en aktivitet,"endre organisering, regler eller roller i en aktivitet slik at alle i gruppa får delta og lykkes, og sjekke underveis om noen blir stående utenfor.",inkludering;roller,0,
+gi-fremovermelding,skill,Læringsfellesskap,Gi fremovermelding til en medelev,"gi en medelev en kort, konkret fremovermelding etter et forsøk, og se om den hjelper i neste forsøk.",fremovermelding,0,
+skape-mestringsklima,skill,Læringsfellesskap,Bidra til et mestringsklima,"bruke konkrete grep som gjør at flere opplever mestring, som å anerkjenne innsats og framgang, gi alle en rolle og tilpasse vanskelighetsgraden.",mestringsklima;gi-fremovermelding,0,
+observere-samspill,skill,Læringsfellesskap,Observere samspillet i en gruppe,"observere en gruppe i aktivitet og beskrive konkret hvordan deltakerne påvirker hverandre, som hvem som får ballen, hvem som blir hørt og hvem som trekker seg unna.",laeringsfellesskap,0,
+reflektere-medvirkning,skill,Læringsfellesskap,Reflektere over hvordan du påvirker andre,"beskrive ut fra en konkret aktivitet hvordan din egen innsats, kommunikasjon og holdning påvirket de andres læring og trivsel, og hva du vil gjøre annerledes.",medvirkning;mestringsklima;observere-samspill,0,
+friluftsliv,concept,Friluftsliv i nærområdet,Friluftsliv,"Friluftsliv: opphold og fysisk aktivitet ute i naturen i fritiden, der målet er naturopplevelse og miljøforandring og ikke konkurranse.",,0,
+friluftslivskulturer,concept,Friluftsliv i nærområdet,Friluftslivskulturer,"Friluftslivskultur: en måte å være ute på som henger sammen med en kultur eller et miljø, som norsk hytte- og skitradisjon, samisk høsting av naturen og bruk av lavvo, og nyere former som klatring, terrengsykling og overnatting i hengekøye.",friluftsliv,0,
+naeromrade,concept,Friluftsliv i nærområdet,Nærområdet,"Nærområdet: naturområder man kan nå til fots, med sykkel eller med kollektivtransport fra skolen eller hjemmet, som skog, park, strand og vann.",,0,
+allemannsretten,concept,Friluftsliv i nærområdet,Allemannsretten og sporløs ferdsel,"Allemannsretten: retten alle har til å ferdes og oppholde seg i utmark og telte en kortere periode, med plikt til å ta hensyn til grunneier, andre brukere og naturen.
+Sporløs ferdsel: å ferdes slik at ingen ser at man har vært der, ved å ta med søppel hjem, bruke eksisterende bålplasser og la vegetasjonen være.",,0,
+risikovurdering,concept,Friluftsliv i nærområdet,Risikovurdering,"Risikovurdering: å gå gjennom hva som kan gå galt i en aktivitet, hvor sannsynlig det er, hvor alvorlig det kan bli, og hvilke tiltak som gjør risikoen mindre.",,0,
+kart-kompass,concept,Friluftsliv i nærområdet,Kart og kompass,"Målestokk: forholdet mellom en lengde på kartet og den samme lengden i terrenget.
+Høydekurve: en linje som binder sammen punkter med samme høyde; tette kurver betyr bratt terreng.
+Kompasskurs: retningen fra ett punkt til et annet, målt i grader med kompasset.",,0,
+lagprinsippet,concept,Friluftsliv i nærområdet,Lagprinsippet og isolasjon,"Lagprinsippet: å kle seg i flere lag som kan tas av og på, med et fuktighetstransporterende innerste lag, et isolerende mellomlag og et ytterlag mot vind og nedbør.
+Liggeunderlag: underlaget som isolerer mot den kalde bakken når man sover ute.",,0,
+navigere,skill,Friluftsliv i nærområdet,Navigere med kart og kompass,"finne veien i nærområdet med kart og kompass, og bruke en kartapp til å kontrollere posisjonen og oppgi koordinatene ved behov.",kart-kompass,0,
+planlegge-friluftsliv,skill,Friluftsliv i nærområdet,Planlegge friluftsliv i nærområdet,"planlegge en friluftslivsaktivitet i nærområdet med formål, rute, tidsplan, utstyr, risikovurdering og en plan B for dårlig vær.",friluftsliv;naeromrade;risikovurdering;allemannsretten;navigere,0,
+overnatte-ute,skill,Friluftsliv i nærområdet,Overnatte ute,"planlegge og gjennomføre en overnatting ute i telt, lavvo, gapahuk eller hengekøye, med sovepose og liggeunderlag som er varme nok for årstiden.",planlegge-friluftsliv;lagprinsippet,0,
+gjennomfore-friluftsliv,skill,Friluftsliv i nærområdet,Gjennomføre friluftsliv i nærområdet,"gjennomføre den planlagte aktiviteten, også i dårlig vær, med trygg og sporløs ferdsel.",planlegge-friluftsliv,0,
+prove-friluftslivskultur,skill,Friluftsliv i nærområdet,Prøve en annen friluftslivskultur,"prøve en friluftslivsform du ikke kjenner fra før, og fortelle hvor den kommer fra og hva den gir som andre former ikke gir.",friluftslivskulturer;planlegge-friluftsliv,0,
+evaluere-friluftsliv,skill,Friluftsliv i nærområdet,Evaluere en friluftslivsaktivitet,"evaluere en gjennomført friluftslivsaktivitet: hva som fungerte i planleggingen, hva som ga gode opplevelser, og hva du vil gjøre annerledes neste gang.",gjennomfore-friluftsliv,0,

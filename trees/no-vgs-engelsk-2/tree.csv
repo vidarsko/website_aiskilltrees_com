@@ -1,0 +1,222 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Language and style;Critical reading and thinking;Sources and academic integrity;Academic writing and speaking;Literary history;Literature in context;Global influence;The UK and the USA compared;In-depth project,,,
+,config,,title,English 2,,,
+,config,,description,"Precise academic language, critical thinking, academic writing, literature in its historical context, the global influence of English-speaking countries, and comparing the UK and the USA, for Vg3 students who have chosen English 2.",,,
+,config,,language,en,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-vgs-engelsk-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"English 2, programme subject in Vg3 general studies (Norwegian upper secondary school)",,,
+,config,,slots.motivationSubject,English,,,
+,config,,slots.expressionFocus,"retells the plot or the historical events instead of analysing them, writes ""the society"" and ""the history"" about ideas in general, makes sweeping claims about ""the Americans"" or ""the British"", lets a quotation stand without comment, refers to sources as ""it says on the internet"", joins main clauses with only a comma, uses ""the UK"" and ""England"" as if they meant the same, mixes British and American spelling, and leans on ""very"" and ""a lot of""",,,
+,config,,slots.courseSpecifics,"The students are Norwegian upper-secondary students in Vg3 who have chosen English 2 as a programme subject; it builds on English 1. English is their second language and most have Norwegian as their first. Work in English at an advanced, academic level, and when an error comes from Norwegian, name the contrast briefly. Expect independent reflection: ask for the student's own position and the reasons for it, not a textbook answer. When a fact, date or institution matters, keep to established facts, and say so when something has changed recently or is disputed. The course gives one written and one oral grade for coursework, and a student can be drawn for a centrally set written exam of five hours with no preparation day, or for a locally set oral exam.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programme subject, Vg3 general studies (Norway, LK20)",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3031,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,english,,,
+,config,,keywords,English 2; engelsk 2; engelsk programfag; SPR3031; SPR3032; ENG04-02; literary history; Shakespeare; Romanticism; Modernism; postcolonial literature; American Dream; British Empire; Commonwealth; soft power; UK politics; US politics; civil rights; critical thinking; fallacies; academic writing,,,
+,config,,updated,2026-10-08,,,
+choose-strategies,skill,Language and style,"Choose strategies for reading, listening, speaking and writing","choose strategies that suit the situation and purpose, such as reading a scholarly article selectively, taking structured notes from a lecture, planning a long text before drafting, and paraphrasing when a word is missing in speech.",,0,
+write-precisely,skill,Language and style,Write with precision and variety,"choose the precise word over the approximate one, and vary vocabulary and sentence structure so that a long text stays exact and readable.",,0,
+tone,concept,Language and style,Tone,"Tone: the attitude a text expresses towards its subject and its reader, such as neutral, ironic, urgent or sympathetic.",,0,
+control-tone,skill,Language and style,Control the tone of your text,"keep a tone that suits the purpose and audience through a whole text, and identify and describe the tone of someone else's text.",tone,0,
+write-concisely,skill,Language and style,Cut wordiness,"cut empty phrases such as ""it is important to note that"", repetition and needless nominalisations, without losing content.",,0,
+academic-stance,concept,Language and style,Academic stance,"Academic stance: the writer's position towards claims and sources, signalled by evaluative words such as convincingly and questionable, by reporting verbs and by hedging, rather than by ""I think"".",,0,
+reporting-verbs,fact,Language and style,Reporting verbs,"argue: put forward a claim with reasons
+claim: state something that may be disputed
+suggest: put forward tentatively
+emphasise: give special importance to
+acknowledge: accept that something is true or valid
+concede: admit, often reluctantly, that the other side has a point
+dispute: say that something is wrong
+maintain: keep insisting that something is true",,0,
+use-stance,skill,Language and style,Show your stance towards sources,"show your own position towards the sources you use, by choosing reporting verbs and evaluative words that signal whether you agree with, doubt or reject a claim.",academic-stance;reporting-verbs,0,
+advanced-structures,concept,Language and style,Structures for emphasis,"Cleft sentence: a sentence split in two to emphasise one part, as in ""It was the war that changed everything.""
+Inversion: putting the verb before the subject after a negative or limiting opening, as in ""Never before had the party lost so heavily.""
+Participle clause: a clause built on an -ing or -ed form instead of a full verb, as in ""Having lost the election, the party changed its leader.""",,0,
+use-advanced-structures,skill,Language and style,Use structures for emphasis and variety,"use cleft sentences, inversion and participle clauses for emphasis and variety, and avoid participle clauses whose implied subject does not match the main clause.",advanced-structures,0,
+revise-for-style,skill,Language and style,Revise your own text for style,"revise a text of your own for precision, tone, concision and variety, and explain what each change improves.",write-precisely;control-tone;write-concisely;use-advanced-structures,0,
+argument-structure,concept,Critical reading and thinking,"Premise, conclusion and assumption","Premise: a statement given as a reason.
+Conclusion: what the premises are meant to support.
+Assumption: an unstated premise that the argument relies on.",,0,
+reconstruct-argument,skill,Critical reading and thinking,Reconstruct an argument,"set out the argument of a text as premises and conclusion, including the unstated assumptions it relies on.",argument-structure,0,
+fallacy,concept,Critical reading and thinking,Logical fallacy,"Logical fallacy: a flaw in reasoning that makes an argument seem stronger than it is.",argument-structure,0,
+fallacies,fact,Critical reading and thinking,Common fallacies,"straw man: attacking a distorted version of the opponent's argument
+ad hominem: attacking the person instead of the argument
+false dilemma: presenting only two options when there are more
+slippery slope: claiming that one step will inevitably lead to an extreme outcome
+appeal to authority: treating a claim as true because an authority said it, often outside their field
+hasty generalisation: drawing a general conclusion from too few cases
+whataboutism: answering criticism by pointing to someone else's wrongdoing
+post hoc: assuming that because B followed A, A caused B",fallacy,0,
+spot-fallacies,skill,Critical reading and thinking,Spot fallacies in a debate,"identify fallacies in a speech, debate or opinion piece, and explain why each one does not support the conclusion.",fallacies;reconstruct-argument,0,
+correlation-causation,concept,Critical reading and thinking,Correlation and causation,"Correlation: two things tend to vary together.
+Causation: one thing actually brings about the other; a correlation alone does not show this.",,0,
+evaluate-evidence,skill,Critical reading and thinking,Judge whether the evidence holds,"judge whether the evidence in a text supports its claim: how many cases there are, how representative they are, whether a correlation is presented as a cause, and what is missing.",correlation-causation,0,
+evaluate-argument,skill,Critical reading and thinking,Assess the strength of an argument,"assess the overall strength of an argument by weighing its reasoning, its evidence and its assumptions, and say what would make it stronger.",spot-fallacies;evaluate-evidence,0,
+perspective,concept,Critical reading and thinking,Perspective,"Perspective: the position from which something is seen, shaped by such things as nationality, class, gender, ethnicity, politics and time.",,0,
+read-against-grain,skill,Critical reading and thinking,Read a text from another perspective,"read a text critically from a perspective other than the one it invites, asking whose voices are heard, whose are missing and whose interests it serves.",perspective,0,
+independent-reflection,skill,Critical reading and thinking,Reflect independently on a text,"discuss a text with independent reflection: form and justify your own view of it instead of repeating the text's view or a standard reading, and change your view when the arguments call for it.",evaluate-argument;read-against-grain,0,
+scholarly-sources,concept,Sources and academic integrity,Scholarly and popular sources,"Scholarly source: a text written by researchers for other researchers, with references, such as a journal article or academic book.
+Peer review: checking of a scholarly text by other experts in the field before it is published.
+Popular source: a text written for a general audience, such as a newspaper article or a blog.",,0,
+search-databases,skill,Sources and academic integrity,Search for scholarly sources,"search databases and library catalogues for scholarly sources, such as Google Scholar or Oria, and narrow the search with keywords, synonyms and filters.",scholarly-sources,0,
+evaluate-source,skill,Sources and academic integrity,Evaluate a source for an academic text,"evaluate how reliable and relevant a source is for an academic text, considering who wrote it, for what purpose, when, what evidence it builds on, and whether it is peer-reviewed or confirmed by others.",scholarly-sources,0,
+cite-consistently,skill,Sources and academic integrity,Integrate and cite sources consistently,"integrate quotations and paraphrases with signal phrases, and cite each in the text and in a reference list in one citation style, such as APA, consistently.",,0,
+synthesise-sources,skill,Sources and academic integrity,Synthesise several sources,"combine several sources in one paragraph, showing where they agree and disagree, rather than presenting them one at a time.",evaluate-source;cite-consistently;use-stance,0,
+academic-integrity,concept,Sources and academic integrity,Academic integrity,"Plagiarism: presenting someone else's words or ideas, including text produced by an AI tool, as your own.
+Academic integrity: being honest about where every word, idea and piece of data in your text comes from, including how you have used AI tools.",,0,
+use-ai-honestly,skill,Sources and academic integrity,Use AI tools honestly in research,"use AI tools in research honestly: check every fact and reference they give against a real source, never cite a source you have not seen, and state how you used them where that is required.",academic-integrity;evaluate-source,0,
+academic-text-types,concept,Academic writing and speaking,Types of academic text,"Research essay: a text that answers a research question using several sources.
+Comparative essay: a text that examines two subjects side by side to reach a conclusion about both.
+Literary essay: a text that argues for an interpretation of one or more literary works.",,0,
+write-nuanced-thesis,skill,Academic writing and speaking,Write a nuanced thesis,"write a thesis statement that takes a clear and nuanced position and indicates how the text will develop it.",academic-text-types,0,
+structure-long-text,skill,Academic writing and speaking,Structure a long academic text,"plan and structure a long academic text with a logical order of sections, headings where they help, and transitions that show how each part moves the argument on.",write-nuanced-thesis,0,
+counterargument,skill,Academic writing and speaking,Answer the strongest objection,"present the strongest objection to your claim fairly, and answer it by conceding, refuting or qualifying your claim.",reconstruct-argument,0,
+write-comparative,skill,Academic writing and speaking,Write a comparative essay,"write a comparative essay organised point by point rather than one subject at a time, ending in a conclusion about what the comparison shows.",structure-long-text,0,
+write-research-essay,skill,Academic writing and speaking,Write a research essay,"write a research essay that answers a research question with several sources, synthesising them, answering objections and reaching a supported conclusion.",structure-long-text;synthesise-sources;counterargument,0,
+academic-presentation,skill,Academic writing and speaking,Give an academic presentation,"give an academic presentation with a clear thesis or research question, signposting, references to sources and a conclusion, and keep to the time.",structure-long-text,0,
+handle-questions,skill,Academic writing and speaking,Defend your views under questioning,"answer questions after a presentation or in an oral exam: clarify, defend your view with evidence, and admit the limits of what you know.",academic-presentation;independent-reflection,0,
+seminar-discussion,skill,Academic writing and speaking,Take part in a seminar discussion,"take part in or lead a seminar discussion of a text: bring prepared questions, build on others' points, and sum up where the group agrees and disagrees.",independent-reflection,0,
+literary-period,concept,Literary history,Literary period,"Literary period: a span of time whose literature shares themes, forms and ideas shaped by its history and society; the borders between periods are approximate.",,0,
+periods,fact,Literary history,Literary periods in English,"the English Renaissance: about 1500–1660
+Romanticism: about 1790–1830
+the Victorian period: 1837–1901
+Modernism: about 1900–1940
+the Harlem Renaissance: the 1920s and 1930s
+postcolonial literature: from about 1950
+postmodernism: from about 1960",literary-period,0,
+works-and-authors,fact,Literary history,Key works and their authors,"Hamlet (about 1600): William Shakespeare
+Pride and Prejudice (1813): Jane Austen
+Frankenstein (1818): Mary Shelley
+Great Expectations (1861): Charles Dickens
+The Great Gatsby (1925): F. Scott Fitzgerald
+Mrs Dalloway (1925): Virginia Woolf
+Their Eyes Were Watching God (1937): Zora Neale Hurston
+Nineteen Eighty-Four (1949): George Orwell
+Things Fall Apart (1958): Chinua Achebe
+To Kill a Mockingbird (1960): Harper Lee
+Beloved (1987): Toni Morrison",periods,0,
+renaissance-drama,concept,Literary history,Shakespearean drama,"Tragedy: a play in which the hero's flaw or error leads to their downfall.
+Soliloquy: a speech in which a character speaks their thoughts alone on stage.
+Blank verse: unrhymed lines in iambic pentameter, used for much of Shakespeare's dialogue.",literary-period,0,
+romanticism,concept,Literary history,Romanticism,"Romanticism: a movement that reacted against the Enlightenment's stress on reason and against industrialisation, and valued feeling, imagination, nature and the individual.",literary-period,0,
+victorian-realism,concept,Literary history,Victorian realism,"Victorian realism: novels that portray society in detail, often criticising class divisions, poverty and the effects of industrialisation, as Dickens does.",literary-period,0,
+modernism,concept,Literary history,Modernism,"Modernism: a movement after about 1900 that broke with traditional forms to express a fragmented, uncertain world, especially after the First World War.
+Stream of consciousness: a technique that renders a character's flow of thoughts and impressions as they occur.",literary-period,0,
+harlem-renaissance,concept,Literary history,Harlem Renaissance,"Harlem Renaissance: a flowering of African American literature, music and art centred on Harlem in New York in the 1920s and 1930s, exploring Black identity and experience.",literary-period,0,
+american-dream,concept,Literary history,The American Dream,"American Dream: the idea that anyone in the USA can achieve success and a better life through hard work, whatever their background; an idea literature often questions.",,0,
+postcolonial-literature,concept,Literary history,Postcolonial literature,"Postcolonial literature: literature from or about former colonies that deals with colonialism and its after-effects, such as identity, language, power and the voices of the colonised.",literary-period,0,
+postmodernism,concept,Literary history,Postmodernism,"Postmodernism: a movement from about the 1960s that questions grand narratives and fixed truths, often through irony, mixed genres and play with form.
+Metafiction: fiction that draws attention to itself as fiction.",literary-period,0,
+context,concept,Literature in context,Historical and cultural context,"Historical context: the events, conditions and ideas of the time a text was written in or is set in.
+Cultural context: the values, beliefs and traditions that shape a text and its readers.",,0,
+place-in-period,skill,Literature in context,Place a text in its literary period,"place a text in its literary period, and point out features of form and theme typical of that period.",periods;context,0,
+read-shakespeare,skill,Literature in context,Interpret a passage from Shakespeare,"read and interpret a passage from a Shakespeare play, using a modern paraphrase as support, and explain what it shows about character and theme.",renaissance-drama,0,
+interpret-in-context,skill,Literature in context,Interpret a text in its context,"interpret a literary text in light of its historical and cultural context, showing how the context sheds light on the text without reducing the text to it.",place-in-period,0,
+romantic-poem,skill,Literature in context,Interpret a poem from an earlier period,"interpret a poem from an earlier period, such as a Romantic poem, and explain how it reflects the ideas of its time.",romanticism;interpret-in-context,0,
+modernist-text,skill,Literature in context,Interpret a modernist text,"interpret a modernist text, explaining how its form, such as stream of consciousness or a fragmented structure, expresses its view of the world.",modernism;interpret-in-context,0,
+postcolonial-reading,skill,Literature in context,Read a text with a postcolonial lens,"read a text with a postcolonial lens: whose perspective it takes, how colonisers and colonised are portrayed, and what language and identity mean in it.",postcolonial-literature;read-against-grain;interpret-in-context,0,
+discuss-american-dream,skill,Literature in context,Discuss the American Dream in a text,"discuss how a novel, short story or film treats the American Dream, drawing on the text and its context.",american-dream;interpret-in-context,0,
+compare-across-periods,skill,Literature in context,Compare texts from different periods,"compare how two texts from different periods treat the same theme, and explain the differences through their contexts.",interpret-in-context,0,
+discuss-literature,skill,Literature in context,Discuss a literary text,"discuss a literary text: argue for your interpretation, consider other readings, and assess what the text says to readers today.",interpret-in-context;independent-reflection,0,
+write-literary-essay,skill,Literature in context,Write a literary essay with context,"write a literary essay that interprets one or more texts in their historical and cultural context, with quotations and secondary sources as evidence.",discuss-literature;structure-long-text;cite-consistently,0,
+british-empire,concept,Global influence,British Empire,"British Empire: the colonies, dominions and other territories ruled by Britain, at its largest in the early twentieth century, when it covered about a quarter of the world's land.",,0,
+decolonisation,concept,Global influence,Decolonisation,"Decolonisation: the process, mainly after 1945, by which colonies gained independence, as India did in 1947.",british-empire,0,
+commonwealth,concept,Global influence,Commonwealth of Nations,"Commonwealth of Nations: a voluntary association of independent states, most of them former British territories, that cooperate on shared values and have the British monarch as their symbolic head.",decolonisation,0,
+empire-dates,fact,Global influence,Dates in the history of the British Empire,"First Fleet arrives in Australia: 1788
+Treaty of Waitangi in New Zealand: 1840
+Canadian Confederation: 1867
+Irish Free State established: 1922
+independence of India and Pakistan: 1947
+independence of Ghana: 1957
+Hong Kong handed over to China: 1997",british-empire,0,
+soft-power,concept,Global influence,Soft power and hard power,"Soft power: a country's ability to influence others through attraction, such as its culture, values and institutions.
+Hard power: influence through military force or economic pressure.",,0,
+superpower-cold-war,concept,Global influence,Superpower and the Cold War,"Superpower: a state with dominant global military, economic and political power, as the USA has been since 1945 and the Soviet Union was until 1991.
+Cold War: the rivalry between the USA and the Soviet Union from about 1947 to 1991, fought through arms races, alliances and proxy wars rather than direct war between them.",,0,
+global-institutions,fact,Global influence,The USA and the UK in international institutions,"the United Nations founded: 1945
+the Marshall Plan for rebuilding Western Europe: 1948
+NATO founded: 1949
+the dissolution of the Soviet Union: 1991
+permanent members of the UN Security Council: the USA, the UK, France, Russia and China",superpower-cold-war,0,
+cultural-imperialism,concept,Global influence,Americanisation and cultural imperialism,"Americanisation: the spread of American culture, products and habits to other countries.
+Cultural imperialism: the view that a powerful country's culture spreads at the expense of local cultures.",soft-power,0,
+explain-empire-legacy,skill,Global influence,Explain the legacy of the British Empire,"explain how the British Empire spread the English language, legal systems and institutions, and discuss its legacy in former colonies today.",commonwealth;empire-dates,0,
+explain-us-power,skill,Global influence,Explain the global power of the USA,"explain how the USA gained global political influence after 1945, through alliances, international institutions and the Cold War, and give examples of how it has used that influence.",superpower-cold-war;global-institutions;soft-power,0,
+analyse-cultural-influence,skill,Global influence,Analyse cultural influence,"analyse the cultural influence of an English-speaking country through film, music, the internet or sport, and discuss whether it is enrichment or cultural imperialism.",cultural-imperialism,0,
+explain-language-influence,skill,Global influence,Explain how power made English dominant,"explain how political and economic power made English dominant in areas such as diplomacy, science and business, and what this means for speakers of other languages.",explain-empire-legacy;explain-us-power,0,
+discuss-influence,skill,Global influence,Discuss the influence of English-speaking countries,"discuss the combined linguistic, cultural and political influence of one or more English-speaking countries on the world, including on Norway, and reach a view of your own.",explain-language-influence;analyse-cultural-influence;independent-reflection,0,
+uk-system,concept,The UK and the USA compared,The British political system,"Constitutional monarchy: a system where the monarch is head of state but has almost no political power.
+Parliamentary system: the government is formed from, and answers to, the elected parliament; the Prime Minister leads the party that commands a majority in the House of Commons.
+Uncodified constitution: a constitution not written in one single document, but made up of laws, court rulings and conventions.
+Devolution: the transfer of some powers from the UK Parliament to elected bodies in Scotland, Wales and Northern Ireland.",,0,
+us-system,concept,The UK and the USA compared,The American political system,"Presidential system: the President, who is both head of state and head of government, is elected separately from Congress and does not answer to it.
+Separation of powers: legislative power lies with Congress, executive power with the President and judicial power with the courts.
+Checks and balances: the ways each branch can limit the others, such as the presidential veto and the Supreme Court's power to strike down laws.
+Federalism: the sharing of power between the federal government and the states.",,0,
+electoral-systems,concept,The UK and the USA compared,Electoral systems,"First past the post: in each constituency the candidate with the most votes wins, even without a majority; used for the House of Commons and in most US elections.
+Electoral College: the system by which the US states choose the President, where in most states the winner of the popular vote takes all the state's electors.
+Two-party system: a system dominated by two large parties, which first past the post tends to produce.",,0,
+uk-us-institutions,fact,The UK and the USA compared,Institutions in the UK and the USA,"UK Parliament: the House of Commons and the House of Lords
+members of the House of Commons: 650
+longest time between UK general elections: five years
+US Congress: the Senate and the House of Representatives
+US Senate: 100 senators, two per state, elected for six years
+US House of Representatives: 435 members, elected for two years
+US President: elected for four years, at most two terms
+US Supreme Court: nine justices, appointed for life
+Electoral College: 538 electors, 270 needed to win",uk-system;us-system,0,
+parties,fact,The UK and the USA compared,Main political parties,"Conservative Party (UK): centre-right
+Labour Party (UK): centre-left
+Liberal Democrats (UK): centrist and liberal
+Scottish National Party: for Scottish independence
+Reform UK: right-wing populist
+Republican Party (US): conservative, right of centre
+Democratic Party (US): liberal, left of centre",,0,
+us-history-dates,fact,The UK and the USA compared,Dates in US history,"Declaration of Independence: 1776
+US Constitution signed: 1787
+Bill of Rights: 1791
+Civil War: 1861–1865
+slavery abolished by the Thirteenth Amendment: 1865
+Brown v. Board of Education: 1954
+Civil Rights Act: 1964
+Voting Rights Act: 1965",,0,
+uk-history-dates,fact,The UK and the USA compared,Dates in UK history,"Magna Carta: 1215
+union of England and Scotland: 1707
+first women get the vote: 1918
+women get the vote on equal terms with men: 1928
+NHS founded: 1948
+Empire Windrush arrives from the Caribbean: 1948
+UK joins the European Economic Community: 1973
+Good Friday Agreement: 1998
+first elections to the Scottish Parliament and the Welsh Assembly: 1999
+Brexit referendum: 2016
+UK leaves the EU: 2020",,0,
+welfare-models,concept,The UK and the USA compared,Welfare and health care models,"Welfare state: a system where the state provides services such as health care to everyone, funded by taxes, as with the NHS in the UK.
+Market-based model: a system where health care is mainly paid for through private insurance, as in much of the USA, with public programmes such as Medicare and Medicaid for some groups.",,0,
+civil-rights,concept,The UK and the USA compared,Segregation and the civil rights movement,"Segregation: the separation of people by race in schools, transport and public places, legal in the US South under the Jim Crow laws.
+Civil rights movement: the movement, especially in the 1950s and 1960s, for equal rights for African Americans and an end to segregation.",,0,
+multicultural-britain,concept,The UK and the USA compared,Windrush generation,"Windrush generation: people who came from Caribbean countries to settle in Britain in the decades after 1948, many of whom were later wrongly treated as illegal immigrants in the Windrush scandal that came to light in 2018.",,0,
+class-mobility,concept,The UK and the USA compared,Class and social mobility,"Class: a social group defined by such things as background, education, occupation and wealth, in Britain often also marked by accent.
+Social mobility: the ability to move to a different class than the one you were born into.",,0,
+explain-uk-system,skill,The UK and the USA compared,Explain how the UK is governed,"explain how the UK is governed: how a government is formed, the roles of Parliament, the Prime Minister and the monarch, and what devolution means for Scotland, Wales and Northern Ireland.",uk-system;uk-us-institutions;electoral-systems,0,
+explain-us-system,skill,The UK and the USA compared,Explain how the USA is governed,"explain how the USA is governed: the roles of Congress, the President and the Supreme Court, how they check each other, and how power is shared with the states.",us-system;uk-us-institutions;electoral-systems,0,
+compare-political-systems,skill,The UK and the USA compared,Compare the political systems,"compare the political systems of the UK and the USA, and explain the differences through their history: a monarchy that gradually handed power to parliament, and a republic founded in revolution.",explain-uk-system;explain-us-system;us-history-dates;uk-history-dates;parties,0,
+compare-welfare,skill,The UK and the USA compared,Compare welfare and health care,"compare health care and welfare in the UK and the USA, and explain the differences through history and political values.",welfare-models;class-mobility,0,
+compare-race-relations,skill,The UK and the USA compared,Compare race relations,"compare the history and present state of race relations in the UK and the USA, from slavery and empire to today's debates.",civil-rights;multicultural-britain;us-history-dates;british-empire,0,
+historical-roots,skill,The UK and the USA compared,Trace a current issue back to its history,"explain how a current social or political issue in an English-speaking country has its roots in history, such as Scottish independence and the union of 1707, or gun rights and the founding of the USA.",us-history-dates;uk-history-dates,0,
+analyse-political-speech,skill,The UK and the USA compared,Analyse a political speech,"analyse a political speech from the UK or the USA: its situation and purpose, its argument and rhetoric, and how it draws on the country's history and values.",evaluate-argument;historical-roots,0,
+convey-comparison,skill,The UK and the USA compared,Convey a comparison of two countries,"convey a comparison of a social or political issue in two English-speaking countries to an audience, in speech or writing, making the historical background clear and drawing a conclusion of your own.",compare-political-systems;compare-welfare;compare-race-relations;historical-roots;write-comparative,0,
+research-question,concept,In-depth project,Research question,"Research question: a precise, open question that a project sets out to answer, narrow enough to be answered with the time and sources available.",,0,
+formulate-question,skill,In-depth project,Narrow a topic to a research question,"choose a topic from English 2 and narrow it to a research question that can be answered with the sources available.",research-question,0,
+plan-project,skill,In-depth project,Plan an in-depth project,"plan an in-depth project: set a timeline, decide which kinds of sources to search, and record notes and references as you go.",formulate-question;search-databases,0,
+present-project,skill,In-depth project,Present an in-depth project,"present the findings of your in-depth project orally or in writing, using English sources critically, and say where the sources disagree and what remains uncertain.",plan-project;write-research-essay;academic-presentation;use-ai-honestly,0,

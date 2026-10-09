@@ -1,0 +1,215 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Selskapsform og regelverk;Regnskapets grunnbegreper;Bokføring av bilag;Årsoppgjøret;Resultatregnskap og balanse;Regnskapsanalyse;Kalkulasjon og prising;Dekningsbidrag og nullpunkt;Budsjettering;Budsjettkontroll;Virksomheten i samfunnet,,,
+,config,,title,Økonomistyring,,,
+,config,,description,"Selskapsformer, bokføring og årsoppgjør, resultatregnskap og balanse, regnskapsanalyse med nøkkeltall, kalkulasjon og prising, dekningsbidrag og nullpunkt, budsjett og budsjettkontroll, og virksomhetens rolle i samfunnet — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-okonomistyring-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"økonomistyring (norsk videregående skole, programfag i næringslivsøkonomi)",,,
+,config,,slots.expressionFocus,"blander sammen kostnad og utbetaling eller inntekt og innbetaling, sier ikke om et beløp er med eller uten merverdiavgift, forveksler påslag (prosent av inntakskost) og avanse (prosent av salgspris), blander dekningsbidrag i kroner med dekningsgrad i prosent, bytter om debet og kredit, oppgir et nøkkeltall uten å si hva det betyr for virksomheten, eller skriver «gunstig» og «ugunstig» avvik ut fra fortegnet alene i stedet for ut fra om det trekker resultatet opp eller ned",,,
+,config,,slots.courseSpecifics,"Faget er et programfag i næringslivsøkonomi på Vg2, og elevene har ikke hatt regnskap før. Før regnskapet etter norsk regelverk med Norsk Standard kontoplan (NS 4102) og norske kontonavn, og bruk et enkeltpersonforetak i en handelsbedrift som standardeksempel med mindre noden sier noe annet. Regn med merverdiavgift der den hører hjemme, og krev at eleven sier om et beløp er med eller uten mva.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag økonomi,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3068,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,næringslivsøkonomi; regnskap; bokføring; bilag; årsoppgjør; avskrivning; periodisering; nøkkeltall; regnskapsanalyse; likviditet; lønnsomhet; kalkyle; påslag; avanse; dekningsbidrag; nullpunkt; budsjett; likviditetsbudsjett; budsjettkontroll; selskapsform; merverdiavgift; eksamen,,,
+,config,,updated,2026-10-08,,,
+selskapsform,concept,Selskapsform og regelverk,Selskapsform,"Selskapsform: den juridiske formen en virksomhet er organisert i. Den avgjør hvem som eier virksomheten, hvem som hefter for gjelda, hvem som tar beslutningene og hvordan overskuddet skattlegges.",,0,
+personlig-begrenset-ansvar,concept,Selskapsform og regelverk,Personlig og begrenset ansvar,"Ubegrenset personlig ansvar: eieren hefter for virksomhetens gjeld med hele sin private formue.
+Begrenset ansvar: eieren kan høyst tape det han eller hun har skutt inn i selskapet.",selskapsform,0,
+solidarisk-delt-ansvar,concept,Selskapsform og regelverk,Solidarisk og delt ansvar,"Solidarisk ansvar: hver eier kan bli krevd for hele selskapets gjeld, og må selv kreve de andre eierne for deres del etterpå.
+Delt ansvar: hver eier hefter bare for sin andel av gjelda, etter eierandelen.",personlig-begrenset-ansvar,0,
+selskapsformene,fact,Selskapsform og regelverk,De vanligste selskapsformene,"enkeltpersonforetak (ENK): én eier med ubegrenset personlig ansvar
+ansvarlig selskap (ANS): to eller flere eiere som hefter solidarisk og ubegrenset for gjelda
+selskap med delt ansvar (DA): to eller flere eiere som hefter ubegrenset for hver sin andel av gjelda
+aksjeselskap (AS): eierne (aksjonærene) hefter bare med innskutt kapital; minste aksjekapital er 30 000 kr
+allmennaksjeselskap (ASA): som AS, men med minst 1 million kr i aksjekapital, og aksjene kan omsettes på børs
+samvirkeforetak (SA): eid av medlemmene, som er kunder, leverandører eller ansatte, og overskuddet går tilbake til dem",solidarisk-delt-ansvar,0,
+sammenligne-selskapsformer,skill,Selskapsform og regelverk,Sammenligne selskapsformer,"sammenligne selskapsformene ut fra eiernes ansvar og risiko, krav til kapital, hvem som tar beslutningene og hvor mye administrasjon de krever.",selskapsformene,0,
+velge-selskapsform,skill,Selskapsform og regelverk,Velge selskapsform for en forretningsidé,"vurdere og velge selskapsform for en beskrevet forretningsidé ut fra hvor stor risiko eierne tar og hvor mye de kan tape, og begrunne valget opp mot minst ett alternativ.",sammenligne-selskapsformer,0,
+autorisert-regnskapsforer,concept,Selskapsform og regelverk,Autorisert regnskapsfører,"Autorisert regnskapsfører: en som har autorisasjon fra Finanstilsynet til å føre regnskap for andre. Autorisasjon kreves når noen fører regnskap for andre virksomheter mot betaling; den som fører sitt eget regnskap, trenger den ikke.",,0,
+revisor,concept,Selskapsform og regelverk,Revisor og revisjonsplikt,"Revisor: en uavhengig kontrollør som undersøker om årsregnskapet er i samsvar med regelverket og gir et riktig bilde av virksomheten, og som bekrefter det i en revisjonsberetning.
+Revisjonsplikt: plikten til å la en revisor kontrollere årsregnskapet. Den gjelder blant annet alle allmennaksjeselskaper, mens små aksjeselskaper under visse grenser kan velge den bort.",selskapsformene,0,
+forklare-regnskapsforer-revisor,skill,Selskapsform og regelverk,Forklare kravene til regnskapsfører og revisor,"gjøre rede for når det kreves autorisert regnskapsfører, hvilke virksomheter som har revisjonsplikt, og hvorfor revisors uavhengighet er viktig for eiere, långivere og myndigheter.",autorisert-regnskapsforer;revisor,0,
+utgift-kostnad-utbetaling,concept,Regnskapets grunnbegreper,"Utgift, kostnad og utbetaling","Utgift: verdien av en vare eller tjeneste virksomheten anskaffer, regnet fra det tidspunktet den mottas.
+Kostnad: verdien av de ressursene som forbrukes i en periode for å skape inntekter.
+Utbetaling: penger som går ut av virksomheten, kontant eller fra bankkontoen.",,0,
+inntekt-innbetaling,concept,Regnskapets grunnbegreper,Inntekt og innbetaling,"Inntekt: verdien av varer og tjenester virksomheten har levert i en periode, uavhengig av når kunden betaler.
+Innbetaling: penger som kommer inn til virksomheten, kontant eller på bankkontoen.",,0,
+skille-tidspunkter,skill,Regnskapets grunnbegreper,"Skille mellom utgift, kostnad og utbetaling","avgjøre for en gitt transaksjon om den gir en utgift, en kostnad, en utbetaling, en inntekt eller en innbetaling, og i hvilken periode hver av dem hører hjemme.",utgift-kostnad-utbetaling;inntekt-innbetaling,0,
+eiendel-gjeld-egenkapital,concept,Regnskapets grunnbegreper,"Eiendeler, gjeld og egenkapital","Eiendel: noe virksomheten eier og som har en verdi, for eksempel varer, maskiner, kundefordringer og bankinnskudd.
+Gjeld: det virksomheten skylder andre.
+Egenkapital: den delen av eiendelene eierne selv har finansiert, altså eiendeler minus gjeld.",,0,
+anleggsmidler-omlopsmidler,concept,Regnskapets grunnbegreper,Anleggsmidler og omløpsmidler,"Anleggsmiddel: en eiendel som skal eies og brukes i virksomheten over tid, som en bygning, en bil eller en maskin.
+Omløpsmiddel: en eiendel som inngår i den daglige driften og omsettes raskt, som varer, kundefordringer og bankinnskudd.",eiendel-gjeld-egenkapital,0,
+kortsiktig-langsiktig-gjeld,concept,Regnskapets grunnbegreper,Kortsiktig og langsiktig gjeld,"Kortsiktig gjeld: gjeld som forfaller innen ett år, som leverandørgjeld, skyldig merverdiavgift og skyldig skattetrekk.
+Langsiktig gjeld: gjeld som forfaller senere enn ett år fram i tid, som et pantelån.",eiendel-gjeld-egenkapital,0,
+balanse-resultatregnskap,concept,Regnskapets grunnbegreper,Balanse og resultatregnskap,"Balanse: en oppstilling av eiendelene og av hvordan de er finansiert med egenkapital og gjeld, på én bestemt dato. Eiendeler = egenkapital + gjeld.
+Resultatregnskap: en oppstilling av inntektene og kostnadene i en periode. Inntekter minus kostnader er resultatet, et overskudd eller et underskudd.",anleggsmidler-omlopsmidler;kortsiktig-langsiktig-gjeld;utgift-kostnad-utbetaling;inntekt-innbetaling,0,
+regnskapsprinsipper,concept,Regnskapets grunnbegreper,Grunnleggende regnskapsprinsipper,"Opptjeningsprinsippet: en inntekt føres i den perioden varen eller tjenesten er levert, ikke når pengene kommer inn.
+Sammenstillingsprinsippet: en kostnad føres i den samme perioden som inntekten den har bidratt til.
+Forsiktighetsprinsippet: når en verdi er usikker, velges det laveste anslaget for eiendeler og det høyeste for gjeld.",skille-tidspunkter,0,
+merverdiavgift,concept,Regnskapets grunnbegreper,Merverdiavgift,"Merverdiavgift (mva): en avgift på omsetning av varer og tjenester. Virksomheten legger utgående mva på salget, trekker fra inngående mva på egne innkjøp, og betaler differansen til staten. Mva er derfor ingen kostnad eller inntekt for virksomheten, men et beløp den krever inn for staten.",,0,
+mva-satser,fact,Regnskapets grunnbegreper,Satser og terminer for merverdiavgift,"alminnelig sats: 25 %
+næringsmidler (mat og drikke unntatt alkohol): 15 %
+persontransport, overnatting og kinobilletter: 12 %
+vanlig oppgjørstermin: to måneder (seks terminer i året)
+beløp uten mva når beløpet med 25 % mva er kjent: beløpet delt på 1,25",merverdiavgift,0,
+kontoplan,concept,Regnskapets grunnbegreper,Kontoplan,"Kontoplan: en nummerert liste over alle kontoene en virksomhet fører regnskapet på. Første siffer viser kontoklassen, og de fleste norske virksomheter bruker Norsk Standard kontoplan (NS 4102).",balanse-resultatregnskap,0,
+kontoklasser,fact,Regnskapets grunnbegreper,Kontoklassene i NS 4102,"kontoklasse 1: eiendeler
+kontoklasse 2: egenkapital og gjeld
+kontoklasse 3: salgs- og driftsinntekter
+kontoklasse 4: varekostnad
+kontoklasse 5: lønnskostnader
+kontoklasse 6 og 7: andre driftskostnader, også avskrivninger
+kontoklasse 8: finansinntekter og finanskostnader, skatt og årsresultat",kontoplan,0,
+debet-kredit,concept,Regnskapets grunnbegreper,Debet og kredit,"Debet: venstre side av en konto.
+Kredit: høyre side av en konto.
+Dobbelt bokholderi: hver transaksjon føres med like store beløp i debet og kredit, slik at sum debet alltid er lik sum kredit. Eiendeler og kostnader øker i debet; gjeld, egenkapital og inntekter øker i kredit.",kontoplan,0,
+bilag,concept,Regnskapets grunnbegreper,Bilag,"Bilag: dokumentasjonen for en transaksjon, som en faktura, en kvittering eller en bankutskrift. Hver postering i regnskapet skal bygge på et bilag.",,0,
+fore-kontant,skill,Bokføring av bilag,Føre kontantkjøp og kontantsalg,"føre kjøp og salg som betales med en gang via bank, med riktige kontoer i debet og kredit og med merverdiavgiften skilt ut på egen konto.",debet-kredit;bilag;merverdiavgift;kontoklasser,0,
+fore-kredittkjop,skill,Bokføring av bilag,Føre kjøp på kreditt,"føre varekjøp og andre innkjøp på kreditt med leverandørgjeld og inngående mva, og føre betalingen til leverandøren når den skjer.",fore-kontant,0,
+fore-kredittsalg,skill,Bokføring av bilag,Føre salg på kreditt,"føre salg på kreditt med kundefordringer og utgående mva, og føre innbetalingen fra kunden når den skjer.",fore-kontant,0,
+rabatter,concept,Kalkulasjon og prising,Rabatter,"Kvantumsrabatt: et prisavslag for å kjøpe mange enheter, trukket fra på fakturaen.
+Kontantrabatt: et prisavslag for å betale innen en kort frist, for eksempel 2 % ved betaling innen 10 dager.",,0,
+lonn-trekk-aga,concept,Bokføring av bilag,Forskuddstrekk og arbeidsgiveravgift,"Forskuddstrekk: skatt arbeidsgiveren trekker fra den ansattes lønn og betaler videre til staten. Den er en del av lønnskostnaden, men en gjeld til staten fram til den betales.
+Arbeidsgiveravgift: en avgift arbeidsgiveren betaler i tillegg til lønna, beregnet som en prosent av lønna. Den er en kostnad for virksomheten.",kortsiktig-langsiktig-gjeld,0,
+fore-lonn,skill,Bokføring av bilag,Føre lønn,"føre en lønnsutbetaling med bruttolønn, forskuddstrekk, utbetalt nettolønn og påløpt arbeidsgiveravgift, og føre den senere betalingen av trekk og avgift.",lonn-trekk-aga;fore-kontant,0,
+fore-mva-oppgjor,skill,Bokføring av bilag,Beregne og føre mva-oppgjøret,"beregne hvor mye mva virksomheten skal betale (eller få tilbake) for en termin som utgående minus inngående mva, og føre oppgjøret og betalingen.",fore-kredittkjop;fore-kredittsalg;mva-satser,0,
+privatuttak-innskudd,concept,Bokføring av bilag,Innskudd og privatuttak,"Innskudd: penger eller andre verdier eieren tilfører enkeltpersonforetaket. Det øker egenkapitalen.
+Privatuttak: penger eller varer eieren tar ut av enkeltpersonforetaket til eget bruk. Det minsker egenkapitalen og er ingen kostnad. Eieren av et enkeltpersonforetak kan ikke ta ut lønn fra foretaket.",eiendel-gjeld-egenkapital;selskapsformene,0,
+fore-innskudd-uttak,skill,Bokføring av bilag,Føre eierens innskudd og privatuttak,"føre eierens innskudd og privatuttak i et enkeltpersonforetak, også uttak av varer til eget bruk.",privatuttak-innskudd;fore-kontant,0,
+fore-lan,skill,Bokføring av bilag,"Føre lån, renter og avdrag","føre opptak av et lån, betaling av avdrag og betaling av renter, og forklare hvorfor bare renten er en kostnad.",fore-kontant;kortsiktig-langsiktig-gjeld,0,
+aktivering,concept,Bokføring av bilag,Aktivering av driftsmidler,"Aktivering: å føre et innkjøp som en eiendel i balansen fordi det skal brukes i flere år, i stedet for å føre hele beløpet som kostnad med en gang. Driftsmidler med lang levetid og en kostpris over en fastsatt beløpsgrense skal aktiveres.",anleggsmidler-omlopsmidler;regnskapsprinsipper,0,
+fore-anleggsmiddel,skill,Bokføring av bilag,Føre kjøp av driftsmidler,"avgjøre om et innkjøp skal aktiveres eller kostnadsføres, og føre kjøpet med inngående mva.",aktivering;fore-kredittkjop,0,
+saldobalanse,concept,Bokføring av bilag,Saldobalanse,"Saldobalanse: en liste over saldoen på hver konto på et gitt tidspunkt, ordnet etter kontonummer. Fordi hver postering har like store beløp i debet og kredit, skal summen av debetsaldoene være lik summen av kreditsaldoene.",debet-kredit,0,
+sette-opp-saldobalanse,skill,Bokføring av bilag,Sette opp en saldobalanse,"føre en serie bilag på kontoer, finne saldoen på hver konto, og sette opp en saldobalanse som går opp.",saldobalanse;fore-lonn;fore-mva-oppgjor;fore-lan;fore-innskudd-uttak,0,
+arsoppgjorsdisposisjon,concept,Årsoppgjøret,Årsoppgjørsdisposisjon,"Årsoppgjørsdisposisjon: en korreksjon ved årets slutt som gjør at regnskapet viser årets riktige kostnader, inntekter og verdier. De vanligste er avskrivninger, periodiseringer, endring i varebeholdning og tap på fordringer.",regnskapsprinsipper;saldobalanse,0,
+avskrivning,concept,Årsoppgjøret,Avskrivning,"Avskrivning: fordelingen av kostprisen til et driftsmiddel over årene det brukes, som en årlig kostnad.
+Lineær avskrivning: like stort beløp hvert år, (kostpris − utrangeringsverdi) delt på levetiden.
+Saldoavskrivning: en fast prosent av den gjenstående bokførte verdien hvert år, slik at beløpet blir mindre for hvert år.",aktivering;arsoppgjorsdisposisjon,0,
+beregne-linear-avskrivning,skill,Årsoppgjøret,Beregne og føre lineære avskrivninger,"beregne årlig lineær avskrivning og bokført verdi ved årets slutt, også for et driftsmiddel som er kjøpt i løpet av året, og føre avskrivningen.",avskrivning;fore-anleggsmiddel,0,
+beregne-saldoavskrivning,skill,Årsoppgjøret,Beregne saldoavskrivninger,"beregne saldoavskrivning og ny saldo over flere år med en gitt avskrivningssats, og sammenligne resultatet med lineær avskrivning.",beregne-linear-avskrivning,0,
+periodisering,concept,Årsoppgjøret,Periodisering,"Forskuddsbetalt kostnad: en kostnad som er betalt i år, men som gjelder neste år. Den er en eiendel ved årets slutt.
+Påløpt kostnad: en kostnad som gjelder i år, men som ikke er betalt. Den er en gjeld ved årets slutt.
+Forskuddsbetalt inntekt: en innbetaling i år for noe som skal leveres neste år. Den er en gjeld ved årets slutt.
+Opptjent, ikke fakturert inntekt: en inntekt som er opptjent i år, men ikke fakturert. Den er en eiendel ved årets slutt.",arsoppgjorsdisposisjon,0,
+periodisere-kostnader,skill,Årsoppgjøret,Periodisere kostnader,"beregne og føre periodisering av forskuddsbetalte og påløpte kostnader, som husleie, forsikring og renter, slik at årets regnskap viser bare årets kostnad.",periodisering;fore-lan,0,
+periodisere-inntekter,skill,Årsoppgjøret,Periodisere inntekter,beregne og føre periodisering av forskuddsbetalte og opptjente inntekter.,periodisering;fore-kredittsalg,0,
+varekostnad,concept,Årsoppgjøret,Varekostnad og varebeholdning,"Varebeholdning: verdien av varene på lager, vurdert til inntakskost, og funnet ved varetelling ved årets slutt.
+Varekostnad: inntakskosten for de varene som er solgt i året: inngående varebeholdning + varekjøp − utgående varebeholdning.",arsoppgjorsdisposisjon;inntakskost,0,
+beregne-varekostnad,skill,Årsoppgjøret,Beregne varekostnad etter varetelling,"beregne varekostnaden ut fra varetellingen, og føre endringen i varebeholdning slik at både varekostnaden og varelageret blir riktige i regnskapet.",varekostnad,0,
+tap-pa-fordringer,concept,Årsoppgjøret,Tap på fordringer,"Konstatert tap: en kundefordring som sikkert ikke blir betalt, for eksempel fordi kunden er konkurs. Den føres ut av kundefordringene som en kostnad.
+Avsetning til tap på fordringer: et anslag over hvor mye av de gjenværende kundefordringene som ikke vil bli betalt, trukket fra fordringene i balansen.",arsoppgjorsdisposisjon;fore-kredittsalg,0,
+fore-tap-fordringer,skill,Årsoppgjøret,Føre tap på fordringer,"føre et konstatert tap på en kundefordring, og beregne og føre endringen i avsetning til tap på fordringer.",tap-pa-fordringer,0,
+gjennomfore-arsoppgjor,skill,Årsoppgjøret,Gjennomføre årsoppgjøret,"gå fra en saldobalanse før årsoppgjøret til en saldobalanse etter årsoppgjøret for et enkeltpersonforetak, ved å føre alle årsoppgjørsdisposisjonene oppgaven beskriver.",sette-opp-saldobalanse;beregne-linear-avskrivning;periodisere-kostnader;periodisere-inntekter;beregne-varekostnad;fore-tap-fordringer,0,
+avslutte-regnskapet,skill,Årsoppgjøret,Avslutte regnskapet,"avslutte resultatkontoene mot årsresultatet, føre årsresultat og privatuttak mot egenkapitalen i et enkeltpersonforetak, og vise inngående balanse for neste år.",gjennomfore-arsoppgjor,0,
+resultatbegreper,concept,Resultatregnskap og balanse,"Driftsresultat, ordinært resultat og årsresultat","Driftsresultat: driftsinntekter minus driftskostnader, altså resultatet av selve driften.
+Ordinært resultat før skatt: driftsresultatet pluss finansinntekter og minus finanskostnader.
+Årsresultat: resultatet for hele året etter skatt. I et enkeltpersonforetak er det eieren som skattlegges, så der er årsresultatet det samme som resultatet før skatt.",balanse-resultatregnskap;kontoklasser,0,
+oppstillingsplan,concept,Resultatregnskap og balanse,Oppstillingsplanen,"Oppstillingsplan: den faste rekkefølgen og grupperingen regnskapsloven gir for postene i resultatregnskapet og balansen, slik at regnskaper fra ulike virksomheter kan leses og sammenlignes på samme måte.",resultatbegreper,0,
+sette-opp-resultatregnskap,skill,Resultatregnskap og balanse,Sette opp resultatregnskapet,"sette opp et resultatregnskap etter oppstillingsplanen fra en saldobalanse etter årsoppgjøret, med driftsresultat, ordinært resultat og årsresultat.",oppstillingsplan;gjennomfore-arsoppgjor,0,
+sette-opp-balanse,skill,Resultatregnskap og balanse,Sette opp balansen,"sette opp en balanse etter oppstillingsplanen, med anleggsmidler, omløpsmidler, egenkapital, langsiktig og kortsiktig gjeld, og kontrollere at eiendelene er lik egenkapital pluss gjeld.",oppstillingsplan;avslutte-regnskapet,0,
+presentere-arsregnskap,skill,Resultatregnskap og balanse,Presentere årsregnskapet,"presentere årsregnskapet for et enkeltpersonforetak i samsvar med regelverket, med fjorårets tall til sammenligning og noter der det trengs, og forklare de viktigste postene for en som ikke kan regnskap.",sette-opp-resultatregnskap;sette-opp-balanse,0,
+vurdere-endring-poster,skill,Resultatregnskap og balanse,Vurdere hvordan endringer i regnskapsposter virker,"vurdere hvordan en endring i en regnskapspost, som en høyere avskrivning, en annen varetelling, en periodisering eller et tap på fordringer, påvirker resultatet og balansen, og begrunne retningen og størrelsen på virkningen.",sette-opp-resultatregnskap;sette-opp-balanse,0,
+resultat-vs-likviditet,skill,Resultatregnskap og balanse,Forklare forskjellen på resultat og likviditet,"forklare med et eksempel hvorfor en virksomhet kan gå med overskudd og likevel få problemer med å betale regningene, og omvendt.",skille-tidspunkter;sette-opp-resultatregnskap,0,
+analyseomrader,concept,Regnskapsanalyse,"Lønnsomhet, likviditet og soliditet","Lønnsomhet: hvor godt virksomheten forrenter kapitalen som er satt inn i den.
+Likviditet: virksomhetens evne til å betale regningene sine etter hvert som de forfaller.
+Soliditet: virksomhetens evne til å tåle underskudd uten at egenkapitalen går tapt, og hvordan den er finansiert.",balanse-resultatregnskap,0,
+regnskapsanalyse,concept,Regnskapsanalyse,Regnskapsanalyse og nøkkeltall,"Regnskapsanalyse: å bruke tall fra resultatregnskapet og balansen til å vurdere virksomhetens økonomiske stilling og utvikling.
+Nøkkeltall: et forholdstall mellom to regnskapsstørrelser som gjør virksomheter av ulik størrelse, og ulike år, mulig å sammenligne. Der en resultatstørrelse sammenlignes med en balansestørrelse, brukes gjennomsnittet av inngående og utgående balanse.",analyseomrader;resultatbegreper,0,
+lonnsomhetstall,concept,Regnskapsanalyse,Nøkkeltall for lønnsomhet,"Totalkapitalrentabilitet: (ordinært resultat før skatt + finanskostnader) · 100 / gjennomsnittlig totalkapital. Den viser avkastningen på all kapital, uansett hvem som har skutt den inn.
+Egenkapitalrentabilitet: ordinært resultat før skatt · 100 / gjennomsnittlig egenkapital. Den viser avkastningen eierne får på sin kapital.
+Resultatgrad: (ordinært resultat før skatt + finanskostnader) · 100 / salgsinntekter. Den viser hvor mye som blir igjen av hver salgskrone.",regnskapsanalyse,0,
+likviditetstall,concept,Regnskapsanalyse,Nøkkeltall for likviditet,"Likviditetsgrad 1: omløpsmidler / kortsiktig gjeld.
+Likviditetsgrad 2: (omløpsmidler − varebeholdning) / kortsiktig gjeld. Varene trekkes fra fordi de må selges før de blir penger.
+Arbeidskapital: omløpsmidler minus kortsiktig gjeld.",regnskapsanalyse,0,
+soliditetstall,concept,Regnskapsanalyse,Nøkkeltall for soliditet og finansiering,"Egenkapitalandel: egenkapital · 100 / totalkapital.
+Gjeldsgrad: gjeld / egenkapital.
+Finansiering av anleggsmidler: om anleggsmidlene er dekket av langsiktig kapital (egenkapital og langsiktig gjeld), slik de bør være.",regnskapsanalyse,0,
+aktivitetstall,concept,Regnskapsanalyse,Nøkkeltall for omløp og kredittid,"Varelagerets omløpshastighet: varekostnad / gjennomsnittlig varebeholdning, altså hvor mange ganger lageret blir solgt og fylt opp i året.
+Gjennomsnittlig lagringstid: 360 / varelagerets omløpshastighet, i dager.
+Kundekredittid: gjennomsnittlige kundefordringer · 360 / kredittsalg med mva, i dager.
+Leverandørkredittid: gjennomsnittlig leverandørgjeld · 360 / kredittkjøp med mva, i dager.",regnskapsanalyse;varekostnad,0,
+tommelfingerregler,fact,Regnskapsanalyse,Tommelfingerregler for nøkkeltall,"likviditetsgrad 1: bør være minst 2
+likviditetsgrad 2: bør være minst 1
+egenkapitalandel: bør helst være minst 30–35 % (varierer mye med bransje)
+totalkapitalrentabilitet: bør være høyere enn lånerenten virksomheten betaler",likviditetstall;soliditetstall;lonnsomhetstall,0,
+beregne-lonnsomhet,skill,Regnskapsanalyse,Beregne og tolke lønnsomhetstall,"beregne totalkapitalrentabilitet, egenkapitalrentabilitet og resultatgrad fra et regnskap, og forklare hva tallene sier om lønnsomheten.",lonnsomhetstall;sette-opp-resultatregnskap,0,
+beregne-likviditet,skill,Regnskapsanalyse,Beregne og tolke likviditetstall,"beregne likviditetsgrad 1 og 2 og arbeidskapitalen fra en balanse, og forklare hva tallene sier om evnen til å betale kortsiktig gjeld.",likviditetstall;sette-opp-balanse,0,
+beregne-soliditet,skill,Regnskapsanalyse,Beregne og tolke soliditetstall,"beregne egenkapitalandel og gjeldsgrad, vurdere om anleggsmidlene er finansiert med langsiktig kapital, og forklare hva tallene sier om risikoen.",soliditetstall;sette-opp-balanse,0,
+beregne-aktivitet,skill,Regnskapsanalyse,Beregne og tolke omløps- og kredittidstall,"beregne varelagerets omløpshastighet, lagringstid og kundekredittid, og forklare hvordan de henger sammen med lønnsomheten og likviditeten.",aktivitetstall;sette-opp-resultatregnskap;sette-opp-balanse,0,
+lese-arsrapport,skill,Regnskapsanalyse,Finne og tolke tall i en årsrapport,"finne de tallene en analyse trenger i et publisert årsregnskap, med noter, og avgjøre hvilke poster som må justeres eller slås sammen før nøkkeltallene kan regnes ut.",regnskapsanalyse;presentere-arsregnskap,0,
+sammenligne-tidligere-ar,skill,Regnskapsanalyse,Sammenligne nøkkeltall med tidligere år,"sammenligne nøkkeltallene for en virksomhet over flere år, beskrive utviklingen og forklare hvilke poster i regnskapet som driver den.",beregne-lonnsomhet;beregne-likviditet;beregne-soliditet,0,
+sammenligne-bransje,skill,Regnskapsanalyse,Sammenligne med virksomheter i samme bransje,"sammenligne en virksomhets nøkkeltall med bransjetall eller med en konkurrent, og forklare hvorfor forskjeller mellom bransjer gjør at tommelfingerreglene ikke alltid passer.",beregne-lonnsomhet;beregne-likviditet;beregne-soliditet;tommelfingerregler,0,
+vurdere-okonomisk-stilling,skill,Regnskapsanalyse,Vurdere en virksomhets økonomiske stilling,"gjennomføre en samlet regnskapsanalyse av lønnsomhet, likviditet og finansiering, veie tallene opp mot hverandre, og konkludere med hvordan det går med virksomheten og hva den bør gjøre.",sammenligne-tidligere-ar;sammenligne-bransje;beregne-aktivitet;lese-arsrapport,0,
+inntakskost,concept,Kalkulasjon og prising,Inntakskost,"Inntakskost: hva en vare koster virksomheten fram til den står på lageret: innkjøpsprisen etter rabatter, pluss frakt, toll og andre kostnader ved innkjøpet, uten merverdiavgift.",rabatter,0,
+pasl-avanse,concept,Kalkulasjon og prising,"Bruttofortjeneste, påslag og avanse","Bruttofortjeneste: salgspris uten mva minus inntakskost.
+Påslag: bruttofortjenesten i prosent av inntakskosten.
+Avanse: bruttofortjenesten i prosent av salgsprisen uten mva.",inntakskost,0,
+faste-variable-kostnader,concept,Kalkulasjon og prising,Faste og variable kostnader,"Variabel kostnad: en kostnad som endrer seg med hvor mye som produseres eller selges, som varekostnaden.
+Fast kostnad: en kostnad som er den samme innenfor en periode uansett hvor mye som selges, som husleie og faste lønninger.",utgift-kostnad-utbetaling,0,
+direkte-indirekte-kostnader,concept,Kalkulasjon og prising,Direkte og indirekte kostnader,"Direkte kostnad: en kostnad som kan knyttes direkte til én vare, som inntakskosten.
+Indirekte kostnad: en felleskostnad for hele virksomheten, som husleie og administrasjon, som må fordeles på varene med en påslagssats.",faste-variable-kostnader,0,
+beregne-inntakskost,skill,Kalkulasjon og prising,Beregne inntakskost,"beregne inntakskosten for en vare ut fra listepris, rabatter, frakt og toll, også når varen er kjøpt i utenlandsk valuta.",inntakskost,0,
+kalkulere-med-pasl,skill,Kalkulasjon og prising,Kalkulere utsalgspris med påslag,"beregne salgspris uten mva og utsalgspris med mva ut fra inntakskost og påslagsprosent, og regne fra utsalgspris tilbake til bruttofortjeneste.",pasl-avanse;beregne-inntakskost;mva-satser,0,
+regne-pasl-avanse,skill,Kalkulasjon og prising,Regne mellom påslag og avanse,"regne om fra påslag til avanse og omvendt, og forklare hvorfor avansen alltid er lavere enn påslaget for den samme varen.",kalkulere-med-pasl,0,
+selvkostkalkyle,skill,Kalkulasjon og prising,Sette opp en selvkostkalkyle,"sette opp en selvkostkalkyle der inntakskosten får et tillegg for indirekte kostnader og en fortjeneste, og beregne selvkost, salgspris og utsalgspris.",direkte-indirekte-kostnader;kalkulere-med-pasl,0,
+bidragskalkyle,skill,Kalkulasjon og prising,Sette opp en bidragskalkyle,"sette opp en bidragskalkyle der salgsprisen er de variable kostnadene pluss et ønsket dekningsbidrag, og forklare hvorfor de faste kostnadene ikke fordeles på hver vare.",dekningsbidrag;kalkulere-med-pasl,0,
+baklengs-kalkyle,skill,Kalkulasjon og prising,Kalkulere baklengs fra markedspris,"regne baklengs fra en pris markedet aksepterer, med mva og ønsket påslag eller dekningsbidrag, til hvor mye virksomheten høyst kan betale for varen i innkjøp.",kalkulere-med-pasl,0,
+prisstrategi,concept,Kalkulasjon og prising,Kostnadsbasert og markedsbasert prising,"Kostnadsbasert prising: prisen settes ut fra hva varen koster, med et tillegg for fortjeneste.
+Markedsbasert prising: prisen settes ut fra hva kundene er villige til å betale og hva konkurrentene tar.
+Konkurranseform: hvor mange tilbydere det er i markedet, og dermed hvor fritt virksomheten selv kan sette prisen.",faste-variable-kostnader,0,
+vurdere-kalkylemetoder,skill,Kalkulasjon og prising,Vurdere metoder for priskalkulasjon,"sammenligne selvkostmetoden og bidragsmetoden for en handelsbedrift, og vurdere hvilken som gir best grunnlag for prisen i en gitt situasjon, for eksempel ved ledig kapasitet eller hard konkurranse.",selvkostkalkyle;bidragskalkyle;prisstrategi,0,
+fastsette-pris,skill,Kalkulasjon og prising,Fastsette pris på et produkt,"fastsette prisen på et produkt ved å kombinere en kalkyle med konkurrentenes priser og kundenes betalingsvilje, og begrunne valget ut fra virksomhetens mål.",vurdere-kalkylemetoder;baklengs-kalkyle,0,
+okonomisk-modell,concept,Dekningsbidrag og nullpunkt,Økonomisk modell,"Økonomisk modell: en forenklet framstilling av sammenhengen mellom økonomiske størrelser, som bygger på forutsetninger, for eksempel at salgsprisen og de variable kostnadene per enhet er de samme uansett hvor mye som selges.",faste-variable-kostnader,0,
+dekningsbidrag,concept,Dekningsbidrag og nullpunkt,Dekningsbidrag,"Dekningsbidrag per enhet: salgspris uten mva minus variable kostnader per enhet. Det er det hver solgte enhet bidrar med til å dekke de faste kostnadene og gi overskudd.
+Totalt dekningsbidrag: dekningsbidrag per enhet ganger antall solgte enheter. Resultatet er totalt dekningsbidrag minus faste kostnader.",okonomisk-modell,0,
+dekningsgrad,concept,Dekningsbidrag og nullpunkt,Dekningsgrad,"Dekningsgrad: dekningsbidraget i prosent av salgsprisen uten mva, altså hvor mange øre av hver salgskrone som går til å dekke faste kostnader og overskudd.",dekningsbidrag,0,
+nullpunkt,concept,Dekningsbidrag og nullpunkt,Nullpunkt og sikkerhetsmargin,"Nullpunktsmengde: antall enheter som må selges for at resultatet skal bli null, faste kostnader / dekningsbidrag per enhet.
+Nullpunktsomsetning: salgsinntekten der resultatet blir null, faste kostnader / dekningsgrad.
+Sikkerhetsmargin: hvor mye salget kan falle før virksomheten går med underskudd, i kroner, enheter eller prosent av salget.",dekningsgrad,0,
+beregne-db-dg,skill,Dekningsbidrag og nullpunkt,Beregne dekningsbidrag og dekningsgrad,"beregne dekningsbidrag per enhet, totalt dekningsbidrag og dekningsgrad, og resultatet ved et gitt salg.",dekningsgrad,0,
+beregne-nullpunkt,skill,Dekningsbidrag og nullpunkt,Beregne nullpunkt og sikkerhetsmargin,"beregne nullpunktsmengde og nullpunktsomsetning, og sikkerhetsmarginen ved et budsjettert salg.",nullpunkt;beregne-db-dg,0,
+beregne-malresultat,skill,Dekningsbidrag og nullpunkt,Beregne salget som gir et ønsket resultat,"beregne hvor mye som må selges, i enheter og i kroner, for å nå et ønsket resultat.",beregne-nullpunkt,0,
+nullpunktsdiagram,skill,Dekningsbidrag og nullpunkt,Tegne og lese et nullpunktsdiagram,"tegne totale inntekter, totale kostnader og faste kostnader i et diagram, lese av nullpunktet og sikkerhetsmarginen, og vise hvor virksomheten går med overskudd og underskudd.",beregne-nullpunkt,0,
+analysere-endringer-db,skill,Dekningsbidrag og nullpunkt,Analysere virkningen av endringer i pris og kostnader,"beregne og forklare hvordan en endring i salgspris, variable kostnader eller faste kostnader påvirker dekningsbidrag, nullpunkt og resultat, og vurdere om en foreslått endring lønner seg.",beregne-malresultat,0,
+vurdere-lonnsomhet-produkter,skill,Dekningsbidrag og nullpunkt,Vurdere lønnsomheten til produkter med dekningsbidrag,"bruke dekningsbidrag til å vurdere hvilke varer i et sortiment som er lønnsomme, og om virksomheten bør ta imot en tilleggsordre til lavere pris.",beregne-db-dg;bidragskalkyle,0,
+regnearkmodell,skill,Dekningsbidrag og nullpunkt,Bygge en økonomisk modell i regneark,"bygge et regneark der forutsetningene står i egne celler og alle beregninger viser til dem, slik at modellen regner om av seg selv når en forutsetning endres.",beregne-db-dg,0,
+velge-okonomisk-modell,skill,Dekningsbidrag og nullpunkt,Velge og bruke en økonomisk modell,"velge en økonomisk modell som passer en beskrevet problemstilling, som en kalkyle, en nullpunktsanalyse, et budsjett eller nøkkeltall, bruke den til å beregne de størrelsene som trengs, og drøfte hvordan forutsetningene i modellen begrenser svaret.",analysere-endringer-db;vurdere-lonnsomhet-produkter;regnearkmodell;vurdere-kalkylemetoder,0,
+budsjett,concept,Budsjettering,Budsjett og budsjettets formål,"Budsjett: en tallfestet plan for virksomhetens aktiviteter i en kommende periode.
+Budsjettets formål: å planlegge, å samordne de ulike delene av virksomheten, å motivere de ansatte med klare mål, og å gi et grunnlag for å kontrollere resultatene i etterkant.",,0,
+resultatbudsjett-likviditetsbudsjett,concept,Budsjettering,Resultatbudsjett og likviditetsbudsjett,"Resultatbudsjett: en oversikt over forventede inntekter og kostnader i en periode, og dermed forventet resultat.
+Likviditetsbudsjett: en oversikt over forventede innbetalinger og utbetalinger, måned for måned, og dermed hvor mye penger virksomheten har til enhver tid.",budsjett;skille-tidspunkter,0,
+kassekreditt,concept,Budsjettering,Kassekreditt,"Kassekreditt: en avtale med banken om at virksomheten kan trekke bankkontoen i minus opp til en fast ramme, og betale rente av det som til enhver tid er brukt. Den brukes til å dekke kortvarige likviditetsbehov.",,0,
+forklare-budsjettformal,skill,Budsjettering,Forklare hvorfor virksomheter budsjetterer,"gjøre rede for hvorfor en virksomhet lager budsjetter, og hvorfor den trenger både et resultatbudsjett og et likviditetsbudsjett.",resultatbudsjett-likviditetsbudsjett,0,
+salgs-innkjopsbudsjett,skill,Budsjettering,Budsjettere salg og varekjøp,"beregne budsjettert salg og varekostnad ut fra forutsetninger om mengde, pris og påslag, og beregne hvor mye som må kjøpes inn når varebeholdningen skal endres.",resultatbudsjett-likviditetsbudsjett;kalkulere-med-pasl;varekostnad,0,
+utarbeide-resultatbudsjett,skill,Budsjettering,Utarbeide et resultatbudsjett,"sette opp et resultatbudsjett for en periode ut fra gitte forutsetninger, med avskrivninger og renter, og beregne budsjettert resultat.",salgs-innkjopsbudsjett;beregne-linear-avskrivning,0,
+beregne-innbetalinger,skill,Budsjettering,Beregne innbetalinger fra salg,"beregne når innbetalingene fra salget kommer, måned for måned, når en del selges kontant og resten på kreditt, og når salget skal regnes med mva.",salgs-innkjopsbudsjett;fore-kredittsalg,0,
+beregne-utbetalinger,skill,Budsjettering,Beregne utbetalinger,"beregne når utbetalingene for varekjøp, lønn, husleie, renter, avdrag, investeringer og mva-oppgjør kommer, måned for måned, med de forskyvningene kreditt og oppgjørsterminer gir.",salgs-innkjopsbudsjett;fore-mva-oppgjor;fore-lonn,0,
+utarbeide-likviditetsbudsjett,skill,Budsjettering,Utarbeide et enkelt likviditetsbudsjett,"sette opp et likviditetsbudsjett måned for måned med innbetalinger, utbetalinger, likviditetsendring og bankbeholdning ved slutten av hver måned.",beregne-innbetalinger;beregne-utbetalinger,0,
+vurdere-budsjett,skill,Budsjettering,Vurdere budsjettene og foreslå tiltak,"vurdere om budsjettene viser en lønnsom virksomhet med god nok likviditet, forklare forskjellen mellom budsjettert resultat og likviditetsendring, og foreslå og begrunne tiltak dersom pengene ikke strekker til, som kassekreditt, endret kredittid eller utsatt investering.",utarbeide-resultatbudsjett;utarbeide-likviditetsbudsjett;kassekreditt;resultat-vs-likviditet,0,
+budsjettavvik,concept,Budsjettkontroll,Budsjettkontroll og avvik,"Budsjettkontroll: å sammenligne regnskapet med budsjettet etter hvert som perioden går, for å oppdage avvik tidlig.
+Avvik: forskjellen mellom regnskapstall og budsjettall. Et avvik er gunstig når det gjør resultatet bedre enn budsjettert, for eksempel høyere inntekt eller lavere kostnad, og ugunstig når det gjør resultatet dårligere.",budsjett;resultatbudsjett-likviditetsbudsjett,0,
+beregne-avvik,skill,Budsjettkontroll,Gjennomføre budsjettkontroll,"sette opp en budsjettkontroll der hver post har budsjett, regnskap og avvik i kroner og prosent, og merke hvert avvik som gunstig eller ugunstig.",budsjettavvik;utarbeide-resultatbudsjett,0,
+analysere-avvik,skill,Budsjettkontroll,Analysere avvik og foreslå tiltak,"analysere mulige årsaker til de viktigste avvikene, vurdere hvilken betydning de har for virksomheten, og foreslå tiltak eller endringer i budsjettet.",beregne-avvik;vurdere-budsjett,0,
+interessenter,concept,Virksomheten i samfunnet,Interessenter,"Interessent: en person eller gruppe som påvirker eller blir påvirket av virksomheten, og som stiller krav til den i bytte mot det den bidrar med. Interne interessenter er eiere, ledere og ansatte; eksterne er blant andre kunder, leverandører, långivere, myndigheter og lokalsamfunnet.",,0,
+samfunnsansvar,concept,Virksomheten i samfunnet,Samfunnsansvar,"Samfunnsansvar: det ansvaret en virksomhet tar for hvordan driften påvirker mennesker, miljø og samfunn, ut over det loven krever, for eksempel for arbeidsforholdene hos leverandørene.",interessenter,0,
+baerekraft,concept,Virksomheten i samfunnet,Bærekraftig virksomhet,"Bærekraftig virksomhet: en virksomhet som skaper økonomiske verdier uten å svekke miljøet eller de sosiale forholdene den er avhengig av, nå og i framtiden. De tre dimensjonene er økonomisk, sosial og miljømessig bærekraft.",samfunnsansvar,0,
+forretningsmodell,concept,Virksomheten i samfunnet,Forretningsmodell,"Forretningsmodell: en beskrivelse av hvordan en virksomhet skaper verdi for kundene og tjener penger på det: hva den tilbyr, til hvem, hvordan den leverer og hvor inntektene kommer fra.",,0,
+innovasjon-teknologi,concept,Virksomheten i samfunnet,Innovasjon og automatisering,"Innovasjon: en ny eller vesentlig forbedret vare, tjeneste, arbeidsmåte eller forretningsmodell som faktisk tas i bruk.
+Automatisering: at oppgaver som før ble gjort av mennesker, blir utført av maskiner eller programvare, for eksempel automatisk tolking og føring av bilag.",forretningsmodell,0,
+analysere-interessenter,skill,Virksomheten i samfunnet,Analysere en virksomhets interessenter,"analysere hvilke interessenter en gitt virksomhet har, hva de bidrar med og krever, og hvor interessene deres kommer i konflikt.",interessenter,0,
+reflektere-samfunnsrolle,skill,Virksomheten i samfunnet,Reflektere over virksomhetens rolle i samfunnet,"reflektere over en virksomhets rolle lokalt og globalt, og vurdere hvordan den tar samfunnsansvar, med konkrete eksempler som arbeidsplasser, skatt, leverandørkjede og miljø.",analysere-interessenter;samfunnsansvar;baerekraft,0,
+forklare-teknologi-okonomistyring,skill,Virksomheten i samfunnet,Forklare hvordan teknologi endrer økonomiarbeidet,"forklare hvordan digitalisering og automatisering endrer regnskapsføring og økonomistyring, og hva det betyr for kontroll, kostnader og arbeidsoppgaver i virksomheten.",innovasjon-teknologi;sette-opp-saldobalanse,0,
+utforske-baerekraftig-forretningsmodell,skill,Virksomheten i samfunnet,Utforske en bærekraftig forretningsmodell,"utforske hvordan ny teknologi og innovasjon kan gi en forretningsmodell som er bærekraftig, med et konkret eksempel, og reflektere over hvilke nye problemer teknologien kan skape.",innovasjon-teknologi;baerekraft,0,
+utforske-dagsaktuelt,skill,Virksomheten i samfunnet,Utforske og presentere et dagsaktuelt tema,"utforske en dagsaktuell næringslivsøkonomisk sak eller problemstilling ved hjelp av kilder og tallmateriale, vurdere kildene kritisk, og presentere funnene med fagbegreper og egne vurderinger.",reflektere-samfunnsrolle;utforske-baerekraftig-forretningsmodell;lese-arsrapport,0,

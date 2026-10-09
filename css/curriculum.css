@@ -54,6 +54,7 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
 .level--science     { background: var(--subject-science); }
 .level--language    { background: var(--subject-language); }
 .level--social      { background: var(--subject-social); }
+.level--practical   { background: var(--subject-practical); }
 
 .level--none {
   background: var(--subject-none);
@@ -112,6 +113,7 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
 .subject-card--science     { --card-colour: var(--subject-science); }
 .subject-card--language    { --card-colour: var(--subject-language); }
 .subject-card--social      { --card-colour: var(--subject-social); }
+.subject-card--practical   { --card-colour: var(--subject-practical); }
 
 .subject-card--empty { background: transparent; }
 

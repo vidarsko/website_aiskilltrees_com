@@ -1,0 +1,202 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Filosofisk samtale og argumentasjon;Kilder og historisk kunnskap;Fortellinger og historiesyn;Metafysikk og erkjennelsesteori;Etikk og politisk filosofi;Makt, frihet og statsdanning;Religion, filosofi og makt;Teknologi, økonomi og vitenskap;Menneske, natur og virkelighetsoppfatninger",,,
+,config,,title,Historie og filosofi 1,,,
+,config,,description,"Filosofisk samtale og argumentasjon, kilder og fortellinger, historiesyn, metafysikk, erkjennelsesteori, etikk og politisk filosofi, makt og frihet fra antikken til i dag, religion og makt, teknologi og vitenskap, og menneskets forhold til naturen - dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-historie-filosofi-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,historie og filosofi 1 (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"blander sammen at et argument er gyldig og at konklusjonen er sann, gjengir hva en filosof mente uten å vurdere argumentet, kaller en lærebok for kilde uten å skille framstilling fra kilde, dømmer fortidens mennesker med nåtidens verdier uten å vise til samtiden, bruker «teori» og «ideologi» i dagligtalebetydning, eller skriver at de «drøfter» uten å veie argumenter mot hverandre",,,
+,config,,slots.courseSpecifics,"Faget har standpunktkarakter, og eleven kan trekkes ut til en lokalt gitt muntlig eksamen med forberedelsesdel. Øv derfor på å forklare, sammenligne og drøfte med egne ord og med begrunnelser, ikke på å gjengi utenatlærte formuleringer.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag samfunnsfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3042,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,history,,,
+,config,,keywords,historie og filosofi; HIFI; filosofi; filosofisk samtale; argumentasjon; kildekritikk; historiesyn; Platon; Aristoteles; Descartes; Kant; etikk; politisk filosofi; samfunnskontrakt; makt; frihet; statsdanning; reformasjonen; opplysningstiden; vitenskapelige revolusjon; miljøetikk,,,
+,config,,updated,2026-10-08,,,
+argument,concept,Filosofisk samtale og argumentasjon,Argument,"Argument: en påstand (konklusjonen) sammen med de grunnene (premissene) som skal støtte den.",,0,
+gyldig-holdbart,concept,Filosofisk samtale og argumentasjon,Gyldig og holdbart argument,"Gyldig argument: et argument der konklusjonen må være sann dersom premissene er sanne. Gyldighet handler om formen, ikke om innholdet.
+Holdbart argument: et gyldig argument der premissene i tillegg faktisk er sanne.",argument,0,
+deduksjon-induksjon,concept,Filosofisk samtale og argumentasjon,Deduksjon og induksjon,"Deduksjon: å slutte fra premisser til en konklusjon som følger nødvendig av dem.
+Induksjon: å slutte fra mange enkelttilfeller til en generell regel, som da bare blir sannsynlig, ikke sikker.",argument,0,
+argumentasjonsfeil,concept,Filosofisk samtale og argumentasjon,Argumentasjonsfeil,"Argumentasjonsfeil: en slutning som kan virke overbevisende, men der grunnene ikke støtter konklusjonen - for eksempel stråmannsargument, personangrep (ad hominem) eller falsk dikotomi.",argument,0,
+filosofisk-samtale,concept,Filosofisk samtale og argumentasjon,Filosofisk samtale,"Filosofisk samtale: en undersøkende samtale der deltakerne stiller åpne spørsmål, ber om begrunnelser og eksempler og prøver oppfatninger mot hverandre, for å forstå bedre - ikke for å vinne. Sokrates' dialoger er forbildet.",,0,
+klargjore-begrep,skill,Filosofisk samtale og argumentasjon,Klargjøre et filosofisk begrep,"klargjøre hva et sentralt begrep som rettferdighet, frihet eller sannhet betyr, ved å finne eksempler, moteksempler og grensetilfeller.",filosofisk-samtale,0,
+rekonstruere-argument,skill,Filosofisk samtale og argumentasjon,Rekonstruere et argument,"skrive et argument fra en tekst eller en samtale som nummererte premisser og en konklusjon, og få med premissene som er underforstått.",argument,0,
+vurdere-gyldighet,skill,Filosofisk samtale og argumentasjon,Vurdere om et argument er gyldig og holdbart,"avgjøre om konklusjonen i et rekonstruert argument følger av premissene, og vurdere hvert premiss for seg.",rekonstruere-argument;gyldig-holdbart;deduksjon-induksjon,0,
+pavise-argumentasjonsfeil,skill,Filosofisk samtale og argumentasjon,Påvise argumentasjonsfeil,"finne og navngi argumentasjonsfeil i en debatt eller en tekst, og forklare hvorfor grunnene ikke bærer konklusjonen.",argumentasjonsfeil;rekonstruere-argument,0,
+delta-filosofisk-samtale,skill,Filosofisk samtale og argumentasjon,Delta i en filosofisk samtale,"stille oppfølgingsspørsmål, be om begrunnelser og eksempler, og bygge videre på eller utfordre andres innspill i en filosofisk samtale.",filosofisk-samtale;klargjore-begrep,0,
+utforske-oppfatning,skill,Filosofisk samtale og argumentasjon,Prøve en oppfatning i en filosofisk samtale,"bruke filosofisk samtale til å undersøke en oppfatning, vurdere argumentene for og mot den, og gjøre rede for om og hvorfor eget syn har endret seg.",delta-filosofisk-samtale;vurdere-gyldighet;pavise-argumentasjonsfeil,0,
+kilde-framstilling,concept,Kilder og historisk kunnskap,Kilde og framstilling,"Kilde: et spor fra fortiden som ble til i eller nær den tiden det gjelder - et brev, en lov, et fotografi, en gjenstand.
+Framstilling: en senere tolkning av fortiden bygd på kilder, som en lærebok eller en historikers bok.",,0,
+forstehand-annenhand,concept,Kilder og historisk kunnskap,Førstehåndskilde og annenhåndskilde,"Førstehåndskilde: en kilde der opphavspersonen selv var til stede eller deltok i det kilden handler om.
+Annenhåndskilde: en kilde som gjengir det andre har sett eller fortalt.",kilde-framstilling,0,
+levning-beretning,concept,Kilder og historisk kunnskap,Levning og beretning,"Levning: en kilde som vitner om fortiden gjennom det den er - en gjenstand, en lov, en regnskapsbok - uten å være laget for å fortelle om den.
+Beretning: en kilde som forteller om noe, og som må vurderes ut fra hva opphavspersonen visste og ville. Den samme kilden kan være en levning for ett spørsmål og en beretning for et annet.",kilde-framstilling,0,
+kildekritikk,concept,Kilder og historisk kunnskap,Kildekritikk,"Kildekritikk: å vurdere en kildes opphav, formål, tid, avstand til det den handler om og sammenheng, før man bruker den - både hva den kan fortelle om (relevans) og hvor mye den er til å stole på (troverdighet).",kilde-framstilling,0,
+kildetilfang,concept,Kilder og historisk kunnskap,Kildetilfang,"Kildetilfang: de kildene som faktisk finnes om et tema eller en periode. Det er preget av hva som ble skrevet ned, hvem som kunne skrive, og hva som tilfeldigvis er blitt bevart.",kilde-framstilling,0,
+lese-filosofisk-tekst,skill,Kilder og historisk kunnskap,Lese en filosofisk tekst,"finne problemstillingen, hovedpåstanden og argumentene i et utdrag av en filosofisk tekst, og plassere teksten i tiden den ble skrevet i.",rekonstruere-argument;kilde-framstilling,0,
+vurdere-kilde,skill,Kilder og historisk kunnskap,Vurdere en historisk kilde,"vurdere en kildes troverdighet og relevans for en bestemt problemstilling ut fra opphav, formål, tid og sammenheng.",kildekritikk;forstehand-annenhand;levning-beretning,0,
+sammenligne-kilder,skill,Kilder og historisk kunnskap,Sammenligne kilder om det samme,"sammenligne hvordan to kilder av ulik art eller opphav framstiller det samme, og forklare forskjellene ut fra hvem som laget dem, når og hvorfor.",vurdere-kilde,0,
+forklare-kildeskjevhet,skill,Kilder og historisk kunnskap,Forklare hvordan kildetilfanget begrenser kunnskapen,"forklare med eksempler hvordan mangel på kilder, eller kilder fra bare én gruppe - eliten, menn eller seierherrene - avgrenser og farger det vi kan vite om fortiden.",kildetilfang;kildekritikk,0,
+reflektere-hva-vi-kan-vite,skill,Kilder og historisk kunnskap,Reflektere over hva vi kan vite om fortiden,"reflektere over hvordan nye kilder, nye metoder som arkeologi og DNA-analyse, og nye spørsmål kan endre bildet av en periode, og hva som likevel forblir usikkert.",forklare-kildeskjevhet,0,
+lage-historisk-fortelling,skill,Kilder og historisk kunnskap,Lage en historisk fortelling ut fra kilder,"bruke flere kilder av ulik art til å bygge en sammenhengende fortelling om en hendelse eller et liv i fortiden, og markere hva som bygger på kildene og hva som er egen tolkning.",sammenligne-kilder,0,
+drofte-med-kilder,skill,Kilder og historisk kunnskap,Drøfte en historisk eller filosofisk problemstilling med kilder,"drøfte en problemstilling ved å bruke kilder som belegg for ulike syn, veie dem mot hverandre og komme fram til en begrunnet konklusjon, som gjerne kan være åpen.",sammenligne-kilder;lese-filosofisk-tekst;vurdere-gyldighet,0,
+fortelling,concept,Fortellinger og historiesyn,Fortelling,"Fortelling: en framstilling som ordner hendelser i en sammenheng med begynnelse, utvikling og slutt, og dermed gir dem mening - for et menneske, en gruppe eller en nasjon.",,0,
+identitet,concept,Fortellinger og historiesyn,Identitet,"Identitet: hvem en person eller en gruppe forstår seg selv som. Den formes av opphav, erfaringer og fellesskap, og av fortellingene man forteller om seg selv og blir fortalt om.",,0,
+myte,concept,Fortellinger og historiesyn,Myte,"Myte: en fortelling om opphav eller forbilledlige hendelser som gir et fellesskap mening og verdier, uansett om den er historisk sann.",fortelling,0,
+historieskapt-historieskapende,concept,Fortellinger og historiesyn,Historieskapt og historieskapende,"Historieskapt: preget av fortiden - språket, verdiene, institusjonene og vanene vi har arvet.
+Historieskapende: med på å forme det som senere blir historie, gjennom valgene og handlingene våre i dag.",,0,
+forklare-fortellinger-mening,skill,Fortellinger og historiesyn,Forklare hvordan fortellinger skaper mening og identitet,"gjøre rede for, med eksempler, hvordan nasjonale, religiøse eller personlige fortellinger gir mening og forklarer hvem et menneske eller et fellesskap er eller ønsker å være.",fortelling;identitet;myte;historieskapt-historieskapende,0,
+vurdere-nasjonal-fortelling,skill,Fortellinger og historiesyn,Vurdere en nasjonal fortelling,"vurdere hva en nasjonal fortelling - som fortellingen om 1814 eller om vikingtiden - tar med og utelater, og hvem den inkluderer og holder utenfor.",forklare-fortellinger-mening;kilde-framstilling,0,
+historiesyn,concept,Fortellinger og historiesyn,Historiesyn,"Historiesyn: et overordnet syn på hva som driver historien og hvordan den bør forklares - om det er enkeltmennesker, ideer, økonomi eller strukturer som betyr mest, og om historien har en retning.",,0,
+syklisk-linear,concept,Fortellinger og historiesyn,Syklisk og lineært historiesyn,"Syklisk historiesyn: historien går i gjentatte kretsløp, som årstidene eller riker som stiger og faller.
+Lineært historiesyn: historien beveger seg i én retning mot et mål eller en slutt, som i jødisk-kristen frelseshistorie eller i fremskrittstroen.",historiesyn,0,
+fremskrittstro,concept,Fortellinger og historiesyn,Fremskrittstro,"Fremskrittstro: troen på at historien i hovedsak går mot det bedre, gjennom fornuft, vitenskap og teknologi. Den preget opplysningstiden og 1800-tallet.",syklisk-linear,0,
+materialistisk-idealistisk,concept,Fortellinger og historiesyn,Materialistisk og idealistisk historiesyn,"Materialistisk historiesyn: materielle forhold - produksjon, teknologi og klasseforhold - driver historien. Knyttet til Karl Marx.
+Idealistisk historiesyn: ideer, tanker og verdier driver historien. Knyttet til G.W.F. Hegel.",historiesyn,0,
+aktor-struktur,concept,Fortellinger og historiesyn,Aktør og struktur,"Aktør: et menneske eller en gruppe som handler og tar valg.
+Struktur: rammene - økonomi, geografi, teknologi, lover og normer - som begrenser og muliggjør valgene aktørene har.",historiesyn,0,
+sammenligne-historiesyn,skill,Fortellinger og historiesyn,Sammenligne historiesyn,"sammenligne hvordan to historiesyn ville forklart den samme hendelsen, og hva hvert av dem får fram og skygger for.",syklisk-linear;fremskrittstro;materialistisk-idealistisk;aktor-struktur,0,
+drofte-historiesyn,skill,Fortellinger og historiesyn,Drøfte hvordan historiesyn preger tolkningen av fortid og nåtid,"drøfte hvordan ulike historiesyn kan prege hvordan vi forstår og tolker både fortiden og vår egen tid, med konkrete eksempler.",sammenligne-historiesyn;historieskapt-historieskapende,0,
+filosofiske-disipliner,concept,Metafysikk og erkjennelsesteori,Filosofiens hovedområder,"Metafysikk: læren om hva som finnes og hva virkeligheten grunnleggende er.
+Erkjennelsesteori: læren om hva kunnskap er, og hva og hvordan vi kan vite noe.
+Etikk: læren om hva som er rett og galt, og hva et godt liv er.
+Politisk filosofi: læren om staten, makt, rettferdighet og hvordan samfunnet bør styres.",,0,
+naturfilosofi,concept,Metafysikk og erkjennelsesteori,Naturfilosofi,"Naturfilosofi: de førsokratiske tenkernes forsøk, fra 500-tallet f.Kr., på å forklare naturen ut fra ett grunnstoff eller prinsipp i stedet for gudene. Thales mente alt var vann.",filosofiske-disipliner,0,
+platons-idelaere,concept,Metafysikk og erkjennelsesteori,Platons idélære,"Platons idélære: den sansbare verden er en ufullkommen avskygging av en evig og uforanderlig verden av ideer, som bare kan erkjennes med fornuften. Hulelignelsen illustrerer den.",naturfilosofi,0,
+aristoteles-virkelighet,concept,Metafysikk og erkjennelsesteori,Aristoteles' virkelighetssyn,"Aristoteles' virkelighetssyn: formene finnes ikke i en egen verden, men i tingene selv. Kunnskap begynner med sanseerfaring og systematisk observasjon.",naturfilosofi,0,
+rasjonalisme-empirisme,concept,Metafysikk og erkjennelsesteori,Rasjonalisme og empirisme,"Rasjonalisme: sikker kunnskap kommer fra fornuften, uavhengig av erfaring. Descartes er en hovedtenker.
+Empirisme: all kunnskap kommer fra sanseerfaring. Locke og Hume er hovedtenkere.",filosofiske-disipliner,0,
+metodisk-tvil,concept,Metafysikk og erkjennelsesteori,Metodisk tvil,"Metodisk tvil: Descartes' metode for å finne et sikkert grunnlag for kunnskap ved å tvile på alt som kan tviles på. Det han ikke kunne tvile på, var at han tenkte: «Jeg tenker, altså er jeg».",rasjonalisme-empirisme,0,
+kants-syntese,concept,Metafysikk og erkjennelsesteori,Kants erkjennelsesteori,"Kants erkjennelsesteori: kunnskap krever både sanseinntrykk og fornuftens egne former, som tid, rom og årsak. Vi kan erkjenne tingene slik de viser seg for oss, ikke slik de er i seg selv.",rasjonalisme-empirisme,0,
+dualisme-monisme,concept,Metafysikk og erkjennelsesteori,Dualisme og monisme,"Dualisme: virkeligheten består av to grunnleggende forskjellige substanser, som sjel og kropp (Descartes).
+Monisme: virkeligheten består av én grunnleggende substans - enten materie (materialisme) eller ånd.",filosofiske-disipliner,0,
+sammenligne-platon-aristoteles,skill,Metafysikk og erkjennelsesteori,Sammenligne Platon og Aristoteles,"sammenligne Platons og Aristoteles' syn på hva som er virkelig og hvordan vi får kunnskap, og forklare hvilke følger forskjellen får for synet på naturvitenskap.",platons-idelaere;aristoteles-virkelighet,0,
+sammenligne-rasjonalisme-empirisme,skill,Metafysikk og erkjennelsesteori,Forklare striden mellom rasjonalisme og empirisme,"sammenligne rasjonalismens og empirismens syn på hvor kunnskapen kommer fra, og forklare hvordan Kant forsøkte å forene dem.",metodisk-tvil;kants-syntese,0,
+drofte-erkjennelse,skill,Metafysikk og erkjennelsesteori,Drøfte et erkjennelsesteoretisk spørsmål,"drøfte et spørsmål om hva vi kan vite - for eksempel om sansene kan stoles på - med argumenter fra minst to filosofiske posisjoner.",sammenligne-rasjonalisme-empirisme;sammenligne-platon-aristoteles;vurdere-gyldighet,0,
+drofte-metafysikk,skill,Metafysikk og erkjennelsesteori,Drøfte et metafysisk spørsmål,"drøfte et spørsmål om hva som finnes og hva virkeligheten består av - som forholdet mellom sjel og kropp eller om vi har fri vilje - med argumenter fra ulike posisjoner.",dualisme-monisme;sammenligne-platon-aristoteles;vurdere-gyldighet,0,
+filosofer-levetid,fact,Metafysikk og erkjennelsesteori,Sentrale filosofer og når de levde,"Sokrates: ca. 470-399 f.Kr.
+Platon: ca. 428-348 f.Kr.
+Aristoteles: 384-322 f.Kr.
+Augustin: 354-430
+Thomas Aquinas: ca. 1225-1274
+Niccolò Machiavelli: 1469-1527
+Thomas Hobbes: 1588-1679
+René Descartes: 1596-1650
+John Locke: 1632-1704
+David Hume: 1711-1776
+Jean-Jacques Rousseau: 1712-1778
+Immanuel Kant: 1724-1804
+John Stuart Mill: 1806-1873
+Karl Marx: 1818-1883
+Friedrich Nietzsche: 1844-1900",filosofiske-disipliner,0,
+konsekvensetikk,concept,Etikk og politisk filosofi,Konsekvensetikk,"Konsekvensetikk: en handling er riktig dersom den gir de beste følgene. Utilitarismen (Bentham, Mill) måler følgene i lykke eller velferd for alle som berøres.",filosofiske-disipliner,0,
+pliktetikk,concept,Etikk og politisk filosofi,Pliktetikk,"Pliktetikk: noen handlinger er rette eller gale i seg selv, uansett følger. Kants kategoriske imperativ: handle bare etter en regel du kan ville skal gjelde for alle, og behandle aldri et menneske bare som et middel.",filosofiske-disipliner,0,
+dydsetikk,concept,Etikk og politisk filosofi,Dydsetikk,"Dydsetikk: spør hva slags menneske man bør være. Hos Aristoteles er dydene gode karaktertrekk - ofte en middelvei mellom to ytterpunkter - som fører til et vellykket liv (eudaimonia).",filosofiske-disipliner,0,
+anvende-etiske-teorier,skill,Etikk og politisk filosofi,Anvende etiske teorier på et dilemma,"analysere et etisk dilemma med konsekvensetikk, pliktetikk og dydsetikk, og vise hvor teoriene gir ulike svar og hvorfor.",konsekvensetikk;pliktetikk;dydsetikk,0,
+drofte-etisk-sporsmal,skill,Etikk og politisk filosofi,Drøfte et etisk spørsmål,"drøfte et etisk spørsmål ved å veie argumenter fra ulike etiske teorier mot hverandre og ta et begrunnet standpunkt.",anvende-etiske-teorier;vurdere-gyldighet,0,
+platons-idealstat,concept,Etikk og politisk filosofi,Platons idealstat,"Platons idealstat: en stat styrt av filosofer, der hver samfunnsklasse - herskere, voktere og produsenter - gjør det den egner seg best til. Platon mente demokratiet lot et uvitende flertall styre.",platons-idelaere,0,
+aristoteles-styreformer,concept,Etikk og politisk filosofi,Aristoteles' styreformer,"Aristoteles' styreformer: styre ved én, få eller mange, hver i en god form som tjener fellesskapet (monarki, aristokrati, politeia) og en dårlig form som tjener herskerne selv (tyranni, oligarki, demokrati).",,0,
+machiavelli,concept,Etikk og politisk filosofi,Machiavellis maktrealisme,"Machiavellis maktrealisme: politikk handler om å vinne og beholde makt, og en fyrste må være villig til å handle umoralsk når det tjener staten. Machiavelli skilte politikken fra kristen moral.",,0,
+naturrett,concept,Etikk og politisk filosofi,Naturrett,"Naturrett: rettigheter mennesket har fordi det er menneske, uavhengig av lovene staten har vedtatt. Locke regnet liv, frihet og eiendom som naturlige rettigheter.",,0,
+samfunnskontrakt,concept,Etikk og politisk filosofi,Samfunnskontrakt,"Samfunnskontrakt: tanken om at statens makt er legitim fordi menneskene har gått sammen om, eller kunne ha gått med på, å gi fra seg noe av friheten sin til en felles makt.
+Naturtilstand: tilstanden mennesker tenkes å leve i før det finnes noen stat.",naturrett,0,
+sammenligne-kontraktsteoretikere,skill,Etikk og politisk filosofi,"Sammenligne Hobbes, Locke og Rousseau","sammenligne hvordan Hobbes, Locke og Rousseau beskrev naturtilstanden og samfunnskontrakten, og hva det betyr for hvor mye makt staten bør ha.",samfunnskontrakt,0,
+drofte-politisk-filosofi,skill,Etikk og politisk filosofi,Drøfte et spørsmål i politisk filosofi,"drøfte et spørsmål om statens legitimitet, frihet eller rettferdighet med argumenter fra minst to politiske filosofer fra ulike perioder.",sammenligne-kontraktsteoretikere;platons-idealstat;aristoteles-styreformer;machiavelli;vurdere-gyldighet,0,
+makt,concept,"Makt, frihet og statsdanning",Makt,"Makt: evnen til å få andre til å gjøre noe de ellers ikke ville gjort - ved tvang, med økonomiske midler eller ved å forme hva folk tror og ønsker.",,0,
+legitimitet,concept,"Makt, frihet og statsdanning",Legitimitet,"Legitimitet: at makten oppfattes som rettmessig av dem den utøves over. Max Weber skilte mellom tradisjonell, karismatisk og legal-rasjonell legitimitet.",makt,0,
+stat,concept,"Makt, frihet og statsdanning",Stat,"Stat: en politisk enhet med et avgrenset territorium, en befolkning og en sentral makt som har monopol på legitim bruk av vold innenfor området.",legitimitet,0,
+statsdanning,concept,"Makt, frihet og statsdanning",Statsdanning,"Statsdanning: prosessen der en sentral makt samler et territorium under seg og bygger opp skatter, lover, militærmakt og forvaltning.",stat,0,
+negativ-positiv-frihet,concept,"Makt, frihet og statsdanning",Negativ og positiv frihet,"Negativ frihet: frihet fra inngrep og tvang fra andre, staten medregnet.
+Positiv frihet: frihet til å styre eget liv og virkeliggjøre seg selv, noe som kan kreve utdanning, ressurser og fellesskap.",,0,
+kontinuitet-endring,concept,"Makt, frihet og statsdanning",Kontinuitet og endring,"Kontinuitet: det som varer ved over tid.
+Endring: det som blir annerledes, brått eller gradvis.",,0,
+athensk-demokrati,concept,"Makt, frihet og statsdanning",Athensk demokrati,"Athensk demokrati: direkte folkestyre i bystaten Athen fra slutten av 500-tallet f.Kr., der frie, voksne menn med borgerrett avgjorde sakene i folkeforsamlingen. Kvinner, slaver og innflyttere var utestengt.",,0,
+romersk-republikk,concept,"Makt, frihet og statsdanning",Den romerske republikken,"Den romerske republikken: Romas styreform fra 509 f.Kr. (etter tradisjonen) til 27 f.Kr., med årlig valgte embetsmenn, et senat og folkeforsamlinger, bygd for å hindre at én mann fikk all makt.",,0,
+foydalsamfunnet,concept,"Makt, frihet og statsdanning",Føydalsamfunnet,"Føydalsamfunnet: et middelaldersk samfunn der jord ble gitt som len mot lojalitet og krigstjeneste, i en kjede fra kongen via stormenn og riddere ned til bøndene som dyrket jorda.",,0,
+enevelde,concept,"Makt, frihet og statsdanning",Enevelde,"Enevelde: et styre der kongen samler all statsmakt hos seg og bare står til ansvar overfor Gud. Danmark-Norge fikk enevelde i 1660.",legitimitet,0,
+folkesuverenitet,concept,"Makt, frihet og statsdanning",Folkesuverenitet,"Folkesuverenitet: prinsippet om at den øverste makten i staten ligger hos folket, ikke hos en konge eller hos Gud.",legitimitet,0,
+makt-arstall,fact,"Makt, frihet og statsdanning","Årstall for makt, frihet og statsdanning","Kleisthenes' reformer i Athen: 508/507 f.Kr.
+Roma blir keiserdømme under Augustus: 27 f.Kr.
+Vestromerriket faller: 476
+Magna Carta i England: 1215
+Den westfalske fred: 1648
+Eneveldet innført i Danmark-Norge: 1660
+Den ærerike revolusjon i England: 1688
+Den amerikanske uavhengighetserklæringen: 1776
+Den franske revolusjon begynner: 1789
+Grunnloven på Eidsvoll: 1814
+Parlamentarismen innført i Norge: 1884
+Allmenn stemmerett for kvinner i Norge: 1913
+FNs verdenserklæring om menneskerettighetene: 1948",,0,
+forklare-statsdanning,skill,"Makt, frihet og statsdanning",Gjøre rede for statsdanning i en periode,"gjøre rede for hvordan en stat ble bygd opp i en bestemt periode - for eksempel rikssamlingen i Norge eller fremveksten av eneveldige stater i Europa - og hva som holdt makten sammen.",statsdanning;foydalsamfunnet;enevelde,0,
+sammenligne-maktstrukturer,skill,"Makt, frihet og statsdanning",Sammenligne maktstrukturer i to perioder,"sammenligne hvem som hadde makt, hvordan makten ble begrunnet og hvem som var fri i to perioder, og peke på kontinuitet og endring.",kontinuitet-endring;athensk-demokrati;romersk-republikk;forklare-statsdanning;folkesuverenitet;negativ-positiv-frihet;makt-arstall,0,
+drofte-makt-frihet-demokrati,skill,"Makt, frihet og statsdanning","Drøfte forståelser av makt, frihet og demokrati","drøfte hvordan synet på makt, frihet og demokrati har endret seg fra antikken til i dag, og reflektere over hva begrepene betyr for oss nå.",sammenligne-maktstrukturer;drofte-politisk-filosofi,0,
+virkelighetsoppfatning,concept,"Religion, filosofi og makt",Virkelighetsoppfatning,"Virkelighetsoppfatning: et grunnleggende syn på hva som finnes, hva som er sant og hvor mennesket hører hjemme - religiøst, filosofisk eller vitenskapelig begrunnet.",,0,
+guddommelig-rett,concept,"Religion, filosofi og makt",Kongens guddommelige rett,"Kongens guddommelige rett: læren om at kongen har makten sin direkte fra Gud, og derfor ikke kan avsettes eller kritiseres av undersåttene.",legitimitet,0,
+kirkens-makt,concept,"Religion, filosofi og makt",Kirkens makt i middelalderen,"Kirkens makt i middelalderen: Den katolske kirken var en egen maktinstitusjon med jordegods, tiende, egen rettergang og monopol på frelsen, og kunne bannlyse konger.",,0,
+tro-fornuft,concept,"Religion, filosofi og makt",Tro og fornuft i middelalderen,"Tro og fornuft i middelalderen: Augustin satte troen først og så fornuften som et redskap for den. Thomas Aquinas forente kristen lære med Aristoteles og mente at tro og fornuft ikke kan motsi hverandre.",aristoteles-virkelighet,0,
+reformasjonen,concept,"Religion, filosofi og makt",Reformasjonen,"Reformasjonen: bruddet med pavekirken som fulgte etter at Martin Luther la fram tesene sine i 1517. I Danmark-Norge ble lutherdommen innført i 1536-1537, og kongen ble kirkens overhode.",kirkens-makt,0,
+opplysningstiden,concept,"Religion, filosofi og makt",Opplysningstiden,"Opplysningstiden: 1700-tallets idéstrømning som satte fornuften, vitenskapen og individets rettigheter over tradisjon og kirkelig autoritet.",,0,
+religionskritikk,concept,"Religion, filosofi og makt",Religionskritikk,"Religionskritikk: kritikk av religionens sannhetskrav eller samfunnsrolle. Marx kalte religionen «folkets opium» fordi den fikk de undertrykte til å godta sin stilling, og Nietzsche erklærte at «Gud er død».",opplysningstiden,0,
+religion-motmakt,concept,"Religion, filosofi og makt",Religion som motmakt,"Religion som motmakt: religiøse bevegelser og ledere som har utfordret makthavere ut fra sin tro - som Luther mot paven, kvekerne mot slaveriet og Martin Luther King i borgerrettighetsbevegelsen.",,0,
+religion-arstall,fact,"Religion, filosofi og makt",Årstall i religionens og filosofiens maktshistorie,"Sokrates dømt til døden i Athen: 399 f.Kr.
+Kristendommen blir statsreligion i Romerriket: 380
+Slaget på Stiklestad: 1030
+Luthers 95 teser: 1517
+Reformasjonen i Danmark-Norge: 1536-1537
+Galilei dømt av inkvisisjonen: 1633
+Dissenterloven gir religionsfrihet for kristne utenfor statskirken i Norge: 1845
+Jødeparagrafen strøket fra Grunnloven: 1851",,0,
+forklare-legitimering,skill,"Religion, filosofi og makt",Forklare hvordan religion og filosofi har legitimert makt,"gjøre rede for, med eksempler, hvordan religion eller filosofi er blitt brukt til å begrunne makt og samfunnsordninger som standssamfunnet, eneveldet eller slaveriet.",guddommelig-rett;kirkens-makt;enevelde,0,
+forklare-utfordret-makt,skill,"Religion, filosofi og makt",Forklare hvordan religion og filosofi har utfordret makt,"gjøre rede for, med eksempler, hvordan religiøse og filosofiske ideer er blitt brukt til å kritisere og endre makt og samfunnsstrukturer.",reformasjonen;opplysningstiden;religionskritikk;religion-motmakt,0,
+sammenligne-tro-fornuft,skill,"Religion, filosofi og makt",Sammenligne synet på sannhet i middelalderen og opplysningstiden,"sammenligne hva som ble regnet som kilde til sannhet - åpenbaring, tradisjon eller fornuft og erfaring - i middelalderen og i opplysningstiden, og forklare hva skiftet betydde for virkelighetsoppfatningen.",tro-fornuft;opplysningstiden;virkelighetsoppfatning,0,
+reflektere-religion-filosofi-makt,skill,"Religion, filosofi og makt",Reflektere over religion og filosofi som makt,"reflektere over hvordan religion og filosofi både har legitimert og utfordret makt, og formet hva mennesker har holdt for sant, fra antikken til i dag.",forklare-legitimering;forklare-utfordret-makt;sammenligne-tro-fornuft;religion-arstall,0,
+jordbruksrevolusjonen,concept,"Teknologi, økonomi og vitenskap",Jordbruksrevolusjonen,"Jordbruksrevolusjonen: overgangen fra jakt og sanking til jordbruk og husdyrhold, som begynte i Midtøsten for rundt 11 000 år siden og la grunnlaget for fast bosetning, overskudd, byer og stater.",,0,
+boktrykkerkunsten,concept,"Teknologi, økonomi og vitenskap",Boktrykkerkunsten,"Boktrykkerkunsten: Gutenbergs trykking med løse typer fra rundt 1450, som gjorde bøker billigere og raskere å spre, og som bidro til både reformasjonen og vitenskapens utbredelse.",,0,
+vitenskapelige-revolusjon,concept,"Teknologi, økonomi og vitenskap",Den vitenskapelige revolusjonen,"Den vitenskapelige revolusjonen: 1500- og 1600-tallets brudd med det aristoteliske og kirkelige naturbildet, der observasjon, eksperiment og matematikk ble veien til kunnskap om naturen - fra Kopernikus til Newton.",aristoteles-virkelighet,0,
+geosentrisk-heliosentrisk,concept,"Teknologi, økonomi og vitenskap",Geosentrisk og heliosentrisk verdensbilde,"Geosentrisk verdensbilde: jorda står i sentrum, og sola, månen og planetene går rundt den (Ptolemaios).
+Heliosentrisk verdensbilde: jorda og de andre planetene går i bane rundt sola (Kopernikus).",,0,
+industrielle-revolusjon,concept,"Teknologi, økonomi og vitenskap",Den industrielle revolusjonen,"Den industrielle revolusjonen: overgangen fra håndverk til maskinproduksjon med dampkraft og fabrikker, som startet i Storbritannia på slutten av 1700-tallet. Den flyttet folk fra land til by og skapte en arbeiderklasse.",,0,
+kapitalisme,concept,"Teknologi, økonomi og vitenskap",Kapitalisme,"Kapitalisme: et økonomisk system der produksjonsmidlene eies privat, og der produksjonen styres av markedet og ønsket om profitt.",,0,
+digitale-revolusjon,concept,"Teknologi, økonomi og vitenskap",Den digitale revolusjonen,"Den digitale revolusjonen: overgangen fra analog til digital teknologi fra andre halvdel av 1900-tallet - datamaskiner, internett og smarttelefoner - som har endret arbeid, kommunikasjon og tilgangen på kunnskap.",,0,
+teknologi-arstall,fact,"Teknologi, økonomi og vitenskap","Årstall i teknologiens, økonomiens og vitenskapens historie","Gutenbergs trykkpresse: ca. 1450
+Kopernikus' bok om det heliosentriske verdensbildet: 1543
+Newtons Principia: 1687
+James Watts dampmaskin patentert: 1769
+Adam Smiths Nasjonenes velstand: 1776
+Den første jernbanen i Norge (Hovedbanen): 1854
+Darwins Artenes opprinnelse: 1859
+World Wide Web åpnet for allmennheten: 1991",,0,
+forklare-vitenskap-verdensbilde,skill,"Teknologi, økonomi og vitenskap",Forklare hvordan vitenskapen endret virkelighetsoppfatningen,"forklare hvordan den vitenskapelige revolusjonen endret synet på naturen, på menneskets plass i universet og på hvem som har autoritet til å si hva som er sant.",vitenskapelige-revolusjon;geosentrisk-heliosentrisk;virkelighetsoppfatning,0,
+forklare-sammenheng-endringer,skill,"Teknologi, økonomi og vitenskap","Forklare sammenhengen mellom teknologiske, økonomiske og vitenskapelige endringer","forklare med et konkret eksempel hvordan teknologiske, økonomiske og vitenskapelige endringer har drevet hverandre fram.",boktrykkerkunsten;industrielle-revolusjon;kapitalisme;forklare-vitenskap-verdensbilde;teknologi-arstall,0,
+vurdere-endring-livsvilkar,skill,"Teknologi, økonomi og vitenskap",Vurdere hva en stor omveltning betydde for livsvilkårene,"vurdere hvilken betydning en stor omveltning - som jordbruksrevolusjonen eller den industrielle revolusjonen - fikk for samfunnsstrukturer, levekår og virkelighetsoppfatning, og for hvem endringene var til gode eller til skade.",forklare-sammenheng-endringer;jordbruksrevolusjonen;kontinuitet-endring,0,
+sammenligne-omveltninger,skill,"Teknologi, økonomi og vitenskap",Sammenligne to teknologiske omveltninger,"sammenligne den industrielle og den digitale revolusjonen: hva som endret seg, hvem som vant og tapte, og hva som er likt.",vurdere-endring-livsvilkar;digitale-revolusjon,0,
+antroposentrisme-okosentrisme,concept,"Menneske, natur og virkelighetsoppfatninger","Antroposentrisme, biosentrisme og økosentrisme","Antroposentrisme: mennesket står i sentrum, og naturen har først og fremst verdi som ressurs for mennesker.
+Biosentrisme: alt levende har verdi i seg selv.
+Økosentrisme: hele økosystemer, også arter og landskap, har verdi i seg selv.",,0,
+hersker-forvalter,concept,"Menneske, natur og virkelighetsoppfatninger",Herskertanken og forvaltertanken,"Herskertanken: mennesket skal legge jorden under seg og råde over naturen.
+Forvaltertanken: mennesket har fått naturen til låns og har ansvar for å ta vare på den for dem som kommer etter.",,0,
+dyrs-moralske-status,concept,"Menneske, natur og virkelighetsoppfatninger",Dyrs moralske status,"Dyrs moralske status: spørsmålet om dyr har krav på moralsk hensyn. Bentham mente det avgjørende er om de kan lide, mens Descartes så på dyr som maskiner uten bevissthet.",konsekvensetikk,0,
+dypokologi,concept,"Menneske, natur og virkelighetsoppfatninger",Dypøkologi,"Dypøkologi: Arne Næss' miljøfilosofi fra 1970-tallet, som sier at alt liv har egenverdi, og at menneskets selvrealisering henger sammen med resten av naturen.",antroposentrisme-okosentrisme,0,
+baerekraftig-utvikling,concept,"Menneske, natur og virkelighetsoppfatninger",Bærekraftig utvikling,"Bærekraftig utvikling: utvikling som dekker dagens behov uten å ødelegge mulighetene for at kommende generasjoner kan dekke sine. Begrepet ble kjent gjennom Brundtland-kommisjonens rapport fra 1987.",,0,
+mekanistisk-verdensbilde,concept,"Menneske, natur og virkelighetsoppfatninger",Mekanistisk verdensbilde,"Mekanistisk verdensbilde: naturen forstått som en maskin styrt av matematiske lover, uten sjel eller hensikt. Det vokste fram med den vitenskapelige revolusjonen.",vitenskapelige-revolusjon,0,
+animisme,concept,"Menneske, natur og virkelighetsoppfatninger",Animisme,"Animisme: oppfatningen at dyr, planter, steder og naturfenomener har sjel eller ånd, og at mennesket står i et forhold til dem.",virkelighetsoppfatning,0,
+gjenfodsel-karma,concept,"Menneske, natur og virkelighetsoppfatninger",Gjenfødsel og karma,"Gjenfødsel og karma: i hinduismen og buddhismen går livet i et kretsløp av gjenfødsler (samsara), der handlingene (karma) får følger for neste liv. Målet er å bli fri fra kretsløpet.",virkelighetsoppfatning,0,
+daoisme,concept,"Menneske, natur og virkelighetsoppfatninger",Daoisme,"Daoisme: en kinesisk tradisjon, knyttet til Laozi, som ser dao - «veien» - som naturens grunnleggende orden, og som har som ideal å leve i harmoni med den i stedet for å tvinge den.",virkelighetsoppfatning,0,
+samisk-naturforstaelse,concept,"Menneske, natur og virkelighetsoppfatninger",Tradisjonell samisk naturforståelse,"Tradisjonell samisk naturforståelse: mennesket er en del av naturen og står i et gjensidig forhold til den. Ressursene skal brukes uten at man tar mer enn man trenger, og enkelte steder, som offersteinene (sieidiene), er hellige.",virkelighetsoppfatning,0,
+utforske-ressursbruk,skill,"Menneske, natur og virkelighetsoppfatninger",Utforske ressursbruk i et historisk perspektiv,"undersøke hvordan et samfunn i fortiden brukte en naturressurs - som skog, fisk eller kull - og hvilke følger det fikk for miljøet og for samfunnet selv.",jordbruksrevolusjonen;industrielle-revolusjon;baerekraftig-utvikling,0,
+sammenligne-natursyn,skill,"Menneske, natur og virkelighetsoppfatninger","Sammenligne syn på forholdet mellom mennesker, dyr og natur","sammenligne ulike syn på hvilken verdi mennesker, dyr og natur har, og forklare hva synene betyr for hvordan vi bør handle.",antroposentrisme-okosentrisme;hersker-forvalter;dyrs-moralske-status;dypokologi,0,
+reflektere-natursyn,skill,"Menneske, natur og virkelighetsoppfatninger",Reflektere over menneskets forhold til naturen,"reflektere over hvilket syn på mennesker, dyr og natur som ligger bak en konkret miljøsak eller ressurskonflikt, og vurdere argumentene i den.",sammenligne-natursyn;utforske-ressursbruk;vurdere-gyldighet,0,
+gjore-rede-virkelighetsoppfatninger,skill,"Menneske, natur og virkelighetsoppfatninger",Gjøre rede for virkelighetsoppfatninger fra ulike tradisjoner,"gjøre rede for virkelighetsoppfatninger fra ulike tradisjoner og deler av verden, og vise hva de sier om forholdet mellom mennesket og naturen.",animisme;gjenfodsel-karma;daoisme;samisk-naturforstaelse;mekanistisk-verdensbilde,0,
+reflektere-verdsetting,skill,"Menneske, natur og virkelighetsoppfatninger",Reflektere over hvordan mennesket og naturen er blitt verdsatt,"reflektere over hvordan ulike virkelighetsoppfatninger gir mennesket og naturen ulik verdi, og hva det har betydd for hvordan mennesker har levd og brukt naturen.",gjore-rede-virkelighetsoppfatninger;sammenligne-natursyn,0,

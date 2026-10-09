@@ -1,0 +1,292 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Learning English;Pronunciation and listening;Grammar;Vocabulary and register;Speaking and interaction;Reading and sources;Fiction;Writing;English in the world,,,
+,config,,title,"English, Years 8–10",,,
+,config,,description,"Pronunciation and listening, grammar, vocabulary, speaking, reading and sources, fiction, writing and the English-speaking world in lower secondary school — broken down into what pupils actually need to be able to do.",,,
+,config,,language,en,,,
+,config,,learner,the pupil,,,
+,config,,subjectFamily,language-and-literature,,,
+,config,,storageKey,no-grunnskole-engelsk-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"English, Years 8–10 (Norwegian lower secondary school)",,,
+,config,,slots.motivationSubject,English,,,
+,config,,slots.expressionFocus,"carries Norwegian word order into English (""Yesterday went I home""), drops the -s in the third person (""he go""), mixes up its and it's or their, there and they're, trusts false friends (""eventually"" for ""eventuelt""), uses the present perfect with a finished time (""I have seen it yesterday""), writes ""informations"" and ""advices"", leaves out capital letters on I, days and nationalities, or writes a formal text in chat language",,,
+,config,,slots.courseSpecifics,"The pupils are Norwegian teenagers in Years 8–10 of lower secondary school, learning English as a second language: most have Norwegian as their first language, and some have another home language. Teach and practise in English, at a level that suits second-language learners, and point out where Norwegian habits lead them astray; a word of Norwegian is fine to clear up a misunderstanding. After Year 10 a pupil can be drawn for a centrally set written exam (five hours, digital, no preparation day, with parts on listening and reading, relaying content, written interaction and a longer text of their own) or for a locally set oral exam with a preparation part.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Lower secondary, Years 8–10 (Norway, LK20)",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,ENG0030,,,
+,config,,country,NO,,,
+,config,,institution,grunnskole,,,
+,config,,division,8-10,,,
+,config,,subjectArea,english,,,
+,config,,keywords,engelsk; ungdomsskole; ungdomstrinnet; lower secondary; Year 10; written exam; oral exam; grammar; irregular verbs; false friends; idioms; pronunciation; short story; young adult fiction; argumentative text; sources; indigenous peoples; Sámi; British and American English,,,
+,config,,updated,2026-10-08,,,
+learning-plan,skill,Learning English,Plan your own language learning,"set a concrete goal for your English, choose ways of practising that fit it, such as reading, watching series with English subtitles or speaking, and judge afterwards whether it worked.",,0,
+guess-unknown-words,skill,Learning English,Work out the meaning of an unknown word,"work out what an unfamiliar word means from the context, from its prefix or suffix and from similar words in Norwegian, and check the guess in a dictionary.",word-formation;cognates-false-friends;use-dictionary,0,
+use-dictionary,skill,Learning English,Look up a word in a dictionary,"find the right meaning of a word in an English or English–Norwegian dictionary, using its word class, the example sentences and the pronunciation given.",word-classes,0,
+digital-aids,skill,Learning English,Use digital aids critically,"use spell-check, online dictionaries and translation tools without letting them choose for you, and spot the errors they typically make, such as picking the wrong meaning of a word with several senses.",use-dictionary,0,
+communication-strategies,skill,Learning English,Keep talking when you lack a word,"get round a missing word by describing it, using a more general word or giving an example, instead of stopping or switching to Norwegian.",,0,
+cognates-false-friends,concept,Learning English,Cognate and false friend,"Cognate: a word that looks similar and means the same in two languages, like water and vann.
+False friend: a word that looks like a word in another language but means something different, like eventually, which means til slutt and not eventuelt.",,0,
+false-friends,fact,Learning English,Common false friends,"eventually: til slutt (not eventuelt)
+actually: faktisk (not aktuelt)
+sensible: fornuftig (not sensibel)
+novel: roman (a novelle is a short story)
+chef: kokk (not sjef)
+become: bli (not bekomme)
+gift: gave (the Norwegian gift means married or poison)
+rare: sjelden (not rar)
+brave: modig (not brav)
+fabric: stoff (not fabrikk)
+sympathetic: medfølende (not sympatisk)",cognates-false-friends,0,
+compare-languages,skill,Learning English,Compare English with Norwegian or another language you know,"point out similarities and differences between English and Norwegian, or another language you know, in words, word order and grammar, and use them to avoid typical mistakes.",false-friends;word-order;past-simple-perfect,0,
+word-stress,concept,Pronunciation and listening,Word stress and sentence stress,"Word stress: the syllable in a word that is said louder and longer, as in PHOtograph and phoTOgraphy.
+Sentence stress: the words in a sentence that carry the meaning and are stressed, while small words like a, the and of are said weakly.",,0,
+intonation,concept,Pronunciation and listening,Intonation,"Intonation: the rise and fall of the voice across a sentence, which signals for example whether it is a question, a statement or a list.",,0,
+difficult-sounds,fact,Pronunciation and listening,English sounds that differ from Norwegian,"th in think: voiceless, tongue between the teeth (not t)
+th in this: voiced, tongue between the teeth (not d)
+w in wet: rounded lips, no teeth (not v)
+v in very: upper teeth on the lower lip (not w)
+z in zoo: a voiced, buzzing s; Norwegian has no such sound
+j in jam: the sound in edge (not the Norwegian j)
+sh in ship and s in sip: two different sounds that keep words apart",,0,
+pronounce,skill,Pronunciation and listening,Pronounce English clearly,"pronounce English so that a listener understands you without effort, with the right word stress, the th, w, v and z sounds, natural sentence stress, and intonation that rises and falls in the right places.",word-stress;difficult-sounds;intonation,0,
+varieties,concept,Pronunciation and listening,Variety of English,"Variety of English: a form of English used in one region or group, with its own pronunciation, words and sometimes grammar, such as British, American, Australian, Indian or Nigerian English. No variety is more correct than another.",,0,
+british-american,fact,Pronunciation and listening,British and American words,"lift: elevator
+flat: apartment
+autumn: fall
+football: soccer
+trousers: pants
+pavement: sidewalk
+biscuit: cookie
+mobile phone: cell phone
+holiday: vacation
+rubbish: garbage or trash
+queue: line
+petrol: gas
+colour, centre, organise (British spelling): color, center, organize (American spelling)",varieties,0,
+listen-gist,skill,Pronunciation and listening,Listen for the main point,"listen to a conversation, interview or report and say what it is mainly about and what the speakers think.",,0,
+listen-detail,skill,Pronunciation and listening,Listen for specific information,"listen for particular details, such as a name, a number, a reason or an opinion, and choose the answer that matches what was actually said, not one that merely sounds similar.",listen-gist,0,
+understand-varieties,skill,Pronunciation and listening,Understand speakers of different varieties of English,"follow speakers with different accents and varieties of English, and recognise some typical features of British, American and at least one other variety.",varieties;british-american;listen-gist,0,
+word-classes,concept,Grammar,Word classes,"Word class: a group of words that behave the same way in a sentence. The main ones in English are noun, verb, adjective, adverb, pronoun, preposition, conjunction and determiner, which includes the articles a, an and the.",,0,
+word-formation,concept,Grammar,Prefix and suffix,"Prefix: a part added to the start of a word that changes its meaning, such as un-, dis-, re- and im-.
+Suffix: a part added to the end of a word that often changes its word class, such as -ness, -ment, -ful and -ly.",word-classes,0,
+sentence-elements,concept,Grammar,"Subject, verb and object","Subject: the person or thing that does the action or is described, usually before the verb.
+Verb: the word or words that say what happens or what something is.
+Object: the person or thing the action is done to.",word-classes,0,
+word-order,concept,Grammar,English word order,"English word order: subject, then verb, then object in a statement. The subject stays before the verb even when the sentence starts with a time or place expression: Yesterday I went home, not Yesterday went I home.",sentence-elements,0,
+do-support,concept,Grammar,Do in questions and negatives,"Do-support: in questions and negatives with a main verb and no other helping verb, English adds do, does or did: Do you like it? She doesn't know. Did they come?",sentence-elements,0,
+use-word-order,skill,Grammar,Write sentences with correct word order,"write statements, questions and negative sentences with English word order, also when the sentence starts with a time or place expression, and put adverbs like often and never before the main verb.",word-order;do-support,0,
+agreement,concept,Grammar,Subject–verb agreement,"Subject–verb agreement: the verb matches its subject in number, so in the present simple she plays but they play, and a singular word like everyone, nobody or each takes a singular verb.",sentence-elements,0,
+use-agreement,skill,Grammar,Make the verb agree with the subject,"add -s or -es to the verb in the present simple when the subject is he, she, it or one person or thing, use does and doesn't in questions and negatives, and get agreement right in longer sentences.",agreement;do-support,0,
+present-forms,concept,Grammar,Present simple and present continuous,"Present simple: for habits, facts and states: I play football on Mondays.
+Present continuous: am, is or are plus -ing, for something going on now or around now: I am playing football right now.",word-classes,0,
+past-simple-perfect,concept,Grammar,Past simple and present perfect,"Past simple: a finished action at a finished time, often with a time expression: I saw it yesterday.
+Present perfect: have or has plus the past participle, linking the past to now, with no finished time: I have seen it.",word-classes,0,
+irregular-verbs,fact,Grammar,Common irregular verbs,"be: was/were, been
+go: went, gone
+see: saw, seen
+take: took, taken
+write: wrote, written
+know: knew, known
+think: thought, thought
+buy: bought, bought
+bring: brought, brought
+catch: caught, caught
+teach: taught, taught
+begin: began, begun
+drink: drank, drunk
+swim: swam, swum
+eat: ate, eaten
+fall: fell, fallen
+feel: felt, felt
+find: found, found
+give: gave, given
+leave: left, left
+choose: chose, chosen
+throw: threw, thrown
+speak: spoke, spoken
+rise: rose, risen
+lie (ligge): lay, lain
+lay (legge): laid, laid",,0,
+future-forms,concept,Grammar,Ways to talk about the future,"Will: for predictions and for decisions made as you speak: I think it will rain. I'll help you.
+Going to: for plans, and for something you can see coming: I'm going to study tonight.
+Present continuous: for fixed arrangements: We're meeting at six.",present-forms,0,
+use-tenses,skill,Grammar,Choose the right tense,"choose between present simple and present continuous, between past simple and present perfect, and between the future forms, and keep the tenses consistent through a text.",present-forms;past-simple-perfect;irregular-verbs;future-forms,0,
+countable,concept,Grammar,Countable and uncountable nouns,"Countable noun: something that can be counted and has a plural: a book, two books.
+Uncountable noun: something treated as a mass, with no plural and no a or an, such as information, advice, furniture, news and homework.",word-classes,0,
+articles,concept,Grammar,Articles,"Indefinite article: a before a consonant sound and an before a vowel sound (a university, an hour), used with one countable thing.
+Definite article: the, used for something specific or already mentioned. English uses no article for things in general: Dogs are loyal. Life is short.",word-classes,0,
+use-nouns,skill,Grammar,Use articles and plurals correctly,"use a, an, the or no article, and choose between much and many and between little and few, for countable and uncountable nouns.",articles;countable,0,
+adjective-adverb,concept,Grammar,Adjective and adverb,"Adjective: describes a noun: a quick answer.
+Adverb: describes a verb, an adjective or a whole sentence, often formed with -ly: She answered quickly. Good is the adjective and well the adverb.",word-classes,0,
+relative-pronouns,concept,Grammar,Relative pronoun,"Relative pronoun: a word that starts a clause describing a noun: who for people, which for things, that for both, and whose for possession, as in the boy who won and the book which I read.",sentence-elements,0,
+confusables,fact,Grammar,Words that sound alike,"its: belonging to it (its colour)
+it's: it is or it has
+their: belonging to them
+there: in that place, or in there is and there are
+they're: they are
+your: belonging to you
+you're: you are
+whose: belonging to whom
+who's: who is or who has
+then: after that
+than: in comparisons (bigger than)
+to: towards, or before a verb (to go)
+too: also, or more than enough
+lose: miste or tape
+loose: løs",,0,
+combine-clauses,skill,Grammar,Combine clauses into longer sentences,"join clauses with conjunctions and relative pronouns to write varied sentences, and avoid run-on sentences where two sentences are glued together with only a comma.",relative-pronouns;use-word-order;connectives,0,
+capital-letters,fact,Grammar,Capital letters in English,"I: always a capital letter
+days and months: Monday, July
+nationalities and languages: Norwegian, English
+titles of books and films: the main words get capitals (The Hunger Games)
+names of people, places and organisations: capitals, as in Norwegian",,0,
+punctuation,skill,Grammar,Use English punctuation,"use full stops, commas, apostrophes and quotation marks the English way: no comma before that, a comma after an introductory phrase, and apostrophes for possession (the girl's bag, the girls' bags) and for contractions (don't).",sentence-elements;capital-letters,0,
+spelling-endings,skill,Grammar,Spell words with endings correctly,"spell words that change when an ending is added: double consonants (stop, stopped), a dropped e (make, making), y to i (happy, happier; study, studies), and plurals with -es (box, boxes).",word-classes,0,
+proofread,skill,Grammar,Find and correct grammar errors in your own text,"go through your own text for the typical errors, such as a missing -s in the third person, the wrong tense, its and it's, word order and capital letters, and correct them.",use-agreement;use-tenses;use-word-order;use-nouns;confusables;punctuation;spelling-endings,0,
+register,concept,Vocabulary and register,Formal and informal register,"Register: the level of formality in language, chosen to fit purpose, recipient and situation.
+Formal: full forms, polite phrases and precise words, as in a job application.
+Informal: contractions, everyday words and slang, as in a message to a friend.",,0,
+idiom,concept,Vocabulary and register,Idiom,"Idiom: a fixed expression whose meaning cannot be worked out from the individual words, like it's raining cats and dogs or break the ice.",,0,
+collocation,concept,Vocabulary and register,Collocation,"Collocation: words that naturally go together in English, like make a mistake (not do a mistake), take a photo, heavy rain and strong coffee.",,0,
+common-idioms,fact,Vocabulary and register,Common idioms,"a piece of cake: very easy
+break the ice: make people feel relaxed when they first meet
+once in a blue moon: very rarely
+under the weather: slightly ill
+cost an arm and a leg: be very expensive
+on the fence: undecided
+the ball is in your court: it is your turn to decide or act
+spill the beans: reveal a secret
+get cold feet: become nervous and want to back out
+hit the books: study hard",idiom,0,
+common-phrasal-verbs,fact,Vocabulary and register,Common phrasal verbs,"give up: stop trying
+find out: discover
+look after: take care of
+look forward to: be happy about something that is coming
+put off: postpone
+turn down: refuse, or lower the volume
+run out of: have no more left
+come up with: think of an idea
+get along with: have a good relationship with
+carry on: continue",word-classes,0,
+vary-vocabulary,skill,Vocabulary and register,Vary your vocabulary,"replace overused words like good, nice, bad, thing and a lot with more precise ones, and use idioms, phrasal verbs and collocations where they fit.",collocation;common-idioms;common-phrasal-verbs,0,
+adapt-register,skill,Vocabulary and register,"Adapt your language to purpose, recipient and situation","choose words, phrases and level of formality to suit who you are speaking or writing to and why, and rewrite a short text from informal to formal or the other way round.",register,0,
+polite-phrases,fact,Speaking and interaction,Polite phrases,"asking for something: Could I have …? / Would you mind …?
+interrupting: Sorry to interrupt, but …
+disagreeing: I'm not sure I agree, because …
+asking someone to repeat: Sorry, could you say that again?
+apologising: I'm sorry, I didn't mean to …
+thanking: Thank you so much, I really appreciate it.",,0,
+speak-fluently,skill,Speaking and interaction,Talk about a topic for a few minutes,"talk without a script about a familiar topic for two to three minutes, in a clear order, with linking words and few long pauses.",communication-strategies;pronounce;connectives,0,
+follow-up-questions,skill,Speaking and interaction,Ask follow-up questions,"keep a conversation going by asking open questions and following up on what the other person says, with phrases like What do you mean by …? and Why do you think so?",do-support;listen-gist,0,
+discussion,skill,Speaking and interaction,Take part in a discussion,"give your opinion with a reason, agree and disagree politely, and respond to what the others actually said, with phrases like I see your point, but …",follow-up-questions;polite-phrases;argument,0,
+present-orally,skill,Speaking and interaction,Give a prepared oral presentation,"give a presentation with a clear introduction, main part and conclusion, speak from keywords rather than reading a script, and adapt it to your audience.",speak-fluently;adapt-register;text-structure,0,
+answer-questions,skill,Speaking and interaction,Answer questions about your own presentation,"answer unprepared questions about your topic, explain the choices you made, and develop your answers beyond a sentence, as in an oral exam conversation.",present-orally;discussion,0,
+skim-scan,skill,Reading and sources,Skim and scan a text,"skim a text to find its topic and main point, and scan it quickly for a particular piece of information.",,0,
+read-detail,skill,Reading and sources,Read for detail and read between the lines,"read a text closely enough to answer questions about its details, and work out what the writer means without saying it directly.",skim-scan,0,
+text-types,concept,Reading and sources,Fiction and factual text,"Fiction: invented stories, such as novels, short stories, poems and films.
+Factual text: a text about real things, such as a news article, a report, an encyclopedia entry or an opinion piece.",,0,
+factual-genres,concept,Reading and sources,Common factual genres,"News article: reports recent events, with the most important facts first.
+Opinion piece: argues for a view, such as a letter to the editor, a comment or a blog post.
+Report: presents facts about a topic in an organised and neutral way.",text-types,0,
+summarise,skill,Reading and sources,Summarise a text,"retell the main content of a text briefly in your own words, leaving out details and your own opinion.",skim-scan,0,
+relay-content,skill,Reading and sources,Relay the content of something you have heard or read,"pass on the main points of a conversation, interview or text to someone who has not heard or read it, briefly, in your own words and adapted to that person.",summarise;listen-gist;adapt-register,0,
+discuss-text,skill,Reading and sources,Present and discuss a text you have chosen,"present a fiction or factual text you have chosen yourself by saying what it is about, what kind of text it is and what you think of it, and discuss it with others.",summarise;text-types;discussion,0,
+fact-opinion,concept,Reading and sources,Fact and opinion,"Fact: a claim that can be checked and shown to be true or false.
+Opinion: what someone thinks or feels about something, which can be argued for but not proved.",,0,
+source,concept,Reading and sources,Source,"Source: where information comes from, such as a website, a book, an article, a video or a person. A reliable source is one you have good reason to trust.",,0,
+bias,concept,Reading and sources,Bias,"Bias: a slant in how a text presents something, favouring one side, for example through which facts it includes or leaves out and through loaded words.",fact-opinion,0,
+assess-reliability,skill,Reading and sources,Assess how reliable a source is,"judge whether a factual text can be trusted by checking who made it and why, when it was published, whether it gives evidence, and whether other sources agree.",source;bias;factual-genres,0,
+quote-paraphrase,skill,Reading and sources,Quote and paraphrase a source,"use information from a source either as an exact quotation in quotation marks or as a paraphrase in your own words, and say where it comes from either way.",source;summarise,0,
+plagiarism,concept,Reading and sources,Plagiarism,"Plagiarism: presenting someone else's words, ideas or images as your own, including copying, handing in a translated text, or handing in AI-written text without saying so.",source,0,
+reference-sources,skill,Reading and sources,Refer to your sources,"refer to your sources in the text and in a list at the end, with author, title, website or publisher, date and link, so that a reader can find them.",quote-paraphrase;plagiarism,0,
+plot,concept,Fiction,Plot and climax,"Plot: the events of a story and how they are linked by cause and effect.
+Climax: the turning point where the tension is at its highest.",,0,
+character,concept,Fiction,Character and characterisation,"Character: a person in a story.
+Characterisation: how the writer shows what a character is like, directly by describing them, or indirectly through what they say, do and think.",,0,
+setting,concept,Fiction,Setting,"Setting: when and where a story takes place, and the atmosphere this creates.",,0,
+conflict,concept,Fiction,Conflict,"Conflict: the problem or struggle that drives a story, between characters, between a character and society or nature, or inside one character.",plot,0,
+narrator,concept,Fiction,Narrator and point of view,"Narrator: the voice that tells the story.
+First-person narrator: tells the story as I, from inside it.
+Third-person narrator: tells it from outside, about he, she or they, and may know what one or all of the characters think.",,0,
+theme,concept,Fiction,Theme,"Theme: the underlying idea a story explores, such as friendship, identity or prejudice. It is different from the plot, which is what happens.",plot,0,
+figurative-language,concept,Fiction,Simile and metaphor,"Simile: a comparison using like or as: her eyes were like ice.
+Metaphor: a comparison that says one thing is another: her eyes were ice.",,0,
+symbol,concept,Fiction,Symbol,"Symbol: a thing, place or event in a text that stands for something larger, like a locked door standing for a lost chance.",figurative-language,0,
+story-forms,concept,Fiction,"Short story, novel and young adult fiction","Short story: a short piece of fiction, often with few characters, one main conflict, a sudden start and an open ending.
+Novel: a long piece of fiction with room for several characters, settings and plot lines.
+Young adult fiction: novels written for teenagers, usually with a teenage main character and themes like identity, friendship and growing up.",text-types,0,
+poem-features,concept,Fiction,"Stanza, rhyme and repetition","Stanza: a group of lines in a poem, like a paragraph in prose.
+Rhyme: words that end in the same sound, often at the ends of lines.
+Repetition: words or lines that are repeated for effect.",,0,
+analyse-story,skill,Fiction,Analyse a short story,"describe the setting, characters, conflict, narrator and structure of a short story, and use quotations to show how the writer builds tension or meaning.",setting;character;conflict;narrator;story-forms;quote-paraphrase,0,
+analyse-poem,skill,Fiction,Analyse a poem or song lyric,"describe what a poem or song lyric is about, how it is built, which images and sound effects it uses, and what they add.",poem-features;figurative-language,0,
+interpret-theme,skill,Fiction,Interpret the theme of a text,"suggest what a story, poem or film is really about, and support your interpretation with examples from the text.",theme;symbol;analyse-story,0,
+reflect-novel,skill,Fiction,Reflect on a novel you have read,"talk or write about a young adult novel you have read: what it is about, how it presents a theme, and how it relates to your own life or to the world today.",interpret-theme;story-forms,0,
+write-about-literature,skill,Fiction,Write a text about a literary work,"write a structured text that analyses and interprets a short story, poem or novel, with an introduction, quotations as evidence and a conclusion.",interpret-theme;analyse-poem;text-structure;write-paragraph,0,
+connectives,concept,Writing,Linking words,"Linking word: a word or phrase that shows how sentences or paragraphs relate: addition (also, furthermore), contrast (however, although), cause (because, since), result (therefore, as a result) and time (then, afterwards).",,0,
+paragraph,concept,Writing,Paragraph and topic sentence,"Paragraph: a group of sentences about one main idea, marked with a new line.
+Topic sentence: the sentence, usually the first, that states the main idea of the paragraph.",,0,
+text-structure,concept,Writing,"Introduction, main part and conclusion","Introduction: presents the topic and catches the reader's interest.
+Main part: develops the content in paragraphs, one main idea in each.
+Conclusion: rounds off the text, for example by summing up or giving a final thought, without bringing in new arguments.",paragraph,0,
+write-paragraph,skill,Writing,Write a well-structured paragraph,"write a paragraph with a topic sentence, supporting sentences with examples, and a link to the next paragraph.",paragraph;connectives;combine-clauses,0,
+text-purposes,concept,Writing,"Descriptive, narrative, reflective and argumentative texts","Descriptive text: shows what someone or something is like, appealing to the senses.
+Narrative text: tells a story, real or invented, as a sequence of events.
+Reflective text: explores a question or an experience from several sides and shows the writer's own thinking.
+Argumentative text: tries to convince the reader of a view.",text-types,0,
+argument,concept,Writing,"Claim, reason and counterargument","Claim: the view the writer or speaker wants others to accept.
+Reason: why the claim should be accepted.
+Evidence: facts, examples or sources that back up the reason.
+Counterargument: a reason for the opposite view, which the writer answers.",fact-opinion,0,
+task-analysis,skill,Writing,Read a writing task carefully and plan your text,"work out what a writing task asks for, such as the text type, the recipient, the purpose and every part that must be answered, and plan the text to match.",text-purposes;register,0,
+write-narrative,skill,Writing,Write a narrative text,"write a story with a clear beginning, a turning point and an ending, using dialogue and description, and keep the narrator and the tense consistent.",text-purposes;narrator;plot;use-tenses;write-paragraph,0,
+write-descriptive,skill,Writing,Write a descriptive text,"describe a person, place or experience so the reader can see, hear and feel it, with precise words, details for the senses and figurative language.",text-purposes;figurative-language;vary-vocabulary;write-paragraph,0,
+write-argumentative,skill,Writing,Write an argumentative text,"argue for a view with a clear claim, reasons backed by evidence and an answer to at least one counterargument, in a text with an introduction and a conclusion.",argument;text-structure;write-paragraph,0,
+write-reflective,skill,Writing,Write a reflective text,"explore a question from more than one angle, link it to your own experience and to what you have read, and arrive at a considered view of your own.",text-purposes;text-structure;write-paragraph,0,
+formal-email,skill,Writing,Write a formal email or letter,"write a formal email or letter, such as an application or a complaint, with a suitable greeting, a clear purpose, polite phrases and a suitable ending.",adapt-register;write-paragraph;polite-phrases,0,
+informal-text,skill,Writing,Write an informal message or post,"write an informal message, blog post or social-media post in a friendly tone and everyday language, without slipping into text-speak where it does not fit.",adapt-register,0,
+respond-in-writing,skill,Writing,Respond in writing to what others have written,"reply to a post, letter or comment by referring to what the other person said, giving your own view with reasons, and keeping the exchange going.",read-detail;argument;informal-text,0,
+multimodal-text,concept,Writing,Multimodal text,"Multimodal text: a text that combines writing with images, sound, video or layout, where each part adds to the meaning.",,0,
+create-multimodal,skill,Writing,Create a multimodal text,"make a text such as a presentation, poster or video in which words, images and sound support each other, and credit images and music you have not made yourself.",multimodal-text;text-structure;reference-sources,0,
+revise-feedback,skill,Writing,Revise your text based on feedback,"use feedback from a teacher or classmate, together with what you know about English, to improve the content, structure and language of your own text, not just correct single errors.",proofread;write-paragraph,0,
+exam-text,skill,Writing,Write a longer text under exam conditions,"plan, write and proofread a longer text of your own within a time limit, answering every part of the task, with a title, a clear structure, varied language and sources referred to where you use them.",task-analysis;write-argumentative;write-reflective;write-narrative;revise-feedback;reference-sources,0,
+world-language,concept,English in the world,Lingua franca and world language,"Lingua franca: a common language used between people who have different first languages.
+World language: a language used across many countries and continents in trade, science, the internet and popular culture. English is both today.",,0,
+english-spread,skill,English in the world,Explain how English became a world language,"explain how British colonisation, and later the economic and cultural power of the United States, spread English across the world, and what that means for the variety of Englishes spoken today.",world-language;colonisation;varieties,0,
+loanwords,concept,English in the world,Loanword and domain loss,"Loanword: a word taken from one language into another, like weekend and nice in Norwegian.
+Domain loss: when one language takes over a whole area of use, such as research or business, so that the local language is no longer used there.",,0,
+english-in-norway,skill,English in the world,Reflect on the role of English in Norway,"give examples of where English is used in Norway, in school, work, media and gaming, and discuss what it means for you and for Norwegian, for example through loanwords and domain loss.",world-language;loanwords,0,
+uk-terms,concept,English in the world,"The United Kingdom, Great Britain and the British Isles","Great Britain: the island with England, Scotland and Wales.
+United Kingdom: the country made up of England, Scotland, Wales and Northern Ireland.
+British Isles: the group of islands that includes Great Britain and Ireland.",,0,
+multicultural,concept,English in the world,Multicultural society and stereotype,"Multicultural society: a society where people with different ethnic, religious and cultural backgrounds live together.
+Stereotype: a fixed, simplified idea about what a group of people is like.",,0,
+communication-patterns,concept,English in the world,Communication patterns,"Communication pattern: the unwritten rules for how people talk to each other in a culture, such as how direct to be, how much to say please and thank you, and when to make small talk.
+Small talk: light conversation about safe topics, like the weather, to be friendly.",polite-phrases,0,
+ways-of-living,skill,English in the world,Describe ways of living in an English-speaking country,"describe everyday life, values, communication and diversity in an English-speaking country or community, and avoid presenting a stereotype as the whole picture.",multicultural;communication-patterns;uk-terms,0,
+indigenous,concept,English in the world,Indigenous peoples,"Indigenous peoples: the descendants of those who lived in an area before others colonised or settled it, with their own languages, cultures and ties to the land.",,0,
+colonisation,concept,English in the world,Colonisation and assimilation,"Colonisation: when a foreign power takes control of an area and its people, settles there and rules it, often taking land and suppressing the local culture.
+Assimilation: pressure on a minority to give up its own language and culture and take on those of the majority.",,0,
+forced-schooling,concept,English in the world,Assimilation through schooling,"Assimilation through schooling: indigenous children sent to residential or boarding schools, often far from home, where they were taught only the majority language and culture and were discouraged or forbidden from using their own, as happened in Canada, the United States and Norway. In Australia, many Aboriginal children were taken from their families; they are called the Stolen Generations.",colonisation;indigenous,0,
+indigenous-peoples,fact,English in the world,Indigenous peoples in English-speaking countries and Norway,"Australia: Aboriginal and Torres Strait Islander peoples
+New Zealand: the Māori
+United States: Native Americans, Alaska Natives and Native Hawaiians
+Canada: First Nations, Inuit and Métis
+Norway: the Sámi",indigenous,0,
+indigenous-dates,fact,English in the world,Key events in indigenous history,"the Treaty of Waitangi between the British Crown and Māori chiefs: 1840
+the Sámi Parliament in Norway opened: 1989
+the Australian Prime Minister's apology to the Stolen Generations: 2008
+the final report of Canada's Truth and Reconciliation Commission on residential schools: 2015
+the report of Norway's Truth and Reconciliation Commission on Norwegianisation: 2023",indigenous-peoples;forced-schooling,0,
+compare-indigenous,skill,English in the world,Compare the situation of indigenous peoples,"compare the history and present situation of an indigenous people in an English-speaking country with those of the Sámi in Norway, looking at land, language and recognition, and reflect on why the past still matters today.",indigenous-peoples;indigenous-dates;forced-schooling,0,
+film-techniques,concept,English in the world,"Camera angle, close-up and soundtrack","Camera angle: the position a scene is filmed from. A low angle makes someone look powerful, a high angle makes them look small.
+Close-up: a shot of a face or object at close range, often to show feeling.
+Soundtrack: the music and sound in a film, which sets the mood.",,0,
+analyse-film,skill,English in the world,Analyse a film or series episode,"describe how a film or series episode uses story, characters and film techniques to create meaning and mood.",film-techniques;character;theme,0,
+present-culture,skill,English in the world,Explore and present a cultural expression you like,"choose a film, series, song, game or other cultural expression from the English-speaking world that you care about, present what it is about, and say what it shows about the culture it comes from.",analyse-film;analyse-poem;ways-of-living;present-orally,0,

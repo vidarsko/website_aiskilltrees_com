@@ -1,0 +1,148 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Fysiske egenskaper;Trening på egen hånd;Aktivitet og helse;Regler og veiledning;Uteaktiviteter;Bærekraftig ferdsel,,,
+,config,,title,Kroppsøving Vg2,,,
+,config,,description,"Hvordan ulike aktiviteter utvikler koordinasjon, styrke, utholdenhet og bevegelighet, trening på egen hånd, aktivitet og helse nå og i arbeidslivet, regler og veiledning av andre, og uteaktiviteter og bærekraftig ferdsel i nærområdet.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,storageKey,no-vgs-kroppsoving-vg2-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"kroppsøving Vg2 (fellesfag, studieforberedende, norsk videregående skole)",,,
+,config,,slots.motivationSubject,kroppsøving,,,
+,config,,slots.expressionFocus,"kaller all utholdenhet «kondis» og all muskeltrening «styrke» uten å si hvilken form, oppgir prosent uten å si at det er prosent av makspuls, sier at trening er «sunt» uten å si hva det gjør med kroppen eller hodet, og blander «helse» med «å se veltrent ut»",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, Vg2 studieforberedende",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,KRO1018,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,physical-education,,,
+,config,,keywords,gym; kroppsøving; koordinasjon; styrketrening; utholdenhet; kondisjon; bevegelighet; tøying; intervalltrening; makspuls; RM; egentrening; helse; psykisk helse; stillesitting; anbefalinger fysisk aktivitet; ergonomi; regler; dommer; friluftsliv; allemannsretten; sporløs ferdsel,,,
+,config,,updated,2026-10-08,,,
+koordinasjon,concept,Fysiske egenskaper,Koordinasjon,"Koordinasjon: evnen til å få muskler og kroppsdeler til å samarbeide i riktig rekkefølge, til rett tid og med passe kraft.
+Balanse: evnen til å holde eller gjenvinne likevekt, i ro eller i bevegelse.
+Rytme: evnen til å gjenta en bevegelse med jevn takt og flyt.
+Reaksjon: evnen til å svare raskt og riktig på et signal.",,0,
+styrkeformer,concept,Fysiske egenskaper,Styrkeformer,"Maksimal styrke: den største kraften en muskelgruppe kan utvikle i én bevegelse.
+Eksplosiv styrke: evnen til å utvikle stor kraft på kort tid, som i hopp, kast og spurt.
+Utholdende styrke: evnen til å gjenta en bevegelse mot motstand mange ganger.",,0,
+utholdenhet,concept,Fysiske egenskaper,Aerob og anaerob utholdenhet,"Aerob utholdenhet: evnen til å arbeide lenge med moderat intensitet, der musklene får nok oksygen.
+Anaerob utholdenhet: evnen til å arbeide med svært høy intensitet over kort tid, der musklene ikke får nok oksygen og syre hoper seg opp.",,0,
+bevegelighet,concept,Fysiske egenskaper,Bevegelighet og tøying,"Bevegelighet: hvor langt et ledd kan beveges, avgrenset av hvordan leddet er bygd og hvor mye muskler og sener lar seg strekke.
+Dynamisk tøying: å bevege leddet kontrollert gjennom hele utslaget flere ganger.
+Statisk tøying: å holde en strekk i ro en stund.",,0,
+hurtighet,concept,Fysiske egenskaper,Hurtighet,"Hurtighet: evnen til å utføre en bevegelse eller forflytte seg så raskt som mulig, som i en spurt, en finte eller en rask retningsendring; den bygger på både eksplosiv styrke og koordinasjon.",styrkeformer;koordinasjon,0,
+belastning-restitusjon,concept,Fysiske egenskaper,Belastning og restitusjon,"Belastning: hvor mye trening kroppen utsettes for, bestemt av varighet, intensitet og hyppighet.
+Restitusjon: hvilen etter belastning, der kroppen henter seg inn og bygger seg opp igjen.
+Overbelastning: at belastningen over tid er større enn kroppen rekker å hente seg inn fra, med vedvarende tretthet, dårligere prestasjon og økt skaderisiko som følge.",,0,
+tilpasning,concept,Fysiske egenskaper,Kroppens tilpasning til trening,"Tilpasning: endringer i kroppen etter gjentatt belastning og hvile: utholdenhetstrening gir et sterkere hjerte og flere små blodårer i musklene, styrketrening gir sterkere muskler og bedre styring fra nervesystemet, og teknikkøving gir sikrere bevegelser.",belastning-restitusjon,0,
+oppvarming,concept,Fysiske egenskaper,Oppvarming,"Oppvarming: en rolig start som gradvis øker puls, kroppstemperatur og bevegelsesutslag, først med store muskelgrupper og så med bevegelser som ligner dem som kommer i hoveddelen.",,0,
+varme-opp,skill,Fysiske egenskaper,Varme opp før egentrening,"lage og gjennomføre en oppvarming på 10–15 minutter som passer den økta som kommer, med en generell del og en del som ligner hoveddelen.",oppvarming,0,
+puls-intensitet,concept,Fysiske egenskaper,Puls og intensitet,"Hvilepuls: pulsen i fullstendig hvile, best målt om morgenen.
+Makspuls: den høyeste pulsen man kan nå ved maksimal innsats; den er individuell og synker med alderen.
+Prosent av makspuls: hvor hardt man jobber i forhold til det høyeste man kan.",,0,
+regne-puls,skill,Fysiske egenskaper,Regne ut pulsgrenser,"regne ut hvilken puls som svarer til en gitt prosent av makspulsen, og forklare hvorfor «220 minus alder» bare er et grovt anslag på makspuls.",puls-intensitet,0,
+kontinuerlig-intervall,concept,Fysiske egenskaper,Kontinuerlig trening og intervalltrening,"Kontinuerlig trening: jevn innsats over lang tid, oftest med lav til moderat intensitet.
+Intervalltrening: drag med høy intensitet avbrutt av pauser, slik at man til sammen holder høy intensitet lenger enn man ville klart i ett strekk.",utholdenhet;puls-intensitet,0,
+utholdenhetsokt,skill,Fysiske egenskaper,Lage en utholdenhetsøkt,"lage én kontinuerlig økt og én intervalløkt, med varighet, antall drag, pauser og intensitet oppgitt i prosent av makspuls eller med snakketesten.",kontinuerlig-intervall;regne-puls,0,
+rm,concept,Fysiske egenskaper,Repetisjonsmaksimum,"Repetisjonsmaksimum (RM): det største antallet repetisjoner man klarer med en gitt motstand; 1 RM er den tyngste vekten man klarer én gang, og 10 RM den man klarer nøyaktig ti ganger.",styrkeformer,0,
+rm-soner,fact,Fysiske egenskaper,Repetisjoner for ulike styrkemål,"maksimal styrke: 1–6 RM
+muskelvekst: 6–12 RM
+utholdende styrke: 15 RM eller flere",rm,0,
+styrketeknikk,skill,Fysiske egenskaper,Utføre grunnøvelser i styrke med god teknikk,"utføre knebøy, armhevinger, roing og planke med nøytral rygg og kontrollert bevegelse gjennom hele utslaget; sjekk mot en video av deg selv tatt fra siden.",styrkeformer,0,
+styrkeokt,skill,Fysiske egenskaper,Lage en styrkeøkt,"lage en styrkeøkt for hele kroppen med øvelser, antall serier og repetisjoner og pauselengde, valgt ut fra hvilken styrkeform økta skal utvikle.",rm-soner;styrketeknikk,0,
+toye,skill,Fysiske egenskaper,Tøye de store muskelgruppene,"tøye lår, legger, hofter, rygg og skuldre med kontrollerte bevegelser, og velge dynamisk tøying før og statisk tøying etter aktivitet.",bevegelighet,0,
+koordinasjonsovelser,skill,Fysiske egenskaper,Lage øvelser som utfordrer koordinasjonen,"lage en øvingsrekke som gradvis utfordrer balanse, rytme eller reaksjon, for eksempel ved å legge til ustabilt underlag, flere signaler eller høyere fart.",koordinasjon,0,
+analysere-aktivitet,skill,Fysiske egenskaper,Analysere hva en aktivitet utvikler,"avgjøre for en gitt lek, idrett eller annen bevegelsesaktivitet hvilke av koordinasjon, styrke, utholdenhet og bevegelighet den utvikler mest, og begrunne det ut fra varighet, intensitet og hvilke bevegelser som inngår.",koordinasjon;styrkeformer;utholdenhet;bevegelighet;tilpasning,0,
+teste-egenskaper,skill,Fysiske egenskaper,Kartlegge egne fysiske egenskaper,"teste deg selv med enkle tester for koordinasjon, styrke, utholdenhet og bevegelighet, og peke ut hvilken egenskap du har mest å hente på.",koordinasjon;styrkeformer;utholdenhet;bevegelighet,0,
+delta-aktiviteter,skill,Fysiske egenskaper,Gjennomføre varierte bevegelsesaktiviteter,"delta i leker, idrettsaktiviteter og andre bevegelsesaktiviteter med full innsats, og beskrive etterpå hvilke fysiske egenskaper du merket at aktiviteten krevde.",analysere-aktivitet,0,
+treningsprinsipper,concept,Trening på egen hånd,Treningsprinsipper,"Progresjon: belastningen økes gradvis etter hvert som kroppen tilpasser seg.
+Spesifisitet: man blir best på det man faktisk trener.
+Individualitet: den samme treningen virker ulikt på ulike personer.
+Reversibilitet: det man har bygd opp, går gradvis tapt når man slutter å trene.",belastning-restitusjon,0,
+motivasjon,concept,Trening på egen hånd,Indre og ytre motivasjon,"Indre motivasjon: å gjøre noe fordi det i seg selv er gøy, meningsfullt eller interessant.
+Ytre motivasjon: å gjøre noe for en belønning utenfra eller for å unngå noe, som karakter, ros eller utseende.",,0,
+finne-aktivitet,skill,Trening på egen hånd,Finne en aktivitet du vil fortsette med,"prøve ut flere aktiviteter du kan gjøre på egen hånd, og begrunne hvilken du vil fortsette med ut fra hva som motiverer deg og hva som er praktisk mulig i hverdagen din.",motivasjon,0,
+barrierer,concept,Trening på egen hånd,Barrierer for trening,"Barriere: det som hindrer en i å trene selv om man vil, som mangel på tid eller penger, lang vei, dårlig vær, at man ikke kjenner noen der, eller usikkerhet om hvordan man gjør det.",,0,
+lose-barrierer,skill,Trening på egen hånd,Planlegge rundt egne barrierer,"peke ut de to største barrierene for at du trener på egen hånd, og lage en konkret løsning på hver, som et fast tidspunkt, en treningsvenn eller aktiviteter uten utstyr.",barrierer,0,
+vane,concept,Trening på egen hånd,Vane,"Vane: en handling som sitter så godt at den gjøres nesten automatisk i en bestemt situasjon, som å gå en tur hver dag etter skolen; vaner bygges ved å gjenta handlingen i samme situasjon over tid.",,0,
+bygge-vane,skill,Trening på egen hånd,Bygge en treningsvane,"knytte en aktivitet til et fast tidspunkt eller en fast situasjon i hverdagen, og følge med i flere uker på om den faktisk blir gjort.",vane;finne-aktivitet,0,
+okt-uten-utstyr,skill,Trening på egen hånd,Lage en økt uten utstyr,"lage en økt som kan gjøres hjemme eller ute uten utstyr, med egen kroppsvekt som motstand og en tydelig økning i belastning fra uke til uke.",styrkeokt;treningsprinsipper,0,
+treningsverktoy,concept,Trening på egen hånd,Digitale treningsverktøy,"Treningsapp og pulsklokke: verktøy som registrerer distanse, tid, puls og antall økter og viser utviklingen over tid; tallene er anslag som aldri er bedre enn sensoren og innstillingene.",,0,
+bruke-treningsdata,skill,Trening på egen hånd,Bruke treningsdata kritisk,"bruke data fra en app eller klokke til å følge egen utvikling, og avgjøre når tallene er upålitelige, som pulsmåling på håndleddet under intervaller eller beregnet kaloriforbruk.",treningsverktoy;puls-intensitet,0,
+trene-alene,skill,Trening på egen hånd,Gjennomføre trening på egen hånd,"gjennomføre økter utenfor timene over en periode etter en plan du har laget selv, og dokumentere dem i en logg med dato, innhold, varighet og intensitet.",treningsprinsipper;utholdenhetsokt;styrkeokt;varme-opp;lose-barrierer,0,
+helse,concept,Aktivitet og helse,Helse,"Helse: fysisk, psykisk og sosialt velvære, ikke bare fravær av sykdom.
+Helse som ressurs: at god helse gjør det mulig å mestre hverdagen, delta i fellesskap og leve det livet man ønsker.",,0,
+levevaner,concept,Aktivitet og helse,Levevaner og livsstil,"Levevane: noe man gjør jevnlig som påvirker helsen, som fysisk aktivitet, kosthold, søvn, rus og skjermbruk.
+Helsefremmende livsstil: levevaner som samlet styrker helsen over tid.",helse,0,
+stillesitting,concept,Aktivitet og helse,Stillesitting,"Stillesitting: våken tid i sittende eller liggende stilling med lavt energiforbruk, som skolearbeid, skjermtid og bilkjøring; lange perioder uten avbrudd er en helserisiko i seg selv, også for den som trener ellers.",,0,
+anbefalinger,fact,Aktivitet og helse,Helsedirektoratets anbefalinger om fysisk aktivitet,"barn og unge 6–17 år, daglig: minst 60 minutter med moderat til høy intensitet, i gjennomsnitt
+barn og unge 6–17 år, høy intensitet og muskelstyrkende aktivitet: minst tre dager i uka
+voksne, per uke: 150–300 minutter med moderat intensitet, eller 75–150 minutter med høy intensitet
+voksne, muskelstyrkende aktivitet: minst to dager i uka
+alle aldre, stillesitting: redusere den samlede tiden",,0,
+fysiske-effekter,concept,Aktivitet og helse,Fysiske helseeffekter av aktivitet,"Fysisk helseeffekt: at regelmessig aktivitet styrker hjerte, lunger, muskler og skjelett og senker risikoen for livsstilssykdommer.
+Livsstilssykdom: sykdom som i stor grad påvirkes av levevaner, som hjerte- og karsykdom, type 2-diabetes, høyt blodtrykk og noen kreftformer.",helse;tilpasning,0,
+psykiske-effekter,concept,Aktivitet og helse,Psykiske helseeffekter av aktivitet,"Psykisk helseeffekt: at fysisk aktivitet kan gi bedre humør, bedre søvn, mindre stress og uro og bedre konsentrasjon, og kan lindre milde til moderate depresjonsplager.
+Mestringsfølelse: opplevelsen av å klare noe man har jobbet for, som styrker troen på egne evner.",helse,0,
+forklare-helseeffekter,skill,Aktivitet og helse,Forklare hvordan aktivitet fremmer helse,"forklare med fagbegreper hvordan regelmessig fysisk aktivitet virker på både den fysiske og den psykiske helsen, med minst ett konkret eksempel på hver.",fysiske-effekter;psykiske-effekter,0,
+sovn-energi,concept,Aktivitet og helse,Søvn og energibalanse,"Søvn: den viktigste delen av restitusjonen; ungdom trenger vanligvis 8–10 timer per natt.
+Energibalanse: forholdet mellom energien man får i seg gjennom maten og energien kroppen bruker; for lite energi over tid gir dårligere restitusjon og helse.",belastning-restitusjon,0,
+sammenligne-anbefaling,skill,Aktivitet og helse,Sammenligne egen aktivitet med anbefalingene,"registrere egen fysiske aktivitet og stillesitting gjennom en vanlig uke, og vurdere den mot anbefalingene for din aldersgruppe.",anbefalinger;stillesitting;puls-intensitet,0,
+helsefremmende-uke,skill,Aktivitet og helse,Planlegge en helsefremmende uke,"sette opp en uke som kombinerer aktivitet, avbrudd i stillesittingen, søvn og måltider slik at den følger anbefalingene og er realistisk å gjennomføre.",sammenligne-anbefaling;sovn-energi;levevaner,0,
+arbeidsliv,concept,Aktivitet og helse,Aktivitet og arbeidsliv,"Ergonomi: å tilpasse arbeidsstilling, arbeidsplass og bevegelser til kroppen for å hindre plager.
+Arbeidsrelaterte plager: smerter i nakke, skuldre og rygg som følge av ensidig arbeid, tunge løft eller lange perioder i samme stilling.",stillesitting,0,
+aktivitet-i-yrke,skill,Aktivitet og helse,Foreslå aktivitet tilpasset et yrke,"foreslå hvordan en person i et gitt yrke, stillesittende eller fysisk tungt, kan bruke fysisk aktivitet til å forebygge plager og holde seg i form.",arbeidsliv;fysiske-effekter,0,
+livslop,skill,Aktivitet og helse,Reflektere over aktivitet etter skolen,"reflektere over hvordan aktivitetsvanene dine kan endre seg etter videregående, når studier, jobb eller familieliv tar over, og hva som kan hjelpe deg å holde dem ved like.",levevaner;bygge-vane;aktivitet-i-yrke,0,
+regeltyper,concept,Regler og veiledning,Regler i bevegelsesaktiviteter,"Spilleregel: regel som avgjør hva aktiviteten er og hvordan man vinner, som at man ikke tar ballen med hendene i fotball.
+Sikkerhetsregel: regel som skal hindre skade, som avstand ved kast eller forbud mot å stupe på grunt vann.
+Uskreven regel: forventning om hvordan man oppfører seg mot hverandre, som å hjelpe en motspiller opp etter en takling.",,0,
+fair-play,concept,Regler og veiledning,Fair play,"Fair play: å følge både reglene og meningen bak dem, respektere medspillere, motspillere og dommer, og sette en god opplevelse for alle foran å vinne for enhver pris.",regeltyper,0,
+praktisere-regler,skill,Regler og veiledning,Delta etter reglene,"følge regler og sikkerhetsregler mens du deltar i en lek eller idrett, og godta en dom uten å stanse spillet unødig.",regeltyper;fair-play,0,
+forklare-regler,skill,Regler og veiledning,Forklare reglene for nybegynnere,"forklare de viktigste reglene i en aktivitet kort nok til at nybegynnere kan begynne å spille, og vente med detaljene til de trengs.",regeltyper,0,
+domme,skill,Regler og veiledning,Dømme en aktivitet,"lede en aktivitet som dommer: gå gjennom reglene før start, gi tydelige signaler, og avgjøre situasjoner raskt og likt for begge lag.",praktisere-regler;forklare-regler,0,
+likeverd-inkludering,concept,Regler og veiledning,Likeverd og inkludering,"Likeverd: at alle har samme verdi og har krav på å bli tatt på alvor, uansett ferdighetsnivå.
+Inkludering: å legge til rette slik at alle kan delta meningsfullt, uavhengig av forutsetninger.",,0,
+endre-regler,skill,Regler og veiledning,Endre reglene for mer læring,"endre en regel i et spill for å gi mer læring eller deltakelse, som at alle må ha rørt ballen før det kan scores, og forklare hva endringen skal oppnå.",regeltyper;likeverd-inkludering,0,
+kjennetegn,concept,Regler og veiledning,Kjennetegn på god utførelse,"Kjennetegn: noen få konkrete punkter som beskriver en god utførelse og kan sjekkes ved å se, som «støttefoten ved siden av ballen» i en innsidepasning.
+Medelevveiledning: at elever observerer hverandre og gir tilbakemelding ut fra kjennetegn de er enige om.",,0,
+lage-kjennetegn,skill,Regler og veiledning,Lage kjennetegn for en ferdighet,"lage to eller tre konkrete kjennetegn på god utførelse av en ferdighet, slik at en medelev kan sjekke dem ved å se.",kjennetegn,0,
+veilede,skill,Regler og veiledning,Veilede en medelev,"observere en medelev mot avtalte kjennetegn, gi én presis tilbakemelding om gangen, og la eleven prøve igjen før du gir den neste.",lage-kjennetegn,0,
+lede-aktivitet,skill,Regler og veiledning,Lede en aktivitet for en gruppe,"planlegge og lede en aktivitet for en gruppe: gi en kort forklaring og demonstrasjon, organisere grupper og utstyr, og justere underveis hvis aktiviteten ikke fungerer.",forklare-regler;veilede;endre-regler,0,
+friluftsliv,concept,Uteaktiviteter,Friluftsliv,"Friluftsliv: opphold og fysisk aktivitet ute i naturen i fritiden, der målet er naturopplevelse og miljøforandring og ikke konkurranse.",,0,
+naturopplevelse,concept,Uteaktiviteter,Naturopplevelse,"Naturopplevelse: det man sanser, føler og legger merke til i møte med naturen, som stillhet, utsikt, dyreliv, vær og årstidsskifter; hva som gir en god opplevelse, varierer fra person til person.",friluftsliv,0,
+arstider,concept,Uteaktiviteter,Uteaktiviteter gjennom året,"Vinteraktivitet: aktivitet på snø og is, som skigåing, skøyter og aking.
+Sommeraktivitet: aktivitet på barmark og i vann, som fotturer, padling, bading og fiske.
+Vår og høst: overgangstider med ustabilt vær, våte forhold og raskt skiftende dagslengde.",,0,
+lagprinsippet,concept,Uteaktiviteter,Lagprinsippet,"Lagprinsippet: å kle seg i flere lag som kan tas av og på: et innerste lag som leder fuktighet bort fra huden, et isolerende mellomlag, og et ytterlag som stopper vind og nedbør.",,0,
+vurdere-vaer,skill,Uteaktiviteter,Vurdere været før en uteaktivitet,"hente værvarselet og vurdere hvordan vind, nedbør og temperatur påvirker valget av aktivitet, rute og klær.",arstider,0,
+pakke-dagstur,skill,Uteaktiviteter,Pakke riktig for en dagstur,"sette sammen en pakkeliste for en dagstur i en gitt årstid, med ekstra klær, mat og drikke, førstehjelpsutstyr, kart og kompass og ladet telefon, og begrunne hvert valg.",lagprinsippet;vurdere-vaer,0,
+risikovurdering,concept,Uteaktiviteter,Risikovurdering,"Risikovurdering: å gå gjennom hva som kan gå galt i en aktivitet, hvor sannsynlig det er, hvor alvorlig det kan bli, og hvilke tiltak som gjør risikoen mindre.",,0,
+vurdere-risiko,skill,Uteaktiviteter,Lage en risikovurdering av en tur,"lage en enkel risikovurdering av en tur eller uteaktivitet med de viktigste farene, sannsynlighet og konsekvens for hver, og et tiltak mot hver.",risikovurdering;arstider,0,
+planlegge-uteaktivitet,skill,Uteaktiviteter,Planlegge en uteaktivitet for gode naturopplevelser,"planlegge en uteaktivitet med formål, sted, tidsplan, utstyr og sikkerhetsrutiner, tilpasset årstiden og gruppa, og si hva i planen som skal gi gode naturopplevelser.",naturopplevelse;pakke-dagstur;vurdere-risiko,0,
+mat-ute,skill,Uteaktiviteter,Lage mat ute,"planlegge og lage et enkelt måltid ute på bål eller stormkjøkken, med trygg bruk av ild og god hygiene.",allemannsrett-tall,0,
+gjennomfore-uteaktivitet,skill,Uteaktiviteter,Gjennomføre en uteaktivitet,"gjennomføre en planlagt uteaktivitet, holde tidsplan og sikkerhetsrutiner, og vurdere etterpå hva som ga gode naturopplevelser og hva som bør endres.",planlegge-uteaktivitet,0,
+reflektere-naturopplevelse,skill,Uteaktiviteter,Reflektere over naturopplevelser,"beskrive hva en naturopplevelse ga deg, og drøfte hvorfor ulike personer kan oppleve den samme turen helt ulikt.",naturopplevelse,0,
+allemannsretten,concept,Bærekraftig ferdsel,Allemannsretten,"Allemannsretten: retten alle har til å ferdes og oppholde seg i utmark, til fots eller på ski, og telte en kortere periode, med plikt til å ta hensyn til grunneier, andre brukere og naturen.
+Utmark: udyrket mark, som skog, fjell, myr og strand.
+Innmark: dyrket mark, hager og gårdsplasser, der man ikke har fri ferdsel.",,0,
+allemannsrett-tall,fact,Bærekraftig ferdsel,Allemannsretten og bålforbudet i tall,"minste avstand til bebodd hus eller hytte når man telter: 150 m
+hvor lenge man kan telte på samme sted uten grunneiers tillatelse (gjelder ikke på fjellet eller langt fra bebyggelse): 2 døgn
+perioden med forbud mot bål i eller nær skog: 15. april–15. september
+perioden med båndtvang for hund i utmark: 1. april–20. august",allemannsretten,0,
+barekraftig-ferdsel,concept,Bærekraftig ferdsel,Bærekraftig ferdsel,"Bærekraftig ferdsel: å bruke naturen slik at den er like god for andre og for kommende generasjoner, ved å ferdes uten å etterlate spor, ta hensyn til dyr, planter og andre folk, og velge miljøvennlig transport til og fra turen.",allemannsretten,0,
+sporlos-ferdsel,concept,Bærekraftig ferdsel,Sporløs ferdsel,"Sporløs ferdsel: å ferdes slik at ingen ser at man har vært der: ta med alt søppel hjem, bruke eksisterende stier og bålplasser, ikke skade trær og vegetasjon, og forlate leirplassen slik man fant den.",barekraftig-ferdsel,0,
+hensyn-dyreliv,concept,Bærekraftig ferdsel,Hensyn til dyre- og planteliv,"Hekketid: våren og forsommeren, når fugler ruger og har unger og er ekstra sårbare for forstyrrelse.
+Båndtvang: plikten til å holde hunden i bånd i utmark i den perioden dyr og fugler får unger.
+Sårbar vegetasjon: mose, lav og planter på fjellet og i strandsonen, som bruker mange år på å vokse opp igjen etter slitasje.",barekraftig-ferdsel,0,
+praktisere-sporlos,skill,Bærekraftig ferdsel,Praktisere sporløs ferdsel på tur,"gjennomføre en tur uten å etterlate spor, og sjekke leirplass og bålplass mot en liste over hva som skal være ryddet før dere går.",sporlos-ferdsel;hensyn-dyreliv,0,
+vurdere-transport,skill,Bærekraftig ferdsel,Vurdere hvordan dere kommer dere til turen,"sammenligne ulike måter å komme seg til et turområde på, og vurdere hvilken som er mest bærekraftig ut fra avstand, tid og tilgjengelighet.",barekraftig-ferdsel,0,
+naeromrade,concept,Bærekraftig ferdsel,Nærområdet,"Nærområdet: naturområder man kan nå til fots, med sykkel eller med kollektivtransport fra skolen eller hjemmet, som skog, park, strand og vann.",,0,
+kart-grunnbegreper,concept,Bærekraftig ferdsel,Kartets grunnbegreper,"Målestokk: forholdet mellom en lengde på kartet og den samme lengden i terrenget.
+Høydekurve: en linje på kartet som binder sammen punkter med samme høyde; jo tettere kurvene ligger, jo brattere er det.",,0,
+kartlegge-naeromrade,skill,Bærekraftig ferdsel,Kartlegge turmuligheter i nærområdet,"finne turområder, stier, bålplasser og badeplasser i nærområdet med kart og kartapp, og vurdere hva hvert sted passer til gjennom året.",naeromrade;kart-grunnbegreper;arstider,0,
+friluftsliv-naeromrade,skill,Bærekraftig ferdsel,Gjennomføre friluftsliv i nærområdet,"gjennomføre en friluftslivsaktivitet i nærområdet, med veien dit som en del av turen, og velge aktivitet etter årstiden.",kartlegge-naeromrade;praktisere-sporlos;planlegge-uteaktivitet,0,

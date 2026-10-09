@@ -1,0 +1,225 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Teorier, modeller og kilder;Visjon, forretningsidé og mål;Situasjons- og bransjeanalyse;Målgruppevalg;Markedsstrategi;Merkevare og posisjonering;Distribusjon og verdikjeden;Prissetting;Kommunikasjonsstrategi og mediemiks;Ledelse og internmarkedsføring;Markedsmiks og effektmåling;Samfunnsansvar og omdømme;Bærekraftige valg;Helhetlig markedsstrategi",,,
+,config,,title,Markedsføring og ledelse 2,,,
+,config,,description,"Visjon og mål, situasjons- og bransjeanalyse, målgruppevalg, markedsstrategi, merkevare og posisjonering, verdikjeden, prissetting, kommunikasjonsstrategi, ledelse og internmarkedsføring, effektmåling, samfunnsansvar og bærekraft, samlet i en helhetlig markedsstrategi — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-markedsforing-ledelse-2-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"markedsføring og ledelse 2 (programfag i økonomi, norsk videregående skole, Vg3)",,,
+,config,,slots.expressionFocus,"gjengir teori og modeller i stedet for å bruke dem på virksomheten i caset, blander sammen visjon, forretningsidé og mål, kaller en liste med tiltak for en strategi, blander posisjon (hvordan kundene ser merket) og posisjonering (det virksomheten gjør), skriver «drøfte» men argumenterer bare for én side, blander prosent og prosentpoeng, eller konkluderer uten å begrunne med opplysninger fra caset",,,
+,config,,slots.courseSpecifics,"Faget bygger på markedsføring og ledelse 1. Det har standpunktkarakter, og eleven kan trekkes ut til skriftlig eksamen, som lages og sensureres sentralt, eller til muntlig eksamen med forberedelsesdel, som lages og sensureres lokalt. La eleven derfor øve både på å skrive drøftende svar og på å forklare muntlig, og la oppgavene ta utgangspunkt i en konkret virksomhet der teori og modeller skal brukes, ikke bare gjengis.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag økonomi,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,"SAM3046 (skriftlig), SAM3047 (muntlig)",,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg3,,,
+,config,,subjectArea,economics,,,
+,config,,keywords,MFL2; markedsføring; ledelse; økonomi og ledelse; visjon; forretningsidé; målhierarki; bransjeanalyse; Porters fem konkurransekrefter; PESTEL; SWOT; Ansoff; generiske strategier; målgruppevalg; posisjonering; posisjoneringskart; merkevareverdi; verdikjede; kanalmakt; priselastisitet; prisstrategi; kommunikasjonsstrategi; mediemiks; internmarkedsføring; situasjonsbestemt ledelse; effektmåling; konverteringsrate; samfunnsansvar; omdømme; bærekraft; skriftlig eksamen,,,
+,config,,updated,2026-10-08,,,
+teori-modell,concept,"Teorier, modeller og kilder",Teori og modell,"Modell: en forenklet framstilling av virkeligheten som trekker fram noen få forhold og ser bort fra resten, slik at et tilfelle blir lettere å analysere.
+Teori: en begrunnet forklaring på hvorfor noe henger sammen slik det gjør.",,0,
+bruke-modell-kritisk,skill,"Teorier, modeller og kilder",Bruke en modell kritisk på en virksomhet,"bruke en markedsførings- eller ledelsesmodell på en konkret virksomhet, og vurdere hva modellen får fram, hva den overser, og om forutsetningene bak den passer i dette tilfellet.",teori-modell,0,
+kildekritikk-fag,skill,"Teorier, modeller og kilder",Vurdere kilder om bransjer og virksomheter,"vurdere hvor troverdige og relevante kilder om en virksomhet eller bransje er, som årsrapporter, bransjestatistikk, pressemeldinger og nyhetsartikler, og vise til kildene slik at de kan etterprøves.",,0,
+prosent-prosentpoeng,concept,"Teorier, modeller og kilder",Prosent og prosentpoeng,"Prosentvis endring: hvor mye en størrelse har endret seg, regnet i prosent av utgangsverdien.
+Prosentpoeng: forskjellen mellom to prosenttall, slik at en markedsandel som går fra 20 til 25 prosent har økt med 5 prosentpoeng, men med 25 prosent.",,0,
+tolke-nokkeltall,skill,"Teorier, modeller og kilder",Tolke markedstall og nøkkeltall,"tolke omsetning, resultat, vekst og markedsandeler fra tabeller, diagrammer og årsrapporter, regne ut endringer i prosent og prosentpoeng, og si hva tallene viser og ikke viser.",prosent-prosentpoeng,0,
+bruke-case,skill,"Teorier, modeller og kilder",Bruke opplysningene i et case,"lese et case om en virksomhet, plukke ut de opplysningene som er relevante for oppgaven, og bruke dem som belegg i resonnementet i stedet for å gjengi dem.",tolke-nokkeltall,0,
+drofte-problemstilling,skill,"Teorier, modeller og kilder",Drøfte en dagsaktuell problemstilling,"drøfte en dagsaktuell markedsføringsproblemstilling ved å bruke relevante teorier, modeller og kilder, veie argumenter for og imot opp mot hverandre, og komme fram til en begrunnet konklusjon.",bruke-modell-kritisk;kildekritikk-fag;bruke-case,0,
+visjon,concept,"Visjon, forretningsidé og mål",Visjon,"Visjon: et kort og ambisiøst bilde av hva virksomheten vil være eller oppnå på lang sikt, som skal motivere og gi retning, men som ikke trenger å være målbart.",,0,
+forretningside,concept,"Visjon, forretningsidé og mål",Forretningsidé,"Forretningsidé: en kort beskrivelse av hva virksomheten skal tilby, hvem den skal tilby det til, og hvordan den skal gjøre det bedre eller annerledes enn konkurrentene.",,0,
+kjerneverdier,concept,"Visjon, forretningsidé og mål",Kjerneverdier,"Kjerneverdier: noen få verdier som skal prege hvordan de ansatte handler og tar beslutninger, og som skal kjennes igjen i alt virksomheten gjør.",,0,
+konkurransefortrinn,concept,"Visjon, forretningsidé og mål",Konkurransefortrinn,"Konkurransefortrinn: noe virksomheten gjør bedre eller annerledes enn konkurrentene, som kundene verdsetter, og som er vanskelig for andre å kopiere.",forretningside,0,
+malhierarki,concept,"Visjon, forretningsidé og mål",Målhierarki,"Målhierarki: en ordning av virksomhetens mål i nivåer — visjon, overordnede mål, delmål og tiltak — der hvert nivå skal bidra til å nå nivået over.",visjon,0,
+smart-mal,concept,"Visjon, forretningsidé og mål",SMART-mål,"SMART-mål: et mål som er spesifikt, målbart, akseptert (eller oppnåelig), realistisk og tidsbestemt, slik at man i ettertid kan avgjøre om det er nådd.",,0,
+utvikle-visjon-ide-mal,skill,"Visjon, forretningsidé og mål","Utvikle visjon, forretningsidé og overordnede mål","utvikle en visjon, en forretningsidé og overordnede mål for en virksomhet som henger logisk sammen, bygger på et konkurransefortrinn og kan følges opp med målbare delmål.",malhierarki;smart-mal;forretningside;konkurransefortrinn;kjerneverdier,0,
+vurdere-visjon-ide-mal,skill,"Visjon, forretningsidé og mål","Vurdere visjon, forretningsidé og mål","vurdere om visjonen, forretningsideen og målene til en konkret virksomhet er tydelige, realistiske og forenlige med hverandre, med markedet og med kravet om bærekraft.",utvikle-visjon-ide-mal;baerekraftig-utvikling,0,
+malkonflikt,skill,"Visjon, forretningsidé og mål",Drøfte målkonflikter,"drøfte konflikter mellom målene til en virksomhet, som lønnsomhet på kort sikt mot vekst eller bærekraft på lang sikt, og mellom målene til ulike interessenter.",malhierarki;interessenter,0,
+situasjonsanalyse,concept,Situasjons- og bransjeanalyse,Situasjonsanalyse,"Situasjonsanalyse: en kartlegging av virksomhetens nåsituasjon, både forholdene i virksomheten selv og i omgivelsene, som grunnlag for mål og strategi.",,0,
+mikro-makro,concept,Situasjons- og bransjeanalyse,Mikromiljø og makromiljø,"Mikromiljø (konkurransemiljø): aktørene virksomheten møter direkte — kunder, konkurrenter, leverandører og mellomledd.
+Makromiljø: brede samfunnsforhold som påvirker alle virksomhetene i en bransje.",situasjonsanalyse,0,
+pestel,concept,Situasjons- og bransjeanalyse,PESTEL-analyse,"PESTEL-analyse: en gjennomgang av politiske, økonomiske, sosiokulturelle, teknologiske, miljømessige og juridiske forhold i makromiljøet som kan bli muligheter eller trusler for virksomheten.",mikro-makro,0,
+swot,concept,Situasjons- og bransjeanalyse,SWOT-analyse,"SWOT-analyse: en oppsummering av situasjonen i fire felt — styrker og svakheter, som er interne, og muligheter og trusler, som er eksterne.",situasjonsanalyse,0,
+konfrontasjonsmatrise,concept,Situasjons- og bransjeanalyse,Konfrontasjonsmatrise,"Konfrontasjonsmatrise: en videreføring av SWOT der punktene kobles mot hverandre — styrker mot muligheter, styrker mot trusler, svakheter mot muligheter og svakheter mot trusler — for å finne aktuelle strategier.",swot,0,
+bransje,concept,Situasjons- og bransjeanalyse,Bransje,"Bransje: alle virksomhetene som tilbyr produkter som er nære erstatninger for hverandre, og som dermed konkurrerer om de samme kundene.",mikro-makro,0,
+konkurranseformer,concept,Situasjons- og bransjeanalyse,Konkurranseformer,"Monopol: én tilbyder har hele markedet.
+Oligopol: noen få store tilbydere dominerer markedet og må ta hensyn til hverandres trekk.
+Monopolistisk konkurranse: mange tilbydere med produkter som skiller seg litt fra hverandre.
+Fullkommen konkurranse: mange tilbydere av helt like produkter, der ingen kan påvirke prisen.",bransje,0,
+porters-fem,concept,Situasjons- og bransjeanalyse,Porters fem konkurransekrefter,"Porters fem konkurransekrefter: en modell for hvor hard konkurransen og hvor god lønnsomheten i en bransje er, ut fra rivaliseringen mellom aktørene som er der, trusselen fra nye aktører, trusselen fra erstatningsprodukter, leverandørenes forhandlingsmakt og kundenes forhandlingsmakt.",bransje,0,
+etableringshindringer,concept,Situasjons- og bransjeanalyse,Etableringshindringer,"Etableringshindring: noe som gjør det vanskelig for nye aktører å komme inn i en bransje, som store investeringer, stordriftsfordeler, sterke merkevarer, patenter, offentlige reguleringer eller kontroll over distribusjonen.",porters-fem,0,
+pestel-analyse,skill,Situasjons- og bransjeanalyse,Analysere makromiljøet,"gjennomføre en PESTEL-analyse for en konkret virksomhet, velge ut de forholdene som faktisk betyr noe for den, og vurdere om de er muligheter eller trusler.",pestel,0,
+bransjeanalyse,skill,Situasjons- og bransjeanalyse,Gjennomføre en bransjeanalyse,"analysere en bransje med Porters fem konkurransekrefter, vurdere hvor sterk hver kraft er med begrunnelse i opplysninger om bransjen, og konkludere om hvor attraktiv bransjen er.",porters-fem;etableringshindringer;konkurranseformer,0,
+konkurrentanalyse,skill,Situasjons- og bransjeanalyse,Gjennomføre en konkurrentanalyse,"finne de viktigste direkte og indirekte konkurrentene til en virksomhet, og sammenligne dem med virksomheten på strategi, markedsmiks, markedsandel og styrker og svakheter.",bransje;tolke-nokkeltall,0,
+swot-analyse,skill,Situasjons- og bransjeanalyse,Gjennomføre en SWOT-analyse,"sette opp en SWOT-analyse for en virksomhet på grunnlag av PESTEL-, bransje- og konkurrentanalysen og opplysninger om virksomheten selv, og plassere og begrunne hvert punkt.",swot;pestel-analyse;bransjeanalyse;konkurrentanalyse,0,
+vurdere-strategiske-beslutninger,skill,Situasjons- og bransjeanalyse,Vurdere markedsstrategiske beslutninger ut fra analysene,"bruke konfrontasjonsmatrisen til å finne strategiske alternativer ut fra situasjons- og bransjeanalysen, og vurdere hvilke beslutninger virksomheten bør ta og hvorfor.",swot-analyse;konfrontasjonsmatrise;markedsstrategi,0,
+segmentering,concept,Målgruppevalg,Segmentering og målgruppe,"Segmentering: å dele et marked inn i grupper av kunder med like behov og lik kjøpsatferd.
+Målgruppe: det eller de segmentene virksomheten velger å rette markedsføringen sin mot.",,0,
+segmenteringskriterier,concept,Målgruppevalg,Segmenteringskriterier,"Geografiske kriterier: hvor kundene bor.
+Demografiske kriterier: alder, kjønn, inntekt, utdanning og livsfase.
+Psykografiske kriterier: livsstil, verdier, interesser og personlighet.
+Atferdskriterier: kjøpshyppighet, lojalitet og hvilken fordel kunden søker.
+Kriterier i bedriftsmarkedet: bransje, størrelse, beliggenhet og hvordan kunden kjøper inn.",segmentering,0,
+krav-til-segment,concept,Målgruppevalg,Krav til et segment,"Krav til et segment: det må kunne måles, være stort og kjøpesterkt nok til å være lønnsomt, være mulig å nå med markedsføring, og reagere annerledes enn de andre segmentene.",segmentering,0,
+markedsdekning,concept,Målgruppevalg,Strategier for markedsdekning,"Udifferensiert markedsføring: det samme tilbudet til hele markedet.
+Differensiert markedsføring: et tilpasset tilbud til hvert av flere segmenter.
+Konsentrert markedsføring (nisje): all innsats rettet mot ett segment.",segmentering,0,
+faktorer-malgruppevalg,skill,Målgruppevalg,Drøfte faktorer som påvirker valget av målgruppe,"drøfte hvordan segmentenes størrelse og vekst, lønnsomhet, konkurransen om dem, hvor lette de er å nå, og virksomhetens egne ressurser, mål og verdier påvirker hvilken målgruppe virksomheten bør velge.",segmenteringskriterier;krav-til-segment;malhierarki,0,
+begrunne-malgruppe,skill,Målgruppevalg,Velge og begrunne en målgruppe,"velge målgruppe og strategi for markedsdekning for en virksomhet i et case, beskrive målgruppen konkret, og begrunne valget med opplysninger fra situasjonsanalysen.",faktorer-malgruppevalg;markedsdekning;swot-analyse,0,
+markedsstrategi,concept,Markedsstrategi,Markedsstrategi,"Markedsstrategi: den langsiktige planen for hvordan virksomheten skal nå markedsmålene sine — hvilke markeder og målgrupper den skal satse på, og hvordan den skal konkurrere der.
+Tiltak: en konkret handling som gjennomfører strategien, som en kampanje eller en prisendring.",malhierarki,0,
+ansoff,concept,Markedsstrategi,Ansoffs vekstmatrise,"Ansoffs vekstmatrise: fire vekststrategier ut fra om produktet og markedet er eksisterende eller nye — markedspenetrering (eksisterende produkt i eksisterende marked), markedsutvikling (eksisterende produkt i nytt marked), produktutvikling (nytt produkt i eksisterende marked) og diversifisering (nytt produkt i nytt marked).",markedsstrategi,0,
+generiske-strategier,concept,Markedsstrategi,Porters generiske strategier,"Kostnadsledelse: å konkurrere ved å ha lavere kostnader enn konkurrentene, og dermed kunne holde lavere priser.
+Differensiering: å konkurrere på noe kundene opplever som unikt og er villige til å betale mer for.
+Fokusstrategi: å konsentrere seg om en smal målgruppe, med enten lave kostnader eller differensiering.",markedsstrategi;konkurransefortrinn,0,
+vurdere-vekststrategi,skill,Markedsstrategi,Vurdere vekststrategier,"plassere ulike vekstalternativer for en virksomhet i Ansoffs vekstmatrise, og vurdere risikoen og mulighetene ved hvert av dem.",ansoff,0,
+vurdere-konkurransestrategi,skill,Markedsstrategi,Vurdere konkurransestrategien til en virksomhet,"avgjøre hvilken generisk strategi en konkret virksomhet følger, og vurdere om målgruppevalget og markedsmiksen dens passer med strategien.",generiske-strategier;begrunne-malgruppe,0,
+merkevare,concept,Merkevare og posisjonering,Merkevare,"Merkevare: et produkt med navn, logo og særpreg som kundene kjenner igjen, og som gir assosiasjoner og verdi utover det selve produktet gir.",,0,
+merkevareverdi,concept,Merkevare og posisjonering,Merkevareverdi,"Merkevareverdi: den ekstra verdien et merkenavn gir et produkt, bygd opp av kjennskap, assosiasjoner, opplevd kvalitet og lojalitet, og som blant annet viser seg i at kundene betaler mer for merket.",merkevare,0,
+merkekjennskap,concept,Merkevare og posisjonering,Merkekjennskap,"Uhjulpet kjennskap: at kunden nevner merket selv når hen blir spurt om merker i en kategori.
+Hjulpet kjennskap: at kunden kjenner igjen merket når hen får se eller høre navnet.
+Top of mind: det merket kunden nevner først.",merkevare,0,
+identitet-image,concept,Merkevare og posisjonering,Merkevareidentitet og image,"Merkevareidentitet: det bildet virksomheten selv ønsker at merket skal ha.
+Image: det bildet kundene faktisk har av merket. Avstanden mellom de to viser hva merkevarebyggingen må rette opp.",merkevare,0,
+merkevarestrategier,concept,Merkevare og posisjonering,Merkevarestrategier,"Produsentmerke: et merke som eies av produsenten og selges i mange kjeder.
+Egne merkevarer (EMV): merker som eies av en kjede og bare selges der.
+Paraplymerke: ett merkenavn brukt på mange produkter.
+Individuelle merker: et eget merkenavn for hvert produkt.
+Merkeutvidelse: å bruke et etablert merkenavn på et nytt produkt eller i en ny kategori.",merkevare,0,
+posisjonering,concept,Merkevare og posisjonering,Posisjon og posisjonering,"Posisjonering: det virksomheten gjør for å gi merket en bestemt plass i kundenes bevissthet, sammenlignet med konkurrentene.
+Posisjon: den plassen merket faktisk har i kundenes bevissthet.",identitet-image;segmentering,0,
+posisjoneringsgrunnlag,concept,Merkevare og posisjonering,Grunnlag for posisjonering,"Posisjonering på egenskap: merket skiller seg ut med én bestemt egenskap, som holdbarhet eller smak.
+Posisjonering på pris og kvalitet: merket plasserer seg som billigst, som best eller som mest for pengene.
+Posisjonering på bruker eller bruksområde: merket knyttes til en bestemt type kunde eller situasjon.
+Posisjonering mot en konkurrent: merket sammenligner seg direkte med en kjent konkurrent.",posisjonering,0,
+posisjoneringskart,concept,Merkevare og posisjonering,Posisjoneringskart,"Posisjoneringskart: et diagram med to akser for egenskaper kundene legger vekt på, der merkene plasseres etter hvordan kundene oppfatter dem.",posisjonering,0,
+reposisjonering,concept,Merkevare og posisjonering,Reposisjonering,"Reposisjonering: å endre kundenes oppfatning av et merke, fordi den gamle posisjonen er svekket, fordi konkurrentene har tatt den, eller fordi virksomheten vil nå en ny målgruppe.",posisjonering,0,
+lage-posisjoneringskart,skill,Merkevare og posisjonering,Lage og tolke et posisjoneringskart,"lage et posisjoneringskart for et marked med akser som er viktige for målgruppen, plassere merkene, og finne posisjoner som er ledige eller trange.",posisjoneringskart,0,
+utvikle-merkevarestrategi,skill,Merkevare og posisjonering,Utvikle en merkevarestrategi,"utvikle en merkevarestrategi for et produkt — merkestruktur, ønsket identitet og posisjon — og begrunne den ut fra målgruppen og konkurrentene.",merkevarestrategier;posisjoneringsgrunnlag;lage-posisjoneringskart;begrunne-malgruppe,0,
+vurdere-posisjonering,skill,Merkevare og posisjonering,Vurdere posisjoneringen i en merkevarebygging,"vurdere om posisjonen et merke har valgt er tydelig, relevant for målgruppen, troverdig og forskjellig fra konkurrentene, og om merket bør reposisjoneres.",lage-posisjoneringskart;merkevareverdi;merkekjennskap;reposisjonering,0,
+verdikjede,concept,Distribusjon og verdikjeden,Verdikjede,"Verdikjede: alle leddene et produkt går gjennom fra råvare og produsent via grossist og detaljist til sluttkunden, der hvert ledd skal tilføre verdi og tar en del av prisen.",,0,
+distribusjonsformer,concept,Distribusjon og verdikjeden,Distribusjonsformer,"Direkte distribusjon: produsenten selger selv til sluttkunden.
+Indirekte distribusjon: produktet går via mellomledd som grossist og detaljist.
+Intensiv, selektiv og eksklusiv distribusjon: produktet selges på flest mulig steder, hos et utvalg forhandlere, eller hos svært få.",verdikjede,0,
+omnikanal,concept,Distribusjon og verdikjeden,Omnikanal og direkte salg på nett,"Omnikanal: at kunden kan bevege seg sømløst mellom fysisk butikk, nettbutikk og app i det samme kjøpet.
+Direkte til forbruker: at produsenten hopper over mellomleddene og selger direkte på nett, slik at de gamle mellomleddene mister sin rolle.",distribusjonsformer,0,
+makt-avhengighet,concept,Distribusjon og verdikjeden,Makt og avhengighet i verdikjeden,"Kanalmakt: evnen et ledd i verdikjeden har til å bestemme vilkårene for de andre leddene, som innkjøpspris, hylleplass og hvilke varer som kommer inn i sortimentet.
+Avhengighet: hvor mye et ledd taper dersom samarbeidet med et annet ledd tar slutt. Den som er minst avhengig, har mest makt.",verdikjede,0,
+vertikal-integrasjon,concept,Distribusjon og verdikjeden,Vertikal integrasjon,"Vertikal integrasjon: at én virksomhet eier eller styrer flere ledd i verdikjeden.
+Bakoverintegrasjon: å ta over ledd nærmere produksjonen, slik en kjede gjør med egne merkevarer.
+Foroverintegrasjon: å ta over ledd nærmere sluttkunden, slik en produsent gjør med egen nettbutikk.",makt-avhengighet,0,
+dagligvaremarkedet,fact,Distribusjon og verdikjeden,Dagligvaremarkedet i Norge,"de tre store dagligvaregruppene i Norge: NorgesGruppen, Coop og Rema 1000
+de tre gruppenes samlede andel av dagligvaremarkedet: over 90 prosent
+loven som skal sikre god handelsskikk mellom leverandører og kjeder: dagligvarehandelsloven (fra 2021)
+tilsynet som håndhever dagligvarehandelsloven: Dagligvaretilsynet",makt-avhengighet,0,
+utvikle-distribusjonsstrategi,skill,Distribusjon og verdikjeden,Utvikle en distribusjonsstrategi,"utvikle en distribusjonsstrategi med valg av kanaler, dekningsgrad og samarbeidspartnere, og begrunne den ut fra målgruppen, produktet og posisjoneringen.",omnikanal;posisjonering,0,
+vurdere-makt-verdikjede,skill,Distribusjon og verdikjeden,Vurdere makt og avhengighet i en verdikjede,"analysere maktforholdet mellom produsenter, grossister og detaljister i en konkret bransje, som dagligvarehandelen, og vurdere hvordan det påvirker priser, utvalg, nyetableringer og forbrukerne.",vertikal-integrasjon;dagligvaremarkedet;omnikanal,0,
+kostnader,concept,Prissetting,Kostnader og dekningsbidrag,"Faste kostnader: kostnader som ikke endrer seg med hvor mye som selges.
+Variable kostnader: kostnader som øker med hvor mye som selges.
+Dekningsbidrag: salgsprisen uten mva minus de variable kostnadene per enhet.",,0,
+beregne-nullpunkt,skill,Prissetting,Beregne nullpunktsalg og dekningsbidrag,"regne ut dekningsbidrag per enhet og hvor mange enheter som må selges for å gå i null, og bruke svaret til å vurdere en pris eller en prisendring.",kostnader,0,
+priselastisitet,concept,Prissetting,Priselastisitet,"Priselastisitet: hvor mye etterspurt mengde endrer seg i prosent når prisen endres med én prosent.
+Elastisk etterspørsel: mengden endrer seg mer enn prisen, typisk når det finnes mange gode alternativer.
+Uelastisk etterspørsel: mengden endrer seg mindre enn prisen, typisk for nødvendigheter og sterke merkevarer.",prosent-prosentpoeng,0,
+beregne-elastisitet,skill,Prissetting,Beregne og tolke priselastisitet,"regne ut priselastisiteten fra prosentvis endring i pris og mengde, og bruke svaret til å vurdere om en prisendring vil øke eller redusere omsetningen.",priselastisitet,0,
+prisstrategier,concept,Prissetting,Prisstrategier,"Skummingsprising: en høy introduksjonspris for å ta ut betalingsviljen hos de ivrigste kjøperne først.
+Penetrasjonsprising: en lav introduksjonspris for raskt å vinne markedsandeler.
+Premiumprising: en varig høy pris som signaliserer kvalitet og eksklusivitet.
+Lavprisstrategi: varig lave priser, som krever lave kostnader.",kostnader,0,
+prisdifferensiering,concept,Prissetting,Prisdifferensiering og dynamisk prising,"Prisdifferensiering: å ta ulik pris for samme produkt av ulike kunder, til ulike tider eller i ulike kanaler, ut fra forskjeller i betalingsvilje.
+Dynamisk prising: at prisen endres fortløpende etter etterspørsel og tilbud, som for flybilletter.",priselastisitet,0,
+drofte-prisfaktorer,skill,Prissetting,Drøfte faktorer som påvirker prissettingen,"drøfte hvordan kostnader, etterspørsel og priselastisitet, konkurranseforholdene, virksomhetens mål og posisjonering og offentlige reguleringer påvirker hvilken pris en virksomhet bør sette.",beregne-nullpunkt;beregne-elastisitet;konkurranseformer;posisjonering;malhierarki,0,
+utvikle-prisstrategi,skill,Prissetting,Utvikle en prisstrategi,"utvikle en prisstrategi for et produkt, med introduksjonspris, prisnivå og bruk av rabatter, og begrunne den ut fra drøftingen av prisfaktorene og posisjoneringen.",drofte-prisfaktorer;prisstrategier;prisdifferensiering,0,
+aida,concept,Kommunikasjonsstrategi og mediemiks,AIDA-modellen,"AIDA-modellen: fire trinn markedskommunikasjon skal føre mottakeren gjennom — oppmerksomhet (attention), interesse, ønske (desire) og handling (action).",,0,
+kommunikasjonsmal,concept,Kommunikasjonsstrategi og mediemiks,Kommunikasjonsmål,"Kommunikasjonsmål: det kommunikasjonen skal oppnå hos mottakeren — kjennskap til merket, kunnskap om produktet, en positiv holdning eller en handling som kjøp.",aida,0,
+kommunikasjonsmiks,concept,Kommunikasjonsstrategi og mediemiks,Kommunikasjonsmiksen,"Reklame: betalt, upersonlig kommunikasjon i medier.
+Personlig salg: direkte kontakt mellom en selger og en kunde.
+Salgsfremmende tiltak: kortsiktige tilbud som gir kunden en grunn til å kjøpe nå.
+PR: arbeid for å bygge et godt forhold til omverdenen og få omtale i mediene.
+Direkte markedsføring: kommunikasjon rettet mot enkeltpersoner, som nyhetsbrev og SMS.",,0,
+peso,concept,Kommunikasjonsstrategi og mediemiks,"Betalte, eide, delte og fortjente kanaler","Betalte kanaler: plass virksomheten kjøper, som annonser.
+Eide kanaler: kanaler virksomheten kontrollerer selv, som nettside, app og nyhetsbrev.
+Delte kanaler: virksomhetens egne kontoer og innlegg i sosiale medier, der plattformen styrer hvem som ser dem.
+Fortjente kanaler: omtale virksomheten ikke betaler for, som anmeldelser, deling og redaksjonell omtale.",kommunikasjonsmiks,0,
+kundereise,concept,Kommunikasjonsstrategi og mediemiks,Kundereise og kontaktpunkter,"Kundereise: alle stegene en kunde går gjennom, fra hen blir kjent med et merke via vurdering og kjøp til bruk og eventuelt gjenkjøp.
+Kontaktpunkt: hvert sted på reisen der kunden møter virksomheten, som en annonse, nettsiden, butikken eller kundeservice.",aida,0,
+organisk-betalt-rekkevidde,concept,Kommunikasjonsstrategi og mediemiks,Organisk og betalt rekkevidde,"Organisk rekkevidde: hvor mange som ser innhold uten at virksomheten betaler for visningene, styrt av plattformenes algoritmer og av hvor mye innholdet deles.
+Betalt rekkevidde: visninger virksomheten kjøper, ofte målrettet mot utvalgte grupper ut fra data om brukerne.",peso,0,
+pavirkermarkedsforing,concept,Kommunikasjonsstrategi og mediemiks,Påvirkermarkedsføring,"Påvirkermarkedsføring: samarbeid med personer som har mange følgere i sosiale medier, der påvirkeren presenterer et produkt for følgerne sine. Samarbeidet skal merkes tydelig som reklame.",peso,0,
+mediemiks,concept,Kommunikasjonsstrategi og mediemiks,"Mediemiks, dekning og frekvens","Mediemiks: kombinasjonen av kanaler en kampanje bruker.
+Dekning: hvor stor del av målgruppen som nås minst én gang.
+Frekvens: hvor mange ganger hver person i målgruppen i snitt nås.
+Kostnad per tusen visninger (CPM): det det koster å vise en annonse tusen ganger, brukt til å sammenligne kanaler.",peso,0,
+utforske-kanaler,skill,Kommunikasjonsstrategi og mediemiks,Utforske dagsaktuelle kommunikasjonskanaler,"sammenligne nye og etablerte kommunikasjonskanaler, som korte videoformater, podkast, strømmetjenester, påvirkere og tradisjonelle medier, etter hvem de når, hva de koster, og hvor godt effekten kan måles.",organisk-betalt-rekkevidde;pavirkermarkedsforing;mediemiks,0,
+vurdere-kommunikasjonsstrategi,skill,Kommunikasjonsstrategi og mediemiks,Vurdere en kommunikasjonsstrategi,"vurdere kommunikasjonsstrategien til en konkret virksomhet — målgruppe, mål, budskap, virkemidler og kanaler — og om den henger sammen med posisjoneringen.",kommunikasjonsmal;kommunikasjonsmiks;peso;posisjonering,0,
+utvikle-kommunikasjonsstrategi,skill,Kommunikasjonsstrategi og mediemiks,Utvikle en kommunikasjonsstrategi,"utvikle en kommunikasjonsstrategi med målgruppe, kommunikasjonsmål, budskap, virkemidler og kanaler langs kundereisen, som støtter posisjoneringen.",vurdere-kommunikasjonsstrategi;kundereise;utforske-kanaler;begrunne-malgruppe,0,
+planlegge-mediemiks,skill,Kommunikasjonsstrategi og mediemiks,Planlegge en mediemiks,"planlegge en mediemiks for en kampanje med begrunnet valg av kanaler, tidsplan og fordeling av budsjettet, ut fra kommunikasjonsmålene og ønsket dekning og frekvens.",utforske-kanaler;kommunikasjonsmal,0,
+ledelse,concept,Ledelse og internmarkedsføring,Ledelse og lederfunksjoner,"Ledelse: å få andre til å arbeide mot virksomhetens mål.
+Lederfunksjoner: det en leder gjør — planlegge, organisere, motivere og koordinere, og følge opp og kontrollere resultatene.",,0,
+lederstiler,concept,Ledelse og internmarkedsføring,Lederstiler,"Autoritær ledelse: lederen bestemmer alene og gir klare ordrer.
+Demokratisk ledelse: lederen trekker de ansatte inn i beslutningene.
+Laissez-faire-ledelse: lederen griper lite inn og lar de ansatte styre seg selv.",ledelse,0,
+situasjonsbestemt-ledelse,concept,Ledelse og internmarkedsføring,Situasjonsbestemt ledelse,"Situasjonsbestemt ledelse: at lederen tilpasser stilen etter hvor kompetente og motiverte medarbeiderne er for den enkelte oppgaven, fra å instruere tett til å delegere helt.",lederstiler,0,
+transformasjonsledelse,concept,Ledelse og internmarkedsføring,Transformasjonsledelse og transaksjonsledelse,"Transformasjonsledelse: ledelse som motiverer ved å formidle en visjon, være et forbilde og utfordre medarbeiderne til å utvikle seg.
+Transaksjonsledelse: ledelse gjennom tydelige avtaler om hva som skal leveres, og belønning eller sanksjoner etter resultatet.",lederstiler;visjon,0,
+motivasjon,concept,Ledelse og internmarkedsføring,Indre og ytre motivasjon,"Indre motivasjon: lyst til å gjøre en jobb fordi arbeidet selv oppleves som meningsfullt eller interessant.
+Ytre motivasjon: lyst til å gjøre en jobb på grunn av belønning eller straff utenfra, som lønn, bonus eller ros.",,0,
+organisasjonskultur,concept,Ledelse og internmarkedsføring,Organisasjonskultur,"Organisasjonskultur: de felles verdiene, normene og vanene som preger hvordan de ansatte i en virksomhet tenker og handler, også når ingen leder ser på.",kjerneverdier,0,
+internmarkedsforing,concept,Ledelse og internmarkedsføring,Internmarkedsføring,"Internmarkedsføring: å «selge» virksomhetens strategi, verdier og tilbud til de egne ansatte, slik at de forstår, slutter opp om og leverer det kundene er lovet.",,0,
+endringsmotstand,concept,Ledelse og internmarkedsføring,Endringsmotstand,"Endringsmotstand: at ansatte motsetter seg en endring, ofte fordi de frykter å miste trygghet, status eller innflytelse, eller ikke forstår hvorfor endringen trengs.",organisasjonskultur,0,
+lederens-rolle-strategi,skill,Ledelse og internmarkedsføring,Vurdere lederens rolle i utviklingen av markedsstrategien,"vurdere hvordan lederen påvirker analysen, valgene og gjennomføringen av en markedsstrategi, og hvilken lederstil som passer i en konkret situasjon.",situasjonsbestemt-ledelse;transformasjonsledelse;markedsstrategi,0,
+planlegge-internmarkedsforing,skill,Ledelse og internmarkedsføring,Planlegge internmarkedsføring,"foreslå tiltak for internmarkedsføring som får de ansatte til å forstå, slutte opp om og gjennomføre en ny strategi, og vurdere hvilken rolle lederen selv har i å få det til, blant annet i møte med endringsmotstand.",internmarkedsforing;motivasjon;endringsmotstand;ledelse,0,
+markedsmiks,concept,Markedsmiks og effektmåling,Markedsmiks,"Markedsmiks: den samlede kombinasjonen av konkurransemidler — produkt, pris, plass og påvirkning — en virksomhet bruker mot én målgruppe.
+Utvidet markedsmiks (7 P-er): for tjenester legges personale, prosess og fysiske omgivelser til de fire P-ene.",,0,
+helhetlig-markedsmiks,skill,Markedsmiks og effektmåling,Vurdere om en markedsmiks er helhetlig,"vurdere om konkurransemidlene i markedsmiksen til en virksomhet trekker i samme retning og støtter posisjoneringen og konkurransestrategien, og foreslå endringer der de spriker.",markedsmiks;utvikle-merkevarestrategi;utvikle-distribusjonsstrategi;utvikle-prisstrategi;utvikle-kommunikasjonsstrategi;vurdere-konkurransestrategi,0,
+nokkeltall-kpi,concept,Markedsmiks og effektmåling,Nøkkeltall (KPI),"Nøkkeltall (KPI): et målbart tall som viser om et mål er i ferd med å nås, som salg, markedsandel, kjennskap, kundetilfredshet eller konverteringsrate.",smart-mal,0,
+digitale-maltall,concept,Markedsmiks og effektmåling,Måltall for digital markedsføring,"Visninger: hvor mange ganger innholdet er vist.
+Klikkrate (CTR): andelen av visningene som fører til et klikk.
+Konverteringsrate: andelen besøkende som gjør den ønskede handlingen, som å kjøpe eller melde seg på.
+Kostnad per kunde: hva tiltaket kostet, delt på antall nye kunder det ga.",nokkeltall-kpi,0,
+avkastning-markedsforing,concept,Markedsmiks og effektmåling,Avkastning på markedsføring,"Avkastning på markedsføring (ROI): fortjenesten tiltaket ga minus kostnaden, delt på kostnaden, oppgitt i prosent.
+ROAS: inntektene en annonsering ga, delt på det annonseringen kostet.",nokkeltall-kpi,0,
+malemetoder,concept,Markedsmiks og effektmåling,Metoder for å måle effekt,"Før- og etter-måling: å måle for eksempel kjennskap eller salg før og etter en kampanje.
+Kontrollgruppe og A/B-test: å sammenligne en gruppe som fikk tiltaket med en lignende gruppe som ikke fikk det.
+Digital sporing: å følge hvilke annonser og kanaler kundene kom fra før de kjøpte.",nokkeltall-kpi,0,
+beregne-maltall,skill,Markedsmiks og effektmåling,Beregne og tolke måltall for en kampanje,"regne ut klikkrate, konverteringsrate, kostnad per kunde og avkastning for en kampanje, og tolke hva tallene sier om hvor godt den virket.",digitale-maltall;avkastning-markedsforing;prosent-prosentpoeng,0,
+vurdere-effektmaling,skill,Markedsmiks og effektmåling,Utforske metoder for å måle effekten av markedsføring,"sammenligne metoder for å måle effekten av markedsføringstiltak, og vurdere hva hver metode kan og ikke kan si om årsak og virkning, for eksempel når flere tiltak går samtidig.",malemetoder;beregne-maltall,0,
+samfunnsansvar,concept,Samfunnsansvar og omdømme,Samfunnsansvar,"Samfunnsansvar: virksomhetens ansvar for hvordan driften påvirker mennesker, samfunn og miljø, også ut over det loven krever.",,0,
+carroll,concept,Samfunnsansvar og omdømme,Carrolls pyramide,"Carrolls pyramide: en modell som deler samfunnsansvaret i fire lag — økonomisk ansvar (å være lønnsom), juridisk ansvar (å følge loven), etisk ansvar (å gjøre det som er rett) og filantropisk ansvar (å bidra frivillig til samfunnet).",samfunnsansvar,0,
+interessenter,concept,Samfunnsansvar og omdømme,Interessenter,"Interessent: en person eller gruppe som påvirker eller blir påvirket av virksomheten — eiere, ansatte, kunder, leverandører, myndigheter, lokalsamfunnet og interesseorganisasjoner.",,0,
+omdomme,concept,Samfunnsansvar og omdømme,Omdømme,"Omdømme: det samlede inntrykket ulike interessenter har av en virksomhet over tid, bygd på hva den gjør og hva som sies om den.",interessenter,0,
+etiske-perspektiver,concept,Samfunnsansvar og omdømme,Konsekvensetikk og pliktetikk,"Konsekvensetikk: en handling er rett hvis den gir de beste følgene for de som berøres.
+Pliktetikk: en handling er rett eller gal i seg selv, uavhengig av følgene, ut fra regler og plikter som å ikke lyve.",,0,
+lover-markedsforing,concept,Samfunnsansvar og omdømme,Lover som regulerer virksomhetens ansvar,"Markedsføringsloven: krever god markedsføringsskikk overfor forbrukere og forbyr villedende og urimelig handelspraksis og skjult reklame.
+Åpenhetsloven: krever at større virksomheter undersøker og opplyser om risiko for brudd på menneskerettigheter og anstendige arbeidsforhold hos seg selv og i leverandørkjeden.
+Personvernforordningen (GDPR): krever et lovlig grunnlag, ofte samtykke, for å bruke personopplysninger, også til målrettet reklame.",samfunnsansvar,0,
+regler-fakta,fact,Samfunnsansvar og omdømme,Regler og tilsyn for markedsføring i Norge,"tilsyn med markedsføring rettet mot forbrukere: Forbrukertilsynet
+tilsyn med personvern: Datatilsynet
+reklame for tobakk: forbudt
+reklame for alkoholholdig drikk: forbudt
+reklame på e-post og SMS til privatpersoner: krever at mottakeren har samtykket på forhånd
+reklame der kroppens fasong, størrelse eller hud er endret ved retusjering: skal merkes med et eget retusjeringsmerke
+markedsføring rettet mot barn: skal ikke oppfordre barn direkte til å kjøpe",lover-markedsforing,0,
+drofte-samfunnsansvar,skill,Samfunnsansvar og omdømme,Drøfte samfunnsansvar fra flere perspektiver,"drøfte et konkret spørsmål om samfunnsansvar for en virksomhet fra et etisk, et lovmessig og et forretningsmessig perspektiv, og veie hensynene til ulike interessenter mot hverandre.",carroll;etiske-perspektiver;regler-fakta;interessenter,0,
+vurdere-omdomme,skill,Samfunnsansvar og omdømme,Vurdere samfunnsansvar opp mot omdømme,"vurdere hvordan en virksomhets håndtering av samfunnsansvar, eller av en krise, kan styrke eller svekke omdømmet hos ulike interessenter, og hva det betyr for lønnsomheten.",drofte-samfunnsansvar;omdomme,0,
+etisk-bruk-konkurransemidler,skill,Samfunnsansvar og omdømme,Drøfte etisk bruk av konkurransemidlene,"drøfte etiske sider ved bruken av produkt, pris, distribusjon og kommunikasjon, som villedende prising, kjøpspress mot unge, målrettet reklame basert på persondata og utnyttelse av makt i verdikjeden.",etiske-perspektiver;regler-fakta;markedsmiks;vurdere-makt-verdikjede,0,
+baerekraftig-utvikling,concept,Bærekraftige valg,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker behovene i dag uten å ødelegge mulighetene kommende generasjoner har til å dekke sine. Den har tre dimensjoner — sosial, økonomisk og miljømessig.",,0,
+trippel-bunnlinje,concept,Bærekraftige valg,Trippel bunnlinje,"Trippel bunnlinje: at en virksomhet regner resultatet sitt på tre områder — økonomisk overskudd, sosialt ansvar og miljøpåvirkning — og ikke bare på det økonomiske.",baerekraftig-utvikling,0,
+sirkular-okonomi,concept,Bærekraftige valg,Sirkulær økonomi,"Sirkulær økonomi: en økonomi der produkter og materialer holdes i bruk lengst mulig gjennom reparasjon, gjenbruk, utleie og gjenvinning, i stedet for å bli brukt og kastet.",baerekraftig-utvikling,0,
+gronnvasking,concept,Bærekraftige valg,Grønnvasking,"Grønnvasking: å gi et mer miljøvennlig eller bærekraftig inntrykk av en virksomhet eller et produkt enn det er dekning for, for eksempel med vage ord som «grønn» eller «klimanøytral» uten dokumentasjon.",baerekraftig-utvikling,0,
+baerekraftsmal,fact,Bærekraftige valg,FNs bærekraftsmål,"antall bærekraftsmål FN har vedtatt: 17
+året bærekraftsmålene ble vedtatt: 2015
+året bærekraftsmålene skal være nådd: 2030
+nummeret på bærekraftsmålet om ansvarlig forbruk og produksjon: 12",baerekraftig-utvikling,0,
+vurdere-baerekraftige-valg,skill,Bærekraftige valg,Vurdere bærekraftige valg for en virksomhet,"vurdere hvilke bærekraftige valg en virksomhet kan ta i produkt, verdikjede og kommunikasjon, og veie sosiale, økonomiske og miljømessige hensyn mot hverandre.",trippel-bunnlinje;sirkular-okonomi;baerekraftsmal;markedsmiks,0,
+avslore-gronnvasking,skill,Bærekraftige valg,Vurdere om en bærekraftskommunikasjon er troverdig,"vurdere om det en virksomhet sier om bærekraft, er konkret, dokumentert og i samsvar med det den faktisk gjør, eller om det kan være grønnvasking, og hvilke følger det kan få for omdømmet.",gronnvasking;regler-fakta;omdomme,0,
+baerekraft-lonnsomhet,skill,Bærekraftige valg,Drøfte om bærekraft lønner seg,"drøfte når bærekraftige valg kan gi et konkurransefortrinn og styrke omdømmet, og når de først og fremst gir kostnader som kundene ikke er villige til å betale for.",vurdere-baerekraftige-valg;avslore-gronnvasking;konkurransefortrinn,0,
+markedsplan,concept,Helhetlig markedsstrategi,Markedsplan,"Markedsplan: et dokument som samler situasjonsanalyse, mål, målgruppe, posisjonering, markedsmiks, budsjett, tidsplan og plan for oppfølging og måling.",markedsstrategi;markedsmiks,0,
+utvikle-helhetlig-strategi,skill,Helhetlig markedsstrategi,Utvikle og begrunne en helhetlig markedsstrategi,"utvikle en helhetlig markedsstrategi for en virksomhet i et case — fra analyse og mål via målgruppe og posisjonering til markedsmiks, gjennomføring og måling — og begrunne hvert valg med opplysninger fra caset.",markedsplan;vurdere-strategiske-beslutninger;vurdere-visjon-ide-mal;helhetlig-markedsmiks;vurdere-effektmaling;planlegge-internmarkedsforing;vurdere-baerekraftige-valg;etisk-bruk-konkurransemidler,0,
+drofte-markedsstrategi,skill,Helhetlig markedsstrategi,Drøfte en virksomhets markedsstrategi,"drøfte styrker og svakheter ved den markedsstrategien en virksomhet har valgt, vurdere alternativer, og konkludere med en begrunnet anbefaling som også tar hensyn til etikk, bærekraft og omdømme.",utvikle-helhetlig-strategi;drofte-problemstilling;vurdere-omdomme;baerekraft-lonnsomhet;lederens-rolle-strategi,0,

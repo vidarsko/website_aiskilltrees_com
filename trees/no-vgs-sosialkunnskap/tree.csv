@@ -1,0 +1,215 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Metode og kilder;Velferdsstaten;Menneskerettigheter;Ulikhet og inkludering;Sosialisering og identitet;Livsmestring og kriser;Sosiale problemer og vold,,,
+,config,,title,Sosialkunnskap,,,
+,config,,description,"Samfunnsvitenskapelig metode, velferdsstaten, menneskerettigheter, sosial ulikhet og inkludering, sosialisering og identitet, livsmestring og kriser, og sosiale problemer og vold — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,social-sciences,,,
+,config,,storageKey,no-vgs-sosialkunnskap-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,sosialkunnskap (programfag i norsk videregående skole),,,
+,config,,slots.expressionFocus,"forveksler prosent og prosentpoeng, skriver at en sammenheng viser en årsak, bruker «marginalisering», «utenforskap» og «sosial arv» om hverandre, blander sammen universelle og behovsprøvde ordninger, gjør rede for en teori uten å bruke den på saken, eller skriver «drøfte» uten å veie argumenter mot hverandre før konklusjonen",,,
+,config,,slots.courseSpecifics,"Sosialkunnskap er et valgfritt programfag på Vg2 eller Vg3, og elevene har hatt samfunnskunnskap Vg1. Eleven kan trekkes ut til en skriftlig eksamen som lages og sensureres sentralt, eller til en muntlig eksamen med forberedelsesdel som lages og sensureres lokalt. Øv derfor både på å skrive en strukturert, drøftende fagtekst med kildehenvisninger og på å drøfte muntlig, og be eleven bruke norske eksempler og oppgi kilde og årstall når hen bruker et tall.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag samfunnsfag,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SAM3051,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,social-studies,,,
+,config,,keywords,sosialkunnskap; SAM3051; SAM3052; samfunnsvitenskapelig metode; velferdsstat; NAV; folketrygden; velferdsmodeller; menneskerettigheter; barnekonvensjonen; urfolk; fornorskning; sosial ulikhet; fattigdom; marginalisering; utenforskap; inkludering; sosialisering; kjønn; identitet; behov; Maslow; livsmestring; kriser; sosiale problemer; forebygging; vold; trakassering,,,
+,config,,updated,2026-10-08,,,
+problemstilling,concept,Metode og kilder,Problemstilling og hypotese,"Problemstilling: et avgrenset spørsmål en undersøkelse skal svare på, formulert så presist at det går an å avgjøre hvilke opplysninger som trengs.
+Hypotese: en antakelse om hva svaret er, formulert slik at undersøkelsen kan styrke eller svekke den.",,0,
+kvantitativ-kvalitativ,concept,Metode og kilder,Kvantitativ og kvalitativ metode,"Kvantitativ metode: samler inn opplysninger som kan telles, fra mange, for å finne mønstre og utbredelse.
+Kvalitativ metode: går i dybden hos få, for å forstå hvordan mennesker opplever og tolker noe.",,0,
+datainnsamling,concept,Metode og kilder,Måter å samle inn data på,"Spørreundersøkelse: mange svarer på de samme spørsmålene, ofte med faste svaralternativer.
+Intervju: en samtale der forskeren stiller spørsmål og følger opp svarene.
+Observasjon: forskeren ser på og registrerer hva folk faktisk gjør.
+Dokumentanalyse: forskeren undersøker tekster, statistikk eller andre kilder som allerede finnes.",kvantitativ-kvalitativ,0,
+utvalg,concept,Metode og kilder,Utvalg og representativitet,"Utvalg: de personene som faktisk blir undersøkt, hentet fra en større gruppe (populasjonen).
+Representativitet: at utvalget ligner populasjonen så godt at resultatene kan sies å gjelde for hele gruppa.",,0,
+validitet-reliabilitet,concept,Metode og kilder,Validitet og reliabilitet,"Validitet: at undersøkelsen faktisk måler det den skal måle, og svarer på problemstillingen.
+Reliabilitet: at målingen er pålitelig, slik at en ny undersøkelse på samme måte ville gitt omtrent samme resultat.",datainnsamling,0,
+forskningsetikk,concept,Metode og kilder,Forskningsetikk,"Informert samtykke: deltakeren vet hva undersøkelsen går ut på, sier ja frivillig og kan trekke seg.
+Anonymisering: opplysningene presenteres slik at ingen kan kjenne igjen den enkelte deltakeren.
+Konfidensialitet: det deltakerne forteller, blir behandlet fortrolig og ikke brukt til noe annet enn det de har sagt ja til.",,0,
+samfunnsvitenskapelig-teori,concept,Metode og kilder,Samfunnsvitenskapelig teori,"Samfunnsvitenskapelig teori: en sammenhengende forklaring på hvordan et fenomen i samfunnet henger sammen, som gir begreper til å se saken med og kan prøves mot empiri.",,0,
+aktor-struktur,concept,Metode og kilder,Aktørperspektiv og strukturperspektiv,"Aktørperspektiv: forklarer det som skjer ut fra valgene, målene og handlingene til enkeltmennesker.
+Strukturperspektiv: forklarer det som skjer ut fra rammene rundt menneskene - økonomi, lover, normer, klasse og institusjoner - som styrer hvilke valg som er mulige.",samfunnsvitenskapelig-teori,0,
+funksjonalisme-konflikt,concept,Metode og kilder,Funksjonalistisk perspektiv og konfliktperspektiv,"Funksjonalistisk perspektiv: ser samfunnet som en helhet der hver del har en oppgave som holder helheten stabil, og ser etter hva et fenomen bidrar med.
+Konfliktperspektiv: ser samfunnet som preget av motstridende interesser mellom grupper, og spør hvem som tjener og hvem som taper på et fenomen.",samfunnsvitenskapelig-teori,0,
+korrelasjon-kausalitet,concept,Metode og kilder,Samvariasjon og årsakssammenheng,"Samvariasjon (korrelasjon): to forhold endrer seg sammen, slik at det ene følger med det andre.
+Årsakssammenheng (kausalitet): det ene forholdet fører faktisk til det andre. Samvariasjon alene viser ikke årsak, fordi en tredje faktor kan ligge bak begge.",,0,
+prosent-prosentpoeng,concept,Metode og kilder,Prosent og prosentpoeng,"Prosent: en andel av hundre, eller en endring målt i forhold til utgangsverdien.
+Prosentpoeng: forskjellen mellom to prosenttall. Går ledigheten fra 4 % til 5 %, har den økt med ett prosentpoeng, men med 25 prosent.",,0,
+gjennomsnitt-median,concept,Metode og kilder,Gjennomsnitt og median,"Gjennomsnitt: summen av alle verdiene delt på antallet. Noen få svært høye verdier trekker det opp.
+Median: den midterste verdien når alle er ordnet etter størrelse. Den sier mer om den typiske inntekten når fordelingen er skjev.",,0,
+kildekritikk,concept,Metode og kilder,Kildekritikk,"Kildekritikk: å vurdere en kilde før den brukes - hvem som står bak, hvilken hensikt avsenderen har, når og hvordan kilden ble til, og om opplysningene kan kontrolleres mot andre kilder.",,0,
+formulere-problemstilling,skill,Metode og kilder,Formulere en egen problemstilling,"formulere en avgrenset og etterprøvbar problemstilling om et samfunnsfaglig tema, og eventuelt en hypotese som kan prøves.",problemstilling,0,
+finne-vurdere-informasjon,skill,Metode og kilder,Finne og vurdere informasjon til en problemstilling,"finne relevant informasjon om et faglig spørsmål i ulike kilder - statistikk, forskning, offentlige dokumenter og medier - og vurdere hvor pålitelig og relevant hver kilde er.",kildekritikk;formulere-problemstilling,0,
+henvise-kilder,skill,Metode og kilder,Henvise til kilder slik at det kan etterprøves,"sitere og henvise til kildene sine på en måte som gjør at leseren kan finne dem igjen, og skille tydelig mellom det kildene sier og egne vurderinger.",finne-vurdere-informasjon,0,
+lese-tabell,skill,Metode og kilder,Lese og tolke en tabell eller figur,"hente ut opplysninger fra en tabell eller figur, regne om mellom tall og andeler, og beskrive hva tallene viser, med presis bruk av prosent og prosentpoeng.",prosent-prosentpoeng;gjennomsnitt-median,0,
+tolke-statistikk,skill,Metode og kilder,Vurdere hva statistikk faktisk viser,"sammenligne tall fra ulike grupper eller år, forklare hvilke sammenhenger tallene viser, og vurdere om tallene er gyldige som grunnlag for en påstand om årsak.",lese-tabell;korrelasjon-kausalitet,0,
+velge-metode,skill,Metode og kilder,Velge metode til en problemstilling,"velge en metode som passer til en gitt problemstilling, og begrunne valget ut fra hva kvantitativ og kvalitativ metode hver for seg kan og ikke kan svare på.",formulere-problemstilling;datainnsamling,0,
+vurdere-metode,skill,Metode og kilder,Vurdere styrker og svakheter ved en metode,"vurdere styrker og svakheter ved metoden i en gitt undersøkelse, med vekt på utvalg, validitet, reliabilitet og etiske utfordringer.",velge-metode;utvalg;validitet-reliabilitet;forskningsetikk,0,
+gjennomfore-undersokelse,skill,Metode og kilder,Gjennomføre en egen samfunnsvitenskapelig undersøkelse,"planlegge og gjennomføre en liten undersøkelse om en egen problemstilling, ivareta deltakernes personvern, og legge fram funnene sammen med en vurdering av hvor mye de kan bære.",vurdere-metode;finne-vurdere-informasjon,0,
+bruke-teori,skill,Metode og kilder,Bruke et teoretisk perspektiv på en sak,"bruke et samfunnsvitenskapelig perspektiv eller en teori til å forklare et konkret fenomen, og vise hva perspektivet får fram og hva det overser.",aktor-struktur;funksjonalisme-konflikt,0,
+skrive-fagtekst,skill,Metode og kilder,Skrive en drøftende fagtekst,"skrive en strukturert samfunnsvitenskapelig fagtekst som stiller argumenter fra ulike perspektiver og ståsteder opp mot hverandre, bruker fagbegreper presist, viser til kilder og ender i en begrunnet konklusjon.",bruke-teori;henvise-kilder,0,
+velferdsstat,concept,Velferdsstaten,Velferdsstat,"Velferdsstat: en stat som tar et hovedansvar for at innbyggerne har trygghet og grunnleggende levekår gjennom hele livet - helse, utdanning, inntektssikring og omsorg - finansiert i hovedsak over skatter og avgifter.",,0,
+universell-behovsprovd,concept,Velferdsstaten,Universelle og behovsprøvde ordninger,"Universell ordning: gjelder alle i en gruppe, uansett inntekt og formue, som barnetrygden.
+Behovsprøvd ordning: gis bare til den som har lav inntekt eller et dokumentert behov, som økonomisk sosialhjelp og bostøtte.",velferdsstat,0,
+omfordeling,concept,Velferdsstaten,Omfordeling,"Omfordeling: at det offentlige gjennom skatter, avgifter og ytelser flytter ressurser fra noen grupper til andre - fra de som tjener mye til de som tjener lite, og fra friske og yrkesaktive til syke, barn og eldre.",velferdsstat,0,
+likhet-solidaritet,concept,Velferdsstaten,Likhet og solidaritet som velferdsverdier,"Likhet: at alle skal ha like muligheter og like rettigheter til grunnleggende tjenester, uavhengig av bakgrunn og bosted.
+Solidaritet: at fellesskapet bærer risikoen sammen, slik at de som står sterkt, bidrar til dem som trenger hjelp.",velferdsstat,0,
+arbeidslinja,concept,Velferdsstaten,Arbeidslinja,"Arbeidslinja: prinsippet om at det skal lønne seg å jobbe, og at velferdsordningene skal hjelpe folk tilbake i arbeid framfor bare å gi stønad. Arbeid regnes som det viktigste for både den enkeltes økonomi og velferdsstatens finansiering.",velferdsstat,0,
+velferdsmodeller,concept,Velferdsstaten,Velferdsmodeller,"Liberal modell: staten gir et minimum til de som trenger det mest, og resten må dekkes gjennom marked og private forsikringer.
+Konservativ modell: rettighetene følger i stor grad yrke og tidligere inntekt, og familien har et stort ansvar.
+Sosialdemokratisk (nordisk) modell: brede, universelle ordninger for alle, finansiert over skatten.
+Inndelingen kommer fra sosiologen Gøsta Esping-Andersen.",universell-behovsprovd,0,
+folketrygden,concept,Velferdsstaten,Folketrygden,"Folketrygden: den lovfestede, obligatoriske trygdeordningen alle som bor eller arbeider i Norge er medlem av. Den gir blant annet alderspensjon, sykepenger, dagpenger og uføretrygd, og finansieres av trygdeavgift, arbeidsgiveravgift og tilskudd fra staten.",velferdsstat,0,
+forvaltningsnivaer,concept,Velferdsstaten,Forvaltningsnivåer,"Forvaltningsnivåer: de tre nivåene som deler ansvaret for velferden - staten, fylkeskommunen og kommunen. Stortinget vedtar lovene og rammene i statsbudsjettet, mens mye av selve tjenesteytingen skjer i kommunene.",,0,
+rettighet-skjonn,concept,Velferdsstaten,Rettighet og skjønn,"Rettighet: en ytelse eller tjeneste loven sier at du har krav på når vilkårene er oppfylt, og som du kan klage på om du ikke får.
+Skjønn: at saksbehandleren må vurdere situasjonen din innenfor lovens rammer, slik at to personer med like behov kan få ulik hjelp.",,0,
+eldrebolgen,concept,Velferdsstaten,Eldrebølgen og forsørgerbyrden,"Eldrebølgen: at andelen eldre i befolkningen vokser fordi folk lever lenger og store årskull blir pensjonister.
+Forsørgerbyrde: forholdet mellom antall personer utenfor arbeidslivet - barn, pensjonister og andre - og antall i arbeid som skal finansiere velferden.",,0,
+handlingsregelen,concept,Velferdsstaten,Handlingsregelen,"Handlingsregelen: retningslinjen for hvor mye oljepenger som skal brukes over statsbudsjettet. Bruken skal over tid følge den forventede realavkastningen av Statens pensjonsfond utland, i dag anslått til 3 prosent, slik at fondet også kommer framtidige generasjoner til gode.",,0,
+velferd-milepaeler,fact,Velferdsstaten,Milepæler i den norske velferdsstatens historie,"ulykkesforsikring for fabrikkarbeidere: 1894
+lov om syketrygd: 1909
+behovsprøvd alderstrygd for alle over 70 år: 1936
+arbeidsløysetrygd: 1938
+barnetrygd: 1946
+alderstrygd uten behovsprøving: 1957
+folketrygden: 1967
+NAV opprettet: 2006
+pensjonsreformen i folketrygden: 2011",,0,
+ansvarsdeling-velferd,fact,Velferdsstaten,Hvem har ansvaret for hva i velferdsstaten,"staten: folketrygden gjennom NAV, sykehusene (spesialisthelsetjenesten), politiet, universiteter og høyskoler
+fylkeskommunen: videregående opplæring, den offentlige tannhelsetjenesten og kollektivtransport
+kommunen: barnehage, grunnskole, fastlege og legevakt, sykehjem og hjemmetjenester, barnevernstjenesten og økonomisk sosialhjelp
+NAV-kontoret: et partnerskap mellom staten og kommunen",forvaltningsnivaer,0,
+sentrale-ytelser,fact,Velferdsstaten,Sentrale velferdsytelser,"dagpenger: erstatter en del av inntekten når man blir arbeidsledig
+sykepenger: erstatter inntekten ved sykdom; arbeidsgiveren betaler de første 16 dagene, deretter NAV
+arbeidsavklaringspenger (AAP): sikrer inntekt mens nedsatt arbeidsevne blir avklart og man får behandling eller tiltak
+uføretrygd: varig inntekt når arbeidsevnen er varig nedsatt med minst halvparten
+alderspensjon: kan tas ut fra 62 år
+barnetrygd: gis til alle som har barn under 18 år, uten behovsprøving
+foreldrepenger: erstatter inntekten i permisjon ved fødsel eller adopsjon
+økonomisk sosialhjelp: kommunens behovsprøvde siste sikkerhetsnett, når andre muligheter er prøvd
+bostøtte: behovsprøvd støtte til boutgifter, fra Husbanken",folketrygden;universell-behovsprovd,0,
+forklare-velferdsstatens-framvekst,skill,Velferdsstaten,Forklare hvordan velferdsstaten vokste fram,"forklare hvordan den norske velferdsstaten vokste fram fra de første trygdene til folketrygden og NAV, og hvilke samfunnsendringer som drev utviklingen.",velferd-milepaeler;velferdsstat,0,
+gjore-rede-institusjoner,skill,Velferdsstaten,Gjøre rede for velferdsstatens institusjoner,"gjøre rede for hvilke institusjoner som har ansvar for de viktigste velferdstjenestene og ytelsene, og forklare hvor en person i en gitt situasjon kan få hjelp.",ansvarsdeling-velferd;sentrale-ytelser,0,
+forklare-politisk-styring,skill,Velferdsstaten,Forklare hvordan velferdsstaten styres politisk,"forklare hvordan Stortinget, regjeringen og kommunene styrer velferdsstaten gjennom lover, budsjetter og prioriteringer, og hva det betyr for den enkelte at en ytelse er en rettighet eller avhenger av skjønn.",forvaltningsnivaer;rettighet-skjonn,0,
+forklare-finansiering,skill,Velferdsstaten,Forklare hvordan velferdsstaten finansieres,"forklare hvordan velferdsstaten finansieres gjennom skatter, avgifter, trygdeavgift og oljepenger, og hvorfor arbeid er avgjørende for finansieringen.",folketrygden;handlingsregelen;arbeidslinja,0,
+sammenligne-velferdsmodeller,skill,Velferdsstaten,Sammenligne velferdsmodeller,"sammenligne den nordiske velferdsmodellen med en liberal og en konservativ modell, og vise med eksempler hvordan valget av modell påvirker hvem som får hjelp og hvordan den finansieres.",velferdsmodeller;omfordeling,0,
+drofte-universell-behovsprovd,skill,Velferdsstaten,Drøfte universelle mot behovsprøvde ordninger,"drøfte fordeler og ulemper ved å gjøre en konkret velferdsordning universell eller behovsprøvd, med argumenter knyttet til likhet, solidaritet, treffsikkerhet og kostnader.",universell-behovsprovd;likhet-solidaritet;omfordeling,0,
+drofte-velferdsstatens-framtid,skill,Velferdsstaten,Drøfte velferdsstatens framtid og bærekraft,"drøfte utfordringene den norske velferdsstaten står overfor - eldrebølgen, lavere oljeinntekter, behov for arbeidskraft og flere utenfor arbeidslivet - og vurdere politiske tiltak for å gjøre den bærekraftig.",eldrebolgen;forklare-finansiering;sammenligne-velferdsmodeller;drofte-universell-behovsprovd,0,
+menneskerettigheter,concept,Menneskerettigheter,Menneskerettigheter,"Menneskerettigheter: grunnleggende rettigheter hvert menneske har fordi det er menneske, og som staten har plikt til å respektere, beskytte og oppfylle.",,0,
+rettighetstyper,concept,Menneskerettigheter,Sivile og politiske og sosiale og økonomiske rettigheter,"Sivile og politiske rettigheter: vern mot overgrep fra staten og retten til å delta, som ytringsfrihet, retten til en rettferdig rettergang og stemmerett.
+Økonomiske, sosiale og kulturelle rettigheter: retten til et levelig liv, som retten til helse, utdanning, arbeid, bolig og sosial trygghet.",menneskerettigheter,0,
+inkorporering,concept,Menneskerettigheter,Inkorporering av menneskerettigheter,"Inkorporering: at en internasjonal konvensjon blir gjort til norsk lov, slik at den gjelder direkte for domstoler og forvaltning. Gjennom menneskerettsloven går flere av konvensjonene foran annen norsk lov hvis de kommer i strid.",menneskerettigheter,0,
+barnets-beste,concept,Menneskerettigheter,Barnets beste,"Barnets beste: prinsippet i barnekonvensjonen og Grunnloven § 104 om at hensynet til barnet skal være et grunnleggende hensyn i alle handlinger og avgjørelser som angår barn.",menneskerettigheter,0,
+urfolk-minoriteter,concept,Menneskerettigheter,Urfolk og nasjonale minoriteter,"Urfolk: et folk som bodde i et område før dagens statsgrenser ble trukket, og som har bevart egne samfunnsformer, språk og kultur. Samene er urfolk i Norge, og staten har etter Grunnloven § 108 plikt til å legge forholdene til rette for samisk språk, kultur og samfunnsliv.
+Nasjonal minoritet: en gruppe med lang tilknytning til landet. Norge anerkjenner fem: jøder, kvener/norskfinner, skogfinner, rom og romanifolket/tatere.",menneskerettigheter,0,
+fornorskning,concept,Menneskerettigheter,Fornorskningspolitikken,"Fornorskningspolitikken: statens politikk fra midten av 1800-tallet og langt inn på 1900-tallet for å få samer, kvener og andre minoriteter til å oppgi eget språk og egen kultur, blant annet gjennom skole og internat. Sannhets- og forsoningskommisjonen la fram sin rapport om politikken og virkningene av den i 2023.",urfolk-minoriteter,0,
+mr-dokumenter,fact,Menneskerettigheter,Sentrale menneskerettighetsdokumenter,"FNs verdenserklæring om menneskerettighetene: 1948
+Den europeiske menneskerettskonvensjonen (EMK): 1950
+FNs kvinnediskrimineringskonvensjon (CEDAW): 1979
+FNs barnekonvensjon: 1989
+ILO-konvensjon 169 om urfolk: 1989, ratifisert av Norge som første land i 1990
+menneskerettsloven: 1999
+FN-konvensjonen om rettighetene til mennesker med nedsatt funksjonsevne (CRPD): 2006
+eget menneskerettighetskapittel i Grunnloven: 2014",menneskerettigheter,0,
+forklare-mr-velferd,skill,Menneskerettigheter,Forklare hvordan menneskerettighetene har påvirket velferdsstaten,"forklare med eksempler hvordan menneskerettighetene, særlig de sosiale og økonomiske og barns rettigheter, har satt spor i norske velferdslover og -tjenester.",rettighetstyper;inkorporering;barnets-beste;mr-dokumenter;velferdsstat,0,
+gi-eksempler-brudd,skill,Menneskerettigheter,Gi eksempler på brudd på menneskerettighetene i Norge,"gi eksempler på saker der Norge er blitt kritisert eller dømt for brudd på menneskerettighetene, og forklare hvilken rettighet som var brutt.",rettighetstyper;barnets-beste,0,
+vurdere-minoritetsperspektiv,skill,Menneskerettigheter,"Vurdere menneskerettighetene fra majoritets-, minoritets- og urfolksperspektiv","vurdere hvordan en sak om rettigheter ser ulik ut fra majoritetens, en minoritets og samenes ståsted, og bruke fornorskningspolitikken til å forklare dagens krav og tiltak.",urfolk-minoriteter;fornorskning,0,
+drofte-mr-ivaretakelse,skill,Menneskerettigheter,Drøfte hvordan menneskerettighetene ivaretas i Norge,"drøfte hvor godt menneskerettighetene ivaretas i Norge, med eksempler både på ivaretakelse og brudd, og vurdere hva som kan gjøres bedre.",forklare-mr-velferd;gi-eksempler-brudd;vurdere-minoritetsperspektiv,0,
+sosial-ulikhet,concept,Ulikhet og inkludering,Sosial ulikhet,"Sosial ulikhet: systematiske forskjeller mellom grupper i tilgangen til goder som gir levekår og muligheter - inntekt og formue, utdanning, helse, bolig og innflytelse.",,0,
+levekar,concept,Ulikhet og inkludering,Levekår,"Levekår: de ressursene og forholdene en person lever under - økonomi, bolig, helse, arbeid, utdanning og sosialt nettverk - målt slik at de kan sammenlignes mellom grupper.",,0,
+fattigdom,concept,Ulikhet og inkludering,Absolutt og relativ fattigdom,"Absolutt fattigdom: å mangle det som trengs for å dekke grunnleggende behov som mat, rent vann og husly.
+Relativ fattigdom: å ha så mye lavere inntekt enn andre i samfunnet at man ikke kan leve et vanlig liv der. Et vanlig mål er en inntekt under 60 prosent av medianinntekten.",levekar;gjennomsnitt-median,0,
+gini,concept,Ulikhet og inkludering,Gini-koeffisienten,"Gini-koeffisienten: et mål på hvor ujevnt inntekten er fordelt i et land, mellom 0 (alle har lik inntekt) og 1 (én person har all inntekten).",sosial-ulikhet,0,
+kapitalformer,concept,Ulikhet og inkludering,Kapitalformer,"Økonomisk kapital: penger, formue og eiendom.
+Kulturell kapital: utdanning, kunnskap, språk og smak som verdsettes i samfunnet.
+Sosial kapital: nettverket av relasjoner man kan dra nytte av.
+Begrepene kommer fra sosiologen Pierre Bourdieu.",sosial-ulikhet,0,
+sosial-arv,concept,Ulikhet og inkludering,Sosial arv,"Sosial arv: at barn i stor grad overtar foreldrenes levekår og sosiale posisjon - utdanning, inntekt, helse og vaner - gjennom oppveksten.",sosial-ulikhet,0,
+sosial-mobilitet,concept,Ulikhet og inkludering,Sosial mobilitet,"Sosial mobilitet: bevegelse opp eller ned mellom sosiale lag, enten i løpet av eget liv eller sammenlignet med foreldrene.",sosial-arv,0,
+marginalisering,concept,Ulikhet og inkludering,Marginalisering,"Marginalisering: prosessen der en person eller gruppe gradvis skyves ut mot kanten av fellesskapet og får svakere tilknytning til arbeid, utdanning og sosiale nettverk.",sosial-ulikhet,0,
+utenforskap,concept,Ulikhet og inkludering,Utenforskap,"Utenforskap: tilstanden å stå utenfor fellesskap andre tar del i - arbeid, skole, organisasjonsliv eller sosiale nettverk - over lang tid. Marginalisering er veien dit; utenforskap er der man havner.",marginalisering,0,
+inkludering,concept,Ulikhet og inkludering,Inkludering,"Inkludering: at alle får delta på like vilkår i fellesskapet, og at fellesskapet tilpasser seg mangfoldet framfor å kreve at den enkelte tilpasser seg. Inkludering skjer på flere nivåer - i en gruppe som en klasse, i en organisasjon som en arbeidsplass, og i samfunnet gjennom lover og ordninger.",utenforskap,0,
+inkluderingstiltak,fact,Ulikhet og inkludering,Tiltak for inkludering i arbeidslivet,"IA-avtalen: avtale mellom myndighetene og partene i arbeidslivet om lavere sykefravær og færre som faller ut av arbeidslivet, første gang inngått i 2001
+kvalifiseringsprogrammet: helårig program med tett oppfølging for personer med svak tilknytning til arbeidslivet som er avhengige av sosialhjelp
+introduksjonsprogrammet: opplæring i norsk, samfunnskunnskap og forberedelse til arbeid eller utdanning for nyankomne flyktninger
+lønnstilskudd: NAV dekker en del av lønna slik at en arbeidsgiver kan ansette en som ellers ville hatt vanskelig for å få jobb
+arbeidstrening: utprøving og opplæring på en vanlig arbeidsplass, med oppfølging fra NAV
+tilrettelegging: arbeidsgiveren tilpasser oppgaver, arbeidstid eller utstyr så en arbeidstaker med nedsatt arbeidsevne kan fortsette i jobben",inkludering,0,
+beskrive-ulikhet-tall,skill,Ulikhet og inkludering,Beskrive sosial ulikhet i Norge med statistikk,"bruke statistikk om inntekt, lavinntekt og levekår til å beskrive hvor store forskjellene er i Norge, og hvordan de har utviklet seg.",gini;fattigdom;lese-tabell,0,
+forklare-arsaker-ulikhet,skill,Ulikhet og inkludering,Forklare årsaker til sosial ulikhet,"forklare årsaker til sosial ulikhet ved å bruke begreper som kapitalformer, sosial arv og sosial mobilitet, og vise hvordan både individuelle valg og strukturelle forhold spiller inn.",kapitalformer;sosial-mobilitet;aktor-struktur,0,
+drofte-ulikhet-utenforskap,skill,Ulikhet og inkludering,Drøfte årsaker til marginalisering og utenforskap,"drøfte årsaker til at noen blir marginalisert og havner i utenforskap, og vurdere konsekvensene for den enkelte og for samfunnet.",forklare-arsaker-ulikhet;utenforskap;beskrive-ulikhet-tall,0,
+utforske-inkludering,skill,Ulikhet og inkludering,Utforske inkludering på ulike nivåer,"utforske hvordan inkludering og ekskludering foregår på et konkret sted - en klasse, en arbeidsplass eller et lokalsamfunn - og forklare hva som fremmer og hindrer at alle får delta.",inkludering,0,
+vurdere-inkluderingstiltak,skill,Ulikhet og inkludering,Vurdere tiltak for inkludering i arbeidsliv og velferdssamfunn,"vurdere hvor godt konkrete tiltak bidrar til å inkludere folk i arbeidslivet og velferdssamfunnet, og begrunne hvilke grupper tiltakene treffer og hvilke de ikke treffer.",utforske-inkludering;inkluderingstiltak;arbeidslinja;drofte-ulikhet-utenforskap,0,
+sosialisering,concept,Sosialisering og identitet,Primær- og sekundærsosialisering,"Primærsosialisering: den første sosialiseringen, i familien og blant de nærmeste, der språk, grunnleggende normer og tillit legges.
+Sekundærsosialisering: sosialiseringen som skjer senere og utenfor familien - i barnehage, skole, venneflokk, arbeidsliv, medier og sosiale medier.",,0,
+sosial-rolle,concept,Sosialisering og identitet,Sosial rolle,"Sosial rolle: de forventningene som knytter seg til en posisjon - elev, datter, kollega, kaptein - og som styrer hvordan man forventes å oppføre seg i den.",,0,
+mead,concept,Sosialisering og identitet,Signifikante og generaliserte andre,"Signifikante andre: de nærmeste personene, som foreldre og søsken, hvis reaksjoner barnet først speiler seg i.
+Generaliserte andre: barnets samlede forståelse av hva samfunnet rundt forventer. Begrepene kommer fra George Herbert Mead.",sosialisering,0,
+goffman,concept,Sosialisering og identitet,Inntrykksstyring,"Inntrykksstyring: Erving Goffmans begrep for hvordan vi spiller rollene våre for et publikum og styrer hvilket inntrykk andre får av oss. Han skiller mellom frontregionen, der vi opptrer, og bakregionen, der vi kan slappe av fra rollen.",sosial-rolle,0,
+kulturell-frisetting,concept,Sosialisering og identitet,Kulturell frisetting,"Kulturell frisetting: Thomas Ziehes begrep for at tradisjoner, familie og lokalsamfunn i mindre grad gir ferdige svar på hvordan man skal leve, slik at den enkelte i større grad må velge og skape sin egen identitet.",sosialisering,0,
+identitet,concept,Sosialisering og identitet,Identitet,"Identitet: oppfatningen av hvem man er. Personlig identitet er det som gjør deg til deg; sosial identitet er gruppene du regner deg som en del av, og som andre plasserer deg i.",,0,
+kjonn,concept,Sosialisering og identitet,Biologisk og sosialt kjønn,"Biologisk kjønn: kjønnet slik det kommer til uttrykk i kropp, kromosomer og hormoner.
+Sosialt kjønn: forestillingene og forventningene et samfunn knytter til det å være kvinne eller mann - kjønnsroller som endrer seg over tid og varierer mellom kulturer.",,0,
+kjonnsidentitet,concept,Sosialisering og identitet,Kjønnsidentitet og seksuell orientering,"Kjønnsidentitet: en persons indre opplevelse av eget kjønn, som kan samsvare med eller avvike fra kjønnet personen ble tildelt ved fødselen.
+Seksuell orientering: hvem man forelsker seg i og tiltrekkes av.",kjonn;identitet,0,
+kjonnsperspektiver,concept,Sosialisering og identitet,Perspektiver på kjønn,"Biologisk perspektiv: forklarer forskjeller mellom kjønnene først og fremst ut fra gener, hormoner og evolusjon.
+Sosialkonstruktivistisk perspektiv: forklarer forskjellene først og fremst som et resultat av sosialisering, normer og forventninger i samfunnet.",kjonn,0,
+fordom-stereotypi,concept,Sosialisering og identitet,Stereotypi og fordom,"Stereotypi: et forenklet og fastlåst bilde av hvordan medlemmer av en gruppe er.
+Fordom: en negativ holdning til en person på grunn av gruppen hen tilhører, dannet før man kjenner personen.",identitet,0,
+normkritikk,concept,Sosialisering og identitet,Normkritisk perspektiv,"Normkritisk perspektiv: å undersøke hvilke normer som gjør at noen framstår som «vanlige» og andre som avvikende, i stedet for bare å se på dem som avviker.",fordom-stereotypi,0,
+forklare-sosialiseringsperspektiver,skill,Sosialisering og identitet,Gjøre rede for perspektiver på sosialisering,"gjøre rede for ulike perspektiver på sosialisering, blant annet Meads og Goffmans, og bruke dem til å forklare hvordan en ung person formes av familie, skole, venner og sosiale medier.",mead;goffman;bruke-teori,0,
+drofte-sosialisering-endring,skill,Sosialisering og identitet,Drøfte hvordan sosialiseringen har endret seg over tid,"drøfte hvordan sosialiseringen har endret seg fra besteforeldrenes oppvekst til i dag - familiemønstre, skole, arbeidsliv og digitale medier - og vurdere hva endringene betyr for unges identitet.",forklare-sosialiseringsperspektiver;kulturell-frisetting,0,
+analysere-kjonnsroller,skill,Sosialisering og identitet,Analysere kjønnsroller ut fra ulike perspektiver,"analysere et konkret eksempel på kjønnsforskjeller, som utdanningsvalg eller lønn, ved å stille et biologisk og et sosialkonstruktivistisk perspektiv opp mot hverandre.",kjonnsperspektiver;sosialisering,0,
+utforske-identitet,skill,Sosialisering og identitet,Utforske perspektiver på kjønn og identitet,"utforske hvordan kjønn, seksuell orientering, etnisitet og andre gruppetilhørigheter kan prege identiteten til en person, og hvordan identitet både velges og blir tilskrevet av andre.",kjonnsidentitet;analysere-kjonnsroller,0,
+reflektere-holdninger,skill,Sosialisering og identitet,Reflektere over holdninger til egen og andres identitet,"reflektere over egne og andres holdninger til identitet, kjønn og seksualitet, og bruke et normkritisk perspektiv til å vise hvordan holdninger kan begrense eller åpne muligheter for andre.",utforske-identitet;normkritikk,0,
+maslow,concept,Livsmestring og kriser,Behovspyramiden,"Behovspyramiden: Abraham Maslows modell av menneskets behov i fem nivåer - fysiologiske behov, trygghet, kjærlighet og tilhørighet, anerkjennelse og selvrealisering. Etter modellen må de grunnleggende behovene i stor grad være dekket før de øvre blir styrende.",,0,
+tilknytning,concept,Livsmestring og kriser,Tilknytning,"Tilknytning: det følelsesmessige båndet et lite barn utvikler til omsorgspersonene sine. Trygg tilknytning gir barnet en trygg base å utforske verden fra, og preger senere relasjoner.",,0,
+risiko-beskyttelse,concept,Livsmestring og kriser,Risiko- og beskyttelsesfaktorer,"Risikofaktor: et forhold som øker sjansen for at et barn eller en ungdom får problemer senere, som vold i hjemmet, fattigdom eller mobbing.
+Beskyttelsesfaktor: et forhold som demper virkningen av risikoen, som en trygg voksen, gode venner eller mestring på skolen.",tilknytning,0,
+livsmestring,concept,Livsmestring og kriser,Livsmestring,"Livsmestring: å kunne forstå og påvirke faktorer som har betydning for eget liv, og å håndtere medgang og motgang, egne følelser og forholdet til andre. Evnen til å komme seg gjennom store belastninger kalles resiliens.",,0,
+krise,concept,Livsmestring og kriser,Traumatisk krise og utviklingskrise,"Traumatisk krise: en plutselig, uventet hendelse som truer tryggheten eller livsgrunnlaget, som et dødsfall, en ulykke eller vold.
+Utviklingskrise (livskrise): en krise som kommer ved overganger i livet man kan forutse, som pubertet, å flytte hjemmefra, skilsmisse eller å bli pensjonist.",,0,
+krisefaser,concept,Livsmestring og kriser,Krisefaser,"Krisefaser: Johan Cullbergs modell av forløpet i en traumatisk krise - sjokkfasen, reaksjonsfasen, bearbeidingsfasen og nyorienteringsfasen. Fasene kan gli over i hverandre, og ikke alle går gjennom dem i samme rekkefølge.",krise,0,
+samfunnssikkerhet,concept,Livsmestring og kriser,Samfunnssikkerhet og beredskap,"Samfunnskrise: en hendelse som rammer mange samtidig og truer viktige funksjoner i samfunnet, som en pandemi, et terrorangrep eller en naturkatastrofe.
+Beredskap: planene, ressursene og øvelsene som skal til for å forebygge og håndtere slike hendelser, fra kommunens kriseledelse til helsevesen og politi.",krise,0,
+gjore-rede-behov-barn,skill,Livsmestring og kriser,Gjøre rede for sentrale behov i barne- og ungdomsårene,"gjøre rede for hvilke behov som er sentrale for barn og unge i ulike livsfaser, og forklare hva som skjer når de ikke blir dekket.",maslow;tilknytning,0,
+vurdere-behovsdekning,skill,Livsmestring og kriser,"Vurdere sammenhengen mellom behovsdekning, velferd og livsmestring","vurdere hvordan familie, oppvekstmiljø og velferdsordninger bidrar til å dekke barn og unges behov, og hvordan behovsdekning henger sammen med livsmestring senere i livet.",gjore-rede-behov-barn;risiko-beskyttelse;livsmestring;barnets-beste;velferdsstat,0,
+forklare-krisereaksjoner,skill,Livsmestring og kriser,Forklare reaksjoner på en krise,"forklare hvordan en person typisk reagerer i de ulike fasene av en traumatisk krise, og hvilken hjelp som er nyttig i hver fase.",krisefaser,0,
+vurdere-krisehandtering,skill,Livsmestring og kriser,Vurdere hvordan kriser håndteres på individ- og samfunnsnivå,"vurdere hvordan en konkret krise kan håndteres av den enkelte, av nettverket rundt og av samfunnet, og hvilke beskyttelsesfaktorer og beredskapstiltak som gjør utfallet bedre.",forklare-krisereaksjoner;samfunnssikkerhet;livsmestring,0,
+sosialt-problem,concept,Sosiale problemer og vold,Sosialt problem,"Sosialt problem: et forhold som rammer mange, som mange mener er uønsket, og som man mener samfunnet kan og bør gjøre noe med - som fattigdom, rusavhengighet, kriminalitet, ensomhet eller bostedsløshet.",,0,
+perspektiver-sosiale-problemer,concept,Sosiale problemer og vold,Objektivistisk og konstruktivistisk perspektiv på sosiale problemer,"Objektivistisk perspektiv: et sosialt problem er et forhold som faktisk skader mennesker, og som kan måles uavhengig av om noen snakker om det.
+Konstruktivistisk perspektiv: et forhold blir et sosialt problem først når noen definerer det som et problem og får gehør for det, i medier, politikk eller forskning.",sosialt-problem;samfunnsvitenskapelig-teori,0,
+stempling,concept,Sosiale problemer og vold,Stemplingsteori,"Stemplingsteori: Howard Beckers teori om at avvik ikke bare ligger i handlingen, men i at omgivelsene setter merkelapp på personen. Den som blir stemplet som avviker, kan begynne å se seg selv slik og handle deretter.",sosialt-problem,0,
+anomi,concept,Sosiale problemer og vold,Anomi,"Anomi: et begrep fra Émile Durkheim, videreutviklet av Robert Merton. Hos Merton er det en tilstand der samfunnet framhever mål som suksess og velstand, mens noen grupper mangler lovlige midler til å nå dem, slik at presset mot avvik øker.",sosialt-problem,0,
+forebyggingsnivaer,concept,Sosiale problemer og vold,Nivåer av forebygging,"Universell forebygging: rettet mot alle, for eksempel undervisning om rus i skolen.
+Selektiv forebygging: rettet mot grupper med økt risiko, for eksempel barn av foreldre med rusproblemer.
+Indikert forebygging: rettet mot enkeltpersoner som allerede viser tegn til problemer, for eksempel tett oppfølging av en elev som er i ferd med å falle fra.",sosialt-problem,0,
+vold-former,concept,Sosiale problemer og vold,Former for vold,"Fysisk vold: slag, spark, lugging, kvelertak og annen bruk av fysisk makt.
+Psykisk vold: trusler, kontroll, ydmykelse og isolering som skaper frykt.
+Seksuell vold: seksuelle handlinger uten samtykke.
+Materiell vold: å ødelegge eller true med å ødelegge ting.
+Digital vold: trusler, overvåking, kontroll eller deling av bilder via mobil og nett.",,0,
+vold-naere-relasjoner,concept,Sosiale problemer og vold,Vold i nære relasjoner,"Vold i nære relasjoner: vold fra en partner, et familiemedlem eller en annen nær person. Mishandling i nære relasjoner er straffbart etter straffeloven § 282, og barn som er vitne til vold, regnes selv som utsatt for vold.",vold-former,0,
+trakassering,concept,Sosiale problemer og vold,Trakassering og mobbing,"Trakassering: handlinger, unnlatelser eller ytringer som virker eller har til formål å være krenkende, skremmende, fiendtlige, nedverdigende eller ydmykende.
+Seksuell trakassering: uønsket seksuell oppmerksomhet som er plagsom, forbudt etter likestillings- og diskrimineringsloven.
+Mobbing: gjentatt negativ atferd over tid mot en som har vanskelig for å forsvare seg.",,0,
+negativ-sosial-kontroll,concept,Sosiale problemer og vold,Negativ sosial kontroll og æresrelatert vold,"Negativ sosial kontroll: oppfølging, press og trusler som begrenser en persons frihet til å ta egne valg om venner, kjæreste, klær, utdanning eller ekteskap.
+Æresrelatert vold: vold som blir begrunnet med å beskytte eller gjenopprette familiens ære, ofte som en forlengelse av negativ sosial kontroll.",vold-former,0,
+gjore-rede-sosiale-problemer,skill,Sosiale problemer og vold,Gjøre rede for ulike typer sosiale problemer,"gjøre rede for flere typer sosiale problemer, hvem som rammes, og hvordan et forhold kan bli definert som et sosialt problem.",perspektiver-sosiale-problemer,0,
+forklare-avvik-teori,skill,Sosiale problemer og vold,Forklare sosiale problemer med teori,"bruke teorier som stemplingsteori og anomi til å forklare et konkret sosialt problem, som ungdomskriminalitet eller rusbruk, og vurdere hva hver teori forklarer best.",stempling;anomi;bruke-teori;gjore-rede-sosiale-problemer,0,
+utforske-velferdsforskjeller-problemer,skill,Sosiale problemer og vold,Utforske sammenhengen mellom velferdsforskjeller og sosiale problemer,"utforske hvordan forskjeller i velferd og levekår henger sammen med sosiale problemer som dårlig helse, rus og kriminalitet, og drøfte konsekvensene for den enkelte og for samfunnet.",gjore-rede-sosiale-problemer;drofte-ulikhet-utenforskap;tolke-statistikk,0,
+vurdere-forebygging,skill,Sosiale problemer og vold,Vurdere forebyggende tiltak,"vurdere forebyggende tiltak mot et konkret sosialt problem, ved å plassere dem på riktig forebyggingsnivå og vurdere hvem de når, hva de koster og hvilke virkninger de har.",forebyggingsnivaer;gjore-rede-sosiale-problemer,0,
+gjore-rede-vold,skill,Sosiale problemer og vold,Gjøre rede for ulike former for vold og trakassering,"gjøre rede for ulike former for vold og trakassering, med eksempler, og forklare hvordan loven og hjelpeapparatet behandler dem.",vold-naere-relasjoner;trakassering;negativ-sosial-kontroll,0,
+drofte-vold-konsekvenser,skill,Sosiale problemer og vold,Drøfte konsekvenser av vold og trakassering,"drøfte konsekvensene av vold og trakassering for den som rammes, for familie og nærmiljø og for samfunnet, og vurdere tiltak som kan forebygge det.",gjore-rede-vold;risiko-beskyttelse;vurdere-forebygging,0,

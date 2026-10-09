@@ -1,0 +1,475 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Uttale og skrift;Ordforråd;Substantiv og pronomen;Verb;Setningslære;Lesing og oversettelse;Samtale;Latin i dag;Antikken,,,
+,config,,title,Latin 1,,,
+,config,,description,"Ordforråd, formlære og setningslære for å lese og oversette enkle latinske tekster, med antikkens historie og kultur og latinens spor i dag. Et første forslag.",,,
+,config,,language,nb,,,
+,config,,learner,pupil,,,
+,config,,subjectFamily,language-acquisition,,,
+,config,,storageKey,no-vgs-latin-1-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"latin 1 (programfag, Vg2, videregående skole)",,,
+,config,,slots.motivationSubject,latin,,,
+,config,,slots.expressionFocus,"oversetter ord for ord i latinsk ordstilling, ser bort fra endelsene og gjetter kasus ut fra plassen i setningen, blander dativ og ablativ, lar adjektivet stå i en annen kasus enn substantivet, eller oversetter imperfektum og perfektum likt uten å tenke over forskjellen",,,
+,config,,slots.courseSpecifics,"Latin er først og fremst et lesespråk: målet er å forstå, analysere og oversette tekster, ikke å klare seg på latin i hverdagen. Læreplanen ber likevel om enkle samtaler på latin, så øv dem skriftlig, om tekster, bilder og kjente emner, på enkel latin. Forklar på norsk, og bruk norsk som oversettelsesspråk. Lange vokaler kan være merket med strek (ā); godta at eleven skriver uten. Bruk klassisk, restituert uttale (c og g alltid harde, v som engelsk w) hvis ikke eleven sier at skolen bruker en annen. Faget har standpunktkarakter, og eleven kan trekkes ut til muntlig eksamen med forberedelsesdel, laget og sensurert lokalt; la derfor eleven også øve på å forklare grammatikk og innhold muntlig med egne ord.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Programfag språk,,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,SPR3026,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,latin,,,
+,config,,keywords,latin; antikken; Roma; deklinasjon; kasus; bøyningsmønstre; oversettelse; romersk historie; sitater; fremmedord; programfag språk,,,
+,config,,updated,2026-10-08,,,
+uttale-bokstaver,fact,Uttale og skrift,Uttale av latinske bokstaver,"c: alltid k-lyd (Cicerō uttales «Kikero»)
+g: alltid hard g (gēns)
+v: som engelsk w (vīnum)
+i foran vokal først i ordet: som j (iam)
+ae: som «ai» (puellae)
+au: som «au» i «sau» (aurum)
+oe: som «oi» (poena)
+qu: som «kw» (quis)
+ph, th og ch: som p, t og k med pust etter, i greske lånord (philosophia)
+s: alltid ustemt s (rosa)",,0,
+vokallengde,concept,Uttale og skrift,Lang og kort vokal,"Vokallengde: en latinsk vokal er enten lang eller kort, og lengden kan skille ord og former fra hverandre (rosa i nominativ, rosā i ablativ).
+Makron: streken over en vokal som viser at den er lang (ā, ē, ī, ō, ū); den brukes i lærebøker, men ikke i originaltekster.",,0,
+trykkregel,concept,Uttale og skrift,Trykkregelen,"Trykkregelen: ord med to stavelser har trykk på første stavelse; lengre ord har trykk på nest siste stavelse når den er lang, og ellers på tredje siste (amīcus, men dominus).",vokallengde,0,
+lese-hoyt,skill,Uttale og skrift,Lese latin høyt,"lese en kort latinsk tekst høyt med riktig uttale av c, g, v og diftongene og med trykk etter trykkregelen, sjekket ved å sammenligne et opptak av deg selv med en innlest versjon",uttale-bokstaver;trykkregel,0,
+romertall,fact,Uttale og skrift,Romertall,"I: 1
+V: 5
+X: 10
+L: 50
+C: 100
+D: 500
+M: 1000
+et mindre tegn foran et større trekkes fra (IV = 4, XC = 90), og ellers legges tegnene sammen (XVII = 17, MMXXVI = 2026)",,0,
+tall,fact,Ordforråd,Tallene,"ūnus, ūna, ūnum: én
+duo: to
+trēs: tre
+quattuor: fire
+quīnque: fem
+sex: seks
+septem: sju
+octō: åtte
+novem: ni
+decem: ti
+vīgintī: tjue
+centum: hundre
+mīlle: tusen",romertall,0,
+hilsener,fact,Ordforråd,Hilsener og faste fraser,"salvē: hei (til én)
+salvēte: hei (til flere)
+valē: ha det (til én)
+valēte: ha det (til flere)
+quid agis?: hvordan har du det?
+bene: bra
+male: dårlig
+grātiās tibi agō: takk
+quaesō: vær så snill
+quod nōmen tibi est?: hva heter du?
+mihi nōmen est …: jeg heter …
+ita vērō: ja
+minimē: nei
+nesciō: jeg vet ikke",,0,
+ord-familie,fact,Ordforråd,Familie og hjem,"pater, patris m.: far
+māter, mātris f.: mor
+fīlius, fīliī m.: sønn
+fīlia, fīliae f.: datter
+frāter, frātris m.: bror
+soror, sorōris f.: søster
+dominus, dominī m.: herre
+domina, dominae f.: frue
+servus, servī m.: slave
+ancilla, ancillae f.: slavinne, tjenestepike
+familia, familiae f.: husstand
+domus, domūs f.: hus, hjem
+vīlla, vīllae f.: landsted",,0,
+ord-substantiv,fact,Ordforråd,Vanlige substantiv,"puella, puellae f.: jente
+puer, puerī m.: gutt
+vir, virī m.: mann
+fēmina, fēminae f.: kvinne
+homō, hominis m.: menneske
+amīcus, amīcī m.: venn
+deus, deī m.: gud
+rēx, rēgis m.: konge
+populus, populī m.: folk
+urbs, urbis f.: by
+via, viae f.: vei
+terra, terrae f.: jord, land
+aqua, aquae f.: vann
+bellum, bellī n.: krig
+liber, librī m.: bok
+nōmen, nōminis n.: navn
+tempus, temporis n.: tid
+corpus, corporis n.: kropp
+vīta, vītae f.: liv
+mors, mortis f.: død",,0,
+ord-verb,fact,Ordforråd,Vanlige verb,"esse: å være
+posse: å kunne
+habēre: å ha
+vidēre: å se
+amāre: å elske, å være glad i
+vocāre: å kalle, å rope
+ambulāre: å gå, å spasere
+dare: å gi
+dīcere: å si
+facere: å gjøre, å lage
+venīre: å komme
+īre: å gå
+audīre: å høre
+legere: å lese
+scrībere: å skrive
+dūcere: å lede, å føre
+mittere: å sende
+capere: å ta, å gripe
+respondēre: å svare
+timēre: å frykte",,0,
+ord-adjektiv,fact,Ordforråd,Vanlige adjektiv,"bonus: god
+malus: dårlig, ond
+magnus: stor
+parvus: liten
+multī: mange
+novus: ny
+longus: lang
+laetus: glad
+pulcher: vakker
+miser: ulykkelig
+līber: fri
+omnis: hel, hver; i flertall: alle
+fortis: modig, sterk
+brevis: kort
+facilis: lett
+difficilis: vanskelig",,0,
+smaord,fact,Ordforråd,Konjunksjoner og adverb,"et: og
+-que: og (hengt på ordet som kommer etter: senātus populusque)
+sed: men
+aut: eller
+neque: og ikke, heller ikke
+nam: for
+quod: fordi
+sī: hvis
+nōn: ikke
+etiam: også
+nunc: nå
+iam: allerede, nå
+tum: da, deretter
+semper: alltid
+saepe: ofte
+numquam: aldri
+igitur: altså",,0,
+sporreord,fact,Ordforråd,Spørreord,"quis?: hvem?
+quid?: hva?
+ubi?: hvor?
+quō?: hvorhen?
+unde?: hvorfra?
+cūr?: hvorfor?
+quandō?: når?
+quōmodo?: hvordan?
+quot?: hvor mange?
+-ne: gjør en setning til et ja/nei-spørsmål (vidēsne?)
+nōnne: spør og venter svaret ja
+num: spør og venter svaret nei",,0,
+preposisjoner,fact,Ordforråd,Preposisjoner,"in + akkusativ: inn i, til
+in + ablativ: i, på
+ad + akkusativ: til, mot
+per + akkusativ: gjennom
+post + akkusativ: etter, bak
+ante + akkusativ: foran, før
+inter + akkusativ: mellom, blant
+prope + akkusativ: nær
+trāns + akkusativ: over, på den andre siden av
+ā, ab + ablativ: fra
+ē, ex + ablativ: ut av, fra
+cum + ablativ: sammen med
+sine + ablativ: uten
+dē + ablativ: ned fra, om
+sub + ablativ: under
+prō + ablativ: for, foran",,0,
+ordforrad-strategi,skill,Ordforråd,Bygge opp et basisordforråd,"lære nye ord med hele oppslagsformen (substantiv med genitiv og kjønn, verb med stamformer), repetere dem med jevne mellomrom, og bruke dem i arbeidet med tekster",oppslagsform;stamformer,0,
+kasus,concept,Substantiv og pronomen,Kasus,"Kasus: formen et substantiv, adjektiv eller pronomen står i, og som viser hvilken rolle ordet har i setningen. Latin har fem kasus: nominativ, genitiv, dativ, akkusativ og ablativ, og i tillegg vokativ når noen tiltales.",,0,
+genus-numerus,concept,Substantiv og pronomen,Genus og numerus,"Genus: grammatisk kjønn; hvert substantiv er hankjønn (m.), hunkjønn (f.) eller intetkjønn (n.), og kjønnet følger ikke alltid naturlig kjønn (nauta, sjømann, er hankjønn selv om det ender på -a).
+Numerus: tall, det vil si entall eller flertall.",,0,
+deklinasjon,concept,Substantiv og pronomen,Deklinasjon,"Deklinasjon: en bøyningsgruppe for substantiv. Latin har fem, og hvilken et substantiv hører til, ser du av endelsen i genitiv entall: -ae (1.), -ī (2.), -is (3.), -ūs (4.) og -eī (5.).",kasus,0,
+oppslagsform,concept,Substantiv og pronomen,Oppslagsformen til et substantiv,"Oppslagsform: nominativ entall, genitiv entall og kjønn, slik ordet står i ordboka (rēx, rēgis m.).
+Stamme: det som blir igjen når genitivendelsen tas bort (rēg-); endelsene i de andre kasusene legges til stammen.",deklinasjon;genus-numerus,0,
+dekl1,fact,Substantiv og pronomen,Første deklinasjon (rosa),"nominativ entall: rosa
+genitiv entall: rosae
+dativ entall: rosae
+akkusativ entall: rosam
+ablativ entall: rosā
+nominativ flertall: rosae
+genitiv flertall: rosārum
+dativ flertall: rosīs
+akkusativ flertall: rosās
+ablativ flertall: rosīs
+de fleste ord i første deklinasjon er hunkjønn, men ord for menn som nauta og agricola er hankjønn",kasus,0,
+dekl2,fact,Substantiv og pronomen,"Andre deklinasjon, hankjønn (servus, puer)","nominativ entall: servus
+genitiv entall: servī
+dativ entall: servō
+akkusativ entall: servum
+ablativ entall: servō
+vokativ entall: serve
+nominativ flertall: servī
+genitiv flertall: servōrum
+dativ flertall: servīs
+akkusativ flertall: servōs
+ablativ flertall: servīs
+ord på -er bøyes likt fra genitiv av, noen med e-en beholdt (puer, puerī) og noen uten (ager, agrī), og har nominativ som vokativ",kasus,0,
+dekl2n,fact,Substantiv og pronomen,"Andre deklinasjon, intetkjønn (verbum)","nominativ entall: verbum
+genitiv entall: verbī
+dativ entall: verbō
+akkusativ entall: verbum
+ablativ entall: verbō
+nominativ flertall: verba
+genitiv flertall: verbōrum
+dativ flertall: verbīs
+akkusativ flertall: verba
+ablativ flertall: verbīs",kasus,0,
+dekl3,fact,Substantiv og pronomen,"Tredje deklinasjon, konsonantstammer (rēx, corpus)","nominativ entall: rēx
+genitiv entall: rēgis
+dativ entall: rēgī
+akkusativ entall: rēgem
+ablativ entall: rēge
+nominativ flertall: rēgēs
+genitiv flertall: rēgum
+dativ flertall: rēgibus
+akkusativ flertall: rēgēs
+ablativ flertall: rēgibus
+intetkjønn (corpus, corporis): nominativ og akkusativ entall corpus, nominativ og akkusativ flertall corpora; de andre kasusene bøyes som rēx",kasus,0,
+dekl3i,fact,Substantiv og pronomen,"Tredje deklinasjon, i-stammer (cīvis, mare)","nominativ entall: cīvis
+genitiv entall: cīvis
+akkusativ entall: cīvem
+ablativ entall: cīve
+genitiv flertall: cīvium
+akkusativ flertall: cīvēs (eldre form cīvīs)
+i-stammene bøyes ellers som rēx, men har -ium i genitiv flertall
+intetkjønnsord på -e, -al og -ar (mare, animal) har -ī i ablativ entall og -ia i nominativ og akkusativ flertall (marī, maria)",dekl3,0,
+intetkjonnsregel,concept,Substantiv og pronomen,Intetkjønnsregelen,"Intetkjønnsregelen: et intetkjønnsord har samme form i nominativ og akkusativ, og ender alltid på -a i nominativ og akkusativ flertall (verba, corpora, maria).",genus-numerus,0,
+boye-subst12,skill,Substantiv og pronomen,Bøye substantiv i første og andre deklinasjon,"bøye substantiv i første og andre deklinasjon i alle kasus i entall og flertall ut fra oppslagsformen (puella, puellae f.; amīcus, amīcī m.; dōnum, dōnī n.)",dekl1;dekl2;dekl2n;oppslagsform;intetkjonnsregel,0,
+boye-subst3,skill,Substantiv og pronomen,Bøye substantiv i tredje deklinasjon,"finne stammen ut fra genitiv entall og bøye substantiv i tredje deklinasjon i alle kasus (mīles, mīlitis m.; nōmen, nōminis n.)",dekl3;dekl3i;oppslagsform;intetkjonnsregel,0,
+kjenne-kasus,skill,Substantiv og pronomen,Bestemme kasus og tall ut fra endelsen,"si hvilke kasus og tall en endelse kan stå for, og bruke resten av setningen til å velge når endelsen kan bety flere ting (rosae, servō, rēgēs)",boye-subst12;boye-subst3,0,
+samsvar,concept,Substantiv og pronomen,"Samsvar i kasus, tall og kjønn","Samsvarsbøyning: et adjektiv står i samme kasus, tall og kjønn som substantivet det hører til, men trenger ikke ha samme endelse (agricola bonus, rēgī bonō).",kasus;genus-numerus,0,
+adj12,fact,Substantiv og pronomen,Adjektiv i første og andre deklinasjon (bonus),"hankjønn: bonus, bonī (bøyes som servus)
+hunkjønn: bona, bonae (bøyes som rosa)
+intetkjønn: bonum, bonī (bøyes som verbum)
+adjektiv på -er beholder e-en (miser, misera, miserum) eller mister den (pulcher, pulchra, pulchrum)",dekl1;dekl2;dekl2n,0,
+adj3,fact,Substantiv og pronomen,Adjektiv i tredje deklinasjon (omnis),"omnis (m. og f.), omne (n.): to endelser i nominativ
+ācer (m.), ācris (f.), ācre (n.): tre endelser i nominativ
+fēlīx, gen. fēlīcis: én endelse i nominativ for alle kjønn
+adjektiv i tredje deklinasjon har -ī i ablativ entall, -ium i genitiv flertall og -ia i intetkjønn flertall (omnī, omnium, omnia)",dekl3i,0,
+boye-adj,skill,Substantiv og pronomen,Bøye adjektiv i samsvar med substantivet,"velge riktig form av et adjektiv så det samsvarer med substantivet i kasus, tall og kjønn, også når de bøyes etter ulike mønstre (nautae bonī, cum rēge magnō)",samsvar;adj12;adj3;kjenne-kasus,0,
+pers-pron,fact,Substantiv og pronomen,Personlige og refleksive pronomen,"ego: jeg (meī, mihi, mē, mē)
+tū: du (tuī, tibi, tē, tē)
+nōs: vi (nostrī eller nostrum, nōbīs, nōs, nōbīs)
+vōs: dere (vestrī eller vestrum, vōbīs, vōs, vōbīs)
+sē: seg, refleksivt (suī, sibi, sē, sē)
+cum + pronomen i ablativ skrives sammen og bakfram: mēcum, tēcum, nōbīscum, sēcum",kasus,0,
+eiendomspron,fact,Substantiv og pronomen,Eiendomspronomen,"meus: min
+tuus: din
+suus: sin, refleksivt
+noster: vår
+vester: deres (eid av dere)
+eius: hans, hennes, ikke-refleksivt
+eōrum, eārum: deres (eid av dem), ikke-refleksivt
+meus, tuus, suus, noster og vester bøyes som adjektiv i første og andre deklinasjon",adj12,0,
+is-ea-id,fact,Substantiv og pronomen,"Pronomenet is, ea, id","nominativ entall: is, ea, id
+genitiv entall: eius (alle kjønn)
+dativ entall: eī (alle kjønn)
+akkusativ entall: eum, eam, id
+ablativ entall: eō, eā, eō
+nominativ flertall: eī eller iī, eae, ea
+genitiv flertall: eōrum, eārum, eōrum
+dativ og ablativ flertall: eīs eller iīs
+akkusativ flertall: eōs, eās, ea",kasus,0,
+hic-ille,fact,Substantiv og pronomen,Påpekende pronomen hic og ille,"hic, haec, hoc: denne, dette (her hos meg)
+ille, illa, illud: den, det (der borte); også «han», «hun»
+hic i entall: huius (genitiv), huic (dativ), hunc, hanc, hoc (akkusativ), hōc, hāc, hōc (ablativ)
+hic i flertall: hī, hae, haec; hōrum, hārum, hōrum; hīs; hōs, hās, haec; hīs
+ille har genitiv illīus og dativ illī i entall, og bøyes ellers som bonus, men med illud i intetkjønn nominativ og akkusativ",kasus,0,
+refleksiv,concept,Substantiv og pronomen,Refleksivt og ikke-refleksivt pronomen,"Refleksivt pronomen: sē og suus viser tilbake til subjektet i samme setning, som norsk «seg» og «sin».
+Ikke-refleksivt pronomen: eum og eius viser til en annen enn subjektet, som norsk «ham» og «hans».",pers-pron;eiendomspron,0,
+bruke-pronomen,skill,Substantiv og pronomen,Forstå og oversette pronomen,"finne ut hvem et pronomen viser til, og oversette det med riktig norsk pronomen, også valget mellom «sin» og «hans»",refleksiv;is-ea-id;hic-ille;kjenne-kasus,0,
+relativpron,fact,Substantiv og pronomen,"Relativpronomenet quī, quae, quod","nominativ entall: quī, quae, quod
+genitiv entall: cuius
+dativ entall: cui
+akkusativ entall: quem, quam, quod
+ablativ entall: quō, quā, quō
+nominativ flertall: quī, quae, quae
+genitiv flertall: quōrum, quārum, quōrum
+dativ og ablativ flertall: quibus
+akkusativ flertall: quōs, quās, quae",kasus,0,
+verb-begreper,concept,Verb,"Person, tall og tid","Person: hvem som handler: første (jeg, vi), andre (du, dere) eller tredje (han, hun, det, de).
+Personendelse: endelsen som viser person og tall, så latin klarer seg ofte uten pronomen (amat: han eller hun elsker).
+Tempus: tiden verbet står i (presens, imperfektum, futurum, perfektum …).",,0,
+konjugasjon,concept,Verb,Konjugasjon,"Konjugasjon: en bøyningsgruppe for verb. Latin har fire, og hvilken et verb hører til, ser du av infinitiven: -āre (1.), -ēre (2.), -ere (3.) og -īre (4.); verb som capiō bøyes som en blanding av tredje og fjerde.",verb-begreper,0,
+stamformer,concept,Verb,Stamformene til et verb,"Stamformer: de fire oppslagsformene til et verb: første person presens, infinitiv, første person perfektum og supinum (amō, amāre, amāvī, amātum).
+Presensstamme og perfektumstamme: presens, imperfektum og futurum bygges på presensstammen (amā-), perfektum på perfektumstammen (amāv-), som ofte må læres for hvert verb.",konjugasjon,0,
+personendelser,fact,Verb,Personendelsene i aktiv,"1. person entall: -ō eller -m
+2. person entall: -s
+3. person entall: -t
+1. person flertall: -mus
+2. person flertall: -tis
+3. person flertall: -nt
+i perfektum er endelsene egne: -ī, -istī, -it, -imus, -istis, -ērunt",verb-begreper,0,
+presens-fact,fact,Verb,Presens aktiv i de fire konjugasjonene,"1. konjugasjon (amāre): amō, amās, amat, amāmus, amātis, amant
+2. konjugasjon (monēre): moneō, monēs, monet, monēmus, monētis, monent
+3. konjugasjon (regere): regō, regis, regit, regimus, regitis, regunt
+3. konjugasjon med i (capere): capiō, capis, capit, capimus, capitis, capiunt
+4. konjugasjon (audīre): audiō, audīs, audit, audīmus, audītis, audiunt",personendelser;konjugasjon,0,
+sum-possum,fact,Verb,Esse og posse,"sum (presens): sum, es, est, sumus, estis, sunt
+sum (imperfektum): eram, erās, erat, erāmus, erātis, erant
+sum (futurum): erō, eris, erit, erimus, eritis, erunt
+sum (perfektum): fuī, fuistī, fuit, fuimus, fuistis, fuērunt
+possum (presens): possum, potes, potest, possumus, potestis, possunt
+possum er pot- foran formene av sum, men pos- foran s (possum, poteram, potuī)",personendelser,0,
+eo-volo,fact,Verb,Īre og velle i presens,"eō (gå): eō, īs, it, īmus, ītis, eunt
+volō (ville): volō, vīs, vult, volumus, vultis, volunt
+nōlō (ikke ville): nōlō, nōn vīs, nōn vult, nōlumus, nōn vultis, nōlunt",personendelser,0,
+presens,skill,Verb,Bøye verb i presens aktiv,"bøye regelrette verb fra alle fire konjugasjonene og esse og posse i presens aktiv, og oversette formene til norsk",presens-fact;sum-possum;verb-begreper,0,
+imperfektum,fact,Verb,Imperfektum aktiv,"1. konjugasjon: amābam, amābās, amābat, amābāmus, amābātis, amābant
+2. konjugasjon: monēbam, monēbās, monēbat …
+3. konjugasjon: regēbam, regēbās, regēbat …
+4. konjugasjon og capiō: audiēbam, capiēbam …
+kjennetegnet er -ba- mellom stammen og personendelsen",personendelser,0,
+futurum,fact,Verb,Futurum aktiv,"1. konjugasjon: amābō, amābis, amābit, amābimus, amābitis, amābunt
+2. konjugasjon: monēbō, monēbis, monēbit …
+3. konjugasjon: regam, regēs, reget, regēmus, regētis, regent
+4. konjugasjon: audiam, audiēs, audiet, audiēmus, audiētis, audient
+1. og 2. konjugasjon har -b- i futurum, 3. og 4. har -a- i første person og ellers -e-",personendelser,0,
+imperf-fut,skill,Verb,Bøye og oversette imperfektum og futurum,"bøye verb i imperfektum og futurum aktiv, og skille futurum i tredje konjugasjon (reget) fra presens i andre (monet)",imperfektum;futurum;presens,0,
+perfektum,fact,Verb,Perfektum aktiv,"amō: amāvī, amāvistī, amāvit, amāvimus, amāvistis, amāvērunt
+perfektum lages av perfektumstammen (tredje stamform uten -ī) og perfektumsendelsene -ī, -istī, -it, -imus, -istis, -ērunt",personendelser;stamformer,0,
+stamformer-fact,fact,Verb,Stamformer for vanlige verb,"amō: amāre, amāvī, amātum
+moneō: monēre, monuī, monitum
+habeō: habēre, habuī, habitum
+videō: vidēre, vīdī, vīsum
+regō: regere, rēxī, rēctum
+dūcō: dūcere, dūxī, ductum
+dīcō: dīcere, dīxī, dictum
+mittō: mittere, mīsī, missum
+scrībō: scrībere, scrīpsī, scrīptum
+legō: legere, lēgī, lēctum
+agō: agere, ēgī, āctum
+capiō: capere, cēpī, captum
+faciō: facere, fēcī, factum
+audiō: audīre, audīvī, audītum
+veniō: venīre, vēnī, ventum
+dō: dare, dedī, datum
+sum: esse, fuī
+eō: īre, iī, itum",stamformer,0,
+perfektum-skill,skill,Verb,Bøye og oversette perfektum aktiv,"finne perfektumstammen i stamformene, bøye verbet i perfektum aktiv, og kjenne igjen en perfektumsform du møter i en tekst (vēnit, dīxērunt)",perfektum;stamformer-fact;presens,0,
+tid-norsk,concept,Verb,Imperfektum og perfektum,"Imperfektum: en handling som varte, gjentok seg eller holdt på i fortiden; på norsk ofte vanlig preteritum, «holdt på å» eller «pleide å» (ambulābat: hun gikk, hun pleide å gå).
+Perfektum: en avsluttet handling i fortiden; på norsk preteritum eller presens perfektum (ambulāvit: hun gikk, hun har gått).",verb-begreper,0,
+velge-tid,skill,Verb,Velge norsk tid når du oversetter,"velge norsk verbtid når du oversetter latinsk presens, imperfektum, futurum og perfektum, og begrunne valget ut fra sammenhengen",tid-norsk;imperf-fut;perfektum-skill,0,
+imperativ,fact,Verb,Imperativ,"amā!: elsk! (til én)
+amāte!: elsk! (til flere)
+monē!, monēte!: 2. konjugasjon
+rege!, regite!: 3. konjugasjon
+audī!, audīte!: 4. konjugasjon
+es!, este!: vær!
+dīc!, dūc!, fac!: kortformer i entall av dīcere, dūcere og facere
+nōlī, nōlīte + infinitiv: et forbud (nōlī timēre: ikke vær redd)",presens-fact,0,
+bruke-imperativ,skill,Verb,Gi beskjeder med imperativ,"forstå og gi enkle beskjeder og forbud på latin med imperativ og nōlī (venī hūc!, nōlīte clāmāre!)",imperativ;presens,0,
+infinitiv-bruk,skill,Verb,Bruke infinitiv etter verb som posse og velle,"forstå og lage setninger der et verb som possum, volō, nōlō eller dēbeō styrer en infinitiv (legere possum, venīre nōn vult)",eo-volo;sum-possum;presens,0,
+subjekt-objekt,concept,Setningslære,"Subjekt, objekt og predikativ","Subjekt: den eller det som handler, i nominativ.
+Objekt: den eller det handlingen går ut over, i akkusativ.
+Predikativ: et ord som sier noe om subjektet etter esse, og som også står i nominativ (Mārcus est puer).",kasus,0,
+ordstilling,concept,Setningslære,Fri ordstilling,"Fri ordstilling: i latin er det endelsene, ikke plassen i setningen, som viser hvem som gjør hva; verbet står ofte sist, og det som skal fremheves står ofte først (puellam puer videt: gutten ser jenta).",subjekt-objekt,0,
+finne-ledd,skill,Setningslære,"Finne verbal, subjekt og objekt","finne verbet først, og deretter subjekt og objekt ut fra endelsene, i en setning der ordstillingen er en annen enn på norsk",ordstilling;kjenne-kasus;presens,0,
+genitiv-dativ,concept,Setningslære,Genitiv og dativ,"Genitiv: eierforhold og tilhørighet, på norsk «av» eller -s (līber puerī: guttens bok).
+Dativ: den eller det noe gis, sies eller vises til, på norsk ofte «til» eller «for» (puellae rosam dat: han gir jenta en rose).",kasus,0,
+ablativ,concept,Setningslære,Ablativ,"Ablativ: kasusen for middel og redskap (gladiō: med sverdet), måte (magnā vōce: med høy stemme), tid (tertiā hōrā: i den tredje timen), og for sted og utgangspunkt sammen med preposisjoner (in hortō: i hagen, ex urbe: ut av byen).",kasus,0,
+kasusbruk,skill,Setningslære,"Oversette genitiv, dativ og ablativ","avgjøre hva en genitiv, dativ eller ablativ betyr i setningen, og velge en norsk preposisjon eller omskrivning som passer (med, i, til, for, av)",genitiv-dativ;ablativ;kjenne-kasus,0,
+bruke-preposisjoner,skill,Setningslære,Bruke preposisjoner med riktig kasus,"sette substantivet etter en preposisjon i riktig kasus, og skille in med akkusativ (bevegelse inn i) fra in med ablativ (befinne seg i)",preposisjoner;kjenne-kasus,0,
+sporsmal,skill,Setningslære,Forstå og stille spørsmål,"forstå og stille spørsmål med spørreord, -ne, nōnne og num, og svare med en hel setning",sporreord;presens,0,
+relativsetning,skill,Setningslære,Forstå og oversette relativsetninger,"finne ordet en relativsetning viser til, ut fra at relativpronomenet samsvarer med det i kjønn og tall, og bruke kasusen til å se hvilken rolle pronomenet har i relativsetningen",relativpron;samsvar;finne-ledd,0,
+perioder,skill,Setningslære,Dele en lengre setning i deler,"dele en lengre setning i hovedsetning og leddsetninger ved hjelp av konjunksjoner, relativpronomen og verbene, og finne hvilke ord som hører sammen",finne-ledd;relativsetning;smaord,0,
+analyse,skill,Setningslære,Gjøre grammatisk analyse av en setning,"bestemme form og funksjon for hvert ord i en enkel setning: kasus, tall og setningsledd for substantiv og adjektiv, og person, tall og tid for verbene",finne-ledd;kasusbruk;boye-adj;velge-tid,0,
+sammenligne-sprak,skill,Latin i dag,Sammenligne latin med moderne språk,"vise likheter og forskjeller mellom latin og norsk, engelsk eller et romansk språk i kasus, verbbøyning, artikler og ordstilling, med egne eksempler",ordstilling;presens;kasus;latin-sprakfamilie,0,
+ordbok,skill,Lesing og oversettelse,Slå opp i en latinsk ordbok,"finne oppslagsformen til en bøyd form, slå den opp i ordbok eller ordliste, og velge den betydningen som passer i sammenhengen",oppslagsform;stamformer;kjenne-kasus,0,
+lesestrategi,skill,Lesing og oversettelse,Bruke lesestrategier på en latinsk tekst,"skaffe deg oversikt over en tekst før detaljene, ved å bruke overskrift, bilder, navn og kjente ord, og lese hver setning med verbet som utgangspunkt",finne-ledd,0,
+lese-forsta,skill,Lesing og oversettelse,Forstå en enkel latinsk tekst,lese en tilpasset latinsk tekst om et kjent emne og svare på norsk på spørsmål om hvem som gjør hva og hvorfor,lesestrategi;ordbok;bruke-pronomen;velge-tid,0,
+oversette-norsk,skill,Lesing og oversettelse,Oversette en enkel tekst til norsk,"oversette en tilpasset latinsk tekst til naturlig norsk, slik at både innholdet og formene (tid, tall og hvem som gjør hva) kommer riktig fram",lese-forsta;analyse;perioder,0,
+oversette-latin,skill,Lesing og oversettelse,Oversette enkle setninger til latin,"oversette enkle norske setninger til latin med riktig kasus, samsvar og verbform",boye-adj;kasusbruk;bruke-preposisjoner;velge-tid;bruke-pronomen,0,
+skrive-latin,skill,Lesing og oversettelse,Skrive enkle setninger på latin,"skrive fem eller seks enkle, sammenhengende setninger på latin om deg selv, en person i en tekst eller et bilde, med ord fra basisordforrådet",oversette-latin;ordforrad-strategi,0,
+digitale-verktoy,skill,Lesing og oversettelse,Bruke digitale ordbøker og oversettelsesverktøy kritisk,"bruke digitale ordbøker og maskinoversettelse som støtte, og vise hvor et forslag ikke stemmer med formene i den latinske teksten",ordbok;analyse,0,
+presentere-seg,skill,Samtale,Presentere deg selv på latin,"si og skrive hva du heter, hvor gammel du er, hvor du bor og hvem som er i familien din, med hele setninger",hilsener;tall;ord-familie;presens,0,
+samtale,skill,Samtale,Delta i en enkel samtale på latin,"spørre og svare på enkle spørsmål på latin om deg selv, om en tekst eller om et bilde, med hele setninger",presentere-seg;sporsmal,0,
+lytte,skill,Samtale,Forstå enkel muntlig latin,"fange opp hovedinnholdet når en kjent tekst eller noen enkle spørsmål leses høyt på latin, sjekket mot teksten etterpå",lese-hoyt;sporsmal,0,
+latin-sprakfamilie,concept,Latin i dag,Latin og de moderne språkene,"Romanske språk: språkene som har utviklet seg fra folkelig latin, som italiensk, spansk, portugisisk, fransk og rumensk.
+Indoeuropeisk: den store språkfamilien som latin, gresk, norsk og engelsk alle hører til, og som forklarer at grunnord som pater, māter og frāter ligner på tvers av språkene.",,0,
+laneord,fact,Latin i dag,Latinske ord i norsk,"vīnum: vin
+mūrus: mur
+schola: skole
+tabula: tavle
+cista: kiste
+coquīna: kjøkken
+monēta: mynt
+piper: pepper
+planta: plante
+porta: port
+tēgula: tegl",latin-sprakfamilie,0,
+gjenkjenne-ord,skill,Latin i dag,Kjenne igjen latinske ord i moderne språk,"finne latinske ord igjen i norske, engelske og romanske ord (aqua: akvarium, agua) og bruke likheten til å gjette hva et latinsk eller et moderne ord betyr",laneord;ord-substantiv;ord-verb,0,
+sitater,fact,Latin i dag,Kjente sitater fra antikken,"vēnī, vīdī, vīcī: jeg kom, jeg så, jeg seiret (Cæsar, ifølge Sueton og Plutark)
+ālea iacta est: terningen er kastet (Cæsar ved Rubicon, ifølge Sueton)
+carpe diem: grip dagen (Horats)
+sapere audē: våg å bruke forstanden (Horats)
+ō tempora, ō mōrēs: for en tid, for noen skikker (Cicero)
+cui bonō?: hvem tjener på det? (Cicero)
+mēns sāna in corpore sānō: en sunn sjel i et sunt legeme (Juvenal)
+pānem et circēnsēs: brød og sirkusleker (Juvenal)
+quis custōdiet ipsōs custōdēs?: hvem skal vokte voktene selv? (Juvenal)
+omnia vincit amor: kjærligheten seirer over alt (Vergil)
+lupus est homō hominī: mennesket er en ulv for mennesket (Plautus)",,0,
+sitat-redegjore,skill,Latin i dag,Gjøre rede for et sitat fra antikken,"oversette et kjent sitat fra antikken, si hvem som sa eller skrev det og i hvilken sammenheng, og drøfte hva det forteller om gresk eller romersk tenkemåte og kultur",sitater;republikk-keiser;filosofi,0,
+arstall,fact,Antikken,Årstall i antikkens historie,"Romas grunnleggelse ifølge tradisjonen: 753 f.Kr.
+republikken innføres ifølge tradisjonen: 509 f.Kr.
+Kleisthenes' reformer, starten på demokratiet i Athen: 508–507 f.Kr.
+slaget ved Marathon: 490 f.Kr.
+Sokrates dømmes til døden: 399 f.Kr.
+Aleksander den store dør: 323 f.Kr.
+Kartago ødelegges: 146 f.Kr.
+Cæsar drepes: 44 f.Kr.
+Oktavian får tittelen Augustus: 27 f.Kr.
+Vesuvs utbrudd ødelegger Pompeii: 79 e.Kr.
+Konstantin gir kristne religionsfrihet (Milano-ediktet): 313 e.Kr.
+den siste vestromerske keiseren avsettes: 476 e.Kr.",,0,
+republikk-keiser,concept,Antikken,"Kongetid, republikk og keisertid","Kongetiden: Romas første tid, da byen ifølge tradisjonen ble styrt av konger.
+Republikken: Roma styrt uten konge, av embetsmenn valgt for ett år om gangen og av senatet.
+Keisertiden: én mann, keiseren, har den egentlige makten, selv om republikkens institusjoner består i navnet.",arstall,0,
+athen-demokrati,concept,Antikken,Det athenske demokratiet,"Direkte demokrati: styreformen i Athen der de frie, voksne mannlige borgerne selv møttes i folkeforsamlingen og stemte over lover og krig; kvinner, slaver og innflyttere hadde ikke stemmerett.",,0,
+patrisiere-plebeiere,concept,Antikken,Patrisiere og plebeiere,"Patrisiere: de gamle adelsslektene i Roma, som lenge hadde enerett på de høyeste embetene.
+Plebeiere: resten av de frie borgerne, som gjennom lange stridigheter i republikkens første århundrer fikk politiske rettigheter.",republikk-keiser,0,
+romerske-navn,concept,Antikken,Romerske navn,"Praenomen: fornavnet (Gāius).
+Nōmen: slektsnavnet, som alle i slekten bar (Iūlius).
+Cognōmen: tilnavnet, som ofte skilte grener av slekten (Caesar); kvinner fikk som regel slektsnavnet i hunkjønnsform (Iūlia).",,0,
+kildetyper,concept,Antikken,Kilder fra antikken,"Skriftlige kilder: tekster som er overlevert fra antikken, som historieverk, brev, taler og innskrifter.
+Materielle kilder: det som er funnet eller står igjen, som bygninger, mynter, gravsteiner, gjenstander og veggmalerier.",,0,
+sammenligne-kilder,skill,Antikken,Sammenligne kilder fra antikken,"sammenligne to kilder om samme emne eller hendelse, og vurdere hvem som laget dem, når, for hvem og med hvilket formål",kildetyper;arstall,0,
+presentere-historie,skill,Antikken,Presentere hovedtrekk i antikkens historie,"presentere hovedtrekk i Hellas' og Romas historie i riktig rekkefølge, og bruke kilder fra antikken til å underbygge det du sier",republikk-keiser;athen-demokrati;patrisiere-plebeiere;sammenligne-kilder,0,
+guder,fact,Antikken,Romerske og greske guder,"Iuppiter: Zevs, himmelguden og gudenes konge
+Iūnō: Hera, ekteskapets gudinne og Jupiters hustru
+Neptūnus: Poseidon, havets gud
+Plūtō: Hades, underverdenens gud
+Minerva: Athene, visdommens gudinne
+Venus: Afrodite, kjærlighetens gudinne
+Mārs: Ares, krigens gud
+Mercurius: Hermes, gudenes budbringer
+Apollō: Apollon, lysets, musikkens og spådommens gud
+Diāna: Artemis, jaktens gudinne
+Vesta: Hestia, ildstedets gudinne
+Cerēs: Demeter, kornets gudinne
+Vulcānus: Hefaistos, smiekunstens gud
+Bacchus: Dionysos, vinens gud",,0,
+romersk-religion,concept,Antikken,Romersk religion,"Romersk religion: en flergudsreligion der man gjennom offer og faste ritualer søkte gudenes velvilje for staten og familien; hjemmet hadde egne husguder (larer og penater).
+Pietās: plikten overfor gudene, fedrelandet og familien, en av de viktigste romerske dydene.",guder,0,
+filosofi,concept,Antikken,Stoisisme og epikureisme,"Stoisisme: læren om at det gode liv er å leve i samsvar med fornuften, gjøre sin plikt og møte det man ikke kan endre med sinnsro.
+Epikureisme: læren om at det gode liv er et liv fritt for smerte og frykt, med vennskap og enkle gleder.",,0,
+sokrates,concept,Antikken,Den sokratiske samtalen,"Sokratisk samtale: en måte å søke innsikt på ved å stille spørsmål som får samtalepartneren til å se motsigelser i det hen tror hen vet; kjent fra Platons dialoger om Sokrates.",,0,
+soyleordener,fact,Antikken,Søyleordenene,"dorisk: enkelt, puteformet kapitél og ingen søylebase
+jonisk: kapitél med to snegleformede volutter
+korintisk: kapitél dekket av akantusblader",,0,
+drofte-relevans,skill,Antikken,Drøfte hva antikken har å si i dag,"drøfte om og hvordan en tanke, et problem eller et kulturuttrykk fra antikkens filosofi, religion eller kunst er relevant i dag, med argumenter for og mot",filosofi;sokrates;romersk-religion;soyleordener,0,

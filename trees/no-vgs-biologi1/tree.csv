@@ -1,0 +1,241 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Fagmetode og forsøk;Systematikk og evolusjon;Celler og membraner;Celledeling;Anatomi og fysiologi;Homeostase og regulering;Sykdom og immunforsvar;Vaksiner og antibiotika;Økologi og biologisk mangfold;Klima, arealbruk og forvaltning",,,
+,config,,title,Biologi 1,,,
+,config,,description,"Fagmetode og forsøk, systematikk, celler og membraner, celledeling, anatomi og fysiologi, homeostase, sykdom og immunforsvar, vaksiner og antibiotika, økologi og bærekraftig forvaltning — dekomponert i det elevene faktisk må kunne gjøre.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,no-vgs-biologi1-ferdighetstre-fullfort,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,biologi 1 (norsk videregående skole),,,
+,config,,slots.expressionFocus,"blander sammen ord som ligner hverandre men betyr noe ulikt (diffusjon og osmose, mitose og meiose, antigen og antistoff, hormon og enzym, virus og bakterie, art og populasjon), skriver at bakterier «blir immune» mot antibiotika der det menes at en populasjon blir resistent, forklarer med formål der det skal forklares med årsak («bakteriene muterer for å overleve», «hjertet slår raskere for å få mer oksygen»), sier at antibiotika virker mot virus, eller trekker en konklusjon som er sterkere enn dataene i forsøket faktisk tåler",,,
+,config,,slots.courseSpecifics,"Eksamen i biologi 1 er muntlig-praktisk og lokalt gitt, med forberedelsesdel; det finnes ingen sentralt gitt skriftlig eksamen. La eleven derfor også øve på å forklare med egne ord, knytte forklaringen til praktisk arbeid og begrunne svarene sine muntlig.",,,
+,config,,decompositionVersion,2.12.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Programfag realfag, Vg2",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,REA3035,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg2,,,
+,config,,subjectArea,biology,,,
+,config,,keywords,biologi; systematikk; taksonomi; fylogeni; celle; cellemembran; osmose; mitose; meiose; celledeling; kreft; anatomi; fysiologi; fordøyelse; gassutveksling; hjertet; nervesystemet; homeostase; hormoner; blodsukker; diabetes; immunforsvar; virus; bakterier; vaksiner; antibiotika; resistens; økologi; biologisk mangfold; rødlista; forvaltning; feltarbeid,,,
+,config,,updated,2026-10-08,,,
+hypotese,concept,Fagmetode og forsøk,Hypotese,"Hypotese: en presis og testbar påstand om en sammenheng, formulert slik at et forsøk eller en observasjon kan styrke eller svekke den.",,0,
+variabler,concept,Fagmetode og forsøk,"Uavhengig, avhengig og kontrollert variabel","Uavhengig variabel: faktoren forskeren bevisst endrer.
+Avhengig variabel: det som måles for å se om det endrer seg som følge av den uavhengige variabelen.
+Kontrollert variabel: en faktor som holdes lik i alle forsøksoppsettene, slik at den ikke kan forklare forskjellene.",,0,
+kontrollforsok,concept,Fagmetode og forsøk,Kontrollforsøk,"Kontrollforsøk: et oppsett som er likt de andre på alle punkter unntatt at faktoren som undersøkes mangler eller holdes på et kjent nivå, slik at man kan se hva som skyldes nettopp denne faktoren.",variabler,0,
+planlegge-forsok,skill,Fagmetode og forsøk,Planlegge et biologisk forsøk,"planlegge et forsøk som tester en hypotese, med valgt uavhengig og avhengig variabel, kontrollerte variabler, kontrollforsøk og nok gjentak til at resultatet kan stoles på.",hypotese;kontrollforsok,0,
+feilkilder,concept,Fagmetode og forsøk,Systematisk og tilfeldig feil,"Systematisk feil: en feil som trekker alle målingene i samme retning, for eksempel et feilkalibrert instrument; flere gjentak fjerner den ikke.
+Tilfeldig feil: uforutsigbar variasjon mellom målinger, for eksempel fordi individer er ulike; den blir mindre viktig jo flere gjentak man gjør.",,0,
+vurdere-feilkilder,skill,Fagmetode og forsøk,Vurdere feilkilder og usikkerhet i et forsøk,"peke ut de viktigste feilkildene i et beskrevet forsøk, avgjøre om de er systematiske eller tilfeldige, og foreslå hvordan forsøket kan forbedres.",feilkilder;planlegge-forsok,0,
+framstille-data,skill,Fagmetode og forsøk,Behandle og framstille data,"ordne måledata i tabell, regne ut gjennomsnitt og variasjonsbredde for gjentatte målinger, og velge og tegne en egnet graf med riktig variabel på hver akse og enheter.",variabler,0,
+tolke-data-konklusjon,skill,Fagmetode og forsøk,Trekke en begrunnet konklusjon fra data,"tolke tabeller og grafer fra et forsøk, avgjøre om dataene styrker eller svekker hypotesen, og formulere en konklusjon som ikke sier mer enn dataene tåler.",framstille-data;hypotese,0,
+korrelasjon-arsak,skill,Fagmetode og forsøk,Skille mellom samvariasjon og årsakssammenheng,"avgjøre om et datasett viser en årsakssammenheng eller bare en samvariasjon, og foreslå hva slags forsøk som kunne avgjort det.",tolke-data-konklusjon;kontrollforsok,0,"Bruk gjerne eksempler fra helse og livsstil, der det er lett å forveksle samvariasjon med årsak."
+presentere-resultater,skill,Fagmetode og forsøk,Presentere resultater og funn fra en undersøkelse,"presentere en egen undersøkelse muntlig eller skriftlig med problemstilling, metode, resultater, drøfting av feilkilder og konklusjon, og svare på spørsmål om den.",tolke-data-konklusjon;vurdere-feilkilder,0,
+art,concept,Systematikk og evolusjon,Art,"Art: en gruppe individer som under naturlige forhold kan få forplantningsdyktig avkom med hverandre. Definisjonen kommer til kort for organismer som formerer seg ukjønnet og for fossiler, og da må man avgrense arten på andre kriterier, som utseende eller DNA.",,0,
+taksonomiske-nivaer,fact,Systematikk og evolusjon,De taksonomiske nivåene,"nivå 1, det videste: domene
+nivå 2: rike
+nivå 3: rekke
+nivå 4: klasse
+nivå 5: orden
+nivå 6: familie
+nivå 7: slekt
+nivå 8, det smaleste: art",art,0,
+tre-domener,concept,Systematikk og evolusjon,De tre domenene,"Bakterier: encellede prokaryoter med cellevegg av peptidoglykan.
+Arker: encellede prokaryoter som ligner bakterier i bygning, men som i DNA og biokjemi står nærmere eukaryotene; mange lever i ekstreme miljøer.
+Eukaryoter: organismer med cellekjerne og membranomsluttede organeller, både encellede og flercellede.",prokaryot-eukaryot,0,
+eukaryote-riker,fact,Systematikk og evolusjon,De store gruppene av eukaryoter,"dyr: flercellede, heterotrofe, uten cellevegg
+planter: flercellede, autotrofe gjennom fotosyntese, cellevegg av cellulose
+sopp: heterotrofe, tar opp næring fra omgivelsene, cellevegg av kitin
+protister: en samlebetegnelse for eukaryoter som ikke er dyr, planter eller sopp, ikke en naturlig gruppe",tre-domener,0,
+naturlig-seleksjon,concept,Systematikk og evolusjon,Naturlig seleksjon,"Naturlig seleksjon: individer med arvelige egenskaper som gir bedre overlevelse og flere avkom i et gitt miljø, får flere etterkommere, slik at disse egenskapene blir vanligere i populasjonen over generasjoner. Det er populasjonen som endrer seg, ikke individet.",,0,
+fylogenetisk-tre,concept,Systematikk og evolusjon,Fylogenetisk tre,"Fylogenetisk tre: en figur som viser slektskap mellom grupper av organismer, der hvert forgreiningspunkt er en felles stamform, og der to grupper er nærmere i slekt jo nyere deres siste felles stamform er.",naturlig-seleksjon,0,
+homologe-analoge-trekk,concept,Systematikk og evolusjon,Homologe og analoge trekk,"Homologe trekk: trekk som ligner fordi de er arvet fra en felles stamform, selv om de kan ha ulik funksjon (armen til et menneske og vingen til en flaggermus).
+Analoge trekk: trekk som ligner fordi de har utviklet seg hver for seg som svar på lignende levevis, uten felles opphav (vingen til en fugl og vingen til et insekt).",naturlig-seleksjon,0,
+tolke-fylogenetisk-tre,skill,Systematikk og evolusjon,Lese slektskap ut av et fylogenetisk tre,"avgjøre ut fra et fylogenetisk tre hvilke grupper som er nærmest i slekt, finne den siste felles stamformen for to grupper, og avgjøre om en gitt gruppe er naturlig, altså består av en felles stamform og alle etterkommerne etter den.",fylogenetisk-tre,0,
+sammenligne-dna-sekvenser,skill,Systematikk og evolusjon,Bruke DNA-sekvenser til å vurdere slektskap,"sammenligne korte DNA- eller aminosyresekvenser fra flere arter, telle forskjellene, og bruke dem til å foreslå hvilke arter som er nærmest i slekt.",tolke-fylogenetisk-tre,0,
+forklare-endrede-kriterier,skill,Systematikk og evolusjon,Forklare hvordan de taksonomiske kriteriene har endret seg,"forklare hvordan grunnlaget for klassifikasjon har gått fra ytre kjennetegn via mikroskopi og biokjemi til DNA-sekvensering, og gi eksempler på grupper som er blitt flyttet eller delt opp fordi ny teknologi avslørte slektskap ytre likhet hadde skjult.",homologe-analoge-trekk;sammenligne-dna-sekvenser;tre-domener;taksonomiske-nivaer,0,"Eksempler som fungerer godt: arkene som ble skilt ut fra bakteriene, sopp som står nærmere dyr enn planter, og fuglene som en gren av dinosaurene."
+bestemmelsesnokkel,skill,Systematikk og evolusjon,Artsbestemme med bestemmelsesnøkkel,"bruke en todelt bestemmelsesnøkkel til å artsbestemme organismer, og lage en enkel nøkkel selv for en liten gruppe organismer.",art,0,
+sammenligne-organismer,skill,Systematikk og evolusjon,Sammenligne organismer etter fellestrekk og variasjon,"sammenligne organismer fra ulike hovedgrupper etter celletype, cellevegg, hvordan de skaffer seg næring og hvordan de formerer seg, og forklare hva som er felles og hva som varierer.",eukaryote-riker;sammenligne-celletyper,0,
+prokaryot-eukaryot,concept,Celler og membraner,Prokaryot og eukaryot celle,"Prokaryot celle: en celle uten cellekjerne og uten membranomsluttede organeller, der DNA-et ligger fritt i cytoplasma.
+Eukaryot celle: en celle med cellekjerne og membranomsluttede organeller.",,0,
+organeller,fact,Celler og membraner,Organeller og funksjonen deres,"cellekjernen: inneholder DNA-et og styrer cellens aktivitet
+mitokondriet: celleånding, der energi fra næringsstoffer overføres til ATP
+kloroplasten: fotosyntese
+ribosomet: proteinsyntese
+endoplasmatisk nettverk: produksjon og transport av proteiner og lipider
+golgiapparatet: bearbeider, sorterer og pakker proteiner for transport ut av cellen
+lysosomet: bryter ned avfall og opptatte partikler med enzymer
+den store vakuolen: lagrer vann og stoffer, og holder plantecellen spent
+celleveggen: gir form og støtte utenfor cellemembranen
+cellemembranen: avgrenser cellen og regulerer hva som går inn og ut",prokaryot-eukaryot,0,
+sammenligne-celletyper,skill,Celler og membraner,"Sammenligne bakterie-, plante-, dyre- og soppceller","sammenligne oppbygningen av bakterie-, plante-, dyre- og soppceller, og knytte forskjellene i organeller og cellevegg til hvordan organismen lever.",organeller,0,
+mikroskopere,skill,Celler og membraner,Lage preparat og mikroskopere celler,"lage et enkelt preparat, stille inn et lysmikroskop fra lav til høy forstørrelse, og tegne og sette navn på strukturene som faktisk er synlige.",,0,
+areal-volum,concept,Celler og membraner,Forholdet mellom overflate og volum,"Forholdet mellom overflate og volum: når en celle eller organisme blir større, vokser volumet raskere enn overflaten, så hver volumenhet får mindre overflate å utveksle stoffer gjennom. Det setter en grense for cellestørrelse og forklarer at store organismer trenger egne flater for utveksling.",,0,
+cellemembran,concept,Celler og membraner,Cellemembranens oppbygning,"Cellemembran: et dobbelt lag av fosfolipider, med de vannelskende hodene vendt utover og de vannskyende halene innover, og med proteiner som ligger i eller gjennom laget. Molekylene beveger seg sidelengs i laget, og derfor kalles beskrivelsen væskemosaikkmodellen.",prokaryot-eukaryot,0,
+diffusjon-osmose,concept,Celler og membraner,Diffusjon og osmose,"Diffusjon: netto bevegelse av partikler fra et område med høy konsentrasjon til et område med lav, drevet av partiklenes egen bevegelse.
+Osmose: diffusjon av vann gjennom en halvgjennomtrengelig membran, mot den siden der konsentrasjonen av oppløste stoffer er høyest.",cellemembran,0,
+hypo-iso-hyperton,concept,Celler og membraner,"Hypoton, isoton og hyperton løsning","Hypoton løsning: lavere konsentrasjon av oppløste stoffer enn inne i cellen, så vann går inn i cellen.
+Isoton løsning: lik konsentrasjon, så det er ingen netto vannbevegelse.
+Hyperton løsning: høyere konsentrasjon enn inne i cellen, så vann går ut av cellen.",diffusjon-osmose,0,
+forklare-osmose-celler,skill,Celler og membraner,Forutsi hva som skjer med celler i ulike løsninger,"forutsi og forklare hva som skjer med dyreceller og planteceller i hypotone, isotone og hypertone løsninger, og hvorfor plantecellen ikke sprekker.",hypo-iso-hyperton;sammenligne-celletyper,0,
+passiv-aktiv-transport,concept,Celler og membraner,Passiv og aktiv transport,"Passiv transport: stoffer går gjennom membranen med konsentrasjonsforskjellen, uten at cellen bruker energi, enten direkte gjennom lipidlaget eller gjennom kanal- og bærerproteiner.
+Aktiv transport: bærerproteiner pumper stoffer mot konsentrasjonsforskjellen, og cellen bruker ATP til det.",diffusjon-osmose,0,
+gjore-rede-membrantransport,skill,Celler og membraner,Gjøre rede for transport gjennom membranen,"avgjøre hvordan et gitt stoff kommer gjennom cellemembranen ut fra størrelse, ladning og konsentrasjonsforskjell, og begrunne valget av transportmåte, også når store partikler tas inn eller skilles ut i blærer (endocytose og eksocytose).",passiv-aktiv-transport;cellemembran,0,
+osmoseforsok,skill,Celler og membraner,Planlegge og tolke et osmoseforsøk,"planlegge et forsøk der plantevev legges i sukker- eller saltløsninger med ulik konsentrasjon, regne ut prosentvis masseendring, og bruke resultatene til å anslå konsentrasjonen inne i cellene.",forklare-osmose-celler;planlegge-forsok;framstille-data,0,
+signalmolekyl-reseptor,concept,Celler og membraner,Signalmolekyl og reseptor,"Signalmolekyl: et molekyl som én celle skiller ut for å påvirke en annen, som et hormon eller en nevrotransmitter.
+Reseptor: et protein, oftest i cellemembranen, som signalmolekylet passer til; bare celler med riktig reseptor reagerer på signalet.",cellemembran,0,
+celle-kommunikasjon,skill,Celler og membraner,Gjøre rede for hvordan celler kommuniserer,"gjøre rede for hvordan et signalmolekyl bindes til en reseptor i membranen og setter i gang en kjede av reaksjoner inne i cellen som gir en respons, og sammenligne signalering over lang avstand gjennom blodet, mellom naboceller og over en synapse.",signalmolekyl-reseptor;gjore-rede-membrantransport,0,
+kromosom,concept,Celledeling,"Kromosom, kromatid og homologe kromosomer","Kromosom: et DNA-molekyl pakket sammen med proteiner.
+Kromatid: hver av de to identiske kopiene et kromosom består av etter at DNA-et er kopiert, holdt sammen til de skilles i celledelingen.
+Homologe kromosomer: et kromosompar, ett fra hver forelder, med de samme genene på de samme stedene.",,0,
+cellesyklus,concept,Celledeling,Cellesyklusen,"Cellesyklusen: livsløpet til en celle som deler seg, fra interfasen, der cellen vokser og kopierer DNA-et sitt, via mitosen, der kromosomene fordeles, til cytokinesen, der cellen deles i to.",kromosom,0,
+beskrive-mitose,skill,Celledeling,Beskrive mitosen,"beskrive hva som skjer med kromosomene i hver fase av mitosen, og kjenne igjen fasene på bilder av celler som deler seg.",cellesyklus,0,
+mitoseindeks,skill,Celledeling,Tolke et mikroskopipreparat av celler i deling,"telle celler i ulike faser i et preparat av vev som deler seg (for eksempel en rotspiss), regne ut andelen celler i mitose, og bruke den til å sammenligne hvor raskt to vev deler seg.",beskrive-mitose;mikroskopere;framstille-data,0,
+meiose,concept,Celledeling,Meiose,"Meiose: en celledeling i to runder som gir fire haploide celler, med ett kromosomsett i stedet for to, som er genetisk ulike, fordi homologe kromosomer bytter biter (overkrysning) og fordeles tilfeldig til dattercellene.",kromosom;cellesyklus,0,
+sammenligne-mitose-meiose,skill,Celledeling,Sammenligne mitose og meiose,"sammenligne mitose og meiose med hensyn til antall delinger, antall og type datterceller, kromosomtall og genetisk variasjon, og forklare hvorfor kjønnet formering trenger meiose.",beskrive-mitose;meiose,0,
+tvedeling,concept,Celledeling,Tvedeling,"Tvedeling: celledelingen hos prokaryoter, der det ene ringformede kromosomet kopieres og cellen snører seg i to, uten mitose. Under gode forhold kan det skje på kort tid, så en bakteriepopulasjon kan vokse svært raskt.",prokaryot-eukaryot,0,
+sammenligne-celledeling-organismer,skill,Celledeling,Sammenligne hvordan ulike celler deler seg,"sammenligne celledelingen hos bakterier, planteceller, dyreceller og gjærceller, og forklare forskjellene ut fra cellenes oppbygning.",tvedeling;beskrive-mitose;sammenligne-celletyper,0,
+kontrollpunkter,concept,Celledeling,Kontrollpunkter og programmert celledød,"Kontrollpunkt: et punkt i cellesyklusen der cellen sjekker at DNA-et er uskadd og at forholdene er riktige før den går videre.
+Programmert celledød: at en skadet eller overflødig celle setter i gang sin egen nedbryting.",cellesyklus,0,
+stamcelle,concept,Celledeling,Stamcelle,"Stamcelle: en udifferensiert celle som kan dele seg mange ganger og gi opphav til spesialiserte celletyper, og som kroppen bruker til vekst og til å erstatte celler som dør.",cellesyklus,0,
+kreft,concept,Celledeling,Kreft,"Kreft: sykdom der celler har fått skader i genene som regulerer celledelingen, så de deler seg ukontrollert, slipper unna programmert celledød og kan spre seg til annet vev.",kontrollpunkter,0,
+vekst-og-reparasjon,skill,Celledeling,Forklare hvorfor regulering av celledeling er viktig,"forklare hvordan regulert celledeling gir vekst og reparasjon, for eksempel når et sår gror, og hvordan svikt i reguleringen kan gi kreft, med eksempler på faktorer som øker risikoen.",kontrollpunkter;stamcelle;kreft,0,
+vev-organ-system,concept,Anatomi og fysiologi,"Vev, organ og organsystem","Vev: en samling like, spesialiserte celler med samme funksjon.
+Organ: flere vevstyper satt sammen til en enhet med en bestemt oppgave, som hjertet eller et blad.
+Organsystem: flere organer som samarbeider om en livsprosess, som fordøyelsessystemet.",stamcelle,0,
+livsprosesser,fact,Anatomi og fysiologi,Livsprosessene,"ernæring: å skaffe og bryte ned stoffer til energi og byggemateriale
+respirasjon: celleånding, der energi frigjøres fra næringsstoffer
+gassutveksling: å ta opp oksygen og kvitte seg med karbondioksid (eller omvendt hos planter i lys)
+transport: å frakte stoffer rundt i organismen
+utskillelse: å kvitte seg med avfallsstoffer fra stoffskiftet
+sansing og respons: å registrere endringer i omgivelsene og reagere på dem
+bevegelse: å flytte seg eller deler av seg
+vekst: å øke i størrelse og antall celler
+formering: å lage nye individer",,0,
+forklare-stor-overflate,skill,Anatomi og fysiologi,Forklare hvordan organismer får stor overflate for utveksling,"forklare hvordan lunger, gjeller, tarmtotter, rothår og blader gir stor overflate og kort diffusjonsavstand, og hvorfor det er nødvendig for store organismer.",areal-volum;diffusjon-osmose;vev-organ-system,0,
+gassutveksling,concept,Anatomi og fysiologi,Gassutveksling,"Gassutveksling: oksygen og karbondioksid diffunderer mellom omgivelsene og organismen over en tynn, fuktig flate, for eksempel i lungeblærene, i gjellene, gjennom luftrørene til et insekt eller gjennom spalteåpningene i et blad.",diffusjon-osmose;livsprosesser,0,
+sammenligne-gassutveksling,skill,Anatomi og fysiologi,Sammenligne gassutveksling hos ulike organismer,"sammenligne hvordan pattedyr, fisk, insekter og planter løser gassutvekslingen, og knytte bygningen til om organismen lever i luft eller vann.",gassutveksling;forklare-stor-overflate,0,
+enzym,concept,Anatomi og fysiologi,Enzym,"Enzym: et protein som gjør en bestemt kjemisk reaksjon raskere uten selv å bli brukt opp, fordi bare et bestemt stoff passer i det aktive setet. Enzymer virker best ved en bestemt temperatur og pH.",,0,
+fordoyelse,concept,Anatomi og fysiologi,Fordøyelse,"Fordøyelse: nedbryting av maten til molekyler som er små nok til å tas opp gjennom tarmveggen, mekanisk ved tygging og muskelbevegelser og kjemisk ved hjelp av enzymer.",enzym;livsprosesser,0,
+fordoyelsesenzymer,fact,Anatomi og fysiologi,Fordøyelsesenzymer og byggesteiner,"amylase (spytt og bukspytt): bryter ned stivelse til mindre sukkerarter
+pepsin (magesekken): bryter ned proteiner til kortere kjeder
+trypsin (bukspytt): bryter ned proteiner videre
+lipase (bukspytt): bryter ned fett til fettsyrer og glyserol
+karbohydrater tas opp som: monosakkarider, som glukose
+proteiner tas opp som: aminosyrer
+galle (fra leveren): ikke et enzym, men deler fett i små dråper så lipasen kommer til",fordoyelse,0,
+gjore-rede-fordoyelse,skill,Anatomi og fysiologi,Gjøre rede for fordøyelsen,"følge et måltid gjennom fordøyelseskanalen, og forklare hva som skjer i munnen, magesekken, tynntarmen og tykktarmen, hvor næringsstoffene tas opp og hvordan tynntarmen er bygd for opptak.",fordoyelsesenzymer;forklare-stor-overflate,0,
+blodkretslop,concept,Anatomi og fysiologi,Blodkretsløpet,"Dobbelt kretsløp: blodet går gjennom hjertet to ganger per runde, én gang til lungene (lungekretsløpet) og én gang ut i kroppen (det store kretsløpet).
+Arterie: blodåre som fører blod fra hjertet, med tykk og elastisk vegg.
+Vene: blodåre som fører blod til hjertet, med tynnere vegg og klaffer.
+Kapillær: den tynneste blodåren, der stoffer utveksles med vevet.",vev-organ-system,0,
+hjertet,skill,Anatomi og fysiologi,Beskrive hjertet og blodets vei,"beskrive hjertets bygning med forkamre, hjertekamre og klaffer, og følge blodet gjennom lungekretsløpet og det store kretsløpet med riktig rekkefølge og oksygeninnhold.",blodkretslop,0,
+disseksjon,skill,Anatomi og fysiologi,Dissekere et organ og knytte bygning til funksjon,"dissekere et organ eller dyr (for eksempel et hjerte, en lunge eller en fisk) på en trygg måte, finne de viktigste strukturene og forklare hvordan bygningen deres passer til funksjonen.",vev-organ-system,0,
+nyre,concept,Anatomi og fysiologi,Nyrene og nefronet,"Nefron: nyrens funksjonelle enhet, der blodet filtreres og urinen dannes.
+Filtrering: vann og små molekyler presses fra blodet over i nefronet.
+Tilbakesuging: det kroppen trenger, som glukose, salter og det meste av vannet, tas opp igjen i blodet.
+Urin: det som blir igjen, med avfallsstoffer som urea.",blodkretslop,0,
+transport-planter,concept,Anatomi og fysiologi,Vedvev og silvev,"Vedvev (xylem): døde, rørformede celler som fører vann og mineraler fra røttene opp gjennom planten.
+Silvev (floem): levende celler som fører sukker og andre organiske stoffer fra bladene dit planten trenger dem.
+Transpirasjon: fordampning av vann fra bladene, hovedsakelig gjennom spalteåpningene.",vev-organ-system,0,
+vanntransport-planter,skill,Anatomi og fysiologi,Forklare hvordan vann transporteres i en plante,"forklare hvordan vann tas opp i røttene og trekkes opp gjennom vedvevet til bladene, og hvordan spalteåpningene balanserer opptak av karbondioksid mot vanntap.",transport-planter;diffusjon-osmose,0,
+nervesystemet,concept,Anatomi og fysiologi,Nervesystemet og nervecellene,"Sentralnervesystemet: hjernen og ryggmargen, som tolker signaler og sender ut beskjeder.
+Det perifere nervesystemet: nervene som forbinder sentralnervesystemet med resten av kroppen.
+Sensorisk nervecelle: fører signaler fra sanseceller inn til sentralnervesystemet.
+Motorisk nervecelle: fører signaler ut til muskler og kjertler.",vev-organ-system,0,
+nerveimpuls,concept,Anatomi og fysiologi,Nerveimpuls og synapse,"Nerveimpuls: en elektrisk spenningsendring over cellemembranen som brer seg langs nervecellen, skapt ved at ioner strømmer inn og ut gjennom kanaler.
+Synapse: koblingen mellom to nerveceller, eller en nervecelle og en muskel, der signalet overføres kjemisk ved at nevrotransmittere skilles ut og bindes til reseptorer på neste celle.",nervesystemet;signalmolekyl-reseptor;passiv-aktiv-transport,0,
+sammenligne-livsprosesser,skill,Anatomi og fysiologi,Forklare sammenhengen mellom anatomi og fysiologi på tvers av organismer,"velge en livsprosess og forklare hvordan ulike organismer løser den, med vekt på hvordan bygningen av organene gjør funksjonen mulig og hvilke felles prinsipper som går igjen.",sammenligne-gassutveksling;gjore-rede-fordoyelse;vanntransport-planter;hjertet;sammenligne-organismer,0,
+homeostase,concept,Homeostase og regulering,Homeostase,"Homeostase: at kroppen holder indre forhold som temperatur, blodsukker, vannmengde og pH innenfor snevre grenser, selv om forholdene utenfor endrer seg.",livsprosesser,0,
+tilbakekobling,concept,Homeostase og regulering,Negativ og positiv tilbakekobling,"Negativ tilbakekobling: et avvik fra normalverdien registreres av en sensor, og kroppen svarer med en endring som motvirker avviket. Dette er grunnmekanismen i homeostase.
+Positiv tilbakekobling: en endring forsterker seg selv til en prosess er fullført, for eksempel riene under en fødsel.",homeostase,0,
+hormon,concept,Homeostase og regulering,Hormon,"Hormon: et signalmolekyl som en kjertel skiller ut i blodet, og som virker bare på målceller som har riktig reseptor, ofte langt unna kjertelen.",signalmolekyl-reseptor,0,
+blodsukker,skill,Homeostase og regulering,Gjøre rede for reguleringen av blodsukkeret,"gjøre rede for hvordan insulin og glukagon fra bukspyttkjertelen holder blodsukkeret stabilt etter et måltid og mellom måltider, med lever og muskler som målorganer.",tilbakekobling;hormon;fordoyelsesenzymer,0,
+diabetes,concept,Homeostase og regulering,Diabetes type 1 og type 2,"Diabetes type 1: kroppens eget immunforsvar har ødelagt cellene som lager insulin, så kroppen lager lite eller ikke noe insulin.
+Diabetes type 2: kroppen lager insulin, men cellene reagerer dårligere på det, og etter hvert kan produksjonen også svikte; livsstil påvirker risikoen sterkt.",blodsukker,0,
+livsstil-blodsukker,skill,Homeostase og regulering,Forklare hvordan livsstil påvirker blodsukkerreguleringen,"forklare hvordan kosthold, fysisk aktivitet og overvekt påvirker cellenes følsomhet for insulin og risikoen for diabetes type 2, og skille mellom det forskningen viser og det som bare påstås.",diabetes;korrelasjon-arsak,0,
+temperaturregulering,skill,Homeostase og regulering,Gjøre rede for reguleringen av kroppstemperaturen,"gjøre rede for hvordan kroppen registrerer temperaturendringer og svarer med svetting, endret blodgjennomstrømning i huden og skjelving, og hva som skjer ved feber.",tilbakekobling;nervesystemet,0,
+vannbalanse,skill,Homeostase og regulering,Gjøre rede for reguleringen av vannbalansen,"gjøre rede for hvordan hjernen registrerer vannmangel og skiller ut antidiuretisk hormon (ADH), hvordan nyrene da tar opp mer vann, og hvorfor alkohol fører til økt urinmengde.",tilbakekobling;hormon;nyre,0,
+undersoke-livsstil-homeostase,skill,Homeostase og regulering,Undersøke hvordan livsstil påvirker reguleringsmekanismer,"planlegge og gjennomføre en enkel undersøkelse av hvordan for eksempel fysisk aktivitet, søvn eller et måltid påvirker puls, pust, temperatur eller blodsukker, og drøfte hva resultatene sier om kroppens regulering.",planlegge-forsok;temperaturregulering;blodsukker;vannbalanse,0,
+patogen,concept,Sykdom og immunforsvar,Patogen,"Patogen: en organisme eller partikkel som kan gi sykdom, som virus, bakterier, sopp og parasitter.",,0,
+virus,concept,Sykdom og immunforsvar,Virus,"Virus: arvestoff (DNA eller RNA) omgitt av en proteinkappe, noen ganger også av en membran. Et virus har ikke eget stoffskifte og kan bare formere seg inne i en vertscelle, og regnes derfor ikke som levende av de fleste biologer.",patogen,0,
+virus-formering,skill,Sykdom og immunforsvar,Beskrive hvordan et virus formerer seg,"beskrive hvordan et virus fester seg til en vertscelle, får arvestoffet sitt inn, lar cellen lage nye viruspartikler og slipper dem ut, og forklare hvorfor bare bestemte celletyper blir infisert.",virus;signalmolekyl-reseptor,0,
+sammenligne-virus-bakterie,skill,Sykdom og immunforsvar,Sammenligne virus og bakterier,"sammenligne virus og bakterier med hensyn til størrelse, oppbygning, formering og hvordan sykdommene de gir kan behandles.",virus;tvedeling;sammenligne-celletyper,0,
+smitteveier,fact,Sykdom og immunforsvar,Smitteveier,"dråpesmitte: hoste og nysing, for eksempel influensa
+luftsmitte: små partikler som holder seg lenge i lufta, for eksempel meslinger
+kontaktsmitte: direkte eller via hender og flater, for eksempel norovirus
+mat- og vannbåren smitte: forurenset mat eller vann, for eksempel salmonella
+blodsmitte og seksuell smitte: blod eller kroppsvæsker, for eksempel hepatitt B og hiv
+smitte via vektor: et annet dyr fører smitten over, for eksempel malaria via mygg",patogen,0,
+smittespredning,concept,Sykdom og immunforsvar,"Epidemi, pandemi og reproduksjonstall","Epidemi: et utbrudd der langt flere enn vanlig blir syke i et område over en periode.
+Pandemi: en epidemi som sprer seg over store deler av verden.
+Reproduksjonstall (R): hvor mange andre én smittet person i gjennomsnitt smitter. Er R over 1, vokser utbruddet; er R under 1, dør det ut.",smitteveier,0,
+forklare-spredning,skill,Sykdom og immunforsvar,Forklare hvordan en sykdom sprer seg og kan begrenses,"forklare hvordan en smittsom sykdom sprer seg i en befolkning, og hvordan tiltak som hygiene, isolasjon og vaksinasjon påvirker spredningen og reproduksjonstallet.",smittespredning,0,
+uspesifikt-forsvar,concept,Sykdom og immunforsvar,Det uspesifikke immunforsvaret,"Uspesifikt immunforsvar: forsvaret som reagerer likt på alle inntrengere og virker med en gang. Det omfatter ytre barrierer som hud, slimhinner og magesyre, og innenfor dem eteceller (fagocytter) som spiser patogener, og betennelse, der området blir varmt, rødt og hovent fordi blodårene utvider seg og slipper ut hvite blodceller.",patogen,0,
+antigen-antistoff,concept,Sykdom og immunforsvar,Antigen og antistoff,"Antigen: et molekyl, ofte på overflaten av et patogen, som immunforsvaret kjenner igjen som fremmed.
+Antistoff: et Y-formet protein laget av plasmaceller, som binder seg til ett bestemt antigen og merker patogenet for ødeleggelse.",patogen,0,
+lymfocytter,concept,Sykdom og immunforsvar,Lymfocyttene,"B-celle: lymfocytt som etter aktivering blir til plasmaceller som lager antistoffer.
+T-hjelpecelle: lymfocytt som aktiverer B-celler og T-drepeceller.
+T-drepecelle: lymfocytt som dreper kroppsceller som er infisert av virus.
+Hukommelsescelle: lymfocytt som blir igjen etter en infeksjon og kjenner igjen det samme antigenet senere.",antigen-antistoff,0,
+spesifikt-forsvar,skill,Sykdom og immunforsvar,Gjøre rede for det spesifikke immunforsvaret,"gjøre rede for hvordan det spesifikke immunforsvaret aktiveres når et antigen presenteres, og hvordan antistoffer og T-drepeceller bekjemper henholdsvis frie patogener og infiserte celler.",lymfocytter;uspesifikt-forsvar,0,
+primaer-sekundaer-respons,skill,Sykdom og immunforsvar,Forklare forskjellen på første og neste møte med et patogen,"tolke en graf over antistoffmengde etter to møter med det samme antigenet, og forklare med hukommelsesceller hvorfor responsen andre gang kommer raskere og blir sterkere.",spesifikt-forsvar,0,
+sykdomsforlop,skill,Sykdom og immunforsvar,"Gjøre rede for hvordan en sykdom oppstår, spres og nedkjempes","ta utgangspunkt i en konkret virus- eller bakteriesykdom og gjøre rede for hvordan den smitter, hva patogenet gjør i kroppen, hvordan immunforsvaret bekjemper det, og hvordan sykdommen kan forebygges og behandles.",forklare-spredning;spesifikt-forsvar;sammenligne-virus-bakterie;virus-formering,0,
+vaksine,concept,Vaksiner og antibiotika,Vaksine,"Vaksine: et preparat som gir immunforsvaret et antigen fra et patogen uten å gi sykdommen, for eksempel som drept eller svekket patogen, som en del av patogenet eller som mRNA som lar kroppens celler lage antigenet selv.",antigen-antistoff,0,
+forklare-vaksinevirkning,skill,Vaksiner og antibiotika,Forklare hvordan en vaksine beskytter den enkelte,"forklare hvordan en vaksine gir hukommelsesceller og dermed beskyttelse, hvorfor noen vaksiner må gis flere ganger, og hvorfor influensavaksinen må fornyes hvert år.",vaksine;primaer-sekundaer-respons,0,
+flokkimmunitet,concept,Vaksiner og antibiotika,Flokkimmunitet,"Flokkimmunitet: når en stor nok andel av befolkningen er immun, får patogenet for få nye mottakere til å spre seg, og også de som ikke kan vaksineres blir beskyttet. Hvor stor andelen må være, avhenger av hvor smittsom sykdommen er.",smittespredning,0,
+drofte-vaksiner,skill,Vaksiner og antibiotika,Drøfte vaksiner på individ- og befolkningsnivå,"drøfte hvordan vaksiner forebygger sykdom for den enkelte og for befolkningen, med vekt på flokkimmunitet, risiko for bivirkninger sammenlignet med risikoen ved sykdommen, og argumenter for og mot vaksinasjon.",forklare-vaksinevirkning;flokkimmunitet;forklare-spredning,0,
+antibiotika,concept,Vaksiner og antibiotika,Antibiotika,"Antibiotika: stoffer som dreper eller hemmer bakterier ved å angripe strukturer som bakterier har og våre celler mangler, som celleveggen eller bakterienes ribosomer. Antibiotika virker ikke mot virus.",sammenligne-virus-bakterie,0,
+antibiotikaresistens,concept,Vaksiner og antibiotika,Antibiotikaresistens,"Antibiotikaresistens: at en bakteriestamme tåler et antibiotikum som før drepte den. Resistens oppstår ved tilfeldige mutasjoner og spres videre ved deling og ved at bakterier overfører gener til hverandre, for eksempel på plasmider.",antibiotika,0,
+forklare-resistensutvikling,skill,Vaksiner og antibiotika,Forklare hvordan resistens utvikler seg,"forklare med naturlig seleksjon hvordan antibiotikabruk gjør resistente bakterier vanligere i en populasjon, og hvorfor feil bruk øker risikoen.",antibiotikaresistens;naturlig-seleksjon;tvedeling,0,
+gjore-rede-antibiotikabruk,skill,Vaksiner og antibiotika,Gjøre rede for bruk av antibiotika,"gjøre rede for når antibiotika er riktig behandling og når det ikke er det, og hvorfor et smalspektret antibiotikum, som bare virker mot en avgrenset gruppe bakterier, er førstevalget framfor et bredspektret når det er mulig.",antibiotika,0,
+antibiotikaforsok,skill,Vaksiner og antibiotika,Planlegge og tolke et forsøk med antibiotika,"planlegge et forsøk med bakteriekulturer på agarskåler og lapper med ulike antibiotika, ta hensyn til sterilteknikk og kontroll, og tolke hemningssonene som dannes.",antibiotika;planlegge-forsok;tolke-data-konklusjon,0,
+drofte-antibiotika,skill,Vaksiner og antibiotika,Drøfte konsekvenser av antibiotikabruk,"drøfte konsekvensene av antibiotikabruk for den enkelte, for helsevesenet og globalt, blant annet resistens, bruk i husdyrhold og hvordan land med ulik praksis påvirker hverandre.",forklare-resistensutvikling;gjore-rede-antibiotikabruk,0,
+okosystem,concept,Økologi og biologisk mangfold,"Økosystem, samfunn og populasjon","Populasjon: alle individene av én art innenfor et område.
+Samfunn: alle populasjonene av ulike arter i et område.
+Økosystem: samfunnet sammen med det ikke-levende miljøet, og samspillet mellom dem.",art,0,
+abiotisk-biotisk,concept,Økologi og biologisk mangfold,Abiotiske og biotiske faktorer,"Abiotisk faktor: en ikke-levende faktor i miljøet, som temperatur, lys, vann, pH og næringssalter.
+Biotisk faktor: en faktor som skyldes andre organismer, som konkurranse, beiting, predasjon og sykdom.",okosystem,0,
+toleranseomrade,concept,Økologi og biologisk mangfold,Toleranseområde og begrensende faktor,"Toleranseområde: området av en miljøfaktor, for eksempel temperatur, der en art kan overleve; best trives den i midten.
+Begrensende faktor: den faktoren som er nærmest grensen for hva arten tåler, og som derfor bestemmer hvor godt arten klarer seg.",abiotisk-biotisk,0,
+nisje,concept,Økologi og biologisk mangfold,Økologisk nisje,"Økologisk nisje: den rollen en art har i økosystemet, altså hvilke forhold den tåler, hvilke ressurser den bruker og hvordan den samspiller med andre arter. To arter med helt lik nisje kan ikke leve sammen over tid, fordi den ene vil utkonkurrere den andre.",toleranseomrade,0,
+samspill-arter,concept,Økologi og biologisk mangfold,Samspill mellom arter,"Konkurranse: to arter bruker den samme begrensede ressursen, og begge taper på det.
+Predasjon: én art spiser en annen.
+Parasittisme: én art lever på eller i en annen og skader den.
+Mutualisme: begge artene har nytte av samspillet.",okosystem,0,
+tilpasning,concept,Økologi og biologisk mangfold,Tilpasning,"Tilpasning: en arvelig egenskap i bygning, funksjon eller atferd som gjør at individene overlever og formerer seg bedre i miljøet sitt, og som er blitt vanlig i arten gjennom naturlig seleksjon.",naturlig-seleksjon;toleranseomrade,0,
+forklare-tilpasning,skill,Økologi og biologisk mangfold,Forklare hvordan en art er tilpasset miljøet,"velge en art og forklare hvordan den er tilpasset bestemte abiotiske og biotiske faktorer, med en årsaksforklaring og uten å si at arten «prøver» å tilpasse seg.",tilpasning;samspill-arter,0,
+biologisk-mangfold,concept,Økologi og biologisk mangfold,Biologisk mangfold,"Genetisk mangfold: variasjonen i arvestoff innenfor en art.
+Artsmangfold: hvor mange arter det er i et område, og hvor jevnt individene er fordelt mellom dem.
+Økosystemmangfold: variasjonen av ulike naturtyper og økosystemer.",okosystem,0,
+feltundersokelse,skill,Økologi og biologisk mangfold,Undersøke abiotiske og biotiske faktorer i felt,"planlegge og gjennomføre en feltundersøkelse med ruter eller transekt, måle abiotiske faktorer som lys, temperatur og pH, og artsbestemme og telle organismene.",abiotisk-biotisk;planlegge-forsok;bestemmelsesnokkel,0,
+sammenligne-artsmangfold,skill,Økologi og biologisk mangfold,Sammenligne artsmangfold mellom områder,"bruke feltdata til å sammenligne artsmangfoldet i to områder, både antall arter og fordelingen av individer, og knytte forskjellene til målte abiotiske faktorer.",feltundersokelse;biologisk-mangfold;tolke-data-konklusjon,0,
+drofte-mangfold,skill,Økologi og biologisk mangfold,Drøfte hva som forklarer det biologiske mangfoldet,"drøfte hvorfor noen områder har større biologisk mangfold enn andre, med forklaringer som klima, variasjon i leveområder, forstyrrelser, samspill mellom arter og tid til artsdannelse.",biologisk-mangfold;nisje;forklare-tilpasning,0,
+egenverdi,concept,Økologi og biologisk mangfold,Naturens egenverdi og nytteverdi,"Egenverdi: at naturen og artene har verdi i seg selv, uavhengig av hva de er verdt for mennesker.
+Nytteverdi: verdien naturen har fordi den gir mennesker noe, for eksempel mat, rent vann, pollinering og opplevelser (økosystemtjenester).",biologisk-mangfold,0,
+reflektere-egenverdi,skill,Økologi og biologisk mangfold,Reflektere over naturens egenverdi,"reflektere over hva det betyr at naturen har egenverdi, og sammenligne argumenter for vern som bygger på egenverdi med argumenter som bygger på nytteverdi.",egenverdi,0,
+trusler-mangfold,fact,"Klima, arealbruk og forvaltning",Truslene mot naturmangfoldet,"arealendringer: nedbygging, hogst, drenering av myr og oppdeling av leveområder
+klimaendringer: endret temperatur, nedbør og havkjemi
+forurensning: for eksempel plast, miljøgifter og overgjødsling
+fremmede arter: arter som mennesker har flyttet til nye områder, der de fortrenger stedegne arter
+overhøsting: jakt, fangst og fiske ut over det bestanden tåler",biologisk-mangfold,0,
+rodlistekategorier,fact,"Klima, arealbruk og forvaltning",Kategoriene i Norsk rødliste,"LC: livskraftig
+NT: nær truet
+VU: sårbar
+EN: sterkt truet
+CR: kritisk truet
+RE: regionalt utdødd
+truede arter: de tre kategoriene sårbar, sterkt truet og kritisk truet",art,0,
+fragmentering,concept,"Klima, arealbruk og forvaltning",Fragmentering av leveområder,"Fragmentering: at et sammenhengende leveområde deles opp i mindre biter av for eksempel veier, hyttefelt eller hogst. Små, isolerte bestander mister genetisk mangfold og dør lettere ut, og arter som trenger store områder forsvinner.",biologisk-mangfold;nisje,0,
+klimaeffekter,skill,"Klima, arealbruk og forvaltning",Forklare hvordan klimaendringer påvirker arter og økosystemer,"forklare hvordan et varmere klima kan flytte artenes utbredelse nordover og oppover i fjellet, forskyve tidspunktet for blomstring og hekking i forhold til hverandre, og presse arter som allerede lever ved grensen av toleranseområdet sitt.",toleranseomrade;tilpasning;trusler-mangfold,0,
+arealeffekter,skill,"Klima, arealbruk og forvaltning",Forklare hvordan arealbruk påvirker det biologiske mangfoldet,"forklare hvordan nedbygging, hogst, drenering og fragmentering endrer leveområder og reduserer det biologiske mangfoldet, og hvorfor arealendringer regnes som den største trusselen mot naturmangfoldet i Norge.",fragmentering;trusler-mangfold,0,
+utforske-konsekvenser,skill,"Klima, arealbruk og forvaltning",Utforske konsekvensene for en truet art eller naturtype,"bruke data om bestandsutvikling og leveområder for en konkret art eller naturtype til å utforske hvordan klimaendringer og arealbruk påvirker den, og vurdere hvor sikre konklusjonene er.",klimaeffekter;arealeffekter;rodlistekategorier;tolke-data-konklusjon,0,"Velg gjerne en norsk art eller naturtype med åpne data, for eksempel fjellrev, villrein, ville pollinatorer eller myr."
+baerekraftig-forvaltning,concept,"Klima, arealbruk og forvaltning",Bærekraftig forvaltning,"Bærekraftig forvaltning: å bruke naturen slik at bestander og økosystemer kan opprettholdes for framtidige generasjoner.
+Føre-var-prinsippet: når det er usikkert om et inngrep skader naturen, skal tvilen komme naturen til gode.",biologisk-mangfold,0,
+vurdere-tiltak,skill,"Klima, arealbruk og forvaltning",Vurdere tiltak for å ta vare på det biologiske mangfoldet,"vurdere hvor godt tiltak som vern, restaurering av natur, økologiske korridorer, bekjempelse av fremmede arter og kvoter virker mot en bestemt trussel, og hva som begrenser effekten.",baerekraftig-forvaltning;arealeffekter;klimaeffekter,0,
+drofte-forvaltning,skill,"Klima, arealbruk og forvaltning",Drøfte tiltak for en mer bærekraftig forvaltning,"drøfte tiltak for en mer bærekraftig forvaltning i en konkret sak, med biologiske argumenter, interessekonflikter og naturens egenverdi, og komme fram til en begrunnet vurdering.",vurdere-tiltak;reflektere-egenverdi;utforske-konsekvenser,0,
