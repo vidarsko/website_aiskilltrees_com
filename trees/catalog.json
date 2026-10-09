@@ -2782,7 +2782,7 @@
    "slug": "no-vgs-matte-2p-en-demo",
    "path": "/trees/no-vgs-matte-2p-en-demo/",
    "title": "Mathematics 2P",
-   "summary": "Percentages, personal finance, equations, statistics and geometry",
+   "summary": "Percentages, money, equations, statistics and geometry for vg2",
    "subtitle": "",
    "country": "",
    "institution": "",
@@ -2797,18 +2797,18 @@
    "license": "",
    "updated": "",
    "topics": [
-    "Numbers and algebra",
     "Percentages",
-    "Equations and inequalities",
+    "Equations",
+    "Index and wages",
     "Personal finance",
     "Statistics",
     "Geometry"
    ],
    "keywords": [],
-   "nodeCount": 76,
-   "skillCount": 45,
-   "conceptCount": 31,
-   "factCount": 0
+   "nodeCount": 87,
+   "skillCount": 50,
+   "conceptCount": 35,
+   "factCount": 2
   },
   {
    "slug": "no-vgs-matte-2py",
