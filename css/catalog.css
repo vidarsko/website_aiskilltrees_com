@@ -287,6 +287,46 @@
 
 .loading { color: var(--ink-3); font-size: var(--step-s); }
 
+/* Pager under the grid. Square buttons in a row, like the language switch;
+   the current page is --primary fill AND aria-current, never the fill alone. */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: var(--space-4);
+}
+.pager[hidden] { display: none; }
+
+.pager__btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.pager__btn:hover:not(:disabled):not([aria-current]) { border-color: var(--primary); background: var(--primary-tint); }
+.pager__btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.pager__btn[aria-current="page"] { background: var(--primary); border-color: var(--primary); color: var(--ink-inverse); cursor: default; }
+.pager__btn:disabled { color: var(--ink-3); background: var(--paper-2); border-color: var(--rule); cursor: not-allowed; }
+
+.pager__gap { min-width: 1.5rem; text-align: center; color: var(--ink-3); }
+
+/* On a phone the step buttons take their own row under the numbers, so the
+   numbers never wrap mid-row. */
+@media (max-width: 480px) {
+  .pager__step { order: 1; flex: 1 1 40%; }
+}
+
 /* --------------------------------------------------------------------------
    Responsive. The system's breakpoints are 768 and 1024; this file adds 900,
    where the 16rem rail genuinely stops fitting beside a 20rem card grid.

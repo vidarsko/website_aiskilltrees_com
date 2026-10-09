@@ -229,6 +229,11 @@ const SORTS = {
    katalogen er stor nok til at enverdi-fasetter bare er støy. */
 const MIN_FACET_VALUES = 1;
 
+/* Hvor mange trær én side i katalogen viser. Fra 2026-10-09, da alle 101
+   trærne kom inn i katalogen og en ufiltrert liste ble for lang til å
+   lese. Seks går opp i både tre, to og én kolonne. */
+const PAGE_SIZE = 6;
+
 function cmpTitle(a, b) {
   return String(a.title || '').localeCompare(String(b.title || ''), collator());
 }
@@ -241,6 +246,7 @@ let TREES = [];                         // alle trær, med et forhåndsbygget s�
 const selected = new Map();             // fasettnøkkel -> Set av valgte verdier
 let query = '';
 let sort = 'relevans';
+let page = 1;                           // 1-basert; står i URL-en som ?page=N når den ikke er 1
 
 FACETS.forEach(f => selected.set(f.key, new Set()));
 
@@ -261,16 +267,18 @@ document.addEventListener('DOMContentLoaded', () => {
   el.status   = document.getElementById('load-status');
   el.reset    = document.getElementById('reset');
   el.toggle   = document.getElementById('filters-toggle');
+  el.pager    = document.getElementById('pager');
 
   buildSortOptions();
 
   el.search.addEventListener('input', () => {
     query = el.search.value.trim();
+    page = 1;
     render();
     syncUrl();
     trackSearchSoon();
   });
-  el.sort.addEventListener('change', () => { sort = el.sort.value; render(); syncUrl(); });
+  el.sort.addEventListener('change', () => { sort = el.sort.value; page = 1; render(); syncUrl(); });
   el.reset.addEventListener('click', clearAll);
 
   // Filterlista er sammenslått på smal skjerm. Knappen finnes bare der
@@ -456,12 +464,81 @@ function render() {
 
   el.reset.hidden = !hasActiveFilters();
 
+  /* Siden klemmes inn i det som finnes: en delt lenke med ?page=9 til et
+     utvalg som siden har krympet, skal vise siste side, ikke en tom. */
+  const pageCount = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
+  page = Math.min(Math.max(1, page), pageCount);
+  const offset = (page - 1) * PAGE_SIZE;
+
   el.grid.innerHTML = '';
+  renderPager(pageCount);
   if (!results.length) {
     el.grid.appendChild(emptyState());
     return;
   }
-  results.forEach((tree, i) => el.grid.appendChild(card(tree, i + 1)));
+  // Posisjonen er plassen i HELE lista, ikke på siden — tree_open skal
+  // kunne si at noen gikk til side 3 for å finne treet sitt.
+  results.slice(offset, offset + PAGE_SIZE)
+    .forEach((tree, i) => el.grid.appendChild(card(tree, offset + i + 1)));
+}
+
+/* ------------------------------------------------------------------ */
+/* Sidebla                                                             */
+/*                                                                      */
+/* Forrige / sidetall / Neste. Med mange sider vises første, siste og   */
+/* naboene til den aktive, med … mellom, så raden ikke brekker på       */
+/* telefon. Den aktive siden har aria-current, ikke bare fargen.        */
+/* ------------------------------------------------------------------ */
+
+function renderPager(pageCount) {
+  el.pager.innerHTML = '';
+  el.pager.hidden = pageCount < 2;
+  if (pageCount < 2) return;
+
+  el.pager.appendChild(pagerButton(t('pager-prev'), page - 1, page === 1, 'pager__step'));
+  pageNumbers(pageCount).forEach(n => {
+    if (n === null) {
+      const gap = document.createElement('span');
+      gap.className = 'pager__gap';
+      gap.setAttribute('aria-hidden', 'true');
+      gap.textContent = '…';
+      el.pager.appendChild(gap);
+      return;
+    }
+    const btn = pagerButton(String(n), n, false, 'pager__num');
+    btn.setAttribute('aria-label', fmt('pager-page-aria', { n: n }));
+    if (n === page) btn.setAttribute('aria-current', 'page');
+    el.pager.appendChild(btn);
+  });
+  el.pager.appendChild(pagerButton(t('pager-next'), page + 1, page === pageCount, 'pager__step'));
+}
+
+/* [1, null, 4, 5, 6, null, 17] — null er et hopp. Et hopp over bare én
+   side vises som selve sidetallet; en … som skjuler ett tall sparer ingenting. */
+function pageNumbers(pageCount) {
+  const keep = new Set([1, pageCount, page - 1, page, page + 1]);
+  const out = [];
+  for (let n = 1; n <= pageCount; n++) {
+    if (keep.has(n) || (keep.has(n - 1) && keep.has(n + 1))) out.push(n);
+    else if (out[out.length - 1] !== null) out.push(null);
+  }
+  return out;
+}
+
+function pagerButton(text, target, disabled, className) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'pager__btn ' + className;
+  btn.textContent = text;
+  btn.disabled = disabled;
+  btn.addEventListener('click', () => {
+    page = target;
+    render();
+    syncUrl();
+    // Ellers står leseren nederst på en side som nettopp byttet innhold.
+    if (el.count.getBoundingClientRect().top < 0) el.count.scrollIntoView({ block: 'start' });
+  });
+  return btn;
 }
 
 function emptyState() {
@@ -619,6 +696,7 @@ function buildFacets() {
         // Er dette fasetten en annen henger av, endrer valget hvilke
         // fasetter og verdier som i det hele tatt skal stå der.
         if (hasChildFacet(facet.key)) buildFacets();
+        page = 1;
         render();
         syncUrl();
         // Bare påslag rapporteres. Et avslag er som regel bare en angring,
@@ -757,6 +835,7 @@ function renderChips() {
         // Fjerner man den siste institusjonen, skal inndelingsfasetten
         // forsvinne igjen — samme grunn som i buildFacets().
         if (hasChildFacet(facet.key)) buildFacets();
+        page = 1;
         reflectControls();
         render();
         syncUrl();
@@ -776,7 +855,8 @@ function clearAll() {
   query = '';
   el.search.value = '';
   FACETS.forEach(f => selected.get(f.key).clear());
-  buildFacets();          // avhengige fasetter skal forsvinne igjen
+  page = 1;
+  buildFacets();         // avhengige fasetter skal forsvinne igjen
   reflectControls();
   render();
   syncUrl();
@@ -841,6 +921,7 @@ function syncUrl() {
     if (set.size) params.set(f.key, Array.from(set).join('|'));
   });
   if (sort !== 'relevans') params.set('sort', sort);
+  if (page > 1) params.set('page', String(page));
   // ?lang= belongs to i18n.js, which keeps the language choice in the URL
   // rather than on the visitor's device. Keep it, or a filter click resets
   // the language on the next page.
@@ -855,6 +936,7 @@ function readUrl() {
   const params = new URLSearchParams(location.search);
   query = params.get('q') || '';
   sort = SORTS[params.get('sort')] ? params.get('sort') : 'relevans';
+  page = parseInt(params.get('page'), 10) || 1;   // render() klemmer den inn
   FACETS.forEach(f => {
     const set = selected.get(f.key);
     set.clear();

@@ -210,6 +210,26 @@
           "nb": "Åpne treet →",
           "sv": "Öppna trädet →"
       },
+      "pager-label": {
+          "en": "Pages",
+          "nb": "Sider",
+          "sv": "Sidor"
+      },
+      "pager-prev": {
+          "en": "← Previous",
+          "nb": "← Forrige",
+          "sv": "← Föregående"
+      },
+      "pager-next": {
+          "en": "Next →",
+          "nb": "Neste →",
+          "sv": "Nästa →"
+      },
+      "pager-page-aria": {
+          "en": "Page {n}",
+          "nb": "Side {n}",
+          "sv": "Sida {n}"
+      },
       "chip-remove-aria": {
           "en": "Remove the filter {facet}: {value}",
           "nb": "Fjern filteret {facet}: {value}",
@@ -317,6 +337,9 @@
             <p class="loading" id="load-status" data-i18n="loading">Loading skill trees …</p>
 
             <ul class="treegrid" id="treegrid"></ul>
+
+            <!-- Built by catalog.js (renderPager); hidden when everything fits on one page. -->
+            <nav class="pager" id="pager" hidden aria-label="Pages" data-i18n-attr="aria-label:pager-label"></nav>
           </div>
 
         </div>
