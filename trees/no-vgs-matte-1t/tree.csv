@@ -25,7 +25,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,institution,vgs,,,
 ,config,,division,vg1,,,
 ,config,,subjectArea,mathematics,,,
-,config,,updated,2026-09-21,,,
+,config,,updated,2026-10-12,,,
 variabel-og-uttrykk-begrep,concept,Algebra: likninger og ulikheter,Variabel og algebraisk uttrykk,"Variabel: en bokstav som står for et tall som kan variere, eller som ennå ikke er kjent.
 Algebraisk uttrykk: tall, variabler og konstanter satt sammen med regnetegn, som 3x + 5 - x. Et uttrykk kan forenkles ved å trekke sammen like ledd og løse opp parenteser, uten at verdien endrer seg.",,0,
 koeffisient-begrep,concept,Algebra: likninger og ulikheter,Koeffisient,Koeffisient: det konstante tallet som multipliserer en variabel eller en potens av en variabel i et algebraisk uttrykk.,,0,
@@ -65,9 +65,9 @@ finne-nullpunkt-hoyeregrads-polynom,skill,Polynom- og rasjonale funksjoner,Finne
 drofte-polynomfunksjon-fortegn,skill,Polynom- og rasjonale funksjoner,Drøfte fortegnet til en polynomfunksjon,"bruke nullpunktene til en polynomfunksjon til å lage et fortegnsskjema, og bruke det til å drøfte hvor funksjonen er positiv og hvor den er negativ.",finne-nullpunkt-hoyeregrads-polynom;fortegnsskjema-ferdighet,1,"Gi eleven en polynomfunksjon av tredje grad og be dem finne nullpunktene, lage et fortegnsskjema, og bruke det til å avgjøre for hvilke x-verdier funksjonen er positiv."
 rasjonal-funksjon-begrep,concept,Polynom- og rasjonale funksjoner,Rasjonal funksjon,"Rasjonal funksjon: en kvotient av to polynomer.
 Nullpunkt: der telleren er null uten at nevneren er det.
-Vertikal asymptote: der nevneren er null, og grafen skyter mot uendelig.
+Vertikal asymptote: der nevneren er null uten at telleren er det, og grafen skyter mot uendelig.
 Horisontal asymptote: verdien grafen nærmer seg når x går mot uendelig.",funksjonsbegrep-generelt;polynomfunksjon-egenskaper-begrep,0,
-asymptote-begrep,concept,Polynom- og rasjonale funksjoner,Asymptote,"Asymptote: en linje grafen til en funksjon nærmer seg, men aldri når, enten når x vokser mot uendelig eller når x nærmer seg en bestemt verdi.",rasjonal-funksjon-begrep,0,
+asymptote-begrep,concept,Polynom- og rasjonale funksjoner,Asymptote,"Asymptote: en linje grafen til en funksjon kommer vilkårlig nær, uten at grafen nødvendigvis når den, enten når x vokser mot uendelig eller når x nærmer seg en bestemt verdi.",rasjonal-funksjon-begrep,0,
 finne-nullpunkt-rasjonal-funksjon,skill,Polynom- og rasjonale funksjoner,Finne nullpunktene til en rasjonal funksjon,"finne nullpunktene til en rasjonal funksjon ved å løse likningen teller=0, og sjekke at nevneren ikke også er null i disse punktene.",rasjonal-funksjon-begrep;andregradslikning-lose,1,"Gi eleven en rasjonal funksjon og be dem finne nullpunktene, med kontroll av at nevneren ikke er null i disse punktene."
 finne-vertikal-asymptote,skill,Polynom- og rasjonale funksjoner,Finne de vertikale asymptotene til en rasjonal funksjon,"finne de vertikale asymptotene til en rasjonal funksjon ved å bestemme hvilke x-verdier som gjør nevneren lik null, uten at telleren samtidig blir null der.",rasjonal-funksjon-begrep;asymptote-begrep,1,"Gi eleven en rasjonal funksjon og be dem finne alle de vertikale asymptotene, med begrunnelse."
 finne-horisontal-asymptote,skill,Polynom- og rasjonale funksjoner,Bestemme den horisontale asymptoten til en rasjonal funksjon,"bestemme den horisontale asymptoten til en rasjonal funksjon ved å sammenligne gradene til teller og nevner, og resonnere om hva som skjer med funksjonsverdien når x blir svært stor eller svært liten.",rasjonal-funksjon-begrep;asymptote-begrep,1,"Gi eleven en rasjonal funksjon og be dem bestemme den horisontale asymptoten, med begrunnelse ut fra gradene til teller og nevner."

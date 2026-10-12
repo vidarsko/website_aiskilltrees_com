@@ -28,7 +28,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,mathematics,,,
 ,config,,keywords,økonomi; rentes rente; inflasjon; konsumprisindeks; nåverdi; annuitetslån; serielån; geometrisk rekke; effektiv rente; kontinuerlig rente; budsjettvilkår; lineær optimering; derivasjon; grensekostnad; grenseinntekt; profitt; elastisitet; markedslikevekt; konsumentoverskudd; eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 vekstfaktor-begrep,concept,"Prosent, rente og inflasjon",Vekstfaktor,"Vekstfaktor: tallet en størrelse multipliseres med ved en prosentvis endring, 1 + p/100 ved en økning på p % og 1 − p/100 ved en nedgang på p %.",,0,
 prosentpoeng-begrep,concept,"Prosent, rente og inflasjon",Prosentpoeng og prosentvis endring,"Prosentpoeng: den direkte forskjellen mellom to prosentsatser, så en rente som går fra 4 % til 5 % stiger med 1 prosentpoeng.
 Prosentvis endring: endringen målt i prosent av den opprinnelige verdien, så den samme renteøkningen er en økning på 25 %.",,0,

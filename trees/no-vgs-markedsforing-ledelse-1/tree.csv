@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,economics,,,
 ,config,,keywords,MFL1; markedsføring; ledelse; økonomi og ledelse; forbrukeratferd; kjøpsprosess; forretningsidé; segmentering; målgruppe; markedsundersøkelse; SWOT; PEST; konkurransemidler; 4P; produktlivssyklus; merkevare; distribusjon; prissetting; påslag; AIDA; mediemiks; intern markedsføring; markedsføringsloven; grønnvasking; bærekraft; muntlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 marked,concept,"Grunnbegreper, kilder og modeller",Marked,"Marked: alle de faktiske og mulige kjøperne av et produkt, sammen med tilbyderne som konkurrerer om å selge til dem.",,0,
 behov-onske-ettersporsel,concept,"Grunnbegreper, kilder og modeller","Behov, ønske og etterspørsel","Behov: en følt mangel hos et menneske, som sult eller ønske om tilhørighet.
 Ønske: den konkrete formen et behov får, formet av kultur og personlighet, som lyst på en bestemt burger.
@@ -139,9 +140,9 @@ vurdere-distribusjon,skill,Distribusjon,Vurdere distribusjon som konkurransemidd
 kostnadsbegreper,concept,Pris,Faste og variable kostnader,"Faste kostnader: kostnader som ikke endrer seg med hvor mye som selges, som husleie og faste lønninger.
 Variable kostnader: kostnader som øker med hvor mye som selges, som innkjøp av varer og råvarer.
 Selvkost: alle kostnadene for en enhet, faste og variable, fordelt per solgte enhet.",,0,
-mva,concept,Pris,Merverdiavgift,"Merverdiavgift (mva): en avgift til staten som legges på salgsprisen til forbruker. Den alminnelige satsen i Norge er 25 prosent, og prisen til forbruker skal oppgis med mva.",,0,
+mva,concept,Pris,Merverdiavgift,"Merverdiavgift (mva): en avgift til staten på salg av varer og tjenester, som til slutt betales av forbrukeren. Den alminnelige satsen i Norge er 25 prosent, og prisen til forbruker skal oppgis med mva.",,0,
 paslag-avanse,concept,Pris,Påslag og avanse,"Påslag: beløpet som legges på innkjøpsprisen eller selvkosten for å komme fram til salgsprisen, ofte oppgitt i prosent av innkjøpsprisen.
-Avanse: forskjellen mellom salgspris og innkjøpspris, ofte oppgitt i prosent av salgsprisen (uten mva).",kostnadsbegreper,0,
+Avanse: tillegget som legges på inntakskosten (innkjøpspris pluss frakt og andre direkte kostnader) for å dekke de indirekte kostnadene og gi fortjeneste, oppgitt i prosent av inntakskosten og regnet uten mva. Regnet i prosent av salgsprisen kalles det samme kronebeløpet bruttofortjeneste.",kostnadsbegreper,0,
 dekningsbidrag,concept,Pris,Dekningsbidrag,"Dekningsbidrag: salgsprisen uten mva minus de variable kostnadene per enhet, altså det hver solgte enhet bidrar med til å dekke de faste kostnadene og gi overskudd.",kostnadsbegreper,0,
 beregne-paslagspris,skill,Pris,Beregne salgspris med påslag,"regne ut en salgspris med påslag på innkjøpspris eller selvkost, med og uten merverdiavgift, og regne baklengs fra en utsalgspris til avanse og påslag i prosent.",paslag-avanse;mva,0,
 beregne-nullpunkt,skill,Pris,Beregne nullpunktsalg,"regne ut hvor mange enheter som må selges for at inntektene skal dekke alle kostnadene, ved å dele de faste kostnadene på dekningsbidraget per enhet, og bruke svaret til å vurdere om en pris er realistisk.",dekningsbidrag,0,
@@ -203,7 +204,7 @@ regler-fakta,fact,Regelverk og etikk,Regler og tilsyn for markedsføring i Norge
 tilsyn med personvern: Datatilsynet
 reklame for tobakk: forbudt
 reklame for alkoholholdig drikk: forbudt
-reklame på e-post og SMS til privatpersoner: krever at mottakeren har samtykket på forhånd
+reklame på e-post og SMS til privatpersoner: krever at mottakeren har samtykket på forhånd, med unntak for e-post og SMS til egne kunder om lignende produkter
 reklame der kroppens fasong, størrelse eller hud er endret ved retusjering: skal merkes med et eget retusjeringsmerke
 angrerett ved kjøp på nett: 14 dager",markedsforingsloven;personvern,0,
 etikk,concept,Regelverk og etikk,Etisk ansvar,"Etikk: refleksjon over hva som er rett og galt å gjøre.

@@ -24,7 +24,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,latin,,,
 ,config,,keywords,latin; antikken; Roma; deklinasjon; kasus; bøyningsmønstre; oversettelse; romersk historie; sitater; fremmedord; programfag språk,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 uttale-bokstaver,fact,Uttale og skrift,Uttale av latinske bokstaver,"c: alltid k-lyd (Cicerō uttales «Kikero»)
 g: alltid hard g (gēns)
 v: som engelsk w (vīnum)
@@ -379,7 +380,7 @@ Objekt: den eller det handlingen går ut over, i akkusativ.
 Predikativ: et ord som sier noe om subjektet etter esse, og som også står i nominativ (Mārcus est puer).",kasus,0,
 ordstilling,concept,Setningslære,Fri ordstilling,"Fri ordstilling: i latin er det endelsene, ikke plassen i setningen, som viser hvem som gjør hva; verbet står ofte sist, og det som skal fremheves står ofte først (puellam puer videt: gutten ser jenta).",subjekt-objekt,0,
 finne-ledd,skill,Setningslære,"Finne verbal, subjekt og objekt","finne verbet først, og deretter subjekt og objekt ut fra endelsene, i en setning der ordstillingen er en annen enn på norsk",ordstilling;kjenne-kasus;presens,0,
-genitiv-dativ,concept,Setningslære,Genitiv og dativ,"Genitiv: eierforhold og tilhørighet, på norsk «av» eller -s (līber puerī: guttens bok).
+genitiv-dativ,concept,Setningslære,Genitiv og dativ,"Genitiv: eierforhold og tilhørighet, på norsk «av» eller -s (liber puerī: guttens bok).
 Dativ: den eller det noe gis, sies eller vises til, på norsk ofte «til» eller «for» (puellae rosam dat: han gir jenta en rose).",kasus,0,
 ablativ,concept,Setningslære,Ablativ,"Ablativ: kasusen for middel og redskap (gladiō: med sverdet), måte (magnā vōce: med høy stemme), tid (tertiā hōrā: i den tredje timen), og for sted og utgangspunkt sammen med preposisjoner (in hortō: i hagen, ex urbe: ut av byen).",kasus,0,
 kasusbruk,skill,Setningslære,"Oversette genitiv, dativ og ablativ","avgjøre hva en genitiv, dativ eller ablativ betyr i setningen, og velge en norsk preposisjon eller omskrivning som passer (med, i, til, for, av)",genitiv-dativ;ablativ;kjenne-kasus,0,

@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,economics,,,
 ,config,,keywords,MFL2; markedsføring; ledelse; økonomi og ledelse; visjon; forretningsidé; målhierarki; bransjeanalyse; Porters fem konkurransekrefter; PESTEL; SWOT; Ansoff; generiske strategier; målgruppevalg; posisjonering; posisjoneringskart; merkevareverdi; verdikjede; kanalmakt; priselastisitet; prisstrategi; kommunikasjonsstrategi; mediemiks; internmarkedsføring; situasjonsbestemt ledelse; effektmåling; konverteringsrate; samfunnsansvar; omdømme; bærekraft; skriftlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 teori-modell,concept,"Teorier, modeller og kilder",Teori og modell,"Modell: en forenklet framstilling av virkeligheten som trekker fram noen få forhold og ser bort fra resten, slik at et tilfelle blir lettere å analysere.
 Teori: en begrunnet forklaring på hvorfor noe henger sammen slik det gjør.",,0,
 bruke-modell-kritisk,skill,"Teorier, modeller og kilder",Bruke en modell kritisk på en virksomhet,"bruke en markedsførings- eller ledelsesmodell på en konkret virksomhet, og vurdere hva modellen får fram, hva den overser, og om forutsetningene bak den passer i dette tilfellet.",teori-modell,0,
@@ -116,8 +117,8 @@ Bakoverintegrasjon: å ta over ledd nærmere produksjonen, slik en kjede gjør m
 Foroverintegrasjon: å ta over ledd nærmere sluttkunden, slik en produsent gjør med egen nettbutikk.",makt-avhengighet,0,
 dagligvaremarkedet,fact,Distribusjon og verdikjeden,Dagligvaremarkedet i Norge,"de tre store dagligvaregruppene i Norge: NorgesGruppen, Coop og Rema 1000
 de tre gruppenes samlede andel av dagligvaremarkedet: over 90 prosent
-loven som skal sikre god handelsskikk mellom leverandører og kjeder: dagligvarehandelsloven (fra 2021)
-tilsynet som håndhever dagligvarehandelsloven: Dagligvaretilsynet",makt-avhengighet,0,
+loven som skal sikre god handelsskikk mellom leverandører og kjeder: lov om god handelsskikk i dagligvarekjeden (i kraft fra 2021)
+tilsynet som håndhever loven om god handelsskikk: Konkurransetilsynet (som overtok oppgaven fra Dagligvaretilsynet i 2026)",makt-avhengighet,0,
 utvikle-distribusjonsstrategi,skill,Distribusjon og verdikjeden,Utvikle en distribusjonsstrategi,"utvikle en distribusjonsstrategi med valg av kanaler, dekningsgrad og samarbeidspartnere, og begrunne den ut fra målgruppen, produktet og posisjoneringen.",omnikanal;posisjonering,0,
 vurdere-makt-verdikjede,skill,Distribusjon og verdikjeden,Vurdere makt og avhengighet i en verdikjede,"analysere maktforholdet mellom produsenter, grossister og detaljister i en konkret bransje, som dagligvarehandelen, og vurdere hvordan det påvirker priser, utvalg, nyetableringer og forbrukerne.",vertikal-integrasjon;dagligvaremarkedet;omnikanal,0,
 kostnader,concept,Prissetting,Kostnader og dekningsbidrag,"Faste kostnader: kostnader som ikke endrer seg med hvor mye som selges.
@@ -195,7 +196,7 @@ carroll,concept,Samfunnsansvar og omdømme,Carrolls pyramide,"Carrolls pyramide:
 interessenter,concept,Samfunnsansvar og omdømme,Interessenter,"Interessent: en person eller gruppe som påvirker eller blir påvirket av virksomheten — eiere, ansatte, kunder, leverandører, myndigheter, lokalsamfunnet og interesseorganisasjoner.",,0,
 omdomme,concept,Samfunnsansvar og omdømme,Omdømme,"Omdømme: det samlede inntrykket ulike interessenter har av en virksomhet over tid, bygd på hva den gjør og hva som sies om den.",interessenter,0,
 etiske-perspektiver,concept,Samfunnsansvar og omdømme,Konsekvensetikk og pliktetikk,"Konsekvensetikk: en handling er rett hvis den gir de beste følgene for de som berøres.
-Pliktetikk: en handling er rett eller gal i seg selv, uavhengig av følgene, ut fra regler og plikter som å ikke lyve.",,0,
+Pliktetikk: om en handling er rett eller gal, avgjøres ikke bare av følgene, men også av regler og plikter, som å ikke lyve.",,0,
 lover-markedsforing,concept,Samfunnsansvar og omdømme,Lover som regulerer virksomhetens ansvar,"Markedsføringsloven: krever god markedsføringsskikk overfor forbrukere og forbyr villedende og urimelig handelspraksis og skjult reklame.
 Åpenhetsloven: krever at større virksomheter undersøker og opplyser om risiko for brudd på menneskerettigheter og anstendige arbeidsforhold hos seg selv og i leverandørkjeden.
 Personvernforordningen (GDPR): krever et lovlig grunnlag, ofte samtykke, for å bruke personopplysninger, også til målrettet reklame.",samfunnsansvar,0,

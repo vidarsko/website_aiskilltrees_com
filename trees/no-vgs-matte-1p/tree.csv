@@ -25,7 +25,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,institution,vgs,,,
 ,config,,division,vg1,,,
 ,config,,subjectArea,mathematics,,,
-,config,,updated,2026-09-21,,,
+,config,,updated,2026-10-12,,,
 standardform-begrep,concept,"Tall, potenser og standardform",Standardform,"Standardform: et tall på standardform er skrevet som a·10ⁿ, der 1 ≤ a < 10. Skrivemåten gjør svært store og svært små tall oversiktlige, og lar størrelsesordenen leses rett av eksponenten.",,0,
 tall-standardform-om,skill,"Tall, potenser og standardform",Regne om til og fra standardform,"regne om et tall mellom vanlig desimalform og standardform, i begge retninger.",standardform-begrep,1,"Gi eleven tall både i vanlig desimalform og i standardform (inkludert svært store og svært små tall), og be dem regne om til den andre formen. Ren mekanisk øvelse, uten kalkulator."
 potensregler-begrep,concept,"Tall, potenser og standardform",Potensregler,"Produkt av potenser med samme grunntall: aˣ·aʸ = aˣ⁺ʸ.
@@ -109,6 +109,6 @@ vekstfaktor-begrep,concept,Prosent og vekstfaktor,Vekstfaktor,Vekstfaktor: talle
 matematisk-modell-begrep,concept,Ikke-lineære funksjoner og modellering,Matematisk modell,"Matematisk modell: en formel eller funksjon som representerer en praktisk situasjon, og modellen som regel bare er gyldig innenfor et bestemt gyldighetsområde.",funksjonsbegrep-generelt,0,
 graf-begrep,concept,Ikke-lineære funksjoner og modellering,Graf,"Graf: den visuelle framstillingen av en funksjon i et koordinatsystem, der hvert punkt (x, y) viser hvilken y-verdi x gir.",funksjonsbegrep-generelt,0,
 likning-begrep,concept,Lineære modeller og funksjoner,Likning,"Likning: en påstand om at to uttrykk er like store, og å løse likningen betyr å finne den eller de ukjente verdiene som gjør påstanden sann.",,0,
-skjaeringspunkt-begrep,concept,Ikke-lineære funksjoner og modellering,Skjæringspunkt,"Skjæringspunkt: grafer er punktet der de har samme x-verdi og samme y-verdi, og det svarer til løsningen av likningen man får når de to uttrykkene settes like store.",graf-begrep,0,
+skjaeringspunkt-begrep,concept,Ikke-lineære funksjoner og modellering,Skjæringspunkt,"Skjæringspunkt: punktet der to grafer har samme x-verdi og samme y-verdi, og det svarer til løsningen av likningen man får når de to uttrykkene settes like store.",graf-begrep,0,
 grunntall-eksponent-begrep,concept,"Tall, potenser og standardform",Grunntall og eksponent,"Grunntall: tallet som multipliseres med seg selv.
-Eksponent: hvor mange ganger det skjer. I 2⁵ er 2 grunntallet og 5 eksponenten.",,0,
+Eksponent: hvor mange ganger grunntallet står som faktor. I 2⁵ er 2 grunntallet og 5 eksponenten.",,0,

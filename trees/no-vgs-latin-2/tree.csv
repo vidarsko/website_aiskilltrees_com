@@ -24,7 +24,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,latin,,,
 ,config,,keywords,latin; antikken; Roma; passiv; deponens; partisipp; AcI; ablativus absolutus; konjunktiv; oversettelse; etymologi; fremmedord; Cicero; Cæsar; Vergil; programfag språk,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 ord-samfunn,fact,Ordforråd og orddanning,Ord om politikk og samfunn,"cīvitās, cīvitātis f.: stat, borgerskap
 rēs pūblica, reī pūblicae f.: staten, republikken
 senātus, senātūs m.: senatet
@@ -108,7 +109,7 @@ dativ flertall: manibus
 akkusativ flertall: manūs
 ablativ flertall: manibus
 de fleste ord i fjerde deklinasjon er hankjønn; manus og domus er hunkjønn
-intetkjønn (cornū): cornū i alle kasus i entall, cornua, cornuum, cornibus i flertall",,0,
+intetkjønn (cornū): cornū i alle kasus i entall unntatt genitiv cornūs, cornua, cornuum, cornibus i flertall",,0,
 dekl5,fact,Formlære,Femte deklinasjon (rēs),"nominativ entall: rēs
 genitiv entall: reī
 dativ entall: reī

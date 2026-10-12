@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,mathematics,,,
 ,config,,keywords,tallteori; bevis; bevisteknikker; primtall; aritmetikkens fundamentalteorem; kongruensregning; modulo; diofantiske likninger; Euklids algoritme; geometriske steder; konstruksjon; formlikhet; periferivinkel; Pytagoras; muntlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 pastand-og-bevis,concept,Bevis og argumentasjon,"Påstand, bevis og formodning","Påstand: et utsagn som enten er sant eller usant.
 Bevis: en kjede av logiske slutninger fra definisjoner, aksiomer og tidligere beviste setninger fram til påstanden.
 Formodning: en påstand som antas å være sann, men som ingen har bevist.",,0,
