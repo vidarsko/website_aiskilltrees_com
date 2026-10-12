@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,social-studies,,,
 ,config,,keywords,samfunnsfag; ungdomsskole; ungdomstrinnet; 10. trinn; muntlig eksamen; historie; geografi; samfunnskunnskap; kildekritikk; demografi; verdenskrigene; holocaust; terror; fornorskning; samer; nasjonale minoriteter; menneskerettigheter; bærekraft; personlig økonomi; digitale spor; personvern; demokrati; velferdsstaten,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 kilde,concept,Samfunnsfaglig metode og kilder,Kilde,"Kilde: alt som gir oss opplysninger om samfunnet eller fortiden - et brev, et bilde, et intervju, en avisartikkel, en nettside, et datasett eller en gjenstand.
 Primærkilde: en kilde som ble til i den situasjonen den forteller om, som et dagboknotat fra krigen eller et fotografi fra en demonstrasjon.
 Sekundærkilde: en kilde som gjengir, tolker eller oppsummerer andre kilder i ettertid, som en lærebok eller en historisk dokumentar.",,0,
@@ -68,7 +69,7 @@ revolusjon,concept,Historie: endring og teknologi,Revolusjon,"Revolusjon: en ras
 arbeiderbevegelsen,concept,Historie: endring og teknologi,Arbeiderbevegelsen,"Arbeiderbevegelsen: fagforeninger og politiske partier som fra slutten av 1800-tallet organiserte arbeiderne og kjempet for kortere arbeidsdag, høyere lønn, allmenn stemmerett og sosial trygghet.",industriell-revolusjon,0,
 sivil-ulydighet,concept,Historie: endring og teknologi,Sivil ulydighet,"Sivil ulydighet: å bryte en lov åpent og uten vold for å protestere mot noe man mener er urett, og ta straffen for det. Kjente eksempler er Rosa Parks i USA og Alta-aksjonen i Norge.",,0,
 drofte-kamp-forandring,skill,Historie: endring og teknologi,Drøfte hvordan mennesker har kjempet for forandring,"analysere hvordan en gruppe har kjempet eller kjemper for forandring i samfunnet - hva de ville, hvilke midler de brukte og hva de oppnådde - og drøfte hvordan geografiske forhold og den historiske konteksten preget kampen.",arsak-konsekvens;historisk-kontekst;revolusjon;arbeiderbevegelsen;sivil-ulydighet;naturgrunnlag,0,
-arstall-norsk-historie,fact,Historie: endring og teknologi,Sentrale årstall i norsk historie,"Grunnloven ble vedtatt på Eidsvoll: 17. mai 1814
+arstall-norsk-historie,fact,Historie: endring og teknologi,Sentrale årstall i norsk historie,"Grunnloven ble underskrevet på Eidsvoll: 17. mai 1814
 unionen med Sverige ble oppløst: 1905
 kvinner fikk allmenn stemmerett ved stortingsvalg: 1913
 Tyskland angrep Norge: 9. april 1940
@@ -99,7 +100,7 @@ Kommunisme (slik den ble praktisert i Sovjetunionen): ettpartistyre som skulle a
 verdenskrigene,concept,"Konflikter, terror og folkemord",Verdenskrigene,"Første verdenskrig: krigen 1914–1918 mellom ententen (blant andre Storbritannia, Frankrike og Russland, senere USA) og sentralmaktene (blant andre Tyskland og Østerrike-Ungarn), drevet fram av nasjonalisme, kappløp om kolonier og allianser. Fredsavtalen i Versailles i 1919 la skylden og store erstatninger på Tyskland.
 Andre verdenskrig: krigen 1939–1945 mellom aksemaktene (Tyskland, Italia og Japan) og de allierte (blant andre Storbritannia, Sovjetunionen og USA), som begynte med Tysklands angrep på Polen. Norge var okkupert av Tyskland fra 9. april 1940 til 8. mai 1945.",nasjonalisme;kolonialisme-imperialisme;totalitaere-ideologier,0,
 folkemord,concept,"Konflikter, terror og folkemord",Folkemord,"Folkemord: handlinger begått med den hensikt å utrydde, helt eller delvis, en nasjonal, etnisk, religiøs eller rasemessig gruppe som sådan. Begrepet er definert i FNs folkemordkonvensjon fra 1948.",,0,
-holocaust,concept,"Konflikter, terror og folkemord",Holocaust,"Holocaust: nazistenes systematiske folkemord på rundt seks millioner europeiske jøder under andre verdenskrig, gjennomført med massehenrettelser og i utryddelsesleirer. Rom, mennesker med funksjonsnedsettelser og andre grupper ble også forfulgt og drept. Fra Norge ble 773 jøder deportert, og de fleste av dem ble drept.",folkemord;totalitaere-ideologier,0,
+holocaust,concept,"Konflikter, terror og folkemord",Holocaust,"Holocaust: nazistenes systematiske folkemord på rundt seks millioner europeiske jøder under andre verdenskrig, gjennomført med massehenrettelser og i utryddelsesleirer. Rom, mennesker med funksjonsnedsettelser og andre grupper ble også forfulgt og drept. Fra Norge ble 772 jøder deportert, og de fleste av dem ble drept.",folkemord;totalitaere-ideologier,0,
 terror-ekstremisme,concept,"Konflikter, terror og folkemord",Terror og ekstremisme,"Terror: vold eller trusler om vold, gjerne rettet mot sivile, for å skape frykt og oppnå et politisk, religiøst eller ideologisk mål.
 Ekstremisme: å godta eller bruke vold for å nå et slikt mål.
 Radikalisering: prosessen der en person gradvis kommer til å godta vold som middel.",,0,
@@ -114,14 +115,14 @@ urfolk,concept,Samer og nasjonale minoriteter,Urfolk,"Urfolk: et folk som bodde 
 nasjonal-minoritet,concept,Samer og nasjonale minoriteter,Nasjonal minoritet,"Nasjonal minoritet: en minoritet med lang tilknytning til landet, som staten har anerkjent og forpliktet seg til å verne språket og kulturen til.",majoritet-minoritet,0,
 minoritetene-i-norge,fact,Samer og nasjonale minoriteter,Urfolket og de nasjonale minoritetene i Norge,"folket som er urfolk i Norge: samene
 minoriteten med røtter i finsktalende innvandring til Nord-Norge: kvener/norskfinner
-minoriteten som innvandret fra Finland til skogområdene på Østlandet på 1500- og 1600-tallet: skogfinner
+minoriteten som innvandret fra Finland, via Sverige, til skogområdene på Østlandet på 1600-tallet: skogfinner
 minoriteten som har reist omkring i Norge i flere hundre år, med språket romani: romanifolket/tatere
 minoriteten som kom til Norge på slutten av 1800-tallet, med språket romanes: rom
 minoriteten som fikk adgang til riket da jødeparagrafen i Grunnloven ble opphevet i 1851: jøder",nasjonal-minoritet;urfolk,0,
 assimilering-integrering,concept,Samer og nasjonale minoriteter,Assimilering og integrering,"Assimilering: at en minoritet går opp i majoriteten og mister sitt eget språk og sin egen kultur, frivillig eller under tvang.
 Integrering: at en minoritet deltar i samfunnet på like vilkår, samtidig som den beholder sitt eget språk og sin egen kultur.",majoritet-minoritet,0,
 fornorskning,concept,Samer og nasjonale minoriteter,Fornorskning,"Fornorskning: statens politikk fra midten av 1800-tallet og langt ut på 1900-tallet for å få samer, kvener og andre minoriteter til å gi opp språket og kulturen sin og bli norske - blant annet gjennom skole, internater og lover om hvem som fikk eie jord.",assimilering-integrering;urfolk;nasjonal-minoritet,0,
-alta-saken,concept,Samer og nasjonale minoriteter,Alta-saken,"Alta-saken: striden 1979–1981 om utbyggingen av Alta-Kautokeino-vassdraget. Demonstrasjoner, sultestreik og sivil ulydighet fra samer og miljøvernere gjorde samenes rettigheter til en nasjonal sak, og ledet fram mot sameloven, samenes plass i Grunnloven og Sametinget.",sivil-ulydighet;urfolk,0,
+alta-saken,concept,Samer og nasjonale minoriteter,Alta-saken,"Alta-saken: striden fra 1968 til 1982 om utbyggingen av Alta-Kautokeino-vassdraget. Demonstrasjoner, sultestreik og sivil ulydighet fra samer og miljøvernere, særlig i 1979–1981, gjorde samenes rettigheter til en nasjonal sak, og ledet fram mot sameloven, samenes plass i Grunnloven og Sametinget.",sivil-ulydighet;urfolk,0,
 sametinget,concept,Samer og nasjonale minoriteter,Sametinget,"Sametinget: det samiske folkevalgte organet i Norge, åpnet i 1989 og valgt av dem som står i Sametingets valgmanntall. Det styrer enkelte saker selv, og staten skal rådføre seg med det i saker som angår samer.",urfolk,0,
 sannhetskommisjonen,concept,Samer og nasjonale minoriteter,Sannhets- og forsoningskommisjonen,"Sannhets- og forsoningskommisjonen: en kommisjon Stortinget satte ned i 2018 for å granske fornorskningen og uretten mot samer, kvener/norskfinner og skogfinner. Rapporten kom i 2023, og beskrev hvordan politikken fortsatt preger mennesker og lokalsamfunn i dag.",fornorskning,0,
 gjore-rede-fornorskning,skill,Samer og nasjonale minoriteter,Gjøre rede for fornorskningen,"gjøre rede for hva fornorskningen gikk ut på, hvilke grupper som ble rammet og på hvilke måter, og hvilke ideer om folk og nasjon som lå bak.",fornorskning;minoritetene-i-norge;nasjonalisme,0,

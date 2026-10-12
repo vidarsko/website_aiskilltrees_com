@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,religion,,,
 ,config,,keywords,KRLE; RLE; religion; livssyn; etikk; filosofi; ungdomsskole; ungdomstrinnet; 10. trinn; muntlig eksamen; kristendom; islam; jødedom; hinduisme; buddhisme; livssynshumanisme; samisk religion; pliktetikk; konsekvensetikk; dydsetikk; eksistensielle spørsmål,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 religion,concept,Fagbegreper og kilder,Religion,"Religion: tro og praksis knyttet til noe som oppfattes som hellig eller overmenneskelig – én gud, flere guder, ånder eller en høyere virkelighet – og som deles i et fellesskap med fortellinger, ritualer og regler for livet. Religionsforskere er ikke enige om én definisjon.",,0,
 livssyn,concept,Fagbegreper og kilder,Livssyn,"Livssyn: et helhetlig syn på hva mennesket er, hva som er viktig i livet og hvordan man bør leve. Religioner er livssyn, men det er også ikke-religiøse syn som livssynshumanismen.",religion,0,
 religionens-dimensjoner,concept,Fagbegreper og kilder,Religionens dimensjoner,"Lære: det tilhengerne tror på, om Gud, mennesket og verden.
@@ -71,7 +72,7 @@ Kristi himmelfartsdag: Jesus blir tatt opp til himmelen
 pinse: Den hellige ånd kommer over disiplene, regnet som kirkens fødselsdag",jesus-kristus,0,
 forklare-kristendom,skill,Kristendom,Gjøre rede for sentrale trekk ved kristendommen,"gjøre rede for kristendommens lære, hellige skrift, ritualer og høytider, og vise hvordan de henger sammen.",treenigheten;bibelen;synd-nade;sakrament;kristne-hoytider,0,
 misjon,concept,Kristendom,Misjon,"Misjon: å spre en religion til nye folk og områder. Kristen misjon fulgte ofte koloniseringen, og har både bygd skoler og sykehus og bidratt til at lokale tradisjoner ble undertrykt.",,0,
-statskirke,concept,Kristendom,Den norske kirke og statskirken,"Statskirke: en kirke som er en del av statens organisering. Den norske kirke var statskirke fra reformasjonen til 2017. Nå er den et eget trossamfunn, som Grunnloven kaller Norges folkekirke.",kirkesamfunn,0,
+statskirke,concept,Kristendom,Den norske kirke og statskirken,"Statskirke: en kirke som er en del av statens organisering. Den norske kirke var statskirke fra reformasjonen til grunnlovsendringen i 2012, og ble skilt fra staten som et eget trossamfunn i 2017. Grunnloven kaller den nå Norges folkekirke.",kirkesamfunn,0,
 kristendom-norge,skill,Kristendom,Forklare hvordan kristendommen har preget Norge,"forklare hvordan kristningen, reformasjonen og senere vekkelsesbevegelser har preget norsk lov, skole, kultur og høytider.",reformasjonen;statskirke;arstall-norge,0,
 judaisme-grunnlag,concept,Jødedom og islam,"Pakten, Toraen og Talmud","Pakten: avtalen jødedommen fører tilbake til Abraham og Moses, der Gud utvelger Israels folk og folket forplikter seg til å holde budene.
 Toraen: de fem mosebøkene, den helligste delen av den hebraiske bibelen (Tanakh).
@@ -113,7 +114,7 @@ fire-edle-sannheter,concept,Hinduisme og buddhisme,De fire edle sannhetene,"Lide
 Opphøret: lidelsen kan ta slutt, i nirvana.
 Veien: den åttedelte veien – rett innsikt, tanke, tale, handling, levevei, innsats, oppmerksomhet og konsentrasjon.",buddha-juveler;karma-samsara,0,
 forklare-buddhisme,skill,Hinduisme og buddhisme,Gjøre rede for sentrale trekk ved buddhismen,"gjøre rede for buddhismens lære, hovedretningene theravada og mahayana, og praksis som meditasjon og klosterliv.",fire-edle-sannheter,0,
-sikhisme,concept,Hinduisme og buddhisme,Sikhismen,"Sikhismen: en monoteistisk religion grunnlagt av Guru Nanak i Punjab rundt år 1500. Sikher følger læren fra ti menneskelige guruer, som nå er samlet i den hellige boka Guru Granth Sahib, og legger vekt på likhet mellom alle mennesker, blant annet gjennom felleskjøkkenet langar.",teisme-ateisme;karma-samsara,0,
+sikhisme,concept,Hinduisme og buddhisme,Sikhismen,"Sikhismen: en monoteistisk religion grunnlagt av Guru Nanak i Punjab rundt år 1500. Sikher følger læren fra ti menneskelige guruer og regner nå den hellige boka Guru Granth Sahib som sin guru. De legger vekt på likhet mellom alle mennesker, blant annet gjennom felleskjøkkenet langar.",teisme-ateisme;karma-samsara,0,
 livssynshumanisme,concept,Livssynshumanisme og ikke-religiøse livssyn,Livssynshumanisme,"Livssynshumanisme: et livssyn uten tro på noen gud eller noe overnaturlig, der mennesket, fornuften og vitenskapen er utgangspunktet. Det bygger på menneskeverd, frihet og ansvar for hverandre og for kommende generasjoner.",livssyn;teisme-ateisme,0,
 eksistensialisme,concept,Livssynshumanisme og ikke-religiøse livssyn,Eksistensialisme,"Eksistensialisme: en filosofisk retning, blant annet hos Jean-Paul Sartre, som sier at mennesket ikke er født med en gitt mening eller natur, men selv må skape den gjennom valgene sine – og står ansvarlig for dem.",livssyn,0,
 forklare-livssynshumanisme,skill,Livssynshumanisme og ikke-religiøse livssyn,Gjøre rede for sentrale ideer i livssynshumanismen,"gjøre rede for livssynshumanismens menneskesyn, etikk og syn på kunnskap, og hvordan Human-Etisk Forbund markerer viktige overganger i livet med humanistiske seremonier.",livssynshumanisme,0,
@@ -141,7 +142,7 @@ jøder: ca. 15 millioner
 landet med flest muslimer: Indonesia
 landet med flest hinduer: India",religion,0,"Tallene er Pew Research Centers anslag for 2020. Godta svar som ligger i riktig størrelsesorden og rekkefølge; det er rekkefølgen og omtrentlige størrelser eleven skal kunne, ikke eksakte tall."
 arstall-norge,fact,Religion i samfunnet,Årstall i norsk religionshistorie,"slaget på Stiklestad, der Olav Haraldsson faller og blir helgen: 1030
-reformasjonen innføres i Danmark-Norge: 1537
+reformasjonen innføres i Norge: 1537
 dissenterloven gir rett til å stå utenfor statskirken: 1845
 jødeparagrafen i Grunnloven oppheves: 1851
 norske jøder deporteres med skipet «Donau»: 1942

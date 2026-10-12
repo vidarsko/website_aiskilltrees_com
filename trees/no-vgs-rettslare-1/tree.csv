@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,law,,,
 ,config,,keywords,rettslære; juss; rettsstat; maktfordeling; legalitetsprinsippet; rettskilder; juridisk metode; juridisk drøfting; barneloven; barnets beste; ekteskapsloven; samboer; arveloven; testament; uskifte; arbeidsmiljøloven; oppsigelse; varsling; trakassering; diskriminering; avtaleloven; forbrukerkjøpsloven; reklamasjon; angrerett,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 rettsregel-moralnorm,concept,Rett og rettsstat,Rettsregel og moralnorm,"Rettsregel: en regel som er vedtatt eller anerkjent av staten, og som kan håndheves med tvang gjennom domstolene og politiet.
 Moralnorm: en oppfatning av rett og galt som håndheves av omgivelsene og samvittigheten, ikke av staten.",,0,
 rettsreglenes-funksjoner,concept,Rett og rettsstat,Rettsreglenes funksjoner,"Konfliktløsning: rettsreglene gir et svar når parter er uenige, slik at konflikter kan avgjøres fredelig.
@@ -109,7 +110,7 @@ skjevdeling,concept,Familierett,Skjevdeling,"Skjevdeling: retten til å holde ut
 separasjon-skilsmisse,fact,Familierett,Separasjon og skilsmisse,"separasjon: kan kreves av hver av ektefellene, uten begrunnelse (ekteskapsloven § 20)
 skilsmisse etter separasjon: etter minst ett år (§ 21)
 skilsmisse etter samlivsbrudd: etter minst to år (§ 22)
-skilsmisse straks: ved drapsforsøk, alvorlig mishandling eller tvangsekteskap (§§ 23–24)
+skilsmisse straks: ved drapsforsøk, alvorlig mishandling eller tvangsekteskap (§ 23)
 mekling: påkrevd når ektefellene har felles barn under 16 år (§ 26)",,0,
 samboerskap,concept,Familierett,Samboerskap,"Samboerskap: to personer som bor sammen i et parforhold uten å være gift. Det finnes ingen samlet samboerlov, så hver eier det de selv har kjøpt, og det de har kjøpt sammen er sameie. Husstandsfellesskapsloven kan gi rett til å overta felles bolig og innbo når de har bodd sammen i minst to år eller har, har hatt eller venter barn sammen.",,0,
 bruke-ekteskapsvilkar,skill,Familierett,Avgjøre om et ekteskap kan inngås,"avgjøre om to personer i en konkret sak kan inngå ekteskap, med henvisning til vilkårene i ekteskapsloven.",vilkar-ekteskap,0,
@@ -159,7 +160,7 @@ oppsigelsesfrist som hovedregel: én måned (§ 15-3)
 oppsigelsesfrist etter fem års ansettelse: minst to måneder (§ 15-3)",arbeidsavtale,0,
 varsling,concept,Arbeidsrett,Varsling,"Varsling: å si fra om kritikkverdige forhold i virksomheten, som fare for liv og helse, korrupsjon, myndighetsmisbruk eller trakassering. Arbeidstakeren har rett til å varsle på en forsvarlig måte, og gjengjeldelse mot den som varsler er forbudt (arbeidsmiljøloven kapittel 2 A).",plikter-arbeidsforhold,0,
 trakassering,concept,Arbeidsrett,Trakassering,"Trakassering: handlinger, unnlatelser eller ytringer som har som formål eller virkning å være krenkende, skremmende, fiendtlige, nedverdigende eller ydmykende (arbeidsmiljøloven § 4-3).
-Seksuell trakassering: uønsket seksuell oppmerksomhet som er plagsom for den som utsettes for den.",plikter-arbeidsforhold,0,
+Seksuell trakassering: enhver form for uønsket seksuell oppmerksomhet som har som formål eller virkning å være krenkende, skremmende, fiendtlig, nedverdigende, ydmykende eller plagsom (§ 4-3).",plikter-arbeidsforhold,0,
 vurdere-ansettelse,skill,Arbeidsrett,Vurdere om en ansettelse er lovlig,"vurdere om en ansettelse i en konkret sak er lovlig midlertidig eller skal regnes som fast, og om arbeidsavtalen er inngått riktig og i tide.",arbeidsavtale;frister-arbeid,0,
 vurdere-oppsigelse,skill,Arbeidsrett,Vurdere om en oppsigelse er lovlig,"vurdere om en oppsigelse eller avskjed i en konkret sak er saklig begrunnet og riktig gjennomført, og hva arbeidstakeren kan kreve hvis den ikke er det.",oppsigelse-avskjed;frister-arbeid,0,
 vurdere-varsling,skill,Arbeidsrett,Vurdere en varslingssak,"vurdere om en varsling i en konkret sak er forsvarlig, og om reaksjoner fra arbeidsgiveren etterpå er forbudt gjengjeldelse.",varsling,0,

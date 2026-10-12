@@ -1,0 +1,92 @@
+node_id,group,label,url
+hypotese,Store norske leksikon,Hypotese,https://snl.no/hypotese
+variabler,Store norske leksikon,Uavhengig variabel – forskningsmetode,https://snl.no/uavhengig_variabel_-_forskningsmetode
+variabler,Store norske leksikon,Avhengig variabel – forskningsmetode,https://snl.no/avhengig_variabel_-_forskningsmetode
+kontrollforsok,Store norske leksikon,Eksperiment,https://snl.no/eksperiment
+feilkilder,Store norske leksikon,Målefeil – mål og vekt,https://snl.no/m%C3%A5lefeil_-_m%C3%A5l_og_vekt
+art,Store norske leksikon,Art,https://snl.no/art
+taksonomiske-nivaer,Store norske leksikon,Systematikk i biologi,https://snl.no/systematikk_i_biologi
+tre-domener,Store norske leksikon,Domene – biologi,https://snl.no/domene_-_biologi
+eukaryote-riker,Store norske leksikon,Rike – biologi,https://snl.no/rike_-_biologi
+eukaryote-riker,Store norske leksikon,Protister,https://snl.no/protister
+naturlig-seleksjon,Store norske leksikon,Naturlig utvalg,https://snl.no/naturlig_utvalg
+fylogenetisk-tre,Store norske leksikon,Fylogeni,https://snl.no/fylogeni
+homologe-analoge-trekk,Store norske leksikon,Homologe organer,https://snl.no/homologe_organer
+homologe-analoge-trekk,Store norske leksikon,Analoge organer,https://snl.no/analoge_organer
+prokaryot-eukaryot,Store medisinske leksikon,Prokaryot,https://sml.snl.no/prokaryot
+prokaryot-eukaryot,Store medisinske leksikon,Eukaryot,https://sml.snl.no/eukaryot
+organeller,Store norske leksikon,Cellens oppbygning,https://snl.no/cellens_oppbygning
+organeller,Store medisinske leksikon,Organelle,https://sml.snl.no/organelle
+cellemembran,Store medisinske leksikon,Cellemembraner,https://sml.snl.no/cellemembraner
+diffusjon-osmose,Store norske leksikon,Diffusjon,https://snl.no/diffusjon
+diffusjon-osmose,Store norske leksikon,Osmose,https://snl.no/osmose
+hypo-iso-hyperton,Store norske leksikon,Osmose,https://snl.no/osmose
+passiv-aktiv-transport,Store medisinske leksikon,Cellemembraner,https://sml.snl.no/cellemembraner
+passiv-aktiv-transport,Store norske leksikon,Aktiv transport – biokjemi,https://snl.no/aktiv_transport_-_biokjemi
+signalmolekyl-reseptor,Store medisinske leksikon,Reseptor,https://sml.snl.no/reseptor
+signalmolekyl-reseptor,Store norske leksikon,Signaloverføring,https://snl.no/signaloverf%C3%B8ring
+kromosom,Store norske leksikon,Kromosomer,https://snl.no/kromosomer
+kromosom,Store medisinske leksikon,Kromatid,https://sml.snl.no/kromatid
+cellesyklus,Store norske leksikon,Cellesyklus,https://snl.no/cellesyklus
+meiose,Store norske leksikon,Meiose,https://snl.no/meiose
+tvedeling,Store norske leksikon,Celledeling,https://snl.no/celledeling
+kontrollpunkter,Store norske leksikon,Cellesyklus,https://snl.no/cellesyklus
+kontrollpunkter,Store medisinske leksikon,Apoptose,https://sml.snl.no/apoptose
+stamcelle,Store medisinske leksikon,Stamcelle,https://sml.snl.no/stamcelle
+kreft,Store medisinske leksikon,Kreft,https://sml.snl.no/kreft
+vev-organ-system,Store norske leksikon,Vev – biologi,https://snl.no/vev_-_biologi
+vev-organ-system,Store medisinske leksikon,Organ – kroppen,https://sml.snl.no/organ_-_kroppen
+gassutveksling,Store norske leksikon,Respirasjon,https://snl.no/respirasjon
+gassutveksling,Store norske leksikon,Gjeller,https://snl.no/gjeller
+enzym,Store norske leksikon,Enzymer,https://snl.no/enzymer
+fordoyelse,Store medisinske leksikon,Fordøyelsen,https://sml.snl.no/ford%C3%B8yelsen
+fordoyelsesenzymer,Store medisinske leksikon,Fordøyelsen,https://sml.snl.no/ford%C3%B8yelsen
+fordoyelsesenzymer,Store medisinske leksikon,Galle,https://sml.snl.no/galle
+blodkretslop,Store medisinske leksikon,Blodomløpet,https://sml.snl.no/blodoml%C3%B8pet
+nyre,Store medisinske leksikon,Nefron,https://sml.snl.no/nefron
+transport-planter,Store norske leksikon,Vedvev,https://snl.no/vedvev
+transport-planter,Store norske leksikon,Silvev,https://snl.no/silvev
+transport-planter,Store norske leksikon,Transpirasjon – botanikk,https://snl.no/transpirasjon_-_botanikk
+nervesystemet,Store medisinske leksikon,Nervesystemet,https://sml.snl.no/nervesystemet
+nervesystemet,Store medisinske leksikon,Nerveceller,https://sml.snl.no/nerveceller
+nerveimpuls,Store medisinske leksikon,Nerveimpuls,https://sml.snl.no/nerveimpuls
+nerveimpuls,Store medisinske leksikon,Synapse,https://sml.snl.no/synapse
+homeostase,Store medisinske leksikon,Homeostase,https://sml.snl.no/homeostase
+tilbakekobling,Store medisinske leksikon,Tilbakekobling – fysiologi,https://sml.snl.no/tilbakekobling_-_fysiologi
+hormon,Store medisinske leksikon,Hormoner,https://sml.snl.no/hormoner
+diabetes,Store medisinske leksikon,Diabetes type 1,https://sml.snl.no/diabetes_type_1
+diabetes,Store medisinske leksikon,Diabetes type 2,https://sml.snl.no/diabetes_type_2
+patogen,Store medisinske leksikon,Smittestoff,https://sml.snl.no/smittestoff
+virus,Store medisinske leksikon,Virus,https://sml.snl.no/virus
+smitteveier,Store medisinske leksikon,Smitte,https://sml.snl.no/smitte
+smittespredning,Store medisinske leksikon,Epidemi,https://sml.snl.no/epidemi
+smittespredning,Store medisinske leksikon,Pandemi,https://sml.snl.no/pandemi
+smittespredning,Store medisinske leksikon,Reproduksjonstall,https://sml.snl.no/reproduksjonstall
+uspesifikt-forsvar,Store medisinske leksikon,Medfødt immunitet,https://sml.snl.no/medf%C3%B8dt_immunitet
+uspesifikt-forsvar,Store medisinske leksikon,Betennelse,https://sml.snl.no/betennelse
+antigen-antistoff,Store medisinske leksikon,Antigener,https://sml.snl.no/antigener
+antigen-antistoff,Store medisinske leksikon,Antistoffer,https://sml.snl.no/antistoffer
+lymfocytter,Store medisinske leksikon,Lymfocytter,https://sml.snl.no/lymfocytter
+vaksine,Store medisinske leksikon,Vaksine,https://sml.snl.no/vaksine
+flokkimmunitet,Store medisinske leksikon,Flokkimmunitet,https://sml.snl.no/flokkimmunitet
+antibiotika,Store medisinske leksikon,Antibiotika,https://sml.snl.no/antibiotika
+antibiotikaresistens,Store medisinske leksikon,Antibiotikaresistens,https://sml.snl.no/antibiotikaresistens
+okosystem,Store norske leksikon,Økosystem,https://snl.no/%C3%B8kosystem
+okosystem,Store norske leksikon,Populasjon,https://snl.no/populasjon
+abiotisk-biotisk,Store norske leksikon,Abiotiske faktorar,https://snl.no/abiotiske_faktorar
+abiotisk-biotisk,Store norske leksikon,Biotiske faktorar,https://snl.no/biotiske_faktorar
+toleranseomrade,Store norske leksikon,Minimumsloven,https://snl.no/minimumsloven
+nisje,Store norske leksikon,Nisje – biologi,https://snl.no/nisje_-_biologi
+nisje,Store norske leksikon,Gauses regel,https://snl.no/Gauses_regel
+samspill-arter,Store norske leksikon,Konkurranse – økologi,https://snl.no/konkurranse_-_%C3%B8kologi
+samspill-arter,Store norske leksikon,Parasittisme,https://snl.no/parasittisme
+samspill-arter,Store norske leksikon,Mutualisme,https://snl.no/mutualisme
+tilpasning,Store norske leksikon,Tilpasning – biologi,https://snl.no/tilpasning_-_biologi
+biologisk-mangfold,Store norske leksikon,Biologisk mangfold,https://snl.no/biologisk_mangfold
+egenverdi,Store norske leksikon,Egenverdi,https://snl.no/egenverdi
+egenverdi,Store norske leksikon,Økosystemtjeneste,https://snl.no/%C3%B8kosystemtjeneste
+trusler-mangfold,Store norske leksikon,Truede arter,https://snl.no/truede_arter
+rodlistekategorier,Store norske leksikon,Rødliste,https://snl.no/r%C3%B8dliste
+fragmentering,Store norske leksikon,Habitatfragmentering,https://snl.no/habitatfragmentering
+baerekraftig-forvaltning,Store norske leksikon,Føre-var-prinsippet,https://snl.no/f%C3%B8re-var-prinsippet
+baerekraftig-forvaltning,Store norske leksikon,Naturforvaltning,https://snl.no/naturforvaltning

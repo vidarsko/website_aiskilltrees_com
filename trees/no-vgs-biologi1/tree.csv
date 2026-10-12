@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,no-vgs-biologi1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,biologi 1 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"blander sammen ord som ligner hverandre men betyr noe ulikt (diffusjon og osmose, mitose og meiose, antigen og antistoff, hormon og enzym, virus og bakterie, art og populasjon), skriver at bakterier «blir immune» mot antibiotika der det menes at en populasjon blir resistent, forklarer med formål der det skal forklares med årsak («bakteriene muterer for å overleve», «hjertet slår raskere for å få mer oksygen»), sier at antibiotika virker mot virus, eller trekker en konklusjon som er sterkere enn dataene i forsøket faktisk tåler",,,
 ,config,,slots.courseSpecifics,"Eksamen i biologi 1 er muntlig-praktisk og lokalt gitt, med forberedelsesdel; det finnes ingen sentralt gitt skriftlig eksamen. La eleven derfor også øve på å forklare med egne ord, knytte forklaringen til praktisk arbeid og begrunne svarene sine muntlig.",,,
@@ -22,7 +23,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,biology,,,
 ,config,,keywords,biologi; systematikk; taksonomi; fylogeni; celle; cellemembran; osmose; mitose; meiose; celledeling; kreft; anatomi; fysiologi; fordøyelse; gassutveksling; hjertet; nervesystemet; homeostase; hormoner; blodsukker; diabetes; immunforsvar; virus; bakterier; vaksiner; antibiotika; resistens; økologi; biologisk mangfold; rødlista; forvaltning; feltarbeid,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 hypotese,concept,Fagmetode og forsøk,Hypotese,"Hypotese: en presis og testbar påstand om en sammenheng, formulert slik at et forsøk eller en observasjon kan styrke eller svekke den.",,0,
 variabler,concept,Fagmetode og forsøk,"Uavhengig, avhengig og kontrollert variabel","Uavhengig variabel: faktoren forskeren bevisst endrer.
 Avhengig variabel: det som måles for å se om det endrer seg som følge av den uavhengige variabelen.
@@ -230,6 +231,7 @@ VU: sårbar
 EN: sterkt truet
 CR: kritisk truet
 RE: regionalt utdødd
+DD: datamangel
 truede arter: de tre kategoriene sårbar, sterkt truet og kritisk truet",art,0,
 fragmentering,concept,"Klima, arealbruk og forvaltning",Fragmentering av leveområder,"Fragmentering: at et sammenhengende leveområde deles opp i mindre biter av for eksempel veier, hyttefelt eller hogst. Små, isolerte bestander mister genetisk mangfold og dør lettere ut, og arter som trenger store områder forsvinner.",biologisk-mangfold;nisje,0,
 klimaeffekter,skill,"Klima, arealbruk og forvaltning",Forklare hvordan klimaendringer påvirker arter og økosystemer,"forklare hvordan et varmere klima kan flytte artenes utbredelse nordover og oppover i fjellet, forskyve tidspunktet for blomstring og hekking i forhold til hverandre, og presse arter som allerede lever ved grensen av toleranseområdet sitt.",toleranseomrade;tilpasning;trusler-mangfold,0,
