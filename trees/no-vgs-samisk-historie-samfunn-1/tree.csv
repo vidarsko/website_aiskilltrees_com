@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,history,,,
 ,config,,keywords,samisk; samer; Sápmi; urfolk; samisk historie; fornorskning; fornorskingspolitikken; internatskoler; reindrift; siida; joik; duodji; Kautokeino-opprøret; Lappekodisillen; Alta-saken; Sametinget; sameloven; ILO 169; revitalisering; dekolonisering; sannhets- og forsoningskommisjonen; kvener; nasjonale minoriteter; SHS01-03; muntlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 kilde,concept,Kilder og perspektiver,Kilde,"Kilde: det en opplysning om fortiden eller samfunnet stammer fra - et dokument, en fortelling, en gjenstand, et bilde, et stedsnavn eller et datasett. En primærkilde er blitt til i situasjonen selv; en sekundærkilde gjengir eller tolker den.",,0,
 kildekritikk,concept,Kilder og perspektiver,Kildekritikk,"Kildekritikk: å vurdere hva en kilde er verdt før den brukes: hvem som har laget den, med hvilken hensikt, når, for hvem, og fra hvilket perspektiv.",kilde,0,
 muntlig-kilde,concept,Kilder og perspektiver,Muntlig kilde og muntlig tradisjon,"Muntlig tradisjon: kunnskap, fortellinger, joiker og stedsnavn som er overført fra generasjon til generasjon uten å bli skrevet ned. Mye samisk historie er bevart slik.
@@ -46,8 +47,8 @@ samisk-mangfold,concept,Sápmi og samisk identitet,Samisk mangfold,"Samisk mangf
 samiske-sprak,fact,Sápmi og samisk identitet,Samiske språk og hvor de tales,"nordsamisk: det største samiske språket, tales i Norge, Sverige og Finland
 lulesamisk: Tysfjord-området i Norge og tilgrensende områder i Sverige
 sørsamisk: fra Saltfjellet-området i nord til Engerdal i sør, og i Sverige
-pitesamisk og umesamisk: små språk i grenseområdene mellom Norge og Sverige
-skoltesamisk: Neiden i Norge, Finland og Russland
+pitesamisk og umesamisk: små, sterkt truede språk som i dag nesten bare tales i Sverige
+skoltesamisk: i dag mest i Finland, tradisjonelt også i Neiden i Norge og på Kolahalvøya
 enaresamisk: Enare i Finland
 kildinsamisk og tersamisk: Kolahalvøya i Russland",samisk-mangfold,0,
 samiske-symboler,fact,Sápmi og samisk identitet,Samiske nasjonalsymboler,"det samiske flagget: vedtatt i 1986, tegnet av Astrid Båhl
@@ -86,7 +87,7 @@ kulturuttrykk,concept,Kultur og familieliv,Kulturuttrykk,"Kulturuttrykk: en måt
 joik,concept,Kultur og familieliv,Joik,"Joik: den samiske sangtradisjonen (luohti på nordsamisk, vuelie på sørsamisk). Man joiker en person, et dyr eller et sted, ikke om dem; joiken skal gjenkalle det den gjelder.",kulturuttrykk,0,
 duodji,concept,Kultur og familieliv,Duodji,"Duodji: samisk håndverk og brukskunst, laget av materialer som reinskinn, horn, bein, tre, never og tekstil. Duodji er både bruksting og en bærer av kunnskap, estetikk og tilhørighet.",kulturuttrykk,0,
 gakti,concept,Kultur og familieliv,Gákti,"Gákti: den samiske drakta (kofte). Snitt, farger og mønster varierer fra område til område, og kan vise hvor bæreren hører til.",kulturuttrykk,0,
-samiske-kulturmarkorer,fact,Kultur og familieliv,Milepæler i samisk kunst og litteratur,"Muitalus sámiid birra av Johan Turi: utgitt 1910, den første verdslige boka skrevet på samisk
+samiske-kulturmarkorer,fact,Kultur og familieliv,Milepæler i samisk kunst og litteratur,"Muitalus sámiid birra av Johan Turi: utgitt 1910, den første boka skrevet på samisk av en same
 Nils-Aslak Valkeapää: fikk Nordisk råds litteraturpris i 1991
 Beaivváš Sámi Našunálateáhter: samisk teater i Kautokeino, grunnlagt 1981
 Riddu Riđđu: urfolksfestival i Manndalen i Kåfjord, arrangert siden 1991",kulturuttrykk,0,
@@ -103,7 +104,7 @@ handel-og-skatt,concept,Møter mellom folkegrupper,Handel og skattlegging,"Hande
 grensetrekking,concept,Møter mellom folkegrupper,Grensetrekkingen i nord,"Grensetrekkingen i nord: grensen mellom Danmark-Norge og Sverige ble trukket i 1751 og grensen mot Russland i 1826. Grensene delte Sápmi og samiske familier og flyttleier mellom stater.",handel-og-skatt,0,
 lappekodisillen,concept,Møter mellom folkegrupper,Lappekodisillen,"Lappekodisillen: tillegget til grensetraktaten mellom Danmark-Norge og Sverige i 1751. Den sikret samene retten til å flytte med rein over grensen som før, og omtales som samenes Magna Charta.",grensetrekking,0,
 verdde,concept,Møter mellom folkegrupper,Verdde,"Verdde: et langvarig vennskaps- og bytteforhold mellom en reindriftsfamilie og en fastboende familie, ofte gjennom flere generasjoner. Den ene ga reinkjøtt og skinn, den andre fisk, beite og husrom.",tamreindrift-storreindrift,0,
-kautokeino-opproret,concept,Møter mellom folkegrupper,Kautokeino-opprøret,"Kautokeino-opprøret: i 1852 angrep en gruppe samer, preget av den læstadianske vekkelsen, handelsmannen og lensmannen i Kautokeino; to nordmenn ble drept. Bakgrunnen var blant annet brennevinshandel, gjeld og konflikt med embetsmenn og kirke. Mons Somby og Aslak Hætta ble henrettet i 1854.",laestadianismen,0,
+kautokeino-opproret,concept,Møter mellom folkegrupper,Kautokeino-opprøret,"Kautokeino-opprøret: i 1852 angrep en gruppe samer, preget av den læstadianske vekkelsen, handelsmannen, lensmannen og presten i Kautokeino; handelsmannen og lensmannen ble drept. Bakgrunnen var blant annet brennevinshandel, gjeld og konflikt med embetsmenn og kirke. Mons Somby og Aslak Hætta ble henrettet i 1854.",laestadianismen,0,
 arstall-for-1900,fact,Møter mellom folkegrupper,Årstall i samisk historie før 1900,"Tacitus nevner «fenni» i nord: ca. år 98
 Ottar forteller kong Alfred om samene: ca. 890
 Misjonskollegiet opprettes: 1714
@@ -152,7 +153,7 @@ sameloven-sametinget,concept,Revitalisering og dekolonisering,Sameloven og Samet
 Sametinget: samenes folkevalgte organ i Norge, åpnet i 1989.",alta-saken,0,
 ilo-169,concept,Revitalisering og dekolonisering,ILO-konvensjon nr. 169,"ILO-konvensjon nr. 169: FN-organisasjonen ILOs konvensjon om urfolk fra 1989. Den gir urfolk rett til land og ressurser, til å bevare egen kultur og til å bli konsultert i saker som angår dem. Norge var det første landet som ratifiserte den, i 1990.",urfolk,0,
 sprakrevitalisering,concept,Revitalisering og dekolonisering,Språkrevitalisering,"Språkrevitalisering: tiltak for å få flere til å lære og bruke et truet språk - samiske barnehager, rett til samisk i skolen, språksentre, språkreir, samiske medier og forvaltningsområdet for samisk språk, der man har rett til å bruke samisk overfor det offentlige.",revitalisering;sameloven-sametinget,0,
-tilbakeforing,concept,Revitalisering og dekolonisering,Tilbakeføring av kulturarv,"Tilbakeføring av kulturarv: at gjenstander og levninger som er tatt fra samiske samfunn, føres tilbake. I Bååstede-prosjektet (sørsamisk for «tilbake») ble samiske gjenstander fra museer i Oslo ført tilbake til samiske museer, og hodeskallene til Mons Somby og Aslak Hætta ble gravlagt i 1997.",revitalisering;rasebiologi,0,
+tilbakeforing,concept,Revitalisering og dekolonisering,Tilbakeføring av kulturarv,"Tilbakeføring av kulturarv: at gjenstander og levninger som er tatt fra samiske samfunn, føres tilbake. I Bååstede-prosjektet (sørsamisk for «tilbake») ble samiske gjenstander fra museer i Oslo ført tilbake til samiske museer. Allerede i 1997 ble hodeskallene til Mons Somby og Aslak Hætta gravlagt.",revitalisering;rasebiologi,0,
 arstall-etter-1900,fact,Revitalisering og dekolonisering,Årstall i samepolitikken etter 1900,"det første samiske landsmøtet i Trondheim: 6. februar 1917
 Nordisk sameråd stiftes: 1956
 Norske Samers Riksforbund stiftes: 1968

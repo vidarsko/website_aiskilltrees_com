@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,technology,,,
 ,config,,keywords,TOF;teknologi;forskningslære;Arduino;micro:bit;mikrokontroller;programmering;elektronikk;Ohms lov;sensor;analog;digital;PWM;kravspesifikasjon;arbeidstegning;CAD;3D-printing;prototyp;måleusikkerhet;standardavvik;feilkilder;regresjon;etikk;bærekraft,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 prod-designprosess,concept,Produktutvikling,Iterativ designprosess og prototyp,"Iterativ designprosess: en arbeidsmåte der man går fra idé via krav, skisse, prototyp og test til forbedring, og gjentar runden til produktet er godt nok.
 Prototyp: en tidlig, enkel versjon av produktet som er laget for å teste en idé, ikke for å være ferdig.",,0,
 prod-kravspesifikasjon,concept,Produktutvikling,Kravspesifikasjon,"Kravspesifikasjon: en liste over de kravene et produkt skal oppfylle, formulert slik at hvert krav kan sjekkes med en test eller en måling.
@@ -74,7 +75,7 @@ el-kortslutning,concept,Elektriske kretser,Kortslutning,"Kortslutning: en forbin
 el-feilsoke-krets,skill,Elektriske kretser,Feilsøke en krets systematisk,"finne feilen i en krets som ikke virker ved å sammenligne den med koblingsskjemaet, sjekke forsyning og jord, og måle spenninger punkt for punkt.",el-multimeter;el-kortslutning,0,
 el-transistor,concept,Elektriske kretser,Transistor som bryter,"Transistor som bryter: en komponent der en liten styrestrøm eller styrespenning slår av og på en mye større strøm, slik at en mikrokontroller kan styre en motor eller et relé som trenger mer strøm enn pinnen tåler.",el-diode-led,0,
 el-styre-last,skill,Elektriske kretser,Styre en motor eller annen stor last,"koble en motor eller annen last som trenger mye strøm til en mikrokontroller via transistor eller motordriver, med egen strømforsyning og felles jord.",el-transistor;mc-digital-utgang,0,
-mc-mikrokontroller,concept,Mikrokontroller og programmering,Mikrokontroller,"Mikrokontroller: en liten datamaskin på én brikke, med prosessor, minne og inn- og utganger, som kjører det samme programmet om og om igjen og styrer noe i den fysiske verden. Arduino og micro:bit er eksempler.",,0,
+mc-mikrokontroller,concept,Mikrokontroller og programmering,Mikrokontroller,"Mikrokontroller: en liten datamaskin på én brikke, med prosessor, minne og inn- og utganger, som kjører det samme programmet om og om igjen og styrer noe i den fysiske verden. Arduino og micro:bit er kretskort bygd rundt en mikrokontroller.",,0,
 mc-pinner,concept,Mikrokontroller og programmering,Pinnene på en mikrokontroller,"Digital pinne: en pinne som enten er høy (forsyningsspenning) eller lav (0 V), og som kan settes som inngang eller utgang.
 Analog inngang: en pinne som kan måle en spenning mellom 0 V og forsyningsspenningen.
 Jord (GND): referansepunktet på 0 V som alle spenninger i kretsen måles mot.",mc-mikrokontroller;el-strom-spenning-resistans,0,
@@ -99,7 +100,7 @@ mc-tilstander,skill,Mikrokontroller og programmering,Dele programmet inn i tilst
 sig-analog-digital,concept,Sensorer og signaler,Analogt og digitalt signal,"Analogt signal: et signal som kan ha alle verdier innenfor et område og endre seg gradvis, som en spenning fra 0 til 5 V.
 Digitalt signal: et signal som bare har et begrenset antall verdier, i enkleste fall høy og lav.",mc-pinner,0,
 sig-sensor-aktuator,concept,Sensorer og signaler,Sensor og aktuator,"Sensor: en komponent som gjør en fysisk størrelse, som lys, temperatur eller avstand, om til et elektrisk signal.
-Aktuator: en komponent som gjør et elektrisk signal om til en fysisk virkning, som bevegelse, lys eller lyd.",,0,
+Aktuator: en komponent som gjør et elektrisk signal om til bevegelse, som en motor, en servo eller en ventil.",,0,
 sig-sensortyper,fact,Sensorer og signaler,Vanlige sensorer og hva de måler,"lysfølsom motstand (LDR): lysstyrke
 termistor: temperatur
 potensiometer: vinkel eller posisjon
@@ -171,7 +172,7 @@ sam-historisk-utvikling,skill,"Teknologi, etikk og samfunn",Beskrive den histori
 sam-virkemate,skill,"Teknologi, etikk og samfunn",Forklare virkemåten til et teknologisk produkt,"forklare hvordan et teknologisk produkt virker ved å dele det inn i delsystemer og knytte hvert av dem til de naturvitenskapelige prinsippene det bygger på.",sam-teknologi;prod-blokkdiagram,0,
 sam-samfunnsnytte,skill,"Teknologi, etikk og samfunn",Drøfte samfunnsnytten til et produkt,"drøfte samfunnsnytten til et teknologisk produkt ved å veie fordeler mot ulemper, og vurdere hvem som tjener og hvem som taper på det.",sam-historisk-utvikling;sam-virkemate,0,
 sam-etiske-perspektiver,concept,"Teknologi, etikk og samfunn",Etiske perspektiver,"Konsekvensetikk: en handling vurderes etter hvilke følger den får for alle som berøres.
-Pliktetikk: en handling vurderes etter om den følger plikter og regler, uansett følgene.
+Pliktetikk: en handling vurderes etter om den følger plikter og regler, også når det ikke gir de beste følgene.
 Dydsetikk: en handling vurderes etter hva et klokt og godt menneske ville gjort.",,0,
 sam-etiske-tema,concept,"Teknologi, etikk og samfunn",Etiske tema i teknologi,"Personvern: retten til å bestemme over opplysninger om seg selv.
 Dobbel bruk: at samme teknologi kan brukes både til gode formål og til skade, som droner til redning og til krig.

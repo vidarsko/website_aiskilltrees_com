@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,technology,,,
 ,config,,keywords,TOF;forskningslære;vitenskapelig metode;hypotese;hypotetisk-deduktiv metode;falsifisering;statistikk;standardavvik;regresjon;konfidensintervall;t-test;p-verdi;forskningsprosjekt;vitenskapelig artikkel;fagfellevurdering;forskningsfinansiering;paradigmeskifte;Kuhn;forskningsetikk;bærekraftsmål,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 vk-empiri,concept,Vitenskapelig kunnskap og metode,Empiriske data,"Empiriske data: data som er samlet inn ved observasjon, måling eller eksperiment, og ikke bare tenkt ut.",,0,
 vk-hypotese-teori-lov,concept,Vitenskapelig kunnskap og metode,"Hypotese, teori og naturlov","Hypotese: en presis påstand som kan testes, og som kan vise seg å være feil.
 Vitenskapelig teori: et sammenhengende sett av forklaringer som har overlevd mange uavhengige tester og knytter sammen mange observasjoner. I vitenskapen betyr «teori» ikke en løs gjetning.
@@ -162,7 +163,7 @@ vh-beskrive-skifte,skill,Vitenskapshistorie og paradigmer,Beskrive et paradigmes
 vh-drofte-skifter,skill,Vitenskapshistorie og paradigmer,Drøfte hva som driver paradigmeskifter,"drøfte hvordan ny teknologi, som teleskopet, mikroskopet eller datamaskinen, og nye vitenskapelige tenkemåter har bidratt til paradigmeskifter i naturvitenskapen.",vh-beskrive-skifte;vk-falsifiserbarhet,0,
 vh-drofte-personer-samfunn,skill,Vitenskapshistorie og paradigmer,Drøfte enkeltpersoners og samfunnets betydning,"drøfte hvilken betydning enkeltpersoner og samfunnsforhold, som krig, økonomi, religion, institusjoner og hvem som fikk delta i forskningen, har hatt for den vitenskapelige og teknologiske utviklingen.",vh-personer;vh-paradigme,0,
 et-etiske-teorier,concept,Etikk og bærekraft,Etiske perspektiver,"Konsekvensetikk: en handling vurderes etter hvilke følger den får for alle som berøres.
-Pliktetikk: en handling vurderes etter om den følger plikter og regler, uansett følgene.
+Pliktetikk: en handling vurderes etter om den følger plikter og regler, ikke bare etter følgene.
 Dydsetikk: en handling vurderes etter hva et klokt og godt menneske ville gjort.",,0,
 et-forskningsetikk,concept,Etikk og bærekraft,Forskningsetiske prinsipper,"Informert samtykke: at deltakere i forskning får vite hva den går ut på, og frivillig sier ja før de deltar.
 Konfidensialitet: at opplysninger om deltakerne beskyttes og ikke kan spores tilbake til dem.

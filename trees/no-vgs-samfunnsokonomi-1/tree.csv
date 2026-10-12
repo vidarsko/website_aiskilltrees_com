@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,economics,,,
 ,config,,keywords,samfunnsøkonomi; SØK1; økonomi; programfag; tilbud og etterspørsel; elastisitet; markedsformer; monopol; BNP; realligningen; arbeidsledighet; inflasjon; KPI; styringsrente; Norges Bank; finanspolitikk; pengepolitikk; multiplikator; finansmarked; Gini; valutakurs; komparative fortrinn; globalisering; muntlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 okonomisk-modell,concept,Metode og modeller,Økonomisk modell,"Økonomisk modell: en forenklet framstilling av en økonomisk sammenheng, i ord, grafer eller likninger, som tar med det viktigste og ser bort fra resten.
 Ceteris paribus: forutsetningen at alt annet holdes uendret, slik at virkningen av én endring kan studeres for seg.",,0,
 positiv-normativ,concept,Metode og modeller,Positiv og normativ påstand,"Positiv påstand: en påstand om hvordan økonomien er eller virker, som i prinsippet kan sjekkes mot data.
@@ -99,7 +100,7 @@ hdi,concept,Nasjonalregnskap og vekst,HDI,"HDI (Human Development Index): FNs in
 bnp-som-mal,skill,Nasjonalregnskap og vekst,Vurdere BNP som mål på verdiskaping og velferd,"reflektere over hva BNP fanger opp og ikke fanger opp, som ulønnet arbeid, fritid, miljøskader og fordeling, og sammenligne med andre mål som HDI.",bnp;regne-realvekst;hdi,0,
 arbeidsstyrke,concept,Arbeidsmarked og ledighet,Arbeidsstyrken,"Arbeidsstyrken: alle som er sysselsatt eller arbeidsledige.
 Yrkesdeltakelse: arbeidsstyrken som andel av befolkningen i en aldersgruppe.",,0,
-arbeidsledighet,concept,Arbeidsmarked og ledighet,Arbeidsledighet,"Arbeidsledig: en person uten arbeid som har søkt arbeid og kan begynne straks.
+arbeidsledighet,concept,Arbeidsmarked og ledighet,Arbeidsledighet,"Arbeidsledig: en person uten arbeid som har søkt arbeid og kan begynne innen to uker.
 Ledighetsrate: de arbeidsledige som andel av arbeidsstyrken.",arbeidsstyrke,0,
 regne-ledighet,skill,Arbeidsmarked og ledighet,Regne ut ledighetsrate og yrkesdeltakelse,"regne ut ledighetsrate og yrkesdeltakelse fra tall over befolkning, sysselsatte og ledige, og forklare hvorfor SSBs arbeidskraftundersøkelse og NAVs registrerte ledighet gir ulike tall.",arbeidsledighet;regne-prosentvis-endring,0,
 typer-ledighet,concept,Arbeidsmarked og ledighet,Typer arbeidsledighet,"Friksjonsledighet: kortvarig ledighet mens folk bytter jobb eller kommer inn på arbeidsmarkedet.

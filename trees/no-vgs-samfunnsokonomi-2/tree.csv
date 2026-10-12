@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,economics,,,
 ,config,,keywords,samfunnsøkonomi; SØK2; økonomi; programfag; skriftlig eksamen; monopol; fullkommen konkurranse; grensekostnad; grenseinntekt; dødvektstap; konsumentoverskudd; markedssvikt; Pigou-avgift; kollektive goder; nåverdi; handlingsregelen; inflasjonsmål; multiplikator; toll; proteksjonisme; valutakurs; konkurranseevne; hollandsk syke; økonomiske sjokk; AD-AS,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 okonomisk-modell,concept,Metode og modeller,Økonomisk modell og forutsetninger,"Økonomisk modell: en forenklet framstilling av en økonomisk sammenheng, i ord, grafer eller likninger.
 Forutsetning: det modellen tar for gitt, som ceteris paribus eller fullkommen informasjon, og som avgjør hvor langt konklusjonen holder i virkeligheten.",,0,
 marginalbetraktning,concept,Metode og modeller,Marginale størrelser,"Marginal størrelse: endringen i en størrelse når en annen øker med én enhet, som kostnaden ved å produsere én enhet til.
@@ -113,8 +114,8 @@ arbeidsmarked-modell,skill,Arbeidsledighet,Analysere ledighet i en modell for ar
 arsaker-ledighet,skill,Arbeidsledighet,Gjøre rede for årsaker til arbeidsledighet,"gjøre rede for ulike årsaker til arbeidsledighet, som svikt i etterspørselen, omstilling i næringslivet, manglende kompetanse og høye lønnskostnader, og knytte hver årsak til en type ledighet.",arbeidsmarked-modell;likevektsledighet,0,
 vurdere-ledighetstiltak,skill,Arbeidsledighet,Vurdere virkemidler mot arbeidsledighet,"vurdere hvilke virkemidler som virker mot hvilken type ledighet, som ekspansiv finans- og pengepolitikk, kvalifisering og arbeidsmarkedstiltak, og hva de koster.",arsaker-ledighet;finanspolitikk-pengepolitikk,0,
 aldrende-befolkning,concept,Langsiktige utfordringer og bærekraft,Aldrende befolkning,"Eldrebølgen: at andelen eldre i befolkningen øker fordi vi lever lenger og får færre barn.
-Forsørgerbyrde: forholdet mellom antall eldre og antall i yrkesaktiv alder, som påvirker hvor mange som skal finansiere pensjoner og helsetjenester.",,0,
-oljeavhengighet,concept,Langsiktige utfordringer og bærekraft,Petroleumsavhengighet,"Petroleumsavhengighet: at en stor del av norsk eksport, statens inntekter og investeringene kommer fra olje og gass, en næring som skal trappes ned i takt med klimamålene.",handlingsregelen,0,
+Forsørgerbyrde for eldre (eldrebrøk): forholdet mellom antall eldre og antall i yrkesaktiv alder, som påvirker hvor mange som skal finansiere pensjoner og helsetjenester.",,0,
+oljeavhengighet,concept,Langsiktige utfordringer og bærekraft,Petroleumsavhengighet,"Petroleumsavhengighet: at en stor del av norsk eksport, statens inntekter og investeringene kommer fra olje og gass, en næring som ventes å krympe etter hvert som feltene tømmes og verden kutter utslipp.",handlingsregelen,0,
 drofte-langsiktige-utfordringer,skill,Langsiktige utfordringer og bærekraft,Drøfte Norges langsiktige økonomiske utfordringer,"reflektere over langsiktige økonomiske utfordringer for Norge, som eldrebølgen, lavere oljeinntekter, svak produktivitetsvekst og klimaomstillingen, og drøfte mulige løsninger.",aldrende-befolkning;oljeavhengighet;vekstkilder;handlingsregelen,0,
 baerekraftig-utvikling,concept,Langsiktige utfordringer og bærekraft,Bærekraftig utvikling,"Bærekraftig utvikling: en utvikling som dekker dagens behov uten å ødelegge mulighetene for kommende generasjoner, med en økonomisk, en sosial og en miljømessig dimensjon.",,0,
 klimavirkemidler,concept,Langsiktige utfordringer og bærekraft,Klimapolitiske virkemidler,"CO2-avgift: en avgift per tonn utslipp, som gjør utslippene dyrere for den som slipper ut.

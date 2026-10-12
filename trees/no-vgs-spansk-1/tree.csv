@@ -21,7 +21,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg1,,,
 ,config,,subjectArea,spanish,,,
 ,config,,keywords,spansk; fremmedspråk; nivå I; gloser; ser og estar; gustar; presens; uttale; aksenttegn; spansktalende land,,,
-,config,,updated,2026-09-30,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 alfabetet,fact,Uttale og rettskriving,Det spanske alfabetet,"a: a
 b: be
 c: ce

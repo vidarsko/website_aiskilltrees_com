@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,spanish,,,
 ,config,,keywords,spansk; spansk 2; fremmedspråk; nivå II; preteritum; imperfektum; subjunktiv; ser og estar; por og para; objektspronomen; gloser; skriftlig eksamen; Spania; Latin-Amerika,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 uttaleregler,fact,Grunnlag fra nivå I,Bokstaver som uttales annerledes enn på norsk,"h: er stum (hola uttales «ola»)
 j, og g foran e og i: en hard h-lyd bak i halsen (jamón, gente)
 ll og y: omtrent som norsk j (llamo, yo)
@@ -453,13 +454,13 @@ Chile: Santiago
 Argentina: Buenos Aires
 Uruguay: Montevideo
 Paraguay: Asunción
-Guinea Ecuatorial: Malabo
+Guinea Ecuatorial: Ciudad de la Paz (fram til 2026 Malabo)
 Puerto Rico (amerikansk territorium): San Juan",,0,
 historie,fact,Samfunn og historie,Sentrale årstall i spansk og latinamerikansk historie,"711: muslimske hærer går inn på Den iberiske halvøy, og al-Andalus blir til
 1492: Granada faller og reconquistaen avsluttes, jødene utvises fra Spania, og Columbus når Amerika
 1521: Cortés erobrer Tenochtitlan, hovedstaden i Aztekerriket
 1532–1533: Pizarro erobrer Inkariket
-1810–1825: de fleste spanske koloniene i Amerika kjemper seg til selvstendighet
+1810–1826: de fleste spanske koloniene i Amerika kjemper seg til selvstendighet
 1898: Spania mister Cuba, Puerto Rico og Filippinene etter krigen mot USA
 1910–1920: den meksikanske revolusjonen
 1936–1939: den spanske borgerkrigen
@@ -483,7 +484,7 @@ mayaspråkene: en gruppe urfolksspråk i Guatemala og Sør-Mexico",,0,
 mangfold,skill,Samfunn og historie,Beskrive mangfoldet i et spansktalende land,"beskrive det språklige og kulturelle mangfoldet i et spansktalende land, som urfolk, regionale språk eller innvandring, og hva det betyr for dem som bor der",sprak-i-verden;sprakvarianter;land,0,
 samfunnssak,skill,Samfunn og historie,Gjøre rede for en aktuell samfunnssak,"gjøre rede for en aktuell samfunnssak i et spansktalende land, som migrasjon, ungdomsarbeidsløshet, turisme eller klimaendringer, med en spansk kilde som grunnlag",lese-hovedinnhold;meningsuttrykk,0,
 sammenligne-egen,skill,Samfunn og historie,Sammenligne samfunnsforhold med dine egne,"sammenligne et samfunnsforhold i et spansktalende land med forhold i Norge eller i ditt eget miljø, og si hva som er likt og ulikt og hvorfor",samfunnssak;mangfold;komparativ,0,
-hoytider,fact,Kunst og kultur,Høytider og festivaler,"Día de los Muertos: 1. og 2. november, til minne om de døde, særlig i Mexico
+hoytider,fact,Kunst og kultur,Høytider og festivaler,"Día de los Muertos: 31. oktober til 2. november, til minne om de døde, særlig i Mexico
 Semana Santa: påskeuka, med prosesjoner, særlig i Sør-Spania
 Las Fallas: i mars i Valencia, der store figurer brennes
 San Fermín: i juli i Pamplona, kjent for oksene som slippes gjennom gatene

@@ -1,0 +1,51 @@
+node_id,group,label,url
+prod-designprosess,Store norske leksikon,Prototyp,https://snl.no/prototyp
+prod-kravspesifikasjon,Store norske leksikon,Kravspesifikasjon,https://snl.no/kravspesifikasjon
+prod-arbeidstegning,Store norske leksikon,Arbeidstegning,https://snl.no/arbeidstegning
+el-strom-spenning-resistans,Store norske leksikon,Elektrisk strøm,https://snl.no/elektrisk_str%C3%B8m
+el-strom-spenning-resistans,Store norske leksikon,Elektrisk spenning,https://snl.no/elektrisk_spenning
+el-strom-spenning-resistans,Store norske leksikon,Resistans,https://snl.no/resistans
+el-effekt,Store norske leksikon,Effekt – energi,https://snl.no/effekt_-_energi
+el-koblingsskjema,Store norske leksikon,Koblingsskjema,https://snl.no/koblingsskjema
+el-serie-parallell,Store norske leksikon,Seriekobling,https://snl.no/seriekobling
+el-serie-parallell,Store norske leksikon,Parallellkobling – fysikk,https://snl.no/parallellkobling_-_fysikk
+el-diode-led,Store norske leksikon,Diode,https://snl.no/diode
+el-diode-led,Store norske leksikon,Lysdiode,https://snl.no/lysdiode
+el-kortslutning,Store norske leksikon,Kortslutning,https://snl.no/kortslutning
+el-transistor,Store norske leksikon,Transistor,https://snl.no/transistor
+mc-mikrokontroller,Store norske leksikon,Mikrokontroller,https://snl.no/mikrokontroller
+mc-mikrokontroller,Store norske leksikon,Arduino,https://snl.no/Arduino
+mc-mikrokontroller,Store norske leksikon,Micro:bit,https://snl.no/microbit
+pr-variabler,Store norske leksikon,Datatype – IT,https://snl.no/datatype_-_IT
+sig-analog-digital,Store norske leksikon,Analogt signal,https://snl.no/analogt_signal
+sig-analog-digital,Store norske leksikon,Digitalt signal,https://snl.no/digitalt_signal
+sig-sensor-aktuator,Store norske leksikon,Sensor – teknikk,https://snl.no/sensor_-_teknikk
+sig-sensor-aktuator,Store norske leksikon,Aktuator,https://snl.no/aktuator
+sig-sensortyper,Store norske leksikon,Termistor,https://snl.no/termistor
+sig-sensortyper,Store norske leksikon,Akselerometer,https://snl.no/akselerometer
+sig-sensortyper,Store norske leksikon,Potensiometer,https://snl.no/potensiometer
+sig-ad-omformer,Store norske leksikon,Analog-digital-omformer,https://snl.no/analog-digital-omformer
+sig-sampling,Store norske leksikon,Sampling – elektronikk,https://snl.no/sampling_-_elektronikk
+met-storrelse-enhet,Store norske leksikon,SI-systemet,https://snl.no/SI-systemet
+met-prefikser,Store norske leksikon,SI-prefikser,https://snl.no/SI-prefikser
+met-kvantitativ,Store norske leksikon,Kvantitativ metode,https://snl.no/kvantitativ_metode
+met-kvantitativ,Store norske leksikon,Kvalitativ metode,https://snl.no/kvalitativ_metode
+met-variabler,Store norske leksikon,Uavhengig variabel – forskningsmetode,https://snl.no/uavhengig_variabel_-_forskningsmetode
+met-variabler,Store norske leksikon,Avhengig variabel – forskningsmetode,https://snl.no/avhengig_variabel_-_forskningsmetode
+met-variabler,Store norske leksikon,Kontrollvariabel,https://snl.no/kontrollvariabel
+met-hypotese,Store norske leksikon,Hypotese,https://snl.no/hypotese
+met-reliabilitet-validitet,Store norske leksikon,Reliabilitet,https://snl.no/reliabilitet
+met-reliabilitet-validitet,Store norske leksikon,Validitet,https://snl.no/validitet
+dat-standardavvik,Store norske leksikon,Standardavvik,https://snl.no/standardavvik
+dat-usikkerhet,Store norske leksikon,Måleusikkerhet,https://snl.no/m%C3%A5leusikkerhet
+dat-feiltyper,Store norske leksikon,Målefeil – mål og vekt,https://snl.no/m%C3%A5lefeil_-_m%C3%A5l_og_vekt
+sam-teknologi,Store norske leksikon,Teknologi,https://snl.no/teknologi
+sam-teknologi,Store norske leksikon,Innovasjon,https://snl.no/innovasjon
+sam-etiske-perspektiver,Store norske leksikon,Konsekvensetikk,https://snl.no/konsekvensetikk
+sam-etiske-perspektiver,Store norske leksikon,Pliktetikk,https://snl.no/pliktetikk
+sam-etiske-perspektiver,Store norske leksikon,Dydsetikk,https://snl.no/dydsetikk
+sam-etiske-tema,Store norske leksikon,Personvern,https://snl.no/personvern
+sam-etiske-tema,Store norske leksikon,Automatisering,https://snl.no/automatisering
+sam-baerekraft,Store norske leksikon,Bærekraftig utvikling,https://snl.no/b%C3%A6rekraftig_utvikling
+sam-livslop,Store norske leksikon,Livsløpsanalyse,https://snl.no/livsl%C3%B8psanalyse
+sam-livslop,Store norske leksikon,Sirkulær økonomi,https://snl.no/sirkul%C3%A6r_%C3%B8konomi

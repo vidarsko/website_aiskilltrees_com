@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,technology,,,
 ,config,,keywords,TOF;teknologi;forskningslære;Arduino;micro:bit;mikrokontroller;programmering;elektronikk;Ohms lov;kravspesifikasjon;arbeidstegning;CAD;3D-printing;prototyp;måleusikkerhet;standardavvik;feilkilder;regresjon;etikk;bærekraft,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 prod-designprosess,concept,Produktutvikling,Iterativ designprosess og prototyp,"Iterativ designprosess: en arbeidsmåte der man går fra idé via krav, skisse, prototyp og test til forbedring, og gjentar runden til produktet er godt nok.
 Prototyp: en tidlig, enkel versjon av produktet som er laget for å teste en idé, ikke for å være ferdig.",,0,
 prod-kravspesifikasjon,concept,Produktutvikling,Kravspesifikasjon,"Kravspesifikasjon: en liste over de kravene et produkt skal oppfylle, formulert slik at hvert krav kan sjekkes med en test eller en måling.
@@ -92,7 +93,7 @@ mc-pwm-styre,skill,Mikrokontroller og programmering,Styre lysstyrke og fart med 
 sig-analog-digital,concept,Sensorer,Analogt og digitalt signal,"Analogt signal: et signal som kan ha alle verdier innenfor et område og endre seg gradvis, som en spenning fra 0 til 5 V.
 Digitalt signal: et signal som bare har et begrenset antall verdier, i enkleste fall høy og lav.",mc-pinner,0,
 sig-sensor-aktuator,concept,Sensorer,Sensor og aktuator,"Sensor: en komponent som gjør en fysisk størrelse, som lys, temperatur eller avstand, om til et elektrisk signal.
-Aktuator: en komponent som gjør et elektrisk signal om til en fysisk virkning, som bevegelse, lys eller lyd.",,0,
+Aktuator: en komponent som bruker et elektrisk styresignal til å lage en mekanisk bevegelse, som en motor, en servo eller en ventil.",,0,
 sig-sensortyper,fact,Sensorer,Vanlige sensorer og hva de måler,"lysfølsom motstand (LDR): lysstyrke
 termistor: temperatur
 potensiometer: vinkel eller posisjon
@@ -153,7 +154,7 @@ dat-redusere-usikkerhet,skill,Dataanalyse og usikkerhet,Teste om usikkerheten ka
 sam-teknologi,concept,"Teknologi, etikk og samfunn",Teknologi og innovasjon,"Teknologi: redskaper, maskiner, systemer og metoder mennesker lager for å løse praktiske problemer.
 Innovasjon: en ny eller vesentlig forbedret løsning som faktisk tas i bruk.",,0,
 sam-etiske-perspektiver,concept,"Teknologi, etikk og samfunn",Etiske perspektiver,"Konsekvensetikk: en handling vurderes etter hvilke følger den får for alle som berøres.
-Pliktetikk: en handling vurderes etter om den følger plikter og regler, uansett følgene.
+Pliktetikk: en handling vurderes etter om den følger plikter og prinsipper, ikke bare etter følgene.
 Dydsetikk: en handling vurderes etter hva et klokt og godt menneske ville gjort.",,0,
 sam-etiske-tema,concept,"Teknologi, etikk og samfunn",Etiske tema i teknologi,"Personvern: retten til å bestemme over opplysninger om seg selv.
 Dobbel bruk: at samme teknologi kan brukes både til gode formål og til skade, som droner til redning og til krig.

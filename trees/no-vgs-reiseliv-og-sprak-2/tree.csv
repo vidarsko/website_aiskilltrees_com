@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,tourism,,,
 ,config,,keywords,reiseliv; turisme; reisemotiver; reisetrender; verdiskaping; ringvirkninger; destinasjonsutvikling; konkurransefortrinn; innovasjon; markedsføringsstrategi; kulturkunnskap; bærekraft; RSP01-03; SPR3040,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 reiseliv,concept,Grunnbegreper,Reiseliv og turist,"Reiseliv: alt som har med det å gjøre at folk reiser til og oppholder seg et sted utenfor sitt vanlige miljø i mindre enn ett år, enten det er for ferie, arbeid eller et annet formål.
 Turist: en tilreisende som overnatter minst én natt på stedet.
 Dagsbesøkende: en tilreisende som reiser hjem eller videre samme dag uten å overnatte.",,0,

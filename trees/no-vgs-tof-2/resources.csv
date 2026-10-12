@@ -1,0 +1,74 @@
+node_id,group,label,url
+vk-empiri,Store norske leksikon,Empiri,https://snl.no/empiri
+vk-hypotese-teori-lov,Store norske leksikon,Hypotese,https://snl.no/hypotese
+vk-hypotese-teori-lov,Store norske leksikon,Teori,https://snl.no/teori
+vk-hypotese-teori-lov,Store norske leksikon,Naturlov,https://snl.no/naturlov
+vk-modell,Store norske leksikon,Modell,https://snl.no/modell
+vk-simulering,Store norske leksikon,Datasimulering,https://snl.no/datasimulering
+vk-induksjon-deduksjon,Store norske leksikon,Induksjon – filosofi,https://snl.no/induksjon_-_filosofi
+vk-induksjon-deduksjon,Store norske leksikon,Deduksjon – bevisføring,https://snl.no/deduksjon_-_bevisf%C3%B8ring
+vk-falsifiserbarhet,Store norske leksikon,Falsifikasjon – vitenskapsteori,https://snl.no/falsifikasjon_-_vitenskapsteori
+vk-falsifiserbarhet,Store norske leksikon,Karl Popper,https://snl.no/Karl_Popper
+vk-hd-metode,Store norske leksikon,Hypotetisk-deduktiv metode,https://snl.no/hypotetisk-deduktiv_metode
+vk-korrelasjon-kausalitet,Store norske leksikon,Korrelasjon,https://snl.no/korrelasjon
+vk-korrelasjon-kausalitet,Store norske leksikon,Kausalitet,https://snl.no/kausalitet
+vk-korrelasjon-kausalitet,Store norske leksikon,Forstyrrende variabel,https://snl.no/forstyrrende_variabel
+vk-reproduserbarhet,Store norske leksikon,Reproduserbarhet,https://snl.no/reproduserbarhet
+vk-fou,Store norske leksikon,Grunnforskning,https://snl.no/grunnforskning
+vk-fou,Store norske leksikon,Anvendt forskning,https://snl.no/anvendt_forskning
+vk-fou,Store norske leksikon,FoU – forskning og utvikling,https://snl.no/FoU_-_forskning_og_utvikling
+dm-eksperiment-observasjon,Store norske leksikon,Eksperiment,https://snl.no/eksperiment
+dm-kontrollgruppe,Store norske leksikon,Kontrollgruppe,https://snl.no/kontrollgruppe
+dm-kontrollgruppe,Store norske leksikon,Randomisering,https://snl.no/randomisering
+dm-kontrollgruppe,Store norske leksikon,Blindtest,https://snl.no/blindtest
+dm-kvalitativ-kvantitativ,Store norske leksikon,Kvantitativ metode,https://snl.no/kvantitativ_metode
+dm-kvalitativ-kvantitativ,Store norske leksikon,Kvalitativ metode,https://snl.no/kvalitativ_metode
+dm-populasjon-utvalg,Store norske leksikon,Utvalg,https://snl.no/utvalg
+dm-utvalgsmetoder,Store norske leksikon,Utvalg,https://snl.no/utvalg
+dm-skjevhet,Store norske leksikon,Utvalgsskjevhet,https://snl.no/utvalgsskjevhet
+dm-skjevhet,Store norske leksikon,Bekreftelsestendens,https://snl.no/bekreftelsestendens
+dm-reliabilitet-validitet,Store norske leksikon,Reliabilitet,https://snl.no/reliabilitet
+dm-reliabilitet-validitet,Store norske leksikon,Validitet,https://snl.no/validitet
+dm-feiltyper,Store norske leksikon,Målefeil – mål og vekt,https://snl.no/m%C3%A5lefeil_-_m%C3%A5l_og_vekt
+st-standardavvik,Store norske leksikon,Standardavvik,https://snl.no/standardavvik
+st-normalfordeling,Store norske leksikon,Normalfordeling,https://snl.no/normalfordeling
+st-normalfordeling,Store norske leksikon,Standardavvik,https://snl.no/standardavvik
+st-konfidensintervall,Store norske leksikon,Konfidensintervall,https://snl.no/konfidensintervall
+st-regresjon,Store norske leksikon,Regresjonsanalyse,https://snl.no/regresjonsanalyse
+st-regresjon,Store norske leksikon,Minste kvadraters metode,https://snl.no/minste_kvadraters_metode
+st-korrelasjonskoeffisient,Store norske leksikon,Korrelasjon,https://snl.no/korrelasjon
+st-hypotesetest,Store norske leksikon,Nullhypotese,https://snl.no/nullhypotese
+st-hypotesetest,Store norske leksikon,Hypotesetesting – statistikk,https://snl.no/hypotesetesting_-_statistikk
+st-p-verdi,Store norske leksikon,P-verdi,https://snl.no/p-verdi
+st-p-verdi,Store norske leksikon,Signifikansnivå,https://snl.no/signifikansniv%C3%A5
+st-feiltyper,Store norske leksikon,Type I-feil,https://snl.no/type_I-feil
+st-feiltyper,Store norske leksikon,Type II-feil,https://snl.no/type_II-feil
+vkom-artikkel-deler,Store norske leksikon,Vitenskapelig artikkel,https://snl.no/vitenskapelig_artikkel
+vkom-artikkel-deler,Store medisinske leksikon,IMRAD,https://sml.snl.no/IMRAD
+vkom-fagfellevurdering,Store norske leksikon,Fagfellevurdering,https://snl.no/fagfellevurdering
+vkom-fagfellevurdering,Store norske leksikon,Vitenskapelig tidsskrift,https://snl.no/vitenskapelig_tidsskrift
+fs-finansiering,Store norske leksikon,Norges forskningsråd,https://snl.no/Norges_forskningsr%C3%A5d
+fs-interessekonflikt,Store norske leksikon,Interessekonflikt – forskning,https://snl.no/interessekonflikt_-_forskning
+fs-apen-forskning,Store norske leksikon,Open Access,https://snl.no/Open_Access
+vh-paradigme,Store norske leksikon,Paradigme,https://snl.no/paradigme
+vh-paradigme,Store norske leksikon,Thomas Kuhn,https://snl.no/Thomas_Kuhn
+vh-paradigme,Store norske leksikon,Anomali – vitenskapsteori,https://snl.no/anomali_-_vitenskapsteori
+vh-eksempler-skifter,Store norske leksikon,Nicolaus Copernicus,https://snl.no/Nicolaus_Copernicus
+vh-eksempler-skifter,Store norske leksikon,Kontinentaldrift,https://snl.no/kontinentaldrift
+vh-eksempler-skifter,Store norske leksikon,Platetektonikk,https://snl.no/platetektonikk
+vh-personer,Store norske leksikon,Marie Curie,https://snl.no/Marie_Curie
+vh-personer,Store norske leksikon,Kristian Birkeland,https://snl.no/Kristian_Birkeland
+vh-personer,Store norske leksikon,Rosalind Franklin,https://snl.no/Rosalind_Franklin
+et-etiske-teorier,Store norske leksikon,Konsekvensetikk,https://snl.no/konsekvensetikk
+et-etiske-teorier,Store norske leksikon,Pliktetikk,https://snl.no/pliktetikk
+et-etiske-teorier,Store norske leksikon,Dydsetikk,https://snl.no/dydsetikk
+et-forskningsetikk,Store norske leksikon,Forskningsetikk,https://snl.no/forskningsetikk
+et-forskningsetikk,Store norske leksikon,Informert samtykke,https://snl.no/informert_samtykke
+et-forskningsjuks,Store norske leksikon,Forskningsetikk,https://snl.no/forskningsetikk
+et-forskningsjuks,Store norske leksikon,Plagiat,https://snl.no/plagiat
+et-dyreforsok,Store medisinske leksikon,Dyreforsøk – medisinsk etikk,https://sml.snl.no/dyrefors%C3%B8k_-_medisinsk_etikk
+et-fore-var,Store norske leksikon,Føre-var-prinsippet,https://snl.no/f%C3%B8re-var-prinsippet
+bk-baerekraft,Store norske leksikon,Bærekraftig utvikling,https://snl.no/b%C3%A6rekraftig_utvikling
+bk-baerekraft,Store norske leksikon,Verdenskommisjonen for miljø og utvikling,https://snl.no/Verdenskommisjonen_for_milj%C3%B8_og_utvikling
+bk-fn-maal,Store norske leksikon,FNs bærekraftsmål,https://snl.no/FNs_b%C3%A6rekraftsm%C3%A5l
+bk-konsekvensbegreper,Store norske leksikon,Livsløpsanalyse,https://snl.no/livsl%C3%B8psanalyse

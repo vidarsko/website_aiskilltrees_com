@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,geography,,,
 ,config,,keywords,samfunnsgeografi;feltarbeid;GIS;arealplanlegging;demografi;demografisk overgang;befolkningspyramide;migrasjon;urbanisering;sentralisering;stedsidentitet;region;byutvikling;globalisering;lokalisering;Sápmi;urfolk;utviklingsteori;levekår;HDI;digitalisering;bærekraft,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 geografisk-niva,concept,Metode og feltarbeid,Geografisk nivå,"Geografisk nivå: hvor stort område man studerer et fenomen på - lokalt, regionalt, nasjonalt eller globalt. Det samme fenomenet kan ha ulike årsaker og ulike konsekvenser på de ulike nivåene.",,0,
 kvalitative-kvantitative-data,concept,Metode og feltarbeid,Kvalitative og kvantitative data,"Kvantitative data: opplysninger som kan telles og måles, som folketall, inntekt eller andel som pendler.
 Kvalitative data: opplysninger om hvordan folk opplever, mener og begrunner noe, hentet fra intervju, observasjon eller tekster.",,0,

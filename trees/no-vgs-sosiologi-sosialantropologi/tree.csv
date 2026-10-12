@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,social-studies,,,
 ,config,,keywords,sosiologi; sosialantropologi; sosant; samfunnsvitenskapelig metode; feltarbeid; sosialisering; rolle; avvik; stempling; kultur; etnosentrisme; kulturrelativisme; urfolk; samer; makt; medier; arbeidsdeling; ideologi; rettferdighet; klasse; lagdeling; sosial mobilitet; marginalisering; Durkheim; Marx; Weber; Goffman; Bourdieu,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 sosiologi-sosialantropologi,concept,Metode og teori,Sosiologi og sosialantropologi,"Sosiologi: studiet av samfunnet, sosiale grupper og samhandling, særlig i moderne samfunn og ofte med store utvalg og statistikk.
 Sosialantropologi: studiet av kultur og samfunnsliv på tvers av samfunn, ofte gjennom langvarig feltarbeid tett på menneskene som studeres.",,0,
 sosiologisk-fantasi,concept,Metode og teori,Sosiologisk fantasi,"Sosiologisk fantasi: evnen til å se sammenhengen mellom enkeltmenneskers erfaringer og de større samfunnsforholdene de lever i, slik at det som ser ut som et privat problem, kan vise seg å være et samfunnsproblem. Begrepet er C. Wright Mills'.",sosiologi-sosialantropologi,0,
@@ -89,7 +90,7 @@ Sanksjon: en reaksjon på atferd, positiv (ros, belønning) eller negativ (straf
 avvik,concept,Avvik og sosial kontroll,Sosialt avvik,"Sosialt avvik: atferd som bryter med normene i en gruppe eller et samfunn. Hva som regnes som avvik, varierer mellom grupper, kulturer og tider, og et avvik kan være både positivt og negativt.",norm,0,
 anomi,concept,Avvik og sosial kontroll,Anomi,"Anomi: normløshet, en tilstand der felles normer svekkes eller ikke henger sammen med de mulighetene folk har. Durkheim brukte begrepet om raske samfunnsendringer; Merton om spriket mellom målene samfunnet setter og de lovlige midlene folk har til å nå dem.",avvik,0,
 stempling,concept,Avvik og sosial kontroll,Stempling,"Stempling: at omgivelsene setter merkelappen «avviker» på en person, som så kan begynne å se seg selv slik og leve opp til den.
-Primært avvik: den første normbruddet, før noen har reagert.
+Primært avvik: det første normbruddet, før noen har reagert.
 Sekundært avvik: avvik som følger av at personen har tatt stempelet inn i identiteten sin.",avvik;identitet,0,
 subkultur,concept,Avvik og sosial kontroll,Subkultur,"Subkultur: en gruppe med egne normer, verdier og uttrykk som skiller seg fra flertallet, men innenfor samme samfunn. Det som er avvik i storsamfunnet, kan være norm i subkulturen.",avvik,0,
 moralsk-panikk,concept,Avvik og sosial kontroll,Moralsk panikk,"Moralsk panikk: en overdreven reaksjon i medier og samfunn på en gruppe eller atferd som framstilles som en trussel mot felles verdier, ofte større enn det faktiske problemet tilsier.",sosial-kontroll,0,
@@ -123,7 +124,7 @@ drofte-kulturelt-mangfold,skill,Kultur og kulturforståelse,Drøfte utfordringer
 drofte-interkulturell-kompetanse,skill,Kultur og kulturforståelse,Drøfte betydningen av kulturforståelse i et demokrati,"drøfte hvorfor kulturforståelse og interkulturell kompetanse er viktig i et demokratisk og mangfoldig samfunn, og hvor grensene for toleranse bør gå.",interkulturell-kompetanse;drofte-kulturelt-mangfold,0,
 majoritet-minoritet,concept,Urfolk og minoriteter,Majoritet og minoritet,"Majoritet: gruppa som er i flertall og har makt til å definere hva som er normalt.
 Minoritet: en gruppe i mindretall som skiller seg fra majoriteten i for eksempel språk, religion, etnisitet eller levemåte.",etnisitet,0,
-urfolk,concept,Urfolk og minoriteter,Urfolk,"Urfolk: et folk som bodde i et område før dagens statsgrenser ble trukket, som har beholdt egne språk, institusjoner og levemåter, og som selv definerer seg som urfolk. Samene er urfolk i Norge, Sverige, Finland og Russland.",majoritet-minoritet,0,
+urfolk,concept,Urfolk og minoriteter,Urfolk,"Urfolk: et folk som bodde i et område før dagens statsgrenser ble trukket, som helt eller delvis har beholdt egne språk, institusjoner og levemåter, og som selv definerer seg som urfolk. Samene er urfolk i Norge, Sverige, Finland og Russland.",majoritet-minoritet,0,
 fornorsking,concept,Urfolk og minoriteter,Fornorsking,"Fornorsking: den norske statens politikk, særlig fra midten av 1800-tallet og langt ut på 1900-tallet, for å få samer og kvener til å oppgi språket og kulturen sin og bli norske. Det er et eksempel på tvungen assimilasjon.",urfolk;kulturmoter,0,
 urfolk-arstall,fact,Urfolk og minoriteter,Urfolksrettigheter i Norge,"ILO-konvensjon 169 om urfolk vedtatt: 1989
 Norge ratifiserer ILO-konvensjon 169, som første land: 1990

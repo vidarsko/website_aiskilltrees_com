@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,social-studies,,,
 ,config,,keywords,sosialkunnskap; SAM3051; SAM3052; samfunnsvitenskapelig metode; velferdsstat; NAV; folketrygden; velferdsmodeller; menneskerettigheter; barnekonvensjonen; urfolk; fornorskning; sosial ulikhet; fattigdom; marginalisering; utenforskap; inkludering; sosialisering; kjønn; identitet; behov; Maslow; livsmestring; kriser; sosiale problemer; forebygging; vold; trakassering,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 problemstilling,concept,Metode og kilder,Problemstilling og hypotese,"Problemstilling: et avgrenset spørsmål en undersøkelse skal svare på, formulert så presist at det går an å avgjøre hvilke opplysninger som trengs.
 Hypotese: en antakelse om hva svaret er, formulert slik at undersøkelsen kan styrke eller svekke den.",,0,
 kvantitativ-kvalitativ,concept,Metode og kilder,Kvantitativ og kvalitativ metode,"Kvantitativ metode: samler inn opplysninger som kan telles, fra mange, for å finne mønstre og utbredelse.
@@ -81,7 +82,7 @@ handlingsregelen,concept,Velferdsstaten,Handlingsregelen,"Handlingsregelen: retn
 velferd-milepaeler,fact,Velferdsstaten,Milepæler i den norske velferdsstatens historie,"ulykkesforsikring for fabrikkarbeidere: 1894
 lov om syketrygd: 1909
 behovsprøvd alderstrygd for alle over 70 år: 1936
-arbeidsløysetrygd: 1938
+lov om arbeidsløysetrygd: 1938
 barnetrygd: 1946
 alderstrygd uten behovsprøving: 1957
 folketrygden: 1967
@@ -180,7 +181,7 @@ risiko-beskyttelse,concept,Livsmestring og kriser,Risiko- og beskyttelsesfaktore
 Beskyttelsesfaktor: et forhold som demper virkningen av risikoen, som en trygg voksen, gode venner eller mestring på skolen.",tilknytning,0,
 livsmestring,concept,Livsmestring og kriser,Livsmestring,"Livsmestring: å kunne forstå og påvirke faktorer som har betydning for eget liv, og å håndtere medgang og motgang, egne følelser og forholdet til andre. Evnen til å komme seg gjennom store belastninger kalles resiliens.",,0,
 krise,concept,Livsmestring og kriser,Traumatisk krise og utviklingskrise,"Traumatisk krise: en plutselig, uventet hendelse som truer tryggheten eller livsgrunnlaget, som et dødsfall, en ulykke eller vold.
-Utviklingskrise (livskrise): en krise som kommer ved overganger i livet man kan forutse, som pubertet, å flytte hjemmefra, skilsmisse eller å bli pensjonist.",,0,
+Utviklingskrise (livskrise): en krise som kommer ved overganger i livet man kan forutse, som pubertet, å flytte hjemmefra, å få barn eller å bli pensjonist.",,0,
 krisefaser,concept,Livsmestring og kriser,Krisefaser,"Krisefaser: Johan Cullbergs modell av forløpet i en traumatisk krise - sjokkfasen, reaksjonsfasen, bearbeidingsfasen og nyorienteringsfasen. Fasene kan gli over i hverandre, og ikke alle går gjennom dem i samme rekkefølge.",krise,0,
 samfunnssikkerhet,concept,Livsmestring og kriser,Samfunnssikkerhet og beredskap,"Samfunnskrise: en hendelse som rammer mange samtidig og truer viktige funksjoner i samfunnet, som en pandemi, et terrorangrep eller en naturkatastrofe.
 Beredskap: planene, ressursene og øvelsene som skal til for å forebygge og håndtere slike hendelser, fra kommunens kriseledelse til helsevesen og politi.",krise,0,

@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,mathematics,,,
 ,config,,keywords,S1; S2; statistisk tenkning; utvalg; representativitet; sentralmål; spredningsmål; standardavvik; histogram; boksplott; korrelasjon; regresjon; sannsynlighet; forventningsverdi; binomisk fordeling; normalfordeling; sentralgrensesetningen; konfidensintervall; hypotesetesting; p-verdi; eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 populasjon-utvalg-begrep,concept,Data og datainnsamling,Populasjon og utvalg,"Populasjon: hele den gruppen av individer eller enheter en statistisk undersøkelse vil si noe om.
 Utvalg: den delen av populasjonen som faktisk blir undersøkt. Antallet i utvalget kalles utvalgsstørrelsen n.",,0,
 variabeltyper-begrep,concept,Data og datainnsamling,Kategoriske og numeriske variabler,"Kategorisk variabel: en variabel der verdiene er kategorier, som bosted eller favorittfag.
@@ -172,7 +173,7 @@ Observator: et tall som regnes ut fra utvalget, som x̄, s eller andelen p̂.
 Punktestimat: verdien av observatoren i et konkret utvalg, brukt som beste anslag for parameteren.",populasjon-utvalg-begrep;forventningsverdi-begrep,0,
 regne-punktestimat,skill,Estimering og konfidensintervall,Regne ut punktestimater,"regne ut punktestimater for forventningsverdi, standardavvik og andel fra et utvalg, med riktig notasjon for estimat og parameter.",estimering-begrep;velge-standardavvik-type,0,
 standardfeil-begrep,concept,Estimering og konfidensintervall,Standardfeil,"Standardfeil: standardavviket til en observator, altså hvor mye estimatet ville variert fra utvalg til utvalg.
-For et gjennomsnitt er standardfeilen σ / √n, anslått med s / √n. For en andel er den √(p̂(1 − p̂) / n).",estimering-begrep;sentralgrensesetningen-begrep,0,
+For et gjennomsnitt er standardfeilen σ / √n, anslått med s / √n. For en andel er den √(p(1 − p) / n), anslått med √(p̂(1 − p̂) / n).",estimering-begrep;sentralgrensesetningen-begrep,0,
 konfidensintervall-begrep,concept,Estimering og konfidensintervall,Konfidensintervall,"Konfidensintervall: et intervall rundt et punktestimat, regnet ut fra utvalget, som skal fange inn den ukjente parameteren.
 Konfidensnivå: hvor stor andel av slike intervaller som vil fange inn parameteren hvis undersøkelsen gjentas mange ganger. Et 95 %-intervall er estimatet ± 1,96 standardfeil.",standardfeil-begrep;normalfordeling-tommelfinger,0,
 ki-gjennomsnitt,skill,Estimering og konfidensintervall,Regne ut et konfidensintervall for en forventningsverdi,"regne ut et 95 %-konfidensintervall for en forventningsverdi fra et utvalg, med x̄ ± 1,96 · s / √n, for hånd fra oppgitte størrelser og med digitalt verktøy fra rådata.",konfidensintervall-begrep;regne-punktestimat;bruke-sgs-gjennomsnitt,0,"Gi eleven et utvalg (f.eks. søvn per natt for 40 elever, med oppgitt x̄ og s), og be dem regne ut et 95 %-konfidensintervall og skrive en setning om hva det betyr i konteksten."
@@ -185,7 +186,7 @@ Alternativ hypotese H₁: påstanden testen skal finne støtte for. Den er ensid
 p-verdi-signifikans-begrep,concept,Hypotesetesting,P-verdi og signifikansnivå,"Testobservator: størrelsen fra utvalget som testen bygger på, for eksempel antall suksesser eller gjennomsnittet.
 P-verdi: sannsynligheten for å få et resultat minst like ekstremt som det observerte, gitt at H₀ er sann.
 Signifikansnivå α: grensen som bestemmes på forhånd, ofte 5 %. Er p-verdien under α, forkastes H₀.",hypoteser-begrep;sannsynlighet-begrep,0,
-feiltyper-begrep,concept,Hypotesetesting,Type I-feil og type II-feil,"Type I-feil: å forkaste H₀ når den faktisk er sann. Sannsynligheten for dette er signifikansnivået α.
+feiltyper-begrep,concept,Hypotesetesting,Type I-feil og type II-feil,"Type I-feil: å forkaste H₀ når den faktisk er sann. Sannsynligheten for dette er høyst signifikansnivået α.
 Type II-feil: å beholde H₀ når den faktisk er usann, for eksempel fordi utvalget er for lite til å avsløre en reell effekt.",p-verdi-signifikans-begrep,0,
 formulere-hypoteser,skill,Hypotesetesting,Formulere hypoteser for en test,"formulere en presis nullhypotese og alternativ hypotese ut fra en praktisk påstand, og avgjøre om testen skal være ensidig eller tosidig.",hypoteser-begrep,0,"Gi eleven tre–fire praktiske påstander (f.eks. «den nye medisinen virker raskere», «terningen er ikke rettferdig», «kaffepakkene inneholder mindre enn 500 g») og be dem skrive H₀ og H₁ med symboler for hver, og si om testen er ensidig eller tosidig."
 test-andel-binomisk,skill,Hypotesetesting,Teste en påstand om en andel med binomisk fordeling,"gjennomføre en hypotesetest for en andel ved å regne ut p-verdien med binomisk fordeling under nullhypotesen, sammenligne med signifikansnivået og konkludere.",formulere-hypoteser;p-verdi-signifikans-begrep;regne-binomisk-kumulativ,0,"Gi eleven en situasjon der en andel påstås å være høyere eller lavere enn oppgitt (f.eks. en produsent sier at høyst 2 % av enhetene er defekte, og 7 av 150 i en stikkprøve er defekte), og be dem gjennomføre hele testen med 5 % signifikansnivå."
