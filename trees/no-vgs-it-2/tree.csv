@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,informatics,,,
 ,config,,keywords,IT2; informatikk; programmering; Python; objektorientert programmering; klasser; arv; UML; klassediagram; testing; feilsøking; smidig utvikling; Scrum; git; JSON; CSV; kryptering; dataanalyse; etikk; eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 grunnlag-funksjoner,skill,Grunnlag fra IT 1,Skrive funksjoner med parametre og returverdi,"skrive funksjoner med parametre og returverdi, og bruke returverdien videre i programmet.",,0,"Dette er repetisjon fra IT 1. Gi eleven raskt to-tre oppgaver for å sjekke at det sitter, og gå videre hvis det gjør det."
 grunnlag-lister-lokker,skill,Grunnlag fra IT 1,Behandle lister med løkker og forgreninger,"gå gjennom en liste med en løkke, og filtrere, telle, summere eller finne største verdi med forgreninger underveis.",,0,"Dette er repetisjon fra IT 1. Sjekk raskt at det sitter, og gå videre hvis det gjør det."
 ordbok,concept,Grunnlag fra IT 1,Ordbok (dictionary),"Ordbok: en samling nøkkel–verdi-par der en verdi slås opp med nøkkelen sin, som {'navn': 'Ada', 'alder': 17}. Nøklene må være unike.",,0,
@@ -210,7 +211,7 @@ Kausalitet: at endringen i den ene faktisk fører til endringen i den andre. Kor
 tolke-kritisk,skill,Analyse av reelle datasett,Tolke resultater kritisk,"tolke resultatene av en dataanalyse og vurdere hvor sikre konklusjonene er, med tanke på datakvalitet, utvalg, manglende verdier og forskjellen på korrelasjon og kausalitet.",korrelasjon-kausalitet;beregne-statistikk;visualisere-data,0,
 dataanalyse-prosjekt,skill,Analyse av reelle datasett,Gjennomføre en analyse av et reelt datasett,"gjennomføre en hel analyse fra problemstilling via innhenting, rensing og beregning til en presentasjon med diagrammer, en begrunnet konklusjon og en vurdering av begrensningene.",tolke-kritisk;hente-data-api,0,
 etiske-perspektiver,concept,"Teknologi, etikk og samfunn",Etiske perspektiver,"Konsekvensetikk: en handling er riktig hvis den gir de beste følgene for alle som berøres.
-Pliktetikk: en handling er riktig hvis den følger gode regler og plikter, uansett følgene.
+Pliktetikk: en handling er riktig hvis den følger gode regler og plikter, også når den ikke gir de beste følgene.
 Dydsetikk: en handling er riktig hvis den er det et godt og klokt menneske ville gjort.",,0,
 ki-begreper,concept,"Teknologi, etikk og samfunn",Kunstig intelligens og skjevhet,"Kunstig intelligens: datasystemer som løser oppgaver vi forbinder med menneskelig intelligens.
 Maskinlæring: at et system lærer mønstre fra eksempler i stedet for å følge regler en programmerer har skrevet.

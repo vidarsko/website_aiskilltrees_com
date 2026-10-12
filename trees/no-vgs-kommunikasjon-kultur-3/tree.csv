@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,communication,,,
 ,config,,keywords,kommunikasjon og kultur; semiotikk; Barthes; myte; koding og dekoding; pragmatikk; talehandling; Grice; implikatur; høflighet; ansikt; samtaleanalyse; turtaking; kodeveksling; Bourdieu; kapital; diskurs; makt; hegemoni; hersketeknikker; identitet; andregjøring; interkulturell kommunikasjon; Goffman; selvrepresentasjon; kontekstkollaps; parasosiale relasjoner; fordypning,,,
-,config,,updated,2026-10-08,,,
+,config,,features.resources,true,,,
+,config,,updated,2026-10-12,,,
 tegn,concept,Semiotikk,Tegn,"Semiotikk: læren om tegn og hvordan de skaper mening.
 Tegn: noe som står for noe annet enn seg selv for noen.
 Uttrykk og innhold: tegnets sansbare side og det det betyr, i Ferdinand de Saussures modell.",,0,
@@ -73,7 +74,7 @@ Lavinvolvert samtalestil: en stil med lengre pauser, færre avbrytelser og mer a
 Begrepene er hentet fra Deborah Tannen, som viste at ulike stiler kan bli tolket som henholdsvis påtrengende og uinteressert.",samtaleformer,0,
 sprakvarieteter,concept,Samtale og språklige mønstre,Språkvarieteter,"Dialekt: språkvarieteten knyttet til et geografisk område.
 Sosiolekt: språkvarieteten knyttet til en sosial gruppe.
-Etnolekt: språkvarieteten som har utviklet seg blant unge i flerspråklige miljøer.",,0,
+Multietnolekt: språkvarieteten som har utviklet seg blant unge i flerspråklige miljøer, med innslag fra mange språk.",,0,
 kodeveksling,concept,Samtale og språklige mønstre,Kodeveksling,"Kodeveksling: å veksle mellom språk eller språkvarieteter i samme samtale, ofte for å vise tilhørighet, skifte tema eller markere avstand.",sprakvarieteter,0,
 register,concept,Samtale og språklige mønstre,Register,"Register: hvor formelt eller uformelt man uttrykker seg, tilpasset situasjonen, mottakeren og mediet.",sprakvarieteter,0,
 transkribere,skill,Samtale og språklige mønstre,Transkribere en samtale,"skrive ned en kort samtale slik den faktisk ble sagt, med pauser, overlapp og avbrytelser markert, slik at den kan analyseres.",turtaking,0,
@@ -105,11 +106,11 @@ kritisk-diskursanalyse,concept,Diskurs og makt,Kritisk diskursanalyse,"Kritisk d
 Tekst: ordvalg, grammatikk og oppbygning.
 Diskursiv praksis: hvordan teksten blir produsert, spredt og mottatt.
 Sosial praksis: hvilke maktforhold i samfunnet teksten bevarer eller utfordrer.",diskurs;makt,0,
-hersketeknikker,concept,Diskurs og makt,Hersketeknikker,"Hersketeknikk: en måte å undertrykke eller sette andre ut av spill på i en samhandling. Berit Ås beskrev fem: usynliggjøring, latterliggjøring, tilbakeholdelse av informasjon, fordobling av straff og påføring av skyld og skam.",makt,0,
+hersketeknikker,concept,Diskurs og makt,Hersketeknikker,"Hersketeknikk: en måte å undertrykke eller sette andre ut av spill på i en samhandling. Berit Ås beskrev fem: usynliggjøring, latterliggjøring, tilbakeholdelse av informasjon, dobbeltstraffing og påføring av skyld og skam.",makt,0,
 portvokter,concept,Diskurs og makt,Portvokter,"Portvokter: en person eller institusjon som avgjør hvilke stemmer og saker som slipper til i offentligheten, som redaktører, plattformenes algoritmer og arrangører av debatter.",makt,0,
 spraklig-dominans,concept,Diskurs og makt,Språklig dominans,"Språklig dominans: at ett språk får høyere status og tar over stadig flere områder på bekostning av andre, som engelsk i forskning og næringsliv.
 Domenetap: at et språk slutter å bli brukt på et område i samfunnet.",makt,0,
-fornorsking,concept,Diskurs og makt,Fornorskingspolitikken,"Fornorskingspolitikken: den norske statens politikk fra midten av 1800-tallet til etter andre verdenskrig for å få samer, kvener og andre minoriteter til å gå over til norsk språk og kultur, særlig gjennom skolen.",spraklig-dominans,0,
+fornorsking,concept,Diskurs og makt,Fornorskingspolitikken,"Fornorskingspolitikken: den norske statens politikk fra midten av 1800-tallet til 1960-tallet for å få samer, kvener og andre minoriteter til å gå over til norsk språk og kultur, særlig gjennom skolen.",spraklig-dominans,0,
 makt-i-samtale,skill,Diskurs og makt,Analysere makt i en samtale,"vise hvordan makt kommer til uttrykk i en samtale, som hvem som styrer temaet, avbryter, får lengst taletid og bruker hersketeknikker.",hersketeknikker;analysere-samtale;analysere-sosiale-faktorer,0,
 gjore-kda,skill,Diskurs og makt,Gjøre en kritisk diskursanalyse,"analysere en tekst på de tre nivåene i kritisk diskursanalyse, fra ordvalg og grammatikk til hvilke maktforhold teksten bevarer eller utfordrer.",kritisk-diskursanalyse;hegemoni,0,
 makt-lokalt,skill,Diskurs og makt,Analysere kommunikasjon og makt lokalt,"analysere forholdet mellom kommunikasjon og makt i en lokal sammenheng, som klasserommet, kommunestyret eller lokalavisen, og vise hvem som får definere situasjonen.",makt-i-samtale;portvokter,0,

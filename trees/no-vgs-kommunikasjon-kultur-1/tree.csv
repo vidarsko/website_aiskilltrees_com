@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,communication,,,
 ,config,,keywords,kommunikasjon og kultur; kommunikasjonsmodeller; Jakobson; semiotikk; tegn; Peirce; denotasjon; konnotasjon; kulturbegrep; Hofstede; høykontekst; interkulturell kommunikasjon; ikke-verbal kommunikasjon; kroppsspråk; Toulmin; argumentasjon; medier; algoritmer; tekstkultur; multimodalitet; kildekritikk,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 kommunikasjon,concept,Kommunikasjonsteori,Kommunikasjon,"Kommunikasjon: at mennesker skaper og deler mening ved hjelp av tegn — ord, bilder, lyder, gester og kroppsspråk.",,0,
 avsender-mottaker,concept,Kommunikasjonsteori,"Avsender, mottaker og budskap","Avsender: den som formulerer og sender et budskap.
 Mottaker: den eller de budskapet er rettet mot, og som tolker det.
@@ -67,7 +68,8 @@ klassifisere-tegn,skill,Tegn og språk,Klassifisere tegn,"avgjøre om et tegn vi
 analysere-konnotasjoner,skill,Tegn og språk,Analysere konnotasjoner i en tekst,"skille mellom denotasjon og konnotasjoner i et bilde, en logo eller en reklame, og forklare hvordan konnotasjonene avhenger av kulturen mottakeren tolker ut fra.",denotasjon-konnotasjon;kode,0,
 sprakvarieteter,concept,Tegn og språk,"Dialekt, sosiolekt og etnolekt","Dialekt: språkvarieteten knyttet til et geografisk område.
 Sosiolekt: språkvarieteten knyttet til en sosial gruppe, som en yrkesgruppe eller en aldersgruppe.
-Etnolekt: språkvarieteten som har utviklet seg blant unge med ulik språklig bakgrunn i flerspråklige miljøer, også kalt multietnolekt.",kode,0,
+Etnolekt: språkvarieteten knyttet til en etnisk gruppe, ofte farget av et annet språk gruppen har eller har hatt felles.
+Multietnolekt: en stil med innslag fra mange språk, som har utviklet seg blant unge med ulik språklig bakgrunn i flerspråklige miljøer.",kode,0,
 register,concept,Tegn og språk,Register,"Register: hvor formelt eller uformelt man uttrykker seg, tilpasset situasjonen, mottakeren og mediet — fra muntlig prat med venner til en skriftlig søknad.",kontekst,0,
 spraklig-relativitet,concept,Tegn og språk,Språklig relativitet,"Språklig relativitet: tanken om at språket vi snakker, påvirker hvordan vi deler inn og legger merke til verden. Den sterke versjonen, at språket bestemmer tenkningen, er forkastet; at språket kan påvirke noe av det vi legger merke til, har mer støtte.",tegn;kode,0,
 sprak-tilhorighet,skill,Tegn og språk,Forklare hvordan språkvalg signaliserer tilhørighet,"forklare med eksempler hvordan valg av dialekt, sosiolekt, etnolekt og register viser hvem man er og hvem man vil høre sammen med, og hvordan andre kan tolke valget.",sprakvarieteter;register,0,

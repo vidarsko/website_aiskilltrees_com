@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,social-sciences,,,
 ,config,,storageKey,no-vgs-historie-vg2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,historie Vg2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"behandler en kilde som en sannhet framfor et spor som må tolkes, kaller en lærebok eller nettside for kilde uten å skille framstilling fra kilde, dømmer fortidens mennesker med nåtidens verdier uten å vise til samtiden, blander utløsende årsak og bakenforliggende årsak, oppgir årstall og tall upresist, eller forteller hva som skjedde der oppgaven ber om en vurdering",,,
 ,config,,decompositionVersion,2.12.2,,,
@@ -21,7 +22,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,history,,,
 ,config,,keywords,historie; historiebevissthet; kildekritikk; historiebruk; periodisering; jordbruk; demografi; svartedauden; handel; Hansaen; merkantilisme; antikken; Athen; demokrati; middelalderen; eneveldet; reformasjonen; religion; kulturmøter; vikingtiden,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 historiebevissthet,concept,Historisk tenkning,Historiebevissthet,"Historiebevissthet: forståelsen av at fortid, nåtid og framtid henger sammen - at vi tolker fortiden for å forstå nåtiden, og at forventningene våre til framtiden preger begge deler.",,0,
 historieskapt-historieskapende,concept,Historisk tenkning,Historieskapt og historieskapende,"Historieskapt: preget av fortiden - språket, verdiene, institusjonene og vanene vi har arvet.
 Historieskapende: med på å forme det som senere blir historie, gjennom valgene og handlingene våre i dag.",historiebevissthet,0,
@@ -37,7 +38,7 @@ periodisering,concept,Historisk tenkning,Periodisering,"Periodisering: å dele f
 tradisjonelle-epoker,fact,Historisk tenkning,De tradisjonelle epokene,"antikken: ca. 800 f.Kr. - ca. 500 e.Kr.
 middelalderen i Europa: ca. 500-1500
 vikingtiden i Norden: ca. 800-1050
-middelalderen i Norge: ca. 1030-1537
+middelalderen i Norge: ca. 1050-1537
 tidlig nytid: ca. 1500-1800
 moderne tid: fra ca. 1800",periodisering,0,
 periodisere-kriterier,skill,Historisk tenkning,Vurdere ulike måter å periodisere fortiden på,"forklare hvorfor historikere deler fortiden inn i perioder, og vurdere hvordan ulike kriterier - politiske, økonomiske, teknologiske eller religiøse - gir ulike periodegrenser og får ulike ting til å se viktige ut.",periodisering;tradisjonelle-epoker,0,
@@ -59,7 +60,7 @@ historiebruk,concept,Historiebruk og minnekultur,Historiebruk,"Historiebruk: å 
 analysere-minnesmerke,skill,Historiebruk og minnekultur,"Analysere et minnesmerke, en merkedag eller en utstilling","analysere et minnesmerke, en merkedag eller en museumsutstilling: hvem som står bak, hvilken fortelling den formidler, hvem den henvender seg til, og hva den lar være å fortelle.",minnekultur;historiebruk,0,
 utforske-minne-lokalt-nasjonalt,skill,Historiebruk og minnekultur,Utforske hvordan fortiden minnes lokalt og nasjonalt,"utforske hvordan en hendelse eller person minnes lokalt og nasjonalt, sammenligne de to, og reflektere over hvorfor noe blir husket mens annet blir glemt.",analysere-minnesmerke;utforske-historisk-sporsmal,0,
 jeger-sanker,concept,Mat og naturressurser,Jeger- og sankersamfunn,"Jeger- og sankersamfunn: et samfunn som skaffer seg mat ved jakt, fangst, fiske og sanking av ville planter, ofte med en flyttende levemåte. Mennesker har levd slik i det aller meste av historien.",,0,
-jordbruksrevolusjonen,concept,Mat og naturressurser,Jordbruksrevolusjonen,"Jordbruksrevolusjonen (den neolittiske revolusjonen): overgangen fra jakt og sanking til jordbruk og husdyrhold, som begynte i Midtøsten for rundt 11 000 år siden og nådde Norge rundt 4000 f.Kr. Den ga fast bosetning og mer mat per areal.",jeger-sanker,0,
+jordbruksrevolusjonen,concept,Mat og naturressurser,Jordbruksrevolusjonen,"Jordbruksrevolusjonen (den neolittiske revolusjonen): overgangen fra jakt og sanking til jordbruk og husdyrhold, som begynte i Midtøsten for rundt 12 000 år siden og nådde Norge rundt 4000 f.Kr. Den ga fast bosetning og mer mat per areal.",jeger-sanker,0,
 overskudd-arbeidsdeling,concept,Mat og naturressurser,Overskudd og arbeidsdeling,"Overskudd: mat og varer ut over det produsentene selv trenger.
 Arbeidsdeling: at folk spesialiserer seg på ulike oppgaver - håndverk, handel, krigføring, religion - fordi andre produserer maten.",jordbruksrevolusjonen,0,
 forklare-jordbrukets-folger,skill,Mat og naturressurser,Forklare følgene av overgangen til jordbruk,"forklare hvordan overgangen til jordbruk førte til fast bosetning, folkevekst, eiendom, sosiale forskjeller og nye former for makt.",overskudd-arbeidsdeling;arsak-virkning,0,
@@ -77,7 +78,7 @@ Fødselsoverskudd: forskjellen mellom fødte og døde. Sammen med nettoinnflytti
 demografisk-overgang,concept,Befolkning og demografi,Den demografiske overgangen,"Den demografiske overgangen: modellen for hvordan et samfunn går fra høye fødsels- og dødsrater til lave. Dødsraten faller først, så folketallet vokser raskt en periode, før også fødselsraten faller.",fodselsrate-dodsrate,0,
 befolkningspyramide,concept,Befolkning og demografi,Befolkningspyramide,"Befolkningspyramide: et diagram som viser hvor mange menn og kvinner det er i hver aldersgruppe. En bred bunn viser en ung, voksende befolkning; en søyleform viser en eldre befolkning med få fødsler.",demografi,0,
 lese-befolkningsdata,skill,Befolkning og demografi,Tolke befolkningsdata,"tolke en befolkningspyramide eller en tabell over fødsels- og dødsrater, og si hva den forteller om samfunnet den beskriver.",befolkningspyramide;fodselsrate-dodsrate,0,
-svartedauden,concept,Befolkning og demografi,Svartedauden,"Svartedauden: pestepidemien som herjet Europa 1347-1351 og nådde Norge i 1349. Den og de pestutbruddene som fulgte, tok trolig livet av omtrent halvparten av befolkningen i Norge, og mange gårder ble liggende øde i generasjoner.",,0,
+svartedauden,concept,Befolkning og demografi,Svartedauden,"Svartedauden: pestepidemien som herjet Europa 1346-1353 og nådde Norge i 1349. Den og de pestutbruddene som fulgte, gjorde at folketallet i Norge trolig var drygt 60 prosent lavere rundt 1500 enn før pesten, og mange gårder ble liggende øde i generasjoner.",,0,
 urbanisering,concept,Befolkning og demografi,Urbanisering,"Urbanisering: at en stadig større del av befolkningen bor i byer og tettsteder. I Norge bodde de fleste på landet til langt ut på 1900-tallet.",demografi,0,
 befolkningstall,fact,Befolkning og demografi,Befolkningstall i Norge og verden,"svartedauden når Norge: 1349
 folketallet i Norge ved folketellingen i 1801: ca. 880 000
@@ -104,7 +105,7 @@ direkte-representativt,concept,Demokrati i antikken og i dag,Direkte og represen
 Representativt demokrati: borgerne velger representanter som vedtar lovene på deres vegne.",,0,
 athensk-demokrati,concept,Demokrati i antikken og i dag,Det athenske demokratiet,"Det athenske demokratiet: styreformen i Athen fra reformene til Kleisthenes i 508/507 f.Kr., der borgerne møttes i folkeforsamlingen og stemte direkte, og mange embeter ble fordelt ved loddtrekning.",bystat;direkte-representativt,0,
 borger-i-athen,concept,Demokrati i antikken og i dag,Borger i Athen,"Borger i Athen: en fri, voksen mann med athenske foreldre. Kvinner, slaver og innflyttere (metøker) hadde ingen politiske rettigheter, så borgerne var et mindretall av innbyggerne.",athensk-demokrati,0,
-romersk-republikk,concept,Demokrati i antikken og i dag,Den romerske republikken,"Den romerske republikken: styreformen i Roma fra ca. 509 til 27 f.Kr., uten konge, der valgte embetsmenn - blant dem to konsuler som satt ett år - styrte sammen med senatet, og der de rikeste hadde mest innflytelse.",direkte-representativt,0,
+romersk-republikk,concept,Demokrati i antikken og i dag,Den romerske republikken,"Den romerske republikken: styreformen i Roma fra ca. 509 til 30 f.Kr., uten konge, der valgte embetsmenn - blant dem to konsuler som satt ett år - styrte sammen med senatet, og der de rikeste hadde mest innflytelse.",direkte-representativt,0,
 allmenn-stemmerett,concept,Demokrati i antikken og i dag,Allmenn stemmerett,"Allmenn stemmerett: at alle voksne statsborgere har rett til å stemme, uavhengig av kjønn, formue eller stand. I Norge fikk menn det i 1898 og kvinner i 1913.",direkte-representativt,0,
 demokrati-arstall,fact,Demokrati i antikken og i dag,Årstall i demokratiets historie,"Kleisthenes' reformer i Athen: 508/507 f.Kr.
 Grunnloven vedtas på Eidsvoll: 1814
@@ -134,10 +135,10 @@ vurdere-maktendring,skill,Makt fra middelalder til tidlig nytid,Vurdere endringe
 norron-religion,concept,Religion og samfunn,Norrøn religion,"Norrøn religion: den førkristne religionen i Norden, med mange guder som Odin, Tor og Frøy, der kulten var knyttet til gården og høvdingen mer enn til en egen prestestand.",,0,
 kristningen,concept,Religion og samfunn,Kristningen av Norge,"Kristningen av Norge: overgangen fra norrøn religion til kristendom, drevet fram av kongene på 900- og 1000-tallet. Olav Haraldsson, som falt på Stiklestad i 1030, ble kort etter dyrket som helgen, og den nye troen styrket kongemakten.",norron-religion;rikssamling,0,
 kirken-middelalderen,concept,Religion og samfunn,Kirken i middelalderen,"Kirken i middelalderen: den katolske kirken var en internasjonal organisasjon ledet av paven, som eide mye jord, krevde inn tiende, drev skoler og omsorg for syke og fattige, og ga kongemakten religiøs legitimitet.",kristningen,0,
-korstogene,concept,Religion og samfunn,Korstogene,"Korstogene: militære felttog fra 1096 til slutten av 1200-tallet, satt i gang med pavens velsignelse, for å erobre Jerusalem og Det hellige land fra muslimske herskere. De formet synet på muslimer og jøder i Europa i lang tid.",kirken-middelalderen,0,
+korstogene,concept,Religion og samfunn,Korstogene,"Korstogene: militære felttog fra 1095 til slutten av 1200-tallet, satt i gang med pavens velsignelse, for å erobre Jerusalem og Det hellige land fra muslimske herskere. De formet synet på muslimer og jøder i Europa i lang tid.",kirken-middelalderen,0,
 reformasjonen,concept,Religion og samfunn,Reformasjonen,"Reformasjonen: bruddet med den katolske kirken på 1500-tallet, satt i gang da Martin Luther la fram tesene sine i 1517. I Danmark-Norge innførte kongen lutherdommen i 1536-1537, overtok kirkens jord og ble selv kirkens overhode.",kirken-middelalderen,0,
-hekseprosessene,concept,Religion og samfunn,Hekseprosessene,"Hekseprosessene: rettssakene mot personer anklaget for trolldom på 1500- og 1600-tallet. I Norge ble rundt 300 mennesker henrettet, over 90 av dem i Finnmark, der kvinner og samer ble særlig hardt rammet.",reformasjonen,0,
-statskirke,concept,Religion og samfunn,Statskirke,"Statskirke: en kirke som er en del av statsapparatet og styres av staten. Den norske kirke var statskirke fra reformasjonen til 2017, da den ble et selvstendig rettssubjekt.",reformasjonen,0,
+hekseprosessene,concept,Religion og samfunn,Hekseprosessene,"Hekseprosessene: rettssakene mot personer anklaget for trolldom på 1500- og 1600-tallet. I Norge ble over 330 mennesker dømt til døden, over 90 av dem i Finnmark, der kvinner og samer ble særlig hardt rammet.",reformasjonen,0,
+statskirke,concept,Religion og samfunn,Statskirke,"Statskirke: en kirke som er en del av statsapparatet og styres av staten. Den norske kirke var statskirke fra reformasjonen til 2012, og ble et selvstendig rettssubjekt i 2017.",reformasjonen,0,
 religionsfrihet,concept,Religion og samfunn,Religionsfrihet,"Religionsfrihet: retten til å tro, skifte tro og praktisere troen sin - eller å ikke tro. Grunnloven av 1814 nektet jøder adgang til riket; den såkalte jødeparagrafen ble opphevet i 1851.",statskirke,0,
 sekularisering,concept,Religion og samfunn,Sekularisering,"Sekularisering: at religionen får mindre plass i samfunnet og i folks liv, og at staten, skolen, vitenskapen og politikken i økende grad blir uavhengige av religiøs styring.",statskirke,0,
 forklare-reformasjonen-kongemakt,skill,Religion og samfunn,Forklare hvorfor reformasjonen styrket kongemakten,"forklare hvorfor reformasjonen styrket kongemakten i Danmark-Norge, med vekt på kirkens jord, inntekter og rolle i å begrunne makten.",reformasjonen;legitimering,0,

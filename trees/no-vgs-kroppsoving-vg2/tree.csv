@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,physical-education,,,
 ,config,,keywords,gym; kroppsøving; koordinasjon; styrketrening; utholdenhet; kondisjon; bevegelighet; tøying; intervalltrening; makspuls; RM; egentrening; helse; psykisk helse; stillesitting; anbefalinger fysisk aktivitet; ergonomi; regler; dommer; friluftsliv; allemannsretten; sporløs ferdsel,,,
-,config,,updated,2026-10-08,,,
+,config,,features.resources,true,,,
+,config,,updated,2026-10-12,,,
 koordinasjon,concept,Fysiske egenskaper,Koordinasjon,"Koordinasjon: evnen til å få muskler og kroppsdeler til å samarbeide i riktig rekkefølge, til rett tid og med passe kraft.
 Balanse: evnen til å holde eller gjenvinne likevekt, i ro eller i bevegelse.
 Rytme: evnen til å gjenta en bevegelse med jevn takt og flyt.
@@ -30,7 +31,7 @@ Reaksjon: evnen til å svare raskt og riktig på et signal.",,0,
 styrkeformer,concept,Fysiske egenskaper,Styrkeformer,"Maksimal styrke: den største kraften en muskelgruppe kan utvikle i én bevegelse.
 Eksplosiv styrke: evnen til å utvikle stor kraft på kort tid, som i hopp, kast og spurt.
 Utholdende styrke: evnen til å gjenta en bevegelse mot motstand mange ganger.",,0,
-utholdenhet,concept,Fysiske egenskaper,Aerob og anaerob utholdenhet,"Aerob utholdenhet: evnen til å arbeide lenge med moderat intensitet, der musklene får nok oksygen.
+utholdenhet,concept,Fysiske egenskaper,Aerob og anaerob utholdenhet,"Aerob utholdenhet: evnen til å arbeide lenge med relativt høy intensitet, der musklene får nok oksygen.
 Anaerob utholdenhet: evnen til å arbeide med svært høy intensitet over kort tid, der musklene ikke får nok oksygen og syre hoper seg opp.",,0,
 bevegelighet,concept,Fysiske egenskaper,Bevegelighet og tøying,"Bevegelighet: hvor langt et ledd kan beveges, avgrenset av hvordan leddet er bygd og hvor mye muskler og sener lar seg strekke.
 Dynamisk tøying: å bevege leddet kontrollert gjennom hele utslaget flere ganger.
@@ -50,9 +51,9 @@ kontinuerlig-intervall,concept,Fysiske egenskaper,Kontinuerlig trening og interv
 Intervalltrening: drag med høy intensitet avbrutt av pauser, slik at man til sammen holder høy intensitet lenger enn man ville klart i ett strekk.",utholdenhet;puls-intensitet,0,
 utholdenhetsokt,skill,Fysiske egenskaper,Lage en utholdenhetsøkt,"lage én kontinuerlig økt og én intervalløkt, med varighet, antall drag, pauser og intensitet oppgitt i prosent av makspuls eller med snakketesten.",kontinuerlig-intervall;regne-puls,0,
 rm,concept,Fysiske egenskaper,Repetisjonsmaksimum,"Repetisjonsmaksimum (RM): det største antallet repetisjoner man klarer med en gitt motstand; 1 RM er den tyngste vekten man klarer én gang, og 10 RM den man klarer nøyaktig ti ganger.",styrkeformer,0,
-rm-soner,fact,Fysiske egenskaper,Repetisjoner for ulike styrkemål,"maksimal styrke: 1–6 RM
+rm-soner,fact,Fysiske egenskaper,Repetisjoner for ulike styrkemål,"maksimal styrke: 1–5 RM
 muskelvekst: 6–12 RM
-utholdende styrke: 15 RM eller flere",rm,0,
+utholdende styrke: 20 RM eller flere",rm,0,
 styrketeknikk,skill,Fysiske egenskaper,Utføre grunnøvelser i styrke med god teknikk,"utføre knebøy, armhevinger, roing og planke med nøytral rygg og kontrollert bevegelse gjennom hele utslaget; sjekk mot en video av deg selv tatt fra siden.",styrkeformer,0,
 styrkeokt,skill,Fysiske egenskaper,Lage en styrkeøkt,"lage en styrkeøkt for hele kroppen med øvelser, antall serier og repetisjoner og pauselengde, valgt ut fra hvilken styrkeform økta skal utvikle.",rm-soner;styrketeknikk,0,
 toye,skill,Fysiske egenskaper,Tøye de store muskelgruppene,"tøye lår, legger, hofter, rygg og skuldre med kontrollerte bevegelser, og velge dynamisk tøying før og statisk tøying etter aktivitet.",bevegelighet,0,
@@ -133,11 +134,11 @@ Innmark: dyrket mark, hager og gårdsplasser, der man ikke har fri ferdsel.",,0,
 allemannsrett-tall,fact,Bærekraftig ferdsel,Allemannsretten og bålforbudet i tall,"minste avstand til bebodd hus eller hytte når man telter: 150 m
 hvor lenge man kan telte på samme sted uten grunneiers tillatelse (gjelder ikke på fjellet eller langt fra bebyggelse): 2 døgn
 perioden med forbud mot bål i eller nær skog: 15. april–15. september
-perioden med båndtvang for hund i utmark: 1. april–20. august",allemannsretten,0,
+perioden med lovbestemt båndtvang for hund: 1. april–20. august",allemannsretten,0,
 barekraftig-ferdsel,concept,Bærekraftig ferdsel,Bærekraftig ferdsel,"Bærekraftig ferdsel: å bruke naturen slik at den er like god for andre og for kommende generasjoner, ved å ferdes uten å etterlate spor, ta hensyn til dyr, planter og andre folk, og velge miljøvennlig transport til og fra turen.",allemannsretten,0,
 sporlos-ferdsel,concept,Bærekraftig ferdsel,Sporløs ferdsel,"Sporløs ferdsel: å ferdes slik at ingen ser at man har vært der: ta med alt søppel hjem, bruke eksisterende stier og bålplasser, ikke skade trær og vegetasjon, og forlate leirplassen slik man fant den.",barekraftig-ferdsel,0,
 hensyn-dyreliv,concept,Bærekraftig ferdsel,Hensyn til dyre- og planteliv,"Hekketid: våren og forsommeren, når fugler ruger og har unger og er ekstra sårbare for forstyrrelse.
-Båndtvang: plikten til å holde hunden i bånd i utmark i den perioden dyr og fugler får unger.
+Båndtvang: plikten til å holde hunden i bånd eller forsvarlig innestengt i den perioden dyr og fugler får unger.
 Sårbar vegetasjon: mose, lav og planter på fjellet og i strandsonen, som bruker mange år på å vokse opp igjen etter slitasje.",barekraftig-ferdsel,0,
 praktisere-sporlos,skill,Bærekraftig ferdsel,Praktisere sporløs ferdsel på tur,"gjennomføre en tur uten å etterlate spor, og sjekke leirplass og bålplass mot en liste over hva som skal være ryddet før dere går.",sporlos-ferdsel;hensyn-dyreliv,0,
 vurdere-transport,skill,Bærekraftig ferdsel,Vurdere hvordan dere kommer dere til turen,"sammenligne ulike måter å komme seg til et turområde på, og vurdere hvilken som er mest bærekraftig ut fra avstand, tid og tilgjengelighet.",barekraftig-ferdsel,0,

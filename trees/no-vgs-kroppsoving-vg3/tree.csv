@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,physical-education,,,
 ,config,,keywords,gym; kroppsøving; motorisk læring; egentrening; treningsplan; periodisering; intensitetssoner; Borgs skala; fysiske tester; treningsdagbok; livsstil; folkehelse; sosial ulikhet i helse; kroppsideal; kroppspress; RED-S; doping; mestringsklima; friluftsliv; overnatting ute,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 motorisk-laering,concept,Motorisk læring,Motorisk læring,"Motorisk læring: en varig forbedring i evnen til å utføre en bevegelse, som følge av øving; en god dag er ikke læring, men det man kan gjenta neste uke, er det.",,0,
 laeringsfaser,concept,Motorisk læring,Faser i motorisk læring,"Den kognitive fasen: man må tenke gjennom hvert ledd i bevegelsen, og utførelsen er ujevn med mange feil.
 Den assosiative fasen: bevegelsen henger sammen, feilene blir færre, og man begynner å rette dem selv.
@@ -55,11 +56,11 @@ fysiske-egenskaper,concept,Egentrening,Fysiske egenskaper,"Utholdenhet: evnen ti
 Styrke: evnen til å bruke musklene mot motstand, som maksimal, eksplosiv eller utholdende styrke.
 Bevegelighet: hvor langt et ledd kan beveges.
 Koordinasjon: evnen til å få kroppsdelene til å samarbeide i riktig rekkefølge og til rett tid.",,0,
-intensitetssoner,fact,Egentrening,Intensitetssonene,"sone 1, rolig: 60–72 % av makspuls
+intensitetssoner,fact,Egentrening,Intensitetssonene,"sone 1, rolig: 55–72 % av makspuls
 sone 2, moderat: 72–82 % av makspuls
 sone 3, ganske hardt: 82–87 % av makspuls
 sone 4, hardt: 87–92 % av makspuls
-sone 5, svært hardt: 92–97 % av makspuls",,0,
+sone 5, svært hardt: 92–100 % av makspuls",,0,
 borg,concept,Egentrening,Opplevd anstrengelse,"Borgs skala: en skala fra 6 til 20 der man angir hvor anstrengende en økt kjennes, fra «svært, svært lett» til «maksimalt»; den brukes når puls ikke kan måles, eller sammen med pulsen.",,0,
 pulssoner,skill,Egentrening,Finne egne pulssoner,"anslå makspulsen din med en praktisk test eller ut fra alder, og regne ut pulsgrensene for hver intensitetssone.",intensitetssoner,0,
 fysiske-tester,concept,Egentrening,Fysiske tester,"Fysisk test: en standardisert måling av en fysisk egenskap, som Coopers test (lengst mulig løping på 12 minutter) for utholdenhet eller maks antall armhevinger for utholdende styrke.

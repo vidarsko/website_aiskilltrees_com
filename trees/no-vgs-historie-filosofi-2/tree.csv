@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,history,,,
 ,config,,keywords,historie og filosofi; HIFI; filosofi; originaltekster; vitenskapsteori; pseudovitenskap; konspirasjonsteorier; desinformasjon; modernitet; postmodernisme; demokrati; menneskerettigheter; eksistensialisme; ideologier; økonomiske teorier; offentlighet; historiebruk; historiebevissthet; urfolk; samer; teknologi; bærekraft,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 gyldig-holdbart,concept,Argumentasjon og kilder,Gyldig og holdbart argument,"Gyldig argument: et argument der konklusjonen må være sann dersom premissene er sanne. Gyldighet handler om formen, ikke om innholdet.
 Holdbart argument: et gyldig argument der premissene i tillegg faktisk er sanne.",,0,
 argumentasjonsfeil,concept,Argumentasjon og kilder,Argumentasjonsfeil,"Argumentasjonsfeil: en slutning som kan virke overbevisende, men der grunnene ikke støtter konklusjonen - for eksempel stråmannsargument, personangrep (ad hominem), falsk dikotomi eller å vise til en autoritet utenfor dens fagfelt.",,0,
@@ -156,7 +157,7 @@ tradisjon-modernitet,concept,Urfolk mellom tradisjon og modernitet,Brytningen me
 tradisjonell-kunnskap,concept,Urfolk mellom tradisjon og modernitet,Tradisjonell kunnskap,"Tradisjonell kunnskap: kunnskap om natur, ressursbruk og samfunnsliv som er overført mellom generasjoner, for eksempel i reindrift, fiske og duodji. På samisk kalles den árbediehtu.",urfolk,0,
 urfolk-arstall,fact,Urfolk mellom tradisjon og modernitet,Årstall i samisk historie og samepolitikk,"Kautokeino-opprøret: 1852
 Det første samiske landsmøtet i Trondheim: 1917
-Alta-konflikten: 1979-1981
+Alta-saken: 1968-1982
 Sameloven: 1987
 Samisk paragraf i Grunnloven: 1988
 Sametinget åpnes: 1989

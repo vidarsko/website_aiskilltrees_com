@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg1,,,
 ,config,,subjectArea,physical-education,,,
 ,config,,keywords,gym; kroppsøving; lek; dans; dansekomposisjon; treningsplan; treningsprinsipper; puls; oppvarming; skadeforebygging; førstehjelp; HLR; kart og kompass; orientering; fjellvettreglene; allemannsretten; friluftsliv,,,
-,config,,updated,2026-10-08,,,
+,config,,features.resources,true,,,
+,config,,updated,2026-10-12,,,
 bevegelsesaktivitet,concept,Lek og dans,Bevegelsesaktivitet,"Bevegelsesaktivitet: samlebetegnelse for alle aktivitetsformene i faget: lek, dans, idrettsaktiviteter, friluftsliv, svømming og andre aktiviteter i vann, og også sykling, ski og skøyter.",,0,
 lek-rammer,concept,Lek og dans,Regler og rammer i en lek,"Regel: det deltakerne har avtalt skal gjelde, som hvordan man får poeng og hva som ikke er lov.
 Rammefaktor: det som setter grenser for leken uten å være en regel, som størrelsen på området, utstyret, antall deltakere og tiden.",bevegelsesaktivitet,0,
@@ -132,7 +133,7 @@ svart: stier, veier, bygninger, gjerder, steiner og bergvegger",,0,
 kompass,concept,Kart og trygg ferdsel,Kompasset,"Kompassnål: nålen som peker mot magnetisk nord; den røde enden er nord.
 Retningspil: pilen på kompassplaten som viser retningen man skal gå.
 Kompasshus: den dreibare skiven med gradering og nordlinjer, som stilles inn etter kartet.
-Misvisning: vinkelen mellom kartets nord og retningen kompassnålen peker; den varierer med sted og tid og står i kartets marg.",,0,
+Misvisning: vinkelen mellom retningen mot geografisk nord og retningen kompassnålen peker; den varierer med sted og tid og står i kartets marg.",,0,
 orientere-kart,skill,Kart og trygg ferdsel,Orientere kartet,"snu kartet slik at nord på kartet peker mot nord i terrenget, enten med kompasset eller ved hjelp av terrengformer du kjenner igjen.",kompass;kartfarger,0,
 kompasskurs,skill,Kart og trygg ferdsel,Ta ut og gå etter en kompasskurs,"ta ut en kurs mellom to punkter på kartet med kompasset, og gå etter den i terrenget ved å sikte mot faste punkter i retningen.",kompass;orientere-kart,0,
 velge-rute,skill,Kart og trygg ferdsel,Velge en trygg rute,"velge en rute mellom to punkter ut fra avstand, stigning, terreng og farer, og vise på kartet hvor det er naturlig å snu eller ta en annen vei.",male-avstand;lese-terreng,0,
@@ -146,7 +147,7 @@ regel 2: Tilpass turen etter evne og forhold.
 regel 3: Ta hensyn til vær- og skredvarsel.
 regel 4: Vær forberedt på uvær og kulde, selv på korte turer.
 regel 5: Ta med nødvendig utstyr for å kunne hjelpe deg selv og andre.
-regel 6: Velg trygge ruter. Kjenn igjen skredfarlig terreng og usikker is.
+regel 6: Ta trygge veivalg. Gjenkjenn skredfarlig terreng og usikker is.
 regel 7: Bruk kart og kompass. Vit alltid hvor du er.
 regel 8: Vend i tide, det er ingen skam å snu.
 regel 9: Spar på kreftene og søk ly om nødvendig.",,0,
@@ -172,4 +173,4 @@ hjelpe-nedkjolt,skill,Natur og årstider,Hjelpe en som er nedkjølt,"hindre vide
 ferdselstradisjoner,concept,Natur og årstider,Lokale ferdselstradisjoner,"Ferdselstradisjon: en måte å ferdes og bruke naturen på som er overlevert i et område, som skigåing, fiske, bærplukking, jakt og bruk av gamle stier, seterveier og vinterveier over islagte vann.",,0,
 samisk-friluftskultur,concept,Natur og årstider,Samisk friluftskultur,"Samisk friluftskultur: tradisjoner for ferdsel og bruk av naturen som har vokst fram med reindrift, fiske og fangst, med blant annet lavvo, bål, flytting etter årstidene og et syn på naturen som en ressurs som skal kunne brukes av kommende generasjoner.",ferdselstradisjoner,0,
 bruke-tradisjon,skill,Natur og årstider,Bruke en lokal tradisjon på tur,"planlegge og gjennomføre en aktivitet som bygger på en ferdselstradisjon i ditt område, tilpasset årstiden, og fortelle hva tradisjonen går ut på og hvor den kommer fra.",ferdselstradisjoner;kle-seg;vurdere-forhold,0,
-tenne-bal,skill,Natur og årstider,Tenne og slukke et bål trygt,"velge et trygt bålsted, tenne et lite bål med materiale fra naturen, og slukke det med vann til glørne er kalde; og vite at bål i eller nær skog er forbudt fra 15. april til 15. september, med mindre det åpenbart ikke kan føre til brann.",allemannsretten,0,
+tenne-bal,skill,Natur og årstider,Tenne og slukke et bål trygt,"velge et trygt bålsted, tenne et lite bål med materiale fra naturen, og slukke det med vann til glørne er kalde; og vite at bål i eller nær skog og annen utmark er forbudt fra 15. april til 15. september, med mindre det åpenbart ikke kan føre til brann.",allemannsretten,0,

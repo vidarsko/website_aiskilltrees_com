@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,informatics,,,
 ,config,,keywords,IT1; informatikk; programmering; Python; HTML; CSS; nettsider; algoritmer; binære tall; nettverk; personvern; GDPR; universell utforming; WCAG; muntlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 maskinvare-programvare,concept,Datamaskiner og nettverk,Maskinvare og programvare,"Maskinvare: de fysiske delene av en datamaskin, som prosessor, minne og skjerm.
 Programvare: programmene som kjører på maskinvaren og forteller den hva den skal gjøre.
 Operativsystem: programvaren som styrer maskinvaren og lar andre programmer bruke den, f.eks. Windows, macOS, Linux eller Android.",,0,

@@ -195,3 +195,71 @@ sy-faktorer-utbytte-renhet,Eksamen,"Høst 2024, Del 2, oppgave 9",
 sy-beregne-prosentvis-utbytte,Eksamen,"Høst 2024, Del 2, oppgave 9",
 gk-beregne-atomeffektivitet,Eksamen,"Høst 2024, Del 2, oppgave 9",
 gk-drofte-tiltak,Eksamen,"Høst 2024, Del 2, oppgave 9",
+kf-fagsprak,Store norske leksikon,Kjemisk formel,https://snl.no/kjemisk_formel
+kf-risikovurdering,Store medisinske leksikon,Faresymboler,https://sml.snl.no/faresymboler
+kf-usikkerhet-feilkilder,Store norske leksikon,Målefeil – mål og vekt,https://snl.no/m%C3%A5lefeil_-_m%C3%A5l_og_vekt
+kf-usikkerhet-feilkilder,Store norske leksikon,Måleusikkerhet,https://snl.no/m%C3%A5leusikkerhet
+kf-modell-teori-begrep,Store norske leksikon,Modell,https://snl.no/modell
+kf-modell-teori-begrep,Store norske leksikon,Teori,https://snl.no/teori
+rx-oksidasjonstall,Store norske leksikon,Oksidasjonstall,https://snl.no/oksidasjonstall
+rx-redoksreaksjon-begrep,Store norske leksikon,Redoksreaksjon,https://snl.no/redoksreaksjon
+rx-galvanisk-celle-begrep,Store norske leksikon,Galvanisk element,https://snl.no/galvanisk_element
+rx-elektrolysecelle-begrep,Store norske leksikon,Elektrolyse,https://snl.no/elektrolyse
+rx-standardpotensial-begrep,Store norske leksikon,Standard elektrodepotensial,https://snl.no/standard_elektrodepotensial
+rx-standardpotensial-begrep,Store norske leksikon,Spenningsrekken,https://snl.no/spenningsrekken
+rx-faradays-lov-begrep,Store norske leksikon,Faradaykonstanten,https://snl.no/faradaykonstanten
+rx-korrosjon-begrep,Store norske leksikon,Korrosjon,https://snl.no/korrosjon
+rx-korrosjon-begrep,Store norske leksikon,Passivering,https://snl.no/passivering
+lk-kjemisk-likevekt-begrep,Store norske leksikon,Kjemisk likevekt,https://snl.no/kjemisk_likevekt
+lk-likevektskonstant-begrep,Store norske leksikon,Massevirkningsloven,https://snl.no/massevirkningsloven
+lk-heterogen-likevekt-begrep,Store norske leksikon,Heterogen likevekt,https://snl.no/heterogen_likevekt
+lk-le-chateliers-prinsipp-begrep,Store norske leksikon,Le Châteliers prinsipp,https://snl.no/Le_Ch%C3%A2teliers_prinsipp
+sp-eksoterm-endoterm-begrep,Store norske leksikon,Eksoterm reaksjon,https://snl.no/eksoterm_reaksjon
+sp-eksoterm-endoterm-begrep,Store norske leksikon,Endoterm reaksjon,https://snl.no/endoterm_reaksjon
+sp-entropi-begrep,Store norske leksikon,Entropi,https://snl.no/entropi
+sp-entalpi-begrep,Store norske leksikon,Entalpi,https://snl.no/entalpi
+sp-gibbs-fri-energi-begrep,Store norske leksikon,Gibbs' fri energi,https://snl.no/Gibbs'_fri_energi
+sb-syre-base-begrep,Store norske leksikon,Syre – kjemi,https://snl.no/syre_-_kjemi
+sb-syre-base-begrep,Store norske leksikon,Base – kjemi,https://snl.no/base_-_kjemi
+sb-syre-base-begrep,Store norske leksikon,Protolytter,https://snl.no/protolytter
+sb-kw-begrep,Store norske leksikon,Vatn,https://snl.no/vatn
+sb-ph-poh-begrep,Store norske leksikon,pH,https://snl.no/pH
+sb-ph-poh-begrep,Store norske leksikon,pOH,https://snl.no/pOH
+sb-syre-basekonstant-begrep,Store norske leksikon,Syrekonstant,https://snl.no/syrekonstant
+sb-buffer-begrep,Store norske leksikon,Buffer – kjemi,https://snl.no/buffer_-_kjemi
+sb-indikator-begrep,Store norske leksikon,Indikator – kjemi,https://snl.no/indikator_-_kjemi
+sb-titrering-begrep,Store norske leksikon,Titrering,https://snl.no/titrering
+lo-loselighetsprodukt-begrep,Store norske leksikon,Løselighetsproduktet,https://snl.no/l%C3%B8selighetsproduktet
+ka-katalysator-begrep,Store norske leksikon,Katalysator,https://snl.no/katalysator
+ka-aktiveringsenergi-begrep,Store norske leksikon,Aktiveringsenergi,https://snl.no/aktiveringsenergi
+ka-enzym-begrep,Store norske leksikon,Enzymer,https://snl.no/enzymer
+ka-aktivt-sete-begrep,Store norske leksikon,Aktivt sete,https://snl.no/aktivt_sete
+or-addisjon-begrep,Store norske leksikon,Addisjonsreaksjon,https://snl.no/addisjonsreaksjon
+or-eliminasjon-begrep,Store norske leksikon,Eliminasjonsreaksjon,https://snl.no/eliminasjonsreaksjon
+or-substitusjon-begrep,Store norske leksikon,Substitusjonsreaksjon,https://snl.no/substitusjonsreaksjon
+or-hydrolyse-begrep,Store norske leksikon,Hydrolyse,https://snl.no/hydrolyse
+or-kondensasjon-begrep,Store norske leksikon,Kondensasjonsreaksjon,https://snl.no/kondensasjonsreaksjon
+or-elektrofil-nukleofil-begrep,Store norske leksikon,Elektrofil,https://snl.no/elektrofil
+or-elektrofil-nukleofil-begrep,Store norske leksikon,Nukleofil,https://snl.no/nukleofil
+or-karbokation-begrep,Store norske leksikon,Karbokationer,https://snl.no/karbokationer
+or-markovnikovs-regel-begrep,Store norske leksikon,Vladimir Vasiljevitsj Markovnikov,https://snl.no/Vladimir_Vasiljevitsj_Markovnikov
+or-polymer-begrep,Store norske leksikon,Polymerer,https://snl.no/polymerer
+or-polymer-begrep,Store norske leksikon,Polymerisasjon,https://snl.no/polymerisasjon
+sy-utbytte-begrep,Store norske leksikon,Utbytte – kjemi,https://snl.no/utbytte_-_kjemi
+sy-renhet-begrep,Store norske leksikon,Smeltepunkt,https://snl.no/smeltepunkt
+kr-kromatografi-prinsipp-begrep,Store norske leksikon,Kromatografi,https://snl.no/kromatografi
+kr-rf-verdi-begrep,Store norske leksikon,Tynnsjiktkromatografi – TLC,https://snl.no/tynnsjiktkromatografi_-_TLC
+bm-aminosyre-begrep,Store norske leksikon,Aminosyrer,https://snl.no/aminosyrer
+bm-protein-begrep,Store norske leksikon,Proteiner,https://snl.no/proteiner
+bm-protein-begrep,Store norske leksikon,Peptidbinding,https://snl.no/peptidbinding
+bm-karbohydrat-begrep,Store norske leksikon,Karbohydrater – kjemi,https://snl.no/karbohydrater_-_kjemi
+bm-karbohydrat-begrep,Store norske leksikon,Glykosidbinding,https://snl.no/glykosidbinding
+bm-fett-begrep,Store medisinske leksikon,Triglyserider,https://sml.snl.no/triglyserider
+bm-nukleinsyre-begrep,Store norske leksikon,Nukleinsyrer,https://snl.no/nukleinsyrer
+bm-nukleinsyre-begrep,Store norske leksikon,DNA,https://snl.no/DNA
+bm-sekundarstruktur-begrep,Store medisinske leksikon,Alfaheliks,https://sml.snl.no/alfaheliks
+bm-sekundarstruktur-begrep,Store medisinske leksikon,Betaflak,https://sml.snl.no/betaflak
+bm-sekundarstruktur-begrep,Store norske leksikon,Proteinfolding,https://snl.no/proteinfolding
+bm-denaturering-begrep,Store norske leksikon,Denaturering – av proteiner,https://snl.no/denaturering_-_av_proteiner
+gk-gronn-kjemi-begrep,Store norske leksikon,Grønn kjemi,https://snl.no/gr%C3%B8nn_kjemi
+gk-atomeffektivitet-begrep,Store norske leksikon,Grønn kjemi,https://snl.no/gr%C3%B8nn_kjemi

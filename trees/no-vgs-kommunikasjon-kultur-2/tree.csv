@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,language-and-literature,,,
 ,config,,storageKey,no-vgs-kommunikasjon-kultur-2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"kommunikasjon og kultur 2 (programfag i språk, samfunnsfag og økonomi, norsk videregående skole)",,,
 ,config,,slots.motivationSubject,kommunikasjon og kultur,,,
 ,config,,slots.expressionFocus,"bruker «diskurs» som et finere ord for debatt, ramser opp retoriske virkemidler uten å si hva de gjør, gjenforteller i stedet for å analysere, sammenligner tekster ved å beskrive dem hver for seg, eller presenterer sin egen tolkning som det teksten «egentlig» betyr",,,
@@ -22,7 +23,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,communication,,,
 ,config,,keywords,kommunikasjon og kultur; diskurs; diskursanalyse; innramming; sjanger; sjangerblanding; retorikk; retorisk situasjon; aptum; estetikk; litteratur; tolkning; modalitet; nominalisering; intertekstualitet; representasjon; virkelighetsforståelse; McLuhan; kommunikasjonsteknologi; sammenlignende analyse; fordypning; kildekritikk,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 tekst-kontekst,concept,Diskurs,Tekst og kontekst,"Tekst: alt som er skapt for å kommunisere og kan tolkes, også bilder, film, musikk og samtaler.
 Kontekst: situasjonen, tiden og kulturen en tekst blir skapt og lest i, som er med på å bestemme hva den betyr.",,0,
 diskurs,concept,Diskurs,Diskurs,"Diskurs (språkvitenskapelig): språk i bruk, slik det fungerer i sammenhengende tekster og samtaler.
@@ -77,7 +78,7 @@ drofte-kunstverdi,skill,Estetikk og litteratur,Drøfte hva som regnes som kunst,
 modalitet,concept,Tekstanalyse,Modalitet,"Modalitet: språklige trekk som viser hvor sikker avsenderen er, eller hva som er nødvendig eller ønskelig, som modale hjelpeverb («må», «kan», «bør») og adverb som «kanskje» og «utvilsomt».",tekst-kontekst,0,
 aktiv-passiv,concept,Tekstanalyse,Aktiv og passiv form,"Aktiv form: setningen sier hvem som utfører handlingen, som «politiet stoppet demonstrantene».
 Passiv form: handlingen står i sentrum og den som utfører den, kan utelates, som «demonstrantene ble stoppet».",tekst-kontekst,0,
-nominalisering,concept,Tekstanalyse,Nominalisering,"Nominalisering: å gjøre et verb eller et adjektiv om til et substantiv, som «kutte» til «kuttene» eller «redd» til «frykten», slik at handlingen og den som handler kan bli usynlig.",aktiv-passiv,0,
+nominalisering,concept,Tekstanalyse,Nominalisering,"Nominalisering: å gjøre et verb eller et adjektiv om til et substantiv, som «kutte» til «kuttene» eller «redd» til «redselen», slik at handlingen og den som handler kan bli usynlig.",aktiv-passiv,0,
 pronomen-vi,concept,Tekstanalyse,Vi og dem,"Inkluderende vi: et «vi» som tar med mottakeren, som «vi må alle ta ansvar».
 Ekskluderende vi: et «vi» som setter avsenderens gruppe opp mot en annen gruppe, «dem».",tekst-kontekst,0,
 tekstbinding,concept,Tekstanalyse,Tekstbinding,"Tekstbinding: språklige midler som knytter setninger og avsnitt sammen til en helhet, som bindeord, gjentakelse, synonymer og pronomen som viser tilbake.",tekst-kontekst,0,
@@ -103,7 +104,7 @@ uttrykk-normer,skill,Tekstkulturer i endring,Analysere hvordan normer uttrykkes 
 tekst-virkelighet,skill,Tekstkulturer i endring,Tolke hvordan tekster former virkelighetsforståelse,"tolke hvordan en tekst bidrar til å skape, bevare eller utfordre en kulturs virkelighetsforståelse gjennom hvem og hva den representerer og hvordan.",representasjon;innramming,0,
 drofte-tekst-virkelighet,skill,Tekstkulturer i endring,Drøfte tekstenes makt over virkelighetsforståelsen,"drøfte hvor stor makt tekster har til å forme eller endre en kulturs virkelighetsforståelse, med eksempler fra både skjønnlitteratur, medier og populærkultur.",tekst-virkelighet;kanon;diskurskamp,0,
 teknologi-milepaeler,fact,Kommunikasjonsteknologi,Milepæler i kommunikasjonsteknologien,"de eldste kjente skriftsystemene: Mesopotamia og Egypt, rundt 3200 f.Kr.
-boktrykkerkunsten med løse typer i Europa: Johannes Gutenberg, rundt 1450
+boktrykkerkunsten med løse typer i Europa: Johann Gutenberg, mellom 1440 og 1450
 NRK startet radiosendinger: 1933
 regulære fjernsynssendinger i Norge: 1960
 World Wide Web gjort offentlig tilgjengelig: 1991
@@ -156,7 +157,7 @@ Besjeling: å gi ting, dyr eller naturen menneskelige egenskaper.",estetikk,0,
 analysere-dikt,skill,Estetikk og litteratur,Analysere et dikt,"analysere språklige bilder, rytme, oppbygning og andre formgrep i et dikt eller en sangtekst, og tolke hva diktet uttrykker gjennom formen.",sprakbilder;form-innhold;tolkning,0,
 litteratur-kontekst,skill,Estetikk og litteratur,Tolke litteratur i lys av sin tid og kultur,"tolke en litterær tekst i lys av tiden og kulturen den ble skrevet i, og vise hvordan den speiler eller bryter med normene der.",tolke-litteratur;normer-verdier,0,
 konnotasjon,concept,Tekstanalyse,Denotasjon og konnotasjon,"Denotasjon: det et ord eller bilde direkte viser til.
-Konnotasjon: assosiasjonene og vurderingene ordet eller bildet vekker, som forskjellen mellom «flyktning», «migrant» og «asylsøker».",tekst-kontekst,0,
+Konnotasjon: assosiasjonene og vurderingene ordet eller bildet vekker, som forskjellen mellom «sparsommelig» og «gjerrig».",tekst-kontekst,0,
 analysere-ordvalg,skill,Tekstanalyse,Analysere ordvalg,"vise hvordan ordvalget i en tekst gir det omtalte en bestemt valør, og forklare hva teksten hadde betydd med andre ord for det samme.",konnotasjon;innramming,0,
 analysere-ki-tekst,skill,Kommunikasjonsteknologi,Analysere KI-generert tekst,"analysere trekk ved en KI-generert tekst sammenlignet med en menneskeskrevet tekst i samme sjanger, og drøfte hva KI gjør med forfatterskap og tillit.",generativ-ki;helhetlig-analyse,0,
 drofte-kanon,skill,Tekstkulturer i endring,Drøfte hvem som hører hjemme i kanon,"drøfte hvilke tekster som bør regnes som kanon, hvem som har avgjort det, og hvilke stemmer og grupper som har vært utelatt.",kanon;representasjon,0,
