@@ -26,7 +26,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,institution,grunnskole,,,
 ,config,,division,10,,,
 ,config,,subjectArea,mathematics,,,
-,config,,updated,2026-09-30,,,
+,config,,updated,2026-10-12,,,
 prosent-begrep-10,concept,Tall og algebra,Prosent,"Prosent betyr hundredeler: 40 % er 40 av 100, altså 40/100 eller 0,40 - samme tall i tre skrivemåter. Prosent læres normalt på barnetrinnet, men står som en rot-node her fordi det ikke inngår eksplisitt i kompetansemålene etter 8. eller 9. trinn, og eksamen forutsetter det godt innøvd.",,0,
 prosent-brok-desimal,fact,Tall og algebra,"Prosent, brøk og desimaltall som hører sammen","1 %: 1/100 = 0,01
 10 %: 1/10 = 0,1
@@ -79,7 +79,7 @@ definisjonsomrade-begrep,concept,Funksjoner,Definisjonsområde,"Definisjonsområ
 matematisk-modell-begrep,concept,Funksjoner,Matematisk modell,Matematisk modell: en formel eller funksjon som representerer en praktisk situasjon. Modellen er bare gyldig innenfor sitt definisjonsområde.,funksjonsbegrep-10,0,
 stigningstall-lineaer-funksjon-10,skill,Funksjoner,Regne ut og tolke stigningstallet til en lineær funksjon,"forklare begrepet endring per enhet, og regne ut stigningstallet til en lineær funksjon ut fra en graf eller to punkter, og tolke stigningstallet praktisk i konteksten.",funksjonsbegrep-10,1,"Vis eleven en graf med en rett linje fra en praktisk sammenheng (f.eks. en kalvs vekt over tid), og be dem bestemme stigningstallet ut fra to punkter på grafen, og forklare hva stigningstallet forteller i konteksten (f.eks. vektøkning per måned)."
 kjennetegn-funksjonstyper,concept,Funksjoner,Kjennetegn ved ulike funksjonstyper,"Lineær funksjon: endrer seg like mye for hvert steg i x, og har en rett linje som graf.
-Eksponentialfunksjon: endrer seg med den samme faktoren for hvert steg i x, og vokser eller avtar stadig raskere.
+Eksponentialfunksjon: endrer seg med den samme faktoren for hvert steg i x, og vokser stadig raskere eller avtar stadig langsommere.
 Andregradsfunksjon: har x² i uttrykket, og en parabel som graf - med et bunn- eller toppunkt.
 Brøkfunksjon: har x i nevneren, og en graf som nærmer seg asymptoter uten å nå dem.",funksjonsbegrep-10,0,
 tegne-og-sammenligne-funksjonstyper-digitalt,skill,Funksjoner,Tegne og sammenligne funksjonstyper med digitalt verktøy,"bruke digitalt verktøy til å tegne grafene til lineære, eksponential-, brøk- og andregradsfunksjoner, og sammenligne egenskapene deres (f.eks. vekst, symmetri, asymptoter).",kjennetegn-funksjonstyper,2,"Gi eleven tre eller fire ulike funksjonsuttrykk (én av hver type: lineær, eksponential, brøk, andregrads) og be dem bruke digitalt verktøy til å tegne grafene, og forklare hvilken type funksjon hver graf viser og hva som kjennetegner formen."
@@ -92,7 +92,7 @@ sammensatte-enheter-repetisjon-10,concept,Personlig økonomi,Sammensatte måleen
 sammenligne-enhetspris-med-tilbud,skill,Personlig økonomi,Sammenligne enhetspris mellom ulike tilbud,"regne ut enhetspris (f.eks. kroner per stykk) for flere ulike tilbud med ulik pakningsstørrelse og rabattform, og begrunne hvilket tilbud som lønner seg.",sammensatte-enheter-repetisjon-10;finne-prosentdel-av-tall-10,2,"Gi eleven en oversikt over flere butikkers priser og tilbud på samme vare (ulik pakningsstørrelse, ulik rabattform - f.eks. «to for prisen av én» mot en prosentvis rabatt), og be dem regne ut og sammenligne enhetsprisen for hvert tilbud, og begrunne hvilket de ville valgt."
 rente-og-lan-begrep,concept,Personlig økonomi,"Rente, gebyrer og effektiv rente","Rente: prisen for å låne penger, oppgitt som en prosent av lånebeløpet per år.
 Etableringsgebyr: et engangsbeløp banken tar for å opprette lånet.
-Terminbeløp: det man betaler hver termin, og som dekker både renter og avdrag.
+Terminbeløp: det man betaler hver termin, og som dekker renter, avdrag og eventuelle termingebyrer.
 Nominell rente: renten alene, uten gebyrer.
 Effektiv rente: den samlede prisen på lånet når gebyrene og antall terminer er regnet med, og derfor alltid høyere enn den nominelle.",finne-prosentdel-av-tall-10,0,
 fullfore-regneark-lan-rente-gebyr,skill,Personlig økonomi,Fullføre et regneark for et lån med rente og gebyr,"fullføre et regneark som bygger opp gjelden på et lån måned for måned, ved å legge til rente og gebyr etter et gitt mønster fra de første radene.",rente-og-lan-begrep,2,"Vis eleven et regneark med informasjon om et lån (lånesum, månedlig rente, månedlig gebyr) og de to første radene utfylt som eksempel, og be dem fullføre regnearket for de resterende månedene og finne total kostnad ved utsettelsen."
@@ -100,7 +100,7 @@ beregne-effektiv-rente,skill,Personlig økonomi,Beregne effektiv rente på et l�
 hente-ut-og-tolke-okonomisk-informasjon,skill,Personlig økonomi,"Hente ut og tolke informasjon om kjøp, salg, sparing og lån","hente ut og tolke relevant informasjon fra en praktisk tekst om kjøp, salg, sparing, lån eller kredittkjøp, og reflektere over mulige konsekvenser av valgene.",rente-og-lan-begrep,2,"Gi eleven en kort tekst med praktisk informasjon om et kjøp på kreditt eller et lån (rente, nedbetalingstid, gebyrer), og be dem hente ut de relevante tallene, regne ut en konsekvens (f.eks. total kostnad), og reflektere over om avtalen er lurt."
 planlegge-utforskende-arbeid-okonomi,skill,Personlig økonomi,"Planlegge, utføre og presentere et utforskende arbeid om personlig økonomi","planlegge og gjennomføre en egen undersøkelse knyttet til personlig økonomi (f.eks. forbruk, sparing eller en kostnadsmodell), samle eller hente inn data, og presentere resultatene.",hente-ut-og-tolke-okonomisk-informasjon;sammensatte-enheter-repetisjon-10,2,"Gi eleven et åpent tema innenfor personlig økonomi (f.eks. hva det koster å dusje, basert på egne vaner og oppgitte priser på vann og strøm) og be dem planlegge en undersøkelse, samle inn eller bruke oppgitte data, modellere kostnaden, og presentere en konklusjon med begrunnede antakelser."
 sentralmal-spredningsmal-repetisjon-10,concept,Statistikk og sannsynlighet,Sentralmål og spredningsmål,"Gjennomsnitt: summen av verdiene delt på antallet.
-Median: den midterste verdien når tallene er sortert.
+Median: den midterste verdien når tallene er sortert, eller gjennomsnittet av de to midterste når antallet er et partall.
 Typetall: den verdien som forekommer oftest.
 Variasjonsbredde: differansen mellom den største og den minste verdien.",,0,
 lese-av-diagram-verdier,skill,Statistikk og sannsynlighet,Lese av og sammenligne verdier fra et diagram,"lese av og anslå verdier fra et diagram (f.eks. et linje- eller søylediagram), og bruke avleste verdier til å regne ut en endring eller differanse.",,1,"Vis eleven et diagram (f.eks. et linjediagram over en periode med flere kategorier) og be dem lese av en omtrentlig verdi for et gitt punkt, og regne ut endringen mellom to avleste verdier."

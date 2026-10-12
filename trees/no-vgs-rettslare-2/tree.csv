@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,law,,,
 ,config,,keywords,rettslære; juss; juridisk metode; rettskilder; juridisk drøfting; rett og rettferdighet; menneskerettigheter; EMK; samiske rettigheter; Fosen; forvaltningsloven; enkeltvedtak; klage; personvern; GDPR; erstatning; culpa; strafferett; straffbarhetsvilkår; samtykke; voldtekt; tyveri; miljørett; Grunnloven § 112; klimasøksmålet,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 rettskildefaktorer,concept,Juridisk metode,Rettskildefaktorer,"Lov: regler vedtatt av Stortinget, med Grunnloven øverst.
 Forskrift: utfyllende regler gitt av regjeringen eller et departement med hjemmel i lov.
 Forarbeider: dokumentene fra lovens tilblivelse (NOU, proposisjon, innstilling) som viser hva lovgiveren mente.
@@ -170,7 +171,7 @@ uaktsomhet-strafferett,concept,Strafferett,Uaktsomhet i strafferetten,"Uaktsomhe
 Grov uaktsomhet: handlingen er svært klanderverdig og gir grunnlag for sterk bebreidelse.
 Skyldkravet: straffeloven rammer bare forsettlige lovbrudd, med mindre det står at også uaktsomhet er straffbart (§ 21).",straffbarhetsvilkar,0,
 lavalder-tilregnelighet,concept,Strafferett,Kriminell lavalder og tilregnelighet,"Kriminell lavalder: den som var under 15 år da handlingen skjedde, kan ikke straffes (straffeloven § 20).
-Utilregnelighet: den som var psykotisk, hadde sterk bevissthetsforstyrrelse eller høygradig psykisk utviklingshemming da handlingen skjedde, kan heller ikke straffes (§ 20).",straffbarhetsvilkar,0,
+Utilregnelighet: den som hadde en sterkt avvikende sinnstilstand, sterk bevissthetsforstyrrelse eller høygradig psykisk utviklingshemming da handlingen skjedde, kan heller ikke straffes (§ 20).",straffbarhetsvilkar,0,
 straffeprosess,concept,Strafferett,Straffesakens gang,"Politiet: etterforsker saken.
 Påtalemyndigheten: avgjør om saken skal henlegges, avgjøres med forelegg eller påtaleunnlatelse, eller føre til tiltale.
 Uskyldspresumsjonen: enhver regnes som uskyldig til skyld er bevist (Grunnloven § 96), og enhver rimelig tvil skal komme tiltalte til gode.",straffbarhetsvilkar,0,
@@ -180,7 +181,7 @@ Samfunnsstraff: et antall timer samfunnsnyttig tjeneste og andre tiltak i stedet
 Ungdomsstraff: et opplegg gjennom konfliktrådet for lovbrytere under 18 år, i stedet for fengsel (straffeloven § 52 a).
 Bot: en pengestraff.
 Rettighetstap: for eksempel tap av retten til en stilling, eller kontaktforbud (straffeloven § 29 lister straffene).",straff-formal,0,
-andre-reaksjoner,concept,Strafferett,Andre strafferettslige reaksjoner,"Forelegg: påtalemyndighetens tilbud om å avgjøre saken med bot uten rettssak; vedtatt forelegg virker som en dom (straffeprosessloven § 255).
+andre-reaksjoner,concept,Strafferett,Andre strafferettslige reaksjoner,"Forelegg: påtalemyndighetens tilbud om å avgjøre saken med bot uten rettssak; vedtatt forelegg virker som en dom (straffeprosessloven §§ 255 og 258).
 Påtaleunnlatelse: skyld anses bevist, men påtalemyndigheten lar være å straffeforfølge.
 Overføring til konfliktråd: saken løses gjennom mekling mellom gjerningsperson og fornærmet, eller gjennom ungdomsoppfølging (straffeloven § 30).",straffeprosess,0,
 samtykke-strafferett,concept,Strafferett,Samtykke i seksuallovbruddene,"Samtykke (strafferett): fra 1. juli 2025 er det voldtekt å ha seksuell omgang med noen som verken i ord eller handling har samtykket (straffeloven § 291 første ledd). Bruk av vold eller trusler, at den andre gir uttrykk for ikke å ville, eller at den andre ikke er i stand til å motsette seg, gir strengere straff (§ 291 andre ledd).",straffbarhetsvilkar,0,
@@ -220,7 +221,7 @@ Miljøforringer betaler: tiltakshaveren skal dekke kostnadene ved å hindre elle
 forurensningsloven,concept,Miljørett,Forurensningsloven,"Forurensningsloven: utgangspunktet er at ingen må ha, gjøre eller sette i verk noe som kan føre til forurensning, uten at det er lovlig etter loven eller tillatt ved vedtak (§ 7). Den som er ansvarlig for forurensningen, skal sørge for tiltak og bære kostnadene.",miljo-grunnloven,0,
 klimaloven,fact,Miljørett,Klimalovens mål,"klimamål for 2030: minst 55 prosent lavere klimagassutslipp enn i 1990 (klimaloven § 3)
 klimamål for 2035: minst 70–75 prosent lavere klimagassutslipp enn i 1990 (klimaloven § 4)",miljo-grunnloven,0,
-klimasakene,concept,Miljørett,Klimasakene mot staten,"Klimasøksmålet: Høyesterett kom i 2020 (HR-2020-2472-P) til at tildelingen av letelisenser i Barentshavet ikke var i strid med Grunnloven § 112, og at terskelen for at domstolene skal sette til side et vedtak etter § 112, er høy.
+klimasakene,concept,Miljørett,Klimasakene mot staten,"Klimasøksmålet: Høyesterett kom i 2020 (HR-2020-2472-P) til at tildelingen av utvinningstillatelser i Barentshavet ikke var i strid med Grunnloven § 112, og at terskelen for at domstolene skal sette til side et vedtak etter § 112, er høy.
 Greenpeace Nordic mot Norge: Den europeiske menneskerettsdomstolen kom i oktober 2025 til at Norge ikke hadde krenket EMK artikkel 8, men slo fast at staten må gjøre en grundig og tidsriktig konsekvensutredning, også av klimavirkningene, før den godkjenner petroleumsvirksomhet.",miljo-grunnloven;emd,0,
 bruke-miljoprinsipper,skill,Miljørett,Bruke de miljørettslige prinsippene,"bruke de miljørettslige prinsippene på en konkret sak, for eksempel en utbygging i et naturområde, og vurdere hva de krever av myndighetene og tiltakshaveren.",miljorettslige-prinsipper,0,
 vurdere-forurensning,skill,Miljørett,Vurdere en forurensningssak,"vurdere om en forurensning i en konkret sak er ulovlig, og hvem som må sørge for og betale tiltakene.",forurensningsloven,0,

@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,science,,,
 ,config,,keywords,naturfag; ungdomsskole; ungdomstrinnet; 10. trinn; muntlig-praktisk eksamen; forsøk; hypotese; programmering; periodesystemet; kjemiske reaksjoner; energi; drivhuseffekten; celler; økosystem; evolusjon; platetektonikk; immunforsvar; vaksiner,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 hypotese,concept,Utforsking og naturvitenskapelig metode,Hypotese,"Hypotese: en mulig forklaring eller et foreløpig svar på et spørsmål, formulert slik at et forsøk eller en observasjon kan vise om den stemmer.",,0,
 variabler,concept,Utforsking og naturvitenskapelig metode,"Uavhengig, avhengig og kontrollvariabel","Uavhengig variabel: det du selv endrer i forsøket.
 Avhengig variabel: det du måler, og som kanskje endrer seg fordi du endret den uavhengige.
@@ -65,7 +66,7 @@ Sender: delen som gjør informasjon om til et signal og sender det ut.
 Mottaker: delen som fanger opp signalet og gjør det om til noe som kan brukes, som lyd, lys eller tekst.",,0,
 signal,concept,Teknologi: sender og mottaker,Analogt og digitalt signal,"Signal: lys, lyd, radiobølger eller elektriske pulser som fører informasjon fra en sender til en mottaker.
 Analogt signal: et signal som kan variere jevnt mellom mange verdier.
-Digitalt signal: et signal som bare har to verdier, av og på (0 og 1), satt sammen til koder.",teknologisk-system,0,
+Digitalt signal: et signal som bare kan ha et begrenset antall bestemte verdier, oftest bare to, av og på (0 og 1), satt sammen til koder.",teknologisk-system,0,
 bolger-straling,concept,Teknologi: sender og mottaker,Bølger og elektromagnetisk stråling,"Bølge: en svingning som brer seg og fører energi med seg, f.eks. lyd.
 Frekvens: hvor mange svingninger bølgen gjør per sekund, målt i hertz (Hz).
 Elektromagnetisk stråling: radiobølger, infrarød stråling, synlig lys, UV-stråling og røntgen, som alle er samme slags bølge med ulik bølgelengde.",,0,

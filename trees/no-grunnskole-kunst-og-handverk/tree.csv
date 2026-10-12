@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,practical-aesthetic,,,
 ,config,,storageKey,no-grunnskole-kunst-og-handverk-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"kunst og håndverk 8.–10. trinn (norsk ungdomsskole, KHV0010)",,,
 ,config,,slots.motivationSubject,kunst og håndverk,,,
 ,config,,slots.expressionFocus,"sier «fint», «kult» eller «stilig» i stedet for å navngi virkemidlet (kontrast, rytme, balanse, valør); beskriver hva et bilde forestiller, men ikke hvordan det er laget; kaller en løs skisse for en arbeidstegning eller oppgir mål uten enhet og målestokk; blander sammen form og funksjon; og påstår at noe er «miljøvennlig» eller «holdbart» uten å si sammenlignet med hva",,,
@@ -23,7 +24,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,arts-crafts,,,
 ,config,,keywords,kunst og håndverk; ungdomsskole; ungdomstrinnet; 10. trinn; visuelle virkemidler; fargelære; perspektivtegning; arbeidstegning; målestokk; designprosess; materialer; gjenbruk; reparasjon; arkitektur; universell utforming; duodji; samisk kunst; samfunnskritisk kunst; 3D-modellering; opphavsrett,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 visuelle-virkemidler,concept,Visuelle virkemidler,Visuelle virkemidler,"Visuelle virkemidler: grunnelementene i et bilde eller en gjenstand (punkt, linje, flate, form, farge og tekstur) og måtene de settes sammen på (komposisjon, kontrast, rytme og balanse), som til sammen avgjør hvordan det virker på den som ser.",,,
 linje-flate-form,concept,Visuelle virkemidler,"Linje, flate, form og tekstur","Linje: et spor mellom to punkter; kan være rett, buet, tynn, tykk, rolig eller urolig, og leder blikket i sin retning.
 Flate: et todimensjonalt område avgrenset av linjer eller fargeskifter.
@@ -272,10 +273,10 @@ samfunnskritisk-kunst,concept,Kunst og samfunn,Samfunnskritisk kunst,"Samfunnskr
 Kunstaktivisme: kunst laget for å påvirke politikk eller mobilisere folk til handling.
 Kontekst: tiden, stedet og situasjonen et verk ble laget og vist i, som påvirker hva det betyr og hvordan det ble mottatt.",samtidskunst,,
 samfunnskritiske-verk,fact,Kunst og samfunn,Samfunnskritiske kunstverk,"Guernica: maleri av Pablo Picasso fra 1937 mot bombingen av den baskiske byen Guernica under den spanske borgerkrigen
-Albertine i politilægens venteværelse: maleri av Christian Krohg fra 1887, en kritikk av hvordan staten kontrollerte prostitusjon
+Albertine i politilægens venteværelse: maleri av Christian Krohg fra 1886–1887, en kritikk av hvordan staten kontrollerte prostitusjon
 Banksy: anonym britisk gatekunstner som bruker sjablongbilder til å kommentere krig, overvåking og forbruk
 Ai Weiwei: kinesisk kunstner som blant annet har laget installasjoner av redningsvester etter båtflyktninger",samfunnskritisk-kunst,,
-samiske-kunstnere,fact,Kunst og samfunn,Samiske kunstnere og verk,"John Savio: grafiker som skar tresnitt fra samisk liv tidlig på 1900-tallet
+samiske-kunstnere,fact,Kunst og samfunn,Samiske kunstnere og verk,"John Savio: grafiker som skar tresnitt fra samisk liv i 1920- og 1930-årene
 Iver Jåks: billedhugger som bygde på duodji og samisk formspråk
 Britta Marakatt-Labba: Historja, et broderi på rundt 24 meter om samisk historie og mytologi
 Máret Ánne Sara: Pile o' Sápmi, en installasjon av reinhodeskaller som protest mot pålagt reduksjon av reintallet, vist på documenta 14 i 2017

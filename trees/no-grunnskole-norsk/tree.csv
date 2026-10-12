@@ -23,9 +23,10 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,norwegian,,,
 ,config,,keywords,norsk; ungdomsskole; ungdomstrinnet; 10. trinn; eksamen; hovedmål; sidemål; nynorsk; bokmål; grammatikk; rettskriving; komma; tekstbinding; novelle; lyrikk; virkemidler; appellformer; argumentasjon; leserinnlegg; kåseri; sammensatte tekster; kildebruk; lesestrategier; dialekter; samisk; svensk og dansk,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 ordklasser,concept,Språk og grammatikk,Ordklasser,"Ordklasse: en gruppe ord med samme grammatiske oppførsel. Norsk har ti: substantiv, verb, adjektiv, pronomen, determinativ, adverb, preposisjon, konjunksjon, subjunksjon og interjeksjon.",,0,
-boyning,concept,Språk og grammatikk,Bøyning,"Bøyning: at et ord endrer form etter hvilken rolle det har i setningen. Substantiv bøyes i ubestemt og bestemt form, entall og flertall; verb bøyes i tid (infinitiv, presens, preteritum, perfektum); adjektiv bøyes etter kjønn, tall og bestemthet og kan gradbøyes.",ordklasser,0,
+boyning,concept,Språk og grammatikk,Bøyning,"Bøyning: at et ord endrer form etter hvilken rolle det har i setningen. Substantiv bøyes i ubestemt og bestemt form, entall og flertall; verb har infinitiv som grunnform og bøyes i tid (presens, preteritum, perfektum); adjektiv bøyes etter kjønn, tall og bestemthet og kan gradbøyes.",ordklasser,0,
 sammensatte-ord,concept,Språk og grammatikk,Sammensatte ord,"Sammensatt ord: et ord som er satt sammen av to eller flere ord og skrives i ett, som «skolesekk» og «mobilforbud». Skrives det i to ord, endrer det ofte mening: en «lys rød genser» er ikke en «lyserød genser».",ordklasser,0,
 verbal,concept,Språk og grammatikk,Verbal,"Verbal: setningsleddet som sier hva som skjer eller hvordan noe er, alltid med et bøyd (finitt) verb, eventuelt fulgt av ubøyde verb, som i «har skrevet».",ordklasser,0,
 subjekt-objekt,concept,Språk og grammatikk,Subjekt og objekt,"Subjekt: den eller det som gjør handlingen eller er i tilstanden verbalet uttrykker.
@@ -75,14 +76,15 @@ tekstbinding,concept,Språk og grammatikk,Tekstbinding,"Tekstbinding: språklige
 bruke-tekstbinding,skill,Språk og grammatikk,Binde sammen setninger og avsnitt,"variere og velge bindeord og tilbakevisende ord slik at sammenhengen mellom setninger og avsnitt i egen tekst blir tydelig, uten at hver setning begynner likt.",tekstbinding;skille-setninger,0,
 bokmal-nynorsk,concept,Språklig mangfold,Bokmål og nynorsk,"Bokmål: skriftspråk som har utviklet seg fra dansk skriftspråk gjennom gradvis fornorsking.
 Nynorsk: skriftspråk bygd på norske dialekter, satt sammen av Ivar Aasen på 1800-tallet.",,0,
-sprakhistorie-arstall,fact,Språklig mangfold,Årstall i norsk språkhistorie,"unionen med Danmark, da dansk ble skriftspråket i Norge: 1380–1814
+sprakhistorie-arstall,fact,Språklig mangfold,Årstall i norsk språkhistorie,"unionstiden med Danmark, da dansk var skriftspråket i Norge: 1537–1814
 Ivar Aasens grammatikk over det norske folkespråket: 1848
 Ivar Aasens ordbok over det norske folkespråket: 1850
 jamstillingsvedtaket, som likestilte landsmålet med det dansk-norske skriftspråket: 1885
 navnene bokmål og nynorsk ble innført: 1929
-språkloven, som slår fast at norsk og samisk er hovedspråk i Norge: 2021",bokmal-nynorsk,0,
+språkloven, som slår fast at norsk er det nasjonale hovedspråket og at samiske språk er likeverdige med norsk, ble vedtatt: 2021",bokmal-nynorsk,0,
 forklare-sprakhistorie,skill,Språklig mangfold,Forklare hvorfor Norge har to skriftspråk,"forklare hvordan bokmål og nynorsk vokste fram etter 1814, med Knud Knudsens fornorsking av dansk og Ivar Aasens arbeid med dialektene, og knytte det til nasjonsbyggingen på 1800-tallet.",sprakhistorie-arstall,0,
-offisielle-sprak,concept,Språklig mangfold,Offisielle språk i Norge,"Hovedspråk: norsk og samisk, de to språkene staten har særlig ansvar for.
+offisielle-sprak,concept,Språklig mangfold,Offisielle språk i Norge,"Hovedspråk: norsk, det nasjonale hovedspråket i Norge.
+Urfolksspråk: samiske språk, som er likeverdige med norsk.
 Nasjonalt minoritetsspråk: kvensk, romani og romanes, språk som har lang historie i Norge og vernes av staten.
 Norsk tegnspråk: det nasjonale tegnspråket, et fullverdig språk med egen grammatikk.",bokmal-nynorsk,0,
 samiske-sprak,concept,Språklig mangfold,Samiske språk,"Samiske språk: en gruppe beslektede språk i den uralske språkfamilien, ikke i samme familie som norsk. I Norge brukes særlig nordsamisk, lulesamisk og sørsamisk.",,0,
@@ -131,7 +133,7 @@ Dramatikk: tekster skrevet for å spilles, med replikker og sceneanvisninger.",s
 novelle-roman,concept,Skjønnlitteratur,Novelle og roman,"Novelle: en kort fortelling med få personer og ett hovedhendelsesforløp, som ofte begynner midt i handlingen, har et vendepunkt og en åpen slutt.
 Roman: en lang fortelling med flere personer og handlingstråder, ofte over lengre tid.",hovedsjangre,0,
 forteller,concept,Skjønnlitteratur,Forteller,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren. En førstepersonsforteller er selv med i handlingen («jeg»); en tredjepersonsforteller står utenfor («hun», «han»).",,0,
-synsvinkel,concept,Skjønnlitteratur,Synsvinkel,"Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom. En allvitende forteller vet alt om alle; en personal forteller følger én persons tanker; en ytre forteller viser bare det som kan ses og høres.",forteller,0,
+synsvinkel,concept,Skjønnlitteratur,Synsvinkel,"Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom. En allvitende forteller vet alt om alle; en personal forteller er selv med i handlingen og vet bare det den personen vet; en tredjepersonsforteller kan også legge synsvinkelen hos én person og følge bare den personens tanker; en ytre forteller viser bare det som kan ses og høres.",forteller,0,
 komposisjon,concept,Skjønnlitteratur,Komposisjon,"Komposisjon: hvordan handlingen i en tekst er bygd opp og ordnet — kronologisk eller med tilbakeblikk, med en start (ofte rett inn i handlingen), en konflikt, et vendepunkt og en slutt.",,0,
 personkarakteristikk,concept,Skjønnlitteratur,Direkte og indirekte karakteristikk,"Direkte karakteristikk: fortelleren sier rett ut hvordan en person er.
 Indirekte karakteristikk: leseren forstår hvordan en person er gjennom det personen sier, gjør og tenker.",,0,
@@ -153,8 +155,8 @@ Strofe: en gruppe verselinjer som hører sammen, skilt fra de andre med en tom l
 Frie vers: dikt uten fast rytme og rim.",hovedsjangre,0,
 analysere-dikt,skill,Skjønnlitteratur,Analysere et dikt,"beskrive formen på et dikt, finne språklige bilder og andre virkemidler, og tolke hva diktet uttrykker.",rytme-rim;forklare-virkemidler;tolke-tema,0,
 historisk-kontekst,concept,Skjønnlitteratur,Historisk kontekst,"Historisk kontekst: tiden og samfunnet en tekst ble skrevet i, som kan forklare temaene, språket og holdningene i teksten.",,0,
-romantikk-realisme,concept,Skjønnlitteratur,Romantikken og realismen,"Romantikken: en litterær retning i første halvdel av 1800-tallet som dyrket følelser, naturen, fortiden og det nasjonale.
-Realismen: en litterær retning fra 1870-årene som ville skildre samfunnet slik det var, og sette problemer som kvinners rettigheter og fattigdom under debatt.",historisk-kontekst,0,
+romantikk-realisme,concept,Skjønnlitteratur,Romantikken og realismen,"Romantikken: en litterær retning fra rundt 1790 til 1850 som dyrket følelser, naturen, fortiden og det nasjonale.
+Realismen: en litterær retning som i Norge varte fra 1850-årene til rundt 1890, og som ville skildre samfunnet slik det var og sette problemer som kvinners rettigheter og fattigdom under debatt.",historisk-kontekst,0,
 tolke-i-kontekst,skill,Skjønnlitteratur,Tolke en eldre tekst ut fra sin tid,"forklare hvordan tiden en eldre tekst ble skrevet i, preger tema, språk og holdninger i teksten, og sammenligne med hvordan temaet ville blitt framstilt i dag.",romantikk-realisme;tolke-tema,0,
 unges-livssituasjon,skill,Skjønnlitteratur,Utforske hvordan tekster framstiller unge,"undersøke hvordan en eller flere tekster framstiller unges livssituasjon — vennskap, familie, utenforskap, skjerm og fremtid — og vurdere hvor troverdig framstillingen er sett fra egen hverdag.",tolke-tema;analysere-person,0,
 oversettelse,concept,Skjønnlitteratur,Oversatt litteratur,"Oversettelse: en tekst som er overført fra et annet språk. Oversetteren må velge ord, rytme og kulturelle referanser, så teksten blir aldri helt den samme som originalen.",,0,

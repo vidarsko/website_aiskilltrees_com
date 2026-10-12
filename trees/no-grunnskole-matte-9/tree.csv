@@ -19,7 +19,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,institution,grunnskole,,,
 ,config,,division,9,,,
 ,config,,subjectArea,mathematics,,,
-,config,,updated,2026-09-30,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 sammensatt-maleenhet-begrep-9,concept,Måling,Sammensatte måleenheter,"Sammensatt måleenhet: en enhet som er forholdet mellom to andre, som km/h, kr/kg eller personer/km². Skråstreken leses «per», og enheten sier dermed hvor mye av det første som kommer på hver enhet av det andre.",,0,
 regne-med-sammensatte-enheter,skill,Måling,Regne ut en sammensatt størrelse,"regne ut en sammensatt størrelse (f.eks. fart, tetthet eller pris per enhet) når de to grunnleggende størrelsene er kjent.",sammensatt-maleenhet-begrep-9,0,"Gi eleven to grunnleggende størrelser fra en praktisk situasjon (f.eks. en strekning og en tid, eller en masse og et volum) og be dem regne ut den sammensatte størrelsen (fart, tetthet), og forklare hva svaret betyr."
 maleenheter,fact,Måling,Sammenhenger mellom måleenheter,"1 km: 1000 m
@@ -82,7 +83,7 @@ Sektordiagram: viser hvordan en helhet er fordelt på deler. Valget av framstill
 tolke-statistisk-fremstilling-media,skill,Statistikk og sannsynlighet,Tolke og vurdere en statistisk framstilling fra media,"tolke og kritisk vurdere en statistisk framstilling hentet fra media eller lokalsamfunnet, og vurdere om den gir et rettferdig bilde av dataene.",statistisk-fremstilling-begrep,0,"Vis eleven en statistisk framstilling hentet fra en avisartikkel eller en lignende kilde (eller en konstruert framstilling som ligner), og be dem forklare hva framstillingen viser, og vurdere om noe ved den (f.eks. valg av skala, tidsperiode eller diagramtype) kan gi et misvisende inntrykk."
 sentralmal-begrep,concept,Statistikk og sannsynlighet,Sentralmål,"Gjennomsnitt: summen av verdiene delt på antallet. Påvirkes sterkt av ekstreme verdier.
 Median: den midterste verdien når tallene er sortert. Tåler ekstreme verdier godt.
-Typetall (modus): den verdien som forekommer oftest. Et datasett kan ha flere typetall, eller ingen.",,0,
+Typetall (modus): den verdien som forekommer oftest. Et datasett kan ha flere typetall.",,0,
 spredningsmal-begrep,concept,Statistikk og sannsynlighet,Spredningsmål,"Spredningsmål: variasjonsbredden er differansen mellom den største og den minste verdien i et datasett. Den sier hvor stort spennet er, men ingenting om hvordan verdiene fordeler seg innenfor det.",sentralmal-begrep,0,
 regne-ut-sentralmal-og-spredningsmal,skill,Statistikk og sannsynlighet,Regne ut sentralmål og spredningsmål,"regne ut gjennomsnitt, median, typetall og variasjonsbredde for et eget eller reelt datasett.",spredningsmal-begrep,0,"Gi eleven et datasett (f.eks. tall eleven selv har samlet inn i klassen, eller et oppgitt datasett) og be dem regne ut gjennomsnitt, median, typetall og variasjonsbredde, og vise utregningen for hvert mål."
 bruke-sentralmal-til-a-beskrive-data,skill,Statistikk og sannsynlighet,Bruke sentralmål og spredningsmål til å sammenligne to grupper,"bruke sentralmål og spredningsmål til å beskrive og sammenligne to datasett (f.eks. to grupper), og forklare hva forskjellene mellom dem betyr.",regne-ut-sentralmal-og-spredningsmal,0,"Gi eleven to datasett som kan sammenlignes (f.eks. resultater fra to klasser, eller to grupper), be dem regne ut sentralmål og spredningsmål for begge, og skrive en kort sammenligning av hva tallene forteller om forskjellen mellom gruppene."

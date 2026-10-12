@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,religion,,,
 ,config,,keywords,RLE;KRL;religionskunnskap;livssyn;filosofi;etikk;religionskritikk;REL1003;REL01-02;Vg3;fellesfag;muntlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 religion,concept,Fagbegreper og kilder,Religion,"Substansiell religionsdefinisjon: sier hva religion er, for eksempel tro på noe overnaturlig, guddommelig eller hellig.
 Funksjonell religionsdefinisjon: sier hva religion gjør for mennesker og samfunn, for eksempel å gi mening, fellesskap, identitet og normer.",,0,
 livssyn,concept,Fagbegreper og kilder,Livssyn,"Livssyn: et helhetlig syn på hva mennesket og verden er, og på hva som er viktig og riktig i livet. Et livssyn kan være religiøst, eller sekulært uten tro på noe guddommelig, slik som sekulær humanisme.",religion,0,
@@ -71,7 +72,7 @@ Sjiaislam: retningen som mener lederskapet skulle gå til Muhammeds slekt gjenno
 gjore-rede-islam,skill,Islam,Gjøre rede for islamsk tro og praksis,"gjøre rede for sentrale trekk ved islamsk tro, etikk og praksis - gudsbilde, profetene, Koranen og de fem søylene - med fagbegreper.",koran-hadith-sharia;fem-soyler,0,
 vise-mangfold-islam,skill,Islam,Vise indre mangfold i islam,"vise med eksempler hvordan muslimer tolker og praktiserer islam ulikt - som sunni og sjia, sufisme, og ulike syn på klesdrakt eller sharia - og forklare hvorfor det ikke finnes én islamsk holdning til slike spørsmål.",sunni-sjia;koran-hadith-sharia;indre-mangfold,0,
 sammenligne-kristendom-islam,skill,Islam,Sammenligne kristendom og islam,"sammenligne kristendom og islam på sentrale punkter - gudsbilde, synet på Jesus, hellige skrifter, frelse og etikk - og peke på både likheter og forskjeller.",gjore-rede-kristendom;gjore-rede-islam,0,
-jodedom,concept,Andre religioner og livssyn,Jødedom,"Jødedom: den eldste av de monoteistiske religionene, bygd på pakten mellom Gud og det jødiske folket. Den hellige skriften er Tanakh, med Toraen (de fem Mosebøkene) som kjernen, og sabbaten er ukens hviledag.",religion,0,
+jodedom,concept,Andre religioner og livssyn,Jødedom,"Jødedom: den eldste av de tre abrahamittiske religionene, bygd på pakten mellom Gud og det jødiske folket. Den hellige skriften er Tanakh, med Toraen (de fem Mosebøkene) som kjernen, og sabbaten er ukens hviledag.",religion,0,
 ostlige-vestlige,concept,Andre religioner og livssyn,Vestlige og østlige religionstradisjoner,"Vestlige religionstradisjoner: jødedom, kristendom og islam (de abrahamittiske religionene), med én skapende Gud og en lineær tid som går mot en endetid.
 Østlige religionstradisjoner: blant annet hinduisme, buddhisme og sikhisme, ofte med en syklisk tid der livet gjentar seg, og med frigjøring fra gjentakelsen som mål.",religion,0,
 hinduisme,concept,Andre religioner og livssyn,Hinduisme,"Hinduisme: en samlebetegnelse på et mangfold av religiøse tradisjoner med røtter i India, uten én grunnlegger eller én lære. Mange guder dyrkes, ofte som uttrykk for én guddommelig virkelighet (brahman).",ostlige-vestlige,0,

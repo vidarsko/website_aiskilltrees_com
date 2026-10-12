@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,mathematics,,,
 ,config,,storageKey,matte8-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,matematikk 8. trinn (norsk ungdomsskole),,,
 ,config,,slots.expressionFocus,"bytter om på ledd eller regnearter uten å endre svaret riktig (f.eks. ved feil bruk av den distributive egenskapen), glemmer å vise mellomregning, eller bruker likhetstegnet feil (f.eks. til å bety ""neste steg"" i stedet for faktisk likhet)",,,
 ,config,,slots.motivationSubject,matte,,,
@@ -19,7 +20,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,institution,grunnskole,,,
 ,config,,division,8,,,
 ,config,,subjectArea,mathematics,,,
-,config,,updated,2026-09-30,,,
+,config,,updated,2026-10-12,,,
 potens-begrep,concept,Tall og tallregning,Potens,"Potens: et grunntall opphøyd i en eksponent. Grunntallet er tallet som multipliseres med seg selv, og eksponenten sier hvor mange ganger: 2⁵ betyr 2·2·2·2·2.",,0,
 regne-med-potenser,skill,Tall og tallregning,Regne ut potenser,"regne ut verdien av potenser med naturlige eksponenter for hånd, og forklare framgangsmåten.",potens-begrep,0,"Gi eleven et sett potensuttrykk med naturlige eksponenter (f.eks. 3^4, 2^5, 10^3) og be dem regne ut verdien for hånd, og forklare hva grunntallet og eksponenten betyr i hvert uttrykk."
 kvadratrot-begrep,concept,Tall og tallregning,Kvadratrot,Kvadratrot: det positive tallet som multiplisert med seg selv gir tallet under rottegnet.,potens-begrep,0,
@@ -67,7 +68,7 @@ generalisere-monster-med-ord-og-algebra,skill,Algebra og mønstre,Generalisere e
 variabel-og-konstant-begrep,concept,Algebra og mønstre,Variabel og konstant,"Variabel: en bokstav som står for et tall som kan variere, eller som ennå ikke er kjent.
 Konstant: et tall i uttrykket som ligger fast, og som ikke endrer seg når variabelen gjør det.",,0,
 lage-regneuttrykk-fra-praktisk-situasjon,skill,Algebra og mønstre,Lage et regneuttrykk fra en praktisk situasjon,"lage og forklare et regneuttrykk med tall, variabler og konstanter ut fra en praktisk situasjon.",variabel-og-konstant-begrep,0,"Gi eleven en praktisk situasjon med en fast del og en del som avhenger av en ukjent mengde (f.eks. en inngangspris pluss en pris per person i en gruppe), og be dem sette opp et regneuttrykk med en variabel som beskriver totalprisen, og forklare hva variabelen og konstanten står for."
-ledd-begrep,concept,Algebra og mønstre,Ledd,"Ledd: en del av et regneuttrykk som er skilt fra resten med et pluss- eller minustegn. I 3x + 5 - 2y er 3x, 5 og 2y de tre leddene.",variabel-og-konstant-begrep,0,
+ledd-begrep,concept,Algebra og mønstre,Ledd,"Ledd: en del av et regneuttrykk som er skilt fra resten med et pluss- eller minustegn. I 3x + 5 - 2y er 3x, 5 og -2y de tre leddene.",variabel-og-konstant-begrep,0,
 forenkle-algebraiske-uttrykk,skill,Algebra og mønstre,Forenkle algebraiske uttrykk,forenkle et algebraisk uttrykk ved å trekke sammen like ledd og bruke den distributive egenskapen til å multiplisere inn i en parentes.,ledd-begrep;regneregler-kommutativ-assosiativ-distributiv-begrep,0,"Gi eleven algebraiske uttrykk som skal forenkles (f.eks. 3x + 5 - x + 2, eller 2(x+4) - 3x), og be dem trekke sammen like ledd og gange ut parenteser, og vise hvert steg."
 ligning-begrep,concept,Algebra og mønstre,Ligning,"Ligning: to uttrykk satt lik hverandre, der minst ett tall er ukjent. Å løse ligningen er å finne verdien av den ukjente som gjør likheten sann.",variabel-og-konstant-begrep,0,
 lose-enkel-ligning,skill,Algebra og mønstre,Løse en enkel ligning,løse en enkel ligning med én ukjent ved å utføre den samme operasjonen på begge sider av likhetstegnet.,ligning-begrep,0,"Gi eleven enkle ligninger med én ukjent (f.eks. 3x + 5 = 20, eller x/4 - 2 = 3) og be dem løse dem for hånd, og vise hvert steg med samme operasjon utført på begge sider."

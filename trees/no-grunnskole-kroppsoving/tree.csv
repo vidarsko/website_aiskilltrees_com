@@ -23,11 +23,12 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,physical-education,,,
 ,config,,keywords,kroppsøving; gym; ungdomsskole; ungdomstrinnet; 10. trinn; standpunktkarakter; trening; treningsplan; puls; dans; kroppsbilde; svømming; livredning; førstehjelp; HLR; hjertestarter; orientering; kart og kompass; friluftsliv; allemannsretten; fjellvettreglene; sporløs ferdsel,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 bevegelsesaktivitet,concept,Trening og helse,Bevegelsesaktivitet og fysisk aktivitet,"Bevegelsesaktivitet: samlebetegnelse for lek, idrettsaktiviteter, dans, friluftsliv, svømming og annen aktivitet i vann, og også sykling, ski og skøyter.
 Fysisk aktivitet: all bevegelse der musklene bruker mer energi enn i hvile, fra å gå til skolen til å spille fotball.
 Trening: fysisk aktivitet som er planlagt og gjentatt for å bli bedre i noe bestemt, som kondisjon eller styrke.",,0,
-helseanbefaling,fact,Trening og helse,Helsedirektoratets anbefaling for barn og unge,"daglig aktivitet: minst 60 minutter med moderat eller høy intensitet
+helseanbefaling,fact,Trening og helse,Helsedirektoratets anbefaling for barn og unge,"daglig aktivitet: i gjennomsnitt minst 60 minutter med moderat eller høy intensitet
 høy intensitet, også aktivitet som styrker muskler og skjelett: minst 3 ganger i uka
 stillesitting: bør begrenses",bevegelsesaktivitet;intensitet,0,
 utholdenhet-styrke,concept,Trening og helse,Utholdenhet og styrke,"Utholdenhet (kondisjon): evnen til å holde på lenge med store muskelgrupper, fordi hjertet og lungene får nok oksygen ut til musklene.
@@ -191,7 +192,7 @@ planlegge-rute,skill,Kart og orientering,Planlegge en rute på kartet,"velge en 
 orienteringslop,skill,Kart og orientering,Finne fram i ukjent terreng med kart og kompass,"finne postene i riktig rekkefølge i et terreng du ikke kjenner, med kart og kompass, og fortelle etterpå hvilken vei du valgte mellom postene og hvorfor.",planlegge-rute;kompasskurs;finne-posisjon,0,
 friluftsliv,concept,Friluftsliv,Friluftsliv,"Friluftsliv: opphold og fysisk aktivitet ute i naturen i fritiden, for å oppleve naturen og få en forandring fra hverdagen.",bevegelsesaktivitet,0,
 allemannsretten,fact,Friluftsliv,Allemannsretten i praksis,"utmark (skog, fjell, strand og annen udyrket mark): fri ferdsel til fots hele året
-innmark (åker, eng, hage og gårdsplass): ikke fri ferdsel, bortsett fra på frossen eller snødekt mark om vinteren
+innmark (åker, eng, hage og gårdsplass): ikke fri ferdsel, bortsett fra over åker og eng når marken er frossen eller snødekt om vinteren
 telting: minst 150 meter fra bebodd hus eller hytte
 å bli på samme sted mer enn to døgn: krever grunneierens tillatelse, unntatt høyt til fjells og langt fra bebyggelse
 bål i eller nær skog: forbudt fra 15. april til 15. september",friluftsliv,0,
@@ -216,12 +217,12 @@ Risikovurdering: å tenke gjennom, før og underveis, hva som kan gå galt og hv
 fjellvettreglene,fact,Trygg og sporløs ferdsel,Fjellvettreglene,"regel 1: planlegg turen og meld fra hvor du går
 regel 2: tilpass turen etter evne og forhold
 regel 3: ta hensyn til vær- og skredvarsel
-regel 4: vær forberedt på uvær og kulde, også på korte turer
-regel 5: ta med nødvendig utstyr, så du kan hjelpe deg selv og andre
-regel 6: velg trygg rute, og kjenn igjen skredterreng og usikker is
-regel 7: bruk kart og kompass, og vit alltid hvor du er
-regel 8: vend i tide; det er ingen skam å snu
-regel 9: spar på kreftene, og søk ly om nødvendig",risiko,0,
+regel 4: vær forberedt på uvær og kulde, selv på korte turer
+regel 5: ta med nødvendig utstyr for å kunne hjelpe deg selv og andre
+regel 6: ta trygge veivalg; gjenkjenn skredfarlig terreng og usikker is
+regel 7: bruk kart og kompass; vit alltid hvor du er
+regel 8: vend i tide, det er ingen skam å snu
+regel 9: spar på kreftene og søk ly om nødvendig",risiko,0,
 skred-is,concept,Trygg og sporløs ferdsel,Skredterreng og usikker is,"Skredterreng: fjellsider som er brattere enn omtrent 30 grader, og områdene under dem der et snøskred kan løpe ut.
 Usikker is: is som kan være for tynn, for eksempel ved bekkeos, strøm, siv og brygger, og på nylagt is eller råtten vårsis.",,0,
 sjekke-varsel,skill,Trygg og sporløs ferdsel,Sjekke vær- og skredvarsel,"finne værvarselet og, om vinteren, skredvarselet for området du skal til, og si hva det betyr for turen og for valg av rute.",skred-is,0,

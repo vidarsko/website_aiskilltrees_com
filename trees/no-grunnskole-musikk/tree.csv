@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,music,,,
 ,config,,keywords,musikk; ungdomsskole; ungdomstrinnet; 10. trinn; noter; besifring; akkorder; gehør; låtskriving; komponere; improvisasjon; DAW; beatmaking; programmering; opptak; virkemidler; sjangre; folkemusikk; joik; dans; opphavsrett,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 puls-tempo,concept,Grunnelementer,Puls og tempo,"Puls: de jevne, underliggende slagene i musikken, som du kan klappe eller trampe til.
 Tempo: hvor raskt pulsen går.
 BPM: slag per minutt, målet på tempo; 60 BPM er ett slag i sekundet.",,0,
@@ -204,16 +205,16 @@ sjangertrekk,fact,Sjangre og historie,Kjennetegn ved noen sjangre,"blues: tolvta
 jazz: improvisasjon og swing, der åttendelene spilles ujevnt
 rock: el-gitar med forvrengning, bass og trommer med tydelig backbeat
 hiphop: rap over beats, ofte bygget av samples og loops
-elektronisk dansemusikk: basstromme på hvert slag og lyder laget på datamaskin
+elektronisk dansemusikk: ofte basstromme på hvert slag og lyder laget på datamaskin
 country: akustisk gitar, fele eller steelgitar og fortellende tekster",sjanger;trommekomp;effekter,0,
 kjenne-igjen-sjanger,skill,Sjangre og historie,Kjenne igjen sjanger,"avgjøre hvilken sjanger en låt hører til, og vise til minst to kjennetegn i musikken som avgjorde det.",sjangertrekk;beskrive-grunnelementer,0,
-epoker,fact,Sjangre og historie,Epokene i kunstmusikken,"middelalderen: ca. 500–1400, gregoriansk sang
-renessansen: ca. 1400–1600, flerstemt vokalmusikk
+epoker,fact,Sjangre og historie,Epokene i kunstmusikken,"middelalderen: ca. 500–1430, gregoriansk sang
+renessansen: ca. 1430–1600, flerstemt vokalmusikk
 barokken: ca. 1600–1750, Johann Sebastian Bach
-wienerklassisismen: ca. 1750–1820, Wolfgang Amadeus Mozart
+wienerklassisismen: ca. 1770–1820, Wolfgang Amadeus Mozart
 romantikken: ca. 1820–1900, Edvard Grieg
 1900-tallet: nye klanger og brudd med dur og moll, og etter hvert elektronisk musikk",sjanger,0,
-populaermusikk-historie,fact,Sjangre og historie,Røttene til populærmusikken,"blues: oppsto blant afroamerikanere i sørstatene i USA rundt 1900
+populaermusikk-historie,fact,Sjangre og historie,Røttene til populærmusikken,"blues: oppsto blant afroamerikanere i sørstatene i USA tidlig på 1900-tallet
 jazz: oppsto i New Orleans tidlig på 1900-tallet
 rock'n'roll: slo gjennom i USA på 1950-tallet
 punk: oppsto i USA og Storbritannia på midten av 1970-tallet
@@ -230,7 +231,7 @@ Muntlig overlevering: å lære musikk fra andre etter gehør i stedet for fra no
 folkemusikk,concept,Folkemusikk og joik,Norsk folkemusikk,"Folkemusikk: tradisjonell musikk som er gitt videre muntlig, ofte knyttet til dans, arbeid og høytider.
 Slått: et instrumentalt stykke i folkemusikken, ofte til dans.
 Kveding: tradisjonell norsk sang, ofte alene og uten akkompagnement.
-Stev: en kort, rimet vise på fire linjer, ofte improvisert.",musikktradisjon,0,
+Stev: en kort, rimet strofe på fire linjer som synges og kan stå alene, ofte diktet av kvederen selv.",musikktradisjon,0,
 folkemusikk-fakta,fact,Folkemusikk og joik,Folkemusikkens instrumenter og danser,"hardingfele: fele med understrenger som klinger med, mest brukt i vestlige og sørlige deler av Norge
 langeleik: et langt strengeinstrument som ligger på et bord, med én melodistreng og flere strenger som klinger med
 seljefløyte: en fløyte uten fingerhull, laget av bark
@@ -264,7 +265,7 @@ GRAMO: forvalter rettighetene til artister, musikere og plateselskaper når inns
 å publisere en video med andres musikk: krever som hovedregel tillatelse fra dem som har rettighetene",opphavsrett,0,
 bruke-musikk-lovlig,skill,Musikk i samfunnet,Avgjøre om du kan bruke musikk eller lyd,"avgjøre om du kan bruke en låt, et sample eller en lyd i noe du skal publisere, finne et lovlig alternativ når du ikke kan, og kreditere riktig.",opphavsrett-fakta;eksperimentere-lyd,0,
 nettetikk,concept,Musikk i samfunnet,Nettetikk og personvern,"Nettetikk: å oppføre seg ordentlig mot andre når man deler og kommenterer musikk på nett.
-Personvern: retten til å bestemme over opplysninger om seg selv; et opptak der andre synges, spilles eller danser, deles bare med deres samtykke.",,0,
+Personvern: retten til å bestemme over opplysninger om seg selv; et opptak der andre synger, spiller eller danser, deles bare med deres samtykke.",,0,
 appropriasjon,concept,Musikk i samfunnet,Kulturell appropriasjon,"Kulturell appropriasjon: når noen fra en dominerende kultur tar i bruk uttrykk fra en minoritet eller en undertrykt kultur uten respekt, forståelse eller anerkjennelse, og ofte tjener på det.
 Kulturutveksling: når kulturer låner av hverandre på like fot, med respekt og anerkjennelse.",musikktradisjon,0,
 skille-appropriasjon,skill,Musikk i samfunnet,Forklare forskjellen på appropriasjon og utveksling,"forklare forskjellen på kulturell appropriasjon og kulturutveksling, og si hvilke spørsmål du stiller for å avgjøre hva et konkret eksempel er.",appropriasjon;joik-fakta,0,

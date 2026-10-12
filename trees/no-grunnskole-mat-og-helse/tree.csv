@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,8-10,,,
 ,config,,subjectArea,food-health,,,
 ,config,,keywords,mat og helse; ungdomsskole; ungdomstrinnet; 8. trinn; kostrådene; Helsedirektoratet; Mattilsynet; hygiene; trygg mat; matlaging; oppskrift; næringsstoffer; kosthold; nøkkelhullet; brødskalaen; matsvinn; klimaavtrykk; forbrukermakt; samisk mat; matkultur,,,
-,config,,updated,2026-10-08,,,
+,config,,features.resources,true,,,
+,config,,updated,2026-10-12,,,
 mattrygghet,concept,Trygg mat og hygiene,Mattrygghet og matsikkerhet,"Mattrygghet: at maten ikke gjør oss syke, fordi den er fri for farlige mengder bakterier, virus, giftstoffer og fremmedlegemer.
 Matsikkerhet: at alle mennesker til enhver tid har tilgang til nok, trygg og næringsrik mat.",,0,
 bakterier-mat,concept,Trygg mat og hygiene,Matforgiftning og bakterievekst,"Matforgiftning: sykdom, ofte med oppkast og diaré, fra mat som inneholder sykdomsfremkallende bakterier, virus eller giftstoffer som bakterier har laget.
@@ -73,7 +74,7 @@ maleenheter,fact,Planlegging og kjøkkenarbeid,Måleenheter i oppskrifter,"1 lit
 1 desiliter (dl): 100 ml
 1 spiseskje (ss): 15 ml
 1 teskje (ts): 5 ml
-1 knivsodd (krm): 1 ml
+1 kryddermål (krm): 1 ml
 1 kilogram (kg): 1000 gram (g)
 1 dl vann: veier 100 g
 1 dl hvetemel: veier omtrent 60 g
@@ -172,7 +173,7 @@ vurdere-maltid,skill,"Sanser, smak og anretning",Vurdere et ferdig måltid og fo
 naeringsstoffer,concept,Næringsstoffer og kostråd,Næringsstoffer,"Næringsstoff: et stoff i maten som kroppen trenger for energi, vekst og vedlikehold.
 Energigivende næringsstoffer: karbohydrat, fett og protein.
 Vitaminer og mineraler: næringsstoffer kroppen trenger i små mengder, og som ikke gir energi.",,0,
-energiinnhold,fact,Næringsstoffer og kostråd,Energi per gram,"fett: 9 kcal (37 kJ)
+energiinnhold,fact,Næringsstoffer og kostråd,Energi per gram,"fett: 9 kcal (38 kJ)
 karbohydrat: 4 kcal (17 kJ)
 protein: 4 kcal (17 kJ)
 alkohol: 7 kcal (29 kJ)
@@ -213,7 +214,7 @@ brodskala,fact,Næringsstoffer og kostråd,Brødskalaen,"ekstra grovt: 75–100 
 grovt: 50–75 %
 halvgrovt: 25–50 %
 fint: 0–25 %",karbohydrater,0,
-nokkelhullet,concept,Næringsstoffer og kostråd,Nøkkelhullet,"Nøkkelhullet: et frivillig merke på matvarer som har mindre og sunnere fett, mindre sukker og salt, og mer kostfiber og fullkorn enn andre varer av samme type.",fett;karbohydrater,0,
+nokkelhullet,concept,Næringsstoffer og kostråd,Nøkkelhullet,"Nøkkelhullet: et frivillig merke på matvarer som oppfyller ett eller flere av kravene mindre og sunnere fett, mindre sukker, mindre salt og mer kostfiber og fullkorn enn andre varer av samme type.",fett;karbohydrater,0,
 matmerking,concept,Næringsstoffer og kostråd,Ingrediensliste og næringsdeklarasjon,"Ingrediensliste: alle ingrediensene i en vare, i synkende rekkefølge etter hvor mye det er av dem, med allergenene uthevet.
 Næringsdeklarasjon: tabellen som oppgir energi og mengden fett, mettet fett, karbohydrat, sukker, protein og salt per 100 g eller 100 ml.",naeringsstoffer,0,
 lese-etikett,skill,Næringsstoffer og kostråd,Lese ingredienslisten og næringsdeklarasjonen,"bruke ingredienslisten og næringsdeklarasjonen til å sammenligne to lignende varer per 100 g, og si hvilken som inneholder mest sukker, salt, mettet fett og fiber.",matmerking;energiinnhold;allergener,0,
@@ -309,7 +310,7 @@ kassava: Vest- og Sentral-Afrika",matkultur,0,
 religiose-matregler,concept,"Matkultur, identitet og fellesskap",Matregler i religioner,"Halal: det som er tillatt i islam; blant annet ikke svinekjøtt eller alkohol, og dyret skal slaktes på en bestemt måte.
 Kosher: jødiske matregler; blant annet ikke svinekjøtt, og kjøtt og melk skal holdes atskilt.
 Vegetarkost i hinduismen: mange hinduer spiser ikke kjøtt, og de fleste spiser ikke storfekjøtt.
-Faste: å la være å spise i en periode, som under ramadan, da muslimer faster fra soloppgang til solnedgang.",matkultur,0,
+Faste: å la være å spise i en periode, som under ramadan, da muslimer faster fra daggry til solnedgang.",matkultur,0,
 sammenligne-matkulturer,skill,"Matkultur, identitet og fellesskap",Sammenligne råvarer og matlagingsmetoder i to matkulturer,"sammenligne hvilke råvarer, krydder og matlagingsmetoder som brukes i to matkulturer, og forklare forskjellene med klima, natur og historie.",basisravarer;norsk-mat;metoder;urter-krydder,0,
 lage-norsk-samisk,skill,"Matkultur, identitet og fellesskap",Lage en rett fra norsk eller samisk mattradisjon,"lage en tradisjonsrett fra norsk eller samisk matkultur, og fortelle hvor retten kommer fra og når den tradisjonelt spises.",norsk-mat;samisk-mat;velge-metode;arbeidsplan,0,
 lage-annen-kultur,skill,"Matkultur, identitet og fellesskap",Lage en rett fra en annen matkultur,"lage en rett fra en annen matkultur med råvarene og krydderne som er typiske for den, og si hvordan den skiller seg fra en norsk rett.",sammenligne-matkulturer;arbeidsplan;smake-til,0,
