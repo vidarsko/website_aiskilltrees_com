@@ -10,7 +10,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,features.resources,true,,,
 ,config,,slots.courseName,psykologi 2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"bruker diagnoseord som «deprimert», «angst» og «OCD» i dagligtalebetydning, skriver at en studie «beviser» noe, blander sammen reliabilitet og validitet, kaller enhver uenighet en konflikt, gjengir teorier og modeller uten å knytte dem til situasjonen de skal forklare, eller «drøfter» uten å veie forklaringer opp mot hverandre",,,
-,config,,slots.courseSpecifics,"Den skriftlige eksamenen i faget har en kortsvarsoppgave på rundt 400 ord, som tar utgangspunkt i et vedlegg som ofte er en studie, og en langsvarsoppgave på rundt 1500 ord, der eleven drøfter en situasjonsbeskrivelse med psykologiske begreper, teorier og modeller. Når det passer, øv derfor på å bruke fagstoffet på en konkret situasjon eller en konkret studie framfor å gjengi det.",,,
+,config,,slots.courseSpecifics,"Den skriftlige eksamenen i faget har en kortsvarsoppgave på rundt 400 ord, som kan ta utgangspunkt i et vedlegg, for eksempel en studie, og en langsvarsoppgave på rundt 1500 ord, der eleven drøfter en situasjonsbeskrivelse med psykologiske begreper, teorier og modeller. Når det passer, øv derfor på å bruke fagstoffet på en konkret situasjon eller en konkret studie framfor å gjengi det.",,,
 ,config,,decompositionVersion,2.12.2,,,
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
@@ -23,7 +23,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,psychology,,,
 ,config,,keywords,psykologi; forskningsmetode; reliabilitet; validitet; egen undersøkelse; sosialpsykologi; konformitet; lydighet; gruppetenkning; fordommer; utenforskap; mobbing; sosial kompetanse; kommunikasjon; konflikttrappen; normalitet; psykisk helse; psykiske lidelser; biopsykososial modell; forebygging; behandling; situasjonsbeskrivelse; eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 psykologiske-perspektiver,concept,Grunnlag fra Psykologi 1,Psykologiske perspektiver,"Biologisk perspektiv: forklarer ut fra hjernen, nervesystemet, hormoner, gener og evolusjon.
 Psykodynamisk perspektiv: forklarer ut fra ubevisste prosesser, indre konflikter og tidlige erfaringer.
 Atferdsperspektivet: forklarer atferd som lært gjennom konsekvenser og koblinger mellom stimuli.
@@ -163,7 +163,7 @@ milepaeler-psykisk-helse,fact,Synet på psykisk helse i endring,Milepæler i nor
 Gaustad asyl, Norges første statlige sinnssykeasyl, åpnet: 1855
 de første lobotomiene i Norge: 1941
 de første antipsykotiske legemidlene tatt i bruk: tidlig på 1950-tallet
-homofili fjernet som diagnose i Norge: 1977
+Norsk psykiatrisk forening vedtok at homofili ikke lenger skulle regnes som en psykiatrisk diagnose: 1977
 Opptrappingsplanen for psykisk helse: 1999-2008",,0,
 asyl-deinstitusjonalisering,concept,Synet på psykisk helse i endring,Asyl og avinstitusjonalisering,"Asyl: en stor institusjon der mennesker med alvorlige psykiske lidelser ble plassert, ofte i mange år og atskilt fra samfunnet.
 Avinstitusjonalisering: nedbyggingen av de store institusjonene til fordel for behandling og oppfølging nær der folk bor.",,0,

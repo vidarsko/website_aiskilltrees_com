@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,informatics,,,
 ,config,,keywords,programmering; Python; modellering; simulering; numeriske metoder; Eulers metode; differensiallikninger; dynamiske system; algoritmer; feilsøking; testing; numpy; matplotlib; dataanalyse; regresjon; SIR-modell; Monte Carlo; muntlig-praktisk eksamen; PRM X,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 program-og-tolk,concept,Python-grunnlag,Program og tolk,"Program: en rekke instruksjoner som datamaskinen utfører i rekkefølge, ovenfra og ned.
 Tolk: programmet som leser Python-koden og utfører den linje for linje.",,0,
 variabel,concept,Python-grunnlag,Variabel og tilordning,"Variabel: et navn som peker på en verdi som er lagret i minnet.
@@ -60,7 +61,7 @@ bygge-liste,skill,Lister og arrayer,Bygge opp en liste i en løkke,"starte med e
 iterere-liste,skill,Lister og arrayer,Gå gjennom en liste med en løkke,"gå gjennom elementene i en eller flere lister med for-løkke, både direkte og via indekser, og bruke det til å regne ut noe for hvert element.",indeksere-lister;for-lokke,0,
 array,concept,Lister og arrayer,Array,"Array: en numpy-tabell med tall av samme type, der regneoperasjoner virker på hvert element for seg, slik at a * 2 dobler hvert tall i a.",liste;modul-bibliotek,0,
 regne-med-arrayer,skill,Lister og arrayer,Regne med arrayer,"lage arrayer med linspace, arange og zeros, regne elementvis med dem, og bruke sum, mean, max og min.",array;matematiske-funksjoner,0,"Vis gjerne forskjellen mellom å regne med en løkke over en liste og elementvis med en array."
-ordbok,concept,Lister og arrayer,Ordbok,"Ordbok (dictionary): en samling par av nøkkel og verdi, skrevet som {'Oslo': 709000}, der verdien hentes fram med nøkkelen i stedet for med en indeks.",liste,0,
+ordbok,concept,Lister og arrayer,Ordbok,"Ordbok (dictionary): en samling par av nøkkel og verdi, skrevet som {'Oslo': 730000}, der verdien hentes fram med nøkkelen i stedet for med en indeks.",liste,0,
 bruke-ordbok,skill,Lister og arrayer,Lagre og slå opp data i en ordbok,"lage en ordbok, slå opp og endre verdier med nøkler, og gå gjennom alle parene med en løkke.",ordbok;for-lokke,0,
 strenger,skill,Lister og arrayer,Behandle tekststrenger,"dele opp en tekstlinje med split, fjerne mellomrom og linjeskift med strip, og gjøre tekstbiter om til tall.",indeksere-lister;input-typekonvertering,0,
 funksjon,concept,Funksjoner og programstruktur,Funksjon i programmering,"Funksjon: en navngitt kodeblokk som kan kalles flere ganger.
@@ -145,7 +146,7 @@ Tilstandsvariabel: en størrelse som beskriver tilstanden ved et tidspunkt, som 
 Startbetingelse: verdien tilstandsvariablene har ved starttidspunktet.",variabel-parameter;vekstfart,0,
 differenslikning,concept,Dynamiske system,Differenslikning,"Differenslikning: en regel som gir neste verdi i en følge ut fra den eller de forrige, for eksempel x_{n+1} = 1,05 · x_n.",dynamisk-system,0,
 simulere-differenslikning,skill,Dynamiske system,Simulere en differenslikning,"programmere en differenslikning med en løkke fra en startverdi, lagre verdiene og plotte utviklingen, for eksempel for et lån eller en dyrebestand år for år.",differenslikning;bygge-liste;plotte-graf,0,
-differensiallikning,concept,Dynamiske system,Differensiallikning,"Differensiallikning: en likning som sier hvordan den momentane vekstfarten til en størrelse avhenger av størrelsen selv og eventuelt av tiden, for eksempel N' = kN.
+differensiallikning,concept,Dynamiske system,Differensiallikning,"Differensiallikning: en likning som inneholder en ukjent funksjon og en eller flere av dens deriverte, for eksempel N' = kN, som sier hvordan den momentane vekstfarten til N avhenger av N selv.
 Løsning: en funksjon som oppfyller likningen; startbetingelsen velger ut én bestemt løsning.",dynamisk-system;vekstfart,0,
 sette-opp-differensiallikning,skill,Dynamiske system,Sette opp en differensiallikning fra en beskrivelse,"oversette en beskrivelse av hvordan noe endrer seg, som «veksten er proporsjonal med antallet» eller «avkjølingen er proporsjonal med temperaturforskjellen», til en differensiallikning med startbetingelse.",differensiallikning;velge-storrelser,0,
 eulers-metode,skill,Dynamiske system,Løse en differensiallikning med Eulers metode,"løse en differensiallikning numerisk med Eulers metode i Python, med valgt tidssteg og startbetingelse, og plotte løsningen.",differensiallikning;numerisk-derivasjon;bygge-liste;plotte-graf,0,"La eleven først gjøre to eller tre steg for hånd, så programmere løkka."

@@ -21,8 +21,9 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,social-studies,,,
 ,config,,keywords,politikk; statsvitenskap; menneskerettigheter; demokrati; makt; konfliktlinjer; valg; velgeratferd; Stortinget; parlamentarisme; folkerett; FN; Sikkerhetsrådet; EMK; EMD; urfolk; samer; nasjonale minoriteter; internasjonal politikk; realisme; liberalisme; krig og fred; bærekraft; fordeling; velferdsstat,,,
-,config,,updated,2026-10-08,,,
-statsvitenskap,concept,Statsvitenskapelig metode og teori,Statsvitenskap,"Statsvitenskap: faget som studerer politikk - hvordan samfunn fordeler makt, tar bindende beslutninger og løser konflikter, lokalt, nasjonalt og mellom stater. De tre store feltene er norsk og sammenlignende politikk, offentlig politikk og administrasjon, og internasjonal politikk.",,0,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
+statsvitenskap,concept,Statsvitenskapelig metode og teori,Statsvitenskap,"Statsvitenskap: faget som studerer politikk - hvordan samfunn fordeler makt, tar bindende beslutninger og løser konflikter, lokalt, nasjonalt og mellom stater. De fire store feltene er norsk og sammenlignende politikk, offentlig politikk og administrasjon, internasjonal politikk og politisk teori.",,0,
 teori-modell,concept,Statsvitenskapelig metode og teori,Teori og modell,"Teori: en sammenhengende forklaring på hvorfor politiske fenomener oppstår og henger sammen slik de gjør, og som kan prøves mot det vi observerer.
 Modell: en forenklet framstilling av virkeligheten som får fram de sammenhengene vi vil undersøke, og med vilje lar resten ligge.",statsvitenskap,0,
 problemstilling,concept,Statsvitenskapelig metode og teori,Problemstilling,"Problemstilling: et avgrenset, presist spørsmål som en undersøkelse eller en tekst skal besvare, og som er åpent nok til at svaret krever analyse eller drøfting framfor oppramsing.",,0,
@@ -151,11 +152,11 @@ FNs kvinnediskrimineringskonvensjon (CEDAW): 1979
 FNs torturkonvensjon: 1984
 FNs barnekonvensjon: 1989
 FNs konvensjon om rettighetene til personer med nedsatt funksjonsevne (CRPD): 2006",menneskerettighet,0,
-erklaering-konvensjon,concept,Menneskerettigheter,Erklæring og konvensjon,"Erklæring: en felles uttalelse om prinsipper som statene slutter seg til, men som ikke i seg selv er juridisk bindende. Verdenserklæringen fra 1948 er det viktigste eksempelet, selv om mye av innholdet regnes som bindende sedvanerett i dag.
+erklaering-konvensjon,concept,Menneskerettigheter,Erklæring og konvensjon,"Erklæring: en felles uttalelse om prinsipper som statene slutter seg til, men som ikke i seg selv er juridisk bindende. Verdenserklæringen fra 1948 er det viktigste eksempelet, selv om de fleste bestemmelsene senere er tatt inn i konvensjoner som er bindende.
 Konvensjon: en avtale mellom stater som er juridisk bindende for de statene som har ratifisert den.",menneskerettighet,0,
 ratifisering,concept,Menneskerettigheter,Ratifisering og inkorporering,"Ratifisering: at en stat formelt slutter seg til en konvensjon og blir folkerettslig bundet av den.
 Inkorporering: at en konvensjon blir gjort til en del av landets egen lovgivning, slik at domstolene kan bruke den direkte.",erklaering-konvensjon,0,
-mr-i-norsk-rett,concept,Menneskerettigheter,Menneskerettighetene i norsk rett,"Menneskerettighetene i norsk rett: Grunnloven har siden 2014 et eget kapittel om menneskerettigheter, og § 92 pålegger statens myndigheter å respektere og sikre dem. Menneskerettsloven fra 1999 inkorporerer EMK, SP, ØSK, barnekonvensjonen og kvinnediskrimineringskonvensjonen, og gir dem forrang foran annen norsk lov hvis de kolliderer.",ratifisering;mr-dokumenter,0,
+mr-i-norsk-rett,concept,Menneskerettigheter,Menneskerettighetene i norsk rett,"Menneskerettighetene i norsk rett: Grunnloven har siden 2014 et eget kapittel om menneskerettigheter, og § 92 pålegger statens myndigheter å respektere og sikre dem. Menneskerettsloven fra 1999 inkorporerer EMK, SP, ØSK, barnekonvensjonen, kvinnediskrimineringskonvensjonen og CRPD, og gir dem forrang foran annen norsk lov hvis de kolliderer.",ratifisering;mr-dokumenter,0,
 begrensning,concept,Menneskerettigheter,Inngrep i rettigheter,"Inngrep i rettigheter: de fleste rettigheter kan begrenses når inngrepet har hjemmel i lov, har et legitimt formål og er nødvendig og forholdsmessig.
 Absolutte rettigheter: noen rettigheter kan aldri begrenses, som forbudet mot tortur og slaveri.",statens-plikter,0,
 universalisme-relativisme,concept,Menneskerettigheter,Universalisme og kulturrelativisme,"Universalisme: synet at menneskerettighetene gjelder likt for alle mennesker i alle kulturer.

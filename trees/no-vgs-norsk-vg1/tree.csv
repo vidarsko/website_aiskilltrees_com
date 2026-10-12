@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,language-and-literature,,,
 ,config,,storageKey,norskvg1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"norsk Vg1 (studieforberedende, norsk videregående skole)",,,
 ,config,,slots.motivationSubject,norsk,,,
 ,config,,slots.expressionFocus,"skriver «og» der det skal stå «å», særskriver sammensatte ord, setter komma på måfå, gjenforteller handlingen i stedet for å analysere den, eller kaller en tekst drøftende når den bare legger fram ett syn",,,
@@ -21,7 +22,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg1,,,
 ,config,,subjectArea,norwegian,,,
 ,config,,keywords,retorikk; appellformer; etos; patos; logos; novelle; litterær analyse; retorisk analyse; fagartikkel; drøfting; kildebruk; grammatikk; sidemål; nynorsk; samisk; språkhistorie,,,
-,config,,updated,2026-09-28,,,
+,config,,updated,2026-10-12,,,
 ordklasser,concept,Språk og grammatikk,Ordklasser,"Ordklasse: en gruppe ord med samme grammatiske oppførsel. Norsk har ti: substantiv, verb, adjektiv, pronomen, determinativ, adverb, preposisjon, konjunksjon, subjunksjon og interjeksjon.",,,
 verbal,concept,Språk og grammatikk,Verbal,"Verbal: setningsleddet som sier hva som skjer eller hvordan noe er, alltid med et bøyd (finitt) verb, eventuelt fulgt av ubøyde verb, som i «har skrevet».",ordklasser,,
 subjekt-objekt,concept,Språk og grammatikk,Subjekt og objekt,"Subjekt: den eller det som gjør handlingen eller er i tilstanden verbalet uttrykker.
@@ -39,7 +40,7 @@ tekstbinding,concept,Språk og grammatikk,Tekstbinding,"Tekstbinding: språklige
 beskrive-sammenheng,skill,Språk og grammatikk,Beskrive sammenhengen mellom setninger,"vise med fagbegreper hvordan setningene og avsnittene i en gitt tekst er bundet sammen, og hva slags forhold bindeordene uttrykker.",tekstbinding;skille-setninger,,
 sette-komma,skill,Språk og grammatikk,Sette komma riktig,"sette komma mellom helsetninger bundet sammen med konjunksjon, etter en leddsetning som står først, og rundt innskutte ledd.",skille-setninger,,
 rettskriving,skill,Språk og grammatikk,Rette vanlige rettskrivingsfeil,"finne og rette de vanligste rettskrivingsfeilene i egen tekst: «og» og «å», enkel og dobbel konsonant, særskriving av sammensatte ord og «da» og «når».",ordklasser,,
-hovedmal-sidemal,concept,Språk og grammatikk,Hovedmål og sidemål,"Hovedmål: den skriftlige målformen, bokmål eller nynorsk, eleven bruker mest.
+hovedmal-sidemal,concept,Språk og grammatikk,Hovedmål og sidemål,"Hovedmål: den skriftlige målformen, bokmål eller nynorsk, eleven bruker mest og har valgt som sin.
 Sidemål: den andre målformen, som eleven også skal kunne skrive.",bokmal-nynorsk,,
 skrive-sidemal,skill,Språk og grammatikk,Skrive korrekt på sidemål,"skrive en sammenhengende tekst på sidemålet med riktig bøyning av vanlige substantiv, verb og pronomen, uten å blande inn former fra hovedmålet.",hovedmal-sidemal;rettskriving,,
 bokmal-nynorsk,concept,Språkmøter og samiske språk,Bokmål og nynorsk,"Bokmål: skriftspråk som har utviklet seg fra dansk skriftspråk gjennom gradvis fornorsking.
@@ -79,7 +80,7 @@ Besjeling: å gi ting, dyr eller naturen menneskelige egenskaper: «vinden hvisk
 symbol,concept,Skjønnlitteratur,Symbol,"Symbol: en konkret ting, handling eller person i en tekst som også står for noe større, som en lukket dør for utestengelse.",sprakbilder,,
 litterare-virkemidler,concept,Skjønnlitteratur,Litterære virkemidler,"Litterært virkemiddel: et grep forfatteren bruker for å skape mening og virkning, som språklige bilder, symboler, kontrast, gjentakelse, ironi og tidshopp.",symbol,,
 forteller,concept,Skjønnlitteratur,Forteller,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren. En førstepersonsforteller er selv med i handlingen («jeg»); en tredjepersonsforteller står utenfor («hun», «han»).",,,
-synsvinkel,concept,Skjønnlitteratur,Synsvinkel,Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom. En allvitende forteller vet alt om alle; en personal forteller følger én persons tanker; en ytre forteller viser bare det som kan ses og høres.,forteller,,
+synsvinkel,concept,Skjønnlitteratur,Synsvinkel,Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom. En allvitende forteller vet alt om alle; en personal forteller er selv med i handlingen og vet bare det den personen vet; en tredjepersonsforteller kan også legge synsvinkelen hos én person og følge bare den personens tanker; en ytre forteller viser bare det som kan ses og høres.,forteller,,
 komposisjon,concept,Skjønnlitteratur,Komposisjon,"Komposisjon: hvordan handlingen i en tekst er bygd opp og ordnet — kronologisk eller med tilbakeblikk, med en start (ofte rett inn i handlingen), en konflikt, et vendepunkt og en slutt.",,,
 personkarakteristikk,concept,Skjønnlitteratur,Direkte og indirekte karakteristikk,"Direkte karakteristikk: fortelleren sier rett ut hvordan en person er.
 Indirekte karakteristikk: leseren forstår hvordan en person er gjennom det personen sier, gjør og tenker.",,,

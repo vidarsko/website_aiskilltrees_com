@@ -21,7 +21,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,psychology,,,
 ,config,,keywords,psykologi; psykologiske perspektiver; forskningsmetode; nervesystemet; hjernen; hormoner; evolusjonspsykologi; persepsjon; kognisjon; hukommelse; læring; motivasjon; mestring; arv og miljø; personlighet; tilknytning; identitet; stress; resiliens; kriser; rus; bærekraft,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 empiri-teori,concept,Psykologi som vitenskap,"Empiri, teori og hypotese","Empiri: observasjoner og data som er samlet inn systematisk.
 Teori: en sammenhengende forklaring på et fenomen, som kan prøves mot empiri og dermed styrkes eller svekkes.
 Hypotese: en presis påstand om hva en undersøkelse vil vise, formulert slik at resultatet kan støtte eller svekke den.",,0,
@@ -78,7 +79,7 @@ sansesystemet,concept,Biologisk grunnlag,Sansning,"Sansning: at sanseceller (res
 hormonsystemet,concept,Biologisk grunnlag,Hormonsystemet,"Hormon: et signalstoff som skilles ut fra en kjertel til blodet og virker på organer i hele kroppen, langsommere og mer langvarig enn et nervesignal.
 Hormonsystemet styres i stor grad fra hypothalamus og hypofysen i hjernen.",nervesystemet,0,
 sentrale-hormoner,fact,Biologisk grunnlag,Sentrale hormoner,"adrenalin: skilles ut fra binyrene og gir en rask stressrespons med høyere puls og mer blodsukker
-kortisol: skilles ut fra binyrene ved langvarig stress og frigjør energi
+kortisol: skilles ut fra binyrebarken ved stress, virker langsommere og lenger enn adrenalin og frigjør energi
 oksytocin: knyttes til tilknytning og tillit, og til fødsel og amming
 melatonin: skilles ut fra koglekjertelen og regulerer døgnrytme og søvn
 testosteron og østrogen: skilles ut fra kjønnskjertlene og styrer pubertet og kjønnsutvikling",hormonsystemet,0,
@@ -148,7 +149,7 @@ Miljø: alle påvirkninger etter unnfangelsen - familie, venner, kultur og opple
 tvillingstudier,concept,Utvikling og personlighet,Tvilling- og adopsjonsstudier,"Tvillingstudie: sammenligner eneggede tvillinger, som har tilnærmet like gener, med toeggede, for å anslå hvor mye av forskjellene mellom folk som skyldes arv.
 Adopsjonsstudie: sammenligner adopterte barn med både de biologiske foreldrene og adoptivforeldrene.",arv-miljo;forskningsmetoder,0,
 personlighet,concept,Utvikling og personlighet,Personlighet,"Personlighet: de relativt stabile mønstrene i hvordan en person tenker, føler og handler, og som skiller den fra andre. Personligheten bygger på temperamentet, de medfødte tendensene i hvordan et barn reagerer.",arv-miljo,0,
-femfaktormodellen,concept,Utvikling og personlighet,Femfaktormodellen,"Femfaktormodellen: beskriver personlighet med fem trekk som hver er en skala - åpenhet for erfaring, planmessighet, ekstroversjon, medmenneskelighet og nevrotisisme (følelsesmessig ustabilitet).",personlighet,0,
+femfaktormodellen,concept,Utvikling og personlighet,Femfaktormodellen,"Femfaktormodellen: beskriver personlighet med fem trekk som hver er en skala - åpenhet for erfaring, planmessighet, ekstroversjon, omgjengelighet (medmenneskelighet) og nevrotisisme (følelsesmessig ustabilitet).",personlighet,0,
 freud-personlighetsmodell,concept,Utvikling og personlighet,Freuds personlighetsmodell,"Id: den ubevisste delen som vil ha behovene sine dekket straks.
 Ego: den delen som forholder seg til virkeligheten og megler mellom id og superego.
 Superego: samvittigheten og de innlærte normene.",personlighet;psykodynamisk-perspektiv,0,

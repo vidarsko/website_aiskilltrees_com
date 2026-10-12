@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,social-sciences,,,
 ,config,,storageKey,no-vgs-medie-informasjonskunnskap-2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,medie- og informasjonskunnskap 2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"bruker «mediene» som om de var én aktør med én vilje, kaller all påvirkning «propaganda» og alt de er uenige i «desinformasjon», blander sammen ytringsfrihet (vern mot staten) og fravær av kritikk fra andre, kaller Vær Varsom-plakaten en lov, eller påstår at mediene «styrer» folk uten å vise hvordan",,,
 ,config,,slots.courseSpecifics,"Eleven kan trekkes ut til en skriftlig, sentralt gitt eksamen eller til en lokalt gitt muntlig-praktisk eksamen med forberedelsesdel; privatister har skriftlig eksamen. Øv derfor på å drøfte problemstillinger med fagbegreper, teorier og egne eksempler, både skriftlig og muntlig.",,,
@@ -22,7 +23,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,media,,,
 ,config,,keywords,MIK; medier; mediefag; mediesystemer; pressefrihet; nyhetsbyråer; nyhetsflyt; innramming; mediemakt; propaganda; desinformasjon; påvirkningsoperasjoner; algoritmer; plattformer; ytringsansvar; hatefulle ytringer; medieetikk; Vær Varsom-plakaten; journalistrollen; datajournalistikk; kunstig intelligens; samfunnsdebatt; dagsorden; stereotypier; mediefortellinger,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 kildekritikk,concept,Kilder og fagteori,Kildekritikk,"Kildekritikk: å vurdere hva en kilde er verdt før den brukes - hvem avsenderen er, hvilken hensikt avsenderen har, når og hvordan kilden ble til, og om opplysningene kan bekreftes andre steder.",,0,
 problemstilling,concept,Kilder og fagteori,Problemstilling,"Problemstilling: et presist og avgrenset spørsmål som en tekst, en presentasjon eller en undersøkelse skal besvare, formulert slik at det må drøftes med fagbegreper og kilder og ikke kan besvares med ett faktum.",,0,
 medieteori,concept,Kilder og fagteori,Medieteori,"Medieteori: en sammenhengende forklaring på hvordan medier virker - hvordan budskap blir til, spres og tas imot - som kan brukes til å tolke konkrete tilfeller. En teori er et verktøy for å forklare, ikke en fasit.",,0,
@@ -104,7 +105,7 @@ vurdere-syntetisk-innhold,skill,Mediemakt og informasjonskontroll,Vurdere om et 
 drofte-styring-informasjon,skill,Mediemakt og informasjonskontroll,Drøfte hvordan informasjon styres og kontrolleres,"drøfte hvordan produksjon og distribusjon av informasjon kan styres og kontrolleres av stater, kommersielle interesser og andre aktører, gjennom teknologi, sensur, propaganda og PR.",analysere-propaganda;analysere-pr-strategi;analysere-pavirkningsoperasjon;forklare-teknologi-kontroll;sensur,0,
 drofte-mediemakt,skill,Mediemakt og informasjonskontroll,Drøfte hvor stor makt mediene har,"drøfte hvor stor makt mediene har, ved å sette teorier om sterk mediemakt opp mot motforestillinger som aktive mottakere og konkurranse fra plattformene.",forklare-mediemakt;medialisering;forklare-teknologi-kontroll,0,
 ytringsfrihet,concept,Ytringsfrihet og ytringsansvar,Ytringsfrihet,"Ytringsfrihet: retten til å uttrykke meninger og formidle opplysninger uten å bli straffet eller sensurert av staten for det. Den er vernet i Grunnloven § 100 og i Den europeiske menneskerettskonvensjonen artikkel 10, men er ikke grenseløs.",,0,
-grunnloven-100,fact,Ytringsfrihet og ytringsansvar,Grunnloven § 100 i hovedtrekk,"hovedregelen: Ytringsfrihet skal finne sted
+grunnloven-100,fact,Ytringsfrihet og ytringsansvar,Grunnloven § 100 i hovedtrekk,"hovedregelen: Ytringsfrihet bør finne sted
 de tre begrunnelsene for ytringsfriheten: sannhetssøken, demokrati og individets frie meningsdannelse
 forhåndssensur: ikke tillatt, med visse unntak for å beskytte barn og unge mot levende bilder
 innsynsrett: alle har rett til innsyn i statens og kommunenes dokumenter, med lovbestemte unntak
@@ -140,7 +141,7 @@ vurdere-etikk-egen-produksjon,skill,Medieetikk,Vurdere etiske valg i egen mediep
 drofte-etiske-problemstillinger,skill,Medieetikk,Drøfte etiske problemstillinger i medier og egen produksjon,"drøfte etiske problemstillinger i journalistikk, i andre medieuttrykk og i egen medieproduksjon, og sammenligne hvilke regler og hensyn som gjelder hvor.",drofte-etisk-dilemma-journalistikk;vurdere-etikk-andre-medieuttrykk;vurdere-etikk-egen-produksjon,0,
 redaktorstyrt-medium,concept,Journalistrollen i endring,Redaktørstyrt medium,"Redaktørstyrt medium: et medium der en ansvarlig redaktør bestemmer innholdet, uavhengig av eiere, og står ansvarlig for det som publiseres. En profil i sosiale medier er ikke det, selv om den når mange.",,0,
 journalistrolle,concept,Journalistrollen i endring,Journalistrollen,"Journalistrollen: forventningene til hva en journalist skal gjøre i samfunnet - kontrollere makten, informere, forklare sammenhenger og gi stemme til dem som ikke blir hørt - og normene for hvordan det skal gjøres.",redaktorstyrt-medium,0,
-borgerjournalistikk,concept,Journalistrollen i endring,Borgerjournalistikk,"Borgerjournalistikk: at vanlige folk uten journalistisk utdanning dokumenterer og publiserer nyheter, ofte med mobilen fra stedet der noe skjer, uten redaktør og uten presseetisk ansvar.",journalistrolle,0,
+borgerjournalistikk,concept,Journalistrollen i endring,Borgerjournalistikk,"Borgerjournalistikk: at vanlige folk som ikke er profesjonelle journalister, dokumenterer og publiserer nyheter, ofte med mobilen fra stedet der noe skjer, uten redaktør og uten presseetisk ansvar.",journalistrolle,0,
 datajournalistikk,concept,Journalistrollen i endring,Datajournalistikk,"Datajournalistikk: journalistikk som henter fram saker ved å samle inn, analysere og visualisere store datamengder, for eksempel offentlige registre eller lekkede dokumenter.",journalistrolle,0,
 klikkjournalistikk,concept,Journalistrollen i endring,Klikkjournalistikk og publikumsdata,"Publikumsdata: målinger av hva publikum leser, klikker på og hvor lenge, som redaksjonene følger i sanntid.
 Klikkjournalistikk: journalistikk der titler og saker velges for å få flest mulig klikk, på bekostning av vesentlighet og presisjon.",journalistrolle,0,

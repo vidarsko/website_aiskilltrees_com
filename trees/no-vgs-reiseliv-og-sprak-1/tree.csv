@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,tourism,,,
 ,config,,keywords,reiseliv; turisme; destinasjon; reiselivsprodukt; guiding; vertskap; markedsføring; bærekraftig reiseliv; samisk kultur; kulturforståelse; RSP01-03,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 reiseliv,concept,Reiselivet og destinasjonen,Reiseliv og turist,"Reiseliv: alt som har med det å gjøre at folk reiser til og oppholder seg et sted utenfor sitt vanlige miljø i mindre enn ett år, enten det er for ferie, arbeid eller et annet formål.
 Turist: en tilreisende som overnatter minst én natt på stedet.
 Dagsbesøkende: en tilreisende som reiser hjem eller videre samme dag uten å overnatte.",,0,
@@ -39,7 +40,7 @@ turoperatør: setter sammen og selger egne pakkereiser
 reisebyrå: selger og formidler reiser som andre har satt sammen
 opplevelsesbedrift: selger aktiviteter og opplevelser, som rafting, safari eller omvisninger
 destinasjonsselskap: utvikler og markedsfører en hel destinasjon på vegne av mange bedrifter",reiselivsnaeringen,0,
-pakkereise,concept,Reiselivet og destinasjonen,Pakkereise,"Pakkereise: minst to ulike reisetjenester, for eksempel transport og overnatting, som selges samlet for den samme reisen. Den som selger pakkereisen, har ansvar overfor den reisende for at hele pakken blir levert slik den ble lovet.",reiselivsbedrifter,0,
+pakkereise,concept,Reiselivet og destinasjonen,Pakkereise,"Pakkereise: minst to ulike reisetjenester, for eksempel transport og overnatting, som selges samlet for den samme reisen. Den som setter sammen pakkereisen (arrangøren), har ansvar overfor den reisende for at hele pakken blir levert slik den ble lovet.",reiselivsbedrifter,0,
 destinasjon,concept,Reiselivet og destinasjonen,Destinasjon,"Destinasjon: et geografisk område som gjestene oppfatter som ett reisemål, med attraksjoner, tjenester og infrastruktur. Det kan være alt fra en bygd til et helt land.",reiseliv,0,
 attraksjon,concept,Reiselivet og destinasjonen,Attraksjon,"Attraksjon: noe som får folk til å reise til et sted. Den kan være naturbasert (en fjord, nordlyset), kulturbasert (en stavkirke, en festival) eller bygd for formålet (en fornøyelsespark).",destinasjon,0,
 image,concept,Reiselivet og destinasjonen,Image,"Image: det bildet folk har av en destinasjon eller en bedrift, enten bildet stemmer med virkeligheten eller ikke.",destinasjon,0,
@@ -61,17 +62,17 @@ Merket for bærekraftig reisemål: Innovasjon Norges merkeordning for destinasjo
 verneformer,fact,Merke- og verneordninger,Verneformer i Norge,"nasjonalpark: et større naturområde uten tyngre inngrep, vernet for å bevare natur og landskap
 landskapsvernområde: et område vernet for et særpreget eller vakkert natur- eller kulturlandskap, der vanlig bruk som landbruk kan fortsette
 naturreservat: den strengeste formen for områdevern, for natur med særlig verdi
-automatisk fredet kulturminne: et kulturminne fra før 1537, eller et samisk kulturminne som er mer enn 100 år gammelt
+automatisk fredet kulturminne: et kulturminne fra før 1537, eller et samisk kulturminne fra 1917 eller eldre
 verdensarv: et natur- eller kulturminne på UNESCOs verdensarvliste, som regnes å ha verdi for hele menneskeheten",vern,0,
 verdensarv-norge,fact,Merke- og verneordninger,Verdensarvsteder i Norge,"Bryggen: Bergen i Vestland
 Urnes stavkirke: Luster i Vestland
 Røros bergstad og Circumferensen: Trøndelag og Innlandet
-Helleristningene i Alta: Finnmark
+Bergkunsten i Alta: Finnmark
 Vegaøyan: Nordland
 Struves meridianbue: Finnmark (de norske målepunktene)
 Vestnorsk fjordlandskap: Geirangerfjorden i Møre og Romsdal og Nærøyfjorden i Vestland
 Rjukan–Notodden industriarv: Telemark",verneformer,0,
-allemannsretten,concept,Merke- og verneordninger,Allemannsretten,"Allemannsretten: retten alle har etter friluftsloven til å ferdes og oppholde seg i utmark, også på privat grunn, så lenge det skjer hensynsfullt og uten å skade. Den gjelder ikke i innmark som hager, dyrket mark og gårdsplasser.",vern,0,
+allemannsretten,concept,Merke- og verneordninger,Allemannsretten,"Allemannsretten: retten alle har etter friluftsloven til å ferdes og oppholde seg i utmark, også på privat grunn, så lenge det skjer hensynsfullt og uten å skade. I innmark, som hager, dyrket mark og gårdsplasser, gjelder den i hovedsak ikke.",vern,0,
 forklare-merke,skill,Merke- og verneordninger,Forklare hva et merke eller et vern betyr for en bedrift,"forklare hva et bestemt merke eller vern innebærer for en reiselivsbedrift og for gjestene, og hvordan bedriften kan bruke det i markedsføringen",merker;verneformer,0,
 vurdere-merke,skill,Merke- og verneordninger,Vurdere verdien av en merkeordning,"vurdere om en merkeordning gir reelle forbedringer for natur, kultur eller lokalsamfunn, eller om den mest brukes som salgsargument",forklare-merke;gronnvasking,0,
 aktivitet-i-vernet-omrade,skill,Merke- og verneordninger,Planlegge en aktivitet i et vernet område,"planlegge en reiselivsaktivitet i et vernet område eller ved et kulturminne slik at den holder seg innenfor reglene som gjelder der og innenfor allemannsretten",verneformer;allemannsretten;verdensarv-norge,0,
@@ -172,7 +173,7 @@ lede-aktivitet,skill,Opplevelser og guiding,Lede en reiselivsaktivitet,"lede en 
 uforutsett-hendelse,skill,Opplevelser og guiding,Håndtere en uforutsett hendelse,"håndtere en uforutsett hendelse under en tur eller aktivitet, som dårlig vær, en skade eller en forsinkelse, og informere gruppen rolig og tydelig",lede-aktivitet,0,
 aktorer,concept,Reiselivsvirksomheten,Aktører og omgivelser i reiselivet,"Profesjonelle aktører: bedrifter, destinasjonsselskaper, offentlige myndigheter og bransjeorganisasjoner som arbeider med reiseliv.
 Reiselivets omgivelser: alle som påvirkes av og påvirker reiselivet uten å være en del av næringen, som lokalbefolkningen, grunneiere, frivillige lag og andre næringer.",reiselivsnaeringen,0,
-aktorer-norge,fact,Reiselivsvirksomheten,Sentrale aktører i norsk reiseliv,"Innovasjon Norge: statlig selskap som blant annet markedsfører Norge som reisemål gjennom Visit Norway
+aktorer-norge,fact,Reiselivsvirksomheten,Sentrale aktører i norsk reiseliv,"Innovasjon Norge: halvstatlig selskap som blant annet markedsfører Norge som reisemål gjennom Visit Norway
 NHO Reiseliv: arbeidsgiver- og bransjeforening for reiselivsbedrifter
 destinasjonsselskap: selskap som utvikler og markedsfører en region på vegne av bedriftene der
 Statistisk sentralbyrå (SSB): publiserer blant annet overnattingsstatistikken

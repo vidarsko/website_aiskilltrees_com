@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,media,,,
 ,config,,keywords,MIK; medier; mediefag; kildekritikk; kommunikasjonsmodeller; ytringsfrihet; demokrati; mediepolitikk; mediestøtte; NRK; journalistikk; nyhetskriterier; Vær Varsom-plakaten; PFU; selvjustis; medieansvarsloven; opphavsrett; personvern; sosiale medier; algoritmer; representasjon; stereotypier; samer; dramaturgi; medieproduksjon,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 kilde,concept,Kilder og fagteori,Kilde,"Kilde: det en opplysning stammer fra - en person, et dokument, et bilde, en video, en nettside eller et datasett. En primærkilde er blitt til i situasjonen selv; en sekundærkilde gjengir eller tolker andre kilder.",,0,
 kildekritikk,concept,Kilder og fagteori,Kildekritikk,"Kildekritikk: å vurdere hva en kilde er verdt før den brukes - hvem avsenderen er, hvilken hensikt avsenderen har, når og hvordan kilden ble til, og om opplysningene kan bekreftes andre steder.",kilde,0,
 problemstilling,concept,Kilder og fagteori,Problemstilling,"Problemstilling: et presist og avgrenset spørsmål som en tekst, en presentasjon eller en undersøkelse skal besvare, formulert slik at det må drøftes med fagbegreper og kilder og ikke kan besvares med ett faktum.",,0,
@@ -49,7 +50,7 @@ forklare-kommunikasjonsmodeller,skill,Kommunikasjonsmodeller og medieteori,Gjør
 analysere-med-modell,skill,Kommunikasjonsmodeller og medieteori,Analysere en medietekst med en kommunikasjonsmodell,"bruke en kommunikasjonsmodell til å analysere en konkret medietekst: hvem som er avsender, hva budskapet er, hvilken kanal og målgruppe som er valgt, og hvilken virkning avsenderen er ute etter.",forklare-kommunikasjonsmodeller;denotasjon-konnotasjon,0,
 vurdere-modeller-digitalt,skill,Kommunikasjonsmodeller og medieteori,Vurdere kommunikasjonsmodellene i et digitalt mediebilde,"vurdere hvor godt de klassiske kommunikasjonsmodellene beskriver kommunikasjon i sosiale medier, der mottakere også er avsendere og algoritmer er portvoktere.",forklare-kommunikasjonsmodeller;portvokter;dagsordenfunksjon,0,
 ytringsfrihet,concept,Medier og demokrati,Ytringsfrihet,"Ytringsfrihet: retten til å uttrykke meninger og formidle opplysninger uten å bli straffet eller sensurert av staten for det. Den er vernet i Grunnloven § 100 og i Den europeiske menneskerettskonvensjonen artikkel 10, men er ikke grenseløs.",,0,
-grunnloven-100,fact,Medier og demokrati,Grunnloven § 100 i hovedtrekk,"hovedregelen: Ytringsfrihet skal finne sted
+grunnloven-100,fact,Medier og demokrati,Grunnloven § 100 i hovedtrekk,"hovedregelen: Ytringsfrihet bør finne sted («bør» betyr her «skal»)
 de tre begrunnelsene for ytringsfriheten: sannhetssøken, demokrati og individets frie meningsdannelse
 forhåndssensur: ikke tillatt, med visse unntak for å beskytte barn og unge mot levende bilder
 innsynsrett: alle har rett til innsyn i statens og kommunenes dokumenter, med lovbestemte unntak
@@ -76,7 +77,7 @@ drofte-ytringsfrihet-demokrati,skill,Medier og demokrati,Drøfte sammenhengen me
 reflektere-medier-demokrati,skill,Medier og demokrati,Reflektere over medienes rolle i demokratiet,"reflektere over hvilken rolle mediene spiller for demokratiet i Norge i dag, og vurdere hvor godt de fyller samfunnsrollen sin, med egne eksempler.",forklare-medier-demokratiutvikling;drofte-ytringsfrihet-demokrati,0,
 mediestruktur,concept,Mediestruktur og mediepolitikk,Mediestruktur,"Mediestruktur: hvordan mediene i et land er organisert - hvem som eier dem, hvordan de finansieres, hvor mange og hvilke typer medier det finnes, og hvordan de når publikum.",,0,
 eierkonsentrasjon,concept,Mediestruktur og mediepolitikk,Eierkonsentrasjon,"Eierkonsentrasjon: at få eiere kontrollerer en stor del av mediene. Det kan gi stordriftsfordeler, men svekke mangfoldet av stemmer og perspektiver.",mediestruktur,0,
-mediekonsern,fact,Mediestruktur og mediepolitikk,Store aktører i norske medier,"Schibsted Media: VG og Aftenposten
+mediekonsern,fact,Mediestruktur og mediepolitikk,Store aktører i norske medier,"Schibsted: VG og Aftenposten
 Amedia: landets største eier av lokalaviser
 Polaris Media: Adresseavisen og flere regionaviser
 Aller Media: Dagbladet
@@ -138,7 +139,7 @@ redaktorplakaten,concept,Medieetikk og medierett,Redaktørplakaten,"Redaktørpla
 vvp-punkter,fact,Medieetikk og medierett,Sentrale punkter i Vær Varsom-plakaten,"kildekritikk: vær kritisk i valg av kilder, og kontroller at opplysningene er riktige
 kildevern: pressen skal ikke røpe hvem som er kilde for opplysninger gitt i fortrolighet
 samtidig imøtegåelse: den som utsettes for sterke beskyldninger, skal få svare så tidlig at svaret kan komme med i samme sak
-privatlivets fred: personlige forhold skal ikke omtales uten at det har allmenn interesse
+privatlivets fred: personlige og private forhold skal ikke fremheves når de er saken uvedkommende
 identifisering: vær varsom med navn og bilde i saker om lovbrudd, særlig tidlig i saken
 barn: tenk på følgene medieomtalen kan få for barnet, også når foreldrene har sagt ja
 titler og ingresser: skal ikke gå lenger enn teksten gir dekning for

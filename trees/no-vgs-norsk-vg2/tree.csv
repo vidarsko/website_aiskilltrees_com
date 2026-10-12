@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,norwegian,,,
 ,config,,keywords,litteraturhistorie; norrøn litteratur; saga; eddadikt; barokk; opplysningstiden; Holberg; romantikken; nasjonalromantikk; Wergeland; folkeeventyr; retorisk situasjon; fagartikkel; språkhistorie; nabospråk; svensk; dansk; norrønt; Ivar Aasen; språkstrid; nynorsk; bokmål,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 kulturhistorisk-kontekst,concept,Tekst i kontekst,Kulturhistorisk kontekst,"Kulturhistorisk kontekst: tiden en tekst ble til i — samfunnsforholdene, troen, idéene, kunstsynet og mediene — som former hva teksten handler om og hvordan den er skrevet.",,0,
 litterar-epoke,concept,Tekst i kontekst,Litterær epoke,"Litterær epoke: en periode der mange tekster deler idéer, temaer og formtrekk fordi de springer ut av de samme tankestrømningene og samfunnsforholdene. Epokegrensene er satt i ettertid og er ikke skarpe skiller.",kulturhistorisk-kontekst,0,
 menneske-natur-samfunn,concept,Tekst i kontekst,"Menneskesyn, natursyn og samfunnssyn","Menneskesyn: oppfatningen en tekst eller en tid har av hva et menneske er og bør være.
@@ -37,14 +38,14 @@ Rytme: vekslingen mellom trykktunge og trykklette stavelser.
 Rim: ord som klinger likt, som enderim på slutten av verselinjene.
 Strofe: en gruppe verselinjer som hører sammen.",litterare-virkemidler,0,
 forteller-synsvinkel,concept,Tekst i kontekst,Forteller og synsvinkel,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren.
-Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom — en allvitende forteller, en personal forteller som følger én persons tanker, eller en ytre forteller som bare viser det som kan ses og høres.",,0,
+Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom — en allvitende forteller, en personal forteller som selv er med i handlingen og bare vet det den personen vet, eller en ytre forteller som bare viser det som kan ses og høres.",,0,
 epoker-oversikt,fact,Tekst i kontekst,Epokene fram til 1850,"norrøn tid (vikingtid og høymiddelalder): ca. 800–1350
 reformasjonen i Danmark-Norge: 1536–1537
-renessansen og humanismen i Norden: 1500-tallet
-barokken: 1600-tallet
+renessansen og humanismen i Norden: 1500- og 1600-tallet
+barokken: ca. 1600–1750
 opplysningstiden: 1700-tallet
-romantikken: ca. 1800–1850
-nasjonalromantikken i Norge: 1840- og 1850-årene",litterar-epoke,0,
+romantikken: ca. 1790–1850
+nasjonalromantikken i Norge: ca. 1830–1870",litterar-epoke,0,
 tolke-eldre-tekst,skill,Tekst i kontekst,Tolke en eldre tekst,"lese en eldre tekst nøye, gjengi kort hva den handler om, og formulere en begrunnet tolkning av tema og budskap med sitater fra teksten.",tema-budskap;litterare-virkemidler,0,"Teksten kan være på eldre dansk-norsk eller i oversettelse. Hjelp eleven med uvante ord og former, men la eleven gjøre tolkningen selv."
 lese-i-kontekst,skill,Tekst i kontekst,Lese en tekst i lys av konteksten,"vise hvordan tema, menneskesyn, form og språk i en tekst henger sammen med tiden og epoken den ble skrevet i, med konkrete eksempler fra teksten.",tolke-eldre-tekst;litterar-epoke;menneske-natur-samfunn,0,
 sammenligne-med-nyere,skill,Tekst i kontekst,Sammenligne en eldre tekst med en nyere,"sammenligne en eldre tekst med en tekst fra nyere tid med beslektet tema, og forklare likheter og forskjeller i innhold, form og syn på menneske, natur og samfunn ut fra tidene de ble til i.",lese-i-kontekst;intertekstualitet,0,
@@ -147,7 +148,7 @@ samnorsk,concept,Språksituasjonen i Norge,Samnorsk,"Samnorsk: målet om å slå
 normering,concept,Språksituasjonen i Norge,Normering og valgfrie former,"Normering: å fastsette den offisielle rettskrivingen for et skriftspråk.
 Valgfrie former: at rettskrivingen godtar flere former av samme ord, som «boka» og «boken».",,0,
 minoritetssprak,concept,Språksituasjonen i Norge,Urfolksspråk og minoritetsspråk,"Urfolksspråk: samisk, som har en særstilling fordi samene er urfolk i Norge.
-Nasjonale minoritetsspråk: kvensk, romani, romanes og skogfinsk, språk som har vært brukt i Norge lenge og har særskilt vern.
+Nasjonale minoritetsspråk: kvensk, romani og romanes, språk som har vært brukt i Norge lenge og har særskilt vern.
 Norsk tegnspråk: det visuelle språket døve i Norge bruker, likeverdig med norsk.",,0,
 sprakloven,concept,Språksituasjonen i Norge,Språkloven,"Språkloven: loven fra 2021 som slår fast at norsk er hovedspråket i Norge, at bokmål og nynorsk er likestilte skriftspråk, og at samisk, de nasjonale minoritetsspråkene og norsk tegnspråk har særskilt vern.",normering;minoritetssprak,0,
 sprakhistorie-arstall,fact,Språksituasjonen i Norge,Årstall i norsk språkhistorie,"svartedauden: 1349–1350

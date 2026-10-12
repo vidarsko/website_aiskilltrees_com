@@ -22,12 +22,13 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,economics,,,
 ,config,,keywords,næringslivsøkonomi; regnskap; bokføring; bilag; årsoppgjør; avskrivning; periodisering; nøkkeltall; regnskapsanalyse; likviditet; lønnsomhet; kalkyle; påslag; avanse; dekningsbidrag; nullpunkt; budsjett; likviditetsbudsjett; budsjettkontroll; selskapsform; merverdiavgift; eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 selskapsform,concept,Selskapsform og regelverk,Selskapsform,"Selskapsform: den juridiske formen en virksomhet er organisert i. Den avgjør hvem som eier virksomheten, hvem som hefter for gjelda, hvem som tar beslutningene og hvordan overskuddet skattlegges.",,0,
 personlig-begrenset-ansvar,concept,Selskapsform og regelverk,Personlig og begrenset ansvar,"Ubegrenset personlig ansvar: eieren hefter for virksomhetens gjeld med hele sin private formue.
 Begrenset ansvar: eieren kan høyst tape det han eller hun har skutt inn i selskapet.",selskapsform,0,
 solidarisk-delt-ansvar,concept,Selskapsform og regelverk,Solidarisk og delt ansvar,"Solidarisk ansvar: hver eier kan bli krevd for hele selskapets gjeld, og må selv kreve de andre eierne for deres del etterpå.
-Delt ansvar: hver eier hefter bare for sin andel av gjelda, etter eierandelen.",personlig-begrenset-ansvar,0,
+Delt ansvar: hver eier hefter bare for sin andel av gjelda, etter ansvarsandelen som står i selskapsavtalen.",personlig-begrenset-ansvar,0,
 selskapsformene,fact,Selskapsform og regelverk,De vanligste selskapsformene,"enkeltpersonforetak (ENK): én eier med ubegrenset personlig ansvar
 ansvarlig selskap (ANS): to eller flere eiere som hefter solidarisk og ubegrenset for gjelda
 selskap med delt ansvar (DA): to eller flere eiere som hefter ubegrenset for hver sin andel av gjelda
@@ -36,10 +37,10 @@ allmennaksjeselskap (ASA): som AS, men med minst 1 million kr i aksjekapital, og
 samvirkeforetak (SA): eid av medlemmene, som er kunder, leverandører eller ansatte, og overskuddet går tilbake til dem",solidarisk-delt-ansvar,0,
 sammenligne-selskapsformer,skill,Selskapsform og regelverk,Sammenligne selskapsformer,"sammenligne selskapsformene ut fra eiernes ansvar og risiko, krav til kapital, hvem som tar beslutningene og hvor mye administrasjon de krever.",selskapsformene,0,
 velge-selskapsform,skill,Selskapsform og regelverk,Velge selskapsform for en forretningsidé,"vurdere og velge selskapsform for en beskrevet forretningsidé ut fra hvor stor risiko eierne tar og hvor mye de kan tape, og begrunne valget opp mot minst ett alternativ.",sammenligne-selskapsformer,0,
-autorisert-regnskapsforer,concept,Selskapsform og regelverk,Autorisert regnskapsfører,"Autorisert regnskapsfører: en som har autorisasjon fra Finanstilsynet til å føre regnskap for andre. Autorisasjon kreves når noen fører regnskap for andre virksomheter mot betaling; den som fører sitt eget regnskap, trenger den ikke.",,0,
+autorisert-regnskapsforer,concept,Selskapsform og regelverk,Statsautorisert regnskapsfører,"Statsautorisert regnskapsfører: en som har autorisasjon fra Finanstilsynet til å føre regnskap for andre. Den som fører regnskap for andre som næringsvirksomhet, må selv være statsautorisert regnskapsfører eller ansatt i et regnskapsselskap godkjent av Finanstilsynet; den som fører regnskapet for en virksomhet der han eller hun selv er eier eller ansatt, trenger ingen autorisasjon.",,0,
 revisor,concept,Selskapsform og regelverk,Revisor og revisjonsplikt,"Revisor: en uavhengig kontrollør som undersøker om årsregnskapet er i samsvar med regelverket og gir et riktig bilde av virksomheten, og som bekrefter det i en revisjonsberetning.
 Revisjonsplikt: plikten til å la en revisor kontrollere årsregnskapet. Den gjelder blant annet alle allmennaksjeselskaper, mens små aksjeselskaper under visse grenser kan velge den bort.",selskapsformene,0,
-forklare-regnskapsforer-revisor,skill,Selskapsform og regelverk,Forklare kravene til regnskapsfører og revisor,"gjøre rede for når det kreves autorisert regnskapsfører, hvilke virksomheter som har revisjonsplikt, og hvorfor revisors uavhengighet er viktig for eiere, långivere og myndigheter.",autorisert-regnskapsforer;revisor,0,
+forklare-regnskapsforer-revisor,skill,Selskapsform og regelverk,Forklare kravene til regnskapsfører og revisor,"gjøre rede for når det kreves statsautorisert regnskapsfører, hvilke virksomheter som har revisjonsplikt, og hvorfor revisors uavhengighet er viktig for eiere, långivere og myndigheter.",autorisert-regnskapsforer;revisor,0,
 utgift-kostnad-utbetaling,concept,Regnskapets grunnbegreper,"Utgift, kostnad og utbetaling","Utgift: verdien av en vare eller tjeneste virksomheten anskaffer, regnet fra det tidspunktet den mottas.
 Kostnad: verdien av de ressursene som forbrukes i en periode for å skape inntekter.
 Utbetaling: penger som går ut av virksomheten, kontant eller fra bankkontoen.",,0,
@@ -127,9 +128,9 @@ Likviditet: virksomhetens evne til å betale regningene sine etter hvert som de 
 Soliditet: virksomhetens evne til å tåle underskudd uten at egenkapitalen går tapt, og hvordan den er finansiert.",balanse-resultatregnskap,0,
 regnskapsanalyse,concept,Regnskapsanalyse,Regnskapsanalyse og nøkkeltall,"Regnskapsanalyse: å bruke tall fra resultatregnskapet og balansen til å vurdere virksomhetens økonomiske stilling og utvikling.
 Nøkkeltall: et forholdstall mellom to regnskapsstørrelser som gjør virksomheter av ulik størrelse, og ulike år, mulig å sammenligne. Der en resultatstørrelse sammenlignes med en balansestørrelse, brukes gjennomsnittet av inngående og utgående balanse.",analyseomrader;resultatbegreper,0,
-lonnsomhetstall,concept,Regnskapsanalyse,Nøkkeltall for lønnsomhet,"Totalkapitalrentabilitet: (ordinært resultat før skatt + finanskostnader) · 100 / gjennomsnittlig totalkapital. Den viser avkastningen på all kapital, uansett hvem som har skutt den inn.
+lonnsomhetstall,concept,Regnskapsanalyse,Nøkkeltall for lønnsomhet,"Totalkapitalrentabilitet: (ordinært resultat før skatt + rentekostnader) · 100 / gjennomsnittlig totalkapital. Den viser avkastningen på all kapital, uansett hvem som har skutt den inn.
 Egenkapitalrentabilitet: ordinært resultat før skatt · 100 / gjennomsnittlig egenkapital. Den viser avkastningen eierne får på sin kapital.
-Resultatgrad: (ordinært resultat før skatt + finanskostnader) · 100 / salgsinntekter. Den viser hvor mye som blir igjen av hver salgskrone.",regnskapsanalyse,0,
+Resultatgrad: ordinært resultat før skatt · 100 / driftsinntekter. Den viser hvor mye som blir igjen av hver salgskrone.",regnskapsanalyse,0,
 likviditetstall,concept,Regnskapsanalyse,Nøkkeltall for likviditet,"Likviditetsgrad 1: omløpsmidler / kortsiktig gjeld.
 Likviditetsgrad 2: (omløpsmidler − varebeholdning) / kortsiktig gjeld. Varene trekkes fra fordi de må selges før de blir penger.
 Arbeidskapital: omløpsmidler minus kortsiktig gjeld.",regnskapsanalyse,0,

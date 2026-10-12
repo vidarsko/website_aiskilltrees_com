@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,norwegian,,,
 ,config,,keywords,realisme; naturalisme; det moderne gjennombrudd; Ibsen; modernisme; postmodernisme; autofiksjon; litterær tolkning; essay; retorisk analyse; sammensatte tekster; dialekter; multietnolekt; språk og identitet; sidemål; nynorsk; kildebruk; fagartikkel; kortsvar; langsvar; eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,features.resources,true,,,
+,config,,updated,2026-10-12,,,
 kulturhistorisk-kontekst,concept,Analyseverktøy,Kulturhistorisk kontekst,"Kulturhistorisk kontekst: tiden en tekst ble til i — samfunnsforholdene, idéene, kunstsynet og mediene — som former hva teksten handler om og hvordan den er skrevet.",,0,
 litterar-epoke,concept,Analyseverktøy,Litterær epoke og tradisjon,"Litterær epoke: en periode der mange tekster deler idéer, temaer og formtrekk. Epokegrensene er satt i ettertid og er ikke skarpe skiller.
 Litterær tradisjon: en måte å skrive på som lever videre på tvers av epokene, slik den realistiske og den modernistiske tradisjonen gjør.",kulturhistorisk-kontekst,0,
@@ -33,7 +34,7 @@ Samfunnssyn: hvordan samfunnet og menneskets plass i det blir framstilt.",kultur
 tema-budskap,concept,Analyseverktøy,Tema og budskap,"Tema: hva teksten handler om på et overordnet plan, sagt med ett eller noen få ord, som skyld eller frihet.
 Budskap: hva teksten sier om temaet, en innsikt leseren tolker seg fram til.",,0,
 forteller-synsvinkel,concept,Analyseverktøy,Forteller og synsvinkel,"Forteller: stemmen som forteller historien, som ikke er det samme som forfatteren.
-Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom — en allvitende forteller, en personal forteller som følger én persons tanker, eller en ytre forteller som bare viser det som kan ses og høres.",,0,
+Synsvinkel: hvem sitt perspektiv handlingen oppleves gjennom — en allvitende forteller, en personal forteller som selv er med i handlingen og har begrenset oversikt, eller en ytre forteller som bare viser det som kan ses og høres.",,0,
 komposisjon,concept,Analyseverktøy,Komposisjon,"Komposisjon: hvordan handlingen i en tekst er bygd opp og ordnet — kronologisk eller med tilbakeblikk, med konflikt, vendepunkt og slutt, i én eller flere handlingstråder.",,0,
 litterare-virkemidler,concept,Analyseverktøy,Litterære virkemidler,"Litterært virkemiddel: et grep som skaper mening og virkning i en tekst, som språklige bilder (sammenligning, metafor, besjeling), symboler, kontraster, gjentakelser, ironi og tidshopp.",,0,
 episke-sjangre,concept,Analyseverktøy,Roman og novelle,"Roman: en lang fortelling med mange personer, ofte flere handlingstråder og en utvikling over tid.
@@ -53,7 +54,7 @@ lese-i-kontekst,skill,Analyseverktøy,Lese en tekst i lys av konteksten og egen 
 realismen,concept,Realisme og naturalisme,Realismen,"Realismen: en litterær retning fra midten av 1800-tallet som ville skildre virkeligheten slik den er, med vanlige mennesker, troverdige personer, hverdagslige miljøer og et nøkternt språk.",litterar-epoke,0,
 moderne-gjennombrudd,concept,Realisme og naturalisme,Det moderne gjennombrudd,"Det moderne gjennombrudd: 1870- og 1880-årene da litteraturen i Norden ble samfunnskritisk og skulle sette problemer under debatt, etter et krav den danske kritikeren Georg Brandes reiste i 1871.",realismen,0,
 problemlitteratur,concept,Realisme og naturalisme,Problemlitteratur,"Problemlitteratur: litteratur som tar opp et samfunnsproblem — som kvinners stilling, dobbeltmoralen, skolen eller kirken — for å skape debatt.",moderne-gjennombrudd,0,
-naturalismen,concept,Realisme og naturalisme,Naturalismen,"Naturalismen: en radikal form for realisme fra 1880-årene som så mennesket som bestemt av arv og miljø, og som skildret fattigdom, sykdom og seksualitet åpent.",realismen,0,
+naturalismen,concept,Realisme og naturalisme,Naturalismen,"Naturalismen: en radikal form for realisme fra Frankrike, i Norge særlig i 1880-årene, som så mennesket som bestemt av arv og miljø, og som skildret fattigdom, sykdom og seksualitet åpent.",realismen,0,
 realisme-verk,fact,Realisme og naturalisme,Sentrale verk fra realismen og naturalismen,"Camilla Collett, Amtmandens Døttre (1854–55): roman om unge kvinner uten rett til å velge ektefelle selv
 Henrik Ibsen, Et dukkehjem (1879): drama om Nora, som forlater mann og barn for å finne ut hvem hun er
 Henrik Ibsen, Gengangere (1881): drama om arv, løgn og dobbeltmoral i en borgerlig familie
@@ -84,8 +85,8 @@ skille-tradisjonene,skill,Modernisme,Plassere en tekst i den realistiske eller d
 analysere-modernistisk-prosa,skill,Modernisme,Analysere modernistisk prosa,"vise hvordan modernistiske fortellergrep som indre monolog, bevissthetsstrøm og brudd i kronologien uttrykker personenes indre liv og fremmedfølelse.",moderne-fortellerteknikk;fremmedgjoring;analysere-prosa,0,
 tolke-modernistisk-dikt,skill,Modernisme,Tolke et modernistisk dikt,"tolke et modernistisk dikt med åpne bilder og fri form, og begrunne tolkningen med detaljer fra teksten.",modernistisk-lyrikk;analysere-lyrikk,0,
 utforske-tradisjonene,skill,Modernisme,Sammenligne hvordan tradisjonene framstiller menneske og samfunn,"sammenligne hvordan tekster fra den realistiske og den modernistiske tradisjonen framstiller menneske, natur og samfunn, og reflektere over hvorfor framstillingene er så ulike.",skille-tradisjonene;analysere-realistisk-tekst;analysere-modernistisk-prosa,0,
-sosialrealisme,concept,Litteratur fra 1960 til i dag,Politisk litteratur i 1970-årene,"Sosialrealisme: realistisk litteratur med et politisk mål, som i 1970-årene skildret arbeidsliv, klassekamp og kvinners kår for å endre samfunnet.",realismen,0,
-postmodernisme,concept,Litteratur fra 1960 til i dag,Postmodernisme og metafiksjon,"Postmodernisme: en retning fra 1980-årene som leker med sjangre og fortellerformer, blander høy og lav kultur og er skeptisk til store sannheter.
+sosialrealisme,concept,Litteratur fra 1960 til i dag,Politisk litteratur i 1970-årene,"Sosialrealisme: realistisk litteratur om sosiale forhold og klasseskiller, som i 1970-årene ofte hadde et politisk mål og skildret arbeidsliv, klassekamp og kvinners kår for å endre samfunnet.",realismen,0,
+postmodernisme,concept,Litteratur fra 1960 til i dag,Postmodernisme og metafiksjon,"Postmodernisme: en retning fra 1960-årene, i Norge særlig fra 1980-årene, som leker med sjangre og fortellerformer, blander høy og lav kultur og er skeptisk til store sannheter.
 Metafiksjon: fiksjon som viser fram og kommenterer at den selv er fiksjon.",modernismen,0,
 autofiksjon,concept,Litteratur fra 1960 til i dag,Autofiksjon,"Autofiksjon: litteratur som blander forfatterens eget liv med fiksjon, ofte med en hovedperson som har forfatterens navn.",,0,
 samtid-verk,fact,Litteratur fra 1960 til i dag,Forfattere og verk fra 1970 til i dag,"Dag Solstad, Arild Asnes, 1970 (1971): roman om en forfatter som blir politisk radikal
@@ -151,7 +152,7 @@ redegjore-talesprak,skill,"Talespråk, kultur og identitet",Gjøre rede for endr
 beskrive-talemal-i-tekst,skill,"Talespråk, kultur og identitet",Beskrive talemålstrekk i en tekst,"beskrive dialekt-, sosiolekt- og multietnolekttrekk i en skjønnlitterær tekst, en sangtekst eller et transkribert opptak med fagbegreper, og forklare hvilken virkning bruken har.",dialekttrekk;multietnolekt;sprak-identitet,0,
 reflektere-sprak-identitet,skill,"Talespråk, kultur og identitet","Reflektere over språk, kultur og identitet","reflektere over hvordan måten en snakker på henger sammen med kultur, tilhørighet og identitet, med eksempler fra dialekter, multietnolekter eller flerspråklighet.",redegjore-talesprak;sprak-identitet,0,
 drofte-sprakholdninger,skill,"Talespråk, kultur og identitet",Drøfte holdninger til talemål,"drøfte et spørsmål om språkholdninger — for eksempel dialektbruk i nyhetene, synet på multietnolekt eller engelske ord i norsk — med fagkunnskap og argumenter fra flere sider.",reflektere-sprak-identitet;drofte,0,
-hovedmal-sidemal,concept,Formkrav og kildebruk,Hovedmål og sidemål,"Hovedmål: den skriftlige målformen, bokmål eller nynorsk, eleven bruker mest.
+hovedmal-sidemal,concept,Formkrav og kildebruk,Hovedmål og sidemål,"Hovedmål: den skriftlige målformen, bokmål eller nynorsk, som er valgt som elevens hovedform i skolen.
 Sidemål: den andre målformen, som eleven også skal mestre skriftlig.",,0,
 formkrav,concept,Formkrav og kildebruk,Språklige formkrav,"Språklige formkrav: kravene til korrekt rettskriving, bøyning, tegnsetting og setningsbygning etter den offisielle normen for målformen.",hovedmal-sidemal,0,
 stilniva,concept,Formkrav og kildebruk,Stilnivå og nominalstil,"Stilnivå: hvor formelt eller uformelt språket i en tekst er, tilpasset sjanger og mottaker.
