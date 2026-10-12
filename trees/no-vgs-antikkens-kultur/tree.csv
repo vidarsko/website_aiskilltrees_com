@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,classics,,,
 ,config,,keywords,antikken; oldtiden; Hellas; Roma; Athen; Sparta; demokrati; republikk; keisertid; mytologi; gudene; festivaler; filosofi; Sokrates; Platon; Aristoteles; stoisisme; retorikk; etos; patos; logos; romertall; greske alfabetet; etymologi; latin; gresk; Homer; tragedie; søyleordener; resepsjon; muntlig eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 tidsregning-fkr,concept,Antikken og kildene,Før og etter Kristus,"Før Kristus (f.Kr.): årene før Kristi fødsel telles baklengs, så 490 f.Kr. kommer før 480 f.Kr.
 Etter Kristus (e.Kr.): årene telles forover fra år 1. Det finnes ikke noe år 0: år 1 f.Kr. følges direkte av år 1 e.Kr.",,0,
 regne-tidsavstand,skill,Antikken og kildene,Regne ut tidsavstander over tidsskillet,"regne ut hvor lang tid det gikk mellom to hendelser når den ene er før og den andre etter Kristus, og ta hensyn til at det ikke finnes noe år 0.",tidsregning-fkr,0,
@@ -34,8 +35,8 @@ vurdere-tekst-som-kilde,skill,Antikken og kildene,Vurdere en antikk tekst som hi
 tolke-materiell-kilde,skill,Antikken og kildene,Tolke en materiell kilde,"bruke en materiell kilde, som en vase, en mynt eller et funn fra Pompeii, til å si noe om hverdagsliv, tro eller makt i antikken, og vise hva kilden ikke kan svare på.",antikk-kildekritikk,0,
 gresk-perioder,fact,Gresk historie,Periodene i gresk historie,"minoisk og mykensk tid (bronsealderen): ca. 2000–1100 f.Kr.
 den mørke tiden: ca. 1100–800 f.Kr.
-arkaisk tid: ca. 800–480 f.Kr.
-klassisk tid: 480–323 f.Kr.
+arkaisk tid: ca. 800–500 f.Kr.
+klassisk tid: ca. 500–323 f.Kr.
 hellenistisk tid: 323–31 f.Kr.",tidsregning-fkr,0,
 gresk-hendelser,fact,Gresk historie,Nøkkelhendelser i gresk historie,"de første olympiske leker etter tradisjonen: 776 f.Kr.
 Kleisthenes' reformer og starten på demokratiet i Athen: 508/507 f.Kr.
@@ -143,7 +144,7 @@ aristoteles-empiri,concept,Filosofi og vitenskap,Aristoteles' vitenskap,"Aristot
 dydsetikk,concept,Filosofi og vitenskap,Den gylne middelvei,"Den gylne middelvei: Aristoteles' idé om at en dyd ligger mellom to ytterpunkter — mot ligger mellom feighet og dumdristighet — og at det gode liv (eudaimonia) er et liv der man utøver dydene.",,0,
 stoisisme,concept,Filosofi og vitenskap,Stoisismen,"Stoisismen: en filosofi grunnlagt av Zenon fra Kition rundt 300 f.Kr., som lærer at man skal leve i samsvar med fornuften og skille mellom det man kan påvirke og det man ikke kan. Seneca, Epiktet og keiser Marcus Aurelius var kjente stoikere.",,0,
 epikureisme,concept,Filosofi og vitenskap,Epikureismen,"Epikureismen: Epikurs filosofi om at det gode liv er et liv i lyst, forstått som fravær av smerte og uro (ataraxia), som man når gjennom vennskap, nøkternhet og ved å slutte å frykte gudene og døden.",atomlaere,0,
-geosentrisk,concept,Filosofi og vitenskap,Det geosentriske verdensbildet,"Det geosentriske verdensbildet: modellen der jorda står stille i sentrum av universet og sola, månen og planetene går rundt den. Ptolemaios satte den i system rundt 150 e.Kr., og den var rådende i Europa til Kopernikus i 1543.",aristoteles-empiri,0,
+geosentrisk,concept,Filosofi og vitenskap,Det geosentriske verdensbildet,"Det geosentriske verdensbildet: modellen der jorda står stille i sentrum av universet og sola, månen og planetene går rundt den. Ptolemaios satte den i system rundt 140 e.Kr., og den var rådende i Europa til Kopernikus i 1543.",aristoteles-empiri,0,
 filosofer-forskere,fact,Filosofi og vitenskap,Filosofer og vitenskapsfolk,"Thales: regnet som den første filosofen; mente at alt kommer av vann
 Pythagoras: tall og forhold som grunnlaget for alt
 Demokrit: atomlæren
@@ -280,7 +281,7 @@ panikk: plutselig, overveldende frykt (etter guden Pan)
 narsissisme: overdreven selvopptatthet (etter Narkissos)",myter-sagnfigurer,0,
 dele-opp-ord,skill,Gresk og latin i dagens språk,Tolke et fremmedord ut fra ordelementene,"dele opp et ukjent fremmedord i greske eller latinske ordelementer og bruke dem til å foreslå hva ordet betyr, som «hydrofobi», «antropologi» eller «multinasjonal».",greske-ordelementer;latinske-ordelementer,0,
 gjenkjenne-ord-moderne-sprak,skill,Gresk og latin i dagens språk,Gjenkjenne gresk og latin i moderne språk,"gjenkjenne ord og ordelementer fra gresk og latin i norsk, engelsk og andre moderne språk, og forklare hvordan de kom inn i språket, for eksempel gjennom kirken, vitenskapen og romanske språk.",dele-opp-ord;uttrykk-fra-myter,0,
-retorikk,concept,Retorikk,Retorikk,"Retorikk: kunsten å overbevise gjennom tale og tekst, og læren om hvordan det gjøres. Den vokste fram i det athenske demokratiet, der borgerne måtte tale for seg selv i folkeforsamlingen og domstolene.",athensk-demokrati,0,
+retorikk,concept,Retorikk,Retorikk,"Retorikk: kunsten å overbevise gjennom tale og tekst, og læren om hvordan det gjøres. Den vokste fram i demokratiene i Syrakus og Athen, der borgerne måtte tale for seg selv i folkeforsamlingen og domstolene.",athensk-demokrati,0,
 appellformer,concept,Retorikk,Appellformene,"Etos: overbevisning gjennom talerens troverdighet og karakter.
 Patos: overbevisning gjennom å vekke følelser hos publikum.
 Logos: overbevisning gjennom saklige argumenter og fornuft.",retorikk,0,
@@ -298,7 +299,7 @@ retorikk-og-demokrati,skill,Retorikk,Drøfte retorikkens rolle i demokratiet,"dr
 resepsjon,concept,Antikken i ettertid,Resepsjon,"Resepsjon: hvordan senere tider har lest, brukt, tolket og omformet antikken, ofte for å tjene sine egne formål.",,0,
 renessansen,concept,Antikken i ettertid,Renessansen,"Renessansen: «gjenfødelsen» av interessen for antikkens kunst, litteratur og vitenskap, fra Italia på 1300- og 1400-tallet, da humanistene lette fram, studerte og etterlignet antikke tekster og kunstverk.",resepsjon,0,
 nyklassisisme,concept,Antikken i ettertid,Nyklassisismen,"Nyklassisismen: en kunst- og arkitekturstil fra midten av 1700-tallet og inn på 1800-tallet som etterlignet gresk og romersk kunst, med søyler, tempelgavler og hvit stein, i alt fra museer og parlamenter til universiteter.",resepsjon;soyleordener,0,
-politisk-bruk,concept,Antikken i ettertid,Politisk bruk av antikken,"Politisk bruk av antikken: å låne antikkens symboler, begreper og forbilder for å gi egen politikk legitimitet, som de republikanske idealene i den amerikanske og den franske revolusjonen, Napoleons triumfbuer og fascismens romerske symboler. Ordet fascisme kommer fra fasces, risknippet romerske embetsmenn fikk båret foran seg.",resepsjon,0,
+politisk-bruk,concept,Antikken i ettertid,Politisk bruk av antikken,"Politisk bruk av antikken: å låne antikkens symboler, begreper og forbilder for å gi egen politikk legitimitet, som de republikanske idealene i den amerikanske og den franske revolusjonen, Napoleons triumfbuer og fascismens romerske symboler. Ordet fascisme kommer av italiensk fascio, «knippe», og fascistene tok som merke fasces, risknippet romerske embetsmenn fikk båret foran seg.",resepsjon,0,
 analysere-politisk-bruk,skill,Antikken i ettertid,Analysere politisk bruk av antikken,"analysere hvordan en stat eller en politisk bevegelse har brukt antikken, og forklare hvilket bilde av antikken som ble trukket fram og hva som ble utelatt.",politisk-bruk;gjore-rede-romersk-historie;sammenligne-athen-roma,0,
 drofte-misbruk,skill,Antikken i ettertid,Drøfte ideologisk misbruk av antikken,"drøfte hvordan antikken er blitt brukt til å rettferdiggjøre undertrykking, som fascismens og nazismens dyrking av Roma og Sparta eller ideen om en «hvit» antikk, og reflektere over hvorfor slik bruk virker.",analysere-politisk-bruk;polykromi;sammenligne-athen-sparta,0,
 antikken-i-kulturuttrykk,skill,Antikken i ettertid,Utforske antikken i senere kulturuttrykk,"utforske hvordan antikken brukes som referanse eller tema i et senere kulturuttrykk — et maleri, en bygning, en roman, en film, et dataspill eller en reklame — og forklare hva det låner fra antikken.",renessansen;nyklassisisme;myter-sagnfigurer,0,

@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,social-sciences,,,
 ,config,,storageKey,no-vgs-historie-filosofi-1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,historie og filosofi 1 (programfag i norsk videregående skole),,,
 ,config,,slots.expressionFocus,"blander sammen at et argument er gyldig og at konklusjonen er sann, gjengir hva en filosof mente uten å vurdere argumentet, kaller en lærebok for kilde uten å skille framstilling fra kilde, dømmer fortidens mennesker med nåtidens verdier uten å vise til samtiden, bruker «teori» og «ideologi» i dagligtalebetydning, eller skriver at de «drøfter» uten å veie argumenter mot hverandre",,,
 ,config,,slots.courseSpecifics,"Faget har standpunktkarakter, og eleven kan trekkes ut til en lokalt gitt muntlig eksamen med forberedelsesdel. Øv derfor på å forklare, sammenligne og drøfte med egne ord og med begrunnelser, ikke på å gjengi utenatlærte formuleringer.",,,
@@ -22,14 +23,14 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,history,,,
 ,config,,keywords,historie og filosofi; HIFI; filosofi; filosofisk samtale; argumentasjon; kildekritikk; historiesyn; Platon; Aristoteles; Descartes; Kant; etikk; politisk filosofi; samfunnskontrakt; makt; frihet; statsdanning; reformasjonen; opplysningstiden; vitenskapelige revolusjon; miljøetikk,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 argument,concept,Filosofisk samtale og argumentasjon,Argument,"Argument: en påstand (konklusjonen) sammen med de grunnene (premissene) som skal støtte den.",,0,
 gyldig-holdbart,concept,Filosofisk samtale og argumentasjon,Gyldig og holdbart argument,"Gyldig argument: et argument der konklusjonen må være sann dersom premissene er sanne. Gyldighet handler om formen, ikke om innholdet.
 Holdbart argument: et gyldig argument der premissene i tillegg faktisk er sanne.",argument,0,
 deduksjon-induksjon,concept,Filosofisk samtale og argumentasjon,Deduksjon og induksjon,"Deduksjon: å slutte fra premisser til en konklusjon som følger nødvendig av dem.
 Induksjon: å slutte fra mange enkelttilfeller til en generell regel, som da bare blir sannsynlig, ikke sikker.",argument,0,
 argumentasjonsfeil,concept,Filosofisk samtale og argumentasjon,Argumentasjonsfeil,"Argumentasjonsfeil: en slutning som kan virke overbevisende, men der grunnene ikke støtter konklusjonen - for eksempel stråmannsargument, personangrep (ad hominem) eller falsk dikotomi.",argument,0,
-filosofisk-samtale,concept,Filosofisk samtale og argumentasjon,Filosofisk samtale,"Filosofisk samtale: en undersøkende samtale der deltakerne stiller åpne spørsmål, ber om begrunnelser og eksempler og prøver oppfatninger mot hverandre, for å forstå bedre - ikke for å vinne. Sokrates' dialoger er forbildet.",,0,
+filosofisk-samtale,concept,Filosofisk samtale og argumentasjon,Filosofisk samtale,"Filosofisk samtale: en undersøkende samtale der deltakerne stiller åpne spørsmål, ber om begrunnelser og eksempler og prøver oppfatninger mot hverandre, for å forstå bedre - ikke for å vinne. Sokrates' samtaler er forbildet.",,0,
 klargjore-begrep,skill,Filosofisk samtale og argumentasjon,Klargjøre et filosofisk begrep,"klargjøre hva et sentralt begrep som rettferdighet, frihet eller sannhet betyr, ved å finne eksempler, moteksempler og grensetilfeller.",filosofisk-samtale,0,
 rekonstruere-argument,skill,Filosofisk samtale og argumentasjon,Rekonstruere et argument,"skrive et argument fra en tekst eller en samtale som nummererte premisser og en konklusjon, og få med premissene som er underforstått.",argument,0,
 vurdere-gyldighet,skill,Filosofisk samtale og argumentasjon,Vurdere om et argument er gyldig og holdbart,"avgjøre om konklusjonen i et rekonstruert argument følger av premissene, og vurdere hvert premiss for seg.",rekonstruere-argument;gyldig-holdbart;deduksjon-induksjon,0,
@@ -85,8 +86,8 @@ sammenligne-platon-aristoteles,skill,Metafysikk og erkjennelsesteori,Sammenligne
 sammenligne-rasjonalisme-empirisme,skill,Metafysikk og erkjennelsesteori,Forklare striden mellom rasjonalisme og empirisme,"sammenligne rasjonalismens og empirismens syn på hvor kunnskapen kommer fra, og forklare hvordan Kant forsøkte å forene dem.",metodisk-tvil;kants-syntese,0,
 drofte-erkjennelse,skill,Metafysikk og erkjennelsesteori,Drøfte et erkjennelsesteoretisk spørsmål,"drøfte et spørsmål om hva vi kan vite - for eksempel om sansene kan stoles på - med argumenter fra minst to filosofiske posisjoner.",sammenligne-rasjonalisme-empirisme;sammenligne-platon-aristoteles;vurdere-gyldighet,0,
 drofte-metafysikk,skill,Metafysikk og erkjennelsesteori,Drøfte et metafysisk spørsmål,"drøfte et spørsmål om hva som finnes og hva virkeligheten består av - som forholdet mellom sjel og kropp eller om vi har fri vilje - med argumenter fra ulike posisjoner.",dualisme-monisme;sammenligne-platon-aristoteles;vurdere-gyldighet,0,
-filosofer-levetid,fact,Metafysikk og erkjennelsesteori,Sentrale filosofer og når de levde,"Sokrates: ca. 470-399 f.Kr.
-Platon: ca. 428-348 f.Kr.
+filosofer-levetid,fact,Metafysikk og erkjennelsesteori,Sentrale filosofer og når de levde,"Sokrates: ca. 469-399 f.Kr.
+Platon: ca. 428-347 f.Kr.
 Aristoteles: 384-322 f.Kr.
 Augustin: 354-430
 Thomas Aquinas: ca. 1225-1274
@@ -162,7 +163,7 @@ forklare-legitimering,skill,"Religion, filosofi og makt",Forklare hvordan religi
 forklare-utfordret-makt,skill,"Religion, filosofi og makt",Forklare hvordan religion og filosofi har utfordret makt,"gjøre rede for, med eksempler, hvordan religiøse og filosofiske ideer er blitt brukt til å kritisere og endre makt og samfunnsstrukturer.",reformasjonen;opplysningstiden;religionskritikk;religion-motmakt,0,
 sammenligne-tro-fornuft,skill,"Religion, filosofi og makt",Sammenligne synet på sannhet i middelalderen og opplysningstiden,"sammenligne hva som ble regnet som kilde til sannhet - åpenbaring, tradisjon eller fornuft og erfaring - i middelalderen og i opplysningstiden, og forklare hva skiftet betydde for virkelighetsoppfatningen.",tro-fornuft;opplysningstiden;virkelighetsoppfatning,0,
 reflektere-religion-filosofi-makt,skill,"Religion, filosofi og makt",Reflektere over religion og filosofi som makt,"reflektere over hvordan religion og filosofi både har legitimert og utfordret makt, og formet hva mennesker har holdt for sant, fra antikken til i dag.",forklare-legitimering;forklare-utfordret-makt;sammenligne-tro-fornuft;religion-arstall,0,
-jordbruksrevolusjonen,concept,"Teknologi, økonomi og vitenskap",Jordbruksrevolusjonen,"Jordbruksrevolusjonen: overgangen fra jakt og sanking til jordbruk og husdyrhold, som begynte i Midtøsten for rundt 11 000 år siden og la grunnlaget for fast bosetning, overskudd, byer og stater.",,0,
+jordbruksrevolusjonen,concept,"Teknologi, økonomi og vitenskap",Jordbruksrevolusjonen,"Jordbruksrevolusjonen: overgangen fra jakt og sanking til jordbruk og husdyrhold, som begynte i Midtøsten for rundt 12 000 år siden og la grunnlaget for fast bosetning, overskudd, byer og stater.",,0,
 boktrykkerkunsten,concept,"Teknologi, økonomi og vitenskap",Boktrykkerkunsten,"Boktrykkerkunsten: Gutenbergs trykking med løse typer fra rundt 1450, som gjorde bøker billigere og raskere å spre, og som bidro til både reformasjonen og vitenskapens utbredelse.",,0,
 vitenskapelige-revolusjon,concept,"Teknologi, økonomi og vitenskap",Den vitenskapelige revolusjonen,"Den vitenskapelige revolusjonen: 1500- og 1600-tallets brudd med det aristoteliske og kirkelige naturbildet, der observasjon, eksperiment og matematikk ble veien til kunnskap om naturen - fra Kopernikus til Newton.",aristoteles-virkelighet,0,
 geosentrisk-heliosentrisk,concept,"Teknologi, økonomi og vitenskap",Geosentrisk og heliosentrisk verdensbilde,"Geosentrisk verdensbilde: jorda står i sentrum, og sola, månen og planetene går rundt den (Ptolemaios).

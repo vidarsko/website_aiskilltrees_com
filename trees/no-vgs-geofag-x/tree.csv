@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,earth-science,,,
 ,config,,keywords,geofag; geologi; jordsystemer; platetektonikk; mineraler; bergarter; bergartssyklusen; landformer; isbreer; løsmasser; hydrologi; grunnvann; naturfarer; skred; kvikkleire; flom; risiko; muntlig-praktisk eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 modell,concept,"Feltarbeid, kart og modeller",Modell i geofag,"Modell: en forenklet framstilling av et geofaglig system eller en prosess — fysisk (f.eks. en sandkasse eller et skredforsøk), konseptuell (en tegning med bokser og piler) eller numerisk (et dataprogram som regner) — brukt til å forklare, undersøke eller forutsi.",,0,
 kart-koordinater,concept,"Feltarbeid, kart og modeller","Målestokk, koordinater og georeferering","Målestokk: forholdet mellom en lengde på kartet og den samme lengden i terrenget, f.eks. 1 : 50 000.
 Koordinater: tall som angir et punkts posisjon, enten som bredde- og lengdegrad eller i et rutenett i meter (UTM).
@@ -77,7 +78,7 @@ Island: divergent grense oppå en varm flekk
 Den østafrikanske riftdalen: divergent grense som er i ferd med å splitte et kontinent
 San Andreas-forkastningen: transformgrense
 Andesfjellene: havbunnsplate subduseres under et kontinent
-Japan: havbunnsplate subduseres under havbunnsplate og danner en øybue
+Japan: Stillehavsplaten subduseres under den eurasiske plata og danner en øybue
 Himalaya: kollisjon mellom to kontinenter (India og Eurasia)
 Hawaii: varm flekk midt på en plate",plategrenser;subduksjon;varm-flekk,0,
 platehastighet,skill,Jordas indre og platetektonikk,Regne ut hvor fort en plate beveger seg,"regne ut farten til en plate ut fra en avstand og en alder (f.eks. mellom vulkaner i en kjede over en varm flekk, eller mellom magnetiske striper), og oppgi svaret i en fornuftig enhet som cm per år.",varm-flekk,0,"Gi eleven et konkret talleksempel, f.eks. to vulkanøyer i en kjede som ligger 300 km fra hverandre og har alderen 1 og 4 millioner år. Be dem regne ut farten i cm per år, med enhetsomregning vist, og vurdere om svaret er rimelig."
@@ -216,7 +217,7 @@ vannets-fordeling,fact,Vannets kretsløp,Hvor vannet på jorda finnes,"havet: om
 ferskvann: omtrent 3 % av alt vann
 isbreer, innlandsis og snø: omtrent to tredeler av ferskvannet
 grunnvann: omtrent en tredel av ferskvannet
-innsjøer, elver og atmosfæren: om lag én prosent av ferskvannet",vannets-kretslop,0,
+innsjøer, elver og atmosfæren: om lag 0,3 prosent av ferskvannet",vannets-kretslop,0,
 nedborfelt,concept,Vannets kretsløp,Nedbørfelt og vannskille,"Nedbørfelt: hele området som drenerer til et bestemt punkt i et vassdrag, slik at all nedbør som faller der, før eller senere passerer det punktet om den ikke fordamper.
 Vannskille: grensen mellom to nedbørfelt, ofte langs høydedrag.",vannets-kretslop;hoydekurver,0,
 vannbalanse,concept,Vannets kretsløp,Vannbalanse,"Vannbalanse: regnskapet for vannet i et nedbørfelt over en periode: nedbør = avrenning + fordampning + endring i lagret vann (i snø, is, innsjøer, jord og grunnvann).",nedborfelt,0,
@@ -245,15 +246,15 @@ Stratovulkan: bratt, lagdelt vulkan av seigere magma med mye gass, med eksplosiv
 Pyroklastisk strøm: en glovarm sky av gass, aske og stein som raser nedover vulkanen.
 Lahar: et slamskred av vann, aske og stein fra en vulkan.",subduksjon;varm-flekk,0,
 skredtyper,concept,Naturfarer og risiko,Skredtyper,"Steinsprang og steinskred: enkeltsteiner eller større mengder stein som løsner fra en bratt fjellside.
-Fjellskred: svært store bergmasser (over en million kubikkmeter) som raser ut, og som kan lage flodbølger om de treffer en fjord eller et vann.
+Fjellskred: svært store bergmasser (over 100 000 kubikkmeter) som raser ut, og som kan lage flodbølger om de treffer en fjord eller et vann.
 Jordskred og flomskred: vannmettede løsmasser som raser ut i en skråning eller følger et bekkeløp.
 Kvikkleireskred: kvikkleire som plutselig går over til væske og flyter ut.
 Snøskred: snømasser som raser ut i bratt terreng.",naturfare-risiko;losmasser,0,
 kvikkleire,concept,Naturfarer og risiko,Kvikkleire,"Kvikkleire: marin leire der saltet som holdt leirpartiklene sammen er vasket ut av ferskt grunnvann, slik at leira kan gå over til en væske når den blir forstyrret. Den finnes bare under marin grense.",marin-grense;skredtyper,0,
 skredutlosning,skill,Naturfarer og risiko,Forklare hvorfor et skred ble utløst,"skille mellom bakenforliggende årsaker og den utløsende faktoren for et skred, og forklare hvordan helning, vann, løsmasser, tele og menneskelige inngrep virker inn.",skredtyper;terrengprofil-helning,0,"Beskriv et skred (f.eks. et jordskred i en bratt li etter flere dager med kraftig regn på tele, eller et kvikkleireskred etter at en bekk har gravd i foten av en skråning) og be eleven forklare hva som lå til rette for skredet, og hva som utløste det."
 norske-skred,fact,Naturfarer og risiko,Kjente skredulykker i Norge,"Verdal 1893: kvikkleireskred, 116 omkom
-Loen 1905 og 1936: fjellskred i Lovatnet laget flodbølger, 61 og 74 omkom
-Tafjord 1934: fjellskred ut i fjorden laget en flodbølge, 40 omkom
+Loen 1905 og 1936: fjellskred i Lovatnet laget flodbølger, 61 og 73 omkom
+Tafjord 1934: fjellskred ut i fjorden laget en flodbølge, 41 omkom
 Rissa 1978: stort kvikkleireskred, 1 omkom
 Gjerdrum 30. desember 2020: kvikkleireskred, 11 omkom",skredtyper;kvikkleire,0,
 flom,concept,Naturfarer og risiko,Flom og gjentaksintervall,"Flom: at vannføringen i et vassdrag blir så stor at elva går over sine bredder, f.eks. ved snøsmelting, kraftig regn, eller begge deler samtidig.

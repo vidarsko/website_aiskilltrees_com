@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,social-sciences,,,
 ,config,,storageKey,no-vgs-entreprenorskap-2-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,entreprenørskap og bedriftsutvikling 2 (norsk videregående skole),,,
 ,config,,slots.expressionFocus,"ramser opp modeller (SWOT, Porter, Ansoff) uten å bruke dem på virksomheten i saken, kaller enhver endring en innovasjon, skriver «vurder» eller «drøft» men gir bare én side, blander strategi (veivalget) med tiltak (det som gjøres), sier «samfunnsansvar» om alt som er positivt for samfunnet, eller tror mer gjeld alltid øker lønnsomheten for eierne",,,
 ,config,,slots.courseSpecifics,"Faget handler om å videreutvikle virksomheter som allerede finnes, og vurderes ofte med en case om en konkret virksomhet. Knytt svar og oppgaver til en navngitt eller oppdiktet virksomhet framfor å la teorien stå alene. Tall for satser, beløpsgrenser og støtteordninger gjelder Norge i 2026; si fra om at slike ordninger endres.",,,
@@ -22,7 +23,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,economics,,,
 ,config,,keywords,entreprenørskap; bedriftsutvikling; videreutvikling; innovasjon; disruptiv innovasjon; samfunnsansvar; bærekraft; åpenhetsloven; forretningsmodell; strategi; Porter; Ansoff; vekst; internasjonalisering; eksport; forretningskultur; Hofstede; lederstiler; prosjekt; nettverk; organisasjonsutvikling; endringsledelse; finansiering; giring; nøkkeltall; Innovasjon Norge; SkatteFUNN,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 fagmodell,concept,Faglig arbeid med etablerte virksomheter,Fagmodell,"Fagmodell: en forenklet framstilling av virkeligheten som hjelper deg å ordne og analysere en situasjon, for eksempel SWOT, Porters fem konkurransekrefter eller Ansoffs matrise. En modell viser bare det den er laget for å vise, og må fylles med opplysninger om den konkrete virksomheten.",,0,
 primaer-sekundaerdata,concept,Faglig arbeid med etablerte virksomheter,Primærdata og sekundærdata,"Primærdata: opplysninger du selv samler inn til akkurat ditt formål, for eksempel gjennom intervju med en leder eller en spørreundersøkelse.
 Sekundærdata: opplysninger som andre allerede har samlet inn, for eksempel årsrapporter, regnskap i Brønnøysundregistrene, statistikk fra SSB og bransjerapporter.",,0,
@@ -61,7 +62,7 @@ barekraftig-verdiskaping,concept,Bærekraft og samfunnsansvar,Bærekraftig verdi
 samfunnsansvar,concept,Bærekraft og samfunnsansvar,Samfunnsansvar,"Samfunnsansvar (CSR): det ansvaret en virksomhet tar for hvordan driften påvirker mennesker, miljø og samfunn, ut over det loven krever, og i hele verdikjeden, også hos leverandører i andre land.",baerekraft,0,
 interessenter,concept,Bærekraft og samfunnsansvar,Interessenter,"Interessent: en person, gruppe eller organisasjon som påvirker eller blir påvirket av virksomheten, for eksempel eiere, ansatte, kunder, leverandører, lokalsamfunnet, myndigheter og miljøorganisasjoner. Interessentene har ofte motstridende krav.",,0,
 interessentanalyse,skill,Bærekraft og samfunnsansvar,Gjennomføre en interessentanalyse,"kartlegge interessentene til en virksomhet, vurdere hvor mye makt og interesse hver av dem har, og foreslå hvordan virksomheten bør håndtere dem.",interessenter;fagmodell,0,
-apenhetsloven,concept,Bærekraft og samfunnsansvar,Åpenhetsloven,"Åpenhetsloven: en norsk lov fra 2022 som pålegger større virksomheter å undersøke om det skjer brudd på menneskerettigheter og anstendige arbeidsforhold i egen drift og hos leverandørene (aktsomhetsvurderinger), gjøre noe med det de finner, offentliggjøre en redegjørelse hvert år, og svare på spørsmål fra allmennheten.",samfunnsansvar,0,
+apenhetsloven,concept,Bærekraft og samfunnsansvar,Åpenhetsloven,"Åpenhetsloven: en norsk lov som trådte i kraft i 2022, og som pålegger større virksomheter å undersøke om det skjer brudd på menneskerettigheter og anstendige arbeidsforhold i egen drift og hos leverandørene (aktsomhetsvurderinger), gjøre noe med det de finner, offentliggjøre en redegjørelse hvert år, og svare på spørsmål fra allmennheten.",samfunnsansvar,0,
 gronnvasking,concept,Bærekraft og samfunnsansvar,Grønnvasking,"Grønnvasking: at en virksomhet gir et mer miljøvennlig eller ansvarlig inntrykk av seg selv eller produktene sine enn det er dekning for. Markedsføringsloven forbyr miljøpåstander som er villedende eller ikke kan dokumenteres.",samfunnsansvar,0,
 vurdere-baerekraftig-verdiskaping,skill,Bærekraft og samfunnsansvar,Vurdere konsekvensene av bærekraftig verdiskaping,"utforske hva det betyr for en bestemt virksomhet å satse på bærekraftig verdiskaping, og vurdere konsekvensene for kostnader, inntekter, omdømme, risiko og konkurransekraft på kort og lang sikt.",barekraftig-verdiskaping;baerekraftsmal;interessentanalyse,0,
 sammenligne-samfunnsansvar,skill,Bærekraft og samfunnsansvar,Sammenligne virksomheters samfunnsansvar lokalt og globalt,"reflektere over hva samfunnsansvar innebærer, og sammenligne hvordan to virksomheter tar samfunnsansvar lokalt og globalt, og skille reelle tiltak fra grønnvasking.",samfunnsansvar;apenhetsloven;gronnvasking;interessentanalyse,0,
@@ -106,8 +107,8 @@ anbefale-vekststrategi,skill,Strategi og vekst,Anbefale en vekststrategi,"plasse
 velge-konkurransestrategi,skill,Strategi og vekst,Vurdere konkurransestrategien til en virksomhet,"avgjøre hvilken generisk konkurransestrategi og markedsstrategi en virksomhet følger, vurdere om den gir et varig konkurransefortrinn, og foreslå endringer.",generiske-strategier;konkurransefortrinn;markedsstrategi;strategisk-analyse,0,
 vurdere-strategier,skill,Strategi og vekst,"Vurdere vekst-, markeds- og konkurransestrategier","utforske hvordan en virksomhet kan bruke vekst-, markeds- og konkurransestrategier sammen når den skal videreutvikles, vurdere fordeler, ulemper og risiko, og anbefale en strategi med konkrete tiltak.",anbefale-vekststrategi;velge-konkurransestrategi,0,
 internasjonalisering,concept,Internasjonalisering,Internasjonalisering,"Internasjonalisering: at en virksomhet tar opp aktivitet i andre land, ved å selge, kjøpe inn, produsere eller samarbeide der. Drivkreftene er ofte et lite hjemmemarked, vekstmuligheter, lavere kostnader og tilgang til kompetanse; hindringene er blant annet kostnader, risiko, avstand, språk og kultur.",vekstmater,0,
-etableringsformer-utland,concept,Internasjonalisering,Måter å gå inn i et utenlandsk marked på,"Direkte eksport: virksomheten selger selv til kunder i utlandet.
-Indirekte eksport: virksomheten selger via en agent eller en importør i landet.
+etableringsformer-utland,concept,Internasjonalisering,Måter å gå inn i et utenlandsk marked på,"Indirekte eksport: virksomheten selger via en agent eller en importør i landet.
+Direkte eksport: virksomheten selger selv til kunder i utlandet.
 Lisens: en utenlandsk virksomhet får betale for å bruke patent, varemerke eller teknologi.
 Joint venture: et nytt selskap som eies sammen med en lokal partner.
 Datterselskap: et eget selskap i landet, eid av virksomheten selv. Kontroll, risiko og kostnad øker nedover lista.",internasjonalisering;vekstmater,0,
@@ -186,9 +187,10 @@ Balanse: viser eiendelene og hvordan de er finansiert med egenkapital og gjeld, 
 lonnsomhet-likviditet-soliditet,concept,Finansiering og lønnsomhet,"Lønnsomhet, likviditet og soliditet","Lønnsomhet: hvor godt virksomheten forrenter kapitalen som er brukt.
 Likviditet: evnen til å betale regningene når de forfaller.
 Soliditet: evnen til å tåle underskudd, målt med hvor stor del av kapitalen som er egenkapital.",regnskap,0,
-nokkeltall,fact,Finansiering og lønnsomhet,Nøkkeltall: formler,"totalkapitalrentabilitet: (driftsresultat + finansinntekter) / gjennomsnittlig totalkapital × 100 %
+nokkeltall,fact,Finansiering og lønnsomhet,Nøkkeltall: formler,"totalkapitalrentabilitet: (resultat før skatt + rentekostnader) / gjennomsnittlig totalkapital × 100 %
 egenkapitalrentabilitet: resultat før skatt / gjennomsnittlig egenkapital × 100 %
-resultatgrad (driftsmargin): driftsresultat / driftsinntekter × 100 %
+resultatgrad: resultat før skatt / driftsinntekter × 100 %
+driftsmargin: driftsresultat / driftsinntekter × 100 %
 likviditetsgrad 1: omløpsmidler / kortsiktig gjeld, og bør helst være over 2
 egenkapitalandel: egenkapital / totalkapital × 100 %",lonnsomhet-likviditet-soliditet,0,
 beregne-nokkeltall,skill,Finansiering og lønnsomhet,Beregne og tolke nøkkeltall,"beregne totalkapitalrentabilitet, egenkapitalrentabilitet, resultatgrad, likviditetsgrad og egenkapitalandel fra et regnskap, og tolke hva tallene sier om virksomheten over tid.",nokkeltall,0,

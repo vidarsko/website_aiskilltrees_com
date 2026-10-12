@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg3,,,
 ,config,,subjectArea,english,,,
 ,config,,keywords,English 2; engelsk 2; engelsk programfag; SPR3031; SPR3032; ENG04-02; literary history; Shakespeare; Romanticism; Modernism; postcolonial literature; American Dream; British Empire; Commonwealth; soft power; UK politics; US politics; civil rights; critical thinking; fallacies; academic writing,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 choose-strategies,skill,Language and style,"Choose strategies for reading, listening, speaking and writing","choose strategies that suit the situation and purpose, such as reading a scholarly article selectively, taking structured notes from a lecture, planning a long text before drafting, and paraphrasing when a word is missing in speech.",,0,
 write-precisely,skill,Language and style,Write with precision and variety,"choose the precise word over the approximate one, and vary vocabulary and sentence structure so that a long text stays exact and readable.",,0,
 tone,concept,Language and style,Tone,"Tone: the attitude a text expresses towards its subject and its reader, such as neutral, ironic, urgent or sympathetic.",,0,
@@ -91,7 +92,7 @@ periods,fact,Literary history,Literary periods in English,"the English Renaissan
 Romanticism: about 1790–1830
 the Victorian period: 1837–1901
 Modernism: about 1900–1940
-the Harlem Renaissance: the 1920s and 1930s
+the Harlem Renaissance: the 1920s
 postcolonial literature: from about 1950
 postmodernism: from about 1960",literary-period,0,
 works-and-authors,fact,Literary history,Key works and their authors,"Hamlet (about 1600): William Shakespeare
@@ -112,7 +113,7 @@ romanticism,concept,Literary history,Romanticism,"Romanticism: a movement that r
 victorian-realism,concept,Literary history,Victorian realism,"Victorian realism: novels that portray society in detail, often criticising class divisions, poverty and the effects of industrialisation, as Dickens does.",literary-period,0,
 modernism,concept,Literary history,Modernism,"Modernism: a movement after about 1900 that broke with traditional forms to express a fragmented, uncertain world, especially after the First World War.
 Stream of consciousness: a technique that renders a character's flow of thoughts and impressions as they occur.",literary-period,0,
-harlem-renaissance,concept,Literary history,Harlem Renaissance,"Harlem Renaissance: a flowering of African American literature, music and art centred on Harlem in New York in the 1920s and 1930s, exploring Black identity and experience.",literary-period,0,
+harlem-renaissance,concept,Literary history,Harlem Renaissance,"Harlem Renaissance: a flowering of African American literature, music and art centred on Harlem in New York in the 1920s, exploring Black identity and experience.",literary-period,0,
 american-dream,concept,Literary history,The American Dream,"American Dream: the idea that anyone in the USA can achieve success and a better life through hard work, whatever their background; an idea literature often questions.",,0,
 postcolonial-literature,concept,Literary history,Postcolonial literature,"Postcolonial literature: literature from or about former colonies that deals with colonialism and its after-effects, such as identity, language, power and the voices of the colonised.",literary-period,0,
 postmodernism,concept,Literary history,Postmodernism,"Postmodernism: a movement from about the 1960s that questions grand narratives and fixed truths, often through irony, mixed genres and play with form.
@@ -142,7 +143,7 @@ Hong Kong handed over to China: 1997",british-empire,0,
 soft-power,concept,Global influence,Soft power and hard power,"Soft power: a country's ability to influence others through attraction, such as its culture, values and institutions.
 Hard power: influence through military force or economic pressure.",,0,
 superpower-cold-war,concept,Global influence,Superpower and the Cold War,"Superpower: a state with dominant global military, economic and political power, as the USA has been since 1945 and the Soviet Union was until 1991.
-Cold War: the rivalry between the USA and the Soviet Union from about 1947 to 1991, fought through arms races, alliances and proxy wars rather than direct war between them.",,0,
+Cold War: the rivalry between the USA and the Soviet Union from 1945 to 1991, fought through arms races, alliances and proxy wars rather than direct war between them.",,0,
 global-institutions,fact,Global influence,The USA and the UK in international institutions,"the United Nations founded: 1945
 the Marshall Plan for rebuilding Western Europe: 1948
 NATO founded: 1949
@@ -168,7 +169,7 @@ Electoral College: the system by which the US states choose the President, where
 Two-party system: a system dominated by two large parties, which first past the post tends to produce.",,0,
 uk-us-institutions,fact,The UK and the USA compared,Institutions in the UK and the USA,"UK Parliament: the House of Commons and the House of Lords
 members of the House of Commons: 650
-longest time between UK general elections: five years
+House of Commons: elected for at most five years
 US Congress: the Senate and the House of Representatives
 US Senate: 100 senators, two per state, elected for six years
 US House of Representatives: 435 members, elected for two years

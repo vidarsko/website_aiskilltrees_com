@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,natural-sciences,,,
 ,config,,storageKey,no-vgs-geofag-1-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"geofag 1 (programfag realfag, norsk videregående skole, REA3042)",,,
 ,config,,slots.expressionFocus,"blander sammen mineral og bergart, forvitring og erosjon, berggrunn og løsmasser, eller magnitude og intensitet; skriver «jordskorpa» der det menes litosfæren; sier at platene «flyter på flytende magma» selv om mantelen stort sett er fast; oppgir aldre og hastigheter uten enhet eller tidsskala; eller bruker «risiko» om selve faren uten å ta med sannsynlighet og konsekvens",,,
 ,config,,slots.courseSpecifics,"Faget har standpunktkarakter og ingen skriftlig eksamen. Eleven kan trekkes ut til muntlig-praktisk eksamen med forberedelsesdel, laget og sensurert lokalt, der eleven gjerne legger fram eget feltarbeid, kart, bergartsprøver eller en modell og forklarer det muntlig med fagbegreper. Bruk norske eksempler og lokale forhold der det passer.",,,
@@ -22,7 +23,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,earth-science,,,
 ,config,,keywords,geofag; geologi; jordsystemer; platetektonikk; mineraler; bergarter; bergartssyklusen; datering; landformer; isbreer; løsmasser; hydrologi; grunnvann; ferskvann; naturressurser; naturfarer; skred; kvikkleire; flom; feltarbeid; muntlig-praktisk eksamen,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 modell,concept,"Feltarbeid, kart og modeller",Modell i geofag,"Modell: en forenklet framstilling av et geofaglig system eller en prosess — fysisk (f.eks. en sandkasse eller et skredforsøk), konseptuell (en tegning med bokser og piler) eller numerisk (et dataprogram som regner) — brukt til å forklare, undersøke eller forutsi.",,0,
 kart-koordinater,concept,"Feltarbeid, kart og modeller","Målestokk, koordinater og georeferering","Målestokk: forholdet mellom en lengde på kartet og den samme lengden i terrenget, f.eks. 1 : 50 000.
 Koordinater: tall som angir et punkts posisjon, enten som bredde- og lengdegrad eller i et rutenett i meter (UTM).
@@ -78,7 +79,7 @@ Island: divergent grense oppå en varm flekk
 Den østafrikanske riftdalen: divergent grense som er i ferd med å splitte et kontinent
 San Andreas-forkastningen: transformgrense
 Andesfjellene: havbunnsplate subduseres under et kontinent
-Japan: havbunnsplate subduseres under havbunnsplate og danner en øybue
+Japan: stillehavsplaten subduseres under den eurasiske plata og danner en øybue
 Himalaya: kollisjon mellom to kontinenter (India og Eurasia)
 Hawaii: varm flekk midt på en plate",plategrenser;subduksjon;varm-flekk,0,
 platehastighet,skill,Jordas indre og platetektonikk,Regne ut hvor fort en plate beveger seg,"regne ut farten til en plate ut fra en avstand og en alder (f.eks. mellom vulkaner i en kjede over en varm flekk, eller mellom magnetiske striper), og oppgi svaret i en fornuftig enhet som cm per år.",varm-flekk,0,"Gi eleven et konkret talleksempel, f.eks. to vulkanøyer i en kjede som ligger 300 km fra hverandre og har alderen 1 og 4 millioner år. Be dem regne ut farten i cm per år, med enhetsomregning vist, og vurdere om svaret er rimelig."
@@ -128,11 +129,11 @@ Diagenese: prosessen der løse sedimenter blir pakket sammen og sementert til fa
 metamorfe,concept,Mineraler og bergarter,Metamorfose og foliasjon,"Metamorfose: omdanning av en fast bergart ved høyere temperatur og trykk, slik at mineralene vokser om eller nye mineraler dannes, uten at bergarten smelter.
 Foliasjon: lagdeling eller bånding i en metamorf bergart, der mineralene har ordnet seg på tvers av trykket, f.eks. i glimmerskifer og gneis.",bergartsgrupper,0,
 kornstorrelser,fact,Mineraler og bergarter,Kornstørrelser i sedimenter,"leire: mindre enn 0,002 mm
-silt: 0,002–0,063 mm
-sand: 0,063–2 mm
-grus: 2–64 mm
-stein: 64–256 mm
-blokk: større enn 256 mm",sedimentaere,0,
+silt: 0,002–0,06 mm
+sand: 0,06–2 mm
+grus: 2–60 mm
+stein: 60–600 mm
+blokk: større enn 600 mm",sedimentaere,0,
 sortering-rundingsgrad,concept,Mineraler og bergarter,Sortering og rundingsgrad,"Sortering: hvor like store kornene i et sediment er. Godt sortert sediment (f.eks. elvesand) er avsatt av vann eller vind; dårlig sortert sediment med alle kornstørrelser (f.eks. morene) er avsatt av is eller skred.
 Rundingsgrad: hvor avrundede kornene er. Jo lenger de har blitt transportert i vann, jo rundere blir de.",kornstorrelser,0,
 vanlige-bergarter,fact,Mineraler og bergarter,Vanlige bergarter og hvordan de kjennes igjen,"granitt: lys, grovkornet dypbergart med kvarts, feltspat og glimmer
@@ -198,7 +199,7 @@ Elveslette: flat dalbunn av elveavsetninger som oversvømmes ved flom.
 Delta: avsetning der elva munner ut i en innsjø eller i havet og mister farten.
 Elvevifte: vifteformet avsetning der en bratt elv kommer ut i en flatere dal.",erosjon-avsetning,0,
 breerosjon,concept,Landformer,Landformer laget av breerosjon,"U-dal: dal med bratte sider og flat bunn, gravd ut av en isbre.
-Fjord: U-dal som er gravd ut under havnivå og senere fylt av sjøen, ofte dypest innerst og grunnere ytterst.
+Fjord: U-dal som er gravd ut under havnivå og senere fylt av sjøen, ofte grunnere ved munningen enn lenger inne.
 Botn: lenestolformet fordypning høyt i fjellsiden der en liten bre har gravd seg inn.
 Egg og horn: skarpe rygger og spisse topper som står igjen der flere botner har gravd seg inn mot hverandre.
 Skuringsstriper: riper i berget fra stein som isen har dratt med seg, og som viser hvilken vei isen beveget seg.",erosjon-avsetning,0,
@@ -227,7 +228,7 @@ vannets-fordeling,fact,Vannets kretsløp og ferskvann,Hvor vannet på jorda finn
 ferskvann: omtrent 3 % av alt vann
 isbreer, innlandsis og snø: omtrent to tredeler av ferskvannet
 grunnvann: omtrent en tredel av ferskvannet
-innsjøer, elver og atmosfæren: om lag én prosent av ferskvannet",vannets-kretslop,0,
+innsjøer, elver og atmosfæren: bare rundt 0,3 prosent av ferskvannet",vannets-kretslop,0,
 nedborfelt,concept,Vannets kretsløp og ferskvann,Nedbørfelt og vannskille,"Nedbørfelt: hele området som drenerer til et bestemt punkt i et vassdrag, slik at all nedbør som faller der, før eller senere passerer det punktet om den ikke fordamper.
 Vannskille: grensen mellom to nedbørfelt, ofte langs høydedrag.",vannets-kretslop;hoydekurver,0,
 vannbalanse,concept,Vannets kretsløp og ferskvann,Vannbalanse,"Vannbalanse: regnskapet for vannet i et nedbørfelt over en periode: nedbør = avrenning + fordampning + endring i lagret vann (i snø, is, innsjøer, jord og grunnvann).",nedborfelt,0,
@@ -283,17 +284,17 @@ Pyroklastisk strøm: en glovarm sky av gass, aske og stein som raser nedover vul
 Lahar: et slamskred av vann, aske og stein fra en vulkan.",subduksjon;varm-flekk,0,
 tsunami,concept,Naturfarer og risiko,Tsunami,"Tsunami: en flodbølge som oppstår når store vannmasser plutselig forskyves, f.eks. av et jordskjelv under havbunnen, et skred ut i havet eller en fjord, eller et vulkanutbrudd. Til havs er bølgen lav og svært rask; mot land bremses den og vokser i høyde.",jordskjelv,0,
 skredtyper,concept,Naturfarer og risiko,Skredtyper,"Steinsprang og steinskred: enkeltsteiner eller større mengder stein som løsner fra en bratt fjellside.
-Fjellskred: svært store bergmasser (over en million kubikkmeter) som raser ut, og som kan lage flodbølger om de treffer en fjord eller et vann.
+Fjellskred: svært store bergmasser (over 100 000 kubikkmeter) som raser ut, og som kan lage flodbølger om de treffer en fjord eller et vann.
 Jordskred og flomskred: vannmettede løsmasser som raser ut i en skråning eller følger et bekkeløp.
 Kvikkleireskred: kvikkleire som plutselig går over til væske og flyter ut.
 Snøskred: snømasser som raser ut i bratt terreng.",naturfare-risiko;losmasser,0,
 kvikkleire,concept,Naturfarer og risiko,Kvikkleire,"Kvikkleire: marin leire der saltet som holdt leirpartiklene sammen er vasket ut av ferskt grunnvann, slik at leira kan gå over til en væske når den blir forstyrret. Den finnes bare under marin grense.",marin-grense;skredtyper,0,
 skredutlosning,skill,Naturfarer og risiko,Forklare hvorfor et skred ble utløst,"skille mellom bakenforliggende årsaker og den utløsende faktoren for et skred, og forklare hvordan helning, vann, løsmasser, tele og menneskelige inngrep virker inn.",skredtyper;terrengprofil-helning,0,"Beskriv et skred (f.eks. et jordskred i en bratt li etter flere dager med kraftig regn på tele, eller et kvikkleireskred etter at en bekk har gravd i foten av en skråning) og be eleven forklare hva som lå til rette for skredet, og hva som utløste det."
 norske-skred,fact,Naturfarer og risiko,Kjente skredulykker i Norge,"Verdal 1893: kvikkleireskred, 116 omkom
-Loen 1905 og 1936: fjellskred i Lovatnet laget flodbølger, 61 og 74 omkom
-Tafjord 1934: fjellskred ut i fjorden laget en flodbølge, 40 omkom
+Loen 1905 og 1936: fjellskred i Lovatnet laget flodbølger, 61 og 73 omkom
+Tafjord 1934: fjellskred ut i fjorden laget en flodbølge, 41 omkom
 Rissa 1978: stort kvikkleireskred, 1 omkom
-Gjerdrum 30. desember 2020: kvikkleireskred, 11 omkom",skredtyper;kvikkleire,0,
+Gjerdrum 30. desember 2020: kvikkleireskred, 10 omkom",skredtyper;kvikkleire,0,
 flom,concept,Naturfarer og risiko,Flom og gjentaksintervall,"Flom: at vannføringen i et vassdrag blir så stor at elva går over sine bredder, f.eks. ved snøsmelting, kraftig regn, eller begge deler samtidig.
 Gjentaksintervall: hvor mange år det i gjennomsnitt går mellom hver gang en flom av en gitt størrelse inntreffer. En 200-årsflom har 1/200 = 0,5 % sannsynlighet for å inntreffe hvert eneste år.",vannforing;naturfare-risiko,0,
 gjentak-sannsynlighet,skill,Naturfarer og risiko,Regne ut sannsynligheten for en flom over flere år,"regne ut sannsynligheten for at en flom med et gitt gjentaksintervall inntreffer minst én gang i løpet av en periode, og forklare hvorfor en 100-årsflom kan komme to år på rad.",flom,0,"Be eleven regne ut sannsynligheten for minst én 200-årsflom i løpet av 50 år (via 1 − (1 − 1/200)^50), og deretter forklare for en huseier hvorfor «det var jo 100-årsflom i fjor» ikke betyr at de er trygge i 99 år."

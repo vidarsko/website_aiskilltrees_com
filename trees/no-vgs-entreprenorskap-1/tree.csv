@@ -22,7 +22,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,economics,,,
 ,config,,keywords,entreprenørskap; bedriftsutvikling; gründer; etablering; forretningsidé; forretningsmodell; innovasjon; kreativitet; markedsføring; segmentering; SWOT; selskapsform; aksjeselskap; enkeltpersonforetak; merverdiavgift; budsjett; likviditet; kapitalbehov; finansiering; regnskap; nøkkeltall; bærekraft; ledelse; team,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 entreprenorskap,concept,Entreprenørskap og faglig arbeid,Entreprenørskap,"Entreprenør: en person som oppdager en mulighet og setter den ut i livet ved å etablere noe nytt, og som bærer risikoen det innebærer.
 Entreprenørskap: prosessen der noen oppdager, vurderer og utnytter en mulighet til å skape verdier, ofte ved å starte en ny virksomhet.
 Intraprenørskap: entreprenørskap innenfor en virksomhet som allerede finnes.",,0,
@@ -121,7 +122,7 @@ sette-smart-mal,skill,Situasjonsanalyse og mål,Sette mål for oppstartsfasen,"s
 vurdere-utviklingsmuligheter,skill,Situasjonsanalyse og mål,Vurdere utviklingsmuligheter ut fra situasjonsanalysen,"bruke situasjonsanalysen til å vurdere hvilke utviklingsmuligheter en ny virksomhet har, og velge mål som bygger på styrkene og utnytter mulighetene.",gjennomfore-swot;sette-smart-mal,0,
 konkurransemidler,concept,Konkurransemidler,Konkurransemidler (4P),"Konkurransemidler: virkemidlene en virksomhet bruker for å få kundene til å velge den. I 4P-modellen er de produkt, pris, plass (distribusjon) og påvirkning (markedskommunikasjon).
 Tjenester (7P): for tjenester legges personale, prosess og fysiske omgivelser til.",markedsundersokelse,0,
-produktlivssyklus,concept,Konkurransemidler,Produktlivssyklusen,"Produktlivssyklusen: fasene et produkt går gjennom i markedet: introduksjon, vekst, metning og nedgang. Salg, konkurranse og hvilke konkurransemidler som virker best, endrer seg fra fase til fase.",konkurransemidler,0,
+produktlivssyklus,concept,Konkurransemidler,Produktlivssyklusen,"Produktlivssyklusen: fasene et produkt går gjennom i markedet: introduksjon, vekst, modning, metning og nedgang. Salg, konkurranse og hvilke konkurransemidler som virker best, endrer seg fra fase til fase.",konkurransemidler,0,
 prisstrategi,concept,Konkurransemidler,Prisstrategi ved lansering,"Skumming: å starte med en høy pris mot kundene som er villige til å betale mest, og senke den senere.
 Penetrasjonspris: å starte med en lav pris for raskt å få mange kunder og en stor markedsandel.",konkurransemidler,0,
 distribusjon,concept,Konkurransemidler,Direkte og indirekte distribusjon,"Direkte distribusjon: virksomheten selger direkte til sluttkunden, for eksempel i egen nettbutikk.
@@ -139,7 +140,7 @@ Solidarisk ansvar: hver deltaker kan kreves for hele gjelden og må selv kreve r
 Delt ansvar: hver deltaker hefter bare for sin egen andel av gjelden.",selskapsform,0,
 selskapsformer,fact,Selskapsformer og etablering,Selskapsformene,"ENK (enkeltpersonforetak): én eier med ubegrenset personlig ansvar, og ingen krav til startkapital
 ANS (ansvarlig selskap): to eller flere deltakere med ubegrenset og solidarisk ansvar
-DA (selskap med delt ansvar): to eller flere deltakere med ubegrenset, men delt ansvar etter eierandel
+DA (selskap med delt ansvar): to eller flere deltakere med ubegrenset, men delt ansvar etter ansvarsandelen i selskapsavtalen
 AS (aksjeselskap): eierne har begrenset ansvar, og aksjekapitalen må være minst 30 000 kroner
 ASA (allmennaksjeselskap): eierne har begrenset ansvar, aksjekapitalen må være minst 1 million kroner, og aksjene kan omsettes på børs
 SA (samvirkeforetak): eies av medlemmene, for eksempel kunder eller produsenter, og medlemmene har begrenset ansvar
@@ -154,7 +155,7 @@ bøker og aviser: 0 % (fritatt, men virksomheten får trekke fra inngående MVA)
 helsetjenester, undervisning og finansielle tjenester: unntatt (ingen MVA, og ingen fradrag for inngående MVA)
 grensen for å registrere seg i Merverdiavgiftsregisteret: 50 000 kroner i avgiftspliktig salg i løpet av 12 måneder",mva,0,
 registre-plikter,fact,Selskapsformer og etablering,Registrering og plikter ved etablering,"Enhetsregisteret: alle virksomheter registreres her og får et organisasjonsnummer
-Foretaksregisteret: AS, ASA, ANS og DA må registreres her; et ENK må registreres hvis det driver handel eller har flere enn fem ansatte
+Foretaksregisteret: AS, ASA, ANS og DA må registreres her; et ENK har som hovedregel ikke plikt, men kan registrere seg frivillig
 Merverdiavgiftsregisteret: virksomheten må registreres når avgiftspliktig salg passerer 50 000 kroner i løpet av 12 måneder
 Altinn: nettportalen der virksomheten registreres og leverer meldinger til det offentlige
 bokføringsplikt: alle næringsdrivende må dokumentere og bokføre inntekter og kostnader
@@ -223,7 +224,7 @@ lese-regnskap,skill,Regnskap og lønnsomhet,Lese et årsregnskap,"finne driftsin
 lonnsomhet-likviditet-soliditet,concept,Regnskap og lønnsomhet,"Lønnsomhet, likviditet og soliditet","Lønnsomhet: hvor godt virksomheten forrenter kapitalen som er brukt. Et overskudd i kroner sier lite før det ses i forhold til kapitalen eller omsetningen.
 Likviditet: evnen til å betale regningene når de forfaller.
 Soliditet: evnen til å tåle underskudd uten å gå konkurs, målt med hvor stor del av kapitalen som er egenkapital.",regnskap,0,
-nokkeltall,fact,Regnskap og lønnsomhet,Nøkkeltall: formler,"totalkapitalrentabilitet: (driftsresultat + finansinntekter) / gjennomsnittlig totalkapital × 100 %
+nokkeltall,fact,Regnskap og lønnsomhet,Nøkkeltall: formler,"totalkapitalrentabilitet: (resultat før skatt + rentekostnader) / gjennomsnittlig totalkapital × 100 %
 egenkapitalrentabilitet: resultat før skatt / gjennomsnittlig egenkapital × 100 %
 resultatgrad (driftsmargin): driftsresultat / driftsinntekter × 100 %
 likviditetsgrad 1: omløpsmidler / kortsiktig gjeld, og bør helst være over 2

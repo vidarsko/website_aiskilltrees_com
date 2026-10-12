@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg1,,,
 ,config,,subjectArea,english,,,
 ,config,,keywords,English Vg1; engelsk; ENG1007; grammar; academic writing; essay; argumentative text; source criticism; literary analysis; short story; poetry; film analysis; global English; World Englishes; British Empire; indigenous peoples; pronunciation; false friends,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 learning-strategy,concept,Language learning and tools,Language-learning strategy,"Language-learning strategy: a deliberate way of working that helps you learn or use a language better, such as noting new words in a sentence rather than alone, reading aloud, or keeping a list of your own recurring errors.",,0,
 communication-strategy,concept,Language learning and tools,Communication strategy,"Communication strategy: a way of keeping communication going when a word or structure is missing, such as paraphrasing, describing the thing, using a more general word, or asking the other person to clarify.",,0,
 use-communication-strategies,skill,Language learning and tools,Keep communication going without the right word,"keep a conversation or a text going when a word is missing, by paraphrasing, describing or choosing a more general word, instead of switching to Norwegian or stopping.",communication-strategy,0,
@@ -109,7 +110,7 @@ express-nuance,skill,Vocabulary and style,Express yourself with nuance and preci
 difficult-sounds,concept,Speaking and listening,English sounds that are hard for Norwegians,"th: the sounds in think and this, which do not exist in Norwegian.
 w and v: wine and vine are different words.
 Voiced s: the s in is, eyes and was is pronounced as z.
-j and y: the j in job is pronounced dʒ, not like the Norwegian j in yes.
+j and y: the j in job is pronounced dʒ, not like the Norwegian j, which sounds like the y in yes.
 ch and sh: chip and ship are different words.",,0,
 stress-intonation,concept,Speaking and listening,Stress and intonation,"Word stress: one syllable in a word is stressed, and it can move within a word family (PHOtograph, phoTOgraphy).
 Sentence stress: the most important words in a sentence are stressed.
@@ -192,8 +193,8 @@ Editing: how shots are cut together, which sets the pace and links scenes.",,0,
 multimodal-text,concept,"Literature, film and media",Multimodal text,"Multimodal text: a text that combines several modes, such as writing, images, sound, film and layout, so that together they create meaning. A video game adds interaction: the player's choices shape the story.",,0,
 analyse-film,skill,"Literature, film and media",Analyse a film scene,"analyse how shot types, camera angles, sound, lighting and editing in a film scene create mood and meaning, and link this to the film's theme.",film-techniques;interpret-theme,0,
 discuss-cultural-expression,skill,"Literature, film and media","Discuss music, film and games from the English-speaking world","discuss and reflect on form, content and devices in an English-language song, film, series or game, and relate it to the time and society it comes from.",analyse-film;analyse-poem;multimodal-text,0,
-language-history,concept,The English-speaking world,The history of the English language,"Old English: about 450 to 1100, a Germanic language brought to Britain by Angles, Saxons and Jutes, with many Norse loanwords from the Viking age (sky, egg, they, knife, window).
-Middle English: about 1100 to 1500, heavily influenced by French after the Norman Conquest.
+language-history,concept,The English-speaking world,The history of the English language,"Old English: about 450 to 1100, a Germanic language brought to Britain by Angles, Saxons and Jutes.
+Middle English: about 1100 to 1500, heavily influenced by French after the Norman Conquest, and taking in many Norse loanwords from the Viking settlers (sky, egg, they, knife, window).
 Early Modern English: about 1500 to 1700, the language of Shakespeare and the King James Bible, standardised by printing.
 Modern English: from about 1700, with dictionaries, grammars and global spread.",,0,
 colonialism,concept,The English-speaking world,Colonialism and the British Empire,"Colonialism: one country taking control of other territories and their people, settling them or exploiting them economically.

@@ -23,7 +23,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg2,,,
 ,config,,subjectArea,english,,,
 ,config,,keywords,English 1; engelsk 1; engelsk programfag; SPR3029; SPR3030; ENG04-02; academic writing; essay; source criticism; literary analysis; film analysis; varieties of English; World Englishes; global English; lingua franca; current debates; in-depth project,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 reading-strategies,concept,Strategies and learning,Reading strategies,"Skimming: reading quickly for the gist and the main points.
 Scanning: searching a text for one particular piece of information.
 Close reading: reading slowly to understand details, language and argument.",,0,

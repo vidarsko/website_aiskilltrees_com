@@ -7,6 +7,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectFamily,social-sciences,,,
 ,config,,storageKey,no-vgs-geografi-ferdighetstre-fullfort,,,
 ,config,,features.motivation,false,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,geografi Vg1 (fellesfag i norsk videregående skole),,,
 ,config,,slots.expressionFocus,"forveksler vær og klima, blander forvitring og erosjon, bruker «drivhuseffekten» om bare den menneskeskapte delen, forveksler fødselsrate og samlet fruktbarhetstall, sammenligner absolutte tall der relative tall trengs, eller oppgir et tall uten kilde og årstall",,,
 ,config,,slots.courseSpecifics,"Faget vurderes med standpunktkarakter, og eleven kan trekkes ut til lokalt gitt muntlig eksamen med forberedelsesdel. Øv derfor på å forklare og drøfte muntlig og med egne eksempler, og be alltid om kilde og årstall når eleven bruker et tall.",,,
@@ -22,7 +23,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,vg1,,,
 ,config,,subjectArea,geography,,,
 ,config,,keywords,kart;målestokk;feltarbeid;platetektonikk;istid;klima;klimaendringer;naturkatastrofe;skred;demografi;befolkningspyramide;levekår;HDI;Sápmi;nordområdene;arealkonflikt;bærekraft;økologisk fotavtrykk,,,
-,config,,updated,2026-10-08,,,
+,config,,updated,2026-10-12,,,
 geografisk-niva,concept,Geografiske metoder og kart,Geografisk nivå,"Geografisk nivå: hvor stort område man ser et fenomen i - lokalt (nærmiljøet), regionalt (en landsdel eller en gruppe land), nasjonalt (et land) eller globalt (hele verden). Det samme fenomenet kan se ulikt ut på ulike nivåer.",,0,
 kart-typer,concept,Geografiske metoder og kart,Topografisk og tematisk kart,"Topografisk kart: et kart som viser terrenget og det som ligger der - høyder, vann, veier, bebyggelse og stedsnavn.
 Tematisk kart: et kart som viser hvordan ett tema fordeler seg over et område, som befolkningstetthet, nedbør eller valgresultat.",,0,
@@ -43,7 +44,7 @@ presentere-geografisk-tema,skill,Geografiske metoder og kart,Utforske og present
 feltarbeid,concept,Geografiske metoder og kart,Feltarbeid,"Feltarbeid: å samle inn egne data ute i nærmiljøet eller terrenget - ved observasjon, måling, telling, intervju eller foto - og bearbeide dem etterpå. Det gir førstehåndsdata, men et lite og lokalt utvalg.",,0,
 planlegge-feltarbeid,skill,Geografiske metoder og kart,Planlegge et feltarbeid,"formulere en problemstilling som kan undersøkes i felt, velge metode, sted og utstyr, og planlegge for sikkerheten.",feltarbeid,0,
 gjennomfore-feltarbeid,skill,Geografiske metoder og kart,Gjennomføre og presentere et feltarbeid,"samle inn data i felt, bearbeide dem til tabeller, diagrammer eller kart, presentere funnene og vurdere feilkilder og hva dataene kan og ikke kan si.",planlegge-feltarbeid;lese-lage-diagram;lese-topografisk-kart,0,
-platetektonikk,concept,Landskap og naturkrefter,Platetektonikk,"Platetektonikk: jordskorpa og den øverste delen av mantelen (litosfæren) er delt i plater som flytter seg noen centimeter i året. De drives av varmestrømmer i mantelen under, og det meste av vulkanisme og jordskjelv skjer der platene møtes.",,0,
+platetektonikk,concept,Landskap og naturkrefter,Platetektonikk,"Platetektonikk: jordskorpa og den øverste delen av mantelen (litosfæren) er delt i plater som flytter seg noen centimeter i året. De drives av tyngdekraften, som trekker kalde og tunge plater ned i mantelen, og av varmestrømmer i mantelen under, og det meste av vulkanisme og jordskjelv skjer der platene møtes.",,0,
 plategrenser,concept,Landskap og naturkrefter,Plategrenser,"Divergerende plategrense: platene beveger seg fra hverandre, og ny skorpe dannes, som ved den midtatlantiske ryggen.
 Konvergerende plategrense: platene beveger seg mot hverandre; den ene presses ned under den andre (subduksjon), eller skorpa foldes opp til fjellkjeder.
 Transformgrense: platene glir langs hverandre, som ved San Andreas-forkastningen.",platetektonikk,0,
@@ -53,7 +54,7 @@ forvitring,concept,Landskap og naturkrefter,Forvitring,"Forvitring: at fast berg
 erosjon-avsetning,concept,Landskap og naturkrefter,Erosjon og avsetning,"Erosjon: at vann, is eller vind river løs og frakter bort materiale.
 Avsetning: at materialet legger seg igjen når transporten mister kraft, som sand i et elvedelta eller grus i en morene.",indre-ytre-krefter,0,
 bergarter,concept,Landskap og naturkrefter,Bergartsgrupper,"Magmatisk bergart: dannet når smeltet stein (magma) størkner, som granitt og basalt.
-Sedimentær bergart: dannet av lag med avsatt materiale som presses sammen, som sandstein og skifer. Olje og gass finnes i slike bergarter.
+Sedimentær bergart: dannet av lag med avsatt materiale som presses sammen, som sandstein og kalkstein. Olje og gass finnes i slike bergarter.
 Omdannet (metamorf) bergart: en bergart som er endret av høyt trykk og høy temperatur, som gneis og marmor.",platetektonikk,0,
 brelandskap,concept,Landskap og naturkrefter,Brelandskap,"U-dal: en dal med bred bunn og bratte sider, gravd ut av en isbre.
 Fjord: en dal gravd ut av en isbre, som havet har fylt etter istida.
@@ -84,8 +85,8 @@ Konveksjonsnedbør: nedbør når bakken varmes opp og lufta stiger raskt, ofte s
 havstromer,concept,Vær og klima,Havstrømmer,"Havstrøm: en stor, vedvarende bevegelse av havvann som frakter varme fra et sted til et annet. Den nordatlantiske strømmen, en forlengelse av Golfstrømmen, frakter varmt vann nordover langs norskekysten.",,0,
 klimasoner,fact,Vær og klima,Klimasonene,"A: tropisk klima - varmt hele året
 B: tørt klima - fordampningen er større enn nedbøren
-C: temperert klima - milde vintre
-D: kontinentalt (boreal) klima - kalde vintre og varme somre
+C: varm-temperert klima - milde vintre
+D: kald-temperert (boreal) klima - kalde vintre og korte, relativt varme somre
 E: polart klima - kaldt hele året",,0,
 lese-klimadiagram,skill,Vær og klima,Lese et klimadiagram,"lese temperatur og nedbør gjennom året fra et klimadiagram, og beskrive klimaet på stedet med egne ord.",vaer-klima;lese-lage-diagram,0,
 forklare-klimasoner,skill,Vær og klima,Forklare hvorfor klimaet varierer over jorda,"forklare hvordan breddegrad, høytrykk og lavtrykk, havstrømmer og avstand til havet gir ulike klimasoner, og avgjøre hvilken klimasone et klimadiagram hører til.",klimasoner;global-luftsirkulasjon;havstromer;lese-klimadiagram,0,
@@ -116,7 +117,7 @@ forklare-reindrift-konflikt,skill,Ressurs- og arealbruk i Norge og nordområdene
 forklare-nordomradenes-ressurser,skill,Ressurs- og arealbruk i Norge og nordområdene,Forklare interessene i nordområdene,"forklare hvilke ressurser som finnes i nordområdene, og hvilke interesser som støter sammen der: fiske, olje og gass, skipsfart, miljø og sikkerhet.",nordomradene;okonomisk-sone;petroleum;fornybar-ressurs,0,
 drofte-ressurs-arealbruk,skill,Ressurs- og arealbruk i Norge og nordområdene,"Drøfte interesser i ressurs- og arealbruk i Norge, Sápmi og nordområdene","drøfte ulike interesser knyttet til ressurs- og arealbruk i Norge, Sápmi og nordområdene, veie hensynene mot hverandre og komme fram til en begrunnet vurdering.",analysere-arealkonflikt;forklare-reindrift-konflikt;forklare-nordomradenes-ressurser;baerekraftig-utvikling,0,
 drivhuseffekt,concept,Klimaendringer,Drivhuseffekten,"Drivhuseffekten: at gasser i atmosfæren slipper sollyset inn, men holder igjen en del av varmestrålingen fra jorda. Uten den ville jorda vært mye kaldere.
-Klimagass: en gass som bidrar til drivhuseffekten, særlig karbondioksid (CO₂), metan og lystgass.
+Klimagass: en gass som bidrar til drivhuseffekten, særlig vanndamp, karbondioksid (CO₂), metan og lystgass.
 Forsterket drivhuseffekt: den ekstra oppvarmingen som skyldes at mennesker har økt mengden klimagasser, mest ved å brenne kull, olje og gass.",,0,
 global-oppvarming,concept,Klimaendringer,Global oppvarming,"Global oppvarming: at gjennomsnittstemperaturen ved jordoverflaten stiger over tid. Den nåværende oppvarmingen skyldes i hovedsak den forsterkede drivhuseffekten.",drivhuseffekt;vaer-klima,0,
 tilbakekobling,concept,Klimaendringer,Tilbakekobling i klimasystemet,"Tilbakekobling: en endring som forsterker eller demper seg selv. Når is og snø smelter, blir overflaten mørkere og tar opp mer sollys, så det blir enda varmere; når permafrost tiner, frigjøres klimagasser som varmer mer.",global-oppvarming,0,

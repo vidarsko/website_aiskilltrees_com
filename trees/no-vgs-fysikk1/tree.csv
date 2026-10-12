@@ -18,7 +18,8 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,institution,vgs,,,
 ,config,,division,vg2,,,
 ,config,,subjectArea,physics,,,
-,config,,updated,2026-10-05,,,
+,config,,updated,2026-10-12,,,
+,config,,features.resources,true,,,
 fag-modell-og-naturlov,concept,Fysikk som fag,Modeller og naturlover,"Naturvitenskapelig modell: en forenklet beskrivelse av en del av virkeligheten, laget for å forutsi noe - ikke en påstand om at virkeligheten er slik.
 Gyldighetsområde: de forholdene modellen gir brukbare svar under, og utenfor hvilke den ikke skal brukes.
 Falsifisering: en observasjon innenfor gyldighetsområdet som modellen ikke kan forklare, og som derfor feller den.
@@ -142,7 +143,7 @@ Fjernkraft: en kraft som virker over avstand, uten berøring - tyngdekraft, elek
 kraft-newtons-1-lov,concept,Krefter,Newtons 1. lov,Newtons 1. lov: et legeme blir værende i ro eller beveger seg med konstant fart i en rett linje hvis og bare hvis summen av kreftene på det er null.,kraft-som-vektor,0,
 kraft-newtons-2-lov,concept,Krefter,Newtons 2. lov,"Newtons 2. lov: summen av kreftene på et legeme er lik massen ganger akselerasjonen, og akselerasjonen har samme retning som kraftsummen.",kraft-som-vektor,0,
 kraft-newtons-3-lov,concept,Krefter,Newtons 3. lov,"Newtons 3. lov: virker det en kraft på legeme B fra legeme A, virker det en like stor og motsatt rettet kraft på A fra B. De to kreftene virker alltid på hvert sitt legeme, og opphever derfor aldri hverandre.",kraft-som-vektor,0,
-kraft-gravitasjonskraft,concept,Krefter,Gravitasjonskraft,Gravitasjonskraft: rettet mot jordas sentrum og har størrelse lik massen ganger tyngdeakselerasjonen.,kraft-newtons-2-lov,0,
+kraft-gravitasjonskraft,concept,Krefter,Gravitasjonskraft,Gravitasjonskraft: tiltrekningen mellom legemer på grunn av massen deres. Fra jorda er den rettet mot jordas sentrum og har størrelse lik massen ganger tyngdeakselerasjonen.,kraft-newtons-2-lov,0,
 kraft-friksjon,concept,Krefter,Friksjon,"Hvilefriksjon: kraften som hindrer et legeme i å begynne å gli. Den er akkurat så stor som den må være, opp til en største verdi.
 Glidefriksjon: kraften mot bevegelsen når legemet først glir. Den er friksjonstallet ganger normalkraften, og er uavhengig av kontaktflatens størrelse.",kraft-kontakt-fjernkrefter;kraft-normalkraft,0,
 kraft-luftmotstand-terminalfart,concept,Krefter,Luftmotstand og terminalfart,"Luftmotstand: en kraft mot bevegelsesretningen som vokser med farten, ofte tilnærmet med farten i andre potens.
@@ -240,11 +241,12 @@ atom-emisjon-absorpsjonsspektre,concept,Atommodeller,Emisjons- og absorpsjonsspe
 Absorpsjonsspekter: de mørke linjene i et kontinuerlig spekter som har passert stoffet, der nettopp de fotonene er tatt opp. Linjene ligger på de samme bølgelengdene i begge, og energinivåene er unike for hvert grunnstoff - derfor er spekteret et fingeravtrykk.",atom-bohrs-postulater,0,
 atom-schrodinger-heisenberg,concept,Atommodeller,Schrödingers atommodell og Heisenbergs uskarphetsrelasjon,"Schrödingers elektronskymodell: elektronet har ingen bane, men en orbital - en sannsynlighetsfordeling for hvor det kan bli funnet.
 Heisenbergs uskarphetsrelasjon: posisjon og bevegelsesmengde kan ikke begge være skarpt bestemt samtidig. Det er en egenskap ved naturen, ikke en svakhet ved måleinstrumentene.",atom-bohrs-postulater,0,
-atom-molekylare-energiniva,concept,Atommodeller,Molekylære energinivåer,"Molekylære energinivåer: elektronoverganger har rotasjons- og vibrasjonsnivåer, typisk med mindre energiskala.",atom-bohrs-postulater,0,
-atom-modellene-i-tid,fact,Atommodeller,Atommodellene i tid,"Daltons atommodell: ca. 1803
+atom-molekylare-energiniva,concept,Atommodeller,Molekylære energinivåer,"Molekylære energinivåer: i tillegg til elektronnivåene har molekyler rotasjons- og vibrasjonsnivåer, typisk med mindre energiskala.",atom-bohrs-postulater,0,
+atom-modellene-i-tid,fact,Atommodeller,Atommodellene i tid,"Daltons atommodell: 1807
 Thomson oppdager elektronet: 1897
 Thomsons rosinbollemodell: 1904
-Rutherfords spredningsforsøk og kjernemodell: 1911
+Spredningsforsøket i Rutherfords laboratorium: 1909
+Rutherfords kjernemodell: 1911
 Bohrs atommodell: 1913
 Schrödingers elektronskymodell: 1926
 Heisenbergs uskarphetsrelasjon: 1927",atom-schrodinger-heisenberg,,
@@ -288,16 +290,16 @@ positron (β⁺-partikkel): ⁰₊₁e
 alfapartikkel: ⁴₂He
 foton (gammastråling): ⁰₀γ
 nøytrino og antinøytrino: ⁰₀ν og ⁰₀ν̄",kjerne-nuklidenotasjon,,
-kjerne-masse-energi-ekvivalens,concept,Kjerner og stjerner,Masse-energi-ekvivalens,"Masse-energi-ekvivalens: en form for energi, knyttet sammen av E=mc². Masse kan derfor omdannes til andre energiformer og motsatt, og fordi c² er et stort tall svarer en bitte liten masse til svært mye energi.",kjerne-nuklidenotasjon,0,
+kjerne-masse-energi-ekvivalens,concept,Kjerner og stjerner,Masse-energi-ekvivalens,"Masse-energi-ekvivalens: masse er en form for energi, og de to er knyttet sammen av E=mc². Masse kan derfor omdannes til andre energiformer og motsatt, og fordi c² er et stort tall svarer en bitte liten masse til svært mye energi.",kjerne-nuklidenotasjon,0,
 kjerne-bevaringslover-reaksjoner,concept,Kjerner og stjerner,Bevaringslover i kjernereaksjoner,"Bevaringslover i kjernereaksjoner: I en kjernereaksjon er energi, bevegelsesmengde, elektrisk ladning og nukleontall bevart - summen er den samme før og etter. Masse alene er ikke bevart: differansen kommer ut som energi.",kjerne-nuklidenotasjon,0,
 kjerne-fusjon-fisjon,concept,Kjerner og stjerner,Fusjon og fisjon,"Fusjon: to lette kjerner slås sammen til en tyngre.
 Fisjon: en tung kjerne spaltes i lettere kjerner. Begge frigjør energi fordi produktene har høyere bindingsenergi per nukleon enn utgangspunktet, og differansen i masse kommer ut som energi.",kjerne-bevaringslover-reaksjoner,0,
 kjerne-bindingsenergi,concept,Kjerner og stjerner,Bindingsenergi og massedefekt,"Massedefekt: en sammensatt kjerne veier mindre enn summen av de frie protonene og nøytronene den består av.
-Bindingsenergi: energien som svarer til massedefekten gjennom E=mc², og som må tilføres for å rive kjernen fra hverandre. Bindingsenergien per nukleon er størst rundt jern, som derfor er den mest stabile kjernen - og som er grunnen til at fusjon frigjør energi under jern og fisjon over.",kjerne-masse-energi-ekvivalens;kjerne-fusjon-fisjon,0,
+Bindingsenergi: energien som svarer til massedefekten gjennom E=mc², og som må tilføres for å rive kjernen fra hverandre. Bindingsenergien per nukleon er størst rundt jern, der de mest stabile kjernene ligger - og det er grunnen til at fusjon frigjør energi under jern og fisjon over.",kjerne-masse-energi-ekvivalens;kjerne-fusjon-fisjon,0,
 kjerne-stjerners-energikilde-likevekt,concept,Kjerner og stjerner,Stjerners energikilde og likevekt,"Energikilden: fusjon i kjernen, der lette kjerner slås sammen til tyngre og masse blir til energi.
 Hydrostatisk likevekt: gravitasjonen trekker massen innover, og trykket fra den varme gassen presser utover. En stjerne på hovedserien er i balanse mellom de to, og stopper fusjonen, vinner gravitasjonen.",kjerne-fusjon-fisjon;kraft-gravitasjonskraft,0,
 kjerne-stjerners-endelikt,concept,Kjerner og stjerner,Stjerners endelikt etter masse,"Massen avgjør hvordan en stjerne ender: de letteste som hvit dverg, de tyngre som nøytronstjerne, og de aller tyngste som svart hull. Grensene går ved hvilket trykk som klarer å holde gravitasjonen ute - elektrontrykk, nøytrontrykk, eller ingenting.",kjerne-stjerners-energikilde-likevekt,0,
-kjerne-nukleosyntese,concept,Kjerner og stjerner,Nukleosyntese,"Nukleosyntese: grunnstoffer opp til jern dannes ved fusjon i stjerner, mens tyngre grunnstoffer dannes i supernovaer og sammensmeltninger av nøytronstjerner.",kjerne-bindingsenergi;kjerne-stjerners-endelikt,0,
+kjerne-nukleosyntese,concept,Kjerner og stjerner,Nukleosyntese,"Nukleosyntese: grunnstoffer opp til jern dannes ved fusjon i stjerner, mens tyngre grunnstoffer dannes ved nøytroninnfangning - langsomt i kjempestjerner, og raskt i supernovaer og sammensmeltninger av nøytronstjerner.",kjerne-bindingsenergi;kjerne-stjerners-endelikt,0,
 kjerne-hr-diagrammet,concept,Kjerner og stjerner,HR-diagrammet,"HR-diagrammet: plotter stjerner etter overflatetemperatur (avtakende mot høyre) og utstrålt effekt. Stjernene samler seg i grupper framfor å ligge spredt: hovedserien som en diagonal, med kjemper øverst til høyre og hvite dverger nederst til venstre.",kjerne-stjerners-energikilde-likevekt,0,
 kjerne-nuklidenotasjon-skrive,skill,Kjerner og stjerner,Skrive nuklidenotasjon,skrive korrekt nuklidenotasjon (atomnummer og nukleontall) for gitte isotoper eller grunnstoff.,kjerne-nuklidenotasjon,0,
 kjerne-fullfore-reaksjonslikninger,skill,Kjerner og stjerner,Fullføre kjernereaksjonslikninger,"sette opp og fullføre en kjernereaksjonslikning ved bruk av bevaringslovene, og vurdere om en foreslått reaksjon er gyldig.",kjerne-bevaringslover-reaksjoner;kjerne-nuklidenotasjon-skrive;kjerne-partikkelsymboler,0,
@@ -330,10 +332,10 @@ Det elektromagnetiske spekteret: hele området av bølgelengder, fra radiobølge
 atom-em-spekter-omrader,fact,Atommodeller,Områdene i det elektromagnetiske spekteret,"gammastråling: under ca. 0,01 nm
 røntgenstråling: ca. 0,01–10 nm
 ultrafiolett stråling: ca. 10–400 nm
-synlig lys: ca. 400 nm (fiolett) til 700 nm (rødt)
-infrarød stråling: ca. 700 nm – 1 mm
-mikrobølger: ca. 1 mm – 1 m
-radiobølger: over ca. 1 m",atom-bolgelengde-frekvens-spekter,,
+synlig lys: ca. 400 nm (fiolett) til 750 nm (rødt)
+infrarød stråling: ca. 750 nm – 1 mm
+mikrobølger: ca. 1 mm – 30 cm
+radiobølger: over ca. 30 cm",atom-bolgelengde-frekvens-spekter,,
 straling-emissivitet,concept,Stråling og klima,Emissivitet,Emissivitet: et tall mellom 0 og 1 som beskriver hvor effektivt en overflate stråler ut energi sammenlignet med et ideelt sortlegeme ved samme temperatur.,,0,
 krefter-vektor-generelt,concept,Krefter,Vektor,"Vektor: en størrelse som har både størrelse og retning, i motsetning til en skalar som bare har størrelse.",,0,
 atom-grunntilstand-eksitert-tilstand,concept,Atommodeller,Grunntilstand og eksitert tilstand,"Grunntilstand: den laveste energitilstanden et atom kan være i.
