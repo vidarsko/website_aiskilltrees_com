@@ -6,6 +6,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,learner,participant,,,
 ,config,,subjectFamily,practical-aesthetic,,,
 ,config,,features.motivation,true,,,
+,config,,features.resources,true,,,
 ,config,,slots.courseName,"vitenskapen bak matlaging, et hobbykurs for voksne",,,
 ,config,,slots.motivationSubject,matlaging,,,
 ,config,,slots.expressionFocus,"sier at maten «brant seg», «ble seig» eller «skilte seg» uten å si hva som skjedde med vannet, proteinene, sukkeret, stivelsen eller fettet; blander temperatur og varme; eller gjentar kjøkkenråd som «brunning forsegler saften» uten å spørre om de stemmer",,,
@@ -72,7 +73,7 @@ steke-kjott,skill,Proteiner,Steke et kjøttstykke til ønsket kjernetemperatur,"
 brasere,skill,Proteiner,Velge mellom kort steking og lang brasering,"avgjøre ut fra mengden bindevev om et kjøttstykke bør stekes kort eller braseres lenge, og forklare hvorfor høyrygg blir mør etter tre timer mens indrefilet blir tørr.",kollagen;muskel;fuktig-torr,,
 hvile,skill,Proteiner,Forklare hva hvile gjør med kjøtt,"forklare hva som skjer med temperaturen og saften i et kjøttstykke mens det hviler, og hvorfor det renner mindre saft ut når det skjæres etter hvile.",gradient;muskel,,
 maillard,concept,Bruning,Maillard-reaksjonen,"Maillard-reaksjonen: reaksjoner mellom aminosyrer og sukker som gir brun farge og hundrevis av nye smaks- og aromastoffer; går sakte ved lave temperaturer og raskt først når overflaten er tørr og godt over 100 °C, fra rundt 140 °C.",hovedstoffer;kokepunkt,,
-karamellisering,concept,Bruning,Karamellisering,"Karamellisering: at sukker alene brytes ned av varme og blir brunt, bittersøtt og aromatisk; for vanlig sukker skjer det fra rundt 160–170 °C.",hovedstoffer,,
+karamellisering,concept,Bruning,Karamellisering,"Karamellisering: at sukker alene brytes ned av varme og blir brunt, bittersøtt og aromatisk; for vanlig sukker skjer det mellom omtrent 160 og 186 °C.",hovedstoffer,,
 enzymatisk-bruning,concept,Bruning,Enzymatisk bruning,"Enzymatisk bruning: at et enzym i kuttet frukt og grønnsaker, som eple, avokado og potet, reagerer med oksygen i lufta og lager brune stoffer; bremses av syre, kulde og at lufta holdes unna.",enzym;ph,,
 skille-bruning,skill,Bruning,Skille Maillard-reaksjonen fra karamellisering,"avgjøre om bruningen på brødskorpe, stekt biff, karamellpudding og stekt løk kommer fra Maillard-reaksjonen, karamellisering eller begge, og begrunne det med hva råvaren inneholder.",maillard;karamellisering,,
 brune-kjott,skill,Bruning,Brune kjøtt i stedet for å koke det,"tørke overflaten, varme panna godt og steke i små porsjoner, og forklare hvorfor kjøttet blir grått og ligger og koker når panna er full.",maillard;varmekapasitet;fuktig-torr,,
@@ -96,11 +97,11 @@ salte-gronnsaker,skill,"Salt, sukker og vann",Salte grønnsaker for å trekke ut
 iskrem,skill,"Salt, sukker og vann",Forklare hvor hard en hjemmelaget is blir,"forklare hvordan sukker, fett og luft påvirker hvor hard en is blir i fryseren, og hvorfor en is med mindre sukker blir hardere.",frysepunkt;sukker-vann,,
 fett-typer,concept,Fett og emulsjoner,Mettet og umettet fett,"Mettet fett (saturated fat): fett med rette fettsyrekjeder som pakker seg tett, slik at det er fast ved romtemperatur, som smør og kokosfett.
 Umettet fett (unsaturated fat): fett med knekk i fettsyrekjedene som pakker seg dårlig, slik at det er flytende, som rapsolje og olivenolje.",hovedstoffer,,
-roykpunkt,concept,Fett og emulsjoner,Røykpunkt (smoke point),"Røykpunkt (smoke point): temperaturen der et fett begynner å brytes ned og ryke synlig, og gir bitre og stikkende stoffer; smør ryker tidlig fordi melkeproteinene og melkesukkeret brenner.",hovedstoffer,,
+roykpunkt,concept,Fett og emulsjoner,Røykpunkt (smoke point),"Røykpunkt (smoke point): temperaturen der et fett begynner å brytes ned og ryke synlig, og gir bitre og stikkende stoffer; smør ryker tidlig fordi proteinene i smøret forkulles.",hovedstoffer,,
 roykpunkter,fact,Fett og emulsjoner,Omtrentlige røykpunkter,"smør: rundt 150 °C
 klarnet smør: rundt 250 °C
-jomfruolje av oliven (extra virgin): rundt 190–210 °C
-raffinert rapsolje: rundt 230 °C",roykpunkt,,
+olivenolje: 160–210 °C
+raffinert rapsolje: 180–200 °C",roykpunkt,,
 emulsjon,concept,Fett og emulsjoner,"Emulsjon og emulgator (emulsion, emulsifier)","Emulsjon (emulsion): små dråper av én væske fordelt i en annen som den ikke blander seg med, som oljedråper i vann i majones eller vanndråper i fett i smør.
 Emulgator (emulsifier): et molekyl med én vannelskende og én vannskyende ende som legger seg rundt dråpene og hindrer dem i å flyte sammen, som lecitin i eggeplomme.",vannelskende,,
 splitting,concept,Fett og emulsjoner,Splitting av en emulsjon,"Splitting: at dråpene i en emulsjon flyter sammen så fett og vann skilles, for eksempel fordi oljen kom for fort, det var for lite emulgator, eller sausen ble for varm.
@@ -113,7 +114,7 @@ velge-fett,skill,Fett og emulsjoner,Velge fett til steking,"velge fett til steki
 stivelse,concept,Stivelse og gluten,Stivelse (starch),"Stivelse (starch): lange kjeder av glukose som planter lagrer i små korn, i mel, ris, poteter og mais.
 Amylose: stivelseskjeder som er rette og gir en fastere gelé.
 Amylopektin: stivelseskjeder som er forgreinet og gir en klissete eller kremet konsistens.",hovedstoffer,,
-forklistring,concept,Stivelse og gluten,Forklistring og retrogradering,"Forklistring (gelatinisation): at stivelseskornene tar opp vann og sveller når de varmes i væske, slik at væsken tykner; skjer for de fleste stivelsestyper et sted mellom 55 og 85 °C.
+forklistring,concept,Stivelse og gluten,Forklistring og retrogradering,"Forklistring (gelatinisation): at stivelseskornene tar opp vann og sveller når de varmes i væske, slik at væsken tykner; skjer ved oppvarming over omtrent 70 °C når det er nok vann til stede.
 Retrogradering (retrogradation): at stivelsen ordner seg igjen og slipper vann når den kjøles og står, slik at brød blir tørt, kokt ris blir hard i kjøleskapet og en saus kan bli grynete.",stivelse;vannelskende,,
 jevning,fact,Stivelse og gluten,Jevningsmidler,"hvetemel: må koke noen minutter for å miste melsmaken; gir en matt saus som tåler å koke videre
 maisstivelse (maizena): tykner like under kokepunktet og gir en blank saus; kan bli tynn igjen ved lang koking og kraftig omrøring
@@ -137,7 +138,7 @@ skum,concept,Hevning og skum,Skum (foam),"Skum (foam): luftbobler fanget i en v�
 Eggehviteskum: proteinene i eggehviten denatureres delvis av piskingen og legger seg rundt luftboblene; fett, også litt eggeplomme, hindrer det.
 Pisket krem: delvis stivnede fettkuler i kald fløte som klistrer seg sammen rundt luftboblene; fløten må derfor være kald og ha nok fett.",denaturering;fett-typer,,
 piske-eggehvite,skill,Hevning og skum,Piske eggehvite til stive topper,"piske eggehvite til stive topper i en ren og fettfri bolle, og forklare hvorfor litt sukker eller syre gjør skummet mer stabilt og hva som skjer om du pisker for lenge.",skum,,
-bytte-hevemiddel,skill,Hevning og skum,Velge mellom natron og bakepulver,"avgjøre om en oppskrift trenger natron, bakepulver eller begge ut fra hvor mye syre den har, og forklare hvorfor for mye natron gir såpeaktig smak.",hevemidler,,
+bytte-hevemiddel,skill,Hevning og skum,Velge mellom natron og bakepulver,"avgjøre om en oppskrift trenger natron, bakepulver eller begge ut fra hvor mye syre den har, og forklare hvorfor for mye natron gir bismak og et gulgrønt skjær i bakverket.",hevemidler,,
 heve-gjaerdeig,skill,Hevning og skum,Styre hevingen av en gjærdeig,"styre hevetiden med deigtemperatur, gjærmengde og salt, og avgjøre med fingertesten når deigen er ferdighevet.",gjaer;gluten,,
 kake-faller,skill,Hevning og skum,Forklare hvorfor en kake faller sammen,"forklare hvorfor en kake som tas ut for tidlig eller får kald trekk faller sammen, med hva som skjer med gassen før proteinene og stivelsen har stivnet.",gass-damp;forklistring;denaturering,,
 grunnsmaker,concept,Smak og aroma,Grunnsmakene (basic tastes),"Grunnsmak (basic taste): det smakscellene i munnen registrerer: søtt, surt, salt, bittert og umami.
