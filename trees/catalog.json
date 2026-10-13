@@ -5149,7 +5149,7 @@
    "author": "Vidar Skogvoll",
    "authorUrl": "https://skogvoll.com",
    "license": "CC BY 4.0",
-   "updated": "2026-09-21",
+   "updated": "2026-10-13",
    "topics": [
     "Aritmetik och procent",
     "Geometri och skala",
@@ -5169,10 +5169,10 @@
     "spridningsmått",
     "överslagsräkning"
    ],
-   "nodeCount": 50,
+   "nodeCount": 52,
    "skillCount": 26,
    "conceptCount": 24,
-   "factCount": 0
+   "factCount": 2
   },
   {
    "slug": "se-gym-matte-1b",
@@ -5191,7 +5191,7 @@
    "author": "Vidar Skogvoll",
    "authorUrl": "https://skogvoll.com",
    "license": "CC BY 4.0",
-   "updated": "2026-10-05",
+   "updated": "2026-10-13",
    "topics": [
     "Algebra och formler",
     "Potenser och potensfunktioner",
@@ -5216,10 +5216,10 @@
     "korrelation",
     "kausalitet"
    ],
-   "nodeCount": 82,
+   "nodeCount": 84,
    "skillCount": 50,
    "conceptCount": 32,
-   "factCount": 0
+   "factCount": 2
   },
   {
    "slug": "se-gym-matte-1c",
@@ -5238,7 +5238,7 @@
    "author": "Vidar Skogvoll",
    "authorUrl": "https://skogvoll.com",
    "license": "CC BY 4.0",
-   "updated": "2026-10-05",
+   "updated": "2026-10-13",
    "topics": [
     "Aritmetik och algebra",
     "Funktioner",
@@ -5264,10 +5264,10 @@
     "programmering",
     "matematiska modeller"
    ],
-   "nodeCount": 88,
+   "nodeCount": 90,
    "skillCount": 53,
    "conceptCount": 35,
-   "factCount": 0
+   "factCount": 2
   },
   {
    "slug": "se-gym-naturkunskap-1b",

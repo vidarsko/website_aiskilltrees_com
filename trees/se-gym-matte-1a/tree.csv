@@ -10,6 +10,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.courseName,"matematik 1a (svenskt gymnasium, yrkesprogram, Gy25)",,,
 ,config,,slots.motivationSubject,matte,,,
 ,config,,slots.expressionFocus,"glömmer enhet eller %-tecken, blandar ihop area och omkrets, avrundar för tidigt eller onoggrant, eller använder likhetstecknet fel (t.ex. kedjar samman uttryck med ""="" som inte faktiskt är lika, eller använder ""="" för att betyda ""nästa steg"" istället för likhet)",,,
+,config,,decompositionVersion,2.13.0,,,
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
@@ -21,21 +22,46 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,1,,,
 ,config,,subjectArea,mathematics,,,
 ,config,,keywords,procent; förändringsfaktor; area; omkrets; skala; privatekonomi; lägesmått; spridningsmått; överslagsräkning,,,
-,config,,updated,2026-09-21,,,
+,config,,updated,2026-10-13,,,
 brak-decimal-begrepp,concept,Aritmetik och procent,Bråk och decimaltal,"Bråkform: ett tal skrivet som en täljare delad med en nämnare, till exempel 3/4.
 Decimalform: samma tal skrivet med decimaler, 0,75. Varje bråk har en decimalform, och divisionen täljare delat med nämnare är vägen mellan dem.",,0,
 procent-begrepp,concept,Aritmetik och procent,Procent och andelar,"Andel: hur stor del något utgör av en helhet.
 Procent: en andel uttryckt i hundradelar. 40 % är 40 av 100, alltså 40/100 eller 0,40 - samma tal i tre skrivsätt.",brak-decimal-begrepp,0,
-berakna-procent-fardighet,skill,Aritmetik och procent,Beräkna en andel i procent,beräkna hur stor andel (i procent) en del är av en helhet i en praktisk situation.,procent-begrepp,0,"Ge eleven en praktisk situation (t.ex. antal godkända produkter av en tillverkad mängd, eller andel av en budget) och be hen räkna ut andelen i procent."
+brak-decimal-procent-fakta,fact,Aritmetik och procent,"Bråk, decimaltal och procent som hör ihop","1/2: 0,5 = 50 %
+1/4: 0,25 = 25 %
+3/4: 0,75 = 75 %
+1/5: 0,2 = 20 %
+1/10: 0,1 = 10 %
+1/20: 0,05 = 5 %
+1/100: 0,01 = 1 %
+1/8: 0,125 = 12,5 %
+1/3: ungefär 0,333 = ungefär 33,3 %
+2/3: ungefär 0,667 = ungefär 66,7 %",procent-begrepp,0,
+berakna-procent-fardighet,skill,Aritmetik och procent,Beräkna en andel i procent,beräkna hur stor andel (i procent) en del är av en helhet i en praktisk situation.,procent-begrepp;brak-decimal-procent-fakta,0,"Ge eleven en praktisk situation (t.ex. antal godkända produkter av en tillverkad mängd, eller andel av en budget) och be hen räkna ut andelen i procent."
 forandringsfaktor-begrepp,concept,Aritmetik och procent,Förändringsfaktor,"Förändringsfaktor: det tal man multiplicerar med för att göra en procentuell förändring. En ökning på 20 % ger faktorn 1,20 och en minskning på 20 % ger 0,80; faktorer för flera förändringar efter varandra multipliceras ihop.",procent-begrepp,0,
 berakna-forandring-flera-steg-fardighet,skill,Aritmetik och procent,Beräkna förändringar i flera steg,"beräkna en sammantagen förändring när flera procentuella förändringar sker efter varandra (t.ex. flera prishöjningar eller rabatter), med hjälp av förändringsfaktor.",forandringsfaktor-begrepp,0,Ge eleven en situation med minst två procentuella förändringar efter varandra (t.ex. en prishöjning följt av en rabatt) och be hen räkna ut den sammantagna förändringsfaktorn och slutpriset.
 avrundning-uppskattning-begrepp,concept,Aritmetik och procent,Avrundning och överslagsräkning,"Avrundning: att ersätta ett tal med ett närliggande tal med färre siffror, så att svaret inte ser mer exakt ut än underlaget är.
 Överslagsräkning: att räkna med avrundade tal i huvudet för att snabbt få en storleksordning - användbart för att kontrollera om ett uträknat svar är rimligt.",,0,
-uppskatta-kontrollrakna-fardighet,skill,Aritmetik och procent,Uppskatta och kontrollräkna ett resultat,"uppskatta ett rimligt svar med överslagsräkning, och kontrollräkna ett resultat med en annan beräkningsmetod.",avrundning-uppskattning-begrepp,0,"Ge eleven en beräkning och be hen först uppskatta svaret med överslagsräkning, sedan räkna ut det exakta svaret och kontrollera det med en annan metod, och avgöra om uppskattningen var rimlig."
+uppskatta-kontrollrakna-fardighet,skill,Aritmetik och procent,Uppskatta och kontrollräkna ett resultat,"uppskatta ett rimligt svar med överslagsräkning, och kontrollräkna ett resultat med en annan beräkningsmetod.",avrundning-uppskattning-begrepp;brak-decimal-procent-fakta,0,"Ge eleven en beräkning och be hen först uppskatta svaret med överslagsräkning, sedan räkna ut det exakta svaret och kontrollera det med en annan metod, och avgöra om uppskattningen var rimlig."
 matningsosakerhet-begrepp,concept,Aritmetik och procent,Mätosäkerhet och felmarginal,"Mätosäkerhet: att en mätning aldrig ger exakt rätt värde - resultatet ligger inom ett intervall runt det sanna värdet.
 Felmarginal: hur stort det intervallet är. I arbetslivet avgör den hur många siffror i ett svar som är värda att ta med, och när två mätvärden ska räknas som lika.",avrundning-uppskattning-begrepp,0,
 berakna-med-felmarginal-fardighet,skill,Aritmetik och procent,Beräkna med säkerhetsmarginal,"göra en beräkning som tar hänsyn till en given felmarginal eller säkerhetsmarginal i en praktisk, yrkesrelevant situation, t.ex. en spill- eller svinnberäkning.",matningsosakerhet-begrepp;berakna-procent-fardighet,0,Ge eleven en yrkesrelevant situation med en angiven felmarginal eller ett svinnpåslag (t.ex. materialåtgång med en viss spillprocent) och be hen räkna ut hur mycket som faktiskt behövs eller är säkert.
-enhetsbyte-fardighet,skill,Aritmetik och procent,Byta mellan måttenheter,"byta mellan vanliga måttenheter (t.ex. tid, längd, vikt) som är relevanta för arbetslivet, och avgöra vilken enhet som är lämplig i en given situation.",,0,"Ge eleven ett värde i en enhet som inte passar situationen (t.ex. minuter när svaret behövs i timmar, eller gram när svaret behövs i kilogram) och be hen byta enhet och motivera valet."
+prefix-mattenheter-fakta,fact,Aritmetik och procent,Prefix och måttenheter,"kilo (k): tusen, 1000
+hekto (h): hundra, 100
+deci (d): en tiondel, 0,1
+centi (c): en hundradel, 0,01
+milli (m): en tusendel, 0,001
+1 mil: 10 km
+1 km: 1000 m
+1 m: 10 dm = 100 cm = 1000 mm
+1 m²: 100 dm² = 10 000 cm²
+1 ton: 1000 kg
+1 kg: 10 hg = 1000 g
+1 l: 10 dl = 100 cl = 1000 ml
+1 dm³: 1 l
+1 m³: 1000 l
+1 h: 60 min = 3600 s",,0,
+enhetsbyte-fardighet,skill,Aritmetik och procent,Byta mellan måttenheter,"byta mellan vanliga måttenheter (t.ex. tid, längd, vikt) som är relevanta för arbetslivet, och avgöra vilken enhet som är lämplig i en given situation.",prefix-mattenheter-fakta,0,"Ge eleven ett värde i en enhet som inte passar situationen (t.ex. minuter när svaret behövs i timmar, eller gram när svaret behövs i kilogram) och be hen byta enhet och motivera valet."
 berakna-kostnad-forbrukning-fardighet,skill,Aritmetik och procent,Beräkna kostnad och förbrukning,"beräkna kostnad för förbrukningsmaterial och göra en tidsuppskattning i en yrkesrelevant situation, med rimliga enheter och avrundningar.",enhetsbyte-fardighet;uppskatta-kontrollrakna-fardighet,0,"Ge eleven en yrkesrelevant situation (t.ex. materialåtgång för ett jobb, eller hur lång tid en uppgift tar) och be hen räkna ut totalkostnad eller total tidsåtgång, med rimlig avrundning."
 anvanda-tumregler-hjalpmedel-fardighet,skill,Aritmetik och procent,Använda tumregler och yrkeshjälpmedel,"använda och tolka tumregler, mallar, föreskrifter och andra yrkesrelevanta hjälpmedel/verktyg (t.ex. manualer och referensverk) för att lösa ett matematiskt problem.",enhetsbyte-fardighet,0,"Ge eleven en enkel tumregel, tabell eller mall från ett yrkessammanhang (påhittad om nödvändigt) och en praktisk fråga, och be hen använda hjälpmedlet för att komma fram till svaret."
 vinkel-begrepp,concept,Geometri och skala,Vinkel,"Vinkel: öppningen mellan två strålar som utgår från samma punkt. Den mäts i grader, där ett helt varv är 360°, en rät vinkel 90°, och mäts med gradskiva.",,0,

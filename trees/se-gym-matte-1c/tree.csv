@@ -10,7 +10,7 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,slots.courseName,"matematik 1c (svenskt gymnasium, naturvetenskaps- och teknikprogrammet, Gy25)",,,
 ,config,,slots.motivationSubject,matte,,,
 ,config,,slots.expressionFocus,"använder likhetstecknet fel (t.ex. kedjar samman uttryck med ""="" som inte faktiskt är lika, eller använder ""="" för att betyda ""nästa steg""), glömmer att vända olikhetstecknet vid multiplikation eller division med ett negativt tal, glömmer den negativa lösningen till en potensekvation med jämn exponent, blandar ihop potensfunktion och exponentialfunktion, räknar trigonometri med räknaren inställd på radianer, eller avrundar mellanresultat för tidigt",,,
-,config,,decompositionVersion,2.12.0,,,
+,config,,decompositionVersion,2.13.0,,,
 ,config,,author,Vidar Skogvoll,,,
 ,config,,authorUrl,https://skogvoll.com,,,
 ,config,,license,CC BY 4.0,,,
@@ -22,11 +22,21 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,division,1,,,
 ,config,,subjectArea,mathematics,,,
 ,config,,keywords,förändringsfaktor; potenslagar; potensekvation; olikhet; räta linjens ekvation; exponentialfunktion; arcusfunktion; vektorer; träddiagram; korrelation; kausalitet; amortering; programmering; matematiska modeller,,,
-,config,,updated,2026-10-05,,,
+,config,,updated,2026-10-13,,,
 procent-begrepp,concept,Aritmetik och algebra,Procent och andel,"Andel: hur stor del något utgör av en helhet.
 Procent: en andel uttryckt i hundradelar. 40 % är 40 av 100, alltså 40/100 eller 0,40 - samma tal i tre skrivsätt.",,0,
+brak-decimal-procent-fakta,fact,Aritmetik och algebra,"Bråk, decimaltal och procent som hör ihop","1/2: 0,5 = 50 %
+1/4: 0,25 = 25 %
+3/4: 0,75 = 75 %
+1/5: 0,2 = 20 %
+1/10: 0,1 = 10 %
+1/20: 0,05 = 5 %
+1/100: 0,01 = 1 %
+1/8: 0,125 = 12,5 %
+1/3: ungefär 0,333 = ungefär 33,3 %
+2/3: ungefär 0,667 = ungefär 66,7 %",procent-begrepp,0,
 forandringsfaktor-begrepp,concept,Aritmetik och algebra,Förändringsfaktor,"Förändringsfaktor: det tal man multiplicerar med för att göra en procentuell förändring. En ökning med 20 % ger faktorn 1,20 och en minskning med 20 % ger 0,80. En faktor större än 1 betyder ökning, mindre än 1 minskning.",procent-begrepp,0,
-berakna-forandringsfaktor-fardighet,skill,Aritmetik och algebra,Räkna med förändringsfaktor,"använda förändringsfaktor för att beräkna ett nytt värde, ett ursprungligt värde eller den procentuella förändringen, när två av de tre är kända.",forandringsfaktor-begrepp,0,"Ge eleven tre korta situationer där en ny storhet, en ursprunglig storhet respektive den procentuella förändringen ska räknas ut (t.ex. ett pris efter rabatt, ett pris före en höjning, och hur många procent en befolkning har ökat), och be hen lösa alla tre med förändringsfaktor."
+berakna-forandringsfaktor-fardighet,skill,Aritmetik och algebra,Räkna med förändringsfaktor,"använda förändringsfaktor för att beräkna ett nytt värde, ett ursprungligt värde eller den procentuella förändringen, när två av de tre är kända.",forandringsfaktor-begrepp;brak-decimal-procent-fakta,0,"Ge eleven tre korta situationer där en ny storhet, en ursprunglig storhet respektive den procentuella förändringen ska räknas ut (t.ex. ett pris efter rabatt, ett pris före en höjning, och hur många procent en befolkning har ökat), och be hen lösa alla tre med förändringsfaktor."
 forandring-flera-steg-fardighet,skill,Aritmetik och algebra,Beräkna förändringar i flera steg,"beräkna den sammanlagda förändringen när flera procentuella förändringar sker efter varandra, och skriva en upprepad förändring med samma faktor som en potens.",berakna-forandringsfaktor-fardighet;potens-begrepp,0,"Ge eleven först två olika förändringar efter varandra (t.ex. en höjning med 10 % och sedan en sänkning med 10 %) och fråga om priset är tillbaka där det började. Ge sedan en förändring som upprepas flera år i rad, och be hen skriva den som en potens."
 algebraiskt-uttryck-begrepp,concept,Aritmetik och algebra,Variabel och algebraiskt uttryck,"Variabel: en bokstav som står för ett tal som kan variera eller som ännu inte är känt.
 Algebraiskt uttryck: tal och variabler satta ihop med räknesätt, till exempel 3x + 5. Ett uttryck har inget likhetstecken - det får ett värde först när variabeln ges ett tal.",,0,
@@ -45,6 +55,26 @@ Slutet och öppet: en gräns som ingår markeras med ≤ eller en fylld ring, en
 olikhet-begrepp,concept,Aritmetik och algebra,Linjär olikhet,"Linjär olikhet: som en linjär ekvation, men med <, >, ≤ eller ≥ i stället för likhetstecken. Lösningen är inte ett tal utan ett intervall. Den löses som en ekvation, med ett undantag: multipliceras eller divideras båda sidor med ett negativt tal, vänds olikhetstecknet.",intervall-begrepp;ekvation-begrepp,0,
 losa-linjar-olikhet-fardighet,skill,Aritmetik och algebra,Lösa en linjär olikhet,"lösa en linjär olikhet, ange lösningen som ett intervall och markera den på en tallinje.",olikhet-begrepp;losa-linjar-ekvation-fardighet,0,"Ge eleven några linjära olikheter, minst en där man måste dividera med ett negativt tal, och be hen lösa dem, skriva lösningen som ett intervall och kontrollera med ett tal inifrån och ett tal utanför intervallet."
 potens-begrepp,concept,Aritmetik och algebra,Potens,"Potens: ett kortare skrivsätt för upprepad multiplikation. I 2⁵ är 2 basen och 5 exponenten, och 2⁵ = 2·2·2·2·2.",,0,
+kvadrat-kubiktal-fakta,fact,Aritmetik och algebra,Kvadrattal och kubiktal,"1²: 1
+2²: 4
+3²: 9
+4²: 16
+5²: 25
+6²: 36
+7²: 49
+8²: 64
+9²: 81
+10²: 100
+11²: 121
+12²: 144
+13²: 169
+14²: 196
+15²: 225
+2³: 8
+3³: 27
+4³: 64
+5³: 125
+10³: 1000",potens-begrepp,0,
 potenslagar-begrepp,concept,Aritmetik och algebra,Potenslagarna,"Produkt: aˣ·aʸ = aˣ⁺ʸ.
 Kvot: aˣ/aʸ = aˣ⁻ʸ.
 Potens av potens: (aˣ)ʸ = aˣʸ.
@@ -53,7 +83,7 @@ Negativ exponent: a⁻ⁿ = 1/aⁿ.
 Bråk som exponent: a^(1/n) är den n:te roten ur a.",potens-begrepp,0,
 motivera-potenslagar-fardighet,skill,Aritmetik och algebra,Motivera potenslagarna,"motivera varför en potenslag gäller genom att skriva ut faktorerna, och förklara varför a⁰ = 1 och a⁻ⁿ = 1/aⁿ måste gälla för att lagarna ska hänga ihop.",potenslagar-begrepp,0,"Be eleven förklara varför 2³·2⁴ = 2⁷ genom att skriva ut faktorerna, och sedan resonera om vad 2⁰ och 2⁻¹ måste vara om kvotlagen ska fortsätta gälla."
 forenkla-potensuttryck-fardighet,skill,Aritmetik och algebra,Förenkla potensuttryck,"förenkla uttryck med potenser, också med negativa exponenter och bråk som exponent, med hjälp av potenslagarna.",potenslagar-begrepp,0,"Ge eleven några potensuttryck med både tal och variabler, minst ett med negativ exponent och ett med en rot som ska skrivas som potens, och be hen förenkla dem och ange vilken lag som används i varje steg."
-losa-potensekvation-fardighet,skill,Aritmetik och algebra,Lösa en potensekvation,"lösa en ekvation av typen xⁿ = a med rotutdragning eller genom att upphöja till 1/n, och ange båda lösningarna när n är jämnt.",forenkla-potensuttryck-fardighet;ekvation-begrepp,0,"Ge eleven potensekvationer som x² = 49, x³ = -8 och x⁵ = 200, och be hen lösa dem och förklara varför antalet lösningar skiljer sig. Ta gärna med en tillämpning, t.ex. vilken årlig förändringsfaktor som ger en fördubbling på 10 år."
+losa-potensekvation-fardighet,skill,Aritmetik och algebra,Lösa en potensekvation,"lösa en ekvation av typen xⁿ = a med rotutdragning eller genom att upphöja till 1/n, och ange båda lösningarna när n är jämnt.",forenkla-potensuttryck-fardighet;ekvation-begrepp;kvadrat-kubiktal-fakta,0,"Ge eleven potensekvationer som x² = 49, x³ = -8 och x⁵ = 200, och be hen lösa dem och förklara varför antalet lösningar skiljer sig. Ta gärna med en tillämpning, t.ex. vilken årlig förändringsfaktor som ger en fördubbling på 10 år."
 funktion-begrepp,concept,Funktioner,Funktion,"Funktion: en regel som till varje tillåtet x ger exakt ett y. Skrivsättet f(x) betyder funktionens värde för x. Samma funktion kan beskrivas med ord, med ett funktionsuttryck, med en värdetabell och med en graf - fyra bilder av en och samma sak.",algebraiskt-uttryck-begrepp,0,
 definitionsmangd-vardemangd-begrepp,concept,Funktioner,Definitionsmängd och värdemängd,"Definitionsmängd: de x-värden funktionen är definierad för, eller som är rimliga i den situation den beskriver.
 Värdemängd: de y-värden funktionen faktiskt antar när x går genom definitionsmängden.",funktion-begrepp;intervall-begrepp,0,
@@ -85,7 +115,7 @@ berakna-sida-trig-fardighet,skill,Trigonometri,Beräkna en sida med trigonometri
 invers-arcus-begrepp,concept,Trigonometri,Invers funktion och arcusfunktioner,"Invers funktion: en funktion som går baklänges - den tar ett funktionsvärde och ger tillbaka x-värdet.
 Arcusfunktion: inversen till sinus, cosinus eller tangens. Om sin v = 0,5 ger arcsin 0,5 vinkeln v = 30°. På räknaren skrivs den ofta sin⁻¹, vilket inte betyder 1/sin.",funktion-begrepp;sin-cos-tan-begrepp,0,
 berakna-vinkel-trig-fardighet,skill,Trigonometri,Beräkna en vinkel med arcusfunktioner,"beräkna en okänd vinkel i en rätvinklig triangel ur två kända sidor med arcsin, arccos eller arctan, och kontrollera att svaret är rimligt.",invers-arcus-begrepp,0,"Ge eleven en praktisk situation med två kända sidor (t.ex. lutningen på en ramp med given höjd och längd) och be hen beräkna vinkeln, motivera valet av arcusfunktion och bedöma om svaret är rimligt."
-avstand-koordinatsystem-fardighet,skill,Trigonometri,Beräkna avståndet mellan två punkter,"beräkna avståndet mellan två punkter i ett koordinatsystem med Pythagoras sats.",pythagoras-begrepp,0,"Ge eleven två punkter i ett koordinatsystem och be hen rita in den rätvinkliga triangel som bildas, ange kateternas längd och räkna ut avståndet. Ta med en punkt med negativa koordinater."
+avstand-koordinatsystem-fardighet,skill,Trigonometri,Beräkna avståndet mellan två punkter,beräkna avståndet mellan två punkter i ett koordinatsystem med Pythagoras sats.,pythagoras-begrepp;kvadrat-kubiktal-fakta,0,"Ge eleven två punkter i ett koordinatsystem och be hen rita in den rätvinkliga triangel som bildas, ange kateternas längd och räkna ut avståndet. Ta med en punkt med negativa koordinater."
 vinkel-koordinatsystem-fardighet,skill,Trigonometri,Beräkna en vinkel i ett koordinatsystem,"beräkna vinkeln mellan en rät linje och x-axeln ur riktningskoefficienten, med hjälp av tan v = k.",berakna-vinkel-trig-fardighet;berakna-k-fardighet,0,"Ge eleven en linje genom två punkter och be hen beräkna vilken vinkel den bildar med x-axeln. Fråga sedan vilken riktningskoefficient en linje med vinkeln 45° har, och varför."
 trig-sammansatt-problem-fardighet,skill,Trigonometri,Lösa ett problem med flera rätvinkliga trianglar,"lösa ett praktiskt problem som kräver att en figur delas upp i flera rätvinkliga trianglar, och kombinera trigonometri och Pythagoras sats.",berakna-sida-trig-fardighet;berakna-vinkel-trig-fardighet;pythagoras-begrepp,0,"Ge eleven ett sammansatt problem (t.ex. höjden på ett torn som syns under två olika vinklar från två punkter, eller ett sadeltak) och be hen rita en figur, dela upp den i rätvinkliga trianglar och lösa problemet steg för steg."
 vektor-begrepp,concept,Vektorer,Vektor och skalär,"Vektor: en storhet med både storlek och riktning, som ritas som en pil. Två pilar med samma längd och riktning är samma vektor, var de än står.
@@ -96,7 +126,7 @@ addera-vektorer-grafiskt-fardighet,skill,Vektorer,Addera och subtrahera vektorer
 rakna-vektorer-koordinatform-fardighet,skill,Vektorer,Addera och subtrahera vektorer i koordinatform,"addera och subtrahera vektorer i koordinatform genom att räkna komponent för komponent, och koppla resultatet till den grafiska bilden.",skriva-vektor-koordinatform-fardighet,0,"Ge eleven två vektorer i koordinatform och be hen räkna ut summan och differensen, och sedan kontrollera ett av svaren genom att rita."
 multiplicera-skalar-fardighet,skill,Vektorer,Multiplicera en vektor med en skalär,"multiplicera en vektor med en skalär, både grafiskt och i koordinatform, och beskriva hur längd och riktning ändras när skalären är större än 1, mellan 0 och 1 eller negativ.",skriva-vektor-koordinatform-fardighet,0,"Ge eleven en vektor och be hen beräkna och rita 2v, 0,5v och -3v, och beskriva vad som händer med längd och riktning i varje fall."
 absolutbelopp-begrepp,concept,Vektorer,Absolutbelopp av en vektor,"Absolutbelopp: en vektors längd, skrivet |v|. För v = (x, y) är |v| = √(x² + y²), eftersom komponenterna och vektorn bildar en rätvinklig triangel.",vektor-koordinatform-begrepp;pythagoras-begrepp,0,
-berakna-absolutbelopp-fardighet,skill,Vektorer,Beräkna absolutbeloppet av en vektor,"beräkna absolutbeloppet av en vektor i koordinatform, också av en summa eller en differens av vektorer.",absolutbelopp-begrepp;rakna-vektorer-koordinatform-fardighet,0,"Ge eleven två vektorer i koordinatform och be hen beräkna |u|, |v| och |u + v|, och sedan förklara varför |u + v| oftast inte är lika med |u| + |v|."
+berakna-absolutbelopp-fardighet,skill,Vektorer,Beräkna absolutbeloppet av en vektor,"beräkna absolutbeloppet av en vektor i koordinatform, också av en summa eller en differens av vektorer.",absolutbelopp-begrepp;rakna-vektorer-koordinatform-fardighet;kvadrat-kubiktal-fakta,0,"Ge eleven två vektorer i koordinatform och be hen beräkna |u|, |v| och |u + v|, och sedan förklara varför |u + v| oftast inte är lika med |u| + |v|."
 vektorer-tillampning-fardighet,skill,Vektorer,Lösa ett tillämpat problem med vektorer,"lösa ett praktiskt problem med vektorer, t.ex. krafter eller hastigheter som verkar samtidigt, och ange resultatets storlek och riktning.",berakna-absolutbelopp-fardighet;multiplicera-skalar-fardighet;berakna-vinkel-trig-fardighet,0,"Ge eleven en situation med två samtidiga hastigheter eller krafter (t.ex. en båt som korsar en flod med ström, eller två rep som drar i samma föremål) och be hen ställa upp vektorerna i koordinatform och beräkna resultantens storlek och riktning."
 sannolikhet-begrepp,concept,Sannolikhet och statistik,Sannolikhet,"Utfall: ett möjligt resultat av ett slumpförsök.
 Händelse: ett eller flera utfall som man är intresserad av.
