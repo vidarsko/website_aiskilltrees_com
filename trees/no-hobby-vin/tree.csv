@@ -1,0 +1,246 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Vin for nybegynnere,,,
+,config,,description,"Fra vinmarken og smaksarket til druer, vinland, etiketter og vin til mat, lagt opp etter strukturen i WSET Level 2.",,,
+,config,,language,nb,,,
+,config,,learner,participant,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,vin for nybegynnere,,,
+,config,,slots.motivationSubject,vin,,,
+,config,,slots.expressionFocus,"bruker vage ord som «god», «myk» og «fruktig» om alt, i stedet for å si hva de faktisk kjenner av syre, tannin, sødme og fylde",,,
+,config,,slots.courseSpecifics,"Du kan verken lukte eller smake vinen deltakeren har i glasset. Spør hva de kjenner, og bekreft aldri en lukt eller smak som om du hadde kjent den selv. Kurset handler om å smake og forstå vin, ikke om å drikke mye: foreslå små smaksprøver, og spytting når flere viner smakes.",,,
+,config,,topicOrder,"Druen og vinmarken;Vinproduksjon;Smaking;Druesorter;Vinland og regioner;Musserende, søt og sterk vin;Etiketten;Servering og mat",,,
+,config,,decompositionVersion,2.13.0,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Hobby,,,
+,config,,country,NO,,,
+,config,,institution,hobby,,,
+,config,,subjectArea,wine,,,
+,config,,keywords,vin; vinsmaking; WSET; druesorter; vinregioner; Frankrike; Italia; Spania; Portugal; Tyskland; nye verden; champagne; portvin; sherry; vinetikett; vin og mat; smaksnotat,,,
+,config,,updated,2026-10-13,,,
+druen,concept,Druen og vinmarken,Druens deler,"Skall: ytterst på druen; gir farge, tannin og mye av aromaen.
+Fruktkjøtt (pulp): det meste av druen; vann, sukker og syre, og nesten alltid uten farge.
+Kjerner (seeds): inneholder bitre tanniner, og knuses derfor ikke når druene presses.",,,
+modning,concept,Druen og vinmarken,Modning (ripening),"Fotosyntese (photosynthesis): bladene bruker sollys til å lage sukker, som samles i druene.
+Modning (ripening): mens druene modner, stiger sukkeret og syren faller, og blå druer får mer farge, aroma og modnere tannin.",druen,,
+klima,concept,Druen og vinmarken,Klima og vær,"Klima (climate): det vanlige været på et sted år etter år, fra kjølig via moderat til varmt.
+Vær (weather): hvordan ett år skiller seg fra det vanlige; grunnen til at årgangene blir ulike.
+Årgang (vintage): året druene ble høstet.
+Kjølig klima (cool climate): gir lettere viner med mer syre, lavere alkohol og friskere frukt.
+Varmt klima (warm climate): gir fyldigere viner med modnere frukt og høyere alkohol.",modning;syre;fylde,,
+klimafaktorer,fact,Druen og vinmarken,Hva som gjør et sted kjøligere eller varmere,"breddegrad: jo lenger fra ekvator, jo kjøligere
+høyde over havet: jo høyere, jo kjøligere
+hav og havstrømmer: kalde strømmer kjøler, og havet jevner ut temperaturen gjennom året
+tåke og skyer: kjøler og gir mindre sol
+elver og innsjøer: jevner ut temperaturen og kaster sollys tilbake på vinrankene
+helling mot sola: gir mer sol og varme
+jordsmonn: stein holder på varmen, og jord som drenerer godt gir ranken akkurat nok vann",klima,,
+trusler,fact,Druen og vinmarken,Trusler i vinmarken,"frost: fryser de nye skuddene om våren og kan ta store deler av avlingen
+hagl: slår i stykker blader og druer
+tørke: ranken stresser, og druene modner dårlig
+for mye regn: utvanner druene og gir råte
+gråråte (grey rot): sopp som ødelegger druene i fuktig vær
+meldugg (mildew): sopp som angriper blader og druer
+vinlus (phylloxera): insekt som angriper røttene; de fleste ranker er derfor podet på amerikanske røtter",klima,,
+avling,concept,Druen og vinmarken,Avling (yield),Avling (yield): hvor mye druer som høstes fra et område; lavere avling gir som regel mer konsentrerte druer og dyrere vin.,modning,,
+gjaering,concept,Vinproduksjon,Gjæring (fermentation),"Gjæring (fermentation): gjærsopp omdanner sukkeret i druesaften til alkohol og karbondioksid, og det dannes nye aromaer.
+Restsukker (residual sugar): sukker som er igjen i vinen når gjæringen stopper.",,,
+torr-sot,concept,Vinproduksjon,Tørr og søt vin,"Tørr vin (dry): vin med så lite restsukker at den ikke kjennes søt.
+Søt vin (sweet): vin med så mye restsukker at sødmen kjennes tydelig.",gjaering,,
+vintyper,concept,Vinproduksjon,"Hvitvin, rødvin og rosévin","Hvitvin: druene presses straks, og bare saften gjæres, ofte kjølig (12–22 °C) for å bevare friske fruktaromaer; kan lages av både grønne og blå druer.
+Rødvin: blå druer gjæres varmere (20–32 °C) sammen med skallene, som gir farge og tannin; vinen presses fra skallene etterpå.
+Rosévin: blå druer der saften ligger med skallene bare noen timer til et par døgn før den skilles fra, slik at den får lite farge og nesten ikke tannin.",gjaering;druen,,
+eikefat,concept,Vinproduksjon,Eikefat (oak),"Eikefat (oak): tønne av eik som vinen gjæres eller lagres i; nye fat gir aromaer av vanilje, toast og krydder, og litt luft slipper inn gjennom treet.
+Ståltank (stainless steel): tank som ikke gir aroma og ikke slipper inn luft, slik at frukten holder seg frisk og ren.",,,
+malolaktisk,concept,Vinproduksjon,Malolaktisk omdanning (malolactic conversion),"Malolaktisk omdanning (malolactic conversion): bakterier gjør den skarpe eplesyren om til mildere melkesyre; senker syren og kan gi aroma av smør. Skjer i nesten all rødvin og i noen hvitviner, som mye Chardonnay.",gjaering;syre,,
+bunnfall-gjaer,concept,Vinproduksjon,Lagring på bunnfall (lees),"Bunnfall (lees): døde gjærceller som synker til bunns etter gjæringen; vin som får ligge på dem, får aroma av brød og kjeks og en rundere tekstur.",gjaering,,
+oksidasjon,concept,Vinproduksjon,Oksidasjon,"Oksidasjon (oxidation): endringen når vin har kontakt med luft over tid; fargen blir brunere, og aromaene går fra frisk frukt mot nøtter, karamell og tørket frukt.",,,
+smak-aroma,concept,Smaking,"Smak, aroma og intensitet","Smak (taste): det tunga kjenner: søtt, surt, salt, bittert og umami.
+Aroma (nose): det nesa kjenner, både når du lukter i glasset og bakfra gjennom munnen når du svelger.
+Intensitet (intensity): hvor kraftig lukten eller smaken er, fra svak via middels til uttalt (pronounced).",,,
+aromagrupper,fact,Smaking,Aromagruppene,"sitrus: sitron, lime, grapefrukt
+grønn frukt: eple, pære, stikkelsbær
+steinfrukt: fersken, aprikos
+tropisk frukt: ananas, mango, pasjonsfrukt, litchi
+rød frukt: jordbær, bringebær, kirsebær
+mørk frukt: bjørnebær, solbær, plomme
+tørket frukt: rosin, sviske, fiken
+blomster: fiol, rose, appelsinblomst
+urter og grønt: gress, mynte, grønn paprika
+krydder: pepper, nellik, kanel
+gjær og bunnfall: brød, kjeks, brioche
+melkesyre: smør, fløte
+eik: vanilje, toast, kokos
+lagring og oksidasjon: nøtter, karamell, kaffe, lær, sopp, honning",smak-aroma,,
+aromalag,concept,Smaking,"Primær-, sekundær- og tertiæraroma","Primæraroma (primary aroma): aroma fra selve druen og gjæringen, som frukt, blomster og urter.
+Sekundæraroma (secondary aroma): aroma fra framstillingen etter gjæringen, som brød fra bunnfall, smør fra malolaktisk omdanning og vanilje fra eikefat.
+Tertiæraroma (tertiary aroma): aroma fra lagring over tid, som nøtter, lær, tørket frukt, honning og sopp.",smak-aroma;eikefat;bunnfall-gjaer;malolaktisk;oksidasjon,,
+syre,concept,Smaking,Syre (acidity),"Syre (acidity): de naturlige syrene fra druene, som gjør vinen frisk og får munnen til å vannes. Vinmonopolet kaller det friskhet.",,,
+tannin,concept,Smaking,Tannin,"Tannin: stoffer fra skall, kjerner og eikefat som gir en tørr, ru følelse på tannkjøttet og tunga; finnes nesten bare i rødvin. Vinmonopolet kaller det garvestoffer.",vintyper,,
+fylde,concept,Smaking,Fylde (body) og alkohol,"Fylde (body): hvor tung og tykk vinen kjennes i munnen, fra lett som skummet melk til fyldig som helmelk; øker med alkohol og restsukker.
+Alkohol: kjennes som varme i munnen og halsen; under 11 % regnes som lavt, 11–13,9 % som middels og 14 % eller mer som høyt.",gjaering,,
+balanse-lengde,concept,Smaking,"Balanse, lengde og kompleksitet","Balanse (balance): at syre, sødme, tannin, alkohol og frukt holder hverandre i sjakk, slik at ingen av dem stikker seg ut.
+Lengde (finish): hvor lenge smaken sitter igjen etter at du har svelget eller spyttet.
+Kompleksitet (complexity): hvor mange ulike aromaer og smaker vinen viser, og hvordan de endrer seg i glasset.",syre;tannin;fylde;torr-sot;smak-aroma,,
+vinfeil,concept,Smaking,Vinfeil (wine faults),"Korkskade (cork taint): en feil fra et stoff i korken (TCA) som gir lukt av vått papp eller muggen kjeller og demper fruktaromaene.
+Oksidert vin (oxidised wine): vin som har fått for mye luft ved et uhell; fargen er brunlig, og aromaene er flate, med lukt av eple som har stått framme.",smak-aroma;oksidasjon,,
+se-pa-vin,skill,Smaking,Vurdere fargen på en vin,"beskrive fargedybden som blek, middels eller dyp og fargen med faste ord (sitron, gull eller rav for hvitvin; rosa, laks eller oransje for rosé; lilla, rubin, granat eller brunlig for rødvin), og si om fargen tyder på en ung eller en eldre vin.",vintyper;oksidasjon,,
+lukte,skill,Smaking,Lukte på en vin og sette ord på aromaene,"virvle vinen i glasset, lukte i korte drag, bedømme intensiteten og navngi minst tre aromaer fra hver sin aromagruppe.",smak-aroma;aromagrupper,,
+kjenne-struktur,skill,Smaking,"Bedømme sødme, syre, tannin, alkohol og fylde","plassere en vin på skalaene for sødme (tørr, halvtørr, middels søt, søt), syre, tannin og alkohol (lav, middels, høy) og fylde (lett, middels, fyldig), slik at plasseringen stemmer med Vinmonopolets klokker for sødme, friskhet, garvestoffer og fylde og med alkoholprosenten på etiketten.",syre;tannin;torr-sot;fylde;smak-aroma,,"Be deltakeren velge en vin som Vinmonopolet har smaksklokker for, og skrive ned sin egen plassering før de leser Vinmonopolets beskrivelse."
+fruktig-sot,skill,Smaking,Forklare forskjellen på fruktig og søt,"forklare hvorfor en tørr vin kan lukte og smake av moden frukt uten å inneholde sukker, og avgjøre om en gitt vin er fruktig, søt eller begge deler.",torr-sot;smak-aroma,,
+kjenne-vinfeil,skill,Smaking,Kjenne igjen en korket eller oksidert vin,"avgjøre ut fra lukt og farge om en vin er korket eller oksidert, og si fra slik at flasken kan byttes.",vinfeil;lukte;se-pa-vin,,
+smake-systematisk,skill,Smaking,Smake en vin systematisk,"gå gjennom utseende, lukt, smak og konklusjon i fast rekkefølge, og sette ett ord fra skalaen på hver rad: fargedybde og farge, intensitet og aromaer, sødme, syre, tannin, alkohol, fylde, smaksintensitet og lengde.",se-pa-vin;lukte;kjenne-struktur;balanse-lengde,,
+vurdere-kvalitet,skill,Smaking,Vurdere kvaliteten på en vin,"vurdere en vin som dårlig, akseptabel, god, svært god eller fremragende, og begrunne vurderingen med balanse, lengde, intensitet og kompleksitet.",balanse-lengde;kjenne-struktur;lukte,,
+smaksnotat,skill,Smaking,Skrive et smaksnotat (tasting note),"skrive et kort smaksnotat med farge, aromaer, sødme, syre, tannin, alkohol, fylde, lengde og en begrunnet kvalitetsvurdering, der hvert ord som «god» eller «myk» er forklart med hva du faktisk kjenner.",smake-systematisk;aromalag;vurdere-kvalitet,,
+druesort,concept,Druesorter,"Druesort og blanding (grape variety, blend)","Druesort (grape variety): én bestemt sort av vinranken, som Chardonnay eller Pinot Noir, med sin egen typiske farge, aroma og struktur.
+Blanding (blend): vin laget av flere druesorter, som rødvin fra Bordeaux av Cabernet Sauvignon og Merlot.",,,
+druer-bla,fact,Druesorter,De viktigste blå druene,"Cabernet Sauvignon: solbær og mørk frukt, mye tannin og høy syre; Bordeaux, Napa Valley, Coonawarra, Chile
+Merlot: plomme, mykere tannin og middels syre; Bordeaux, særlig Saint-Émilion og Pomerol, og Chile
+Pinot Noir: kirsebær og bringebær, lite tannin og høy syre; Burgund, Champagne, New Zealand, Oregon
+Syrah/Shiraz: mørk frukt og sort pepper; nord-Rhône (Syrah) og Barossa Valley (Shiraz)
+Grenache/Garnacha: rød frukt, høy alkohol og lite tannin; sør-Rhône og Spania
+Tempranillo: rød frukt, ofte med eikepreg; Rioja og Ribera del Duero; i Portugal kalt Tinta Roriz
+Sangiovese: kirsebær, høy syre og mye tannin; Toscana (Chianti, Brunello di Montalcino)
+Nebbiolo: rose og kirsebær, lys farge, svært mye tannin og høy syre; Piemonte (Barolo, Barbaresco)
+Malbec: mørk frukt og fiol; Mendoza (Argentina) og Cahors
+Gamay: rød frukt og lite tannin; Beaujolais
+Zinfandel/Primitivo: moden mørk frukt og høy alkohol; California og Puglia
+Touriga Nacional: mørk frukt, fiol og mye tannin; Douro og Dão; den viktigste druen i portvin",druesort,,
+druer-gronne,fact,Druesorter,De viktigste grønne druene,"Chardonnay: eple og sitrus i kjølig klima, tropisk frukt i varmt; tåler eikefat og malolaktisk omdanning; Burgund (Chablis), Champagne, California, Australia
+Sauvignon Blanc: gress, grønn paprika og stikkelsbær, høy syre; Loire (Sancerre) og Marlborough
+Riesling: sitrus, steinfrukt og blomster, svært høy syre, fra tørr til søt; Mosel, Alsace, Clare og Eden Valley
+Chenin Blanc: eple og honning, høy syre, fra tørr til søt og musserende; Loire (Vouvray) og Sør-Afrika
+Sémillon: sitrus og voks; Bordeaux, særlig søt Sauternes, og Hunter Valley
+Pinot Grigio/Pinot Gris: lett og nøytral i Nord-Italia, fyldig og krydret i Alsace
+Gewürztraminer: litchi og rose, lav syre; Alsace
+Viognier: aprikos og blomster, fyldig; nord-Rhône (Condrieu)
+Albariño/Alvarinho: fersken og sitrus; Rías Baixas og Vinho Verde
+Grüner Veltliner: grønn frukt og hvit pepper; Østerrike
+Muscat/Moscato: lukter av friske druer og blomster; Asti og søte sterkviner",druesort,,
+beskrive-drue,skill,Druesorter,Beskrive stilen til en druesort,"beskrive typisk aroma, syre, tannin og fylde for en gitt druesort, og si hvilke land og regioner den er best kjent fra.",druer-bla;druer-gronne;syre;tannin;fylde,,
+gamle-nye,concept,Vinland og regioner,"Gamle og nye verden (Old World, New World)","Gamle verden (Old World): vinlandene i Europa, med lang tradisjon og strenge regler; etiketten sier oftest hvor vinen kommer fra.
+Nye verden (New World): vinland utenfor Europa, som USA, Australia, New Zealand, Chile, Argentina og Sør-Afrika, med friere regler; etiketten sier oftest hvilken drue vinen er laget av.",,,
+terroir,concept,Vinland og regioner,Terroir,"Terroir: alt ved et bestemt sted som påvirker vinen, som klima, jordsmonn, helling og høyde; ideen om at en vin kan smake av stedet den kommer fra.",klimafaktorer,,
+frankrike,fact,Vinland og regioner,Vinregionene i Frankrike,"Bordeaux: blandinger av Cabernet Sauvignon og Merlot; venstre bredd (Médoc) mest Cabernet, høyre bredd (Saint-Émilion, Pomerol) mest Merlot; søt Sauternes
+Burgund: Pinot Noir og Chardonnay; Chablis i nord gir slank Chardonnay, ofte uten eikepreg
+Beaujolais: lette, fruktige rødviner av Gamay
+Champagne: musserende vin av Chardonnay, Pinot Noir og Meunier
+Alsace: aromatiske hvitviner av Riesling, Gewürztraminer og Pinot Gris, med druen på etiketten
+Loire: Sauvignon Blanc fra Sancerre, Chenin Blanc fra Vouvray og lett Muscadet fra kysten
+nord-Rhône: Syrah, og Viognier fra Condrieu
+sør-Rhône: blandinger med Grenache, som Châteauneuf-du-Pape og Côtes du Rhône
+Languedoc: rimelige viner, ofte med druen på etiketten
+Provence: blek, tørr rosé",gamle-nye,,
+europa,fact,Vinland og regioner,Vinregionene i resten av Europa,"Piemonte (Italia): Nebbiolo i Barolo og Barbaresco; Barbera; søt, musserende Asti
+Toscana (Italia): Sangiovese i Chianti og Brunello di Montalcino
+Veneto (Italia): Prosecco, Soave, og Valpolicella og Amarone av Corvina, der Amarone lages av tørkede druer
+Rioja (Spania): Tempranillo, ofte lagret lenge på eikefat
+Ribera del Duero (Spania): kraftig Tempranillo
+Rías Baixas (Spania): Albariño
+Penedès (Spania): det meste av Cava
+Jerez (Spania): sherry
+Douro (Portugal): portvin og kraftige tørre rødviner
+Vinho Verde (Portugal): lette, friske hvitviner
+Mosel (Tyskland): lett, syrlig Riesling, ofte med litt sødme
+Pfalz (Tyskland): fyldigere Riesling, ofte tørr
+Østerrike: Grüner Veltliner
+Tokaj (Ungarn): søt Tokaji av Furmint med edelråte",gamle-nye,,
+nye-verden,fact,Vinland og regioner,Vinregionene i nye verden,"Napa Valley (California, USA): Cabernet Sauvignon; varme dager og kjølig tåke fra Stillehavet
+Sonoma og Carneros (California, USA): Chardonnay og Pinot Noir fra kjøligere områder
+Oregon (USA): Pinot Noir
+Barossa Valley (Australia): kraftig Shiraz
+Coonawarra (Australia): Cabernet Sauvignon
+Clare og Eden Valley (Australia): tørr Riesling med lime
+Hunter Valley (Australia): Sémillon
+Marlborough (New Zealand): Sauvignon Blanc med gress og pasjonsfrukt
+Central Otago (New Zealand): Pinot Noir
+Mendoza (Argentina): Malbec fra vinmarker høyt over havet
+Central Valley (Chile): Cabernet Sauvignon og Carmenère
+Casablanca (Chile): kjølig kystdal for Sauvignon Blanc og Chardonnay
+Stellenbosch (Sør-Afrika): Cabernet Sauvignon, Pinotage og Chenin Blanc",gamle-nye,,
+kart,skill,Vinland og regioner,Plassere vinregionene på kartet,"plassere de viktigste vinregionene i Frankrike, Italia, Spania, Portugal og Tyskland på et blankt kart over Europa, og vinlandene i nye verden på et verdenskart.",frankrike;europa;nye-verden,,
+klima-region,skill,Vinland og regioner,Forklare stilen til en region ut fra klimaet,"forklare med klimafaktorer og modning hvorfor en region gir lette og syrlige eller fyldige og modne viner, som Riesling fra Mosel mot Shiraz fra Barossa, eller Chardonnay fra Chablis mot Chardonnay fra California.",klima;klimafaktorer;frankrike;europa;nye-verden,,
+velge-stil,skill,Vinland og regioner,Velge vin ut fra ønsket stil,"foreslå land, region og druesort når man får beskrevet en ønsket stil, som en frisk og lett hvitvin eller en kraftig rødvin med mye tannin, og begrunne valget.",klima-region;beskrive-drue,,
+musserende,concept,"Musserende, søt og sterk vin",Musserende vin (sparkling wine),"Musserende vin (sparkling wine): vin med kullsyre fra en andre gjæring i lukket flaske eller tank, slik at karbondioksidet ikke slipper ut.",gjaering,,
+metoder,concept,"Musserende, søt og sterk vin",Tradisjonell metode og tankmetoden,"Tradisjonell metode (traditional method): den andre gjæringen skjer i flasken vinen selges i, og vinen ligger lenge på bunnfallet; gir aroma av brød og kjeks.
+Tankmetoden (tank method): den andre gjæringen skjer i en stor trykktank, og vinen tappes kort tid etter; bevarer friske frukt- og blomsteraromaer.",musserende;bunnfall-gjaer,,
+musserende-typer,fact,"Musserende, søt og sterk vin",De viktigste musserende vinene,"Champagne: Frankrike; tradisjonell metode; brød, kjeks og sitrus
+Crémant: Frankrike utenfor Champagne; tradisjonell metode
+Cava: Spania; tradisjonell metode; ofte rimeligere enn Champagne
+Prosecco: Italia; tankmetoden; pære og blomster
+Asti: Italia; søt og lett musserende av Moscato, med lav alkohol",metoder,,
+skille-musserende,skill,"Musserende, søt og sterk vin",Forklare forskjellen på Champagne og Prosecco,"forklare hvordan tradisjonell metode og tankmetoden gir Champagne og Prosecco ulike aromaer, og velge mellom dem til en gitt anledning.",musserende-typer;aromalag,,
+sotvin,concept,"Musserende, søt og sterk vin",Søtvin (sweet wine),"Sen høsting (late harvest): druene får henge lenge på ranken og samler mer sukker.
+Edelråte (noble rot): samme sopp som gråråte, men i et klima med fuktige morgener og tørre ettermiddager tørker den ut druene og konsentrerer sukker og syre; gir aroma av honning og aprikos, som i Sauternes og Tokaji.
+Isvin (ice wine): druer som høstes og presses frosne, slik at vannet blir igjen som is og saften blir søt og konsentrert.",torr-sot;modning;trusler,,
+sterkvin,concept,"Musserende, søt og sterk vin",Sterkvin (fortified wine),"Sterkvin (fortified wine): vin tilsatt druebrennevin, slik at alkoholen blir omtrent 15–22 %.
+Forsterking (fortification): å tilsette brennevinet; skjer det midt i gjæringen, dør gjæren, og sukkeret som er igjen gjør vinen søt.",gjaering;torr-sot,,
+portvin,concept,"Musserende, søt og sterk vin",Portvin (port),"Portvin (port): sterkvin fra Douro i Portugal, forsterket midt i gjæringen slik at den blir søt med rundt 20 % alkohol.",sterkvin,,
+portvinstyper,fact,"Musserende, søt og sterk vin",Portvinstypene,"ruby: ung og fruktig, lagret kort tid i store fat
+tawny: lagret lenge i små fat; brunlig farge, nøtter og karamell
+tawny med aldersangivelse: 10, 20, 30 eller 40 år angir preget av alder, ikke nøyaktig alder
+LBV (Late Bottled Vintage): ruby fra én årgang, lagret fire til seks år på fat før tapping
+vintage: fra de beste årgangene, tappet etter to år og laget for å modnes mange år på flaske
+hvit portvin: laget av grønne druer, fra tørr til søt; ofte servert med tonic",portvin,,
+ruby-tawny,skill,"Musserende, søt og sterk vin",Forklare forskjellen på ruby og tawny,forklare hvordan lagring i store og små fat gir ruby og tawny ulik farge og ulike aromaer.,portvinstyper;oksidasjon;aromalag,,
+sherry,concept,"Musserende, søt og sterk vin",Sherry,"Sherry: sterkvin fra området rundt Jerez i Spania, mest av druen Palomino, forsterket etter at gjæringen er ferdig, og derfor tørr med mindre den søtes etterpå.
+Flor: et lag av gjær som flyter oppå vinen i fatet, beskytter den mot luft og gir aroma av brød og mandel.",sterkvin;oksidasjon,,
+sherrytyper,fact,"Musserende, søt og sterk vin",Sherrytypene,"fino og manzanilla: lagret under flor; blek og tørr, med brød og mandel
+amontillado: først lagret under flor, så med luft; ravfarget og tørr, med nøtter
+oloroso: lagret med luft, uten flor; mørk og tørr, med nøtter og tørket frukt
+medium og cream: sherry som er søtet etterpå
+Pedro Ximénez (PX): svært søt, av soltørkede druer; rosin, sviske og fiken",sherry,,
+madeira,concept,"Musserende, søt og sterk vin",Madeira,"Madeira: sterkvin fra øya Madeira som varmes opp under lagringen og oksideres med vilje, slik at den tåler å stå åpen lenge; finnes fra tørr til søt.",sterkvin;oksidasjon,,
+servere-sterkvin,skill,"Musserende, søt og sterk vin",Servere og oppbevare sterkvin,"velge temperatur for ulike typer portvin og sherry, avgjøre om flasken må dekanteres, og si omtrent hvor lenge en åpnet flaske holder seg.",portvinstyper;sherrytyper;temperaturer;dekantering,,
+opprinnelse,concept,Etiketten,Opprinnelsesbetegnelse (geographical indication),"Beskyttet opprinnelsesbetegnelse (PDO): vin fra et lite, avgrenset område med strenge regler for druer, avling og framstilling; i Frankrike AOC eller AOP, i Italia DOC og DOCG, i Spania DO og DOCa, i Portugal DOC.
+Beskyttet geografisk betegnelse (PGI): vin fra et større område med friere regler; i Frankrike IGP eller Vin de Pays, i Italia IGT, i Spania Vino de la Tierra, i Portugal Vinho Regional.
+Vin uten geografisk betegnelse: vin uten oppgitt område, ofte en blanding fra hele landet.",terroir,,
+kvalitetsord,fact,Etiketten,Kvalitets- og lagringsord på etiketten,"Prädikat (Tyskland): hvor modne druene var ved høsting, fra Kabinett via Spätlese og Auslese til Beerenauslese, Eiswein og Trockenbeerenauslese; sier ikke alene om vinen er tørr eller søt
+Classico (Italia): fra det opprinnelige kjerneområdet i en region, som Chianti Classico
+Riserva (Italia): lagret lenger før salg enn vanlig vin fra samme område
+Crianza (Spania): rødvin lagret minst to år, en del av tiden på eikefat
+Reserva (Spania): rødvin lagret minst tre år, hvorav minst ett på eikefat
+Gran Reserva (Spania): rødvin lagret minst fem år, hvorav minst halvannet på eikefat
+grand cru (Frankrike): den høyeste rangen for en vinmark i Burgund og Alsace
+premier cru (Frankrike): rangen under grand cru i Burgund",opprinnelse,,
+etikettord,fact,Etiketten,Ord på etiketten,"rouge, rosso, tinto, rot: rød
+blanc, bianco, blanco, branco, weiss: hvit
+rosé, rosato, rosado: rosé
+sec, secco, seco, trocken: tørr
+demi-sec, semiseco, halbtrocken: halvtørr
+doux, dolce, dulce, doce, süss: søt
+brut: tørr musserende vin
+mousseux, spumante, espumoso, espumante, Sekt: musserende
+millésime, vendemmia, cosecha, colheita, Jahrgang: årgang
+château, domaine, tenuta, bodega, quinta, Weingut: vingård eller vinprodusent
+vieilles vignes: gamle vinranker
+mis en bouteille au domaine: tappet der den er laget",,,
+lese-etikett,skill,Etiketten,Lese en vinetikett,"finne land, region, opprinnelsesbetegnelse, druesort, årgang, farge og sødme på en etikett fra gamle eller nye verden, og si hva det forteller om vinen.",opprinnelse;kvalitetsord;etikettord;gamle-nye,,
+temperaturer,fact,Servering og mat,Serveringstemperaturer (serving temperatures),"søt vin: godt kjølt, 6–8 °C
+musserende vin: godt kjølt, 6–10 °C
+lett og middels fyldig hvitvin og rosé: kjølt, 7–10 °C
+fyldig hvitvin med eikepreg: lett kjølt, 10–13 °C
+lett rødvin: lett kjølt, rundt 13 °C
+middels og fyldig rødvin: romtemperatur, 15–18 °C
+fino og manzanilla: godt kjølt, 6–8 °C
+tawny og hvit portvin: 10–14 °C
+ruby og vintage portvin: 15–18 °C",,,
+servere-temp,skill,Servering og mat,Servere vin ved riktig temperatur,"velge serveringstemperatur ut fra vintype og fylde, og bruke kjøleskap eller is og vann for å nå den, slik at et termometer i glasset viser riktig temperatur.",temperaturer;fylde,,
+oppbevaring,concept,Servering og mat,Oppbevaring av vin (storage),"Lagring (storage): flasker med kork ligger på siden, kjølig, mørkt og ved jevn temperatur, uten rystelser og sterke lukter.
+Åpnet flaske: luften gjør at vinen mister friskhet i løpet av noen dager; kork i flasken, kjøleskap og vakuumpumpe eller gass forlenger tiden.",oksidasjon,,
+apne-musserende,skill,Servering og mat,Åpne en flaske musserende vin,"åpne en flaske musserende vin uten smell og søl, med flasken holdt skrått bort fra folk, tommelen over korken, og flasken vridd i stedet for korken.",musserende,,
+dekantering,concept,Servering og mat,Dekantering (decanting),"Dekantering (decanting): å helle vinen over i en karaffel, enten for å skille den fra bunnfall eller for å gi en ung vin luft.
+Bunnfall (sediment): fast stoff som felles ut når en vin lagres lenge på flaske, særlig rødvin og vintage portvin.",,,
+dekantere,skill,Servering og mat,Dekantere en vin med bunnfall,"la flasken stå oppreist et døgn, helle vinen langsomt over i en karaffel mot et lys, og stoppe før bunnfallet kommer med.",dekantering,,
+mat-prinsipper,concept,Servering og mat,Vin og mat (food and wine pairing),"Sødme i maten: gjør vinen tørrere, surere og mer bitter; vinen bør være minst like søt som maten.
+Umami i maten: gjør vinen mer bitter og tanninrik og mindre fruktig.
+Salt i maten: demper bitterhet og tannin og gjør vinen rundere.
+Syre i maten: gjør vinen mindre syrlig og mer fruktig; vinen bør ha minst like mye syre som maten.
+Fett og protein i maten: en syrlig vin frisker opp munnen, og tannin kjennes mykere.
+Bitterhet i maten: forsterker bitterheten i vinen.
+Chili i maten: forsterker brenningen fra alkohol og tannin; viner med lite alkohol og litt sødme passer best.",syre;tannin;torr-sot;fylde,,
+velge-mat,skill,Servering og mat,Velge vin til en rett,"foreslå en vin til en gitt rett, som skalldyr, lammestek eller thaimat med chili, og begrunne valget med hva maten og vinen gjør med hverandre.",mat-prinsipper;velge-stil,,
+velge-dessert,skill,Servering og mat,Velge vin til dessert og ost,"foreslå en søtvin eller sterkvin til en gitt dessert eller ost, og begrunne valget med sødme og aromaer.",mat-prinsipper;sotvin;portvinstyper;sherrytyper;madeira,,
