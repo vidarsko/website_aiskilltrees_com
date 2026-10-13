@@ -1,0 +1,185 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Vitenskapen bak matlaging,,,
+,config,,description,"Hvorfor maten oppfører seg som den gjør: varme, proteiner, bruning, salt, fett, stivelse, hevning, smak og mikrober, og hvordan du bruker det på ditt eget kjøkken. Et første forslag.",,,
+,config,,language,nb,,,
+,config,,learner,participant,,,
+,config,,subjectFamily,practical-aesthetic,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"vitenskapen bak matlaging, et hobbykurs for voksne",,,
+,config,,slots.motivationSubject,matlaging,,,
+,config,,slots.expressionFocus,"sier at maten «brant seg», «ble seig» eller «skilte seg» uten å si hva som skjedde med vannet, proteinene, sukkeret, stivelsen eller fettet; blander temperatur og varme; eller gjentar kjøkkenråd som «brunning forsegler saften» uten å spørre om de stemmer",,,
+,config,,slots.courseSpecifics,"Kurset er for voksne hobbykokker og legger mest vekt på teorien: å forstå hvorfor et grep virker, ikke bare å følge en oppskrift. Knytt hver forklaring til noe deltakeren kan observere på sitt eget kjøkken, som farge, lyd i panna, konsistens eller hvor mye væske som renner ut, og foreslå gjerne små forsøk med vanlige råvarer. Bruk Mattilsynets råd som fasit for kjernetemperaturer, nedkjøling og oppbevaring, og gjett aldri et tall som har med mattrygghet å gjøre. Spør om allergier før du foreslår en oppskrift.",,,
+,config,,topicOrder,"Matens byggesteiner;Varme;Proteiner;Bruning;Salt, sukker og vann;Fett og emulsjoner;Stivelse og gluten;Hevning og skum;Smak og aroma;Mikrober og fermentering;Fra prinsipp til rett",,,
+,config,,decompositionVersion,2.13.0,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,Hobby,,,
+,config,,country,NO,,,
+,config,,institution,hobby,,,
+,config,,subjectArea,cooking,,,
+,config,,keywords,matvitenskap; kjøkkenkjemi; matkjemi; food science; Maillard; karamellisering; emulsjon; gluten; stivelse; osmose; fermentering; surdeig; umami; kjernetemperatur,,,
+,config,,updated,2026-10-13,,,
+hovedstoffer,concept,Matens byggesteiner,Matens fire hovedstoffer,"Vann: hovedbestanddelen i de fleste råvarer; kjøtt, fisk, frukt og grønnsaker er for det meste vann.
+Protein: lange kjeder av aminosyrer som er brettet sammen til en bestemt form.
+Karbohydrat: sukker og kjeder av sukker, som stivelse.
+Fett: molekyler bygget av fettsyrer, som ikke blander seg med vann.",,,
+vannelskende,concept,Matens byggesteiner,"Vannelskende og vannskyende stoffer (hydrophilic, hydrophobic)","Vannelskende (hydrofil): stoffer som løser seg i eller binder seg til vann, som salt, sukker og mange proteiner.
+Vannskyende (hydrofob): stoffer som ikke blander seg med vann, som fett og olje.",hovedstoffer,,
+ph,concept,Matens byggesteiner,"Syre, base og pH","Syre (acid): stoff som gjør en løsning sur, som eddik, sitronsaft og melkesyre.
+Base: stoff som motvirker syre, som natron.
+pH: et mål fra 0 til 14 på hvor surt eller basisk noe er; 7 er nøytralt, lavere er surt og høyere er basisk.",,,
+enzym,concept,Matens byggesteiner,Enzym (enzyme),"Enzym (enzyme): et protein som får én bestemt kjemisk reaksjon til å gå raskere, for eksempel når kuttet eple blir brunt eller kjøtt mørner mens det henger; de fleste ødelegges av varme.",hovedstoffer,,
+varme-temperatur,concept,Varme,"Varme og temperatur (heat, temperature)","Temperatur (temperature): hvor raskt molekylene i et stoff beveger seg i gjennomsnitt; måles i °C.
+Varme (heat): energi som går fra noe varmt til noe kaldere.",,,
+varmeoverforing,concept,Varme,"Ledning, konveksjon og stråling","Ledning (conduction): varme som går gjennom direkte kontakt, fra panna til biffen.
+Konveksjon (convection): varme som føres med væske eller luft i bevegelse, som i kokende vann eller en varmluftsovn.
+Stråling (radiation): varme som sendes som infrarødt lys, som fra grillglør eller ovnens grillelement.",varme-temperatur,,
+varmekapasitet,concept,Varme,Varmekapasitet og varmeledningsevne,"Varmekapasitet (heat capacity): hvor mye energi som trengs for å varme noe opp én grad; vann trenger omtrent dobbelt så mye som olje, og en tung panne lagrer mer varme enn en lett.
+Varmeledningsevne (thermal conductivity): hvor raskt varme går gjennom et materiale; kobber og aluminium leder mye bedre enn støpejern og rustfritt stål.",varme-temperatur,,
+kokepunkt,concept,Varme,"Kokepunkt og fordampning (boiling point, evaporation)","Kokepunkt (boiling point): temperaturen der vann blir damp i hele væsken; 100 °C ved havnivå, lavere i høyden og rundt 120 °C i en trykkoker.
+Fordampning (evaporation): at vann går over til damp og tar med seg mye energi, slik at en våt overflate holder seg på eller under 100 °C så lenge det er vann igjen.",varme-temperatur,,
+fuktig-torr,concept,Varme,Fuktig og tørr varme,"Fuktig varme (moist heat): varme overført gjennom vann eller damp, som koking, damping og brasering; maten blir ikke varmere enn omtrent 100 °C.
+Tørr varme (dry heat): varme gjennom luft, fett eller metall, som steking, baking og grilling; overflaten kan bli langt varmere enn 100 °C når den har tørket.",varmeoverforing;kokepunkt,,
+gradient,concept,Varme,Kjernetemperatur og ettervarme (carryover cooking),"Kjernetemperatur (core temperature): temperaturen midt i den tykkeste delen av maten.
+Temperaturgradient: at maten er varmest ytterst og kaldest i kjernen når den varmes utenfra.
+Ettervarme (carryover cooking): at kjernetemperaturen fortsetter å stige etter at maten er tatt av varmen, ofte noen få grader og mer i store stykker, fordi varmen i de ytre lagene fortsatt går innover.",varmeoverforing,,
+velge-metode,skill,Varme,Velge tilberedningsmetode ut fra varmeoverføring,"forklare hvordan ledning, konveksjon og stråling virker i steking, koking, ovnsbaking og grilling, og velge metode ut fra om du vil ha en sprø overflate, jevn gjennomvarming eller begge deler.",varmeoverforing;fuktig-torr,,
+velge-panne,skill,Varme,Velge panne og gryte ut fra materialet,"forklare hvorfor en tykk støpejernspanne holder på varmen når kaldt kjøtt legges i, mens en tynn aluminiumspanne blir jevnt varm raskt men kjøles ned, og velge panne til en gitt oppgave.",varmekapasitet;varmeoverforing,,
+trykkoker,skill,Varme,Forklare hvordan trykk endrer koketiden,"forklare hvorfor bønner og kjøtt blir møre mye raskere i en trykkoker, og hvorfor pasta og egg trenger lengre koketid høyt til fjells.",kokepunkt,,
+termometer,skill,Varme,Bruke steketermometer,"måle kjernetemperaturen i den tykkeste delen uten å treffe bein eller panne, og ta maten av varmen noen grader under måltemperaturen slik at den når målet etter hvile.",gradient,,
+denaturering,concept,Proteiner,Denaturering og koagulering,"Denaturering: at et protein mister sin opprinnelige, sammenbrettede form, for eksempel av varme, syre, salt eller pisking.
+Koagulering: at denaturerte proteiner binder seg til hverandre i et nettverk og presser ut vann, slik at noe flytende blir fast, som når eggehvite stivner.",hovedstoffer,,
+egg-temp,fact,Proteiner,Eggets temperaturer,"eggehviten begynner å stivne: omtrent 62 °C
+eggehviten er helt fast: omtrent 80 °C
+eggeplommen begynner å tykne: omtrent 65 °C
+eggeplommen er fast: omtrent 70 °C",denaturering,,
+muskel,concept,Proteiner,"Muskelfiber og bindevev (muscle fibre, connective tissue)","Muskelfiber (muscle fibre): lange celler fylt med proteiner som trekker seg sammen og presser ut væske når kjøttet varmes.
+Bindevev (connective tissue): hinner og sener rundt fibrene, bygget av proteinet kollagen; det er mye av det i muskler dyret har brukt mye, som bog, legg og høyrygg.",hovedstoffer,,
+kollagen,concept,Proteiner,Kollagen og gelatin,"Kollagen (collagen): seigt protein i bindevevet som trekker seg sammen kraftig ved rundt 60 °C.
+Gelatin: det kollagen blir til etter lang tid i fuktig varme, raskere jo nærmere 100 °C; løser seg i kokevæsken, gir den fylde og stivner til gelé når den kjøles.",muskel;denaturering;fuktig-torr,,
+myoglobin,concept,Proteiner,Myoglobin,Myoglobin: det røde proteinet som gir kjøtt fargen; det denatureres og går fra rødt via rosa til gråbrunt omtrent mellom 60 og 75 °C.,denaturering,,
+kjott-temp,fact,Proteiner,Kjernetemperaturer for kjøtt og fisk,"storfe i hele stykker, rødt (rare): 52–55 °C
+storfe i hele stykker, rosa (medium): 56–60 °C
+storfe i hele stykker, gjennomstekt: 70 °C eller mer
+svinekjøtt i hele stykker: 65–70 °C
+laks og annen fisk, saftig: rundt 50 °C
+kylling, kalkun og kjøttdeig: minst 75 °C",myoglobin,,
+koke-egg,skill,Proteiner,Koke egg til ønsket konsistens,koke et egg med fast hvite og rennende plomme ved å velge koketid ut fra eggets størrelse og om det kommer rett fra kjøleskapet.,egg-temp;gradient,,
+ceviche,skill,Proteiner,Forklare hvordan syre «koker» fisk,"forklare hvordan sitronsaft gjør rå fisk fast og hvit i ceviche uten varme, og hva som likevel skiller den fra kokt fisk.",denaturering;ph,,
+steke-kjott,skill,Proteiner,Steke et kjøttstykke til ønsket kjernetemperatur,"steke et kjøttstykke slik at termometeret viser ønsket kjernetemperatur etter hvile, og forklare hvorfor kjøttet blir tørrere jo varmere det blir.",kjott-temp;termometer;muskel,,
+brasere,skill,Proteiner,Velge mellom kort steking og lang brasering,"avgjøre ut fra mengden bindevev om et kjøttstykke bør stekes kort eller braseres lenge, og forklare hvorfor høyrygg blir mør etter tre timer mens indrefilet blir tørr.",kollagen;muskel;fuktig-torr,,
+hvile,skill,Proteiner,Forklare hva hvile gjør med kjøtt,"forklare hva som skjer med temperaturen og saften i et kjøttstykke mens det hviler, og hvorfor det renner mindre saft ut når det skjæres etter hvile.",gradient;muskel,,
+maillard,concept,Bruning,Maillard-reaksjonen,"Maillard-reaksjonen: reaksjoner mellom aminosyrer og sukker som gir brun farge og hundrevis av nye smaks- og aromastoffer; går sakte ved lave temperaturer og raskt først når overflaten er tørr og godt over 100 °C, fra rundt 140 °C.",hovedstoffer;kokepunkt,,
+karamellisering,concept,Bruning,Karamellisering,"Karamellisering: at sukker alene brytes ned av varme og blir brunt, bittersøtt og aromatisk; for vanlig sukker skjer det fra rundt 160–170 °C.",hovedstoffer,,
+enzymatisk-bruning,concept,Bruning,Enzymatisk bruning,"Enzymatisk bruning: at et enzym i kuttet frukt og grønnsaker, som eple, avokado og potet, reagerer med oksygen i lufta og lager brune stoffer; bremses av syre, kulde og at lufta holdes unna.",enzym;ph,,
+skille-bruning,skill,Bruning,Skille Maillard-reaksjonen fra karamellisering,"avgjøre om bruningen på brødskorpe, stekt biff, karamellpudding og stekt løk kommer fra Maillard-reaksjonen, karamellisering eller begge, og begrunne det med hva råvaren inneholder.",maillard;karamellisering,,
+brune-kjott,skill,Bruning,Brune kjøtt i stedet for å koke det,"tørke overflaten, varme panna godt og steke i små porsjoner, og forklare hvorfor kjøttet blir grått og ligger og koker når panna er full.",maillard;varmekapasitet;fuktig-torr,,
+brune-lok,skill,Bruning,Brune løk langsomt,"steke løk på middels varme til den er gyllenbrun og søt, og forklare hvilke bruningsreaksjoner som bidrar og hvorfor det tar tid.",maillard;karamellisering,,
+natron-bruning,skill,Bruning,Forklare hvorfor natron og lut gir raskere bruning,"forklare hvorfor kringler dyppet i lut blir mørkebrune og løk med en klype natron brunes raskere, med hvordan pH påvirker Maillard-reaksjonen.",maillard;ph,,
+stekesky,skill,Bruning,Koke ut stekeskyen (deglaze),"løse opp det brune belegget i panna med vin, kraft eller vann og bruke det i en saus, og forklare hvorfor det gir sausen mer smak.",maillard,,
+hindre-bruning,skill,Bruning,Hindre at kuttet frukt blir brun,"velge mellom sitronsaft, kaldt vann og plast tett mot overflaten for å holde kuttet eple eller avokado lyst, og forklare hvordan hver metode virker.",enzymatisk-bruning,,
+diffusjon,concept,"Salt, sukker og vann",Løsning og diffusjon,"Løsning (solution): et stoff, som salt eller sukker, fordelt jevnt i vann.
+Diffusjon: at oppløste stoffer sprer seg fra der det er mye av dem til der det er lite; i fast mat går det sakte, ofte timer til dager for et helt kjøttstykke.",vannelskende,,
+osmose,concept,"Salt, sukker og vann",Osmose,"Osmose: at vann vandrer gjennom celleveggene fra siden med minst oppløst stoff til siden med mest, slik at salt eller sukker på overflaten trekker vann ut av grønnsaker, frukt og kjøtt.",diffusjon,,
+salt-protein,concept,"Salt, sukker og vann",Salt og muskelproteiner,"Salt og muskelproteiner: salt løser opp deler av muskelproteinene, slik at kjøttet holder bedre på vannet under steking og blir saftigere, og slik at kjøttdeig klistrer seg sammen til farse.",muskel;diffusjon,,
+sukker-vann,concept,"Salt, sukker og vann",Sukker binder vann,"Sukker binder vann: sukker trekker til seg og holder på vann; det holder kaker myke, får egg og stivelse til å stivne ved høyere temperatur, og gjør syltetøy holdbart fordi mikrobene mangler fritt vann.",vannelskende,,
+frysepunkt,concept,"Salt, sukker og vann",Frysepunktsenkning,"Frysepunktsenkning: at oppløst salt og sukker senker temperaturen vann fryser ved, slik at iskrem holder seg myk i fryseren og is blandet med salt blir kaldere enn 0 °C.",diffusjon,,
+saltmengder,fact,"Salt, sukker og vann",Tommelfingerregler for salt,"kokevann til pasta: omtrent 10 g salt per liter
+tørrsalting av kjøtt: omtrent 1 % av kjøttets vekt, altså 10 g per kg
+saltlake til kjøtt og fisk: 3–6 % salt
+melkesyregjæring av kål: 1,5–2,5 % salt av kålens vekt",,,
+forhandssalte,skill,"Salt, sukker og vann",Forhåndssalte kjøtt (dry brine),"salte et kjøttstykke flere timer eller et døgn før steking, og forklare hvorfor saften først trekkes ut og så trekkes inn igjen.",osmose;salt-protein;saltmengder,,
+lake,skill,"Salt, sukker og vann",Regne ut en saltlake,"regne ut hvor mange gram salt som trengs for en gitt mengde vann og ønsket saltprosent, og lage laken.",saltmengder;diffusjon,,
+salte-gronnsaker,skill,"Salt, sukker og vann",Salte grønnsaker for å trekke ut vann,"salte agurk, squash eller kål før bruk slik at de slipper vann, og forklare med osmose hvorfor en salat ellers blir vassen.",osmose,,
+iskrem,skill,"Salt, sukker og vann",Forklare hvor hard en hjemmelaget is blir,"forklare hvordan sukker, fett og luft påvirker hvor hard en is blir i fryseren, og hvorfor en is med mindre sukker blir hardere.",frysepunkt;sukker-vann,,
+fett-typer,concept,Fett og emulsjoner,Mettet og umettet fett,"Mettet fett (saturated fat): fett med rette fettsyrekjeder som pakker seg tett, slik at det er fast ved romtemperatur, som smør og kokosfett.
+Umettet fett (unsaturated fat): fett med knekk i fettsyrekjedene som pakker seg dårlig, slik at det er flytende, som rapsolje og olivenolje.",hovedstoffer,,
+roykpunkt,concept,Fett og emulsjoner,Røykpunkt (smoke point),"Røykpunkt (smoke point): temperaturen der et fett begynner å brytes ned og ryke synlig, og gir bitre og stikkende stoffer; smør ryker tidlig fordi melkeproteinene og melkesukkeret brenner.",hovedstoffer,,
+roykpunkter,fact,Fett og emulsjoner,Omtrentlige røykpunkter,"smør: rundt 150 °C
+klarnet smør: rundt 250 °C
+jomfruolje av oliven (extra virgin): rundt 190–210 °C
+raffinert rapsolje: rundt 230 °C",roykpunkt,,
+emulsjon,concept,Fett og emulsjoner,"Emulsjon og emulgator (emulsion, emulsifier)","Emulsjon (emulsion): små dråper av én væske fordelt i en annen som den ikke blander seg med, som oljedråper i vann i majones eller vanndråper i fett i smør.
+Emulgator (emulsifier): et molekyl med én vannelskende og én vannskyende ende som legger seg rundt dråpene og hindrer dem i å flyte sammen, som lecitin i eggeplomme.",vannelskende,,
+splitting,concept,Fett og emulsjoner,Splitting av en emulsjon,"Splitting: at dråpene i en emulsjon flyter sammen så fett og vann skilles, for eksempel fordi oljen kom for fort, det var for lite emulgator, eller sausen ble for varm.
+Viskositet (viscosity): hvor tykt noe flyter; jo tykkere den ytre væsken er, jo vanskeligere er det for dråpene å møtes.",emulsjon,,
+majones,skill,Fett og emulsjoner,Lage majones,"røre eggeplomme og olje til en tykk majones som ikke skiller seg, ved å tilsette oljen dråpevis i starten og i en tynn stråle når den har begynt å tykne.",emulsjon,,
+vinaigrette,skill,Fett og emulsjoner,Lage en vinaigrette som holder seg samlet,"blande olje og eddik omtrent 3 til 1 med litt sennep, og forklare hvorfor dressingen holder seg samlet lenger med sennep enn uten.",emulsjon,,
+redde-saus,skill,Fett og emulsjoner,Redde en splittet saus,"redde en majones eller hollandaise som har skilt seg ved å starte med litt eggeplomme eller vann og røre den splittede sausen inn gradvis, og forklare hvorfor det virker.",splitting;majones,,
+montere,skill,Fett og emulsjoner,Montere en saus med smør,"røre kaldt smør inn i en redusert saus på lav varme til den blir blank og tykk, og forklare hvorfor den skiller seg om den kokes opp.",splitting,,
+velge-fett,skill,Fett og emulsjoner,Velge fett til steking,"velge fett til steking på høy varme, fresing på middels varme og dressing ut fra røykpunkt og smak, og begrunne valget.",roykpunkter;fett-typer,,
+stivelse,concept,Stivelse og gluten,Stivelse (starch),"Stivelse (starch): lange kjeder av glukose som planter lagrer i små korn, i mel, ris, poteter og mais.
+Amylose: stivelseskjeder som er rette og gir en fastere gelé.
+Amylopektin: stivelseskjeder som er forgreinet og gir en klissete eller kremet konsistens.",hovedstoffer,,
+forklistring,concept,Stivelse og gluten,Forklistring og retrogradering,"Forklistring (gelatinisation): at stivelseskornene tar opp vann og sveller når de varmes i væske, slik at væsken tykner; skjer for de fleste stivelsestyper et sted mellom 55 og 85 °C.
+Retrogradering (retrogradation): at stivelsen ordner seg igjen og slipper vann når den kjøles og står, slik at brød blir tørt, kokt ris blir hard i kjøleskapet og en saus kan bli grynete.",stivelse;vannelskende,,
+jevning,fact,Stivelse og gluten,Jevningsmidler,"hvetemel: må koke noen minutter for å miste melsmaken; gir en matt saus som tåler å koke videre
+maisstivelse (maizena): tykner like under kokepunktet og gir en blank saus; kan bli tynn igjen ved lang koking og kraftig omrøring
+potetmel: tykner allerede før sausen koker og gir en blank, litt seig saus; blir tynn og trådete hvis den koker lenge",forklistring,,
+gluten,concept,Stivelse og gluten,Gluten,"Gluten: et elastisk nettverk av proteiner som dannes når hvetemel får vann og blir eltet eller rørt.
+Sterkt mel (strong flour): mel med mye glutendannende protein, som gir en seig deig som holder på gassen.
+Svakt mel (weak flour): mel med lite glutendannende protein, som gir møre kaker og kjeks.",hovedstoffer,,
+jevne-saus,skill,Stivelse og gluten,Jevne en saus,"velge mellom hvetemel, maisstivelse og potetmel ut fra om sausen skal være blank, koke lenge eller fryses, og jevne den uten klumper.",jevning,,
+velge-potet,skill,Stivelse og gluten,Velge potet etter melenhet,"velge melen eller fast potet til mos, ovnspoteter og potetsalat, og forklare valget med hvor mye stivelse potetene har og hvordan cellene oppfører seg når de kokes.",stivelse;forklistring,,
+risotto,skill,Stivelse og gluten,Forklare hvorfor risotto blir kremet,"forklare hvorfor risotto blir kremet uten fløte, og hvorfor man skyller ris man vil ha løs og luftig.",stivelse;forklistring,,
+gammelt-brod,skill,Stivelse og gluten,Forklare hvorfor brød blir tørt,"forklare hvorfor brød blir tørt raskere i kjøleskapet enn på benken og i fryseren, og hvorfor det blir mykt igjen av noen minutter i ovnen.",forklistring,,
+elte,skill,Stivelse og gluten,Elte en brøddeig,"elte en gjærdeig til en bit kan strekkes så tynt at lyset skinner gjennom uten at den revner (vindusprøven), og forklare hva eltingen gjør med glutenet.",gluten,,
+mor-deig,skill,Stivelse og gluten,Holde kaker og paideig møre,"forklare hvorfor en kakerøre skal røres minst mulig etter at melet er tilsatt, og hvorfor kaldt fett og lite vann gir en mør paideig.",gluten;fett-typer,,
+gjaer,concept,Hevning og skum,Gjær (yeast),Gjær (yeast): en encellet sopp som spiser sukker og lager karbondioksid og alkohol; arbeider best rundt 25–35 °C og dør fra rundt 55–60 °C.,hovedstoffer,,
+hevemidler,concept,Hevning og skum,"Natron, bakepulver og hjortetakksalt","Natron (baking soda): en base som lager karbondioksid når den møter en syre i deigen, som kulturmelk, yoghurt eller sirup.
+Bakepulver (baking powder): natron blandet med en tørr syre, slik at det hever av seg selv når det blir fuktig og varmt.
+Hjortetakksalt (baker's ammonia): et salt som spaltes av varme til gass og ammoniakk; brukes i tynne, tørre kaker der ammoniakken kan slippe ut.",ph,,
+gass-damp,concept,Hevning og skum,Gass og damp som hever,"Gassutvidelse: at luft og karbondioksid i en deig utvider seg når de varmes, slik at deigen vokser i ovnen.
+Damphevning: at vann i deigen blir til damp og blåser opp hulrom, som i vannbakkels og butterdeig.",kokepunkt,,
+skum,concept,Hevning og skum,Skum (foam),"Skum (foam): luftbobler fanget i en væske eller et fast stoff og holdt på plass av proteiner eller fett.
+Eggehviteskum: proteinene i eggehviten denatureres delvis av piskingen og legger seg rundt luftboblene; fett, også litt eggeplomme, hindrer det.
+Pisket krem: delvis stivnede fettkuler i kald fløte som klistrer seg sammen rundt luftboblene; fløten må derfor være kald og ha nok fett.",denaturering;fett-typer,,
+piske-eggehvite,skill,Hevning og skum,Piske eggehvite til stive topper,"piske eggehvite til stive topper i en ren og fettfri bolle, og forklare hvorfor litt sukker eller syre gjør skummet mer stabilt og hva som skjer om du pisker for lenge.",skum,,
+bytte-hevemiddel,skill,Hevning og skum,Velge mellom natron og bakepulver,"avgjøre om en oppskrift trenger natron, bakepulver eller begge ut fra hvor mye syre den har, og forklare hvorfor for mye natron gir såpeaktig smak.",hevemidler,,
+heve-gjaerdeig,skill,Hevning og skum,Styre hevingen av en gjærdeig,"styre hevetiden med deigtemperatur, gjærmengde og salt, og avgjøre med fingertesten når deigen er ferdighevet.",gjaer;gluten,,
+kake-faller,skill,Hevning og skum,Forklare hvorfor en kake faller sammen,"forklare hvorfor en kake som tas ut for tidlig eller får kald trekk faller sammen, med hva som skjer med gassen før proteinene og stivelsen har stivnet.",gass-damp;forklistring;denaturering,,
+grunnsmaker,concept,Smak og aroma,Grunnsmakene (basic tastes),"Grunnsmak (basic taste): det smakscellene i munnen registrerer: søtt, surt, salt, bittert og umami.
+Umami: smaken av glutamat og visse nukleotider, som i parmesan, moden tomat, soyasaus og kjøttkraft.",,,
+aroma,concept,Smak og aroma,Aroma og retronasal lukt,"Aroma: flyktige stoffer som oppfattes av luktesansen.
+Retronasal lukt: lukt som når nesa bakfra gjennom munnen mens du tygger og svelger; står for det meste av det vi i dagligtale kaller smak.",,,
+smaksbalanse,concept,Smak og aroma,Hvordan smaker påvirker hverandre,"Salt og bittert: salt demper bitterhet og får andre smaker til å tre tydeligere fram.
+Syre og fett: syre friskner opp og gjør fet og søt mat mindre tung.
+Sødme og syre: sødme demper surhet og bitterhet.
+Umamisynergi: glutamat sammen med nukleotider, som i tomat og ansjos eller tang og tørket fisk, gir mye kraftigere umami enn hver av dem alene.",grunnsmaker,,
+fettloselig,concept,Smak og aroma,Fettløselige og vannløselige smaksstoffer,"Fettløselige aromastoffer: aromastoffer som løser seg i fett men dårlig i vann, som mange stoffer i hvitløk, chili og tørkede krydder.
+Vannløselige smaksstoffer: salt, sukker, syrer og glutamat, som trekkes ut i kraft og kokevæske.",aroma;vannelskende,,
+kapsaicin,concept,Smak og aroma,Kapsaicin,"Kapsaicin (capsaicin): stoffet i chili som gir en brennende følelse; det er ikke en smak, men en reaksjon i smertesansen, og det løser seg i fett og alkohol, ikke i vann.",fettloselig,,
+umamikilder,fact,Smak og aroma,Umamirike råvarer,"lagret ost som parmesan: glutamat
+moden tomat og tomatpuré: glutamat
+soyasaus og miso: glutamat
+tang (kombu): glutamat
+tørket sopp, særlig shiitake: guanylat
+ansjos og tørket fisk: inosinat
+kjøtt og kjøttkraft: inosinat og glutamat",grunnsmaker,,
+smake-til,skill,Smak og aroma,Smake til en rett,"smake på en rett, avgjøre om den mangler salt, syre, sødme eller umami, og justere én ting om gangen til den er i balanse.",smaksbalanse,,
+rette-opp,skill,Smak og aroma,Rette opp en rett som har bommet,"foreslå hvordan en rett som er blitt for salt, for sur, for søt eller for sterk kan rettes opp, og forklare hvorfor tiltaket virker.",smaksbalanse;kapsaicin,,
+frese-krydder,skill,Smak og aroma,Frese krydder i fett,"frese tørkede krydder og hvitløk i fett før væsken tilsettes, og forklare hvorfor det gir mer smak enn å strø dem i til slutt.",fettloselig,,
+bygge-umami,skill,Smak og aroma,Bygge umami i en rett,"velge umamirike råvarer som forsterker hverandre, og forklare hvorfor tomat og parmesan eller tang og tørket fisk er gamle kombinasjoner.",umamikilder;smaksbalanse,,
+bakterievekst,concept,Mikrober og fermentering,Bakterievekst og faresonen,"Bakterievekst: bakterier formerer seg ved deling og kan under gode forhold doble antallet på 20–30 minutter.
+Faresonen (danger zone): temperaturer mellom omtrent 8 og 60 °C, der bakterier som kan gi matforgiftning vokser raskt.",varme-temperatur,,
+varme-kulde-mikrober,concept,Mikrober og fermentering,Hva varme og kulde gjør med mikrober,"Oppvarming: høy nok temperatur lenge nok dreper de fleste bakterier; 75 °C i kjernen regnes som trygt.
+Nedkjøling: kulde dreper ikke bakterier, men bremser veksten.
+Sporer og giftstoffer (spores, toxins): noen bakterier lager sporer eller giftstoffer som tåler vanlig koking, så mat som har stått for lenge i faresonen blir ikke trygg av å varmes opp igjen.",bakterievekst,,
+trygg-temp,fact,Mikrober og fermentering,Temperaturer for trygg mat,"kjøleskap: 4 °C eller kaldere
+fryser: −18 °C eller kaldere
+varm mat som skal holdes varm: over 60 °C
+oppvarming av rester: 75 °C i kjernen",bakterievekst,,
+fermentering,concept,Mikrober og fermentering,Fermentering og melkesyregjæring,"Fermentering (fermentation): at mikrober bryter ned sukker uten oksygen og lager andre stoffer, som syre, alkohol eller karbondioksid.
+Melkesyregjæring (lactic fermentation): at melkesyrebakterier gjør sukker om til melkesyre, slik at pH synker og maten blir sur og holdbar, som i surkål, yoghurt og surdeig.",bakterievekst;ph,,
+surdeig,concept,Mikrober og fermentering,Surdeig (sourdough),"Surdeig (sourdough): en kultur av vill gjær og melkesyrebakterier i mel og vann, som både hever brødet og gjør det syrlig.",fermentering;gjaer,,
+rod-inni,skill,Mikrober og fermentering,"Forklare hvorfor biff kan være rød inni, men ikke kjøttdeig","forklare hvorfor bakteriene på et helt kjøttstykke sitter på overflaten, mens kverning sprer dem gjennom hele kjøttdeigen, og hva det betyr for kjernetemperaturen.",bakterievekst;varme-kulde-mikrober;kjott-temp,,
+kjole-ned,skill,Mikrober og fermentering,Kjøle ned og oppbevare rester trygt,"kjøle ned rester raskt ved å fordele dem i grunne bokser, sette dem i kjøleskapet så snart dampen har gått av og senest innen et par timer, og varme dem til 75 °C i kjernen før servering.",trygg-temp;varme-kulde-mikrober,,
+surkal,skill,Mikrober og fermentering,Lage surkål,"lage surkål med riktig saltprosent, holde kålen under laken, og avgjøre ut fra lukt, syrlighet og bobler om gjæringen går som den skal.",fermentering;saltmengder;osmose,,
+stelle-surdeig,skill,Mikrober og fermentering,Holde liv i en surdeigskultur,mate en surdeigskultur jevnlig og avgjøre ut fra hvor mye den hever og hvordan den lukter om den er klar til baking.,surdeig,,
+konservering,skill,Mikrober og fermentering,Forklare hvordan konservering virker,"forklare hvordan salting, sukring, syrning, tørking og frysing hver for seg hindrer mikrober, og plassere spekeskinke, syltetøy, surkål og tørrfisk i riktig kategori.",osmose;sukker-vann;fermentering;varme-kulde-mikrober,,
+kjokkenmyter,skill,Fra prinsipp til rett,Vurdere kjøkkenmyter,"vurdere vanlige kjøkkenråd, som at brunning forsegler saften, at olje i pastavannet hindrer at pastaen klistrer, at alkohol koker helt bort og at potet trekker til seg salt fra en for salt suppe, og si om de holder og hvorfor.",hvile;brune-kjott;risotto;rette-opp,,
+lese-oppskrift,skill,Fra prinsipp til rett,Forklare hva hvert steg i en oppskrift gjør,"gå gjennom en oppskrift steg for steg og forklare hvilket prinsipp hvert viktige steg bygger på, og hvilke steg som kan endres uten at retten mislykkes.",velge-metode;brune-kjott;jevne-saus;smake-til;bytte-hevemiddel,,
+feilsoke,skill,Fra prinsipp til rett,Feilsøke en mislykket rett,"finne den sannsynlige årsaken når en rett mislykkes, som seigt kjøtt, grå steking, en splittet saus eller et kompakt brød, og foreslå hva du gjør annerledes neste gang, begrunnet med prinsippene bak.",brasere;brune-kjott;redde-saus;heve-gjaerdeig;kake-faller,,
+uten-oppskrift,skill,Fra prinsipp til rett,Lage en rett uten oppskrift,"planlegge og lage en rett fra råvarene du har, med begrunnede valg av tilberedningsmetode, krydring og saus, og smake den til ferdig.",lese-oppskrift;steke-kjott;frese-krydder;smake-til,,

@@ -40,6 +40,7 @@
     "teaching":       { "en": "Teaching and learning", "nb": "Undervisning og læring", "sv": "Undervisning och lärande" },
     "music":          { "en": "Music",          "nb": "Musikk",           "sv": "Musik" },
     "wine":           { "en": "Wine",           "nb": "Vin",              "sv": "Vin" },
+    "cooking":        { "en": "Cooking",        "nb": "Matlaging",        "sv": "Matlagning" },
     "english":        { "en": "English",        "nb": "Engelsk",          "sv": "Engelska" },
     "latin":          { "en": "Latin",          "nb": "Latin",            "sv": "Latin" },
     "greek":          { "en": "Ancient Greek",  "nb": "Gresk",            "sv": "Grekiska" },
