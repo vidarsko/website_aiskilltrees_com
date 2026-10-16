@@ -2448,6 +2448,23 @@ function closeSearchModal() {
    hva et eksamenssett eller et kapittel dekker, og den eleven trenger
    for å finne igjen en video hen husker, men ikke hvilken node den lå
    under. Knappen finnes bare når treet har ressurser. */
+/* Innenfor en gruppe står ressursene alfabetisk, med tallene lest som tall:
+   «oppgave 2b» før «oppgave 10», og en oppgave lagt til i etterkant havner
+   der den hører hjemme, ikke bakerst. Gruppene selv står i den rekkefølgen
+   de først står i fila. Sorteringen følger treets språk, så æ, ø og å
+   kommer sist i et norsk tre. */
+let resourceCollator = null;
+function compareResources(a, b) {
+  if (!resourceCollator) {
+    const opts = { numeric: true, sensitivity: 'base' };
+    /* En språkkode Intl ikke kjenner, kaster - da sorteres det etter
+       nettleserens eget språk framfor ikke i det hele tatt. */
+    try { resourceCollator = new Intl.Collator(CONFIG.language || undefined, opts); }
+    catch (e) { resourceCollator = new Intl.Collator(undefined, opts); }
+  }
+  return resourceCollator.compare(a.label, b.label);
+}
+
 function setupResourcesButton() {
   if (!RESOURCE_ROWS.length) return;
   const panel = ensureActionMenu();
@@ -2559,6 +2576,7 @@ function renderResourcesBody() {
   });
 
   groups.forEach((items, heading) => {
+    items.sort(compareResources);
     const section = document.createElement('div');
     section.className = 'resources-section';
     const h3 = document.createElement('h3');
@@ -4108,6 +4126,7 @@ function renderDetail(node) {
     groups.get(key).push(res);
   });
   groups.forEach((items, heading) => {
+    items.sort(compareResources);
     const h3 = document.createElement('div');
     h3.className = 'badge-type';
     h3.style.margin = '1.4rem 0 0.4rem';
