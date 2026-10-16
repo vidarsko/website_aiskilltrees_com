@@ -1,0 +1,177 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Systems thinking;The climate system;Energy;Ecosystems and planetary boundaries;Governance and policy;Economics of sustainability;Ethics and justice;History, culture and narrative;Transdisciplinary methods",,,
+,config,,title,"Climate, Environment and Energy – a Transdisciplinary Perspective",,,
+,config,,description,"Systems thinking, the climate system, energy, ecosystems and planetary boundaries, governance, economics, ethics, environmental history and transdisciplinary methods – the first semester of the TRACEE master's programme, decomposed into what a student must be able to do.",,,
+,config,,language,en,,,
+,config,,learner,the student,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,se-su-climate-environment-energy-completed,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"Climate, Environment and Energy – a Transdisciplinary Perspective (MI7030, the first-semester course of the TRACEE master's programme at Stockholm University)",,,
+,config,,slots.motivationSubject,climate,,,
+,config,,slots.expressionFocus,"treats weather as climate, says CO2 'traps heat' without saying how, gives energy where power is meant or leaves out units such as kWh, W and Gt CO2, writes 'sustainable' or 'resilient' without saying of what and over what time, presents one discipline's framing as the problem itself, or calls a value judgement a scientific finding",,,
+,config,,slots.courseSpecifics,"This is a master's course whose students come from very different bachelor's degrees: a physicist and a political scientist sit side by side. Do not assume the student has the natural science, the social science or the humanities background; find out which they have, pitch the explanation to it, and use the student's own discipline as a bridge into the unfamiliar one. Every node is examined in a transdisciplinary setting, so wherever it fits, ask how the same question looks from one of the other two perspectives. Use European and Nordic examples where they serve, alongside global ones. Numbers on the climate should follow the IPCC Sixth Assessment Report; say so when you cite one, and say when a figure has been updated since.",,,
+,config,,decompositionVersion,2.14.0,,,
+,config,,author,Vidar Skogvoll (demo),,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"TRACEE master's programme, semester 1 (30 ECTS)",,,
+,config,,curriculum,"Stockholm University course MI7030, autumn 2026 (demo tree built from the public course description)",,,
+,config,,courseCode,MI7030,,,
+,config,,country,SE,,,
+,config,,institution,su,,,
+,config,,division,science,,,
+,config,,subjectArea,environment,,,
+,config,,keywords,TRACEE; CIVIS; Stockholm University; climate; energy; environment; sustainability; transdisciplinary; interdisciplinary; systems thinking; carbon budget; planetary boundaries; IPCC; Paris Agreement; climate justice; energy transition; environmental humanities; master's,,,
+,config,,updated,2026-10-16,,,
+system,concept,Systems thinking,System and system boundary,"System: a set of elements connected so that together they produce behaviour that none of them produces alone.
+System boundary: the line the analyst draws between what is inside the system and what is treated as its environment.",,,
+stock-flow,concept,Systems thinking,Stock and flow,"Stock: a quantity that accumulates over time, such as CO2 in the atmosphere or money in an account.
+Flow: a rate that adds to or drains a stock, such as annual emissions or annual uptake by the ocean.",system,,
+feedback-loop,concept,Systems thinking,Feedback loop,"Reinforcing feedback: a loop in which a change sets off further change in the same direction.
+Balancing feedback: a loop that counteracts a change and pulls the system back towards a state.",system,,
+stock-flow-reasoning,skill,Systems thinking,Reason about a stock from its flows,"explain why a stock keeps rising while its inflow falls, for as long as the inflow is larger than the outflow, and apply that to atmospheric CO2 when emissions are cut but not to zero.",stock-flow,,
+draw-causal-loop,skill,Systems thinking,Draw a causal loop diagram,"draw a causal loop diagram of an environmental problem, mark the polarity of each link, and label each loop as reinforcing or balancing.",feedback-loop,,
+tipping-point,concept,Systems thinking,Tipping point and hysteresis,"Tipping point: a threshold beyond which a small change sets off a self-reinforcing shift of the system into a different state.
+Hysteresis: the system does not return to its old state when the driver is brought back below the threshold.",feedback-loop,,
+wicked-problem,concept,Systems thinking,Wicked problem,"Wicked problem: a problem with no definitive formulation and no stopping rule, where every attempted solution changes the problem and the stakeholders disagree about what the problem is.",system,,
+leverage-point,concept,Systems thinking,Leverage point,Leverage point: a place in a system where an intervention changes the behaviour of the whole system. Changing a goal or a paradigm usually moves more than changing a parameter such as a price or a quota.,feedback-loop,,
+identify-leverage,skill,Systems thinking,Identify leverage points in a system,"identify possible interventions in a causal loop diagram, rank them from shallow (parameters) to deep (rules, goals, paradigms), and argue which one is worth pursuing.",leverage-point;draw-causal-loop,,
+weather-climate,concept,The climate system,Weather and climate,"Weather: the state of the atmosphere at a given place and time.
+Climate: the statistics of weather over a long period, conventionally 30 years, including its averages, variability and extremes.",,,
+energy-balance,concept,The climate system,Earth's energy balance and albedo,"Earth's energy balance: the balance between incoming shortwave radiation from the Sun and outgoing longwave radiation from Earth; a lasting imbalance changes the temperature.
+Albedo: the fraction of incoming sunlight a surface reflects.",,,
+greenhouse-effect,concept,The climate system,Greenhouse effect,"Greenhouse effect: gases such as water vapour, CO2 and methane absorb longwave radiation emitted by the surface and re-emit it, partly back down, so the surface is warmer than it would be without them.",energy-balance,,
+radiative-forcing,concept,The climate system,Radiative forcing,"Radiative forcing: the change in Earth's energy balance caused by a driver such as added CO2 or aerosols, measured in W/m². Positive forcing warms, negative forcing cools.",greenhouse-effect,,
+carbon-cycle,concept,The climate system,Carbon cycle and carbon sink,"Carbon cycle: the exchange of carbon among the atmosphere, the ocean, the land biosphere and rock, on time scales from years to millions of years.
+Carbon sink: a reservoir that takes up more carbon than it releases, such as the ocean today.",stock-flow,,
+climate-sensitivity,concept,The climate system,Equilibrium climate sensitivity,"Equilibrium climate sensitivity: the long-term global warming that follows a doubling of the CO2 concentration, once the climate system has adjusted.",radiative-forcing;feedback-loop,,
+climate-feedbacks,skill,The climate system,Explain the main climate feedbacks,"explain the water vapour, ice–albedo, cloud and permafrost carbon feedbacks, and say for each whether it amplifies or dampens warming and how certain that is.",feedback-loop;greenhouse-effect;carbon-cycle,,
+climate-numbers,fact,The climate system,Key numbers of the climate,"CO2 concentration before industrialisation: about 280 ppm
+CO2 concentration in 2024: about 424 ppm
+global warming 2011–2020 relative to 1850–1900 (IPCC AR6): about 1.1 °C
+likely range of equilibrium climate sensitivity (IPCC AR6): 2.5–4 °C
+global CO2 emissions per year, including land use: about 40 Gt CO2
+fraction of human CO2 emissions that stays in the atmosphere: about half
+temperature goal of the Paris Agreement: well below 2 °C, pursuing 1.5 °C",climate-sensitivity;carbon-cycle,,
+carbon-budget,concept,The climate system,Remaining carbon budget,Remaining carbon budget: the cumulative CO2 that can still be emitted while keeping a given probability of staying below a given warming level. It exists because warming is roughly proportional to cumulative CO2 emissions.,carbon-cycle;climate-sensitivity,,
+calc-carbon-budget,skill,The climate system,Estimate the years left in a carbon budget,"estimate how many years of current emissions fit within a remaining carbon budget, and explain what the answer does and does not tell us about when emissions must reach net zero.",carbon-budget;stock-flow-reasoning;climate-numbers,,
+ssp,concept,The climate system,Shared Socioeconomic Pathway (SSP),"Shared Socioeconomic Pathway: a storyline of how population, economy, technology and policy may develop, combined with a forcing level in names such as SSP2-4.5 (a middle-of-the-road world reaching 4.5 W/m² by 2100).",radiative-forcing,,
+read-projection,skill,The climate system,Read a climate projection,"read a scenario figure from the IPCC, and separate the three sources of spread in it: the choice of scenario, differences between models, and natural variability.",ssp;climate-sensitivity;weather-climate,,
+climate-impacts,skill,The climate system,Explain how warming changes extremes and sea level,"explain how warming changes heat extremes, heavy rainfall, drought, sea level and ocean acidity, separating what has been observed from what is projected.",read-projection,,
+tipping-elements,skill,The climate system,Assess a climate tipping element,"assess a climate tipping element, such as the Greenland ice sheet, the Atlantic overturning circulation or the Amazon rainforest: which feedback drives it, at roughly what warming it may be crossed, and how fast and how reversibly it would change.",tipping-point;climate-feedbacks,,
+energy-power,concept,Energy,Energy and power,"Energy: the capacity to do work, measured in joules or kilowatt-hours (kWh).
+Power: the rate at which energy is converted, measured in watts (W). A power plant has a power; a year of its output is an amount of energy.",,,
+primary-final,concept,Energy,"Primary, final and useful energy","Primary energy: energy as found in nature, before conversion, such as coal, wind or sunlight.
+Final energy: energy delivered to the user, such as electricity or petrol.
+Useful energy: what is left as heat, light or motion after the last conversion.",energy-power,,
+conversion-efficiency,skill,Energy,Calculate the efficiency of a conversion chain,"calculate the overall efficiency of a chain of energy conversions, from primary to useful energy, and say where the largest losses are.",primary-final,,
+carbon-intensity,concept,Energy,Carbon intensity and life-cycle emissions,"Carbon intensity: emissions per unit of energy, for electricity usually given in g CO2-eq/kWh.
+Life-cycle emissions: emissions over the whole life of a technology, from mining and manufacture through operation to decommissioning.",energy-power,,
+kaya,skill,Energy,Decompose emissions with the Kaya identity,"decompose a country's CO2 emissions into population × GDP per person × energy per unit of GDP × CO2 per unit of energy, and say which factor a given policy acts on.",carbon-intensity;primary-final,,
+variable-renewables,concept,Energy,Variable renewables and capacity factor,"Variable renewable energy: electricity from sources whose output follows the weather, such as wind and solar.
+Capacity factor: the actual output over a year divided by what the plant would produce running at full power all year.
+Dispatchable source: one whose output can be raised or lowered on demand, such as hydropower with a reservoir.",energy-power,,
+grid-flexibility,skill,Energy,Explain how a power system balances variable supply,"explain how a power system with much wind and solar keeps supply equal to demand at every moment, using storage, demand response, transmission and dispatchable capacity.",variable-renewables,,
+lcoe,concept,Energy,Levelised cost of electricity (LCOE),"Levelised cost of electricity: the total lifetime cost of a power plant divided by its total lifetime output, which lets technologies with different cost profiles be compared per kWh.",energy-power,,
+compare-energy-sources,skill,Energy,Compare energy sources across criteria,"compare two energy sources on life-cycle emissions, cost, land and material use, reliability and social acceptance, stating the system boundary used for each number.",lcoe;carbon-intensity;variable-renewables;system,,
+energy-transition,concept,Energy,Energy transition and electrification,"Energy transition: a lasting shift of an energy system from one dominant set of sources and technologies to another, today from fossil fuels to low-carbon sources.
+Electrification: replacing direct fuel use, as in cars and heating, with electricity.",primary-final,,
+rebound,concept,Energy,Rebound effect,"Rebound effect: the part of an expected energy saving that is lost because greater efficiency makes energy services cheaper, so people use more of them. When use rises by more than the saving, it is called the Jevons paradox.",conversion-efficiency,,
+ecosystem-services,concept,Ecosystems and planetary boundaries,Ecosystem and ecosystem services,"Ecosystem: a community of organisms together with its physical environment, linked by flows of energy and matter.
+Ecosystem services: the benefits people draw from ecosystems, such as food, pollination, clean water and climate regulation.",,,
+biodiversity,concept,Ecosystems and planetary boundaries,Biodiversity,"Biodiversity: the variety of life at three levels: genetic variation within species, the variety of species, and the variety of ecosystems.",ecosystem-services,,
+resilience,concept,Ecosystems and planetary boundaries,Resilience and regime shift,"Resilience: the capacity of a system to absorb disturbance and reorganise while keeping its essential function and structure.
+Regime shift: a large, lasting change in the structure and function of an ecosystem, such as a clear lake turning turbid.",ecosystem-services;tipping-point,,
+planetary-boundaries,concept,Ecosystems and planetary boundaries,Planetary boundaries,"Planetary boundaries: limits for nine Earth-system processes, among them climate change, biosphere integrity, land-system change and biogeochemical flows, which together mark a safe operating space for humanity.",resilience,,
+apply-planetary-boundaries,skill,Ecosystems and planetary boundaries,Use the planetary boundaries framework on a case,"use the planetary boundaries framework to assess the pressures from an activity or a sector, and point out what the framework cannot say about local impacts and about who causes the pressure.",planetary-boundaries,,
+land-climate-biodiversity,skill,Ecosystems and planetary boundaries,Explain how land use links climate and biodiversity,"explain how land use connects climate change and biodiversity loss: deforestation as a source of emissions, land as a carbon sink, and the trade-offs of bioenergy and tree planting.",carbon-cycle;biodiversity,,
+nexus,skill,Ecosystems and planetary boundaries,Analyse a water–energy–food trade-off,"analyse a case where water, energy and food compete, such as hydropower and irrigation in one river basin, and show how an improvement in one sector creates pressure in another.",land-climate-biodiversity;energy-transition;system,,
+commons,concept,Governance and policy,Common-pool resource and tragedy of the commons,"Common-pool resource: a resource it is hard to exclude people from, and where one person's use reduces what is left for others, such as a fishery or the atmosphere as a dump for CO2.
+Tragedy of the commons: overuse of such a resource when each user gains from using more while the cost is shared by all.",,,
+polycentric,concept,Governance and policy,Polycentric governance,"Polycentric governance: many overlapping centres of decision-making at different scales, each with some autonomy, as opposed to one central authority. Ostrom showed that communities often govern commons well this way.",commons,,
+mitigation-adaptation,concept,Governance and policy,Mitigation and adaptation,"Mitigation: reducing emissions or increasing sinks, so that less climate change happens.
+Adaptation: adjusting society and ecosystems to the climate change that does happen.",,,
+paris,concept,Governance and policy,Paris Agreement and NDC,"Paris Agreement: the 2015 UN climate treaty, which aims to keep warming well below 2 °C and to pursue 1.5 °C, and in which every party sets its own targets.
+Nationally determined contribution (NDC): a country's own climate pledge under the agreement, to be updated every five years with rising ambition.",mitigation-adaptation;commons,,
+multilevel,concept,Governance and policy,Multilevel governance,"Multilevel governance: decision-making spread across global, regional (such as the EU), national and local levels, and shared with non-state actors such as companies, cities and NGOs.",polycentric,,
+assess-ndc,skill,Governance and policy,Assess a country's climate pledge,"assess whether a country's NDC is consistent with the Paris temperature goal, using a carbon budget and an independent tracker, and state the fairness assumptions behind the verdict.",paris;calc-carbon-budget,,
+stakeholder-analysis,skill,Governance and policy,Map stakeholders by interest and influence,"map the stakeholders in an environmental conflict by their interest and their influence, and say whose voices are missing from the map.",wicked-problem,,
+analyse-governance,skill,Governance and policy,Analyse a governance case,"analyse a real climate or environmental decision: who decided, at which level, with what legitimacy and under what pressure, and what would have had to change for a different outcome.",multilevel;stakeholder-analysis,,
+externality,concept,Economics of sustainability,Externality,Externality: a cost or benefit of an activity that falls on someone who is not party to it and is not reflected in its price. Greenhouse gas emissions are a negative externality.,,,
+discounting,concept,Economics of sustainability,Discount rate and present value,"Present value: what a future cost or benefit is worth today.
+Discount rate: the yearly rate by which future values are reduced to present value; a high rate makes far-future damages count for little.",,,
+social-cost-carbon,concept,Economics of sustainability,Social cost of carbon,Social cost of carbon: the present value of all future damages caused by emitting one more tonne of CO2. The estimate depends strongly on the discount rate and on how damages are valued.,externality;discounting,,
+present-value-calc,skill,Economics of sustainability,Calculate present value at different discount rates,"calculate the present value of a climate damage occurring 50 or 100 years from now at several discount rates, and explain why choosing the rate is partly an ethical decision.",discounting,,
+policy-instruments,concept,Economics of sustainability,Carbon tax and emissions trading,"Carbon tax: a price per tonne of emissions, set by the government, which leaves the quantity to the market.
+Emissions trading (cap and trade): a cap on total emissions with tradable permits, which leaves the price to the market, as in the EU ETS.",externality,,
+compare-instruments,skill,Economics of sustainability,Compare climate policy instruments,"compare a carbon tax, emissions trading and direct regulation on certainty of price and of quantity, cost-effectiveness, revenue, distributional effects and political feasibility.",policy-instruments,,
+decoupling,concept,Economics of sustainability,"Decoupling, green growth and degrowth","Decoupling: economic growth without a matching growth in emissions or resource use; relative decoupling when emissions grow more slowly than GDP, absolute when they fall while GDP grows.
+Green growth: the position that absolute decoupling can be fast enough.
+Degrowth: the position that rich countries must reduce material throughput, and with it probably GDP.",kaya,,
+argue-growth,skill,Economics of sustainability,Weigh the evidence in the growth debate,"weigh the evidence on whether absolute decoupling is happening fast enough, using emissions and GDP data for a few countries, and say what each side would have to show to convince the other.",decoupling;rebound,,
+climate-justice,concept,Ethics and justice,Climate justice,"Climate justice: the demand that the burdens and benefits of climate change and climate policy are shared fairly.
+Distributive justice: who bears costs and receives benefits.
+Procedural justice: who takes part in the decisions.
+Recognition justice: whose identities, knowledge and values are acknowledged.",,,
+intergenerational,concept,Ethics and justice,Intergenerational justice,"Intergenerational justice: what the people alive today owe to future generations, who will live with the consequences of today's emissions but have no say in them.",climate-justice,,
+cbdr,concept,Ethics and justice,Common but differentiated responsibilities,"Common but differentiated responsibilities: the principle in the UN climate regime that all countries share responsibility for climate change, but in proportion to their contribution and their capacity to act.",climate-justice;paris,,
+responsibility-measures,skill,Ethics and justice,Compare measures of responsibility for emissions,"compare a country's responsibility measured by annual, per-person, cumulative historical and consumption-based emissions, and show how the ranking of countries changes with the measure.",cbdr;climate-numbers,,
+just-transition,concept,Ethics and justice,Just transition,"Just transition: an energy transition carried out so that workers, communities and regions dependent on fossil fuels are not left to carry its costs alone.",climate-justice;energy-transition,,
+ethical-argument,skill,Ethics and justice,Build and defend an ethical argument on a climate question,"build an argument on a climate question, such as who should pay for loss and damage, state which ethical principle it rests on, and answer the strongest objection to it.",intergenerational;climate-justice,,
+anthropocene,concept,"History, culture and narrative",Anthropocene,Anthropocene: the proposed name for an epoch in which human activity is a dominant force on the Earth system. The term is contested both on geological grounds and because it names humanity as a whole rather than particular economies and actors.,,,
+great-acceleration,concept,"History, culture and narrative",Great Acceleration,"Great Acceleration: the sharp and simultaneous rise, from about 1950, in human activity (population, energy use, GDP, fertiliser use) and in pressure on the Earth system (CO2, biodiversity loss, nitrogen).",anthropocene,,
+governance-milestones,fact,"History, culture and narrative",Milestones of environmental governance,"UN Conference on the Human Environment in Stockholm: 1972
+Brundtland report, Our Common Future: 1987
+Montreal Protocol on the ozone layer: 1987
+IPCC founded: 1988
+Rio Earth Summit and the UNFCCC: 1992
+Kyoto Protocol: 1997
+Paris Agreement: 2015
+UN Sustainable Development Goals adopted: 2015",,,
+framing,concept,"History, culture and narrative",Framing and narrative,"Frame: the way a text selects and emphasises some aspects of an issue, which suggests what the problem is, who is responsible and what should be done.
+Narrative: a story with actors, a sequence of events and a moral, through which people make sense of an issue such as climate change.",,,
+analyse-framing,skill,"History, culture and narrative",Analyse how a text frames climate change,"analyse how a news article, an advertisement or a policy document frames climate change, such as crisis, opportunity, security threat or hoax, and say which actions the frame makes thinkable and which it hides.",framing,,
+environmental-history,skill,"History, culture and narrative",Trace how an environmental problem became a problem,"trace how an environmental problem, such as acid rain in Scandinavia or the ozone hole, came to be recognised, contested and acted on, and draw one lesson for climate change and one way the cases differ.",great-acceleration;governance-milestones;framing,,
+knowledge-systems,concept,"History, culture and narrative",Indigenous and local knowledge,"Indigenous and local knowledge: knowledge about land, water, animals and weather built up over generations of practice by a community, such as Sámi reindeer herders' knowledge of snow and grazing, which can complement scientific observation and which has its own ways of being validated.",anthropocene,,
+disciplinarity,concept,Transdisciplinary methods,"Multi-, inter- and transdisciplinarity","Multidisciplinary: several disciplines work side by side on a topic, each with its own questions and methods.
+Interdisciplinary: disciplines integrate their concepts and methods into a shared analysis.
+Transdisciplinary: researchers and societal actors frame the problem and produce the knowledge together, crossing the line between science and society.",,,
+epistemology,concept,Transdisciplinary methods,Epistemology and standards of evidence,"Epistemology: the study of what counts as knowledge and how it is justified. Disciplines differ in what they accept as evidence, from a controlled measurement to an interview to the reading of a text, and in what they mean by a valid result.",disciplinarity,,
+co-production,concept,Transdisciplinary methods,Knowledge co-production,"Knowledge co-production: a research process in which scientists and non-academic actors, such as municipalities, firms or residents, take part in framing the question, producing the knowledge and using it.",disciplinarity,,
+reflexivity,concept,Transdisciplinary methods,Positionality and reflexivity,"Positionality: the researcher's own background, values and position in relation to the people and the problem studied.
+Reflexivity: the practice of examining how that position shapes the questions asked, the data gathered and the conclusions drawn.",epistemology,,
+formulate-td-question,skill,Transdisciplinary methods,Formulate a research question with societal partners,"formulate a research question on a sustainability problem together with societal partners, so that it is both researchable and useful to them, and say what each side brings to it.",co-production;wicked-problem;stakeholder-analysis,,
+participatory-method,skill,Transdisciplinary methods,Plan a participatory method,"choose and plan a participatory method, such as a stakeholder workshop, scenario building or citizen science, for a given question, and say how its results will feed back to the participants.",co-production;reflexivity,,
+translate-perspectives,skill,Transdisciplinary methods,Translate a concept between disciplines,"explain what a word such as 'risk', 'resilience' or 'value' means in a natural science, in a social science and in the humanities, and show how a team goes wrong when it assumes the meanings are the same.",epistemology;resilience,,
+communicate-audiences,skill,Transdisciplinary methods,Communicate findings to different audiences,"present the same finding on climate, energy or environment to a scientific audience, to a policy-maker and to the public, choosing a different frame, level of detail and handling of uncertainty for each.",analyse-framing;read-projection,,
+integrate-case,skill,Transdisciplinary methods,Analyse a climate–energy–environment case transdisciplinarily,"analyse a real case, such as a planned wind farm on reindeer grazing land, by combining a systems map, the natural science of its impacts, the governance and economics of the decision and its ethical and cultural dimensions, and propose a way forward that the stakeholders could accept.",identify-leverage;compare-energy-sources;apply-planetary-boundaries;analyse-governance;ethical-argument;knowledge-systems;formulate-td-question;translate-perspectives,,
+,resource,Course and programme,"MI7030 course page, Stockholm University",https://utbildning.su.se/english/education/course-catalogue/mi/mi7030,integrate-case;disciplinarity,,
+,resource,Course and programme,TRACEE master's programme,https://www.su.se/english/search-courses-and-programmes/nceeo-1.776554,integrate-case;disciplinarity,,
+,resource,IPCC,IPCC AR6 Synthesis Report (2023),https://www.ipcc.ch/report/ar6/syr/,climate-numbers;carbon-budget;climate-impacts;mitigation-adaptation,,
+,resource,IPCC,"IPCC AR6 WG I, Summary for Policymakers",https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/,greenhouse-effect;radiative-forcing;climate-sensitivity;climate-feedbacks;carbon-budget;ssp;read-projection;climate-numbers,,
+,resource,IPCC,"IPCC AR6 WG II: Impacts, Adaptation and Vulnerability",https://www.ipcc.ch/report/ar6/wg2/,climate-impacts;mitigation-adaptation;climate-justice;knowledge-systems,,
+,resource,IPCC,IPCC AR6 WG III: Mitigation of Climate Change,https://www.ipcc.ch/report/ar6/wg3/,kaya;energy-transition;compare-energy-sources;policy-instruments;compare-instruments,,
+,resource,IPCC,IPCC Special Report: Global Warming of 1.5 °C,https://www.ipcc.ch/sr15/,carbon-budget;calc-carbon-budget;paris,,
+,resource,Data and tools,Our World in Data: CO2 and greenhouse gas emissions,https://ourworldindata.org/co2-and-greenhouse-gas-emissions,climate-numbers;responsibility-measures;kaya;argue-growth,,
+,resource,Data and tools,Our World in Data: Energy,https://ourworldindata.org/energy,primary-final;energy-transition;carbon-intensity;compare-energy-sources,,
+,resource,Data and tools,Global Carbon Budget,https://globalcarbonbudget.org/,carbon-cycle;carbon-budget;calc-carbon-budget;climate-numbers,,
+,resource,Data and tools,Climate Action Tracker,https://climateactiontracker.org/,assess-ndc,,
+,resource,Data and tools,En-ROADS climate solutions simulator,https://www.climateinteractive.org/en-roads/,stock-flow-reasoning;identify-leverage;compare-instruments;kaya,,
+,resource,Data and tools,IEA World Energy Outlook 2024,https://www.iea.org/reports/world-energy-outlook-2024,energy-transition;grid-flexibility;lcoe,,
+,resource,Explainers,Carbon Brief: How Shared Socioeconomic Pathways explore future climate change,https://www.carbonbrief.org/explainer-how-shared-socioeconomic-pathways-explore-future-climate-change/,ssp;read-projection,,
+,resource,Explainers,NASA: Climate change,https://science.nasa.gov/climate-change/,weather-climate;energy-balance;greenhouse-effect,,
+,resource,Key texts,Meadows: Leverage Points – Places to Intervene in a System,https://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/,leverage-point;identify-leverage,,
+,resource,Key texts,Rittel & Webber (1973): Dilemmas in a general theory of planning,https://doi.org/10.1007/BF01405730,wicked-problem,,
+,resource,Key texts,Stockholm Resilience Centre: Planetary boundaries,https://www.stockholmresilience.org/research/planetary-boundaries.html,planetary-boundaries;apply-planetary-boundaries;resilience,,
+,resource,Key texts,Richardson et al. (2023): Earth beyond six of nine planetary boundaries,https://doi.org/10.1126/sciadv.adh2458,planetary-boundaries;apply-planetary-boundaries,,
+,resource,Key texts,Armstrong McKay et al. (2022): Exceeding 1.5 °C could trigger multiple climate tipping points,https://doi.org/10.1126/science.abn7950,tipping-point;tipping-elements,,
+,resource,Key texts,IPBES Global Assessment on Biodiversity and Ecosystem Services,https://ipbes.net/global-assessment,biodiversity;ecosystem-services;land-climate-biodiversity,,
+,resource,Key texts,Ostrom: Nobel Prize lecture (2009),https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/,commons;polycentric,,
+,resource,Key texts,Nordhaus: Nobel Prize lecture (2018),https://www.nobelprize.org/prizes/economic-sciences/2018/nordhaus/lecture/,social-cost-carbon;present-value-calc;policy-instruments,,
+,resource,Key texts,UNFCCC: The Paris Agreement,https://unfccc.int/process-and-meetings/the-paris-agreement,paris;cbdr;assess-ndc,,
+,resource,Key texts,UN: Stockholm Conference on the Human Environment (1972),https://www.un.org/en/conferences/environment/stockholm1972,governance-milestones;environmental-history,,
+,resource,Key texts,Steffen et al. (2015): The trajectory of the Anthropocene – the Great Acceleration,https://doi.org/10.1177/2053019614564785,great-acceleration;anthropocene,,
+,resource,Key texts,Doughnut Economics Action Lab: About Doughnut Economics,https://doughnuteconomics.org/about-doughnut-economics,decoupling;argue-growth;planetary-boundaries,,
+,resource,Key texts,Lang et al. (2012): Transdisciplinary research in sustainability science,https://doi.org/10.1007/s11625-011-0149-x,disciplinarity;co-production;formulate-td-question;participatory-method,,

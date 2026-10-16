@@ -106,6 +106,14 @@
         "mn": { "en": "Faculty of Mathematics and Natural Sciences", "nb": "Det matematisk-naturvitenskapelige fakultet", "sv": "Matematisk-naturvetenskapliga fakulteten" }
       }
     },
+    "su": {
+      "_comment": "Stockholms universitet. Lagt inn 2026-10-16 for demotreet se-su-climate-environment-energy (MI7030, TRACEE). Inndelingen er fakultet, som for uio.",
+      "label": "Stockholms universitet",
+      "divisionLabel": { "en": "Faculty",            "nb": "Fakultet",             "sv": "Fakultet" },
+      "divisions": {
+        "science": { "en": "Faculty of Science", "nb": "Det naturvitenskapelige fakultet", "sv": "Naturvetenskapliga fakulteten" }
+      }
+    },
     "kor": {
       "_comment": "Første institusjon som ikke er en skole eller et universitet: et kor. Ingen inndeling, så `division` står tom i meta.json.",
       "label": "Kor",
