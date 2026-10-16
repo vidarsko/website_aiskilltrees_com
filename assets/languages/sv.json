@@ -37,8 +37,11 @@
     "errorCsvHeader": "Den första raden i {file} måste namnge kolumnerna. Saknas: {missing}. Den första raden är: {found}. Filen är troligen sparad utan den första raden, eller i ett annat format; spara den igen som vanlig CSV.",
     "errorUnknownDep": "Noden »{id}« anger »{dep}« som förkunskap, men ingen nod har det id:t.",
     "errorNoTopic": "Noden »{id}« saknar tema och hamnar i samlingskolumnen »{topic}«.",
-    "errorUnknownResourceNode": "resources.csv hänvisar till nod-id:t »{id}«, som inte finns i tree.csv.",
-    "errorExamsRenamed": "Rad {row} i tree.csv: inställningen »features.exams« heter nu »features.resources«, och exams.csv heter resources.csv med kolumnerna node_id, group, label och url. Ingenting tillämpades.",
+    "errorUnknownResourceNode": "Rad {row} i tree.csv: resursen hänvisar till nod-id:t »{id}« i depends_on, som inte finns.",
+    "errorExamsRenamed": "Rad {row} i tree.csv: inställningen »features.exams« är från före version 0.22.0. Resurser är nu rader i tree.csv med typen »resource«: topic = grupp, name = titel, description = länk, depends_on = noderna. Ta bort raden, och öppna trädet i byggaren för att göra om en gammal exams.csv. Ingenting tillämpades.",
+    "errorResourceEmpty": "Rad {row} i tree.csv: resursen har varken titel (name) eller länk (description).",
+    "errorResourceNoNode": "Rad {row} i tree.csv: resursen »{label}« hör inte till någon nod. Skriv ett eller flera nod-id:n i depends_on, eller ta bort raden.",
+    "errorResourceDuplicate": "Rad {row} i tree.csv: resursen »{label}« är densamma som på rad {first}. Gör dem till en rad, med alla noderna i depends_on.",
     "errorCycle": "De här noderna är förkunskaper för varandra, i en ring: {cycle}. En av länkarna måste bort.",
     "errorUnknownConfig": "Okänd inställning »{key}« på rad {row} i tree.csv. Ingenting tillämpades.",
     "errorUnknownNodeType": "Noden »{id}« har typen »{type}«, som inte finns. Typerna är: {valid}.",
@@ -134,6 +137,16 @@
       "noResults": "Inget lärandemål innehåller «{query}».",
       "countOne": "1 lärandemål",
       "countMany": "{n} lärandemål",
+      "openNode": "Gå till den här noden i kartan"
+    },
+    "resourceList": {
+      "button": "Resurser",
+      "title": "Visa alla resurser i trädet och lärandemålen de hör till",
+      "heading": "Resurser",
+      "placeholder": "Filtrera resurserna …",
+      "intro": "{n} resurser. Under varje står lärandemålen den hör till; klicka på ett för att gå till det i kartan.",
+      "countFiltered": "{n} av {total} resurser",
+      "noResults": "Ingen resurs matchar »{query}«.",
       "openNode": "Gå till den här noden i kartan"
     },
     "motivation": {

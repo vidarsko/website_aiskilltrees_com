@@ -49,8 +49,8 @@ const ENGINE_SRC = (typeof document !== 'undefined' && document.currentScript)
 /*                            (prompt-rader). `type`-kolonnen sier hva  */
 /*                            raden er. tree.json og noder.csv er       */
 /*                            borte fra og med 0.2.0.                   */
-/*   ./resources.csv           Valgfri: ressurser per node (eksamens-   */
-/*                            oppgaver, lærebok, video ...).           */
+/*                            Fra 0.34.0 også ressursene (resource-    */
+/*                            rader); resources.csv leses ikke lenger. */
 /*                                                                      */
 /* Bakgrunnen: fram til 2026-09-20 fantes motoren i to eksemplarer,     */
 /* ferdighetstre/engine.js og fardighetstrad/engine.js på skogvoll.com  */
@@ -106,7 +106,7 @@ let NODE_ROWS = [];         // node-radene i ./tree.csv, satt av bootstrap()
    sammen fra NODE_ROWS igjen ville mistet radrekkefølge, tomme kolonner
    og alt annet motoren ikke bryr seg om. */
 let TREE_CSV_TEXT = '';     // ./tree.csv slik den står
-let RESOURCES_CSV_TEXT = null;  // ./resources.csv slik den står, eller null
+let RESOURCE_ROWS = [];     // resource-radene i ./tree.csv, satt av bootstrap()
 let PROMPT_ROWS = {};       // prompt-radene i ./tree.csv: { '<instruks>.<seksjon>': tekst }
                             //   '*' som instruks betyr «alle instrukser».
 let PROMPT_ROW_AT = {};     // samme nøkler → radnummeret i regnearket, så en
@@ -449,7 +449,8 @@ function composePrompt(promptName, ctx) {
 
 let nodesById = new Map();
 let allNodes = [];
-let resourcesByNode = new Map();
+let resourcesByNode = new Map();   // node-id → ressursene som hører til den
+let allResources = [];             // alle ressursene, i fila sin rekkefølge
 let activeNodeId = null;
 const validationErrors = [];
 
@@ -532,6 +533,7 @@ async function bootstrap() {
 
   const split = splitRows(rows);
   NODE_ROWS = split.nodes;
+  RESOURCE_ROWS = split.resources;
   PROMPT_ROWS = split.prompts;
   PROMPT_ROW_AT = split.promptRows;
   CONFIG = buildConfig(split.config);
@@ -618,6 +620,10 @@ async function bootstrap() {
 /*   config           - en innstilling:   name = nøkkel, description = verdi */
 /*   prompt           - en instruks-overstyring: topic = hvilken instruks */
 /*                      (tom = alle), name = seksjon, instruction = teksten */
+/*   resource         - en ressurs: topic = gruppe, name = tittel,      */
+/*                      description = lenke, depends_on = nodene den    */
+/*                      hører til (én eller flere). Ingen id: ingenting */
+/*                      peker på en ressurs, så den trenger ikke et navn. */
 /*                                                                      */
 /* Hvorfor verdien står i `description` for config og i `instruction`   */
 /* for prompt: en config-verdi er data, en prompt-tekst er instruks, og */
@@ -625,7 +631,7 @@ async function bootstrap() {
 /* ------------------------------------------------------------------ */
 
 function splitRows(rows) {
-  const out = { nodes: [], config: [], prompts: {}, promptRows: {} };
+  const out = { nodes: [], config: [], prompts: {}, promptRows: {}, resources: [] };
   rows.forEach((row, i) => {
     const kind = (row.type || '').trim().toLowerCase();
     if (kind === 'config') {
@@ -639,6 +645,17 @@ function splitRows(rows) {
         out.prompts[which + '.' + section] = (row.instruction || '').trim();
         out.promptRows[which + '.' + section] = i + 2;
       }
+    } else if (kind === 'resource') {
+      /* Radnummeret følger med av samme grunn som for prompt-radene: en
+         ressurs har ingen id, så raden er det eneste en feilmelding kan
+         peke på. */
+      out.resources.push({
+        row: i + 2,
+        group: (row.topic || '').trim(),
+        label: (row.name || '').trim(),
+        url: (row.description || '').trim(),
+        nodes: [...new Set((row.depends_on || '').split(';').map(s => s.trim()).filter(Boolean))],
+      });
     } else {
       out.nodes.push(row);
     }
@@ -780,6 +797,11 @@ function buildConfig(entries) {
       pushError('errorExamsRenamed', { row: entry.row });
       return;
     }
+    /* Fra 0.34.0 står ressursene som resource-rader i tree.csv, og
+       resources.csv leses ikke. Innstillingen gjør ingenting lenger, men
+       godtas stille, som `course`: et eldre tre skal ikke få en feil for
+       den. */
+    if (entry.key === 'features.resources') return;
     if (!configKeyKnown(entry.key)) {
       const guess = nearestConfigKey(entry.key);
       pushError('errorUnknownConfig', { key: entry.key, row: entry.row, guess: guess });
@@ -1342,7 +1364,6 @@ function setupDownloadButton() {
     /* Regnearket først, og uten å vente på noe: det er alt i minnet, og
        den som bare ville ha CSV-en har den før bygget er i gang. */
     saveFile(slug + '.csv', TREE_CSV_TEXT, 'text/csv');
-    if (RESOURCES_CSV_TEXT) saveFile(slug + '-resources.csv', RESOURCES_CSV_TEXT, 'text/csv');
 
     btn.disabled = true;
     btn.textContent = t('download.working');
@@ -1416,7 +1437,6 @@ async function bundleForDownload() {
        institution, ...) får lesbar tekst i «Om faget» også uten nett. */
     '/trees/vocabulary.json': VOCAB
   };
-  if (RESOURCES_CSV_TEXT) bundle['resources.csv'] = RESOURCES_CSV_TEXT;
 
   const loaded = await Promise.all(paths.map(path =>
     fetchJson(path).then(data => [path, data], () => null)));
@@ -2420,6 +2440,189 @@ function closeSearchModal() {
 }
 
 /* ------------------------------------------------------------------ */
+/* Ressurser: alle ressursene i treet, og hvilke noder de hører til     */
+/* ------------------------------------------------------------------ */
+
+/* Detaljpanelet viser ressursene til ÉN node. Denne lista går den andre
+   veien: fra ressursen til nodene. Det er den læreren trenger for å se
+   hva et eksamenssett eller et kapittel dekker, og den eleven trenger
+   for å finne igjen en video hen husker, men ikke hvilken node den lå
+   under. Knappen finnes bare når treet har ressurser. */
+function setupResourcesButton() {
+  if (!RESOURCE_ROWS.length) return;
+  const panel = ensureActionMenu();
+  if (!panel) return;
+
+  const btn = document.createElement('button');
+  btn.id = 'resources-btn';
+  btn.type = 'button';
+  btn.textContent = t('resourceList.button');
+  btn.title = t('resourceList.title');
+  btn.addEventListener('click', () => {
+    closeActionMenu();
+    openResourcesModal();
+  });
+  panel.appendChild(btn);
+}
+
+// Modalen bygges lat, én gang, og gjenbrukes - som de andre vinduene.
+function ensureResourcesModal() {
+  let overlay = document.getElementById('resources-overlay');
+  if (overlay) return overlay;
+
+  overlay = document.createElement('div');
+  overlay.id = 'resources-overlay';
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeResourcesModal();
+  });
+
+  const modal = document.createElement('div');
+  modal.id = 'resources-modal';
+
+  const header = document.createElement('div');
+  header.id = 'resources-header';
+  const h2 = document.createElement('h2');
+  h2.textContent = t('resourceList.heading');
+  header.appendChild(h2);
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'btn secondary';
+  closeBtn.textContent = t('close');
+  closeBtn.addEventListener('click', closeResourcesModal);
+  header.appendChild(closeBtn);
+  modal.appendChild(header);
+
+  const field = document.createElement('div');
+  field.id = 'resources-field';
+  const input = document.createElement('input');
+  input.type = 'search';
+  input.id = 'resources-input';
+  input.autocomplete = 'off';
+  input.placeholder = t('resourceList.placeholder');
+  input.setAttribute('aria-label', t('resourceList.placeholder'));
+  input.addEventListener('input', () => renderResourcesBody());
+  field.appendChild(input);
+  modal.appendChild(field);
+
+  const body = document.createElement('div');
+  body.id = 'resources-body';
+  modal.appendChild(body);
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeResourcesModal();
+  });
+
+  return overlay;
+}
+
+/* Filteret leter i tittel, gruppe og lenke, og i navnene på nodene
+   ressursen hører til - «hvilke ressurser har jeg til prosentregning?» er
+   et spørsmål om nodene, ikke om ressursene. Samme normalisering som
+   søket, så «sok» finner «søk». */
+function resourceMatches(res, terms) {
+  if (!terms.length) return true;
+  const names = res.nodes.map(id => (nodesById.get(id) || {}).name || id);
+  const hay = searchIndex([res.label, res.group, res.url].concat(names).join(' ')).norm;
+  return terms.every(term => hay.indexOf(term) >= 0);
+}
+
+function renderResourcesBody() {
+  const body = document.getElementById('resources-body');
+  const input = document.getElementById('resources-input');
+  if (!body) return;
+  body.innerHTML = '';
+
+  const terms = searchIndex(input ? input.value.trim() : '').norm.split(/\s+/).filter(Boolean);
+  const hits = allResources.filter(res => resourceMatches(res, terms));
+
+  const note = document.createElement('p');
+  note.className = 'search-note';
+  if (!hits.length) {
+    note.textContent = t('resourceList.noResults', { query: input.value.trim() });
+    body.appendChild(note);
+    return;
+  }
+  note.textContent = terms.length
+    ? t('resourceList.countFiltered', { n: hits.length, total: allResources.length })
+    : t('resourceList.intro', { n: allResources.length });
+  body.appendChild(note);
+
+  /* Én overskrift per gruppe, i den rekkefølgen gruppene først står i
+     fila - samme regel som i detaljpanelet. */
+  const groups = new Map();
+  hits.forEach(res => {
+    const key = res.group || t('detail.resources');
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(res);
+  });
+
+  groups.forEach((items, heading) => {
+    const section = document.createElement('div');
+    section.className = 'resources-section';
+    const h3 = document.createElement('h3');
+    h3.textContent = heading + ' (' + items.length + ')';
+    section.appendChild(h3);
+
+    const ul = document.createElement('ul');
+    items.forEach(res => {
+      const li = document.createElement('li');
+      li.className = 'resources-item';
+
+      const title = document.createElement('div');
+      title.className = 'resources-item-label';
+      if (res.url) {
+        const a = document.createElement('a');
+        a.href = res.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = res.label;
+        title.appendChild(a);
+      } else {
+        title.textContent = res.label;
+      }
+      li.appendChild(title);
+
+      const nodes = document.createElement('div');
+      nodes.className = 'resources-item-nodes';
+      res.nodes.forEach(id => {
+        const n = nodesById.get(id);
+        if (!n) return;   // feillista har allerede sagt fra om en ukjent id
+        const jump = document.createElement('button');
+        jump.type = 'button';
+        jump.className = 'resources-node';
+        jump.textContent = (n.goalIndex ? n.goalIndex + ') ' : '') + n.name;
+        jump.title = t('resourceList.openNode');
+        jump.addEventListener('click', () => {
+          closeResourcesModal();
+          scrollNodeIntoView(n.id);
+          openDetail(n.id);
+        });
+        nodes.appendChild(jump);
+      });
+      li.appendChild(nodes);
+      ul.appendChild(li);
+    });
+    section.appendChild(ul);
+    body.appendChild(section);
+  });
+}
+
+function openResourcesModal() {
+  const overlay = ensureResourcesModal();
+  overlay.classList.add('open');
+  renderResourcesBody();
+  const input = document.getElementById('resources-input');
+  if (input) input.focus();
+}
+
+function closeResourcesModal() {
+  const overlay = document.getElementById('resources-overlay');
+  if (overlay) overlay.classList.remove('open');
+}
+
+/* ------------------------------------------------------------------ */
 /* Prøvegenerator: KI-instruks for en prøve basert på mestrede noder    */
 /* ------------------------------------------------------------------ */
 
@@ -2698,6 +2901,7 @@ async function init() {
   setupCourseInfoButton();
   setupGoalIndexButton();
   setupSearchButton();
+  setupResourcesButton();
   setupExamButton();
   if (SHOW_MOTIVATION_BUTTON) setupMotivationButton();
   /* Sist i panelet: «ta treet med deg» er det sjeldneste av valgene, og
@@ -2705,17 +2909,10 @@ async function init() {
   setupDownloadButton();
   try {
     /* Nodene er allerede lest av bootstrap() - tree.csv er ÉN fil, og den
-       måtte leses først for å finne treets språk. Ressursene er en egen,
-       valgfri fil: de fleste trær har dem ikke, og kolonnene deres ligner
-       ikke nodenes nok til at de hører hjemme i samme tabell. */
+       måtte leses først for å finne treets språk. Ressursene står i den
+       samme fila, som resource-rader (fra 0.34.0; før det i resources.csv). */
     buildNodeIndex(NODE_ROWS);
-    /* resources.csv hentes bare når treet sier at den finnes. Alternativet -
-       å prøve og ta imot en 404 - virker like godt, men legger igjen en
-       rød linje i konsollen for en fil som er valgfri, og det er nettopp
-       den slags støy som får en lærer til å tro at noe er i stykker. */
-    const resources = FEATURES.resources ? await fetchText('resources.csv').catch(() => null) : null;
-    RESOURCES_CSV_TEXT = resources;
-    buildResourceIndex(resources ? parseCsv(resources, 'resources.csv', ['node_id']) : []);
+    buildResourceIndex(RESOURCE_ROWS);
     validateReferences();
     validateDag();
 
@@ -2886,23 +3083,25 @@ function buildNodeIndex(rows) {
   });
 }
 
-/* resources.csv: node_id, group, label, url. Med vilje løst: `group` og
-   `label` er fritekst, så en eksamensoppgave, et kapittel i en lærebok og
-   en video får plass i samme fil uten egne kolonner. Fram til 0.22.0 het
-   fila exams.csv og hadde kolonner for år, sesong, del og oppgavenummer -
-   det passet bare den norske todelte eksamenen. */
+/* Ressursene: resource-rader i tree.csv. Med vilje løst: gruppa og
+   tittelen er fritekst, så en eksamensoppgave, et kapittel i en lærebok og
+   en video får plass uten egne kolonner. Én rad kan høre til flere noder
+   (depends_on er en liste), så den samme lenken står ett sted i fila selv
+   om den vises under flere noder. Fram til 0.34.0 lå de i resources.csv
+   med én rad per node og ressurs; fram til 0.22.0 het den fila exams.csv. */
 function buildResourceIndex(rows) {
+  allResources = [];
   resourcesByNode = new Map();
   rows.forEach(row => {
-    const nodeId = (row.node_id || '').trim();
-    const label = (row.label || '').trim();
-    const url = (row.url || '').trim();
-    if (!nodeId || !(label || url)) return;
-    if (!resourcesByNode.has(nodeId)) resourcesByNode.set(nodeId, []);
-    resourcesByNode.get(nodeId).push({
-      group: (row.group || '').trim(),
-      label: label || url,
-      url: url,
+    if (!(row.label || row.url)) {
+      pushError('errorResourceEmpty', { row: row.row });
+      return;
+    }
+    const res = { group: row.group, label: row.label || row.url, url: row.url, nodes: row.nodes, row: row.row };
+    allResources.push(res);
+    row.nodes.forEach(nodeId => {
+      if (!resourcesByNode.has(nodeId)) resourcesByNode.set(nodeId, []);
+      resourcesByNode.get(nodeId).push(res);
     });
   });
 }
@@ -2928,9 +3127,31 @@ function validateReferences() {
       pushError('errorNoTopic', { id: node.id, topic: t('defaultTopic') });
     }
   });
-  resourcesByNode.forEach((rows, nodeId) => {
-    if (!nodesById.has(nodeId)) {
-      pushError('errorUnknownResourceNode', { id: nodeId });
+  validateResources();
+}
+
+/* En ressurs som ikke hører til noen node, vises ingen steder - den er
+   stillhet, akkurat som en ukjent config-nøkkel. To rader med samme lenke
+   og samme tittel er den samme ressursen skrevet to ganger, og skal være
+   én rad med begge nodene i depends_on. Samme lenke med ULIK tittel er
+   lov: et eksamenssett er én PDF med mange oppgaver. */
+function validateResources() {
+  const seen = new Map();
+  allResources.forEach(res => {
+    if (!res.nodes.length) {
+      pushError('errorResourceNoNode', { row: res.row, label: res.label });
+    }
+    res.nodes.forEach(nodeId => {
+      if (!nodesById.has(nodeId)) {
+        pushError('errorUnknownResourceNode', { row: res.row, id: nodeId,
+                                                guess: nearest(nodeId, [...nodesById.keys()]) });
+      }
+    });
+    const key = (res.url ? res.url : res.group.toLowerCase()) + '\n' + res.label.toLowerCase();
+    if (seen.has(key)) {
+      pushError('errorResourceDuplicate', { row: res.row, first: seen.get(key), label: res.label });
+    } else {
+      seen.set(key, res.row);
     }
   });
 }

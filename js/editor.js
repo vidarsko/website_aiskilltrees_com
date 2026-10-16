@@ -11,7 +11,8 @@
    kommer tilbake med et regneark, og da er det vinduet hen trenger.
 
    GRENSEN FOR HVA SOM KAN ENDRES er regnearket, og bare det. Alt panelet gjør,
-   er å endre rader i tree.csv: node-rader, config-rader og prompt-rader.
+   er å endre rader i tree.csv: node-rader, config-rader, prompt-rader og
+   resource-rader.
    Motoren, instruksmodulene og språkfilene endres ikke herfra — en lærer kan
    skrive om en seksjon av en instruks for sitt eget tre, men ikke kilden. Det
    er det som gjør at «tutor 1.6.0» fortsatt betyr noe, og at et tre får med
@@ -148,7 +149,10 @@
   function kind(row) { return get(row, 'type').trim().toLowerCase(); }
   function isConfig(row) { return kind(row) === 'config'; }
   function isPrompt(row) { return kind(row) === 'prompt'; }
-  function isNode(row) { return !isBlank(row) && !isConfig(row) && !isPrompt(row) && !!get(row, 'id').trim(); }
+  function isResource(row) { return kind(row) === 'resource'; }
+  function isNode(row) {
+    return !isBlank(row) && !isConfig(row) && !isPrompt(row) && !isResource(row) && !!get(row, 'id').trim();
+  }
 
   function nodeRows() { return state.doc.rows.filter(isNode); }
   function nodeRow(id) {
@@ -195,6 +199,69 @@
   }
   function configKeys() {
     return state.doc.rows.filter(isConfig).map(function (r) { return get(r, 'name').trim(); });
+  }
+
+  /* ---- Ressursene ---------------------------------------------------- */
+  /* En ressurs er en rad med `type` resource: topic = gruppe, name =      */
+  /* tittel, description = lenke, depends_on = nodene den hører til. Den  */
+  /* har ingen id - ingenting peker på en ressurs - så raden selv er det  */
+  /* den kjennes igjen på. Én rad kan høre til flere noder.               */
+
+  function resourceRows() { return state.doc.rows.filter(isResource); }
+  function resourcesOf(id) {
+    return resourceRows().filter(function (r) { return deps(r).indexOf(id) !== -1; });
+  }
+  function resourceGroups() {
+    var seen = [];
+    resourceRows().forEach(function (r) {
+      var g = get(r, 'topic').trim();
+      if (g && seen.indexOf(g) === -1) seen.push(g);
+    });
+    return seen;
+  }
+  function resourceTitle(row) {
+    return get(row, 'name').trim() || get(row, 'description').trim() || t('res-untitled');
+  }
+
+  /* Nye ressurser legges etter den siste ressursen, ellers sist i fila:
+     ressursene står samlet nederst, der migreringen la dem. */
+  function addResourceRow(group, label, url, nodeId) {
+    var row = newRow();
+    set(row, 'type', 'resource');
+    set(row, 'topic', group);
+    set(row, 'name', label);
+    set(row, 'description', url);
+    set(row, 'depends_on', nodeId);
+    var at = state.doc.rows.length;
+    state.doc.rows.forEach(function (r, i) { if (isResource(r)) at = i + 1; });
+    state.doc.rows.splice(at, 0, row);
+    return row;
+  }
+
+  /* resources.csv (maskineri før 0.34.0) gjøres om til resource-rader når
+     den kommer inn sammen med treet: en rad per ressurs, med alle nodene den
+     sto under i depends_on. Samme regel som tools/migrate-resources-to-rows.py
+     i maskineri-repoet. Gir antallet rader som ble lagt til. */
+  function absorbResourcesCsv(text) {
+    var parsed = window.Papa.parse(String(text || '').replace(/^\uFEFF/, ''), { header: true, skipEmptyLines: true });
+    var merged = [];
+    var byKey = {};
+    (parsed.data || []).forEach(function (r) {
+      var node = String(r.node_id || '').trim();
+      var group = String(r.group || '').trim();
+      var label = String(r.label || '').trim();
+      var url = String(r.url || '').trim();
+      if (!node || !(label || url)) return;
+      var key = group + '\n' + label + '\n' + url;
+      if (!byKey[key]) {
+        byKey[key] = { group: group, label: label, url: url, nodes: [] };
+        merged.push(byKey[key]);
+      }
+      if (byKey[key].nodes.indexOf(node) === -1) byKey[key].nodes.push(node);
+    });
+    merged.forEach(function (m) { addResourceRow(m.group, m.label, m.url, m.nodes.join(';')); });
+    setConfig('features.resources', '');
+    return merged.length;
   }
 
   /* ---- Bygger på ---------------------------------------------------- */
@@ -289,7 +356,6 @@
 
   var state = {
     doc: null,
-    resources: null,
     fileName: 'tree.csv',
     mode: 'edit',          // 'edit' | 'view'
     tab: 'tree',           // 'tree' (innstillingene) | 'nodes' | 'node' | 'instructions' | 'look'
@@ -361,13 +427,16 @@
     state.isExample = name === 'example';
     state.doc = parseDoc(tree);
     state.origin = state.isExample ? null : originOf(sourceUrl);
-    state.resources = resources || null;
+    /* Et tre fra før maskineri 0.34.0 kan ha ressursene i en egen fil. De
+       flyttes inn i regnearket med en gang, og fila er da endret: den som
+       laster ned, får den nye formen. */
+    var converted = resources ? absorbResourcesCsv(resources) : 0;
     state.fileName = name || 'tree.csv';
     state.history = [];
     state.future = [];
     state.selected = null;
     state.picking = false;
-    state.dirty = false;
+    state.dirty = !!converted;
     state.eff = null;
     /* Eksempeltreet bak vinduet er ikke et tre noen har bygget. */
     state.counted = !!background;
@@ -484,9 +553,9 @@
       if (!res.ok) throw new Error(treeUrl);
       return res.text();
     }).then(function (tree) {
-      /* resources.csv hentes bare når treet sier at den finnes, som motoren gjør:
-         en 404 for en valgfri fil er en rød linje i konsollen og ingenting
-         annet. */
+      /* resources.csv hentes bare når treet sier at den finnes: et tre fra før
+         maskineri 0.34.0 som ikke er gjort om ennå. En 404 for en valgfri fil
+         er en rød linje i konsollen og ingenting annet. */
       var wantsResources = /^[^\n]*,config,[^,\n]*,features\.resources,\s*true/m.test(tree);
       var resources = resourcesUrl && wantsResources
         ? fetch(resourcesUrl).then(function (r) { return r.ok ? r.text() : null; }, function () { return null; })
@@ -546,7 +615,7 @@
     var seq = ++buildSeq;
     var csv = serialize(state.doc);
     el.stage.setAttribute('data-busy', 'true');
-    window.AistStandalone.build(csv, state.resources).then(function (html) {
+    window.AistStandalone.build(csv).then(function (html) {
       if (seq !== buildSeq) return null;
       state.html = html;
       var next = 1 - live;
@@ -781,6 +850,7 @@
     var row = nodeRow(id);
     if (!row) return;
     var users = nodeRows().filter(function (r) { return deps(r).indexOf(id) !== -1; });
+    var res = resourcesOf(id);
     var msg = users.length
       ? t('confirm-delete-used', { name: nameOf(id), n: users.length })
       : t('confirm-delete', { name: nameOf(id) });
@@ -788,6 +858,13 @@
     change(null, function () {
       users.forEach(function (r) {
         set(r, 'depends_on', deps(r).filter(function (d) { return d !== id; }).join(';'));
+      });
+      /* En ressurs som bare hørte til denne noden, går med den: ellers ville
+         den stått igjen uten node, og motoren sier fra om akkurat det. */
+      res.forEach(function (r) {
+        var rest = deps(r).filter(function (d) { return d !== id; });
+        if (rest.length) set(r, 'depends_on', rest.join(';'));
+        else state.doc.rows.splice(state.doc.rows.indexOf(r), 1);
       });
       state.doc.rows.splice(state.doc.rows.indexOf(row), 1);
     }, { now: true, quiet: true });
@@ -808,7 +885,7 @@
       return false;
     }
     change(null, function () {
-      nodeRows().forEach(function (r) {
+      nodeRows().concat(resourceRows()).forEach(function (r) {
         var list = deps(r);
         if (list.indexOf(oldId) !== -1) {
           set(r, 'depends_on', list.map(function (d) { return d === oldId ? newId : d; }).join(';'));
@@ -1174,6 +1251,8 @@
       ]));
     }
 
+    wrap.appendChild(resourceEditor(id));
+
     wrap.appendChild(field(t('node-instruction'), textArea(get(row, 'instruction'), function (v) {
       change(key('instruction'), function () { set(row, 'instruction', v); }, { quiet: true });
     }), t('node-instruction-hint')));
@@ -1246,6 +1325,211 @@
       box.appendChild(ul);
     }
     return box;
+  }
+
+  /* ---- Ressursene til én node --------------------------------------- */
+
+  function resourceEditor(id) {
+    var box = h('div', { class: 'ed-field' });
+    box.appendChild(h('span', { class: 'ed-field__label', text: t('node-resources') }));
+    var list = resourcesOf(id);
+    var ul = h('ul', { class: 'ed-reslist' });
+    if (!list.length) ul.appendChild(h('li', { class: 'ed-chips__none', text: t('node-resources-none') }));
+    list.forEach(function (r) {
+      var group = get(r, 'topic').trim();
+      var url = get(r, 'description').trim();
+      var others = deps(r).length - 1;
+      ul.appendChild(h('li', { class: 'ed-res' }, [
+        h('button', { type: 'button', class: 'ed-res__main', title: t('res-edit'),
+                      onclick: function () { openResourceDialog(id, r); } }, [
+          group ? h('span', { class: 'ed-res__group', text: group }) : null,
+          h('span', { class: 'ed-res__label', text: resourceTitle(r) }),
+          url ? h('span', { class: 'ed-res__url', text: url }) : null,
+          others > 0 ? h('span', { class: 'ed-res__shared', text: t('res-shared', { n: others }) }) : null,
+        ]),
+        h('button', { type: 'button', class: 'ed-chip__x', text: '×', 'aria-label': t('res-detach'),
+                      title: t('res-detach'), onclick: function () { detachResource(r, id); } }),
+      ]));
+    });
+    box.appendChild(ul);
+    box.appendChild(h('div', { class: 'ed-row' }, [
+      button(t('node-resource-add'), function () { openResourceDialog(id, null); }, 'ed-btn--small'),
+    ]));
+    box.appendChild(h('span', { class: 'ed-field__hint', text: t('node-resources-hint') }));
+    return box;
+  }
+
+  function attachResource(row, id) {
+    var list = deps(row);
+    if (list.indexOf(id) !== -1) return;
+    list.push(id);
+    change(null, function () { set(row, 'depends_on', list.join(';')); }, { now: true });
+  }
+
+  /* Den siste noden en ressurs hører til, tar ressursen med seg - etter å ha
+     spurt. En ressurs uten node vises ingen steder. */
+  function detachResource(row, id) {
+    var rest = deps(row).filter(function (d) { return d !== id; });
+    if (!rest.length && !window.confirm(t('res-confirm-delete', { name: resourceTitle(row) }))) return;
+    change(null, function () {
+      if (rest.length) set(row, 'depends_on', rest.join(';'));
+      else state.doc.rows.splice(state.doc.rows.indexOf(row), 1);
+    }, { now: true });
+  }
+
+  /* Vinduet: velg en ressurs treet alt har, eller skriv en ny. Med en rad
+     (`editing`) er det samme skjema for å endre den - og da sier vinduet
+     hvor mange noder endringen gjelder for. */
+  var resDialog = null;
+
+  function closeResourceDialog() {
+    if (!resDialog) return;
+    resDialog.remove();
+    resDialog = null;
+  }
+
+  function openResourceDialog(nodeId, editing) {
+    closeResourceDialog();
+    var mode = editing ? 'edit' : 'pick';
+    var query = '';
+    var draft = editing
+      ? { group: get(editing, 'topic').trim(), label: get(editing, 'name').trim(), url: get(editing, 'description').trim() }
+      : { group: '', label: '', url: '' };
+
+    var card = h('div', { class: 'ed-overlay__card ed-resdlg', role: 'dialog', 'aria-modal': 'true',
+                          'aria-labelledby': 'ed-resdlg-title' });
+    resDialog = h('div', { class: 'ed-overlay ed-resdlg-wrap',
+                           onclick: function (e) { if (e.target === resDialog) closeResourceDialog(); },
+                           onkeydown: function (e) {
+                             if (e.key === 'Escape') { e.stopPropagation(); closeResourceDialog(); }
+                           } }, [card]);
+    document.body.appendChild(resDialog);
+
+    function render() {
+      card.innerHTML = '';
+      card.appendChild(h('button', { type: 'button', class: 'ed-overlay__close', text: '×',
+                                     'aria-label': t('res-close'), onclick: closeResourceDialog }));
+      card.appendChild(h('h2', { class: 'ed-overlay__title ed-resdlg__title', id: 'ed-resdlg-title',
+        text: mode === 'edit' ? t('res-title-edit') : mode === 'new' ? t('res-title-new')
+                              : t('res-title-add', { name: nameOf(nodeId) }) }));
+      if (mode === 'pick') renderPick(); else renderForm();
+    }
+
+    function renderPick() {
+      var all = resourceRows();
+      var free = all.filter(function (r) { return deps(r).indexOf(nodeId) === -1; });
+      var search = h('input', { type: 'search', class: 'ed-input', placeholder: t('res-search'),
+                                'aria-label': t('res-search') });
+      search.value = query;
+      var results = h('div', { class: 'ed-resdlg__results' });
+      card.appendChild(h('div', { class: 'ed-row ed-resdlg__bar' }, [
+        search,
+        button(t('res-new'), function () { mode = 'new'; draft.label = query; render(); }, 'ed-btn--primary ed-btn--small'),
+      ]));
+      card.appendChild(results);
+
+      function fill() {
+        results.innerHTML = '';
+        var terms = fold(query).split(/\s+/).filter(Boolean);
+        var hits = free.filter(function (r) {
+          var hay = fold([get(r, 'topic'), get(r, 'name'), get(r, 'description')].concat(
+            deps(r).map(nameOf)).join(' '));
+          return terms.every(function (x) { return hay.indexOf(x) !== -1; });
+        });
+        if (!all.length) {
+          results.appendChild(h('p', { class: 'ed-note', text: t('res-none-in-tree') }));
+          return;
+        }
+        if (!hits.length) {
+          results.appendChild(h('p', { class: 'ed-note', text: free.length ? t('res-no-match') : t('res-all-attached') }));
+          return;
+        }
+        results.appendChild(h('p', { class: 'ed-meta', text: t('res-count', { n: hits.length, total: all.length }) }));
+        var groups = [];
+        var byGroup = {};
+        hits.forEach(function (r) {
+          var g = get(r, 'topic').trim() || t('res-no-group');
+          if (!byGroup[g]) { byGroup[g] = []; groups.push(g); }
+          byGroup[g].push(r);
+        });
+        groups.forEach(function (g) {
+          results.appendChild(h('h3', { class: 'ed-resdlg__group', text: g }));
+          var ul = h('ul', { class: 'ed-resdlg__list' });
+          byGroup[g].forEach(function (r) {
+            var used = deps(r);
+            ul.appendChild(h('li', {}, [h('button', { type: 'button', class: 'ed-resdlg__pick',
+              onclick: function () { attachResource(r, nodeId); closeResourceDialog(); } }, [
+              h('span', { class: 'ed-res__label', text: resourceTitle(r) }),
+              get(r, 'description').trim() ? h('span', { class: 'ed-res__url', text: get(r, 'description').trim() }) : null,
+              h('span', { class: 'ed-res__shared', text: used.length
+                ? t('res-used-by', { names: used.slice(0, 3).map(nameOf).join(', ') + (used.length > 3 ? ' …' : '') })
+                : t('res-used-by-none') }),
+            ])]));
+          });
+          results.appendChild(ul);
+        });
+      }
+      search.addEventListener('input', function () { query = search.value; fill(); });
+      fill();
+      search.focus();
+    }
+
+    function renderForm() {
+      var groupInput = textInput(draft.group, function (v) { draft.group = v; }, { list: 'ed-resgroup-list' });
+      var dl = h('datalist', { id: 'ed-resgroup-list' });
+      resourceGroups().forEach(function (g) { dl.appendChild(h('option', { value: g })); });
+      var labelInput = textInput(draft.label, function (v) { draft.label = v; });
+      var urlInput = textInput(draft.url, function (v) { draft.url = v; }, { type: 'url', placeholder: 'https://' });
+      card.appendChild(field(t('res-group'), h('span', {}, [groupInput, dl]), t('res-group-hint')));
+      card.appendChild(field(t('res-label'), labelInput));
+      card.appendChild(field(t('res-url'), urlInput, t('res-url-hint')));
+      if (editing && deps(editing).length > 1) {
+        card.appendChild(h('p', { class: 'ed-notice', text: t('res-edit-shared', {
+          n: deps(editing).length, names: deps(editing).map(nameOf).join(', ') }) }));
+      }
+      var err = h('p', { class: 'ed-notice', role: 'status', hidden: true });
+      card.appendChild(err);
+      card.appendChild(h('div', { class: 'ed-row ed-resdlg__actions' }, [
+        button(t('res-save'), function () {
+          var g = draft.group.trim(), l = draft.label.trim(), u = draft.url.trim();
+          if (!l && !u) { err.textContent = t('res-need-label'); err.hidden = false; return; }
+          /* Samme lenke og samme tittel finnes alt: da er det den ressursen
+             noden skal ha, ikke en kopi - motoren ville sagt fra om kopien. */
+          var twin = resourceRows().filter(function (r) {
+            return r !== editing && get(r, 'name').trim().toLowerCase() === l.toLowerCase() &&
+              (u ? get(r, 'description').trim() === u : get(r, 'topic').trim().toLowerCase() === g.toLowerCase());
+          })[0];
+          if (twin && !editing) {
+            attachResource(twin, nodeId);
+            closeResourceDialog();
+            return;
+          }
+          if (twin) { err.textContent = t('res-duplicate'); err.hidden = false; return; }
+          change(null, function () {
+            if (editing) {
+              set(editing, 'topic', g);
+              set(editing, 'name', l);
+              set(editing, 'description', u);
+            } else {
+              addResourceRow(g, l, u, nodeId);
+            }
+          }, { now: true });
+          closeResourceDialog();
+        }, 'ed-btn--primary'),
+        editing ? null : button(t('res-back'), function () { mode = 'pick'; render(); }, 'ed-btn--quiet'),
+        button(t('res-cancel'), closeResourceDialog, 'ed-btn--quiet'),
+      ]));
+      (editing ? labelInput : (draft.group ? labelInput : groupInput)).focus();
+    }
+
+    render();
+  }
+
+  /* Store og små bokstaver, og «sok» finner «søk», som i treets eget søk. */
+  function fold(text) {
+    return String(text || '').toLowerCase()
+      .replace(/ø/g, 'o').replace(/æ/g, 'a')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
   function aidLevels() {
@@ -1446,7 +1730,6 @@
     ] },
     { group: 'set-group-buttons', fields: [
       { key: 'features.motivation', label: 'set-motivation', kind: 'bool', hint: 'set-motivation-hint' },
-      { key: 'features.resources', label: 'set-resources', kind: 'bool', hint: 'set-resources-hint' },
     ] },
     { group: 'set-group-slots', note: 'set-group-slots-note', fields: [
       { key: 'slots.courseName', label: 'set-slot-course' },
@@ -1757,7 +2040,6 @@
     el.errorDetails.hidden = !errors.length;
     el.downloadCsv.disabled = !state.doc;
     el.downloadHtml.disabled = !state.html;
-    el.downloadResources.hidden = !state.resources;
   }
 
   function fileBase() {
@@ -2018,7 +2300,6 @@
     el.copyErrors = document.getElementById('ed-copy-errors');
     el.downloadCsv = document.getElementById('ed-download-csv');
     el.downloadHtml = document.getElementById('ed-download-html');
-    el.downloadResources = document.getElementById('ed-download-resources');
     el.drop = document.getElementById('ed-drop');
     el.input = document.getElementById('ed-file');
     el.startError = document.getElementById('ed-start-error');
@@ -2055,9 +2336,6 @@
       save(fileBase() + '.html', state.html, 'text/html');
       state.dirty = false;
       track('builder_download', {});
-    });
-    el.downloadResources.addEventListener('click', function () {
-      if (state.resources) save(fileBase() + '-resources.csv', state.resources, 'text/csv');
     });
     el.copyErrors.addEventListener('click', function () {
       var errors = (state.eff && state.eff.errors) || [];

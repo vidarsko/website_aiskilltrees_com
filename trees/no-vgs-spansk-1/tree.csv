@@ -22,7 +22,6 @@ id,type,topic,name,description,depends_on,aids,instruction
 ,config,,subjectArea,spanish,,,
 ,config,,keywords,spansk; fremmedspråk; nivå I; gloser; ser og estar; gustar; presens; uttale; aksenttegn; spansktalende land,,,
 ,config,,updated,2026-10-12,,,
-,config,,features.resources,true,,,
 alfabetet,fact,Uttale og rettskriving,Det spanske alfabetet,"a: a
 b: be
 c: ce
@@ -238,3 +237,8 @@ tradisjon,skill,Kultur og samfunn,Beskrive en tradisjon,"beskrive en høytid ell
 kunst,skill,Kultur og samfunn,Presentere et kunstnerisk uttrykk,"presentere en sang, et bilde, en film eller en tekst fra et spansktalende område, og si hva du synes om det og hvorfor",land;bruke-gustar,,
 ordbok,skill,Språklæring,Bruke ordbok og oversettelsesverktøy kritisk,"slå opp ord i en ordbok og bruke oversettelsesverktøy, og vurdere om forslaget passer i setningen din",,,
 tidligere-sprak,skill,Språklæring,Bruke det du kan fra andre språk,"gjette betydningen av nye ord ut fra engelsk og norsk (información, universidad), og kjenne igjen ord som ligner uten å bety det samme (embarazada betyr gravid)",,,
+,resource,Store norske leksikon,Spansk,https://snl.no/spansk,uttaleregler;land,,
+,resource,Store norske leksikon,Aksenttegn og andre diakritiske tegn,https://snl.no/aksenttegn_og_andre_diakritiske_tegn,trykk-aksent,,
+,resource,Store norske leksikon,"Aksent – språkvitenskap, trykk","https://snl.no/aksent_-_spr%C3%A5kvitenskap,_trykk",trykk-aksent,,
+,resource,Store norske leksikon,Genus – grammatikk,https://snl.no/genus_-_grammatikk,kjonn,,
+,resource,Store norske leksikon,Bolivia,https://snl.no/Bolivia,land,,

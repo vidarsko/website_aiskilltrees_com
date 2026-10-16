@@ -206,6 +206,8 @@ header {
 
 #action-menu-panel #motivation-btn,
 #action-menu-panel #goal-index-btn,
+#action-menu-panel #search-btn,
+#action-menu-panel #resources-btn,
 #action-menu-panel #course-info-btn,
 #action-menu-panel #help-btn,
 #action-menu-panel #download-btn,
@@ -227,6 +229,8 @@ header {
 
 #action-menu-panel #motivation-btn:hover,
 #action-menu-panel #goal-index-btn:hover,
+#action-menu-panel #search-btn:hover,
+#action-menu-panel #resources-btn:hover,
 #action-menu-panel #course-info-btn:hover,
 #action-menu-panel #help-btn:hover,
 #action-menu-panel #download-btn:hover,
@@ -788,6 +792,133 @@ main {
 @media (max-width: 720px) {
   #search-overlay { padding: 0; }
   #search-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+}
+
+/* Ressursvindu: samme ramme som søket. Hver ressurs står med nodene den
+   hører til under seg, som knapper som hopper til noden i kartet. */
+
+#resources-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+
+#resources-overlay.open { display: flex; }
+
+#resources-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#resources-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+}
+
+#resources-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#resources-field {
+  padding: 0 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#resources-input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+}
+
+#resources-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+#resources-body {
+  overflow-y: auto;
+  padding: 1.2rem 1.6rem 1.8rem;
+}
+
+.resources-section { margin-bottom: 1.4rem; }
+.resources-section:last-child { margin-bottom: 0; }
+
+.resources-section h3 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.resources-section ul { list-style: none; }
+
+.resources-item {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.resources-item:first-child { border-top: none; }
+
+.resources-item-label {
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.resources-item-label a { text-decoration: none; }
+.resources-item-label a:hover,
+.resources-item-label a:focus-visible { text-decoration: underline; }
+
+.resources-item-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.resources-node {
+  font: inherit;
+  font-size: 0.76rem;
+  line-height: 1.3;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.15rem 0.6rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.resources-node:hover { color: var(--accent); border-color: var(--accent); }
+.resources-node:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  #resources-overlay { padding: 0; }
+  #resources-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
 }
 
 /* «Hvordan bruker jeg denne siden?»-vindu */

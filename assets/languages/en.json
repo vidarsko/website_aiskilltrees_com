@@ -37,8 +37,11 @@
     "errorCsvHeader": "The first row of {file} must name the columns. Missing: {missing}. The first row reads: {found}. The file was probably saved without its first row, or in another format; save it again as plain CSV.",
     "errorUnknownDep": "Node “{id}” lists “{dep}” as a prerequisite, but no node has that id.",
     "errorNoTopic": "Node “{id}” has no topic, and ends up in the catch-all column “{topic}”.",
-    "errorUnknownResourceNode": "resources.csv refers to the node id “{id}”, which does not exist in tree.csv.",
-    "errorExamsRenamed": "Row {row} of tree.csv: the setting “features.exams” is now “features.resources”, and exams.csv is now resources.csv with the columns node_id, group, label and url. Nothing was applied.",
+    "errorUnknownResourceNode": "Row {row} of tree.csv: the resource refers to the node id “{id}” in depends_on, which does not exist.",
+    "errorExamsRenamed": "Row {row} of tree.csv: the setting “features.exams” is from before version 0.22.0. Resources are now rows in tree.csv with the type “resource”: topic = group, name = title, description = link, depends_on = the nodes. Delete the row, and open the tree in the builder to convert an old exams.csv. Nothing was applied.",
+    "errorResourceEmpty": "Row {row} of tree.csv: the resource has neither a title (name) nor a link (description).",
+    "errorResourceNoNode": "Row {row} of tree.csv: the resource “{label}” belongs to no node. Put one or more node ids in depends_on, or delete the row.",
+    "errorResourceDuplicate": "Row {row} of tree.csv: the resource “{label}” is the same as on row {first}. Make it one row, with all the nodes in depends_on.",
     "errorCycle": "These nodes are prerequisites for each other, in a circle: {cycle}. One of those links has to go.",
     "errorUnknownConfig": "Unknown setting “{key}” on row {row} of tree.csv. Nothing was applied.",
     "errorUnknownNodeType": "The node “{id}” has the type “{type}”, which does not exist. The types are: {valid}.",
@@ -134,6 +137,16 @@
       "noResults": "No learning goal contains “{query}”.",
       "countOne": "1 learning goal",
       "countMany": "{n} learning goals",
+      "openNode": "Go to this node in the map"
+    },
+    "resourceList": {
+      "button": "Resources",
+      "title": "Show every resource in the tree and the learning goals it belongs to",
+      "heading": "Resources",
+      "placeholder": "Filter the resources …",
+      "intro": "{n} resources. Under each one are the learning goals it belongs to; click one to go to it in the map.",
+      "countFiltered": "{n} of {total} resources",
+      "noResults": "No resource matches “{query}”.",
       "openNode": "Go to this node in the map"
     },
     "motivation": {

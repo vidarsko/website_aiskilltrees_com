@@ -658,6 +658,55 @@ select.ed-input { cursor: pointer; }
 .ed-chip__x { border-left: 1px solid var(--rule); font-size: var(--step-s); line-height: 1; }
 .ed-chip__x:hover { background: var(--surface); }
 
+/* ---- Ressursene til en node, og vinduet som legger dem til ---------------- */
+
+.ed-reslist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.ed-res {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+}
+.ed-res__main, .ed-resdlg__pick {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.4rem 0.6rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.ed-res__main:hover, .ed-resdlg__pick:hover { background: var(--paper-2); }
+.ed-res__main:hover .ed-res__label, .ed-resdlg__pick:hover .ed-res__label { text-decoration: underline; text-underline-offset: 0.15em; }
+.ed-res__group { color: var(--ink-3); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.ed-res__label { font-weight: 600; overflow-wrap: anywhere; }
+.ed-res__url, .ed-res__shared { color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.ed-resdlg-wrap { z-index: 55; }
+.ed-resdlg { width: min(100%, 44rem); display: grid; gap: var(--space-2); }
+.ed-resdlg__title { font-size: var(--step-xl); padding-right: 44px; }
+.ed-resdlg__bar { flex-wrap: nowrap; }
+.ed-resdlg__bar .ed-input { flex: 1; min-width: 0; }
+.ed-resdlg__results { display: grid; gap: 0.4rem; max-height: 55vh; overflow-y: auto; }
+.ed-resdlg__group {
+  margin: var(--space-1) 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+.ed-resdlg__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.ed-resdlg__list li { background: var(--surface); display: flex; }
+.ed-resdlg__actions { margin-top: var(--space-1); }
+
 /* Hvilken type noden er: to knapper, fargekodet med samme farger som i
    treet, men valget bæres av at knappen er trykket inn, ikke av fargen. */
 .ed-seg__btn--skill[aria-pressed="true"] { background: var(--amber-tint); color: var(--ink); box-shadow: inset 0 -3px 0 var(--amber); }

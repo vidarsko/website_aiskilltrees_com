@@ -28,3 +28,5 @@ equivalent-fractions,skill,Fractions,Recognise equivalent fractions,"decide whet
 simplify-fractions,skill,Fractions,Simplify fractions,"write a fraction in its simplest form, and explain why the value has not changed.",equivalent-fractions,1,
 adding-fractions,skill,Fractions,Add fractions with different denominators,add two fractions with different denominators by rewriting them with a common denominator.,equivalent-fractions;adding-whole,1,
 fractions-in-context,skill,Fractions,Use fractions in everyday situations,"decide when a fraction is the right tool for a question asked in ordinary language, and interpret the answer back in context.",adding-fractions;simplify-fractions,2,
+,resource,Encyclopedia,Fraction,https://en.wikipedia.org/wiki/Fraction,fraction;numerator-denominator;equivalent-fractions,,
+,resource,Textbook,"Chapter 3, Fractions",,fraction;simplify-fractions;adding-fractions,,
