@@ -273,6 +273,44 @@
       </div>
     </section>
 
+    <!--
+      VIDEO — bare på norsk. Opptaket er Vidars egen presentasjon på norsk, så
+      båndet vises bare når <html lang> er nb (regelen i css/components.css).
+      Teksten står derfor på norsk rett i markupen, ikke i ordboka.
+
+      Ingenting hentes fra YouTube før den besøkende trykker: forhåndsbildet
+      ligger i /media/, og iframen (youtube-nocookie.com) settes inn av
+      scriptet under først ved klikk. Det holder løftet på /privacy/ om at
+      siden ikke kontakter andre tjenester enn GoatCounter av seg selv.
+    -->
+    <section class="band band--tint" data-lang-only="nb" lang="nb">
+      <div class="band__inner">
+        <p class="eyebrow">Video</p>
+        <h2>Læring, øveprøver og undervisningsopplegg med KI</h2>
+        <div class="videoembed">
+          <button type="button" class="videoembed__play" data-youtube-id="BJk8n_Q6fJc"
+                  data-track-cta="video-play"
+                  aria-label="Spill av videoen «Læring, øveprøver og undervisningsopplegg med KI: Ferdighetstrær» fra YouTube">
+            <img src="/media/video-ferdighetstraer.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="videoembed__icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="videoembed__note">Videoen lastes fra YouTube når du trykker på den. <a href="https://youtu.be/BJk8n_Q6fJc">Se den på YouTube</a>.</p>
+        <script>
+          document.currentScript.parentNode.querySelector('[data-youtube-id]').addEventListener('click', function () {
+            var f = document.createElement('iframe');
+            f.src = 'https://www.youtube-nocookie.com/embed/' + this.dataset.youtubeId + '?autoplay=1&rel=0';
+            f.title = 'Læring, øveprøver og undervisningsopplegg med KI: Ferdighetstrær';
+            f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+            f.allowFullscreen = true;
+            f.referrerPolicy = 'strict-origin-when-cross-origin';
+            this.replaceWith(f);
+            f.focus();
+          });
+        </script>
+      </div>
+    </section>
+
     <!-- Four entry points -->
     <section class="band band--alt">
       <div class="band__inner">
