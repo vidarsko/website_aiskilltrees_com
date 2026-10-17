@@ -48,9 +48,9 @@
           "sv": "Varje träd är en graf över färdigheterna och begreppen i ett ämne, skrivet av en lärare. Varje nod har en instruktion som du kan kopiera in i en AI-chatt för att öva på den färdigheten."
       },
       "hero-img-alt": {
-          "en": "A screen recording of the method in use: a skill tree on the left, one node's instruction in the middle, and an AI chat working through the answer on the right.",
-          "nb": "Et skjermopptak av metoden i bruk: et ferdighetstre til venstre, instruksen til én node i midten, og en KI-chat som jobber seg gjennom svaret til høyre.",
-          "sv": "En skärminspelning av metoden i bruk: ett färdighetsträd till vänster, instruktionen för en nod i mitten, och en AI-chatt som arbetar sig genom svaret till höger."
+          "en": "A screen recording of the method in use: nodes in a skill tree are opened, their AI instructions copied, and the nodes ticked off as mastered.",
+          "nb": "Et skjermopptak av metoden i bruk: noder i et ferdighetstre åpnes, KI-instruksene kopieres, og nodene krysses av som mestret.",
+          "sv": "En skärminspelning av metoden i bruk: noder i ett färdighetsträd öppnas, AI-instruktionerna kopieras och noderna bockas av som behärskade."
       },
       "hero-cta-primary": {
           "en": "See a random tree",
@@ -189,30 +189,42 @@
     <!--
       HERO. Full-bleed screen recording with a flat scrim over it.
 
-      The clip is the method in use: a node picked in the tree on the left, its
-      instruction in the middle panel, the answer coming back in the chat on the
-      right. It is decorative. The scrim is 62% opaque, so nothing in it is meant
-      to be read — the h1 carries the meaning, which is why the video is
-      aria-hidden.
+      The clip is the method in use, recorded by a script driving a real tree
+      page (frontpage-video_private/): nodes opened, instructions copied and
+      pasted into a simulated "AI service" chat, nodes ticked off so the ones
+      after them unlock. It is decorative. The scrim is 62% opaque, so nothing
+      in it is meant to be read — the h1 carries the meaning, which is why the
+      video is aria-hidden.
 
-      The clip is 1920x700 against a hero box that is at most 1920x736, so a
-      wide display trims a few percent off the sides. Narrower viewports crop
-      far more, horizontally, around object-position — see css/components.css,
-      which aims that crop at the middle panel.
+      There are two recordings of the same kind of session. The wide one
+      (2880x1104, the shape of the hero box on a desktop) goes to landscape
+      viewports; the tall one (900x1480, the tree's own phone layout) goes to
+      portrait viewports, where a wide clip would be cropped down to a sliver.
+      The inline script after the video does the picking.
 
-      The poster is frame 0 of the same file, so the handoff from still to
-      playing video is invisible. It is also what stands in for the video when
-      autoplay is refused, or the visitor has asked for reduced motion.
+      The still is frame 0 of the matching clip and sits underneath the video
+      at all times, so the handoff from still to playing video is invisible. It
+      is also what is left when autoplay is refused, or the visitor has asked
+      for reduced motion.
     -->
     <section class="hero">
       <div class="hero__media">
-        <video class="hero__video" poster="/media/hero.jpg"
+        <picture>
+          <source srcset="/media/hero-mobile.jpg" media="(max-aspect-ratio: 1/1)">
+          <img class="hero__still" src="/media/hero.jpg"
+               alt="A screen recording of the method in use: nodes in a skill tree are opened, their AI instructions copied, and the nodes ticked off as mastered."
+               data-i18n-attr="alt:hero-img-alt">
+        </picture>
+        <video class="hero__video"
                autoplay muted loop playsinline preload="auto" aria-hidden="true">
           <source src="/media/hero.mp4" type="video/mp4">
         </video>
-        <img class="hero__still" src="/media/hero.jpg"
-             alt="A screen recording of the method in use: a skill tree on the left, one node's instruction in the middle, and an AI chat working through the answer on the right."
-             data-i18n-attr="alt:hero-img-alt">
+        <!-- Chromium ignores media= on a video's <source>, so the tall clip is
+             picked here instead, before the element has chosen a source. -->
+        <script>
+          if (matchMedia('(max-aspect-ratio: 1/1)').matches)
+            document.currentScript.previousElementSibling.src = '/media/hero-mobile.mp4';
+        </script>
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
 
