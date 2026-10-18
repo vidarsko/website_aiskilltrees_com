@@ -1930,7 +1930,7 @@ function ensureGoalIndexModal() {
 
   const minutesLabel = document.createElement('label');
   minutesLabel.id = 'lesson-minutes-label';
-  minutesLabel.appendChild(document.createTextNode('Lengde'));
+  minutesLabel.appendChild(document.createTextNode(t('lesson.minutesLabel')));
   const minutesInput = document.createElement('input');
   minutesInput.type = 'number';
   minutesInput.id = 'lesson-minutes';

@@ -156,6 +156,7 @@
     "lesson": {
       "button": "Lag undervisningsopplegg (for lærere)",
       "title": "Kopier en KI-instruks for en ferdig undervisningsøkt om de læringsmålene du har huket av",
+      "minutesLabel": "Lengde",
       "minutesAria": "Lengde på økta i minutter",
       "includeAria": "Ta med «{name}» i undervisningsopplegget",
       "selectedNone": "Ingen læringsmål valgt",

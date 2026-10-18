@@ -156,6 +156,7 @@
     "lesson": {
       "button": "Skapa lektionsplanering (för lärare)",
       "title": "Kopiera en AI-instruktion för en färdig lektion om de lärandemål du kryssat i",
+      "minutesLabel": "Längd",
       "minutesAria": "Lektionens längd i minuter",
       "includeAria": "Ta med «{name}» i lektionsplaneringen",
       "selectedNone": "Inga lärandemål valda",

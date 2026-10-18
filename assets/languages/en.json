@@ -156,6 +156,7 @@
     "lesson": {
       "button": "Build a lesson plan (for teachers)",
       "title": "Copy an AI instruction for a complete lesson covering the goals you have ticked",
+      "minutesLabel": "Length",
       "minutesAria": "Length of the lesson in minutes",
       "includeAria": "Include “{name}” in the lesson plan",
       "selectedNone": "No learning goals selected",
