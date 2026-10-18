@@ -47,10 +47,29 @@
         <p class="eyebrow">LK20 · Norge</p>
         <h1>Ferdighetstrær for ungdomsskolen og videregående</h1>
         <div class="prose">
-          <p class="lede-p">Her er fagene på ungdomsskolen og på studiespesialisering, ordnet etter faggruppe. Fargede nivåer har et ferdighetstre. Grå nivåer har ikke noe tre ennå.</p>
-          <p>Et ferdighetstre bryter kompetansemålene ned i det eleven faktisk skal kunne: begreper og ferdigheter, og hvilke som bygger på hvilke. Eleven ser hele kartet og velger selv hvor hen starter. Til hver ferdighet hører en instruks som eleven kopierer inn i en hvilken som helst KI-chat. Chatten øver og prøver da akkurat den ferdigheten, uten å gi eleven svarene.</p>
-          <p>Trærne er utkast, og poenget er at de skal bli bedre. De er åpne under CC BY 4.0, og hvem som helst kan endre dem.</p>
+          <p class="lede-p">Her finner du utkast til ferdighetstrær til alle fagene i LK20. De er laget ved å få KI til å dekomponere læreplanmålene i henhold til <a href="/prompts/?release=v0.32.0">dekomposisjonsinstruks 2.12.2</a>.</p>
+          <p>Det er altså ikke garantert at ferdighetstreet fungerer for deg, og det er viktig at du som lærer ser gjennom, godkjenner og eventuelt redigerer treet så det passer for deg, før du deler det med elevene dine. Du kan bruke treet som utgangspunkt for dette ved å klikke på «Rediger eller last ned» på treets side. Hvordan du lager et eget tre, har jeg også forklart i denne videoen:</p>
         </div>
+        <div class="videoembed">
+          <button type="button" class="videoembed__play" data-youtube-id="BJk8n_Q6fJc"
+                  data-track-cta="video-play"
+                  aria-label="Spill av videoen «Læring, øveprøver og undervisningsopplegg med KI: Ferdighetstrær» fra YouTube">
+            <img src="/media/video-ferdighetstraer.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="videoembed__icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <script>
+          document.currentScript.parentNode.querySelector('[data-youtube-id]').addEventListener('click', function () {
+            var f = document.createElement('iframe');
+            f.src = 'https://www.youtube-nocookie.com/embed/' + this.dataset.youtubeId + '?autoplay=1&rel=0';
+            f.title = 'Læring, øveprøver og undervisningsopplegg med KI: Ferdighetstrær';
+            f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+            f.allowFullscreen = true;
+            f.referrerPolicy = 'strict-origin-when-cross-origin';
+            this.replaceWith(f);
+            f.focus();
+          });
+        </script>
       </div>
     </section>
 

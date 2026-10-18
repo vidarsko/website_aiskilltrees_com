@@ -1247,8 +1247,3 @@ html:not([lang="nb"]) [data-lang-only="nb"] { display: none; }
 .videoembed__play:hover .videoembed__icon,
 .videoembed__play:focus-visible .videoembed__icon { background: var(--primary-strong); }
 
-.videoembed__note {
-  margin-top: var(--space-1);
-  font-size: var(--step-xs);
-  color: var(--ink-3);
-}
