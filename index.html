@@ -13,7 +13,6 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <script src="/js/random-tree.js" defer></script>
 
   <!--
     The translation dictionary for THIS page. English is the source: the
@@ -53,9 +52,9 @@
           "sv": "En skärminspelning av metoden i bruk: noder i ett färdighetsträd öppnas, AI-instruktionerna kopieras och noderna bockas av som behärskade."
       },
       "hero-cta-primary": {
-          "en": "See a random tree",
-          "nb": "Se et tilfeldig tre",
-          "sv": "Se ett slumpmässigt träd"
+          "en": "How to use",
+          "nb": "Slik bruker du det",
+          "sv": "Så använder du det"
       },
       "hero-cta-all": {
           "en": "See all trees",
@@ -239,12 +238,10 @@
         <div class="btn-row">
           <!-- data-track-cta reports which of these gets pressed. Both now
                resolve, so cta_live is "yes" for each. See js/analytics.js. -->
-          <!-- «Se et tilfeldig tre» er en ekte lenke til katalogen, ikke en
-               tom knapp som venter på JavaScript: slår scriptet feil, eller
-               er det ikke lastet ennå, havner du på /trees/ og kan velge
-               selv. js/random-tree.js bytter href-en når trees.json er
-               hentet. -->
-          <a class="btn btn--primary" href="/trees/" data-random-tree data-track-cta="hero-random-tree" data-i18n="hero-cta-primary">See a random tree</a>
+          <!-- «Slik bruker du det» erstattet «Se et tilfeldig tre» her
+               2026-10-18. Knappen til et tilfeldig tre står nå øverst på
+               /how-to-use/, med js/random-tree.js. -->
+          <a class="btn btn--primary" href="/how-to-use/" data-track-cta="hero-how-to-use" data-i18n="hero-cta-primary">How to use</a>
           <a class="btn btn--ghost" href="/trees/" data-track-cta="hero-all-trees" data-i18n="hero-cta-all">See all trees</a>
           <a class="btn btn--ghost" href="/research/" data-track-cta="hero-read-the-method" data-i18n="hero-cta-secondary">Read the method</a>
           <a class="btn btn--ghost" href="/make-your-own/" data-track-cta="hero-make-your-own" data-i18n="hero-cta-make">Make your own</a>

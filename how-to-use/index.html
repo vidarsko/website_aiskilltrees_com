@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to use | AI Skill Trees</title>
+  <meta name="description" content="How to use a skill tree: practise one learning goal at a time with an AI chat, read the three kinds of node, make a test, and plan a lesson." data-i18n-attr="content:meta-description">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <script src="/js/analytics.js"></script>
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/random-tree.js" defer></script>
+
+  <!--
+    /how-to-use/ — one band per thing a tree can do: a square clip on the
+    left, the text on the right, stacked on a phone. Read
+    how-to-use_private/AGENTS.md before changing it: the clips are recorded
+    by how-to-use_private/record.js, and the text describes what they show.
+  -->
+  <script type="application/json" id="i18n-dict">
+  {
+      "doc-title": {
+          "en": "How to use | AI Skill Trees",
+          "nb": "Slik bruker du det | AI Skill Trees",
+          "sv": "Så använder du det | AI Skill Trees"
+      },
+      "meta-description": {
+          "en": "How to use a skill tree: practise one learning goal at a time with an AI chat, read the three kinds of node, make a test, and plan a lesson.",
+          "nb": "Slik bruker du et ferdighetstre: øv på ett læringsmål om gangen med en KI-chat, les de tre typene noder, lag en prøve og planlegg en time.",
+          "sv": "Så använder du ett färdighetsträd: öva på ett lärandemål i taget med en AI-chatt, läs de tre sorternas noder, gör ett prov och planera en lektion."
+      },
+      "page-eyebrow": {
+          "en": "How to use",
+          "nb": "Slik bruker du det",
+          "sv": "Så använder du det"
+      },
+      "page-heading": {
+          "en": "How to use a skill tree",
+          "nb": "Slik bruker du et ferdighetstre",
+          "sv": "Så använder du ett färdighetsträd"
+      },
+      "page-lede": {
+          "en": "Every tree on this site works the same way. You can try each step below in any tree as you read.",
+          "nb": "Alle trærne på denne siden virker på samme måte. Du kan prøve hvert steg under i et hvilket som helst tre mens du leser.",
+          "sv": "Alla träd på den här sidan fungerar på samma sätt. Du kan prova varje steg nedan i vilket träd som helst medan du läser."
+      },
+      "cta-random": {
+          "en": "Open a random tree",
+          "nb": "Åpne et tilfeldig tre",
+          "sv": "Öppna ett slumpmässigt träd"
+      },
+      "cta-all": {
+          "en": "See all trees",
+          "nb": "Se alle trær",
+          "sv": "Se alla träd"
+      },
+      "mock-note": {
+          "en": "The clips are recorded in the Mathematics 2P demo tree. The AI chat in them is a mock-up with replies written in advance; a real AI chat will answer differently.",
+          "nb": "Klippene er tatt opp i demotreet for Matematikk 2P. KI-chatten i dem er en etterligning med svar skrevet på forhånd; en ekte KI-chat svarer annerledes.",
+          "sv": "Klippen är inspelade i demoträdet för Matematik 2P. AI-chatten i dem är en attrapp med svar skrivna i förväg; en riktig AI-chatt svarar annorlunda."
+      },
+      "make-eyebrow": {
+          "en": "Make your own",
+          "nb": "Lag ditt eget",
+          "sv": "Gör ditt eget"
+      },
+      "make-heading": {
+          "en": "A tree for your own subject",
+          "nb": "Et tre for ditt eget fag",
+          "sv": "Ett träd för ditt eget ämne"
+      },
+      "make-body": {
+          "en": "As a teacher, you can make a tree for a subject that does not have one yet, or change an existing one. <b>Download this tree</b> in the menu gives you the spreadsheet to edit, and a single file that works offline.",
+          "nb": "Som lærer kan du lage et tre for et fag som ikke har et ennå, eller endre et som finnes. <b>Last ned dette treet</b> i menyen gir deg regnearket du kan redigere, og én enkelt fil som virker uten nett.",
+          "sv": "Som lärare kan du göra ett träd för ett ämne som inte har något än, eller ändra ett som finns. <b>Ladda ner det här trädet</b> i menyn ger dig kalkylarket att redigera, och en enda fil som fungerar utan nät."
+      },
+      "make-cta": {
+          "en": "Make your own",
+          "nb": "Lag ditt eget",
+          "sv": "Gör ditt eget"
+      },
+      "footer-line-1": {
+          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
+          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
+          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
+      },
+      "footer-privacy": {
+          "en": "Privacy",
+          "nb": "Personvern",
+          "sv": "Integritet"
+      },
+      "footer-affiliation": {
+          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
+          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
+          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
+      },
+      "practice-title": {
+          "en": "Practise skills",
+          "nb": "Øv på ferdigheter",
+          "sv": "Öva på färdigheter"
+      },
+      "practice-video": {
+          "en": "A box is opened, its AI instruction copied and pasted into an AI chat, a short conversation follows, and the box is marked as mastered so the next one unlocks.",
+          "nb": "En boks åpnes, KI-instruksen kopieres og limes inn i en KI-chat, det følger en kort samtale, og boksen markeres som mestret så den neste låses opp.",
+          "sv": "En ruta öppnas, AI-instruktionen kopieras och klistras in i en AI-chatt, ett kort samtal följer, och rutan markeras som avklarad så att nästa låses upp."
+      },
+      "practice-p1": {
+          "en": "As a student, you can practise one learning goal at a time. Click a box in the map, and a panel opens with what the learning goal is about and what it builds on.",
+          "nb": "Som elev kan du øve på ett læringsmål om gangen. Klikk på en boks i kartet, så åpnes et panel med hva læringsmålet handler om og hva det bygger på.",
+          "sv": "Som elev kan du öva på ett lärandemål i taget. Klicka på en ruta i kartan, så öppnas en panel med vad lärandemålet handlar om och vad det bygger på."
+      },
+      "practice-p2": {
+          "en": "Press <b>Copy AI instruction</b>, open the AI chat you already use, and paste it in. The AI then works with you on that learning goal alone, and asks questions rather than handing you the answers. Press <b>Show AI instruction</b> if you want to read what you are pasting first.",
+          "nb": "Trykk på <b>Kopier KI-instruks</b>, åpne den KI-chatten du allerede bruker, og lim den inn. KI-en jobber da med deg på akkurat det læringsmålet, og stiller spørsmål framfor å gi deg svarene. Trykk på <b>Vis KI-instruks</b> hvis du vil lese det du limer inn først.",
+          "sv": "Tryck på <b>Kopiera AI-instruktion</b>, öppna den AI-chatt du redan använder och klistra in den. AI:n arbetar då med dig på just det lärandemålet, och ställer frågor i stället för att ge dig svaren. Tryck på <b>Visa AI-instruktion</b> om du vill läsa det du klistrar in först."
+      },
+      "practice-p3": {
+          "en": "When you know it, tick <b>Mark as mastered</b>. The boxes that build on it light up, and you can see what to take next.",
+          "nb": "Når du kan det, huker du av for <b>Marker som mestret</b>. Boksene som bygger på det, lyser opp, og du ser hva du kan ta fatt på neste.",
+          "sv": "När du kan det bockar du för <b>Markera som avklarad</b>. Rutorna som bygger på det lyser upp, och du ser vad du kan ta itu med härnäst."
+      },
+      "nodes-title": {
+          "en": "The different nodes",
+          "nb": "De ulike nodene",
+          "sv": "De olika noderna"
+      },
+      "nodes-video": {
+          "en": "A concept, a fact list and a skill are opened one after the other, then a locked box is pointed at.",
+          "nb": "Et begrep, en faktaliste og en ferdighet åpnes etter tur, og så pekes det på en låst boks.",
+          "sv": "Ett begrepp, en faktalista och en färdighet öppnas i tur och ordning, och sedan pekas det på en låst ruta."
+      },
+      "nodes-p1": {
+          "en": "Each box in the map is one learning goal, and there are three kinds:",
+          "nb": "Hver boks i kartet er ett læringsmål, og det finnes tre typer:",
+          "sv": "Varje ruta i kartan är ett lärandemål, och det finns tre sorter:"
+      },
+      "nodes-type-1": {
+          "en": "<b>Concept</b> (green): an idea you should be able to explain in your own words.",
+          "nb": "<b>Begrep</b> (grønn): en idé du skal kunne forklare med egne ord.",
+          "sv": "<b>Begrepp</b> (grön): en idé du ska kunna förklara med egna ord."
+      },
+      "nodes-type-2": {
+          "en": "<b>Skill</b> (orange): something you should be able to do, such as solving or calculating.",
+          "nb": "<b>Ferdighet</b> (oransje): noe du skal kunne gjøre, som å løse eller regne ut.",
+          "sv": "<b>Färdighet</b> (orange): något du ska kunna göra, som att lösa eller räkna ut."
+      },
+      "nodes-type-3": {
+          "en": "<b>Facts</b> (blue, square corners): a list of things to know by heart.",
+          "nb": "<b>Fakta</b> (blå, skarpe hjørner): en liste over ting å kunne utenat.",
+          "sv": "<b>Fakta</b> (blå, skarpa hörn): en lista över saker att kunna utantill."
+      },
+      "nodes-p2": {
+          "en": "A pale box is locked: something it builds on is not ticked off yet, and the panel says what to take first. You can still open it and practise. A box you have mastered gets a green frame and a tick. The tag on a skill, such as <b>Part 1</b>, says which aids you may use; more on that below.",
+          "nb": "En blek boks er låst: noe den bygger på, er ikke huket av ennå, og panelet sier hva du bør ta først. Du kan likevel åpne den og øve. En boks du har mestret, får en grønn ramme og en hake. Merket på en ferdighet, for eksempel <b>Del 1</b>, sier hvilke hjelpemidler du kan bruke; mer om det lenger ned.",
+          "sv": "En blek ruta är låst: något den bygger på är inte avbockat än, och panelen säger vad du bör ta först. Du kan ändå öppna den och öva. En ruta du har klarat av får en grön ram och en bock. Märket på en färdighet, till exempel <b>Del 1</b>, säger vilka hjälpmedel du får använda; mer om det längre ner."
+      },
+      "test-title": {
+          "en": "Generate tests",
+          "nb": "Lag prøver",
+          "sv": "Gör prov"
+      },
+      "test-video": {
+          "en": "The menu is opened, the number of tasks set to five, and the test instruction pasted into an AI chat, which sets five tasks.",
+          "nb": "Menyen åpnes, antall oppgaver settes til fem, og prøveinstruksen limes inn i en KI-chat, som gir fem oppgaver.",
+          "sv": "Menyn öppnas, antalet uppgifter sätts till fem, och provinstruktionen klistras in i en AI-chatt, som ger fem uppgifter."
+      },
+      "test-p1": {
+          "en": "You can make a test from everything you have marked as mastered. Open the menu with the ☰ button at the bottom left, set the <b>Number of tasks</b>, and press <b>Make a test from mastered learning goals</b>.",
+          "nb": "Du kan lage en prøve fra alt du har markert som mestret. Åpne menyen med ☰-knappen nede til venstre, velg <b>Antall oppgaver</b>, og trykk på <b>Lag prøve av mestrede læringsmål</b>.",
+          "sv": "Du kan göra ett prov av allt du har markerat som avklarat. Öppna menyn med ☰-knappen nere till vänster, välj <b>Antal uppgifter</b> och tryck på <b>Skapa prov av avklarade lärandemål</b>."
+      },
+      "test-p2": {
+          "en": "Paste the instruction into an AI chat. You get a test across several learning goals at once, one task at a time, with feedback on each answer.",
+          "nb": "Lim instruksen inn i en KI-chat. Du får en prøve på tvers av flere læringsmål på én gang, én oppgave om gangen, med tilbakemelding på hvert svar.",
+          "sv": "Klistra in instruktionen i en AI-chatt. Du får ett prov över flera lärandemål på en gång, en uppgift i taget, med återkoppling på varje svar."
+      },
+      "progress-title": {
+          "en": "Track your progress",
+          "nb": "Følg med på framgangen",
+          "sv": "Följ dina framsteg"
+      },
+      "progress-video": {
+          "en": "Three boxes are ticked off, a whole column is ticked with the ✓ at its top, and the menu shows the progress bar.",
+          "nb": "Tre bokser hukes av, en hel kolonne hukes av med ✓ øverst, og menyen viser framdriftslinja.",
+          "sv": "Tre rutor bockas av, en hel kolumn bockas av med ✓ överst, och menyn visar förloppsindikatorn."
+      },
+      "progress-p1": {
+          "en": "You can tick a box straight in the map, without opening it. The ✓ at the top of a column ticks off a whole topic at once, and ✕ clears it again. The menu shows how many of the learning goals you have completed.",
+          "nb": "Du kan huke av en boks rett i kartet, uten å åpne den. ✓ øverst i en kolonne huker av et helt emne på én gang, og ✕ fjerner det igjen. Menyen viser hvor mange av læringsmålene du har fullført.",
+          "sv": "Du kan bocka av en ruta direkt i kartan, utan att öppna den. ✓ överst i en kolumn bockar av ett helt område på en gång, och ✕ tar bort det igen. Menyn visar hur många av lärandemålen du har klarat."
+      },
+      "progress-p2": {
+          "en": "Your ticks are saved in this browser, on this device, and are never sent anywhere. As a teacher, keep in mind that the ticks are your own: they show what you have been through, not what your class knows.",
+          "nb": "Avhukingene lagres i denne nettleseren, på denne enheten, og sendes aldri noe sted. Som lærer bør du huske at avhukingene er dine egne: de viser hva du har vært gjennom, ikke hva klassen kan.",
+          "sv": "Dina bockar sparas i den här webbläsaren, på den här enheten, och skickas aldrig någonstans. Som lärare bör du komma ihåg att bockarna är dina egna: de visar vad du har gått igenom, inte vad klassen kan."
+      },
+      "navigate-title": {
+          "en": "Find your way around",
+          "nb": "Finn fram",
+          "sv": "Hitta rätt"
+      },
+      "navigate-video": {
+          "en": "The list of all learning goals is scrolled through, a search for “pyth” jumps to Pythagoras in the map, and the view is zoomed out to the whole tree and back.",
+          "nb": "Lista over alle læringsmål blas gjennom, et søk på «pyth» hopper til Pytagoras i kartet, og visningen zoomes ut til hele treet og inn igjen.",
+          "sv": "Listan över alla lärandemål bläddras igenom, en sökning på ”pyth” hoppar till Pythagoras i kartan, och vyn zoomas ut till hela trädet och in igen."
+      },
+      "navigate-p1": {
+          "en": "You can drag to move around the map, and zoom with + and −. The ⤢ button shows the whole tree at once.",
+          "nb": "Du kan dra for å flytte deg rundt i kartet, og zoome med + og −. ⤢-knappen viser hele treet på én gang.",
+          "sv": "Du kan dra för att flytta dig runt i kartan och zooma med + och −. ⤢-knappen visar hela trädet på en gång."
+      },
+      "navigate-p2": {
+          "en": "In the menu, <b>Show all learning goals</b> gives one list of the whole course, sorted by topic, with the status of each: ✓ mastered, ◇ ready to learn, and ⊘ with the codes of what to take first. <b>Search</b> finds a learning goal by a word from its name or description, and takes you to it in the map.",
+          "nb": "I menyen gir <b>Vis alle læringsmål</b> én liste over hele faget, sortert etter emne, med status for hvert: ✓ mestret, ◇ klar til å læres, og ⊘ med kodene til det du bør ta først. <b>Søk</b> finner et læringsmål fra et ord i navnet eller beskrivelsen, og tar deg dit i kartet.",
+          "sv": "I menyn ger <b>Visa alla lärandemål</b> en lista över hela kursen, sorterad efter område, med status för vart och ett: ✓ avklarat, ◇ redo att läras, och ⊘ med koderna för det du bör ta först. <b>Sök</b> hittar ett lärandemål utifrån ett ord i namnet eller beskrivningen och tar dig dit i kartan."
+      },
+      "lesson-title": {
+          "en": "Plan a lesson",
+          "nb": "Planlegg en time",
+          "sv": "Planera en lektion"
+      },
+      "lesson-video": {
+          "en": "Three learning goals are ticked in the list, the length is set to 60 minutes, and the lesson plan instruction is pasted into an AI chat, which answers with a timed plan.",
+          "nb": "Tre læringsmål hukes av i lista, lengden settes til 60 minutter, og instruksen limes inn i en KI-chat, som svarer med en tidsplan.",
+          "sv": "Tre lärandemål bockas för i listan, längden sätts till 60 minuter, och instruktionen klistras in i en AI-chatt, som svarar med en tidsplan."
+      },
+      "lesson-p1": {
+          "en": "As a teacher, you can get a lesson plan for the next lesson. Open <b>Show all learning goals</b> and tick the learning goals the lesson should cover, using the boxes on the left of the list.",
+          "nb": "Som lærer kan du få en plan for neste time. Åpne <b>Vis alle læringsmål</b> og huk av for læringsmålene timen skal dekke, med boksene til venstre i lista.",
+          "sv": "Som lärare kan du få en plan för nästa lektion. Öppna <b>Visa alla lärandemål</b> och bocka för de lärandemål lektionen ska täcka, med rutorna till vänster i listan."
+      },
+      "lesson-p2": {
+          "en": "Set the length in minutes at the bottom and press <b>Build a lesson plan</b>. Paste the instruction into an AI chat, and you get a complete lesson: a starter, worked examples paired with problems, diagnostic questions, and retrieval practice at the end.",
+          "nb": "Sett lengden i minutter nederst og trykk på <b>Lag undervisningsopplegg</b>. Lim instruksen inn i en KI-chat, så får du en hel time: en oppstart, gjennomgåtte eksempler parret med oppgaver, diagnostiske spørsmål og gjenhentingsøving til slutt.",
+          "sv": "Ställ in längden i minuter längst ner och tryck på <b>Skapa lektionsplanering</b>. Klistra in instruktionen i en AI-chatt, så får du en hel lektion: en inledning, genomgångna exempel parade med uppgifter, diagnostiska frågor och återhämtningsövning på slutet."
+      },
+      "motivation-title": {
+          "en": "Why should I learn this?",
+          "nb": "Hvorfor skal jeg lære dette?",
+          "sv": "Varför ska jag lära mig det här?"
+      },
+      "motivation-video": {
+          "en": "The motivation instruction is pasted into an AI chat, which asks what the student cares about and ties percentages to buying a car.",
+          "nb": "Motivasjonsinstruksen limes inn i en KI-chat, som spør hva eleven bryr seg om og knytter prosent til det å kjøpe bil.",
+          "sv": "Motivationsinstruktionen klistras in i en AI-chatt, som frågar vad eleven bryr sig om och knyter procent till att köpa bil."
+      },
+      "motivation-p1": {
+          "en": "As a student, you can ask why the subject is worth learning at all. Many trees have a <b>Why should I learn this?</b> button in the menu.",
+          "nb": "Som elev kan du spørre hvorfor faget er verdt å lære i det hele tatt. Mange trær har en <b>Hvorfor skal jeg lære dette?</b>-knapp i menyen.",
+          "sv": "Som elev kan du fråga varför ämnet är värt att lära sig över huvud taget. Många träd har en <b>Varför ska jag lära mig det här?</b>-knapp i menyn."
+      },
+      "motivation-p2": {
+          "en": "It gives an instruction for a short conversation that starts from what you care about, and ties the subject to it. Paste it into an AI chat when you need a nudge.",
+          "nb": "Den gir en instruks for en kort samtale som tar utgangspunkt i det du bryr deg om, og knytter faget til det. Lim den inn i en KI-chat når du trenger et puff.",
+          "sv": "Den ger en instruktion för ett kort samtal som utgår från det du bryr dig om och knyter ämnet till det. Klistra in den i en AI-chatt när du behöver en knuff."
+      },
+      "about-title": {
+          "en": "Aids and the course",
+          "nb": "Hjelpemidler og faget",
+          "sv": "Hjälpmedel och ämnet"
+      },
+      "about-video": {
+          "en": "The Part 1+2 tag on a skill is clicked, and About the course opens with the aids for each level.",
+          "nb": "Del 1+2-merket på en ferdighet klikkes, og Om faget åpnes med hjelpemidlene for hvert nivå.",
+          "sv": "Del 1+2-märket på en färdighet klickas, och Om ämnet öppnas med hjälpmedlen för varje nivå."
+      },
+      "about-p1": {
+          "en": "You can click the tag on a skill, such as <b>Part 1</b> or <b>Part 2</b>, to see which aids belong to that level, for example whether a calculator is allowed. A tag split into several colours means the learning goal belongs to several levels, and you should manage it under the strictest one.",
+          "nb": "Du kan klikke på merket på en ferdighet, for eksempel <b>Del 1</b> eller <b>Del 2</b>, for å se hvilke hjelpemidler som hører til det nivået, for eksempel om kalkulator er lov. Et merke som er delt i flere farger, betyr at læringsmålet hører til flere nivåer, og at du bør klare det under det strengeste.",
+          "sv": "Du kan klicka på märket på en färdighet, till exempel <b>Del 1</b> eller <b>Del 2</b>, för att se vilka hjälpmedel som hör till den nivån, till exempel om miniräknare är tillåten. Ett märke som är delat i flera färger betyder att lärandemålet hör till flera nivåer, och att du bör klara det under den strängaste."
+      },
+      "about-p2": {
+          "en": "It opens <b>About the course</b>, which is also in the menu. There you find the tree's language, its size, the levels, and who made it.",
+          "nb": "Det åpner <b>Om faget</b>, som også ligger i menyen. Der står treets språk, størrelse, nivåene og hvem som har laget det.",
+          "sv": "Det öppnar <b>Om ämnet</b>, som också finns i menyn. Där står trädets språk, storlek, nivåerna och vem som har gjort det."
+      }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="siteheader" data-site-header></header>
+
+  <main>
+
+    <section class="band">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="page-eyebrow">How to use</p>
+        <h1 data-i18n="page-heading">How to use a skill tree</h1>
+        <div class="prose">
+          <p class="lede-p" data-i18n="page-lede">Every tree on this site works the same way. You can try each step below in any tree as you read.</p>
+        </div>
+        <div class="btn-row howto__cta">
+          <!-- A real link to the catalogue; js/random-tree.js swaps the href
+               for a random tree in the reader's language once it has
+               catalog.json. -->
+          <a class="btn btn--primary" href="/trees/" data-random-tree data-track-cta="howto-random-tree" data-i18n="cta-random">Open a random tree</a>
+          <a class="btn btn--ghost" href="/trees/" data-track-cta="howto-all-trees" data-i18n="cta-all">See all trees</a>
+        </div>
+        <p class="note howto__mocknote" data-i18n="mock-note">The clips are recorded in the Mathematics 2P demo tree. The AI chat in them is a mock-up with replies written in advance; a real AI chat will answer differently.</p>
+      </div>
+    </section>
+
+    <section class="band band--alt" id="practice">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/practice.mp4" poster="/media/how-to-use/practice.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="A box is opened, its AI instruction copied and pasted into an AI chat, a short conversation follows, and the box is marked as mastered so the next one unlocks." data-i18n-attr="aria-label:practice-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">01</span>
+          <h2 data-i18n="practice-title">Practise skills</h2>
+          <div class="prose">
+            <p data-i18n="practice-p1">As a student, you can practise one learning goal at a time. Click a box in the map, and a panel opens with what the learning goal is about and what it builds on.</p>
+            <p data-i18n-html="practice-p2">Press <b>Copy AI instruction</b>, open the AI chat you already use, and paste it in. The AI then works with you on that learning goal alone, and asks questions rather than handing you the answers. Press <b>Show AI instruction</b> if you want to read what you are pasting first.</p>
+            <p data-i18n-html="practice-p3">When you know it, tick <b>Mark as mastered</b>. The boxes that build on it light up, and you can see what to take next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="nodes">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/nodes.mp4" poster="/media/how-to-use/nodes.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="A concept, a fact list and a skill are opened one after the other, then a locked box is pointed at." data-i18n-attr="aria-label:nodes-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">02</span>
+          <h2 data-i18n="nodes-title">The different nodes</h2>
+          <div class="prose">
+            <p data-i18n="nodes-p1">Each box in the map is one learning goal, and there are three kinds:</p>
+            <ul class="howto__types">
+              <li data-i18n-html="nodes-type-1"><b>Concept</b> (green): an idea you should be able to explain in your own words.</li>
+              <li data-i18n-html="nodes-type-2"><b>Skill</b> (orange): something you should be able to do, such as solving or calculating.</li>
+              <li data-i18n-html="nodes-type-3"><b>Facts</b> (blue, square corners): a list of things to know by heart.</li>
+            </ul>
+            <p data-i18n-html="nodes-p2">A pale box is locked: something it builds on is not ticked off yet, and the panel says what to take first. You can still open it and practise. A box you have mastered gets a green frame and a tick. The tag on a skill, such as <b>Part 1</b>, says which aids you may use; more on that below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--alt" id="test">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/test.mp4" poster="/media/how-to-use/test.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="The menu is opened, the number of tasks set to five, and the test instruction pasted into an AI chat, which sets five tasks." data-i18n-attr="aria-label:test-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">03</span>
+          <h2 data-i18n="test-title">Generate tests</h2>
+          <div class="prose">
+            <p data-i18n-html="test-p1">You can make a test from everything you have marked as mastered. Open the menu with the ☰ button at the bottom left, set the <b>Number of tasks</b>, and press <b>Make a test from mastered learning goals</b>.</p>
+            <p data-i18n="test-p2">Paste the instruction into an AI chat. You get a test across several learning goals at once, one task at a time, with feedback on each answer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="progress">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/progress.mp4" poster="/media/how-to-use/progress.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="Three boxes are ticked off, a whole column is ticked with the ✓ at its top, and the menu shows the progress bar." data-i18n-attr="aria-label:progress-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">04</span>
+          <h2 data-i18n="progress-title">Track your progress</h2>
+          <div class="prose">
+            <p data-i18n="progress-p1">You can tick a box straight in the map, without opening it. The ✓ at the top of a column ticks off a whole topic at once, and ✕ clears it again. The menu shows how many of the learning goals you have completed.</p>
+            <p data-i18n="progress-p2">Your ticks are saved in this browser, on this device, and are never sent anywhere. As a teacher, keep in mind that the ticks are your own: they show what you have been through, not what your class knows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--alt" id="navigate">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/navigate.mp4" poster="/media/how-to-use/navigate.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="The list of all learning goals is scrolled through, a search for “pyth” jumps to Pythagoras in the map, and the view is zoomed out to the whole tree and back." data-i18n-attr="aria-label:navigate-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">05</span>
+          <h2 data-i18n="navigate-title">Find your way around</h2>
+          <div class="prose">
+            <p data-i18n="navigate-p1">You can drag to move around the map, and zoom with + and −. The ⤢ button shows the whole tree at once.</p>
+            <p data-i18n-html="navigate-p2">In the menu, <b>Show all learning goals</b> gives one list of the whole course, sorted by topic, with the status of each: ✓ mastered, ◇ ready to learn, and ⊘ with the codes of what to take first. <b>Search</b> finds a learning goal by a word from its name or description, and takes you to it in the map.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="lesson">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/lesson.mp4" poster="/media/how-to-use/lesson.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="Three learning goals are ticked in the list, the length is set to 60 minutes, and the lesson plan instruction is pasted into an AI chat, which answers with a timed plan." data-i18n-attr="aria-label:lesson-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">06</span>
+          <h2 data-i18n="lesson-title">Plan a lesson</h2>
+          <div class="prose">
+            <p data-i18n-html="lesson-p1">As a teacher, you can get a lesson plan for the next lesson. Open <b>Show all learning goals</b> and tick the learning goals the lesson should cover, using the boxes on the left of the list.</p>
+            <p data-i18n-html="lesson-p2">Set the length in minutes at the bottom and press <b>Build a lesson plan</b>. Paste the instruction into an AI chat, and you get a complete lesson: a starter, worked examples paired with problems, diagnostic questions, and retrieval practice at the end.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--alt" id="motivation">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/motivation.mp4" poster="/media/how-to-use/motivation.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="The motivation instruction is pasted into an AI chat, which asks what the student cares about and ties percentages to buying a car." data-i18n-attr="aria-label:motivation-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">07</span>
+          <h2 data-i18n="motivation-title">Why should I learn this?</h2>
+          <div class="prose">
+            <p data-i18n-html="motivation-p1">As a student, you can ask why the subject is worth learning at all. Many trees have a <b>Why should I learn this?</b> button in the menu.</p>
+            <p data-i18n="motivation-p2">It gives an instruction for a short conversation that starts from what you care about, and ties the subject to it. Paste it into an AI chat when you need a nudge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="about">
+      <div class="band__inner howto">
+        <div class="howto__media">
+          <video src="/media/how-to-use/about.mp4" poster="/media/how-to-use/about.jpg"
+                 muted loop playsinline preload="none" width="960" height="960"
+                 aria-label="The Part 1+2 tag on a skill is clicked, and About the course opens with the aids for each level." data-i18n-attr="aria-label:about-video"></video>
+        </div>
+        <div class="howto__text">
+          <span class="howto__index" aria-hidden="true">08</span>
+          <h2 data-i18n="about-title">Aids and the course</h2>
+          <div class="prose">
+            <p data-i18n-html="about-p1">You can click the tag on a skill, such as <b>Part 1</b> or <b>Part 2</b>, to see which aids belong to that level, for example whether a calculator is allowed. A tag split into several colours means the learning goal belongs to several levels, and you should manage it under the strictest one.</p>
+            <p data-i18n-html="about-p2">It opens <b>About the course</b>, which is also in the menu. There you find the tree's language, its size, the levels, and who made it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="make-eyebrow">Make your own</p>
+        <h2 data-i18n="make-heading">A tree for your own subject</h2>
+        <div class="prose">
+          <p data-i18n-html="make-body">As a teacher, you can make a tree for a subject that does not have one yet, or change an existing one. <b>Download this tree</b> in the menu gives you the spreadsheet to edit, and a single file that works offline.</p>
+        </div>
+        <a class="btn btn--primary" href="/make-your-own/" data-track-cta="howto-make-your-own" data-i18n="make-cta">Make your own</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="band band--dark sitefooter">
+    <div class="band__inner sitefooter__inner">
+      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
+      <p><a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
+      <p class="sitefooter__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
+    </div>
+  </footer>
+
+  <!-- The clips play only while on screen, and not at all for a visitor who
+       has asked for reduced motion — they get the controls instead. -->
+  <script>
+    (function () {
+      var videos = document.querySelectorAll('.howto__media video');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+        videos.forEach(function (v) { v.controls = true; });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); }
+          else e.target.pause();
+        });
+      }, { threshold: 0.4 });
+      videos.forEach(function (v) { io.observe(v); });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 /* ==========================================================================
-   random-tree.js — «Se et tilfeldig tre» på forsida.
+   random-tree.js — «Åpne et tilfeldig tre» øverst på /how-to-use/
+   (på forsida fram til 2026-10-18).
 
    Knappen er en ekte lenke til /trees/ i markupen, og dette scriptet bytter
    bare ut href-en når katalogen er hentet. Slår noe feil — scriptet er ikke

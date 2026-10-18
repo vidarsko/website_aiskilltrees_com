@@ -1247,3 +1247,45 @@ html:not([lang="nb"]) [data-lang-only="nb"] { display: none; }
 .videoembed__play:hover .videoembed__icon,
 .videoembed__play:focus-visible .videoembed__icon { background: var(--primary-strong); }
 
+
+/* --------------------------------------------------------------------------
+   /how-to-use/ — ett bånd per funksjon: kvadratisk klipp til venstre,
+   teksten til høyre. På telefon står klippet over teksten.
+   -------------------------------------------------------------------------- */
+
+.howto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.howto__media video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--rule);
+}
+
+.howto__index {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+
+.howto__text h2 { margin-top: 0; }
+
+.howto__types { padding-left: 1.2rem; }
+.howto__types li + li { margin-top: var(--space-1); }
+
+.howto__mocknote { margin-top: var(--space-3); max-width: var(--measure-prose); }
+
+@media (max-width: 48rem) {
+  .howto { grid-template-columns: 1fr; gap: var(--space-3); }
+}
+.howto__cta { margin-top: var(--space-4); }

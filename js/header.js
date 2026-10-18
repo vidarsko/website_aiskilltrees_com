@@ -22,6 +22,7 @@
 
   /* The site's pages. Adding one is a line here — nothing else. */
   var NAV = [
+    { href: '/how-to-use/',    label: { en: 'How to use',    nb: 'Slik bruker du', sv: 'Så använder du' } },
     { href: '/trees/',         label: { en: 'Trees',         nb: 'Ferdighetstrær', sv: 'Färdighetsträd' } },
     { href: '/make-your-own/', label: { en: 'Make your own', nb: 'Lag ditt eget',  sv: 'Gör ditt eget' } },
     { href: '/prompts/',       label: { en: 'The prompts',   nb: 'Instruksene',    sv: 'Instruktionerna' } },
