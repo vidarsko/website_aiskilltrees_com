@@ -46,11 +46,14 @@
       <div class="band__inner">
         <p class="eyebrow">LK20 · Norge</p>
         <h1>Ferdighetstrær for ungdomsskolen og videregående</h1>
-        <div class="prose">
+        <!-- Tekst, video og knapp står i venstre kolonne og er like brede;
+             bokkortet står til høyre for videoen. Se css/curriculum.css. -->
+        <div class="lk20-intro">
+        <div class="prose lk20-intro__text">
           <p class="lede-p">Her finner du utkast til ferdighetstrær til alle fagene i LK20. De er laget ved å få KI til å dekomponere læreplanmålene i henhold til <a href="/prompts/?release=v0.32.0">dekomposisjonsinstruks 2.12.2</a>.</p>
           <p>Det er altså ikke garantert at ferdighetstreet fungerer for deg, og det er viktig at du som lærer ser gjennom, godkjenner og eventuelt redigerer treet så det passer for deg, før du deler det med elevene dine. Du kan bruke treet som utgangspunkt for dette ved å klikke på «Rediger eller last ned» på treets side. Hvordan du lager et eget tre, har jeg også forklart i denne videoen:</p>
         </div>
-        <div class="videoembed">
+        <div class="videoembed lk20-intro__video">
           <button type="button" class="videoembed__play" data-youtube-id="BJk8n_Q6fJc"
                   data-track-cta="video-play"
                   aria-label="Spill av videoen «Læring, øveprøver og undervisningsopplegg med KI: Ferdighetstrær» fra YouTube">
@@ -72,8 +75,19 @@
         </script>
         <!-- ?lang=nb fordi denne sida er bare på norsk; uten den ville
              /how-to-use/ valgt språk etter nettleseren. -->
-        <div class="btn-row howto__cta">
+        <div class="btn-row howto__cta lk20-intro__cta">
           <a class="btn btn--primary" href="/how-to-use/?lang=nb">Se hvordan du bruker trærne</a>
+        </div>
+        <aside class="bookad" aria-labelledby="bookad-title">
+          <img class="bookad__cover" src="/media/laere-med-ki-omslag.jpg" alt="Omslaget til Lære med KI" width="461" height="686" loading="lazy">
+          <div class="bookad__body">
+            <h2 class="bookad__title" id="bookad-title">Lære med KI</h2>
+            <p class="bookad__text">Vil du lese mer om KI og læring? Sammen med Andreas D. Haraldsrud har jeg skrevet en bok for lærere om hvordan elever kan bruke KI til å lære, med utgangspunkt i kognitiv læringspsykologi.</p>
+            <p class="bookad__meta">Universitetsforlaget, 2026</p>
+            <a class="btn btn--ghost btn--small" href="https://www.norli.no/boker/fagboker/pedagogikk-og-psykologi/generell-pedagogikk/laere-med-ki-9788215076928"
+               target="_blank" rel="noopener noreferrer" data-track-cta="book-norli">Kjøp hos Norli</a>
+          </div>
+        </aside>
         </div>
       </div>
     </section>

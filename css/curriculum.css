@@ -147,3 +147,71 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
 .subgroup--fold[open] > summary { margin-bottom: var(--space-2); }
 
 .subgroup__n { font-weight: 500; letter-spacing: 0; margin-left: 0.25em; }
+
+/* --------------------------------------------------------------------------
+   /lk20/ — innledningen. Tekst, video og knapp deler venstre kolonne og er
+   like brede (Vidars beskjed 2026-10-20: teksten skal være like bred som
+   toppen og videoen). Bokkortet står i en smal kolonne til høyre for
+   videoen, og under knappen på smalere skjermer.
+   -------------------------------------------------------------------------- */
+
+.lk20-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16rem;
+  column-gap: var(--space-4);
+  align-items: start;
+}
+.lk20-intro__text,
+.lk20-intro__video,
+.lk20-intro__cta { grid-column: 1; }
+.lk20-intro__text,
+.lk20-intro__video { max-width: none; }
+
+.bookad {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  margin-top: var(--space-3);   /* samme som .videoembed, så toppene flukter */
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+.bookad__cover {
+  width: 100%;
+  max-width: 9rem;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+.bookad__title {
+  font-family: var(--font-sans);
+  font-size: var(--step-l);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: var(--space-2) 0 var(--space-1);
+}
+.bookad__text {
+  font-family: var(--font-serif);
+  font-size: var(--step-s);
+  line-height: 1.5;
+  margin: 0;
+}
+.bookad__meta {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+@media (max-width: 1023px) {
+  .lk20-intro { grid-template-columns: minmax(0, 1fr); }
+  .bookad {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: var(--space-5);
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: var(--space-3);
+    align-items: start;
+    max-width: 40rem;
+  }
+  .bookad__title { margin-top: 0; }
+}
