@@ -784,32 +784,6 @@ function validatePromptRows() {
                 { section: id, row: row, guess: nearest(id, known) });
     }
   });
-  validateFamilyOnly(names);
-}
-
-/* En seksjon modulen lister i `familyOnly` har ingen generell tekst: bare
-   fagfamiliene skriver den (fra 0.35.0 `plan` i undervisningsplanen, fordi
-   planen for en økt ER fagets didaktikk). Et tre uten familie og uten egen
-   prompt-rad for seksjonen ville fått en instruks der den bare manglet.
-   Fra 0.35.1 er det ikke en feil i fila - et nytt tre fra bunnen har ingen
-   familie ennå, og fikk en rød feilmelding før første klikk. Instruksen kan
-   i stedet ikke lages: knappen er utilgjengelig og sier hvorfor (se
-   updateLessonPlanBar), og verktøyet minner om fagfamilien. */
-let MISSING_FAMILY_ONLY = [];
-function validateFamilyOnly(names) {
-  MISSING_FAMILY_ONLY = [];
-  names.forEach(name => {
-    const spec = CORE.prompts[name] || {};
-    (spec.familyOnly || []).forEach(id => {
-      if (familyText(name, id) != null) return;
-      if (PROMPT_ROWS[name + '.' + id] != null || PROMPT_ROWS['*.' + id] != null) return;
-      MISSING_FAMILY_ONLY.push(name + '.' + id);
-    });
-  });
-}
-
-function instructionMissesFamily(name) {
-  return MISSING_FAMILY_ONLY.some(key => key.indexOf(name + '.') === 0);
 }
 
 function buildConfig(entries) {
@@ -2794,12 +2768,6 @@ function updateLessonPlanBar() {
   const countLabel = document.getElementById('lesson-plan-count');
   const btn = document.getElementById('lesson-plan-btn');
   if (!countLabel || !btn) return;
-  if (instructionMissesFamily('lessonPlan')) {
-    countLabel.textContent = t('lesson.needsFamily');
-    btn.disabled = true;
-    btn.title = t('lesson.needsFamily');
-    return;
-  }
   const n = lessonSelection.size;
   countLabel.textContent = n === 0
     ? t('lesson.selectedNone')
@@ -3389,9 +3357,6 @@ function publishEffectiveConfig() {
     rootCount: allNodes.filter(n => !n.depends_on.length).length,
     depth: allNodes.reduce((m, n) => Math.max(m, n.nivaa), 0) + 1,
     promptOverrides: Object.keys(PROMPT_ROWS),
-    /* Instruks.seksjon som bare en fagfamilie skriver, og som treet mangler
-       (fra 0.35.1). Verktøyet viser en påminnelse, ikke en feil. */
-    missingFamilySections: MISSING_FAMILY_ONLY.slice(),
     /* Til redigeringsverktøyet på /make-your-own/: hva hver instruks ville sagt
        uten treets egne prompt-rader, og hvilke valg style.font har. */
     instructions: describeInstructions(),

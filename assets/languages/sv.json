@@ -161,8 +161,7 @@
       "includeAria": "Ta med «{name}» i lektionsplaneringen",
       "selectedNone": "Inga lärandemål valda",
       "selectedOne": "1 lärandemål valt",
-      "selectedMany": "{n} lärandemål valda",
-      "needsFamily": "Välj en ämnesfamilj för trädet för att göra ett lektionsupplägg: planen för lektionen kommer därifrån."
+      "selectedMany": "{n} lärandemål valda"
     },
     "exam": {
       "button": "Skapa prov av avklarade lärandemål",

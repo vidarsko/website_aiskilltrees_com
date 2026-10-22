@@ -161,8 +161,7 @@
       "includeAria": "Include “{name}” in the lesson plan",
       "selectedNone": "No learning goals selected",
       "selectedOne": "1 learning goal selected",
-      "selectedMany": "{n} learning goals selected",
-      "needsFamily": "Choose a subject family for this tree to build a lesson plan: the plan for the lesson comes from it."
+      "selectedMany": "{n} learning goals selected"
     },
     "exam": {
       "button": "Make a test from mastered learning goals",

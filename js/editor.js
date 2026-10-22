@@ -2162,12 +2162,6 @@
     if (!errors.length && state.eff && state.eff.nodeCount != null && isFlat(state.eff)) {
       el.errorCount.textContent = t('status-flat');
     }
-    /* Uten fagfamilie kan treet ikke lage undervisningsopplegg (maskineri
-       v0.35.1). Det er ikke en feil i fila - et nytt tre har ingen ennå -
-       men en påminnelse om noe som mangler. */
-    if (!errors.length && (eff.missingFamilySections || []).length) {
-      el.errorCount.textContent = t('status-no-family');
-    }
     el.errorSummary.textContent = el.errorCount.textContent;
     el.errorCount.hidden = !!errors.length;
     el.errorList.innerHTML = '';

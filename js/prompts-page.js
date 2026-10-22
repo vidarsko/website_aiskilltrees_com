@@ -582,8 +582,9 @@
           Object.keys(part.sections || {}).forEach(function (sid) { seen[sid] = true; });
         });
         sectionOrder(module).filter(function (sid) { return seen[sid]; }).forEach(function (sid) {
-          /* `familyOnly` (fra maskineri v0.35.0, `plan` i undervisningsplanen)
-             har ingen standardtekst: bare familiene skriver den. */
+          /* `familyOnly` fantes bare i maskineri v0.35.0-0.35.1 (`plan` uten
+             standardtekst); fra 0.35.2 har `plan` standardtekst igjen, men
+             historikken viser de to utgivelsene som de var. */
           var only = (module.familyOnly || []).indexOf(sid) !== -1;
           drows.push({
             label: sid,

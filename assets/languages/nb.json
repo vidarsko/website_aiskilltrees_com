@@ -161,8 +161,7 @@
       "includeAria": "Ta med «{name}» i undervisningsopplegget",
       "selectedNone": "Ingen læringsmål valgt",
       "selectedOne": "1 læringsmål valgt",
-      "selectedMany": "{n} læringsmål valgt",
-      "needsFamily": "Velg en fagfamilie for treet for å lage et undervisningsopplegg: planen for økta kommer derfra."
+      "selectedMany": "{n} læringsmål valgt"
     },
     "exam": {
       "button": "Lag prøve av mestrede læringsmål",
