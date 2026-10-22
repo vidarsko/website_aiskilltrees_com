@@ -46,6 +46,7 @@
     "errorUnknownConfig": "Ukjent innstilling «{key}» på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
     "errorUnknownNodeType": "Noden «{id}» har typen «{type}», som ikke finnes. Typene er: {valid}.",
     "errorUnknownPromptSection": "Ukjent seksjon «{section}» i prompt-rada på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
+    "errorFamilyOnlySection": "Undervisningsopplegget mangler «{section}»: den seksjonen skrives av fagfamilien, og dette treet har ingen. Legg til en config-rad subjectFamily (mathematics, natural-sciences, social-sciences, practical-aesthetic, language-and-literature eller language-acquisition), eller skriv seksjonen selv i en prompt-rad med topic {instruction} og name {section}.",
     "errorUnknownPromptTarget": "Prompt-rada på rad {row} i tree.csv peker på «{name}», som ikke er en instruks dette treet setter sammen. Ingenting ble tatt i bruk.",
     "errorDidYouMean": "Mente du «{key}»?",
     "errorMissingConfig": "tree.csv mangler en config-rad for «{key}», som er påkrevd.",

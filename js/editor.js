@@ -362,7 +362,6 @@
     selected: null,        // node-id
     picking: false,        // velger forutsetninger ved å klikke i treet
     instruction: 'node',
-    editingSection: null,  // seksjons-id som har tekstfeltet åpent
     filter: '',
     history: [],
     future: [],
@@ -441,7 +440,7 @@
     /* Eksempeltreet bak vinduet er ikke et tre noen har bygget. */
     state.counted = !!background;
     state.tab = 'tree';
-    state.editingSection = null;
+    closeGroupDialog();
     /* Et nytt tre skal ikke arve zoomen til det forrige. */
     el.frames.forEach(function (f) { f.removeAttribute('src'); });
     if (!background) hideOverlay();
@@ -1550,6 +1549,11 @@
 
   /* ---- Instruksene ------------------------------------------------- */
 
+  /* Fra 2026-10-22, etter Vidars ønske: instruksens grupper («Role and
+     style», «The lesson» ...) er store kort med hva som står i dem, og
+     «Rediger» åpner hele gruppa i et vindu som en tabell - navnet til
+     venstre, teksten til høyre. Før var hver seksjon et eget kort i én lang
+     liste, og det var tungt å finne fram i og å endre mer enn én ting. */
   function renderInstructions() {
     var wrap = h('div', { class: 'ed-section' });
     var eff = state.eff;
@@ -1561,27 +1565,78 @@
 
     var picker = h('div', { class: 'ed-seg ed-seg--wrap', role: 'group' });
     eff.instructions.forEach(function (ins) {
-      var changed = ins.sections.filter(function (s) { return s.override != null || s.overrideAll != null; }).length;
+      var changed = ins.sections.filter(isChanged).length;
       picker.appendChild(button(instrTitle(ins) + (changed ? ' · ' + changed : ''), function () {
         state.instruction = ins.id;
-        state.editingSection = null;
         renderPanel();
       }, 'ed-seg__btn', { 'aria-pressed': String(state.instruction === ins.id) }));
     });
     wrap.appendChild(picker);
 
-    var ins = eff.instructions.filter(function (i) { return i.id === state.instruction; })[0] || eff.instructions[0];
+    var ins = currentInstruction();
     wrap.appendChild(h('p', { class: 'ed-meta', text: t('instr-version', { id: ins.id, version: ins.version }) }));
 
-    /* Overskriftene er instruksens egne grupper («Role and style», «How to
-       teach» ...), de samme som står i teksten eleven limer inn. */
-    var group = null;
-    ins.sections.forEach(function (sec) {
-      if (sec.group && sec.group !== group) wrap.appendChild(h('h4', { class: 'ed-group', text: sec.group }));
-      group = sec.group || null;
-      wrap.appendChild(sectionCard(ins, sec));
-    });
+    var list = h('div', { class: 'ed-grps' });
+    instructionGroups(ins).forEach(function (g) { list.appendChild(groupCard(ins, g)); });
+    wrap.appendChild(list);
     return wrap;
+  }
+
+  function currentInstruction() {
+    var all = state.eff.instructions;
+    return all.filter(function (i) { return i.id === state.instruction; })[0] || all[0];
+  }
+
+  function isChanged(sec) {
+    return sec.override != null || sec.overrideAll != null;
+  }
+
+  /* Gruppene med seksjonene sine, i instruksens rekkefølge. Beskrivelsen
+     kommer fra modulen (maskineri v0.35.0); en eldre motor har ingen, og da
+     står bare navnene på seksjonene på kortet. */
+  function instructionGroups(ins) {
+    var groups = [];
+    var byTitle = {};
+    (ins.groups || []).forEach(function (g) {
+      byTitle[g.title] = { title: g.title, description: g.description || '', sections: [] };
+      groups.push(byTitle[g.title]);
+    });
+    ins.sections.forEach(function (sec) {
+      var title = sec.group || '';
+      if (!byTitle[title]) {
+        byTitle[title] = { title: title, description: '', sections: [] };
+        groups.push(byTitle[title]);
+      }
+      byTitle[title].sections.push(sec);
+    });
+    return groups.filter(function (g) { return g.sections.length; });
+  }
+
+  function groupDescription(ins, g) {
+    var key = 'grp-' + ins.id + '-' + g.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    var text = t(key);
+    return text === key ? g.description : text;
+  }
+
+  function groupCard(ins, g) {
+    var changed = g.sections.filter(isChanged).length;
+    var open = function () { openGroupDialog(ins.id, g.title); };
+    return h('article', { class: 'ed-grp' + (changed ? ' ed-grp--changed' : ''), onclick: function (e) {
+      if (!e.target.closest('button')) open();
+    } }, [
+      h('header', { class: 'ed-grp__head' }, [
+        h('h4', { class: 'ed-grp__title', text: g.title || instrTitle(ins) }),
+        changed ? h('span', { class: 'ed-badge ed-badge--changed',
+                              text: changed === 1 ? t('grp-changed-one') : t('grp-changed-many', { n: changed }) }) : null,
+      ]),
+      groupDescription(ins, g) ? h('p', { class: 'ed-grp__desc', text: groupDescription(ins, g) }) : null,
+      h('ul', { class: 'ed-grp__secs', 'aria-label': t('grp-sections') }, g.sections.map(function (sec) {
+        return h('li', { class: isChanged(sec) ? 'is-changed' : '', text: sec.id });
+      })),
+      h('div', { class: 'ed-row' }, [
+        button(t('sec-edit'), open, 'ed-btn--primary ed-btn--small', { 'aria-label': t('grp-edit-aria', { group: g.title }) }),
+      ]),
+    ]);
   }
 
   function instrTitle(ins) {
@@ -1602,100 +1657,174 @@
     });
   }
 
-  function sectionCard(ins, sec) {
-    var own = sec.override != null;
-    var all = !own && sec.overrideAll != null;
-    var current = own ? sec.override : all ? sec.overrideAll : sec.text;
+  /* Merkelappene ved navnet: når seksjonen gjelder, og hvor teksten kommer
+     fra. «Endret» settes av vinduet selv, fordi den følger utkastet. */
+  function sectionBadges(sec) {
     var badges = [];
-    if (own) badges.push(['changed', t('sec-changed')]);
-    if (all) badges.push(['changed', t('sec-changed-all')]);
     if (sec.runtime) badges.push(['runtime', t('sec-runtime')]);
     /* Når seksjonen gjelder, med navnet fra modulens `when` («Concept
        nodes», «With prerequisites»), ikke bare at den gjelder «noen ganger». */
     if (sec.condition) badges.push(['cond', condLabel(sec.condition)]);
     else if (sec.conditional) badges.push(['cond', t('sec-conditional')]);
-    if (!own && !all && sec.source === 'language') badges.push(['src', t('sec-from-language')]);
-    if (!own && !all && sec.source === 'family') {
+    if (sec.source === 'language') badges.push(['src', t('sec-from-language')]);
+    if (sec.source === 'family') {
       badges.push(['src', state.eff.subjectFamilyTitle
         ? t('sec-from-family-named', { family: state.eff.subjectFamilyTitle })
         : t('sec-from-family')]);
     }
+    return badges.map(function (b) { return h('span', { class: 'ed-badge ed-badge--' + b[0], text: b[1] }); });
+  }
 
-    var card = h('article', { class: 'ed-sec' + (own || all ? ' ed-sec--changed' : '') }, [
-      h('header', { class: 'ed-sec__head' }, [
-        h('span', { class: 'ed-sec__id', text: sec.id }),
-        h('span', { class: 'ed-sec__badges' }, badges.map(function (b) {
-          return h('span', { class: 'ed-badge ed-badge--' + b[0], text: b[1] });
-        })),
+  /* Vinduet for én gruppe. Alle seksjonene står som rader med tekstfeltet
+     åpent, og «Lagre» skriver alt i ett angre-steg. En rad som avviker fra
+     den publiserte teksten, er merket mens læreren skriver - også en rad som
+     var endret fra før - slik at det alltid synes hva som er ens eget. */
+  var groupDialog = null;
+
+  function closeGroupDialog() {
+    if (!groupDialog) return;
+    groupDialog.remove();
+    groupDialog = null;
+  }
+
+  function openGroupDialog(insId, groupTitle) {
+    closeGroupDialog();
+    var ins = state.eff.instructions.filter(function (i) { return i.id === insId; })[0];
+    if (!ins) return;
+    var g = instructionGroups(ins).filter(function (x) { return x.title === groupTitle; })[0];
+    if (!g) return;
+
+    var rows = g.sections.map(function (sec) {
+      var all = sec.override == null && sec.overrideAll != null;
+      return { sec: sec, start: sec.override != null ? sec.override : all ? sec.overrideAll : sec.text,
+               everywhere: all, area: null, check: null, row: null, badge: null, reset: null };
+    });
+
+    var card = h('div', { class: 'ed-overlay__card ed-gdlg', role: 'dialog', 'aria-modal': 'true',
+                          'aria-labelledby': 'ed-gdlg-title' });
+    groupDialog = h('div', { class: 'ed-overlay ed-gdlg-wrap',
+                             onclick: function (e) { if (e.target === groupDialog) cancel(); },
+                             onkeydown: function (e) {
+                               if (e.key === 'Escape') { e.stopPropagation(); cancel(); }
+                             } }, [card]);
+    document.body.appendChild(groupDialog);
+
+    card.appendChild(h('button', { type: 'button', class: 'ed-overlay__close', text: '×',
+                                   'aria-label': t('sec-cancel'), onclick: cancel }));
+    card.appendChild(h('p', { class: 'ed-gdlg__kicker', text: instrTitle(ins) }));
+    card.appendChild(h('h2', { class: 'ed-overlay__title ed-gdlg__title', id: 'ed-gdlg-title', text: g.title }));
+    if (groupDescription(ins, g)) card.appendChild(h('p', { class: 'ed-gdlg__desc', text: groupDescription(ins, g) }));
+    card.appendChild(h('p', { class: 'ed-note ed-gdlg__how', text: t('grp-how') }));
+
+    var table = h('div', { class: 'ed-gtable', role: 'table', 'aria-label': g.title }, [
+      h('div', { class: 'ed-gtable__row ed-gtable__row--head', role: 'row' }, [
+        h('span', { role: 'columnheader', text: t('grp-col-name') }),
+        h('span', { role: 'columnheader', text: t('grp-col-text') }),
       ]),
     ]);
+    rows.forEach(function (r) { table.appendChild(tableRow(r)); });
+    card.appendChild(table);
 
-    if (state.editingSection === sec.id) {
-      var area = textArea(current, function () {}, { rows: 6, 'aria-label': sec.id });
-      var shared = usedIn(sec.id).length > 1;
-      var everywhere = h('input', { type: 'checkbox' });
-      everywhere.checked = all;
-      card.appendChild(area);
-      if (shared) {
-        card.appendChild(h('label', { class: 'ed-check' }, [everywhere, ' ' + t('sec-apply-all', {
+    card.appendChild(h('div', { class: 'ed-row ed-gdlg__actions' }, [
+      button(t('sec-save'), save, 'ed-btn--primary'),
+      button(t('sec-cancel'), cancel, 'ed-btn--quiet'),
+    ]));
+
+    function tableRow(r) {
+      var sec = r.sec;
+      r.badge = h('span', { class: 'ed-badge ed-badge--changed', text: t('sec-changed'), hidden: true });
+      var name = h('div', { class: 'ed-gtable__name', role: 'rowheader' }, [
+        h('span', { class: 'ed-sec__id', text: sec.id }),
+        h('span', { class: 'ed-sec__badges' }, [r.badge].concat(sectionBadges(sec))),
+      ]);
+      var cell = h('div', { class: 'ed-gtable__text', role: 'cell' });
+      r.row = h('div', { class: 'ed-gtable__row', role: 'row' }, [name, cell]);
+
+      if (sec.runtime) {
+        cell.appendChild(h('div', { class: 'ed-sec__text' + (sec.text ? '' : ' ed-sec__text--empty'),
+                                    text: sec.text || t('sec-empty') }));
+        cell.appendChild(h('p', { class: 'ed-field__hint',
+          text: sec.id === 'nodeInstruction' ? t('sec-runtime-node') : t('sec-runtime-aids') }));
+        return r.row;
+      }
+
+      r.area = textArea(r.start, function () { refresh(r); }, {
+        rows: 2, 'aria-label': sec.id,
+        placeholder: sec.id === 'extra' ? t('sec-extra-placeholder') : t('sec-empty-placeholder'),
+      });
+      cell.appendChild(r.area);
+
+      var tools = h('div', { class: 'ed-gtable__tools' });
+      r.reset = button(t('sec-reset'), function () {
+        r.area.value = sec.text || '';
+        if (r.check) r.check.checked = false;
+        autoGrow(r.area);
+        refresh(r);
+      }, 'ed-btn--link');
+      tools.appendChild(r.reset);
+      if (usedIn(sec.id).length > 1) {
+        r.check = h('input', { type: 'checkbox', onchange: function () { refresh(r); } });
+        r.check.checked = r.everywhere;
+        tools.appendChild(h('label', { class: 'ed-check' }, [r.check, ' ' + t('sec-apply-all', {
           list: usedIn(sec.id).map(instrTitle).join(', ') })]));
       }
-      card.appendChild(h('div', { class: 'ed-row' }, [
-        button(t('sec-save'), function () {
-          var text = area.value;
-          change(null, function () {
-            if (shared && everywhere.checked) {
-              setPrompt('', sec.id, text);
-              setPrompt(ins.id, sec.id, null);
+      cell.appendChild(tools);
+      if (sec.text) {
+        cell.appendChild(h('details', { class: 'ed-sec__orig' }, [
+          h('summary', { text: t('sec-published') }),
+          h('div', { class: 'ed-sec__text', text: sec.text }),
+        ]));
+      }
+      refresh(r);
+      return r.row;
+    }
+
+    /* «Endret» betyr: teksten her er ikke den publiserte. */
+    function refresh(r) {
+      var own = r.area.value !== (r.sec.text || '') || (r.check && r.check.checked && r.everywhere);
+      r.row.classList.toggle('is-changed', !!own);
+      r.badge.hidden = !own;
+      /* `extra` og andre tomme seksjoner har ingen tekst å gå tilbake til. */
+      r.reset.hidden = !r.sec.text || r.area.value === r.sec.text;
+    }
+
+    function touched(r) {
+      return r.area && (r.area.value !== r.start || (r.check && r.check.checked !== r.everywhere));
+    }
+
+    function dirty() { return rows.some(touched); }
+
+    function save() {
+      var todo = rows.filter(touched);
+      if (todo.length) {
+        change(null, function () {
+          todo.forEach(function (r) {
+            var id = r.sec.id, text = r.area.value, published = r.sec.text || '';
+            if (r.check && r.check.checked) {
+              /* Den publiserte teksten «overalt» er det samme som ingen rad. */
+              setPrompt('', id, text === published ? null : text);
+              setPrompt(ins.id, id, null);
             } else {
-              setPrompt(ins.id, sec.id, text);
+              /* Krysset tatt av: teksten gjelder bare her fra nå av. */
+              var dropAll = r.everywhere && r.check && !r.check.checked;
+              if (dropAll) setPrompt('', id, null);
+              var allLeft = r.sec.overrideAll != null && !dropAll;
+              setPrompt(ins.id, id, text === published && !allLeft ? null : text);
             }
-          }, { now: true, quiet: true });
-          state.editingSection = null;
-          renderPanel();
-        }, 'ed-btn--primary ed-btn--small'),
-        button(t('sec-cancel'), function () { state.editingSection = null; renderPanel(); }, 'ed-btn--quiet ed-btn--small'),
-      ]));
-      requestAnimationFrame(function () { area.focus(); });
-      return card;
+          });
+        }, { now: true, quiet: true });
+      }
+      closeGroupDialog();
+      renderPanel();
     }
 
-    var body = h('div', { class: 'ed-sec__text' + (current ? '' : ' ed-sec__text--empty'),
-                          text: current || t('sec-empty') });
-    card.appendChild(body);
-    if (current && current.length > 360) {
-      body.classList.add('is-clamped');
-      card.appendChild(button(t('sec-more'), function (e) {
-        body.classList.toggle('is-clamped');
-        e.target.textContent = body.classList.contains('is-clamped') ? t('sec-more') : t('sec-less');
-      }, 'ed-btn--link'));
+    function cancel() {
+      if (dirty() && !window.confirm(t('grp-discard'))) return;
+      closeGroupDialog();
     }
 
-    if (sec.runtime) {
-      card.appendChild(h('p', { class: 'ed-field__hint',
-        text: sec.id === 'nodeInstruction' ? t('sec-runtime-node') : t('sec-runtime-aids') }));
-      return card;
-    }
-    var actions = h('div', { class: 'ed-row' }, [
-      button(own || all ? t('sec-edit-again') : t('sec-edit'), function () {
-        state.editingSection = sec.id; renderPanel();
-      }, 'ed-btn--small'),
-      own ? button(t('sec-reset'), function () {
-        change(null, function () { setPrompt(ins.id, sec.id, null); }, { now: true, quiet: true });
-      }, 'ed-btn--quiet ed-btn--small') : null,
-      all ? button(t('sec-reset-all'), function () {
-        change(null, function () { setPrompt('', sec.id, null); }, { now: true, quiet: true });
-      }, 'ed-btn--quiet ed-btn--small') : null,
-    ]);
-    card.appendChild(actions);
-    if (own || all) {
-      var orig = h('details', { class: 'ed-sec__orig' }, [
-        h('summary', { text: t('sec-published') }),
-        h('div', { class: 'ed-sec__text', text: sec.text || t('sec-empty') }),
-      ]);
-      card.appendChild(orig);
-    }
-    return card;
+    var first = rows.filter(function (r) { return r.area; })[0];
+    if (first) requestAnimationFrame(function () { first.area.focus(); first.area.setSelectionRange(0, 0); });
   }
 
   /* ---- Innstillinger ------------------------------------------------ */
@@ -2312,7 +2441,6 @@
     el.tabs.querySelectorAll('[data-tab]').forEach(function (b) {
       b.addEventListener('click', function () {
         state.tab = b.getAttribute('data-tab');
-        state.editingSection = null;
         state.notice = '';
         renderPanel();
       });

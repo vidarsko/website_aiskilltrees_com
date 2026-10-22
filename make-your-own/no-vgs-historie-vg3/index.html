@@ -854,9 +854,9 @@
           "sv": "Instruktionerna visas när trädet är byggt."
       },
       "instr-intro": {
-          "en": "These are the instructions your students paste into their AI chat, section by section. Edit a section to replace it in this tree only. The rest stay as published, and your version is saved as a row in the spreadsheet. Words in {braces} are filled in by the tree.",
-          "nb": "Dette er instruksene elevene limer inn i KI-chatten, seksjon for seksjon. Rediger en seksjon for å bytte den ut bare i dette treet. Resten står som publisert, og din versjon lagres som en rad i regnearket. Ord i {klammer} fylles inn av treet.",
-          "sv": "Det här är instruktionerna eleverna klistrar in i AI-chatten, avsnitt för avsnitt. Redigera ett avsnitt för att byta ut det bara i detta träd. Resten står som publicerat, och din version sparas som en rad i kalkylarket. Ord inom {klamrar} fylls i av trädet."
+          "en": "These are the instructions your students paste into their AI chat. Each one is in a few parts; open a part with Edit to see all its text and change it for this tree only. The rest stays as published, and your version is saved as a row in the spreadsheet. Every instruction ends with Extra, for anything you want to add. Words in {braces} are filled in by the tree.",
+          "nb": "Dette er instruksene elevene limer inn i KI-chatten. Hver av dem har noen få deler; åpne en del med Rediger for å se all teksten i den og endre den bare i dette treet. Resten står som publisert, og din versjon lagres som en rad i regnearket. Hver instruks slutter med Extra, for det du vil legge til. Ord i {klammer} fylles inn av treet.",
+          "sv": "Det här är instruktionerna eleverna klistrar in i AI-chatten. Var och en har några få delar; öppna en del med Redigera för att se all text i den och ändra den bara i detta träd. Resten står som publicerat, och din version sparas som en rad i kalkylarket. Varje instruktion slutar med Extra, för det du vill lägga till. Ord inom {klamrar} fylls i av trädet."
       },
       "instr-version": {
           "en": "Instruction “{id}”, version {version}",
@@ -993,6 +993,132 @@
           "nb": "Når fakta er med",
           "sv": "När fakta ingår"
       },
+      "grp-changed-one": {
+          "en": "1 changed",
+          "nb": "1 endret",
+          "sv": "1 ändrad"
+      },
+      "grp-changed-many": {
+          "en": "{n} changed",
+          "nb": "{n} endret",
+          "sv": "{n} ändrade"
+      },
+      "grp-sections": {
+          "en": "Sections in this part",
+          "nb": "Seksjonene i denne delen",
+          "sv": "Avsnitten i denna del"
+      },
+      "grp-edit-aria": {
+          "en": "Edit “{group}”",
+          "nb": "Rediger «{group}»",
+          "sv": "Redigera ”{group}”"
+      },
+      "grp-how": {
+          "en": "Change any text and press Save. A row you have changed is marked green; “Use the published text” takes it back. Empty a row to leave that section out of this tree’s instruction.",
+          "nb": "Endre en tekst og trykk Lagre. En rad du har endret, er merket grønt; «Bruk den publiserte teksten» tar den tilbake. Tøm en rad for å ta den seksjonen ut av instruksen i dette treet.",
+          "sv": "Ändra en text och tryck Spara. En rad du har ändrat är markerad grön; ”Använd den publicerade texten” tar tillbaka den. Töm en rad för att ta bort det avsnittet ur instruktionen i detta träd."
+      },
+      "grp-col-name": {
+          "en": "Section",
+          "nb": "Seksjon",
+          "sv": "Avsnitt"
+      },
+      "grp-col-text": {
+          "en": "What it says",
+          "nb": "Hva den sier",
+          "sv": "Vad det säger"
+      },
+      "grp-discard": {
+          "en": "Close without saving your changes?",
+          "nb": "Lukke uten å lagre endringene?",
+          "sv": "Stänga utan att spara ändringarna?"
+      },
+      "sec-extra-placeholder": {
+          "en": "Anything else you want the AI to know or do. Left empty, nothing is added.",
+          "nb": "Alt annet du vil at KI-en skal vite eller gjøre. Står feltet tomt, legges ingenting til.",
+          "sv": "Allt annat du vill att AI:n ska veta eller göra. Lämnas fältet tomt läggs inget till."
+      },
+      "sec-empty-placeholder": {
+          "en": "(empty: this section is left out)",
+          "nb": "(tom: seksjonen er tatt ut)",
+          "sv": "(tomt: avsnittet är borttaget)"
+      },
+      "grp-node-role-and-style": {
+          "nb": "Hvem KI-en er, hvordan den åpner samtalen, tonen, hvor lange meldingene er, og hvilket språk den skriver på.",
+          "sv": "Vem AI:n är, hur den öppnar samtalet, tonen, hur långa meddelandena är och vilket språk den skriver på."
+      },
+      "grp-node-how-to-teach": {
+          "nb": "Hvordan KI-en leder inn i temaet, bruker eksempler og analogier, og justerer vanskelighetsgraden.",
+          "sv": "Hur AI:n leder in i ämnet, använder exempel och analogier och justerar svårighetsgraden."
+      },
+      "grp-node-the-goal": {
+          "nb": "Hva eleven skal mestre på denne noden, for ferdigheter, begreper og fakta, og når det regnes som mestret.",
+          "sv": "Vad eleven ska behärska på denna nod, för färdigheter, begrepp och fakta, och när det räknas som behärskat."
+      },
+      "grp-node-context": {
+          "nb": "Hva eleven kan fra før, hvilke hjelpemidler som er lov, det som er spesielt for kurset, og at KI-en ikke husker noe mellom samtaler.",
+          "sv": "Vad eleven redan kan, vilka hjälpmedel som är tillåtna, det som är speciellt för kursen, och att AI:n inte minns något mellan samtal."
+      },
+      "grp-node-extra": {
+          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
+          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
+      },
+      "grp-exam-role-and-style": {
+          "nb": "Hvem KI-en er og hvilket språk den skriver på.",
+          "sv": "Vem AI:n är och vilket språk den skriver på."
+      },
+      "grp-exam-the-test": {
+          "nb": "Hvilke mål prøven dekker, hvordan oppgavene ser ut, og at svarene holdes tilbake til eleven har prøvd.",
+          "sv": "Vilka mål provet täcker, hur uppgifterna ser ut, och att svaren hålls tillbaka tills eleven har försökt."
+      },
+      "grp-exam-skills-concepts-and-facts": {
+          "nb": "Hvordan oppgavene blandes når prøven dekker begreper og fakta i tillegg til ferdigheter.",
+          "sv": "Hur uppgifterna blandas när provet täcker begrepp och fakta utöver färdigheter."
+      },
+      "grp-exam-context": {
+          "nb": "Hjelpemidlene som er lov, det som er spesielt for kurset, og at KI-en ikke husker noe mellom samtaler.",
+          "sv": "Hjälpmedlen som är tillåtna, det som är speciellt för kursen, och att AI:n inte minns något mellan samtal."
+      },
+      "grp-exam-extra": {
+          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
+          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
+      },
+      "grp-motivation-role-and-style": {
+          "nb": "Hvem KI-en er, varmen, ett spørsmål om gangen, hvordan den åpner, og hvilket språk den skriver på.",
+          "sv": "Vem AI:n är, värmen, en fråga i taget, hur den öppnar och vilket språk den skriver på."
+      },
+      "grp-motivation-the-conversation": {
+          "nb": "Kjernebudskapet, å bli kjent med eleven, elevens styrker, og hvor samtalen skal.",
+          "sv": "Kärnbudskapet, att lära känna eleven, elevens styrkor och vart samtalet ska."
+      },
+      "grp-motivation-arguments": {
+          "nb": "Argumentene for å øve nå og på lang sikt.",
+          "sv": "Argumenten för att öva nu och på lång sikt."
+      },
+      "grp-motivation-context": {
+          "nb": "Det som er spesielt for kurset, og at KI-en ikke husker noe mellom samtaler.",
+          "sv": "Det som är speciellt för kursen, och att AI:n inte minns något mellan samtal."
+      },
+      "grp-motivation-extra": {
+          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
+          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
+      },
+      "grp-lessonPlan-role-and-style": {
+          "nb": "Hvem KI-en er, hvordan svaret er satt opp, og hvilket språk det skrives på.",
+          "sv": "Vem AI:n är, hur svaret är upplagt och vilket språk det skrivs på."
+      },
+      "grp-lessonPlan-the-lesson": {
+          "nb": "Læringsmålene og planen for hele økta, del for del: oppstart, undervisning av hvert mål, diagnostiske spørsmål og gjenhenting. Pluss hvordan begreps- og faktamål undervises.",
+          "sv": "Lärandemålen och planen för hela lektionen, del för del: start, undervisning av varje mål, diagnostiska frågor och återhämtning. Plus hur begrepps- och faktamål undervisas."
+      },
+      "grp-lessonPlan-context": {
+          "nb": "Hva elevene kan fra før, hjelpemidlene de kan bruke, og det som er spesielt for kurset.",
+          "sv": "Vad eleverna redan kan, hjälpmedlen de får använda och det som är speciellt för kursen."
+      },
+      "grp-lessonPlan-extra": {
+          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
+          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
+      },
       "sec-empty": {
           "en": "(empty unless the tree fills it)",
           "nb": "(tom med mindre treet fyller den)",
@@ -1094,9 +1220,9 @@
           "sv": "Ämnesfamilj"
       },
       "set-family-hint": {
-          "en": "Adds what the instructions should know about this kind of subject.",
-          "nb": "Legger til det instruksene bør vite om denne typen fag.",
-          "sv": "Lägger till det instruktionerna bör veta om den här typen av ämne."
+          "en": "Adds what the instructions should know about this kind of subject. The lesson plan takes its whole plan for the lesson from here, so choose one.",
+          "nb": "Legger til det instruksene bør vite om denne typen fag. Undervisningsopplegget henter hele planen for økta herfra, så velg en.",
+          "sv": "Lägger till det instruktionerna bör veta om den här typen av ämne. Lektionsupplägget hämtar hela planen för lektionen härifrån, så välj en."
       },
       "set-family-none": {
           "en": "None",

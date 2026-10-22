@@ -715,8 +715,12 @@ select.ed-input { cursor: pointer; }
 
 /* ---- Instruksene -------------------------------------------------------- */
 
-/* Instruksens egne grupper, de samme overskriftene som står i teksten
-   eleven limer inn (fra maskineri 0.25.0). */
+/* Instruksens egne grupper («Role and style», «The lesson» ...), de samme
+   overskriftene som står i teksten eleven limer inn. Fra 2026-10-22 er hver
+   gruppe et stort kort med hva som står i den, og «Rediger» åpner hele
+   gruppa som en tabell i et vindu. */
+/* Treffer også innstillingenes <fieldset class="ed-group"> i fanen Treet,
+   som har sett slik ut siden; regelen står for den sin skyld. */
 .ed-group {
   margin: var(--space-3) 0 0;
   font-family: var(--font-sans);
@@ -725,16 +729,111 @@ select.ed-input { cursor: pointer; }
   color: var(--ink);
 }
 
-.ed-sec {
+.ed-grps { display: grid; gap: var(--space-2); }
+
+.ed-grp {
   display: grid;
-  gap: var(--space-1);
-  padding: var(--space-2);
+  gap: 0.6rem;
+  padding: var(--space-2) var(--space-2) var(--space-2) calc(var(--space-2) + 4px);
   background: var(--surface);
   border: 1px solid var(--rule);
+  border-left: 4px solid var(--rule-strong);
+  cursor: pointer;
 }
-.ed-sec--changed { border-left: 4px solid var(--primary); }
+.ed-grp:hover { border-color: var(--rule-strong); background: var(--paper); }
+.ed-grp--changed { border-left-color: var(--primary); background: var(--primary-tint); }
+.ed-grp--changed:hover { background: var(--primary-tint); }
+.ed-grp > * { min-width: 0; }
 
-.ed-sec__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem; }
+.ed-grp__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+.ed-grp__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-l);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.ed-grp__desc { margin: 0; font-family: var(--font-serif); font-size: var(--step-s); line-height: 1.5; color: var(--ink-2); }
+
+.ed-grp__secs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.ed-grp__secs li {
+  padding: 0.05rem 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  border: 1px dashed var(--rule-strong);
+}
+.ed-grp__secs li.is-changed { color: var(--primary-strong); border: 1px solid var(--primary); background: var(--surface); font-weight: 600; }
+
+/* Vinduet: én rad per seksjon, navnet til venstre og teksten til høyre,
+   med svake stiplede linjer mellom radene. */
+.ed-gdlg-wrap { z-index: 55; }
+.ed-gdlg { width: min(100%, 64rem); display: grid; gap: var(--space-1); }
+.ed-gdlg > * { min-width: 0; }
+.ed-gdlg__kicker {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary-strong);
+}
+.ed-gdlg__title { font-size: var(--step-xl); padding-right: 44px; }
+.ed-gdlg__desc { margin: 0; font-family: var(--font-serif); font-size: var(--step-m); line-height: 1.5; color: var(--ink-2); }
+.ed-gdlg__how { margin: 0; }
+.ed-gdlg__actions {
+  position: sticky;
+  bottom: calc(-1 * var(--space-3));
+  margin-top: var(--space-1);
+  padding: var(--space-2) 0;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+}
+
+.ed-gtable { display: grid; margin-top: var(--space-1); }
+.ed-gtable__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  padding: 0.9rem 0.6rem;
+  border-top: 1px dashed var(--rule-strong);
+}
+.ed-gtable__row:last-child { border-bottom: 1px dashed var(--rule-strong); }
+.ed-gtable__row > * { min-width: 0; }
+.ed-gtable__row--head {
+  padding-top: 0;
+  padding-bottom: 0.4rem;
+  border-top: 0;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.ed-gtable__row--head { display: none; }
+.ed-gtable__row.is-changed { background: var(--primary-tint); box-shadow: inset 4px 0 0 var(--primary); }
+@media (min-width: 640px) {
+  .ed-gtable__row { grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr); gap: var(--space-2); }
+  .ed-gtable__row--head { display: grid; }
+}
+
+.ed-gtable__name { display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; padding-top: 0.3rem; }
+.ed-gtable__name .ed-sec__id { font-size: var(--step-s); }
+.ed-gtable__text { display: grid; gap: 0.4rem; }
+.ed-gtable__text .ed-input--area {
+  font-family: var(--font-serif);
+  font-size: var(--step-xs);
+  line-height: 1.55;
+  background: var(--surface);
+}
+.ed-gtable__tools { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem; }
+.ed-gtable__tools .ed-btn--link { font-family: var(--font-sans); font-size: var(--step-xs); }
+.ed-gtable__tools .ed-btn[hidden] { display: none; }
+
 .ed-sec__id { font-family: var(--font-sans); font-size: var(--step-xs); font-weight: 700; letter-spacing: 0.01em; }
 .ed-sec__badges { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; }
 
@@ -746,6 +845,7 @@ select.ed-input { cursor: pointer; }
   border: 1px solid var(--rule-strong);
   color: var(--ink-2);
 }
+.ed-badge[hidden] { display: none; }
 .ed-badge--changed { border-color: var(--primary); background: var(--primary-tint); color: var(--primary-strong); }
 .ed-badge--runtime { border-color: var(--amber); background: var(--amber-tint); color: var(--amber-text); }
 
@@ -758,8 +858,6 @@ select.ed-input { cursor: pointer; }
   overflow-wrap: anywhere;
 }
 .ed-sec__text--empty { color: var(--ink-3); font-style: italic; }
-.ed-sec__text.is-clamped { max-height: 8.5em; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, var(--ink) 60%, transparent); mask-image: linear-gradient(to bottom, var(--ink) 60%, transparent); }
-.ed-sec .ed-btn--link { justify-self: start; font-family: var(--font-sans); font-size: var(--step-xs); }
 
 .ed-sec__orig summary {
   cursor: pointer;

@@ -784,6 +784,23 @@ function validatePromptRows() {
                 { section: id, row: row, guess: nearest(id, known) });
     }
   });
+  validateFamilyOnly(names);
+}
+
+/* En seksjon modulen lister i `familyOnly` har ingen generell tekst: bare
+   fagfamiliene skriver den (fra 0.35.0 `plan` i undervisningsplanen, fordi
+   planen for en økt ER fagets didaktikk). Et tre uten familie og uten egen
+   prompt-rad for seksjonen ville fått en instruks der den bare manglet -
+   uten at noen merket det. Derfor en feil, ikke en stille tom seksjon. */
+function validateFamilyOnly(names) {
+  names.forEach(name => {
+    const spec = CORE.prompts[name] || {};
+    (spec.familyOnly || []).forEach(id => {
+      if (familyText(name, id) != null) return;
+      if (PROMPT_ROWS[name + '.' + id] != null || PROMPT_ROWS['*.' + id] != null) return;
+      pushError('errorFamilyOnlySection', { section: id, instruction: name });
+    });
+  });
 }
 
 function buildConfig(entries) {
@@ -984,6 +1001,9 @@ function describeInstructions() {
       id: name,
       title: entry.title || spec.title || name,
       version: spec.version || '',
+      /* Gruppene med beskrivelsen modulen gir dem, slik at verktøyet kan
+         vise «The lesson» som én ting å åpne, med hva som står i den. */
+      groups: sectionGroups(name).map(g => ({ title: g.title || '', description: g.description || '' })),
       sections: sectionOrder(name).map(id => {
         const def = sectionDefault(name, id);
         const condition = sectionCondition(name, id);
@@ -1995,8 +2015,9 @@ const lessonSelection = new Set();
 
 // Lengden økta får hvis læreren ikke oppgir en. Fra 0.27.0 regner motoren
 // ikke ut noen timeplan: hvordan økta deles opp, står i seksjonen
-// `structure` i lesson-plan.json, som hver fagfamilie skriver for seg
-// (matematikk med 7 minutter oppstart og 5 minutter gjenhenting). Vidar,
+// `plan` i lesson-plan.json (fram til 4.0.0 `structure`), som hver
+// fagfamilie skriver for seg (matematikk med 7 minutter oppstart og 5
+// minutter gjenhenting). Vidar,
 // 2026-10-03: timeplanleggeren skal ikke bestå av en håndfull variabler.
 const LESSON_DEFAULT_MINUTES = 45;
 

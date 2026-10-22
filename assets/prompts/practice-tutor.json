@@ -3,12 +3,13 @@
   "id": "node",
   "title": "Practice tutor",
   "contribution": 2,
-  "version": "2.1.1",
+  "version": "2.2.0",
   "schemaVersion": 3,
   "sourceLanguage": "en",
   "groups": [
     {
       "title": "Role and style",
+      "description": "Who the AI is, how it opens the conversation, its tone, how long its messages are, and the language it writes in.",
       "sections": [
         "role",
         "opening",
@@ -25,6 +26,7 @@
     },
     {
       "title": "How to teach",
+      "description": "How the AI leads into the topic, uses examples and analogies, and adjusts the difficulty.",
       "sections": [
         "leadIn",
         "examples",
@@ -35,6 +37,7 @@
     },
     {
       "title": "The goal",
+      "description": "What the student is to master on this node, for skills, concepts and facts, and when it counts as mastered.",
       "sections": [
         "goal",
         "goalSkill",
@@ -50,6 +53,7 @@
     },
     {
       "title": "Context",
+      "description": "What the student already knows, the aids allowed, anything particular to the course, and that the AI remembers nothing between chats.",
       "sections": [
         "prerequisites",
         "prerequisitesNone",
@@ -57,6 +61,13 @@
         "aidsMultiple",
         "courseSpecifics",
         "noMemory"
+      ]
+    },
+    {
+      "title": "Extra",
+      "description": "Your own additions. Empty unless you write something here.",
+      "sections": [
+        "extra"
       ]
     }
   ],
@@ -103,6 +114,7 @@
     "mastery": "Explain what mastering this means, and say clearly when the student masters it well and consistently, so they know they can move on in the skill tree. At that point, mention once that the skill tree's \"{examButtonLabel}\" button, in the menu at the bottom left of the page, makes an instruction for a test across everything they have ticked off: testing yourself regularly as you go, not just before the exam, is one of the most effective ways to learn. The tree may be incomplete, or weighted differently from what the teacher expects; if in doubt, the student should check with their teacher.",
     "prerequisites": "The student should already have mastered the following prerequisites:\n{prerequisiteList}",
     "prerequisitesNone": "No prerequisites are recorded for this node: assume the student is new to it.",
-    "aids": "The following applies to the aids the student may use:\n{aidsText}"
+    "aids": "The following applies to the aids the student may use:\n{aidsText}",
+    "extra": null
   }
 }

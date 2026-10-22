@@ -67,7 +67,9 @@
   var FILLED = {
     outputLanguage: { desc: 'desc-outputLanguage', ref: 'language' },
     writingStyle: { desc: 'desc-writingStyle', ref: 'language' },
-    nodeInstruction: { desc: 'desc-nodeInstruction', ref: null }
+    nodeInstruction: { desc: 'desc-nodeInstruction', ref: null },
+    /* Fra maskineri v0.35.0: lærerens egen seksjon sist i hver instruks. */
+    extra: { desc: 'desc-extra', ref: null }
   };
 
   /* De to lagvelgerne bygges én gang og FLYTTES inn i hvert sitt kort for
@@ -580,9 +582,12 @@
           Object.keys(part.sections || {}).forEach(function (sid) { seen[sid] = true; });
         });
         sectionOrder(module).filter(function (sid) { return seen[sid]; }).forEach(function (sid) {
+          /* `familyOnly` (fra maskineri v0.35.0, `plan` i undervisningsplanen)
+             har ingen standardtekst: bare familiene skriver den. */
+          var only = (module.familyOnly || []).indexOf(sid) !== -1;
           drows.push({
             label: sid,
-            text: plainText((module.sections || {})[sid]),
+            text: only ? t('family-only') : plainText((module.sections || {})[sid]),
             group: module.title || id,
             groupRef: id,
             when: whenLabel((module.when || {})[sid])
@@ -885,6 +890,13 @@
 
   function trimKey(tok) { return tok.replace(/\s+$/, ''); }
 
+  /* En sammenslått seksjon er omskrevet linje for linje, så linjediffen over
+     finner ingen like linjer og gir opp. Her sammenliknes ord for ord direkte,
+     med romsligere grense. */
+  function mergedDiff(oldText, newText) {
+    return diffTokens(words(oldText), words(newText), trimKey, 4000, [], null);
+  }
+
   function diffText(oldText, newText) {
     return diffTokens(lines(oldText), lines(newText), trimKey, 400, [], function (o, n, parts) {
       diffTokens(words(o), words(n), trimKey, 1500, parts, null);
@@ -894,7 +906,8 @@
   /* Radene i to versjoner av samme kort, stilt opp mot hverandre etter
      stikkord og merknad. En rad som bare finnes i den gamle, kommer inn
      der den sto, strøket. */
-  function diffRows(oldRows, newRows) {
+  function diffRows(oldRows, newRows, moved) {
+    moved = moved || {};
     /* Nøkkelen er stikkordet, nummerert når det står flere ganger (en
        språkoverstyring står ved siden av seksjonen den erstatter). Merknaden
        er ikke med: fra 0.25.0 er `conceptGuidance` «fra fagfamilien» der den
@@ -920,14 +933,24 @@
       for (; next < upto; next++) {
         var r = oldRows[next];
         if (!newKeys[oldK[next]]) {
-          out.push(rowMeta(r, { change: '-', parts: [{ t: '-', s: r.text }] }));
+          /* En seksjon som er flyttet inn i en annen, er ikke strøket: den
+             står umerket, og den nye raden viser hva som er endret. */
+          out.push(rowMeta(r, { change: '-', parts: [{ t: moved[r.label] ? '=' : '-', s: r.text }] }));
         }
       }
     };
     newRows.forEach(function (r, j) {
       var i = oldBy[newK[j]];
       if (i == null) {
-        out.push(rowMeta(r, { change: '+', parts: [{ t: '+', s: r.text }] }));
+        /* Ny seksjon satt sammen av gamle (`movedTo`): sammenlikn med de
+           gamle tekstene etter hverandre, så bare det som faktisk er nytt
+           lyser grønt. */
+        var from = oldRows.filter(function (o) { return moved[o.label] === r.label; });
+        var joinable = from.length && typeof r.text === 'string' &&
+          from.every(function (o) { return typeof o.text === 'string'; });
+        out.push(rowMeta(r, { change: '+', parts: joinable
+          ? mergedDiff(from.map(function (o) { return o.text; }).join('\n\n'), r.text)
+          : [{ t: '+', s: r.text }] }));
         return;
       }
       if (i >= next) flushRemoved(i + 1);
@@ -944,7 +967,7 @@
      ikke finnes i den releasen; `'same'` er en seksjon som er lik i begge.
      Mellom Markdown og JSON (før og etter v0.3.0) svarer seksjonene ikke
      til hverandre, så der står hele teksten i én rad, umerket. */
-  function tableRows(older, newer) {
+  function tableRows(older, newer, moved) {
     function plain(rows, side) {
       return rows.map(function (r) {
         var cell = [{ t: '=', s: r.text }];
@@ -960,7 +983,7 @@
       };
       return [{ label: t('whole-text'), notes: [], newer: whole(newer.rows), older: whole(older.rows) }];
     }
-    return diffRows(older.rows, newer.rows).map(function (r) {
+    return diffRows(older.rows, newer.rows, moved).map(function (r) {
       var keep = function (type) {
         return r.parts.filter(function (p) { return p.t === '=' || p.t === type; });
       };
@@ -1004,6 +1027,26 @@
       });
     });
     return rows;
+  }
+
+  /* Seksjoner som er slått sammen: `movedTo` i en modul sier hvor teksten
+     i en seksjon som ikke finnes lenger, ble av (fra maskineri v0.35.0, der
+     fem av undervisningsplanens seksjoner ble til `plan`). Uten dette leses
+     en sammenslåing som at teksten er strøket. */
+  function movedTo(rel) {
+    var map = {};
+    Object.keys(rel.modules || {}).forEach(function (id) {
+      var m = (rel.modules[id] || {}).movedTo || {};
+      Object.keys(m).forEach(function (sid) { map[sid] = m[sid]; });
+    });
+    return map;
+  }
+
+  function missingText(row, tag, newer, moved) {
+    if (newer && moved[row.label]) return fill('moved-into', { section: moved[row.label], tag: tag });
+    var from = Object.keys(moved).filter(function (sid) { return moved[sid] === row.label; });
+    if (!newer && from.length) return fill('moved-from', { sections: from.join(', '), tag: tag });
+    return fill('not-in', { tag: tag });
   }
 
   function compareCard(opts) {
@@ -1056,7 +1099,8 @@
       grid.appendChild(key);
       [[row.newer, opts.newTag], [row.older, opts.oldTag]].forEach(function (c) {
         var cell;
-        if (c[0] === null) cell = el('div', 'promptcmp__text promptcmp__none', fill('not-in', { tag: c[1] }));
+        if (c[0] === null) cell = el('div', 'promptcmp__text promptcmp__none',
+                                     missingText(row, c[1], c[1] === opts.newTag, opts.movedTo || {}));
         else if (c[0] === 'same') cell = el('div', 'promptcmp__text promptcmp__none', t('no-change-plain'));
         else if (row.desc) {
           cell = el('div', 'promptcmp__text');
@@ -1161,7 +1205,8 @@
           : sameRows(older.rows, newer.rows) ? noChange(rels[0].tag, id)
           : older.format !== newer.format ? t('format-changed')
           : '',
-        rows: enrich(tableRows(older, newer), newer, older)
+        rows: enrich(tableRows(older, newer, movedTo(rels[1])), newer, older),
+        movedTo: movedTo(rels[1])
       }));
     });
 
