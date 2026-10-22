@@ -46,7 +46,6 @@
     "errorUnknownConfig": "Unknown setting “{key}” on row {row} of tree.csv. Nothing was applied.",
     "errorUnknownNodeType": "The node “{id}” has the type “{type}”, which does not exist. The types are: {valid}.",
     "errorUnknownPromptSection": "Unknown section “{section}” in the prompt row on row {row} of tree.csv. Nothing was applied.",
-    "errorFamilyOnlySection": "The lesson plan has no “{section}”: that section is written by the subject family, and this tree has none. Add a config row subjectFamily (mathematics, natural-sciences, social-sciences, practical-aesthetic, language-and-literature or language-acquisition), or write the section yourself in a prompt row with topic {instruction} and name {section}.",
     "errorUnknownPromptTarget": "The prompt row on row {row} of tree.csv is aimed at “{name}”, which is not an instruction this tree composes. Nothing was applied.",
     "errorDidYouMean": "Did you mean “{key}”?",
     "errorMissingConfig": "tree.csv has no config row for “{key}”, which is required.",
@@ -162,7 +161,8 @@
       "includeAria": "Include “{name}” in the lesson plan",
       "selectedNone": "No learning goals selected",
       "selectedOne": "1 learning goal selected",
-      "selectedMany": "{n} learning goals selected"
+      "selectedMany": "{n} learning goals selected",
+      "needsFamily": "Choose a subject family for this tree to build a lesson plan: the plan for the lesson comes from it."
     },
     "exam": {
       "button": "Make a test from mastered learning goals",
