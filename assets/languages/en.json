@@ -89,7 +89,7 @@
         {
           "id": "goalIndex",
           "heading": "“Show all learning goals”",
-          "body": "This button gives you a single systematic list of every learning goal in the course, sorted by topic — useful when you want an overview or want to read the whole list without clicking through the map. Each goal shows its status: ✓ means you have marked it as mastered, ◇ means you have everything you need to learn it now, and ⊘ shows which goals you should take first (with their code, e.g. C1)."
+          "body": "This button gives you a single systematic list of every learning goal in the course, sorted by topic — useful when you want an overview or want to read the whole list without clicking through the map. Each goal shows its status: ✓ means you have marked it as mastered, ◇ means you have everything you need to learn it now, and ⊘ shows which goals you should take first (with their code, e.g. C1). You can tick goals as mastered straight from the list, in order, instead of finding each node in the map."
         },
         {
           "id": "search",
@@ -98,8 +98,8 @@
         },
         {
           "id": "lessonPlan",
-          "heading": "“Build a lesson plan” (for teachers)",
-          "body": "At the bottom of “Show all learning goals”, teachers can tick the learning goals the next lesson should cover, set the length of the lesson, and get an AI instruction for a complete lesson plan: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. The mastery ticks are your own, in your own browser — they show what you personally have been through, not what the class actually knows."
+          "heading": "“Lesson planner” (for teachers)",
+          "body": "In the lesson planner, teachers can tick the learning goals the next lesson should cover, set the length of the lesson, and get an AI instruction for a complete lesson plan: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. The mastery ticks are your own, in your own browser — they show what you personally have been through, not what the class actually knows."
         },
         {
           "id": "exam",
@@ -125,8 +125,15 @@
       "title": "Show a systematic list of every learning goal, sorted by topic",
       "heading": "All learning goals",
       "copyAll": "Copy all",
-      "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. For teachers: tick the learning goals the next lesson should cover, and build a complete lesson plan at the bottom.",
+      "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. Tick a goal to mark it as mastered — the same tick as on the node in the map — so you can go down the list in order and mark what you have been through.",
+      "markAria": "Mark “{name}” as mastered",
       "openNode": "Go to this node in the map"
+    },
+    "lessonPlanner": {
+      "button": "Lesson planner (for teachers)",
+      "title": "Pick the learning goals for a lesson and copy an AI instruction for a complete lesson plan",
+      "heading": "Lesson planner",
+      "intro": "Tick the learning goals the next lesson should cover, set the length of the lesson, and build a complete lesson plan at the bottom. The ticks here are only for this lesson: they do not mark anything as mastered, and they are gone when you reload the page."
     },
     "search": {
       "button": "Search",

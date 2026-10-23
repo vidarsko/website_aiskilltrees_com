@@ -1171,9 +1171,20 @@ function getBottomToolbar() {
 }
 
 /* ------------------------------------------------------------------ */
-/* "Vis alle læringsmål": full, indeksert liste sortert etter tema      */
+/* "Vis alle læringsmål" og "Undervisningsplanlegger": samme indekserte */
+/* liste, to formål                                                     */
 /* ------------------------------------------------------------------ */
 
+/* Fram til 0.36.0 var dette ÉN knapp, og avkryssinga i lista var lærerens
+   utvalg til undervisningsopplegget. Det gjorde at «vis alle læringsmål»
+   ikke kunne brukes til det de fleste ville bruke den til: gå gjennom
+   lista i rekkefølge og krysse av det klassen kan. Nå er det to knapper
+   til samme vindu (se goalIndexMode):
+     'outcomes' - avkryssing = mestret, samme varige tilstand som boksen
+                  på noden i kartet
+     'lesson'   - avkryssing = flyktig utvalg til økta, med bunnlinja
+                  som lager undervisningsopplegget
+   Vidar, 2026-10-23. */
 function setupGoalIndexButton() {
   const panel = ensureActionMenu();
   if (!panel) return;
@@ -1185,9 +1196,20 @@ function setupGoalIndexButton() {
   btn.title = t('goalIndex.title');
   btn.addEventListener('click', () => {
     closeActionMenu();
-    openGoalIndexModal();
+    openGoalIndexModal('outcomes');
   });
   panel.appendChild(btn);
+
+  const planner = document.createElement('button');
+  planner.id = 'lesson-planner-btn';
+  planner.type = 'button';
+  planner.textContent = t('lessonPlanner.button');
+  planner.title = t('lessonPlanner.title');
+  planner.addEventListener('click', () => {
+    closeActionMenu();
+    openGoalIndexModal('lesson');
+  });
+  panel.appendChild(planner);
 }
 
 /* ------------------------------------------------------------------ */
@@ -1885,7 +1907,7 @@ function ensureGoalIndexModal() {
   header.id = 'goal-index-header';
 
   const h2 = document.createElement('h2');
-  h2.textContent = t('goalIndex.heading');
+  h2.id = 'goal-index-heading';
   header.appendChild(h2);
 
   const actions = document.createElement('div');
@@ -1923,7 +1945,7 @@ function ensureGoalIndexModal() {
   // Fast bunnlinje (utenfor det scrollbare innholdet) med undervisnings-
   // opplegg-generatoren. Ligger her og ikke i handlingsmenyen fordi selve
   // utvalget av læringsmål skjer i denne lista - knapp og utvalg hører
-  // sammen.
+  // sammen. Vises bare i undervisningsplanleggeren (goalIndexMode 'lesson').
   const bar = document.createElement('div');
   bar.id = 'lesson-plan-bar';
 
@@ -1996,6 +2018,10 @@ function ensureGoalIndexModal() {
 // kartet uleselig; derfor bor dette utvalget kun i læringsmål-lista.
 const lessonSelection = new Set();
 
+// Hva avkryssinga i læringsmål-lista betyr akkurat nå: 'outcomes' (mestret)
+// eller 'lesson' (utvalg til økta). Settes av openGoalIndexModal.
+let goalIndexMode = 'outcomes';
+
 // Lengden økta får hvis læreren ikke oppgir en. Fra 0.27.0 regner motoren
 // ikke ut noen timeplan: hvordan økta deles opp, står i seksjonen
 // `plan` i lesson-plan.json (fram til 4.0.0 `structure`), som hver
@@ -2052,10 +2078,11 @@ function goalStatus(node, progress) {
 function renderGoalIndexBody(body) {
   body.innerHTML = '';
   const progress = getProgress();
+  const lessonMode = goalIndexMode === 'lesson';
 
   const intro = document.createElement('p');
   intro.id = 'goal-index-intro';
-  intro.textContent = t('goalIndex.intro');
+  intro.textContent = t(lessonMode ? 'lessonPlanner.intro' : 'goalIndex.intro');
   body.appendChild(intro);
 
   themeList.forEach(({ letter, topic, nodes }) => {
@@ -2077,22 +2104,37 @@ function renderGoalIndexBody(body) {
       cb.type = 'checkbox';
       cb.className = 'goal-pick';
       cb.id = 'goal-pick-' + n.id;
-      cb.checked = lessonSelection.has(n.id);
-      cb.setAttribute('aria-label', t('lesson.includeAria', { name: n.name }));
-      cb.addEventListener('change', () => {
-        if (cb.checked) lessonSelection.add(n.id);
-        else lessonSelection.delete(n.id);
-        updateLessonPlanBar();
-      });
+      if (lessonMode) {
+        cb.checked = lessonSelection.has(n.id);
+        cb.setAttribute('aria-label', t('lesson.includeAria', { name: n.name }));
+        cb.addEventListener('change', () => {
+          if (cb.checked) lessonSelection.add(n.id);
+          else lessonSelection.delete(n.id);
+          updateLessonPlanBar();
+        });
+      } else {
+        cb.checked = status.kind === 'mastered';
+        cb.setAttribute('aria-label', t('goalIndex.markAria', { name: n.name }));
+        cb.addEventListener('change', () => {
+          setNodeProgress(n.id, 'mastered', cb.checked);
+          // Statusen til alt som bygger på noden endres også (klar/mangler),
+          // så hele lista tegnes på nytt - uten å miste plassen i lista
+          // eller fokuset, så læreren kan fortsette nedover.
+          const scrollTop = body.scrollTop;
+          renderGoalIndexBody(body);
+          body.scrollTop = scrollTop;
+          const again = document.getElementById(cb.id);
+          if (again) again.focus();
+        });
+      }
       li.appendChild(cb);
 
       const main = document.createElement('div');
       main.className = 'goal-index-item-main';
 
       /* Navnet er en KNAPP som hopper til noden i kartet, ikke en <label>
-         som huker av boksen. Avkryssingen er lærerens utvalg til
-         undervisningsopplegget — en elev som blar i lista vil se noden,
-         ikke plukke den. Boksen står fortsatt der for den som vil krysse. */
+         som huker av boksen. En elev som blar i lista vil se noden, ikke
+         krysse den av ved et uhell. Boksen står der for den som vil krysse. */
       const jump = document.createElement('button');
       jump.type = 'button';
       jump.className = 'goal-index-item-name';
@@ -2120,8 +2162,13 @@ function renderGoalIndexBody(body) {
   });
 }
 
-function openGoalIndexModal() {
+function openGoalIndexModal(mode) {
+  goalIndexMode = mode === 'lesson' ? 'lesson' : 'outcomes';
   const overlay = ensureGoalIndexModal();
+  const lessonMode = goalIndexMode === 'lesson';
+  document.getElementById('goal-index-heading').textContent =
+    t(lessonMode ? 'lessonPlanner.heading' : 'goalIndex.heading');
+  document.getElementById('lesson-plan-bar').hidden = !lessonMode;
   renderGoalIndexBody(document.getElementById('goal-index-body'));
   updateLessonPlanBar();
   overlay.classList.add('open');

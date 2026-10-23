@@ -206,6 +206,7 @@ header {
 
 #action-menu-panel #motivation-btn,
 #action-menu-panel #goal-index-btn,
+#action-menu-panel #lesson-planner-btn,
 #action-menu-panel #search-btn,
 #action-menu-panel #resources-btn,
 #action-menu-panel #course-info-btn,
@@ -229,6 +230,7 @@ header {
 
 #action-menu-panel #motivation-btn:hover,
 #action-menu-panel #goal-index-btn:hover,
+#action-menu-panel #lesson-planner-btn:hover,
 #action-menu-panel #search-btn:hover,
 #action-menu-panel #resources-btn:hover,
 #action-menu-panel #course-info-btn:hover,
@@ -552,8 +554,8 @@ main {
   margin-bottom: 1.2rem;
 }
 
-/* Én rad per læringsmål: avkryssing for undervisningsopplegget til venstre,
-   navn + status til høyre. De to er bevisst visuelt forskjellige - status
+/* Én rad per læringsmål: avkryssing til venstre (mestret, eller utvalg til
+   økta i undervisningsplanleggeren), navn + status til høyre. De to er bevisst visuelt forskjellige - status
    er ren lesbar informasjon (mestret/klar/mangler), mens avkryssinga er det
    eneste man kan klikke på her. */
 .goal-index-item {
@@ -607,6 +609,10 @@ main {
   background: var(--surface);
   border-radius: 0 0 var(--radius) var(--radius);
 }
+
+/* Bare i undervisningsplanleggeren; display: flex over ville ellers vunnet
+   over [hidden]. */
+#lesson-plan-bar[hidden] { display: none; }
 
 #lesson-plan-count {
   font-size: 0.82rem;
@@ -1548,6 +1554,7 @@ main {
    The marketing pages are untouched and remain square throughout. */
 .btn,
 #action-menu-panel #goal-index-btn,
+#action-menu-panel #lesson-planner-btn,
 #action-menu-panel #exam-btn,
 #lesson-plan-btn,
 .linkbtn,

@@ -89,7 +89,7 @@
         {
           "id": "goalIndex",
           "heading": "«Visa alla lärandemål»",
-          "body": "När du trycker på den här knappen får du en samlad, systematisk lista över alla lärandemålen i ämnet, sorterad efter tema - praktiskt när du vill ha överblick eller läsa igenom hela listan utan att klicka dig igenom kartan. Varje lärandemål visar status: ✓ betyder att du markerat det som avklarat, ◇ att du har allt du behöver för att lära dig det nu, och ⊘ visar vilka lärandemål du bör ta först (med deras kod, t.ex. C1)."
+          "body": "När du trycker på den här knappen får du en samlad, systematisk lista över alla lärandemålen i ämnet, sorterad efter tema - praktiskt när du vill ha överblick eller läsa igenom hela listan utan att klicka dig igenom kartan. Varje lärandemål visar status: ✓ betyder att du markerat det som avklarat, ◇ att du har allt du behöver för att lära dig det nu, och ⊘ visar vilka lärandemål du bör ta först (med deras kod, t.ex. C1). Du kan kryssa i lärandemål som avklarade direkt i listan, i ordning, i stället för att leta upp varje nod i kartan."
         },
         {
           "id": "search",
@@ -98,8 +98,8 @@
         },
         {
           "id": "lessonPlan",
-          "heading": "«Skapa lektionsplanering» (för lärare)",
-          "body": "Längst ner i «Visa alla lärandemål» kan lärare kryssa i de lärandemål nästa lektion ska täcka, ställa in lektionens längd, och få en AI-instruktion för en färdig lektionsplanering: starter, genomgång enligt example-problem pair-modellen, diagnostiska frågor och återkallning på slutet. Ikryssningarna för avklarat är dina egna, i din egen webbläsare - de visar vad du själv gått igenom, inte vad klassen faktiskt kan."
+          "heading": "«Lektionsplanerare» (för lärare)",
+          "body": "I lektionsplaneraren kan lärare kryssa i de lärandemål nästa lektion ska täcka, ställa in lektionens längd, och få en AI-instruktion för en färdig lektionsplanering: starter, genomgång enligt example-problem pair-modellen, diagnostiska frågor och återkallning på slutet. Ikryssningarna för avklarat är dina egna, i din egen webbläsare - de visar vad du själv gått igenom, inte vad klassen faktiskt kan."
         },
         {
           "id": "exam",
@@ -125,8 +125,15 @@
       "title": "Visa en systematisk lista över alla lärandemål, sorterad efter tema",
       "heading": "Alla lärandemål",
       "copyAll": "Kopiera alla",
-      "intro": "Listan visar alla lärandemål i ämnet, sorterade efter tema, med status för vart och ett. För lärare: kryssa i de lärandemål nästa lektion ska täcka, och skapa en färdig lektionsplanering längst ner.",
+      "intro": "Listan visar alla lärandemål i ämnet, sorterade efter tema, med status för vart och ett. Kryssa i ett lärandemål för att markera det som avklarat - samma kryss som på noden i kartan - så kan du gå nedåt i listan i ordning och kryssa i det du gått igenom.",
+      "markAria": "Markera «{name}» som avklarat",
       "openNode": "Gå till den här noden i kartan"
+    },
+    "lessonPlanner": {
+      "button": "Lektionsplanerare (för lärare)",
+      "title": "Välj lärandemålen för en lektion och kopiera en AI-instruktion för en färdig lektionsplanering",
+      "heading": "Lektionsplanerare",
+      "intro": "Kryssa i de lärandemål nästa lektion ska täcka, ställ in lektionens längd, och skapa en färdig lektionsplanering längst ner. Kryssen här gäller bara den här lektionen: de markerar inget som avklarat, och de försvinner när du laddar om sidan."
     },
     "search": {
       "button": "Sök",
