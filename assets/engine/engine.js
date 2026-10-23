@@ -2075,6 +2075,47 @@ function goalStatus(node, progress) {
   };
 }
 
+// Tegner lista på nytt uten å miste plassen i den eller fokuset, så
+// læreren kan fortsette nedover etter en avkryssing eller en masse-knapp.
+function rerenderGoalIndexBody(body, focusId) {
+  const scrollTop = body.scrollTop;
+  renderGoalIndexBody(body);
+  body.scrollTop = scrollTop;
+  const again = focusId && document.getElementById(focusId);
+  if (again) again.focus();
+}
+
+// Kryss av / fjern krysset for mange læringsmål på én gang: mestret i
+// «Vis alle læringsmål» (samme bulkSetMastery som ✓/✕ over kolonnene i
+// kartet), utvalget til økta i undervisningsplanleggeren.
+function setGoalIndexChecks(nodes, on) {
+  if (goalIndexMode === 'lesson') {
+    nodes.forEach(n => { if (on) lessonSelection.add(n.id); else lessonSelection.delete(n.id); });
+    updateLessonPlanBar();
+  } else {
+    bulkSetMastery(nodes, on);
+  }
+}
+
+// En ✓/✕-knapp som de i kolonneoverskriftene i kartet (.column-header-btn).
+function goalIndexBulkButton(symbol, title, nodes, on, body, extraClass) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'column-header-btn' + (extraClass ? ' ' + extraClass : '');
+  btn.textContent = symbol;
+  btn.title = title;
+  btn.setAttribute('aria-label', title);
+  btn.addEventListener('click', () => {
+    // Å fjerne mestret for hele treet sletter elevens framgang; det ene
+    // trykket som ikke kan angres med ett nytt, spør først.
+    if (!on && goalIndexMode !== 'lesson' && nodes === allNodes &&
+        !window.confirm(t('goalIndex.clearAllConfirm'))) return;
+    setGoalIndexChecks(nodes, on);
+    rerenderGoalIndexBody(body, null);
+  });
+  return btn;
+}
+
 function renderGoalIndexBody(body) {
   body.innerHTML = '';
   const progress = getProgress();
@@ -2085,12 +2126,29 @@ function renderGoalIndexBody(body) {
   intro.textContent = t(lessonMode ? 'lessonPlanner.intro' : 'goalIndex.intro');
   body.appendChild(intro);
 
+  const bulk = document.createElement('div');
+  bulk.id = 'goal-index-bulk';
+  const allOn = lessonMode ? t('lessonPlanner.selectAll') : t('goalIndex.markAllButton');
+  const allOff = lessonMode ? t('lessonPlanner.deselectAll') : t('goalIndex.clearAllButton');
+  bulk.appendChild(goalIndexBulkButton('✓ ' + allOn, allOn, allNodes, true, body, 'goal-index-bulk-btn'));
+  bulk.appendChild(goalIndexBulkButton('✕ ' + allOff, allOff, allNodes, false, body, 'goal-index-bulk-btn'));
+  body.appendChild(bulk);
+
   themeList.forEach(({ letter, topic, nodes }) => {
     const section = document.createElement('div');
     section.className = 'goal-index-section';
 
     const h3 = document.createElement('h3');
-    h3.textContent = `${letter}) ${topic}`;
+    const label = document.createElement('span');
+    label.textContent = `${letter}) ${topic}`;
+    h3.appendChild(label);
+    const actions = document.createElement('span');
+    actions.className = 'column-header-actions';
+    actions.appendChild(goalIndexBulkButton('✓',
+      t(lessonMode ? 'lessonPlanner.selectTopic' : 'column.markAll', { topic: topic }), nodes, true, body));
+    actions.appendChild(goalIndexBulkButton('✕',
+      t(lessonMode ? 'lessonPlanner.deselectTopic' : 'column.clearAll', { topic: topic }), nodes, false, body));
+    h3.appendChild(actions);
     section.appendChild(h3);
 
     const ul = document.createElement('ul');
@@ -2118,13 +2176,8 @@ function renderGoalIndexBody(body) {
         cb.addEventListener('change', () => {
           setNodeProgress(n.id, 'mastered', cb.checked);
           // Statusen til alt som bygger på noden endres også (klar/mangler),
-          // så hele lista tegnes på nytt - uten å miste plassen i lista
-          // eller fokuset, så læreren kan fortsette nedover.
-          const scrollTop = body.scrollTop;
-          renderGoalIndexBody(body);
-          body.scrollTop = scrollTop;
-          const again = document.getElementById(cb.id);
-          if (again) again.focus();
+          // så hele lista tegnes på nytt.
+          rerenderGoalIndexBody(body, cb.id);
         });
       }
       li.appendChild(cb);

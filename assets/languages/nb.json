@@ -127,11 +127,18 @@
       "copyAll": "Kopier alle",
       "intro": "Lista viser alle læringsmålene i faget, sortert etter tema, med status for hvert av dem. Huk av et læringsmål for å markere det som mestret - samme avkryssing som på noden i kartet - så du kan gå nedover lista i rekkefølge og krysse av det du har vært gjennom.",
       "markAria": "Marker «{name}» som mestret",
+      "markAllButton": "Marker alle som mestret",
+      "clearAllButton": "Fjern alle mestret-merker",
+      "clearAllConfirm": "Fjerne mestret-merkingen fra alle læringsmålene i treet?",
       "openNode": "Gå til denne noden i kartet"
     },
     "lessonPlanner": {
       "button": "Undervisningsplanlegger (for lærere)",
       "title": "Velg læringsmålene for en økt og kopier en KI-instruks for et ferdig undervisningsopplegg",
+      "selectAll": "Kryss av alle",
+      "deselectAll": "Fjern alle kryss",
+      "selectTopic": "Kryss av alle læringsmål i «{topic}»",
+      "deselectTopic": "Fjern krysset for alle læringsmål i «{topic}»",
       "heading": "Undervisningsplanlegger",
       "intro": "Huk av de læringsmålene neste økt skal dekke, sett lengden på økta, og lag et ferdig undervisningsopplegg nederst. Avkryssingen her gjelder bare denne økta: den markerer ingenting som mestret, og den forsvinner når du laster siden på nytt."
     },

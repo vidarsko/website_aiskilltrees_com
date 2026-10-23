@@ -127,11 +127,18 @@
       "copyAll": "Kopiera alla",
       "intro": "Listan visar alla lärandemål i ämnet, sorterade efter tema, med status för vart och ett. Kryssa i ett lärandemål för att markera det som avklarat - samma kryss som på noden i kartan - så kan du gå nedåt i listan i ordning och kryssa i det du gått igenom.",
       "markAria": "Markera «{name}» som avklarat",
+      "markAllButton": "Markera alla som avklarade",
+      "clearAllButton": "Ta bort alla avklarad-markeringar",
+      "clearAllConfirm": "Ta bort avklarad-markeringen från alla lärandemål i trädet?",
       "openNode": "Gå till den här noden i kartan"
     },
     "lessonPlanner": {
       "button": "Lektionsplanerare (för lärare)",
       "title": "Välj lärandemålen för en lektion och kopiera en AI-instruktion för en färdig lektionsplanering",
+      "selectAll": "Kryssa i alla",
+      "deselectAll": "Ta bort alla kryss",
+      "selectTopic": "Kryssa i alla lärandemål i «{topic}»",
+      "deselectTopic": "Ta bort krysset för alla lärandemål i «{topic}»",
       "heading": "Lektionsplanerare",
       "intro": "Kryssa i de lärandemål nästa lektion ska täcka, ställ in lektionens längd, och skapa en färdig lektionsplanering längst ner. Kryssen här gäller bara den här lektionen: de markerar inget som avklarat, och de försvinner när du laddar om sidan."
     },

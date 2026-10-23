@@ -127,11 +127,18 @@
       "copyAll": "Copy all",
       "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. Tick a goal to mark it as mastered — the same tick as on the node in the map — so you can go down the list in order and mark what you have been through.",
       "markAria": "Mark “{name}” as mastered",
+      "markAllButton": "Mark all as mastered",
+      "clearAllButton": "Remove all mastered marks",
+      "clearAllConfirm": "Remove the mastered mark from every learning goal in the tree?",
       "openNode": "Go to this node in the map"
     },
     "lessonPlanner": {
       "button": "Lesson planner (for teachers)",
       "title": "Pick the learning goals for a lesson and copy an AI instruction for a complete lesson plan",
+      "selectAll": "Check all",
+      "deselectAll": "Uncheck all",
+      "selectTopic": "Check every learning goal in “{topic}”",
+      "deselectTopic": "Uncheck every learning goal in “{topic}”",
       "heading": "Lesson planner",
       "intro": "Tick the learning goals the next lesson should cover, set the length of the lesson, and build a complete lesson plan at the bottom. The ticks here are only for this lesson: they do not mark anything as mastered, and they are gone when you reload the page."
     },
