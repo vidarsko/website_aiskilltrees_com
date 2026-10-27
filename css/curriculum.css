@@ -215,3 +215,76 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
   }
   .bookad__title { margin-top: 0; }
 }
+
+/* --------------------------------------------------------------------------
+   /gy25/ — innledningen. Samme tekst og video som /lk20/, men uten bokkort,
+   så tekst og video er like brede som resten av siden (Vidar 2026-10-27).
+   -------------------------------------------------------------------------- */
+
+.curriculum-intro .prose,
+.curriculum-intro .videoembed { max-width: none; }
+
+/* --------------------------------------------------------------------------
+   /gy25/ — matematikkfagene som en graf, lest fra venstre mot høyre
+   (Vidar 2026-10-27). Nodene er de vanlige .level-knappene, med fagnavnet
+   over nivået; plasseringen står i style-attributtet på hver node, og
+   linjene tegnes i SVG av skriptet ved siden av grafen. Med vilje IKKE
+   motorens utseende: dette er en oversikt over fag, ikke et ferdighetstre.
+   Grafen er bredere enn en telefon og ruller sidelengs i sin egen boks.
+   -------------------------------------------------------------------------- */
+
+.mathgraph {
+  overflow-x: auto;
+  padding-bottom: var(--space-1);
+}
+
+.mathgraph__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 11.5rem);
+  grid-template-rows: repeat(7, 1.875rem);
+  column-gap: 3rem;
+  row-gap: 0.5rem;
+  width: max-content;
+}
+
+.mathgraph__edges {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+.mathgraph__edges path {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.5;
+}
+
+.level.mathgraph__node {
+  position: relative;   /* over linjene */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.125rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.mathgraph__subject {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.mathgraph__level {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.mathgraph__note {
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+  margin: var(--space-2) 0 0;
+}
