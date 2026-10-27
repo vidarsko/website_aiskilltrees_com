@@ -1,0 +1,113 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,Räta linjen och ekvationssystem;Potenser och potensfunktioner;Kvadreringsregler och konjugatregeln;Andragradsfunktioner och andragradsekvationer;Statistik;Pythagoras sats i koordinatsystem;Problemlösning och modeller,,,
+,config,,title,Matematik 2a,,,
+,config,,description,"Räta linjen och ekvationssystem, potenser och potensekvationer, kvadreringsregler, andragradsfunktioner och andragradsekvationer, statistik med normalfördelning och Pythagoras sats i koordinatsystem — nedbrutet i det eleverna faktiskt måste kunna göra, med Gy25 som grund.",,,
+,config,,language,sv,,,
+,config,,subjectFamily,mathematics,,,
+,config,,storageKey,se-gym-matte-2a-fardighetstrad,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"matematik 2a (svenskt gymnasium, yrkesprogram, Gy25)",,,
+,config,,slots.motivationSubject,matte,,,
+,config,,slots.expressionFocus,"skriver (a + b)² som a² + b², tappar den negativa lösningen när en kvadratrot dras, tappar ett minustecken i pq-formeln eller när en parentes löses upp, blandar ihop potensfunktion och exponentialfunktion, glömmer enheten eller en mening som svarar på frågan, eller använder likhetstecknet fel (t.ex. kedjar samman uttryck med ""="" som inte faktiskt är lika, eller använder ""="" för att betyda ""nästa steg"")",,,
+,config,,decompositionVersion,2.13.0,,,
+,config,,aids.label,Del,,,
+,config,,aids.1.name,Utan digitala verktyg,,,
+,config,,aids.1.student,"Utan digitala verktyg: du räknar för hand, utan räknare, dator eller annat digitalt hjälpmedel.",,,
+,config,,aids.1.model,"Hjälpmedel: Det här ska eleven kunna visa utan digitala verktyg. Förvänta dig att eleven räknar för hand, utan räknare eller dator, och låt övningen spegla det.",,,
+,config,,aids.2.name,Med digitala verktyg,,,
+,config,,aids.2.student,"Med digitala verktyg: du får använda räknare och andra digitala verktyg, till exempel grafritande program, symbolhanterande program (CAS) eller programmering.",,,
+,config,,aids.2.model,"Hjälpmedel: Det här ska eleven kunna visa med digitala verktyg. Förvänta dig att eleven använder räknare, grafritande eller symbolhanterande program eller programmering där det effektiviserar arbetet, och låt övningen handla om att ställa upp, tolka och värdera resultatet snarare än om handräkning.",,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Yrkesprogram, svenskt gymnasium (Gy25)",,,
+,config,,curriculum,Gy25,,,
+,config,,courseCode,MATE2A00X,,,
+,config,,country,SE,,,
+,config,,institution,gym,,,
+,config,,division,2,,,
+,config,,subjectArea,mathematics,,,
+,config,,keywords,räta linjens ekvation; ekvationssystem; potenslagar; potensekvation; exponentialekvation; kvadreringsreglerna; konjugatregeln; andragradsekvation; pq-formeln; percentiler; standardavvikelse; normalfördelning,,,
+,config,,updated,2026-10-27,,,
+riktningskoefficient-begrepp,concept,Räta linjen och ekvationssystem,Riktningskoefficient,"Riktningskoefficient: talet k för en rät linje, förändringen i y delad med förändringen i x mellan två punkter på linjen, k = (y₂ − y₁)/(x₂ − x₁). Positivt k betyder att linjen stiger, negativt att den faller.",,,
+rata-linjens-ekvation-begrepp,concept,Räta linjen och ekvationssystem,Räta linjens ekvation,"Räta linjens ekvation: y = kx + m, där k är riktningskoefficienten och m är y-värdet där linjen skär y-axeln. Varje punkt på linjen uppfyller ekvationen, och ingen annan punkt gör det.
+Vågrät linje: y = b, med k = 0.
+Lodrät linje: x = a, som saknar riktningskoefficient.",riktningskoefficient-begrepp,,
+berakna-k-tva-punkter,skill,Räta linjen och ekvationssystem,Beräkna riktningskoefficienten ur två punkter,"räkna ut k för en linje genom två givna punkter, och avgöra av tecknet om linjen stiger eller faller",riktningskoefficient-begrepp,1;2,
+bestamma-linjens-ekvation,skill,Räta linjen och ekvationssystem,Bestämma räta linjens ekvation,"ta fram ekvationen för en rät linje ur två punkter, ur en punkt och k, eller ur en graf, och kontrollera att punkterna uppfyller den",berakna-k-tva-punkter;rata-linjens-ekvation-begrepp,1;2,
+bestamma-linjar-modell,skill,Räta linjen och ekvationssystem,Bestämma en linjär funktion ur en situation,"ställa upp en linjär funktion ur en beskrivning eller ur två mätvärden, till exempel en kostnad eller en förbrukning som ändras jämnt, och tolka k och m med enheter",bestamma-linjens-ekvation,1;2,
+anpassa-linje-digitalt,skill,Räta linjen och ekvationssystem,Anpassa en rät linje till mätvärden digitalt,"låta ett digitalt verktyg anpassa en rät linje till mätvärden som inte ligger exakt på en linje, och bedöma om en linjär modell passar materialet",bestamma-linjar-modell,2,"Skärmen syns inte i chatten. Låt hen beskriva vilka kommandon hen använder och vad verktyget visar, och lägg tyngden på att ställa upp och tolka."
+ekvationssystem-begrepp,concept,Räta linjen och ekvationssystem,Linjärt ekvationssystem,"Linjärt ekvationssystem: två eller flera linjära ekvationer med samma obekanta, som ska gälla samtidigt.
+Lösning till ett ekvationssystem: de värden på de obekanta som uppfyller alla ekvationerna på en gång, grafiskt linjernas skärningspunkt.",rata-linjens-ekvation-begrepp,,
+losa-system-grafiskt,skill,Räta linjen och ekvationssystem,Lösa ett ekvationssystem grafiskt,"lösa ett linjärt ekvationssystem genom att rita linjerna och läsa av skärningspunkten, för hand och med digitalt verktyg, och känna igen när systemet saknar lösning eller har oändligt många",ekvationssystem-begrepp,1;2,
+losa-system-substitution,skill,Räta linjen och ekvationssystem,Lösa ett ekvationssystem med substitutionsmetoden,"lösa ett linjärt ekvationssystem genom att lösa ut en obekant ur den ena ekvationen och sätta in uttrycket i den andra, och pröva lösningen",ekvationssystem-begrepp,1,
+losa-system-addition,skill,Räta linjen och ekvationssystem,Lösa ett ekvationssystem med additionsmetoden,"lösa ett linjärt ekvationssystem genom att multiplicera ekvationerna så att en obekant försvinner när de adderas, och pröva lösningen",ekvationssystem-begrepp,1,
+stalla-upp-ekvationssystem,skill,Räta linjen och ekvationssystem,Ställa upp och lösa ett ekvationssystem ur en text,"översätta en situation med två okända storheter, till exempel en blandning eller två prismodeller, till ett ekvationssystem, lösa det med en lämplig metod och svara på frågan",losa-system-grafiskt;losa-system-substitution;losa-system-addition,1;2,
+potenslagar-begrepp,concept,Potenser och potensfunktioner,Potenslagarna,"Produkt av potenser med samma bas: aᵐ · aⁿ = a^(m+n).
+Kvot av potenser med samma bas: aᵐ / aⁿ = a^(m−n).
+Potens av en potens: (aᵐ)ⁿ = a^(m·n).
+Potens av en produkt: (ab)ⁿ = aⁿbⁿ.",,,
+noll-negativ-exponent-begrepp,concept,Potenser och potensfunktioner,Exponenten noll och negativa exponenter,"Exponenten noll: a⁰ = 1 för varje a ≠ 0.
+Negativ exponent: a⁻ⁿ = 1/aⁿ, så att 2⁻³ = 1/8.",potenslagar-begrepp,,
+motivera-potenslagar,skill,Potenser och potensfunktioner,Motivera potenslagarna,"förklara varför en potenslag gäller genom att skriva ut potenserna som produkter av faktorer, och varför a⁰ = 1 följer av kvotlagen",potenslagar-begrepp;noll-negativ-exponent-begrepp,1,
+forenkla-potenser,skill,Potenser och potensfunktioner,Förenkla uttryck med potenslagarna,"förenkla uttryck med potenser, också med exponenten noll och negativa exponenter",potenslagar-begrepp;noll-negativ-exponent-begrepp,1,
+rot-potens-begrepp,concept,Potenser och potensfunktioner,Rötter som potenser,"Kvadratrot: det icke-negativa tal som multiplicerat med sig självt ger a, skrivet √a.
+n:te rot: det tal som upphöjt till n ger a.
+Rot som potens: n:te roten ur a kan skrivas a^(1/n), vilket följer av potenslagarna.",potenslagar-begrepp,,
+losa-potensekvation,skill,Potenser och potensfunktioner,Lösa en potensekvation,"lösa en ekvation av typen xⁿ = a genom att dra n:te roten eller upphöja båda leden till 1/n, och avgöra om ekvationen har en, två eller ingen lösning",rot-potens-begrepp,1;2,
+potensekvation-tillampning,skill,Potenser och potensfunktioner,Bestämma en genomsnittlig förändringsfaktor med en potensekvation,"ställa upp och lösa en potensekvation i en tillämpning, till exempel för att ta fram den genomsnittliga årliga förändringen när startvärde, slutvärde och antal år är kända",losa-potensekvation,2,
+potensfunktion-begrepp,concept,Potenser och potensfunktioner,Potensfunktion,"Potensfunktion: en funktion som kan skrivas y = C · xᵃ, där variabeln står i basen och exponenten a är ett fast tal. Hos en exponentialfunktion står variabeln i stället i exponenten.",,,
+skilja-potens-exponentialfunktion,skill,Potenser och potensfunktioner,Skilja en potensfunktion från en exponentialfunktion,"avgöra om ett uttryck, en tabell eller en graf beskriver en potensfunktion eller en exponentialfunktion, och förklara vad skillnaden betyder för hur funktionen växer",potensfunktion-begrepp,1;2,
+losa-exponentialekvation-digitalt,skill,Potenser och potensfunktioner,Lösa en exponentialekvation digitalt,"lösa en ekvation där den obekanta står i exponenten, som 1,05ˣ = 2, med ett digitalt verktyg, grafiskt eller med en lösningsfunktion, och tolka svaret i sammanhanget",skilja-potens-exponentialfunktion,2,"Skärmen syns inte i chatten. Låt hen beskriva vilka kommandon hen använder och vad verktyget visar, och lägg tyngden på att ställa upp och tolka."
+kvadreringsregler-begrepp,concept,Kvadreringsregler och konjugatregeln,Kvadreringsreglerna,"Första kvadreringsregeln: (a + b)² = a² + 2ab + b².
+Andra kvadreringsregeln: (a − b)² = a² − 2ab + b².",,,
+konjugatregeln-begrepp,concept,Kvadreringsregler och konjugatregeln,Konjugatregeln,Konjugatregeln: (a + b)(a − b) = a² − b².,,,
+motivera-kvadrering-konjugat,skill,Kvadreringsregler och konjugatregeln,Motivera kvadreringsreglerna och konjugatregeln,"visa varför reglerna gäller genom att multiplicera ut parenteserna term för term, och förklara den första kvadreringsregeln med en kvadrat som delas upp i fyra delar",kvadreringsregler-begrepp;konjugatregeln-begrepp,1,
+utveckla-med-reglerna,skill,Kvadreringsregler och konjugatregeln,Multiplicera ut med kvadreringsreglerna och konjugatregeln,"multiplicera ut uttryck med kvadreringsreglerna och konjugatregeln direkt, också med koefficienter som i (3x − 2)², och undvika felet (a + b)² = a² + b²",kvadreringsregler-begrepp;konjugatregeln-begrepp,1,
+faktorisera-med-reglerna,skill,Kvadreringsregler och konjugatregeln,Faktorisera med kvadreringsreglerna och konjugatregeln,"känna igen ett uttryck som en kvadrat eller som en skillnad mellan två kvadrater, och skriva det som en produkt",utveckla-med-reglerna,1,
+andragradsfunktion-begrepp,concept,Andragradsfunktioner och andragradsekvationer,Andragradsfunktion,"Andragradsfunktion: en funktion som kan skrivas y = ax² + bx + c med a ≠ 0. Grafen är en parabel, som är öppen uppåt när a > 0 och nedåt när a < 0.",,,
+parabelns-egenskaper-begrepp,concept,Andragradsfunktioner och andragradsekvationer,"Nollställe, extrempunkt och symmetrilinje","Nollställe: ett x-värde där funktionens värde är noll, där grafen skär x-axeln.
+Extrempunkt: parabelns lägsta eller högsta punkt, en minimipunkt eller en maximipunkt.
+Symmetrilinje: den lodräta linjen genom extrempunkten, som delar parabeln i två spegelvända halvor.",andragradsfunktion-begrepp,,
+lasa-av-parabel,skill,Andragradsfunktioner och andragradsekvationer,"Läsa av nollställen, extrempunkt och symmetrilinje","läsa av nollställen, extrempunkt och symmetrilinje i grafen till en andragradsfunktion, ritad för hand eller digitalt, och avgöra om extrempunkten är ett maximum eller ett minimum",parabelns-egenskaper-begrepp,1;2,
+andragradsekvation-begrepp,concept,Andragradsfunktioner och andragradsekvationer,Andragradsekvation,"Andragradsekvation: en ekvation som kan skrivas ax² + bx + c = 0 med a ≠ 0. Den har två, en eller inga reella lösningar, precis som parabeln y = ax² + bx + c skär x-axeln i två, en eller ingen punkt.",andragradsfunktion-begrepp;parabelns-egenskaper-begrepp,,
+nollproduktmetoden-begrepp,concept,Andragradsfunktioner och andragradsekvationer,Nollproduktmetoden,"Nollproduktmetoden: en produkt är noll precis när minst en av faktorerna är noll, så (x − 2)(x + 3) = 0 ger x = 2 eller x = −3.",,,
+losa-ofullstandig-andragrad,skill,Andragradsfunktioner och andragradsekvationer,Lösa ofullständiga andragradsekvationer,"lösa andragradsekvationer utan x-term, som 3x² = 75, genom att dra roten med båda tecknen, och utan konstantterm, som x² − 5x = 0, genom att bryta ut x",andragradsekvation-begrepp;losa-potensekvation;nollproduktmetoden-begrepp,1,
+losa-faktoriserad-andragrad,skill,Andragradsfunktioner och andragradsekvationer,Lösa en andragradsekvation genom faktorisering,"lösa en andragradsekvation med nollproduktmetoden, också när uttrycket först måste faktoriseras med kvadreringsreglerna eller konjugatregeln",nollproduktmetoden-begrepp;andragradsekvation-begrepp;faktorisera-med-reglerna,1,
+losa-andragrad-pq,skill,Andragradsfunktioner och andragradsekvationer,Lösa en andragradsekvation med pq-formeln,"skriva om en andragradsekvation på formen x² + px + q = 0 och lösa den med pq-formeln, och avgöra av uttrycket under rottecknet hur många lösningar den har",andragradsekvation-begrepp;rot-potens-begrepp,1;2,
+losa-andragrad-grafiskt-digitalt,skill,Andragradsfunktioner och andragradsekvationer,Lösa en andragradsekvation grafiskt och digitalt,"lösa en andragradsekvation genom att läsa av nollställen eller skärningspunkter i en graf och med ett digitalt verktyg, och jämföra med en algebraisk lösning",lasa-av-parabel;andragradsekvation-begrepp,2,"Skärmen syns inte i chatten. Låt hen beskriva vilka kommandon hen använder och vad verktyget visar, och lägg tyngden på att ställa upp och tolka."
+bestamma-extrempunkt,skill,Andragradsfunktioner och andragradsekvationer,Bestämma symmetrilinje och extrempunkt algebraiskt,"räkna ut symmetrilinjen som mitten mellan nollställena, eller som x = −p/2 när nollställen saknas, och sedan extrempunktens koordinater med funktionsuttrycket",parabelns-egenskaper-begrepp;losa-andragrad-pq,1;2,
+valja-metod-andragrad,skill,Andragradsfunktioner och andragradsekvationer,Välja metod för en andragradsekvation,"avgöra vilken metod som passar en given andragradsekvation, roten, nollproduktmetoden, pq-formeln eller ett digitalt verktyg, och lösa den",losa-ofullstandig-andragrad;losa-faktoriserad-andragrad;losa-andragrad-pq;losa-andragrad-grafiskt-digitalt,1;2,
+andragradsmodell,skill,Andragradsfunktioner och andragradsekvationer,Lösa ett problem med en andragradsfunktion,"använda en andragradsfunktion som modell, till exempel för en kastbana, en area eller en vinst, och bestämma största eller minsta värde och när modellen blir noll",bestamma-extrempunkt;valja-metod-andragrad,1;2,
+lagesmatt-begrepp,concept,Statistik,Lägesmått,"Medelvärde: summan av alla värden delad med antalet värden.
+Median: det mittersta värdet när värdena är ordnade efter storlek.
+Typvärde: det värde som förekommer flest gånger.",,,
+berakna-lagesmatt,skill,Statistik,Beräkna och välja lägesmått,"räkna ut medelvärde, median och typvärde för ett datamaterial, och avgöra vilket mått som bäst beskriver materialet, till exempel när det finns extremvärden",lagesmatt-begrepp,1;2,
+spridningsmatt-begrepp,concept,Statistik,"Variationsbredd, kvartiler och percentiler","Variationsbredd: skillnaden mellan det största och det minsta värdet.
+Percentil: det värde som en viss andel av materialet ligger under, så att 90 % av värdena ligger under den 90:e percentilen.
+Kvartiler: den 25:e, 50:e och 75:e percentilen. Kvartilavståndet är skillnaden mellan den övre och den undre kvartilen.",lagesmatt-begrepp,,
+berakna-percentiler,skill,Statistik,Bestämma kvartiler och percentiler,"bestämma variationsbredd, kvartiler, kvartilavstånd och percentiler för ett datamaterial, för hand för ett litet material och digitalt för ett stort, och tolka dem, till exempel i en tillväxtkurva eller i lönestatistik",spridningsmatt-begrepp,1;2,
+standardavvikelse-begrepp,concept,Statistik,Standardavvikelse,"Standardavvikelse: ett mått på hur mycket värdena i ett material typiskt avviker från medelvärdet. Ju större standardavvikelse, desto mer utspritt är materialet.",lagesmatt-begrepp,,
+berakna-standardavvikelse-digitalt,skill,Statistik,Beräkna standardavvikelse digitalt,"räkna ut medelvärde och standardavvikelse för ett datamaterial med räknare eller kalkylprogram, och jämföra spridningen i två material",standardavvikelse-begrepp,2,"Kalkylbladet syns inte i chatten. Låt hen skriva formlerna som text, cell för cell (t.ex. =B2*C2), och resonera om vad de räknar ut."
+normalfordelning-begrepp,concept,Statistik,Normalfördelning,"Normalfördelning: en fördelning där värdena samlas symmetriskt kring medelvärdet och blir allt färre ju längre från det man kommer, så att diagrammet får formen av en klocka. Medelvärde, median och typvärde sammanfaller.",standardavvikelse-begrepp,,
+normalfordelning-andelar-fakta,fact,Statistik,Andelar i en normalfördelning,"inom en standardavvikelse från medelvärdet: ungefär 68 %
+inom två standardavvikelser från medelvärdet: ungefär 95 %
+inom tre standardavvikelser från medelvärdet: ungefär 99,7 %
+mellan medelvärdet och en standardavvikelse över: ungefär 34 %
+mellan en och två standardavvikelser över medelvärdet: ungefär 13,5 %
+mellan två och tre standardavvikelser över medelvärdet: ungefär 2,35 %
+mer än tre standardavvikelser över medelvärdet: ungefär 0,15 %",normalfordelning-begrepp,,
+berakna-normalfordelning,skill,Statistik,Göra enklare beräkningar på normalfördelat material,"använda medelvärde, standardavvikelse och andelarna i en normalfördelning för att räkna ut hur stor andel, eller hur många, som ligger inom eller utanför ett intervall",normalfordelning-begrepp;normalfordelning-andelar-fakta,1;2,
+bedoma-normalfordelning,skill,Statistik,Bedöma om ett material är normalfördelat,"bedöma ur ett histogram eller ur läges- och spridningsmåtten om ett datamaterial rimligen är normalfördelat, och vad det betyder för vilka beräkningar som går att göra",normalfordelning-begrepp;berakna-lagesmatt,2,
+jamfora-datamaterial,skill,Statistik,Jämföra två datamaterial,"jämföra två datamaterial med lämpliga läges- och spridningsmått, digitalt när materialet är stort, och dra en slutsats som tar hänsyn till både läge och spridning",berakna-lagesmatt;berakna-percentiler;berakna-standardavvikelse-digitalt,2,
+motivera-pythagoras,skill,Pythagoras sats i koordinatsystem,Motivera Pythagoras sats,"visa varför Pythagoras sats gäller med ett geometriskt bevis, till exempel genom att lägga fyra likadana rätvinkliga trianglar i en kvadrat och räkna ut kvadratens area på två sätt",kvadreringsregler-begrepp,1,
+avstand-i-koordinatsystem,skill,Pythagoras sats i koordinatsystem,Beräkna avståndet mellan två punkter,"räkna ut avståndet mellan två punkter i ett koordinatsystem med Pythagoras sats, med skillnaderna i x och i y som kateter",,1;2,
+pythagoras-koordinat-problem,skill,Pythagoras sats i koordinatsystem,Lösa problem med avstånd i koordinatsystem,"använda avstånd i ett koordinatsystem för att lösa ett problem, till exempel avgöra om en triangel är rätvinklig, räkna ut en omkrets eller avgöra vilken plats som ligger närmast",avstand-i-koordinatsystem,1;2,
+valja-modell,skill,Problemlösning och modeller,Välja funktionstyp för en modell,"avgöra om en linjär funktion, en potensfunktion, en exponentialfunktion eller en andragradsfunktion passar en situation eller en tabell med mätvärden, och motivera valet med hur förändringen ser ut",bestamma-linjar-modell;skilja-potens-exponentialfunktion;andragradsfunktion-begrepp,2,
+tillampa-modell,skill,Problemlösning och modeller,Formulera och använda en modell i en realistisk situation,"ställa upp en modell för en realistisk situation från arbets- eller samhällslivet, använda den för att svara på en fråga, med digitala verktyg där det effektiviserar, och redovisa vad modellen bygger på",valja-modell;losa-exponentialekvation-digitalt;potensekvation-tillampning;andragradsmodell,2,
+utvardera-modell,skill,Problemlösning och modeller,Utvärdera en modells egenskaper och begränsningar,"bedöma inom vilket intervall en modell är rimlig, vad den bortser från, och hur mycket svaret ändras om antagandena ändras",tillampa-modell,2,
+granska-pastaende-statistik,skill,Problemlösning och modeller,Granska ett påstående med statistik,"granska ett påstående i en nyhet eller i samhällsdebatten med läges- och spridningsmått eller normalfördelning, till exempel vad ett medelvärde döljer, och avgöra om underlaget stöder slutsatsen",jamfora-datamaterial;bedoma-normalfordelning,2,Hitta på påståendet och siffrorna själv och säg att de är påhittade.
+losa-hallbar-utveckling-problem,skill,Problemlösning och modeller,Lösa ett problem om hållbar utveckling,"formulera och lösa ett problem om hållbar utveckling med en av kursens modeller, till exempel när två alternativ har kostat lika mycket eller hur en förbrukning utvecklas över tid, och värdera vad svaret säger och inte säger",tillampa-modell;stalla-upp-ekvationssystem,2,
+losa-yrkesproblem,skill,Problemlösning och modeller,Lösa ett problem från det egna yrkesområdet,"lösa ett problem från det egna yrkesområdet med kursens metoder och med yrkets egna hjälpmedel, som tabeller och manualer, till exempel en blandning med ett ekvationssystem, ett största värde med en andragradsfunktion eller en kvalitetskontroll med normalfördelning, och redovisa så att en kollega kan följa lösningen",stalla-upp-ekvationssystem;andragradsmodell;berakna-normalfordelning,2,"Fråga vilket program eller yrke hen går mot, och hämta situationen därifrån."
+beskriva-matematikens-historia,skill,Problemlösning och modeller,Beskriva ett exempel ur matematikens historia,"berätta om ett exempel ur matematikens historia, till exempel hur andragradsekvationer löstes geometriskt långt innan dagens formler fanns, och vilket problem metoden löste",,,"Var försiktig med årtal och namn du inte är säker på. Lägg tyngden på idén och problemet den löste, inte på detaljer att rabbla."
