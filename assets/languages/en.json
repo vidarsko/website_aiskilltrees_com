@@ -42,6 +42,7 @@
     "errorResourceEmpty": "Row {row} of tree.csv: the resource has neither a title (name) nor a link (description).",
     "errorResourceNoNode": "Row {row} of tree.csv: the resource “{label}” belongs to no node. Put one or more node ids in depends_on, or delete the row.",
     "errorResourceDuplicate": "Row {row} of tree.csv: the resource “{label}” is the same as on row {first}. Make it one row, with all the nodes in depends_on.",
+    "errorResourceUrl": "Row {row} of tree.csv: the link of the resource “{label}” must start with https:// or mailto:. It is therefore shown as plain text, without a link.",
     "errorCycle": "These nodes are prerequisites for each other, in a circle: {cycle}. One of those links has to go.",
     "errorUnknownConfig": "Unknown setting “{key}” on row {row} of tree.csv. Nothing was applied.",
     "errorUnknownNodeType": "The node “{id}” has the type “{type}”, which does not exist. The types are: {valid}.",
@@ -50,6 +51,7 @@
     "errorDidYouMean": "Did you mean “{key}”?",
     "errorMissingConfig": "tree.csv has no config row for “{key}”, which is required.",
     "errorStyleColor": "The setting “{key}” on row {row} of tree.csv must be a colour written as a hex code, like #1F6F4A. “{value}” is not one, so the default colour was kept.",
+    "errorLinkUrl": "The setting “{key}” on row {row} of tree.csv must be a link starting with https:// or mailto:. “{value}” is not one, so it is shown as plain text.",
     "errorStyleFont": "Unknown font “{value}” on row {row} of tree.csv. The fonts a tree can use: {valid}. The default font was kept.",
     "nodeType": {
       "skill": "skill",
@@ -117,6 +119,48 @@
           "heading": "“Why should I learn this?”",
           "body": "This button gives you an AI instruction for a short conversation about why the subject is worth learning at all. Paste it into an AI chat if you need a nudge in the right direction.",
           "when": "feature:motivation"
+        }
+      ]
+    },
+    "safety": {
+      "label": "Safety",
+      "heading": "Safety",
+      "lead": "A skill tree is made by a teacher, but anyone can make a file that looks like one. Read this before you use a tree someone has sent you.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "A skill tree never asks for personal details",
+          "body": "The tree has no login and needs nothing about you. It never asks for your name, a password, your school login, an ID number, your address, your phone number or which school you go to. Your progress is stored only in the browser on this device. If a page that looks like a skill tree asks for any of this, it is not genuine. Close it, and tell your teacher."
+        },
+        {
+          "id": "sender",
+          "heading": "Who sent you the tree?",
+          "body": "The most important question is where the tree came from. A tree on aiskilltrees.com, or one your teacher has posted where you usually get your course material, you can trust as much as you trust your teacher. If you got a file by email, in a chat or on social media from someone you do not know, or it arrived unexpectedly, be sceptical, even if it looks right."
+        },
+        {
+          "id": "html",
+          "heading": "An HTML file is a web page, not a document",
+          "body": "When a tree is shared as an .html file, you are not getting a document like a PDF or a Word file. You are getting a whole web page with code that runs when you open it. The browser stops it from reading your files or installing anything on the computer, but it can show anything at all: a fake login page, a button that downloads something, or links on to other websites. Whoever made the file decides what it does. Looking like a skill tree does not make it one. Never log in or download anything from a page you opened from a file."
+        },
+        {
+          "id": "links",
+          "heading": "Check links before you click",
+          "body": "The resources in the tree can link to videos, exercises and textbooks. Hover over a link, or press and hold it, and see where it goes before you click. If you do not recognise the website, or the address looks odd, leave it."
+        },
+        {
+          "id": "injection",
+          "heading": "Instructions can be tampered with",
+          "body": "The AI instruction you copy is text written by whoever made the tree, and you paste it straight into an AI chat. Whoever makes a tree can write anything in it, including orders that make the chat behave differently from what you expect: give you wrong answers, send you to another website or ask about things that are none of its business. This is called prompt injection. You may want to skim the text before you paste it, and you should not trust the chat blindly."
+        },
+        {
+          "id": "chat",
+          "heading": "You decide what you tell the chat",
+          "body": "Some instructions ask the chat to get to know you, for example how you feel about the subject and what you are good at. You can answer as much or as little as you like. But no instruction needs your name, contact details or passwords. If the chat asks for anything like that, do not answer, and tell your teacher. Remember too that what you write in an AI chat is stored by the company that runs the chat. Your school often has access to an AI service where your privacy is protected. Ask your teacher, and use it if you have one."
+        },
+        {
+          "id": "teachers",
+          "heading": "For teachers: a tree from a colleague",
+          "body": "If you received a tree from someone else, you can open it in the builder at aiskilltrees.com/make-your-own/ before you share it with your students, to be sure. The builder only takes the spreadsheet out of the file and makes a new, clean file from it, and there you can read every instruction the tree uses."
         }
       ]
     },

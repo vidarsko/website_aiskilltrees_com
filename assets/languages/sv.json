@@ -42,6 +42,7 @@
     "errorResourceEmpty": "Rad {row} i tree.csv: resursen har varken titel (name) eller länk (description).",
     "errorResourceNoNode": "Rad {row} i tree.csv: resursen »{label}« hör inte till någon nod. Skriv ett eller flera nod-id:n i depends_on, eller ta bort raden.",
     "errorResourceDuplicate": "Rad {row} i tree.csv: resursen »{label}« är densamma som på rad {first}. Gör dem till en rad, med alla noderna i depends_on.",
+    "errorResourceUrl": "Rad {row} i tree.csv: länken till resursen »{label}« måste börja med https:// eller mailto:. Den visas därför som vanlig text, utan länk.",
     "errorCycle": "De här noderna är förkunskaper för varandra, i en ring: {cycle}. En av länkarna måste bort.",
     "errorUnknownConfig": "Okänd inställning »{key}« på rad {row} i tree.csv. Ingenting tillämpades.",
     "errorUnknownNodeType": "Noden »{id}« har typen »{type}«, som inte finns. Typerna är: {valid}.",
@@ -50,6 +51,7 @@
     "errorDidYouMean": "Menade du »{key}«?",
     "errorMissingConfig": "tree.csv saknar en config-rad för »{key}«, som krävs.",
     "errorStyleColor": "Inställningen »{key}« på rad {row} i tree.csv måste vara en färg skriven som en hexkod, som #1F6F4A. »{value}« är inte det, så standardfärgen behölls.",
+    "errorLinkUrl": "Inställningen »{key}« på rad {row} i tree.csv måste vara en länk som börjar med https:// eller mailto:. »{value}« är inte det, så den visas som vanlig text.",
     "errorStyleFont": "Okänt typsnitt »{value}« på rad {row} i tree.csv. Typsnitten ett träd kan använda: {valid}. Standardtypsnittet behölls.",
     "nodeType": {
       "skill": "färdighet",
@@ -117,6 +119,48 @@
           "heading": "«Varför ska jag lära mig det här?»",
           "body": "När du trycker på den här knappen får du en AI-instruktion för ett kort samtal om varför det är värt att lära sig ämnet överhuvudtaget. Klistra in den i en AI-chatt om du behöver en knuff i rätt riktning.",
           "when": "feature:motivation"
+        }
+      ]
+    },
+    "safety": {
+      "label": "Säkerhet",
+      "heading": "Säkerhet",
+      "lead": "Ett färdighetsträd är gjort av en lärare, men vem som helst kan göra en fil som ser ut som ett. Läs det här innan du använder ett träd som du har fått skickat till dig.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Ett färdighetsträd ber aldrig om personuppgifter",
+          "body": "Trädet har ingen inloggning och behöver ingenting om dig. Det ber aldrig om namn, lösenord, skolinloggning, personnummer, adress, telefonnummer eller vilken skola du går på. Dina framsteg sparas bara i webbläsaren på den här enheten. Om en sida som liknar ett färdighetsträd ber om något av detta är den inte äkta. Stäng den och säg till din lärare."
+        },
+        {
+          "id": "sender",
+          "heading": "Vem skickade trädet till dig?",
+          "body": "Den viktigaste frågan är var trädet kommer ifrån. Ett träd på aiskilltrees.com, eller ett träd som din lärare har lagt upp där ni brukar få kursmaterial, kan du lita på lika mycket som du litar på läraren. Har du fått en fil via e-post, i en chatt eller i sociala medier från någon du inte känner, eller kom den oväntat, bör du vara skeptisk, även om den ser rätt ut."
+        },
+        {
+          "id": "html",
+          "heading": "En HTML-fil är en webbsida, inte ett dokument",
+          "body": "När ett träd delas som en .html-fil får du inte ett dokument som en PDF eller en Word-fil. Du får en hel webbsida med kod som körs när du öppnar den. Webbläsaren hindrar den från att läsa dina filer eller installera något på datorn, men den kan visa vad som helst: en falsk inloggningssida, en knapp som laddar ner något eller länkar vidare till andra webbplatser. Den som gjorde filen bestämmer vad den gör. Att den ser ut som ett färdighetsträd betyder inte att den är det. Logga aldrig in och ladda aldrig ner något från en sida du har öppnat från en fil."
+        },
+        {
+          "id": "links",
+          "heading": "Kontrollera länkarna innan du klickar",
+          "body": "Resurserna i trädet kan länka till videor, uppgifter och läroböcker. Håll muspekaren över en länk, eller håll fingret på den, och se vart den går innan du klickar. Känner du inte igen webbplatsen, eller ser adressen konstig ut, så låt bli."
+        },
+        {
+          "id": "injection",
+          "heading": "Instruktionerna kan vara manipulerade",
+          "body": "AI-instruktionen du kopierar är text skriven av den som gjorde trädet, och du klistrar in den direkt i en AI-chatt. Den som gör ett träd kan skriva vad som helst i den, också order som får chatten att bete sig annorlunda än du tror: ge dig fel svar, skicka dig till en annan webbplats eller fråga om saker den inte har med att göra. Det kallas promptinjektion. Du kan gärna skumma igenom texten innan du klistrar in den, och du bör inte lita blint på det chatten säger."
+        },
+        {
+          "id": "chat",
+          "heading": "Du bestämmer vad du berättar för chatten",
+          "body": "Vissa instruktioner ber chatten att lära känna dig, till exempel vad du tycker om ämnet och vad du är bra på. Det kan du svara på så mycket eller lite du vill. Men ingen instruktion behöver ditt namn, dina kontaktuppgifter eller lösenord. Ber chatten om sådant, svara inte, och säg till din lärare. Kom också ihåg att det du skriver i en AI-chatt sparas hos företaget som driver chatten. Din skola har ofta tillgång till en AI-tjänst där din integritet är skyddad. Fråga din lärare, och använd den om ni har en."
+        },
+        {
+          "id": "teachers",
+          "heading": "För lärare: ett träd från en kollega",
+          "body": "Har du fått ett träd från någon annan kan du öppna det i byggaren på aiskilltrees.com/make-your-own/ innan du delar det med eleverna, för att vara säker. Byggaren tar bara ut kalkylarket ur filen och gör en ny, ren fil av det, och där kan du läsa varje instruktion som trädet använder."
         }
       ]
     },

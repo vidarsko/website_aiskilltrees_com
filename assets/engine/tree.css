@@ -335,6 +335,31 @@ header {
   border-bottom-color: var(--accent);
 }
 
+/* «⚠ Sikkerhet» sist i linja. Rød, fordi den skal ses før man tar treet i
+   bruk; en knapp og ikke en lenke, fordi den åpner et vindu på sida. */
+.made-with__safety {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  color: var(--danger-text);
+  cursor: pointer;
+}
+.made-with__safety:hover,
+.made-with__safety:focus-visible {
+  border-bottom-color: var(--danger-text);
+}
+.warning-icon {
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.2em;
+}
+
 main {
   flex: 1;
   display: flex;
@@ -948,9 +973,10 @@ main {
   #resources-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
 }
 
-/* «Hvordan bruker jeg denne siden?»-vindu */
+/* «Hvordan bruker jeg denne siden?» og «Sikkerhet». Samme vindu med ulik
+   tekst, bygget av ensureTextModal() i engine.js. */
 
-#help-overlay {
+.text-overlay {
   display: none;
   position: fixed;
   inset: 0;
@@ -1043,9 +1069,9 @@ main {
   .course-info__facts dd { margin-bottom: 0.6rem; }
 }
 
-#help-overlay.open { display: flex; }
+.text-overlay.open { display: flex; }
 
-#help-modal {
+.text-modal {
   width: 100%;
   max-width: 620px;
   max-height: 86vh;
@@ -1057,7 +1083,7 @@ main {
   box-shadow: var(--shadow-modal);
 }
 
-#help-header {
+.text-modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1066,17 +1092,17 @@ main {
   border-bottom: 1px solid var(--border);
 }
 
-#help-header h2 {
+.text-modal-header h2 {
   font-size: 1.3rem;
   font-weight: 700;
 }
 
-#help-body {
+.text-modal-body {
   overflow-y: auto;
   padding: 1.2rem 1.6rem 1.8rem;
 }
 
-#help-body h3 {
+.text-modal-body h3 {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1085,19 +1111,26 @@ main {
   margin-bottom: 0.4rem;
 }
 
-#help-body h3:not(:first-child) {
+.text-modal-body h3:not(:first-child) {
   margin-top: 1.2rem;
 }
 
-#help-body p {
+.text-modal-body p {
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--text-muted);
 }
 
+/* Innledningen i sikkerhetsvinduet: den ene setningen alle skal få med seg,
+   så den står i vanlig tekstfarge og ikke dempet som resten. */
+.text-modal-body p.text-modal-lead {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
 @media (max-width: 720px) {
-  #help-overlay { padding: 0; }
-  #help-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+  .text-overlay { padding: 0; }
+  .text-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
 }
 
 #edges {

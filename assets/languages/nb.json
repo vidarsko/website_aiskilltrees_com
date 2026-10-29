@@ -42,6 +42,7 @@
     "errorResourceEmpty": "Rad {row} i tree.csv: ressursen har verken tittel (name) eller lenke (description).",
     "errorResourceNoNode": "Rad {row} i tree.csv: ressursen «{label}» hører ikke til noen node. Skriv én eller flere node-id-er i depends_on, eller slett raden.",
     "errorResourceDuplicate": "Rad {row} i tree.csv: ressursen «{label}» er den samme som på rad {first}. Gjør dem til én rad, med alle nodene i depends_on.",
+    "errorResourceUrl": "Rad {row} i tree.csv: lenka til ressursen «{label}» må begynne med https:// eller mailto:. Den vises derfor som vanlig tekst, uten lenke.",
     "errorCycle": "Disse nodene er forutsetninger for hverandre, i ring: {cycle}. En av koblingene må bort.",
     "errorUnknownConfig": "Ukjent innstilling «{key}» på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
     "errorUnknownNodeType": "Noden «{id}» har typen «{type}», som ikke finnes. Typene er: {valid}.",
@@ -50,6 +51,7 @@
     "errorDidYouMean": "Mente du «{key}»?",
     "errorMissingConfig": "tree.csv mangler en config-rad for «{key}», som er påkrevd.",
     "errorStyleColor": "Innstillingen «{key}» på rad {row} i tree.csv må være en farge skrevet som en hex-kode, som #1F6F4A. «{value}» er ikke det, så standardfargen ble beholdt.",
+    "errorLinkUrl": "Innstillingen «{key}» på rad {row} i tree.csv må være en lenke som begynner med https:// eller mailto:. «{value}» er ikke det, så den vises som vanlig tekst.",
     "errorStyleFont": "Ukjent skrift «{value}» på rad {row} i tree.csv. Skriftene et tre kan bruke: {valid}. Standardskrifta ble beholdt.",
     "nodeType": {
       "skill": "ferdighet",
@@ -117,6 +119,48 @@
           "heading": "«Hvorfor skal jeg lære dette?»",
           "body": "Når du trykker på denne knappen, får du en KI-instruks for en kort samtale om hvorfor det er verdt å lære faget i det hele tatt. Lim den inn i en KI-chat hvis du trenger et dytt i riktig retning.",
           "when": "feature:motivation"
+        }
+      ]
+    },
+    "safety": {
+      "label": "Sikkerhet",
+      "heading": "Sikkerhet",
+      "lead": "Et ferdighetstre er laget av en lærer, men hvem som helst kan lage en fil som ser ut som et. Les dette før du bruker et tre du har fått tilsendt.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Et ferdighetstre ber aldri om personopplysninger",
+          "body": "Treet har ingen innlogging og trenger ingenting om deg. Det ber aldri om navn, passord, Feide-innlogging, fødselsnummer, adresse, telefonnummer eller hvilken skole du går på. Fremgangen din lagres bare i nettleseren på denne maskinen. Ber en side som ligner et ferdighetstre om noe av dette, er den ikke ekte. Lukk den, og si fra til læreren din."
+        },
+        {
+          "id": "sender",
+          "heading": "Hvem har sendt deg treet?",
+          "body": "Det viktigste spørsmålet er hvem treet kommer fra. Et tre på aiskilltrees.com, eller et tre læreren din har lagt ut der dere vanligvis får undervisningsmateriell, kan du stole på like mye som du stoler på læreren. Har du fått en fil på e-post, i en chat eller i sosiale medier fra noen du ikke kjenner, eller kom den uventet, bør du være skeptisk, selv om den ser riktig ut."
+        },
+        {
+          "id": "html",
+          "heading": "En HTML-fil er en nettside, ikke et dokument",
+          "body": "Når et tre deles som en .html-fil, får du ikke et dokument som en PDF eller et Word-dokument. Du får en hel nettside med kode som kjører når du åpner den. Nettleseren hindrer den i å lese filene dine eller installere noe på maskinen, men den kan vise hva som helst: en falsk innloggingsside, en knapp som laster ned noe, eller lenker videre til andre nettsteder. Den som laget fila, bestemmer hva den gjør. At den ser ut som et ferdighetstre, betyr ikke at den er det. Logg aldri inn og last aldri ned noe fra en side du har åpnet fra en fil."
+        },
+        {
+          "id": "links",
+          "heading": "Sjekk lenkene før du klikker",
+          "body": "Ressursene i treet kan lenke til videoer, oppgaver og lærebøker. Hold musepekeren over en lenke, eller hold fingeren på den, og se hvor den går før du klikker. Kjenner du ikke igjen nettstedet, eller ser adressen rar ut, så la være."
+        },
+        {
+          "id": "injection",
+          "heading": "Instruksene kan være tuklet med",
+          "body": "KI-instruksen du kopierer, er tekst skrevet av den som laget treet, og du limer den rett inn i en KI-chat. Den som lager et tre, kan skrive hva som helst i den, også ordre som får chatten til å oppføre seg annerledes enn du tror: gi deg feil svar, sende deg til en annen nettside eller spørre om ting den ikke har noe med. Det kalles instruksinjeksjon. Du kan gjerne skumme gjennom teksten før du limer den inn, og du bør ikke stole blindt på det chatten sier."
+        },
+        {
+          "id": "chat",
+          "heading": "Du bestemmer hva du forteller chatten",
+          "body": "Noen instrukser ber chatten bli kjent med deg, for eksempel hva du synes om faget og hva du er god til. Det kan du svare på så mye eller lite du vil. Men ingen instruks trenger navnet ditt, kontaktinformasjon eller passord. Ber chatten om slikt, så ikke svar, og si fra til læreren din. Husk også at det du skriver i en KI-chat, lagres hos selskapet som eier chatten. Skolen din har ofte tilgang til en KI-tjeneste der personvernet er ivaretatt. Spør læreren din, og bruk den hvis dere har en."
+        },
+        {
+          "id": "teachers",
+          "heading": "For lærere: et tre fra en kollega",
+          "body": "Har du fått et tre fra noen andre, kan du åpne det i byggeren på aiskilltrees.com/make-your-own/ før du deler det med elevene, for å være sikker. Byggeren henter bare regnearket ut av fila og lager en ny, ren fil av det, og der kan du lese hver instruks treet bruker."
         }
       ]
     },

@@ -489,6 +489,17 @@ function treeSlug() {
   return (i !== -1 && parts[i + 1]) ? parts[i + 1] : (parts[parts.length - 1] || 'unknown');
 }
 
+/* Lenker fra regnearket blir klikkbare bare når de går til en nettside
+   (http/https) eller er en e-postadresse. Alt annet — `javascript:`,
+   `data:`, `file:` — er kode eller lokale filer framfor en adresse, og den
+   som lager treet bestemmer hva som står der. Et tre er noe man sender
+   rundt, så teksten i fila kan ikke stoles på. Returnerer '' for en lenke
+   som ikke slipper gjennom. */
+function safeLinkUrl(url) {
+  const u = (url || '').trim();
+  return /^(https?:\/\/|mailto:)/i.test(u) ? u : '';
+}
+
 function trackCopy(kind, extra) {
   if (!window.aistTrack) return;
   const params = { tree_slug: treeSlug(), instruction_kind: kind };
@@ -1071,6 +1082,15 @@ function applyPageChrome() {
     link.rel = 'noopener';
     madeWith.appendChild(document.createTextNode(' '));
     madeWith.appendChild(link);
+
+    const safety = document.createElement('button');
+    safety.type = 'button';
+    safety.className = 'made-with__safety';
+    safety.appendChild(warningIcon());
+    safety.appendChild(document.createTextNode(t('safety.label')));
+    safety.addEventListener('click', openSafetyModal);
+    madeWith.appendChild(document.createTextNode('. '));
+    madeWith.appendChild(safety);
   }
 
   const desc = document.querySelector('meta[name="description"]');
@@ -1741,9 +1761,9 @@ function renderCourseInfoBody(body) {
       const dt = document.createElement('dt');
       dt.textContent = t(key);
       const dd = document.createElement('dd');
-      if (key === 'courseInfo.author' && m.authorUrl) {
+      if (key === 'courseInfo.author' && safeLinkUrl(m.authorUrl)) {
         const a = document.createElement('a');
-        a.href = m.authorUrl;
+        a.href = safeLinkUrl(m.authorUrl);
         a.textContent = value;
         a.rel = 'noopener';
         dd.appendChild(a);
@@ -1759,9 +1779,9 @@ function renderCourseInfoBody(body) {
       basedOn.forEach(entry => {
         const line = document.createElement('div');
         const text = [entry.title, entry.author].filter(Boolean).join(' — ');
-        if (entry.url && /^https?:\/\//i.test(entry.url)) {
+        if (safeLinkUrl(entry.url)) {
           const a = document.createElement('a');
-          a.href = entry.url;
+          a.href = safeLinkUrl(entry.url);
           a.textContent = text;
           a.rel = 'noopener';
           line.appendChild(a);
@@ -1808,45 +1828,51 @@ function closeCourseInfoModal() {
 }
 
 // Modalen bygges lat, én gang, og gjenbrukes ved senere åpninger - samme
-// mønster som ensureGoalIndexModal under.
-function ensureHelpModal() {
-  let overlay = document.getElementById('help-overlay');
+// mønster som ensureGoalIndexModal under. Hjelpevinduet og sikkerhetsvinduet
+// er det samme vinduet med ulik tekst, så de deler bygget og id-mønsteret
+// (`help-overlay`, `safety-overlay` …), og tree.css styler dem likt.
+function ensureTextModal(prefix, heading, render) {
+  let overlay = document.getElementById(prefix + '-overlay');
   if (overlay) return overlay;
 
+  const close = () => overlay.classList.remove('open');
+
   overlay = document.createElement('div');
-  overlay.id = 'help-overlay';
+  overlay.id = prefix + '-overlay';
+  overlay.className = 'text-overlay';
   overlay.addEventListener('click', e => {
-    if (e.target === overlay) closeHelpModal();
+    if (e.target === overlay) close();
   });
 
   const modal = document.createElement('div');
-  modal.id = 'help-modal';
+  modal.id = prefix + '-modal';
+  modal.className = 'text-modal';
 
   const header = document.createElement('div');
-  header.id = 'help-header';
+  header.className = 'text-modal-header';
 
   const h2 = document.createElement('h2');
-  h2.textContent = t('help.heading');
+  h2.textContent = heading;
   header.appendChild(h2);
 
   const closeBtn = document.createElement('button');
   closeBtn.className = 'btn secondary';
   closeBtn.textContent = t('close');
-  closeBtn.addEventListener('click', closeHelpModal);
+  closeBtn.addEventListener('click', close);
   header.appendChild(closeBtn);
 
   modal.appendChild(header);
 
   const body = document.createElement('div');
-  body.id = 'help-body';
-  renderHelpBody(body);
+  body.className = 'text-modal-body';
+  render(body);
   modal.appendChild(body);
 
   overlay.appendChild(modal);
   document.body.appendChild(overlay);
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeHelpModal();
+    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
   });
 
   return overlay;
@@ -1871,13 +1897,41 @@ function renderHelpBody(body) {
 }
 
 function openHelpModal() {
-  const overlay = ensureHelpModal();
-  overlay.classList.add('open');
+  ensureTextModal('help', t('help.heading'), renderHelpBody).classList.add('open');
 }
 
-function closeHelpModal() {
-  const overlay = document.getElementById('help-overlay');
-  if (overlay) overlay.classList.remove('open');
+/* Sikkerhet. Et tre er noe som sendes rundt, ofte som en .html-fil, og den
+   som tar imot det kan ikke se hvem som laget fila. Vinduet sier hva et
+   ekte tre aldri gjør og hva man skal se etter, slik at en falsk fil som
+   ber om innlogging skiller seg ut. Lenken står i topplinja, ikke i
+   menyen: den skal ses før man har begynt å bruke treet. Teksten står i
+   språkfila (ui.safety). */
+function renderSafetyBody(body) {
+  body.innerHTML = '';
+  const lead = document.createElement('p');
+  lead.className = 'text-modal-lead';
+  lead.textContent = t('safety.lead');
+  body.appendChild(lead);
+  (LANG.ui.safety.sections || []).forEach(sec => helpSection(body, sec.heading, sec.body));
+}
+
+function openSafetyModal() {
+  ensureTextModal('safety', t('safety.heading'), renderSafetyBody).classList.add('open');
+}
+
+/* Varseltrekant som SVG framfor tegnet ⚠: tegnet blir en farget emoji på
+   mange maskiner og tar ikke fargen fra teksten. */
+function warningIcon() {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('class', 'warning-icon');
+  const path = document.createElementNS(ns, 'path');
+  path.setAttribute('d', 'M12 2.5 1 21.5h22L12 2.5Zm-1 7h2v6h-2v-6Zm0 8h2v2h-2v-2Z');
+  path.setAttribute('fill', 'currentColor');
+  svg.appendChild(path);
+  return svg;
 }
 
 function composeGoalIndexText() {
@@ -3219,7 +3273,9 @@ function buildResourceIndex(rows) {
       pushError('errorResourceEmpty', { row: row.row });
       return;
     }
-    const res = { group: row.group, label: row.label || row.url, url: row.url, nodes: row.nodes, row: row.row };
+    const url = safeLinkUrl(row.url);
+    if (row.url && !url) pushError('errorResourceUrl', { row: row.row, label: row.label || row.url });
+    const res = { group: row.group, label: row.label || row.url, url: url, nodes: row.nodes, row: row.row };
     allResources.push(res);
     row.nodes.forEach(nodeId => {
       if (!resourcesByNode.has(nodeId)) resourcesByNode.set(nodeId, []);
@@ -3233,6 +3289,16 @@ function buildResourceIndex(rows) {
 /* ------------------------------------------------------------------ */
 
 function validateReferences() {
+  /* Lenkene i innstillingene. De vises som ren tekst når de ikke slipper
+     gjennom safeLinkUrl(), men det skal ikke skje i stillhet. */
+  const links = [['authorUrl', CONFIG.authorUrl]];
+  (CONFIG.basedOn || []).forEach(entry => links.push(['basedOn.' + entry.n + '.url', entry.url]));
+  links.forEach(([key, value]) => {
+    if (value && !safeLinkUrl(value)) {
+      pushError('errorLinkUrl', { key: key, value: value, row: CONFIG_ROW_AT[key] || '?' });
+    }
+  });
+
   allNodes.forEach(node => {
     /* En ukjent type ville ellers blitt tegnet som et begrep og fått
        ferdighetsseksjonene i instruksen - stillhet, igjen. */
