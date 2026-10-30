@@ -27,79 +27,226 @@ id,type,topic,name,description,depends_on,aids,instruction,stage
 ,config,,curriculum,LK20,,,,
 ,config,,country,NO,,,,
 ,config,,updated,2026-10-30,,,,
-,config,,cellSummary.1.Addisjon og subtraksjon,"Del–del–helhet, likhetstegnet som «samme verdi», dele opp tall til 10 og små regnefortellinger.",,,,
-,config,,cellSummary.1.Algebra,"Gjentakende mønstre med farger og former: finne delen som gjentar seg, og fortsette mønsteret.",,,,
-,config,,cellSummary.1.Algoritmer og programmering,"Følge og gi trinnvise instrukser i lek, som «to skritt fram, snu mot høyre».",,,,
-,config,,cellSummary.1.Brøk,"Halvdel: to like store deler. Er delene ulike store, er de ikke halvdeler.",,,,
-,config,,cellSummary.1.Geometri,"Navngi sirkel, trekant, kvadrat og rektangel, og bruke ord som over, under og mellom.",,,,
-,config,,cellSummary.1.Multiplikasjon og divisjon,"Dele en liten mengde likt mellom to eller tre, og se om noe blir igjen.",,,,
-,config,,cellSummary.1.Måling,"Lengst og tyngst ved direkte sammenligning, dagene i uka og myntene opp til 20 kroner.",,,,
-,config,,cellSummary.1.Statistikk og sannsynlighet,"Sortere ting i grupper etter farge, form eller størrelse, og så sortere på nytt.",,,,
-,config,,cellSummary.1.Tall og plassverdi,"Antall, se små mengder uten å telle, tierrammen, telle til 20 og tallinja til 10.",,,,
-,config,,cellSummary.1.Tallfakta,"Tallvennene til 5 og 10 og doblinger til 10, hentet fra hukommelsen uten å telle.",,,,
-,config,,cellSummary.2.Addisjon og subtraksjon,"Strekmodellen, regnestykkefamilien, fylle tieren, og tosifret hoderegning der bare det andre tallet deles opp.",,,,
-,config,,cellSummary.2.Algebra,"Lage egne gjentakende mønstre, og fortsette tallmønstre som 2, 4, 6 og 50, 45, 40.",,,,
-,config,,cellSummary.2.Algoritmer og programmering,"Lage en trinnvis instruks for en vei gjennom et rutenett, teste den og rette feil.",,,,
-,config,,cellSummary.2.Brøk,"Halvparten og en fjerdedel av en figur, en lengde og en liten mengde.",,,,
-,config,,cellSummary.2.Geometri,"Sider og hjørner, sortere figurer, og navngi kule, kube, sylinder, kjegle og pyramide.",,,,
-,config,,cellSummary.2.Multiplikasjon og divisjon,Like store grupper: finne hvor mange det er til sammen ved å telle i hopp.,,,,
-,config,,cellSummary.2.Måling,"Måle i centimeter og meter, veie i kilogram, hel og halv time, kalenderen og betaling.",,,,
-,config,,cellSummary.2.Statistikk og sannsynlighet,"Tellestreker i bunter på fem, en enkel tabell, og søylediagram der hver rute er én.",,,,
-,config,,cellSummary.2.Tall og plassverdi,"Tiere og enere, tiere som enheter, telling i hopp, partall og oddetall, tallinja til 100.",,,,
-,config,,cellSummary.2.Tallfakta,"Pluss og minus innenfor 10 uten å telle, og doblinger og halveringer til 18.",,,,
-,config,,cellSummary.3.Addisjon og subtraksjon,"Oppstilt addisjon og subtraksjon med veksling, flytte begge tallene like mye, og velge regnemåte.",,,,
-,config,,cellSummary.3.Algebra,"Ulikhetstegnene, sammenligne uttrykk uten å regne ut, og likevekt på skålvekt.",,,,
-,config,,cellSummary.3.Algoritmer og programmering,Gi og følge trinnvise instrukser som flytter en figur i et koordinatsystem.,,,,
-,config,,cellSummary.3.Brøk,"Brøk som like store deler av en helhet, teller og nevner, og enhetsbrøker.",,,,
-,config,,cellSummary.3.Geometri,"Koordinatsystemet med punkter, mangekanter etter antall sider, og rett vinkel.",,,,
-,config,,cellSummary.3.Multiplikasjon og divisjon,"Gangetegnet og rutenettet, deling som «hvor mange femmere er 15?», og dele opp en faktor.",,,,
-,config,,cellSummary.3.Måling,"Areal ved å telle ruter, omkrets, mm, cm, m og km, klokka og vekslepenger.",,,,
-,config,,cellSummary.3.Statistikk og sannsynlighet,"Søylediagram der aksen går i hopp, og egne spørsmål med svar samlet i tabell.",,,,
-,config,,cellSummary.3.Tall og plassverdi,"Hundrere og tresifrede tall, telling med 10 og 100, og tallinja til 1000.",,,,
-,config,,cellSummary.3.Tallfakta,"Over tieren uten å telle, hva som mangler til 100, og 2-, 5- og 10-gangen.",,,,
-,config,,cellSummary.4.Addisjon og subtraksjon,"Regne med et rundt tall og rette opp, overslag, og tekstoppgaver med to steg.",,,,
-,config,,cellSummary.4.Algebra,"Voksende mønstre, ganging før pluss, og regneuttrykk som passer til en hverdagssituasjon.",,,,
-,config,,cellSummary.4.Algoritmer og programmering,"Algoritmer med løkke, vilkår og variabel, for eksempel en robot som teller skrittene.",,,,
-,config,,cellSummary.4.Brøk,"Brøk på tallinja, enhetsbrøk av en mengde, og pluss og minus med samme nevner.",,,,
-,config,,cellSummary.4.Geometri,"Spisse og stumpe vinkler, parallelle linjer, firkantene, og flater, kanter og hjørner på romfigurer.",,,,
-,config,,cellSummary.4.Multiplikasjon og divisjon,"Målings- og delingsdivisjon, rest, gange med 10 og 100, rutemetoden og oppstilt ganging.",,,,
-,config,,cellSummary.4.Måling,"Volum i liter, dL og mL, gram og kilogram, klokka på minuttet, areal og omkrets.",,,,
-,config,,cellSummary.4.Statistikk og sannsynlighet,"Tabeller og søylediagrammer med skala, og spørsmål om hvor mange flere og til sammen.",,,,
-,config,,cellSummary.4.Tall og plassverdi,"Tall til 10 000, ti ganger så mye verdt per plass, og å runde av.",,,,
-,config,,cellSummary.4.Tallfakta,"Gangetabellen for 4, 8, 3, 6, 9 og 7, med delestykkene som hører til.",,,,
-,config,,cellSummary.5.Addisjon og subtraksjon,"Store runde tall i hodet med enheter, og oppstilling med mange sifre og nuller.",,,,
-,config,,cellSummary.5.Algebra,"Likning og løsning, teste en løsning, og balansemetoden: gjør det samme på begge sider.",,,,
-,config,,cellSummary.5.Algoritmer og programmering,"Programmere et lite spill med blokker, og finne feil steg for steg.",,,,
-,config,,cellSummary.5.Brøk,"Brøk som divisjon, brøk av en mengde med strekmodellen, like brøker, utvide og forkorte.",,,,
-,config,,cellSummary.5.Desimaltall og prosent,"Tideler og hundredeler, prosent som hundredeler, kjente brøker som desimaltall og prosent, og budsjett.",,,,
-,config,,cellSummary.5.Geometri,"Måle vinkler med gradskive, trekantene, og tegne figurer i koordinatsystemet.",,,,
-,config,,cellSummary.5.Multiplikasjon og divisjon,"Faktorer, primtall og kvadrattall, rutemetoden med to tosifrede tall, oppstilt ganging og norsk divisjonsoppstilling.",,,,
-,config,,cellSummary.5.Måling,"Regne med tid og rutetabeller, gjøre om mellom enheter, og skille areal fra omkrets.",,,,
-,config,,cellSummary.5.Statistikk og sannsynlighet,"Sannsynlighet fra umulig til sikker, sannsynlighet som brøk, og forsøk med terning og mynt.",,,,
-,config,,cellSummary.5.Tall og plassverdi,"Tall opp til en million på tallinja, og minusgrader på termometeret.",,,,
-,config,,cellSummary.5.Tallfakta,"11- og 12-gangen, og hele gangetabellen til 12 · 12 blandet, uten å telle.",,,,
-,config,,cellSummary.6.Addisjon og subtraksjon,"Flytte mellom leddene: legg til på ett ledd, og trekk like mye fra det andre.",,,,
-,config,,cellSummary.6.Algebra,"Likninger med to steg med balansemetoden, uttrykk med bokstav, og regelen for figur nummer n.",,,,
-,config,,cellSummary.6.Algoritmer og programmering,"Funksjoner i et program, mangekanter som snur 360° delt på antall sider, og mønstre.",,,,
-,config,,cellSummary.6.Brøk,"Sammenligne brøker, fellesnevner, brøk ganger helt tall og brøk ganger brøk med et rektangel.",,,,
-,config,,cellSummary.6.Desimaltall og prosent,"Desimaltall på tallinja, pluss, minus og ganging med tideler som enheter, og prosent av mengde.",,,,
-,config,,cellSummary.6.Geometri,"Symmetri, speiling, rotasjon og parallellforskyvning, vinkelsummen i trekanter, og romfigurer med utbrettinger.",,,,
-,config,,cellSummary.6.Multiplikasjon og divisjon,"Oppstilt divisjon med tosifret divisor, regne smart ved å dele opp, felles faktorer, og gange-sammenligning.",,,,
-,config,,cellSummary.6.Måling,"Sirkelen og pi, areal ved å dele opp, areal av trekanter, og volum av bokser.",,,,
-,config,,cellSummary.6.Statistikk og sannsynlighet,"Gjennomsnitt som lik fordeling, linjediagram over tid, og alle utfallene med to terninger.",,,,
-,config,,cellSummary.6.Tall og plassverdi,"Runde av store tall til et passende antall sifre, som «rundt 5,4 millioner».",,,,
-,config,,cellSummary.6.Tallfakta,"Kvadrattallene fra 1 · 1 til 12 · 12, hentet fra hukommelsen.",,,,
-,config,,cellSummary.7.Addisjon og subtraksjon,"Regne med kalkulator, og kontrollere svaret med overslag og ved å regne baklengs.",,,,
-,config,,cellSummary.7.Algebra,"Regnerekkefølgen, likninger med den ukjente på begge sider, ulikheter, og to ukjente med strekmodellen.",,,,
-,config,,cellSummary.7.Algoritmer og programmering,"Lister i programmering, programmer som finner største verdi og gjennomsnitt, og regneark med data.",,,,
-,config,,cellSummary.7.Brøk,"Dele på en brøk ved målingsdivisjon og den omvendte brøken, og finne helheten.",,,,
-,config,,cellSummary.7.Desimaltall og prosent,"Ganging og deling med desimaltall, prosentdel, finne hundre prosent, og vekstfaktor ved økning og rabatt.",,,,
-,config,,cellSummary.7.Geometri,"Alle fire kvadranter i koordinatsystemet, og argumentere for egenskaper ved figurer.",,,,
-,config,,cellSummary.7.Multiplikasjon og divisjon,"Forhold som «for hver», forholdstabell, finne verdien for én, og dele i et forhold.",,,,
-,config,,cellSummary.7.Måling,"Målestokk på kart, fart som strekning per tid, og volum med omgjøring til liter.",,,,
-,config,,cellSummary.7.Statistikk og sannsynlighet,"Median, typetall og gjennomsnitt, sektordiagram, velge diagram, og en egen statistisk undersøkelse.",,,,
-,config,,cellSummary.7.Tall og plassverdi,"Negative tall på tallinja: sammenligne dem, og regne med temperatur og gjeld.",,,,
-,config,,cellSummary.7.Tallfakta,"Flere brøker som desimaltall og prosent: tredjedeler, åttendedeler, femtedeler og tjuendedeler.",,,,
+,config,,cellSummary.1.Addisjon og subtraksjon,"Del–del–helhet
+Likhetstegnet betyr «samme verdi»
+Dele opp tall til 10
+Små regnefortellinger",,,,
+,config,,cellSummary.1.Algebra,"Gjentakende mønstre med farger og former
+Finne delen som gjentar seg
+Fortsette mønsteret",,,,
+,config,,cellSummary.1.Algoritmer og programmering,"Følge en trinnvis instruks i lek
+Gi instrukser til andre",,,,
+,config,,cellSummary.1.Brøk,"Halvdel: to like store deler
+Ulike store deler er ikke halvdeler",,,,
+,config,,cellSummary.1.Geometri,"Sirkel, trekant, kvadrat og rektangel
+Ord som over, under og mellom",,,,
+,config,,cellSummary.1.Multiplikasjon og divisjon,"Dele likt mellom to eller tre
+Se om noe blir til overs",,,,
+,config,,cellSummary.1.Måling,"Lengst og tyngst
+Dagene i uka
+Myntene opp til 20 kroner",,,,
+,config,,cellSummary.1.Statistikk og sannsynlighet,"Sortere etter farge, form, størrelse
+Sortere de samme tingene på nytt",,,,
+,config,,cellSummary.1.Tall og plassverdi,"Antall og tierrammen
+Se små mengder uten å telle
+Telle til 20
+Tallinja til 10",,,,
+,config,,cellSummary.1.Tallfakta,"Tallvennene til 5 og 10
+Doblinger til 10
+Hentet fra hukommelsen, uten å telle",,,,
+,config,,cellSummary.2.Addisjon og subtraksjon,"Strekmodellen og regnestykkefamilien
+Fylle opp tieren
+Tosifret i hodet
+Del opp bare det andre tallet",,,,
+,config,,cellSummary.2.Algebra,"Lage egne gjentakende mønstre
+Tallmønstre som 2, 4, 6 og 50, 45, 40",,,,
+,config,,cellSummary.2.Algoritmer og programmering,"Instruks for en vei i et rutenett
+Teste og rette feil",,,,
+,config,,cellSummary.2.Brøk,"Halvparten og en fjerdedel
+Av en figur, en lengde og en mengde",,,,
+,config,,cellSummary.2.Geometri,"Sider og hjørner
+Sortere figurer etter egenskaper
+Kule, kube, sylinder, kjegle, pyramide",,,,
+,config,,cellSummary.2.Multiplikasjon og divisjon,"Like store grupper
+Telle i hopp for å finne hvor mange",,,,
+,config,,cellSummary.2.Måling,"Centimeter, meter og kilogram
+Hel og halv time, kalenderen
+Betale med mynter og sedler",,,,
+,config,,cellSummary.2.Statistikk og sannsynlighet,"Tellestreker i bunter på fem
+Enkel tabell
+Søylediagram der hver rute er én",,,,
+,config,,cellSummary.2.Tall og plassverdi,"Tiere og enere, tiere som enheter
+Telle i hopp
+Partall og oddetall
+Tallinja til 100",,,,
+,config,,cellSummary.2.Tallfakta,"Pluss og minus innenfor 10 uten å telle
+Doblinger og halveringer til 18",,,,
+,config,,cellSummary.3.Addisjon og subtraksjon,"Oppstilt pluss og minus med veksling
+Flytte begge tallene like mye
+Velge regnemåte",,,,
+,config,,cellSummary.3.Algebra,"Ulikhetstegnene
+Sammenligne uttrykk uten å regne ut
+Likevekt på skålvekt",,,,
+,config,,cellSummary.3.Algoritmer og programmering,"Flytte en figur i koordinatsystemet
+Gi og følge trinnvise instrukser",,,,
+,config,,cellSummary.3.Brøk,"Brøk: like store deler av en helhet
+Teller og nevner
+Enhetsbrøker",,,,
+,config,,cellSummary.3.Geometri,"Plassere punkter i koordinatsystemet
+Mangekanter etter antall sider
+Rett vinkel",,,,
+,config,,cellSummary.3.Multiplikasjon og divisjon,"Gangetegnet og rutenettet
+Deling: «hvor mange femmere er 15?»
+Dele opp en faktor",,,,
+,config,,cellSummary.3.Måling,"Areal ved å telle ruter
+Omkrets
+mm, cm, m og km
+Klokka og vekslepenger",,,,
+,config,,cellSummary.3.Statistikk og sannsynlighet,"Søylediagram med hopp på aksen
+Egne spørsmål, svar i tabell",,,,
+,config,,cellSummary.3.Tall og plassverdi,"Hundrere og tresifrede tall
+Telle med 10 og 100
+Tallinja til 1000",,,,
+,config,,cellSummary.3.Tallfakta,"Over tieren uten å telle
+Hva som mangler til 100
+2-, 5- og 10-gangen",,,,
+,config,,cellSummary.4.Addisjon og subtraksjon,"Regne med rundt tall og rette opp
+Overslag
+Tekstoppgaver med to steg",,,,
+,config,,cellSummary.4.Algebra,"Voksende mønstre
+Ganging før pluss i et uttrykk
+Regneuttrykk til hverdagssituasjoner",,,,
+,config,,cellSummary.4.Algoritmer og programmering,"Algoritme
+Løkke, vilkår og variabel
+En robot som teller skrittene",,,,
+,config,,cellSummary.4.Brøk,"Brøk på tallinja
+Enhetsbrøk av en mengde
+Pluss og minus med samme nevner",,,,
+,config,,cellSummary.4.Geometri,"Spisse og stumpe vinkler
+Parallell og vinkelrett
+Firkantene
+Flater, kanter og hjørner",,,,
+,config,,cellSummary.4.Multiplikasjon og divisjon,"Målings- og delingsdivisjon, rest
+Gange med 10 og 100
+Rutemetoden og oppstilt ganging",,,,
+,config,,cellSummary.4.Måling,"Liter, dL og mL
+Gram og kilogram
+Klokka på minuttet
+Areal og omkrets",,,,
+,config,,cellSummary.4.Statistikk og sannsynlighet,"Tabeller og søylediagrammer med skala
+«Hvor mange flere?» og «til sammen»",,,,
+,config,,cellSummary.4.Tall og plassverdi,"Tall til 10 000
+Hver plass er ti ganger så mye verdt
+Runde av",,,,
+,config,,cellSummary.4.Tallfakta,"Gangetabellen for 4, 8, 3, 6, 9 og 7
+Delestykkene som hører til",,,,
+,config,,cellSummary.5.Addisjon og subtraksjon,"Store runde tall i hodet
+Regne med enheter
+Oppstilling med mange sifre og nuller",,,,
+,config,,cellSummary.5.Algebra,"Likning og løsning
+Teste en løsning
+Balansemetoden: det samme på begge sider",,,,
+,config,,cellSummary.5.Algoritmer og programmering,"Programmere et lite spill med blokker
+Finne feil steg for steg",,,,
+,config,,cellSummary.5.Brøk,"Brøk som divisjon
+Brøk av en mengde med strekmodellen
+Like brøker: utvide og forkorte",,,,
+,config,,cellSummary.5.Desimaltall og prosent,"Tideler og hundredeler
+Prosent er hundredeler
+Kjente brøker som desimaltall og prosent
+Budsjett i regneark",,,,
+,config,,cellSummary.5.Geometri,"Måle vinkler med gradskive
+Likesidet, likebeint, rettvinklet
+Tegne figurer i koordinatsystemet",,,,
+,config,,cellSummary.5.Multiplikasjon og divisjon,"Faktorer, primtall og kvadrattall
+Rutemetoden med to tosifrede tall
+Oppstilt ganging og divisjon",,,,
+,config,,cellSummary.5.Måling,"Tid og rutetabeller
+Gjøre om mellom enheter
+Skille areal fra omkrets",,,,
+,config,,cellSummary.5.Statistikk og sannsynlighet,"Fra umulig til sikker
+Sannsynlighet som brøk
+Forsøk med terning og mynt",,,,
+,config,,cellSummary.5.Tall og plassverdi,"Tall opp til en million
+Plassere dem på tallinja
+Minusgrader på termometeret",,,,
+,config,,cellSummary.5.Tallfakta,"11- og 12-gangen
+Hele gangetabellen til 12 · 12
+Blandet, uten å telle",,,,
+,config,,cellSummary.6.Addisjon og subtraksjon,"Flytte mellom leddene
+Legg til på ett, trekk fra det andre",,,,
+,config,,cellSummary.6.Algebra,"Likninger med to steg
+Uttrykk med bokstav
+Regelen for figur nummer n",,,,
+,config,,cellSummary.6.Algoritmer og programmering,"Funksjoner i et program
+Programmere mangekanter
+Snu 360° delt på antall sider
+Mønstre med løkker",,,,
+,config,,cellSummary.6.Brøk,"Sammenligne brøker
+Fellesnevner
+Brøk ganger helt tall
+Brøk ganger brøk med rektangel",,,,
+,config,,cellSummary.6.Desimaltall og prosent,"Desimaltall på tallinja
+Tideler som enheter
+Ganger 10: sifrene flytter seg
+Prosent av en mengde",,,,
+,config,,cellSummary.6.Geometri,"Symmetri
+Speiling, rotasjon og forskyvning
+Vinkelsummen i trekanter
+Romfigurer og utbrettinger",,,,
+,config,,cellSummary.6.Multiplikasjon og divisjon,"Oppstilt divisjon med tosifret divisor
+Dele opp for å regne smart
+Felles faktorer
+Gange-sammenligning",,,,
+,config,,cellSummary.6.Måling,"Sirkelen og pi
+Areal ved å dele opp
+Areal av trekanter
+Volum av bokser",,,,
+,config,,cellSummary.6.Statistikk og sannsynlighet,"Gjennomsnitt som lik fordeling
+Linjediagram over tid
+Alle utfall med to terninger",,,,
+,config,,cellSummary.6.Tall og plassverdi,"Runde av store tall
+Passende antall sifre
+«Rundt 5,4 millioner»",,,,
+,config,,cellSummary.6.Tallfakta,"Kvadrattallene fra 1 · 1 til 12 · 12
+Hentet fra hukommelsen",,,,
+,config,,cellSummary.7.Addisjon og subtraksjon,"Regne med kalkulator
+Kontrollere med overslag
+Regne baklengs for å sjekke",,,,
+,config,,cellSummary.7.Algebra,"Regnerekkefølgen
+Den ukjente på begge sider
+Ulikheter
+To ukjente med strekmodellen",,,,
+,config,,cellSummary.7.Algoritmer og programmering,"Lister
+Programmere med data
+Finne største verdi og gjennomsnitt
+Regneark med data",,,,
+,config,,cellSummary.7.Brøk,"Dele på en brøk
+Gange med den omvendte brøken
+Finne helheten",,,,
+,config,,cellSummary.7.Desimaltall og prosent,"Ganging og deling med desimaltall
+Prosentdel og hundre prosent
+Vekstfaktor ved økning og rabatt",,,,
+,config,,cellSummary.7.Geometri,"Alle fire kvadranter
+Negative koordinater
+Argumentere for egenskaper ved figurer",,,,
+,config,,cellSummary.7.Multiplikasjon og divisjon,"Forhold: «for hver»
+Forholdstabell
+Finne verdien for én
+Dele i et forhold",,,,
+,config,,cellSummary.7.Måling,"Målestokk på kart
+Fart som strekning per tid
+Volum og omgjøring til liter",,,,
+,config,,cellSummary.7.Statistikk og sannsynlighet,"Median, typetall og gjennomsnitt
+Sektordiagram
+Velge diagram
+Egen statistisk undersøkelse",,,,
+,config,,cellSummary.7.Tall og plassverdi,"Negative tall på tallinja
+Sammenligne negative tall
+Temperatur og gjeld",,,,
+,config,,cellSummary.7.Tallfakta,"Flere brøker som desimaltall og prosent
+Tredjedeler og åttendedeler
+Femtedeler og tjuendedeler",,,,
 ,prompt,node,role,,,,"You are an AI learning assistant helping a child practise {courseName}, with an adult sitting beside them.",
 ,prompt,node,opening,,,,"Start by greeting the child and the adult in one short sentence, with no summary of these instructions. Name the learning goal in words a child understands, then ask the child one small question to get going. Do not list options.",
 ,prompt,node,fallibility,,,,"In your first message, in one short sentence addressed to the adult, say that you are a language model and can be wrong while sounding sure, so the adult should keep an eye on what you say.",

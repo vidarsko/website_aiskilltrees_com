@@ -142,10 +142,12 @@ let LAYOUT = {
   stageHeaderHeight: 34,
   stageDividerHeight: 64,
   // BARNESKOLEMATTE: boksen for en lukket celle er bredere og høyere enn en
-  // node, så sammendraget får plass. Høyden må holde seg under
+  // node, så punktlista får plass. Den løftes `cellBoxLift` opp i luften
+  // over raden, og bunnen (høyde − løft) må holde seg under
   // nodeHeight + vGap / 2, ellers når den ned i skillelinja.
   cellBoxWidth: 300,
-  cellBoxHeight: 128,
+  cellBoxHeight: 160,
+  cellBoxLift: 36,
 };
 
 /* ------------------------------------------------------------------ */
@@ -3566,6 +3568,10 @@ function itemWidth(item) {
 function itemHeight(item) {
   return item.isCell ? LAYOUT.cellBoxHeight : LAYOUT.nodeHeight;
 }
+
+function itemTop(item) {
+  return item.isCell ? item.y - LAYOUT.cellBoxLift : item.y;
+}
 let CELL_BOXES = [];          // de lukkede cellene, med x/y fra layouten
 let VISIBLE_IDS = new Set();  // nodene som tegnes, dvs. de i åpne celler
 
@@ -4122,9 +4128,9 @@ function renderGraph(columnMeta, stageMeta) {
       if (drawn.has(edgeKey)) return;
       drawn.add(edgeKey);
       const x1 = LAYOUT.padding + dep.x + itemWidth(dep) / 2;
-      const y1 = LAYOUT.padding + dep.y + itemHeight(dep);
+      const y1 = LAYOUT.padding + itemTop(dep) + itemHeight(dep);
       const x2 = LAYOUT.padding + node.x + itemWidth(node) / 2;
-      const y2 = LAYOUT.padding + node.y;
+      const y2 = LAYOUT.padding + itemTop(node);
       const midY = (y1 + y2) / 2;
       const d = `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`;
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -4175,7 +4181,7 @@ function createCellBox(box, progress) {
   el.type = 'button';
   el.className = 'cell-box';
   el.style.left = (LAYOUT.padding + box.x) + 'px';
-  el.style.top = (LAYOUT.padding + box.y) + 'px';
+  el.style.top = (LAYOUT.padding + itemTop(box)) + 'px';
   el.style.width = LAYOUT.cellBoxWidth + 'px';
   el.style.height = LAYOUT.cellBoxHeight + 'px';
   el.style.setProperty('--stage-color', `var(--stage-${((box.stage - 1) % 7) + 1})`);
@@ -4197,10 +4203,15 @@ function createCellBox(box, progress) {
 
   const summary = CELL_SUMMARIES.get(cellKey(box.stage, box.topic));
   if (summary) {
-    const text = document.createElement('span');
-    text.className = 'cell-box-summary';
-    text.textContent = summary;
-    el.appendChild(text);
+    // Én linje i config-verdien er ett punkt i lista.
+    const list = document.createElement('ul');
+    list.className = 'cell-box-summary';
+    summary.split('\n').map(s => s.trim()).filter(Boolean).forEach(point => {
+      const li = document.createElement('li');
+      li.textContent = point;
+      list.appendChild(li);
+    });
+    el.appendChild(list);
   }
 
   const bar = document.createElement('span');
