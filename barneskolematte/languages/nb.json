@@ -1,0 +1,312 @@
+{
+  "code": "nb",
+  "htmlLang": "nb",
+  "name": "Norsk (bokmål)",
+  "endonym": "Norsk",
+  "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
+  "learner": {
+    "_comment": "Hva den som lærer HETER, i bestemt form, slik instruksene og panelet bruker det: «eleven», «studenten», «deltakeren» eller noe annet. Treet setter det med config-raden `learner`, som fritekst; uten raden gjelder `default`. `legacy` oversetter nøklene trærne brukte før 0.31.0 (`pupil`, `student`, `participant`) til den formen, slik at en eldre fil leses likt. `leadIn` er ledeteksten panelet setter foran beskrivelsen; {LearnerDefinite} er formen med stor forbokstav. En ferdighet er en verbfrase («Eleven kan: legge sammen ...»), et begrep er en definisjon, og de to trenger derfor hver sin innledning.",
+    "default": "eleven",
+    "legacy": {
+      "pupil": "eleven",
+      "student": "studenten",
+      "participant": "deltakeren"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} kan:",
+      "concept": "{LearnerDefinite} kan forklare:",
+      "fact": "{LearnerDefinite} kan gjengi:"
+    }
+  },
+  "ui": {
+    "backLink": "← alle ferdighetstrær",
+    "pageTitle": "Ferdighetstre for {title}",
+    "tagline": "Et kart over hvordan læringsmålene bygger på hverandre — huk av det du mestrer, og kopier en KI-instruks for å trene videre.",
+    "makeYourOwn": "{subject}. Lag ditt eget tre:",
+    "progressLabel": "{done} av {total} læringsmål fullført",
+    "zoomIn": "Zoom inn",
+    "zoomOut": "Zoom ut",
+    "fitToView": "Vis hele treet",
+    "fitToViewTitle": "Vis hele treet (Ctrl+scroll for å zoome)",
+    "close": "✕ Lukk",
+    "closeLower": "✕ lukk",
+    "copied": "Kopiert!",
+    "copyFallback": "Kunne ikke kopiere automatisk - kopier teksten under manuelt:",
+    "errorBanner": "⚠ {n} problem(er) funnet i datafilene (se konsoll for detaljer):",
+    "errorCsv": "Regnearket kunne ikke leses på rad {row}: {message}",
+    "errorCsvHeader": "Den første raden i {file} må navngi kolonnene. Mangler: {missing}. Den første raden er: {found}. Fila er trolig lagret uten den første raden, eller i et annet format; lagre den på nytt som vanlig CSV.",
+    "errorUnknownDep": "Noden «{id}» oppgir «{dep}» som forutsetning, men ingen node har den id-en.",
+    "errorNoTopic": "Noden «{id}» mangler emne, og havner i samle-kolonnen «{topic}».",
+    "errorUnknownResourceNode": "Rad {row} i tree.csv: ressursen viser til node-id-en «{id}» i depends_on, som ikke finnes.",
+    "errorExamsRenamed": "Rad {row} i tree.csv: innstillingen «features.exams» er fra før versjon 0.22.0. Ressurser er nå rader i tree.csv med typen «resource»: topic = gruppe, name = tittel, description = lenke, depends_on = nodene. Slett raden, og åpne treet i byggeren for å gjøre om en gammel exams.csv. Ingenting ble brukt.",
+    "errorResourceEmpty": "Rad {row} i tree.csv: ressursen har verken tittel (name) eller lenke (description).",
+    "errorResourceNoNode": "Rad {row} i tree.csv: ressursen «{label}» hører ikke til noen node. Skriv én eller flere node-id-er i depends_on, eller slett raden.",
+    "errorResourceDuplicate": "Rad {row} i tree.csv: ressursen «{label}» er den samme som på rad {first}. Gjør dem til én rad, med alle nodene i depends_on.",
+    "errorResourceUrl": "Rad {row} i tree.csv: lenka til ressursen «{label}» må begynne med https:// eller mailto:. Den vises derfor som vanlig tekst, uten lenke.",
+    "errorCycle": "Disse nodene er forutsetninger for hverandre, i ring: {cycle}. En av koblingene må bort.",
+    "errorUnknownConfig": "Ukjent innstilling «{key}» på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
+    "errorUnknownNodeType": "Noden «{id}» har typen «{type}», som ikke finnes. Typene er: {valid}.",
+    "errorUnknownPromptSection": "Ukjent seksjon «{section}» i prompt-rada på rad {row} i tree.csv. Ingenting ble tatt i bruk.",
+    "errorUnknownPromptTarget": "Prompt-rada på rad {row} i tree.csv peker på «{name}», som ikke er en instruks dette treet setter sammen. Ingenting ble tatt i bruk.",
+    "errorDidYouMean": "Mente du «{key}»?",
+    "errorMissingConfig": "tree.csv mangler en config-rad for «{key}», som er påkrevd.",
+    "errorStyleColor": "Innstillingen «{key}» på rad {row} i tree.csv må være en farge skrevet som en hex-kode, som #1F6F4A. «{value}» er ikke det, så standardfargen ble beholdt.",
+    "errorLinkUrl": "Innstillingen «{key}» på rad {row} i tree.csv må være en lenke som begynner med https:// eller mailto:. «{value}» er ikke det, så den vises som vanlig tekst.",
+    "errorStyleFont": "Ukjent skrift «{value}» på rad {row} i tree.csv. Skriftene et tre kan bruke: {valid}. Standardskrifta ble beholdt.",
+    "nodeType": {
+      "skill": "ferdighet",
+      "concept": "begrep",
+      "fact": "fakta"
+    },
+    "badges": {
+      "del1": "Del 1",
+      "del2": "Del 2",
+      "begge": "Del 1+2"
+    },
+    "status": {
+      "mastered": "Mestret",
+      "ready": "Klar til å læres",
+      "notMastered": "Ikke mestret ennå",
+      "blocked": "Mangler først: {codes}"
+    },
+    "help": {
+      "label": "Hvordan bruker jeg denne siden?",
+      "heading": "Hvordan bruker jeg denne siden?",
+      "sections": [
+        {
+          "id": "menuButton",
+          "heading": "Menyknappen",
+          "body": "Trykk på ☰-knappen nederst til venstre, ved siden av denne hjelpeknappen, for å åpne en meny med tilbake-lenke, lys/mørk modus, fremgangen din og de andre knappene på siden - forklart under."
+        },
+        {
+          "id": "map",
+          "heading": "Kartet",
+          "body": "Kartet viser hvordan læringsmålene bygger på hverandre, fra det mest grunnleggende øverst til det mest sammensatte nederst. Boksene du ikke har forutsetningene for ennå, ser du som grå og låste - huk av dem du mangler først. Dra for å panorere kartet, og bruk +/- eller musehjulet for å zoome."
+        },
+        {
+          "id": "clickBox",
+          "heading": "Klikk på en boks",
+          "body": "Når du klikker på en boks, får du opp forutsetningene, en full beskrivelse av læringsmålet, og en KI-instruks du kan kopiere og lime inn i en KI-chat for å trene på nettopp det læringsmålet. Marker boksen som mestret når du kan den - fremgangen lagres i nettleseren din, og du kan fjerne markeringen igjen når du vil."
+        },
+        {
+          "id": "goalIndex",
+          "heading": "«Vis alle læringsmål»",
+          "body": "Når du trykker på denne knappen, får du en samlet, systematisk liste over alle læringsmålene i faget, sortert etter tema - nyttig når du vil ha oversikt eller lese gjennom hele lista uten å klikke deg gjennom kartet. Hvert læringsmål viser status: ✓ betyr at du har markert det som mestret, ◇ betyr at du har alt du trenger for å lære det nå, og ⊘ viser hvilke læringsmål du bør ta først (med koden deres, f.eks. C1). Du kan krysse av læringsmål som mestret rett i lista, i rekkefølge, i stedet for å finne hver node i kartet."
+        },
+        {
+          "id": "search",
+          "heading": "«Søk»",
+          "body": "Søket leter i navnet, beskrivelsen og temaet til hvert læringsmål, og markerer hvor ordet står. Det er raskeste veien inn i kartet når du husker et ord fra et læringsmål, men ikke hvilket tema det ligger under. Klikk på treffet for å gå til noden."
+        },
+        {
+          "id": "lessonPlan",
+          "heading": "«Undervisningsplanlegger» (for lærere)",
+          "body": "I undervisningsplanleggeren kan lærere huke av de læringsmålene neste økt skal dekke, sette lengden på økta, og få en KI-instruks for et ferdig undervisningsopplegg: starter, gjennomgang etter example-problem pair-modellen, diagnostiske spørsmål og gjenhenting til slutt. Avkrysningene for mestret er dine egne, i din egen nettleser - de viser hva du selv har vært gjennom, ikke hva klassen faktisk kan."
+        },
+        {
+          "id": "exam",
+          "heading": "«Lag prøve av mestrede læringsmål»",
+          "body": "Når du trykker på denne knappen, får du en KI-instruks for en prøve som dekker et utvalg av det du allerede har markert som mestret. Lim den inn i en KI-chat for å teste deg selv på tvers av flere læringsmål samtidig."
+        },
+        {
+          "id": "aids",
+          "heading": "Hjelpemiddel-merkelappen",
+          "body": "Merkelappen på en boks viser hvilket hjelpemiddelnivå læringsmålet hører til — for eksempel «Del 1» eller «Del 2». Er den delt i flere farger, hører læringsmålet til flere nivåer, og du bør klare den under det strengeste av dem. Klikk på merkelappen for å åpne «Om faget», der hvert nivå er forklart.",
+          "when": "feature:aids"
+        },
+        {
+          "id": "motivation",
+          "heading": "«Hvorfor skal jeg lære dette?»",
+          "body": "Når du trykker på denne knappen, får du en KI-instruks for en kort samtale om hvorfor det er verdt å lære faget i det hele tatt. Lim den inn i en KI-chat hvis du trenger et dytt i riktig retning.",
+          "when": "feature:motivation"
+        }
+      ]
+    },
+    "safety": {
+      "label": "Sikkerhet",
+      "heading": "Sikkerhet",
+      "lead": "Et ferdighetstre er laget av en lærer, men hvem som helst kan lage en fil som ser ut som et. Les dette før du bruker et tre du har fått tilsendt.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Et ferdighetstre ber aldri om personopplysninger",
+          "body": "Treet har ingen innlogging og trenger ingenting om deg. Det ber aldri om navn, passord, Feide-innlogging, fødselsnummer, adresse, telefonnummer eller hvilken skole du går på. Fremgangen din lagres bare i nettleseren på denne maskinen. Ber en side som ligner et ferdighetstre om noe av dette, er den ikke ekte. Lukk den, og si fra til læreren din."
+        },
+        {
+          "id": "sender",
+          "heading": "Hvem har sendt deg treet?",
+          "body": "Det viktigste spørsmålet er hvem treet kommer fra. Et tre på aiskilltrees.com, eller et tre læreren din har lagt ut der dere vanligvis får undervisningsmateriell, kan du stole på like mye som du stoler på læreren. Har du fått en fil på e-post, i en chat eller i sosiale medier fra noen du ikke kjenner, eller kom den uventet, bør du være skeptisk, selv om den ser riktig ut."
+        },
+        {
+          "id": "html",
+          "heading": "En HTML-fil er en nettside, ikke et dokument",
+          "body": "Når et tre deles som en .html-fil, får du ikke et dokument som en PDF eller et Word-dokument. Du får en hel nettside med kode som kjører når du åpner den. Nettleseren hindrer den i å lese filene dine eller installere noe på maskinen, men den kan vise hva som helst: en falsk innloggingsside, en knapp som laster ned noe, eller lenker videre til andre nettsteder. Den som laget fila, bestemmer hva den gjør. At den ser ut som et ferdighetstre, betyr ikke at den er det. Logg aldri inn og last aldri ned noe fra en side du har åpnet fra en fil."
+        },
+        {
+          "id": "links",
+          "heading": "Sjekk lenkene før du klikker",
+          "body": "Ressursene i treet kan lenke til videoer, oppgaver og lærebøker. Hold musepekeren over en lenke, eller hold fingeren på den, og se hvor den går før du klikker. Kjenner du ikke igjen nettstedet, eller ser adressen rar ut, så la være."
+        },
+        {
+          "id": "injection",
+          "heading": "Instruksene kan være tuklet med",
+          "body": "KI-instruksen du kopierer, er tekst skrevet av den som laget treet, og du limer den rett inn i en KI-chat. Den som lager et tre, kan skrive hva som helst i den, også ordre som får chatten til å oppføre seg annerledes enn du tror: gi deg feil svar, sende deg til en annen nettside eller spørre om ting den ikke har noe med. Det kalles instruksinjeksjon. Du kan gjerne skumme gjennom teksten før du limer den inn, og du bør ikke stole blindt på det chatten sier."
+        },
+        {
+          "id": "chat",
+          "heading": "Du bestemmer hva du forteller chatten",
+          "body": "Noen instrukser ber chatten bli kjent med deg, for eksempel hva du synes om faget og hva du er god til. Det kan du svare på så mye eller lite du vil. Men ingen instruks trenger navnet ditt, kontaktinformasjon eller passord. Ber chatten om slikt, så ikke svar, og si fra til læreren din. Husk også at det du skriver i en KI-chat, lagres hos selskapet som eier chatten. Skolen din har ofte tilgang til en KI-tjeneste der personvernet er ivaretatt. Spør læreren din, og bruk den hvis dere har en."
+        },
+        {
+          "id": "teachers",
+          "heading": "For lærere: et tre fra en kollega",
+          "body": "Har du fått et tre fra noen andre, kan du åpne det i byggeren på aiskilltrees.com/make-your-own/ før du deler det med elevene, for å være sikker. Byggeren henter bare regnearket ut av fila og lager en ny, ren fil av det, og der kan du lese hver instruks treet bruker."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Vis alle læringsmål",
+      "title": "Vis en systematisk liste over alle læringsmål, sortert etter tema",
+      "heading": "Alle læringsmål",
+      "copyAll": "Kopier alle",
+      "intro": "Lista viser alle læringsmålene i faget, sortert etter tema, med status for hvert av dem. Huk av et læringsmål for å markere det som mestret - samme avkryssing som på noden i kartet - så du kan gå nedover lista i rekkefølge og krysse av det du har vært gjennom.",
+      "markAria": "Marker «{name}» som mestret",
+      "markAllButton": "Marker alle som mestret",
+      "clearAllButton": "Fjern alle mestret-merker",
+      "clearAllConfirm": "Fjerne mestret-merkingen fra alle læringsmålene i treet?",
+      "openNode": "Gå til denne noden i kartet"
+    },
+    "lessonPlanner": {
+      "button": "Undervisningsplanlegger (for lærere)",
+      "title": "Velg læringsmålene for en økt og kopier en KI-instruks for et ferdig undervisningsopplegg",
+      "selectAll": "Kryss av alle",
+      "deselectAll": "Fjern alle kryss",
+      "selectTopic": "Kryss av alle læringsmål i «{topic}»",
+      "deselectTopic": "Fjern krysset for alle læringsmål i «{topic}»",
+      "heading": "Undervisningsplanlegger",
+      "intro": "Huk av de læringsmålene neste økt skal dekke, sett lengden på økta, og lag et ferdig undervisningsopplegg nederst. Avkryssingen her gjelder bare denne økta: den markerer ingenting som mestret, og den forsvinner når du laster siden på nytt."
+    },
+    "search": {
+      "button": "Søk",
+      "title": "Søk etter et læringsmål i navn og beskrivelser",
+      "heading": "Søk",
+      "placeholder": "Søk i læringsmål …",
+      "hint": "Skriv et ord. Søket leter i navnet, beskrivelsen og temaet til hvert læringsmål, og du kan klikke deg rett til noden i kartet.",
+      "noResults": "Ingen læringsmål inneholder «{query}».",
+      "countOne": "1 læringsmål",
+      "countMany": "{n} læringsmål",
+      "openNode": "Gå til denne noden i kartet"
+    },
+    "resourceList": {
+      "button": "Ressurser",
+      "title": "Vis alle ressursene i treet og læringsmålene de hører til",
+      "heading": "Ressurser",
+      "placeholder": "Filtrer ressursene …",
+      "intro": "{n} ressurser. Under hver står læringsmålene den hører til; klikk på et for å gå til det i kartet.",
+      "countFiltered": "{n} av {total} ressurser",
+      "noResults": "Ingen ressurs passer med «{query}».",
+      "openNode": "Gå til denne noden i kartet"
+    },
+    "motivation": {
+      "button": "Hvorfor skal jeg lære dette?",
+      "title": "Kopier en KI-instruks for en samtale om hvorfor det er verdt å lære faget"
+    },
+    "lesson": {
+      "button": "Lag undervisningsopplegg (for lærere)",
+      "title": "Kopier en KI-instruks for en ferdig undervisningsøkt om de læringsmålene du har huket av",
+      "minutesLabel": "Lengde",
+      "minutesAria": "Lengde på økta i minutter",
+      "includeAria": "Ta med «{name}» i undervisningsopplegget",
+      "selectedNone": "Ingen læringsmål valgt",
+      "selectedOne": "1 læringsmål valgt",
+      "selectedMany": "{n} læringsmål valgt"
+    },
+    "exam": {
+      "button": "Lag prøve av mestrede læringsmål",
+      "title": "Kopier en KI-instruks for å lage en prøve basert på det du har markert som mestret",
+      "none": "Ingen mestrede læringsmål ennå",
+      "countLabel": "Antall oppgaver",
+      "countAria": "Antall oppgaver i prøven"
+    },
+    "node": {
+      "markMastered": "Marker som mestret"
+    },
+    "column": {
+      "markAll": "Marker alle læringsmål i «{topic}» som mestret",
+      "clearAll": "Fjern mestret-merking for alle læringsmål i «{topic}»"
+    },
+    "detail": {
+      "show": "Vis KI-instruks",
+      "hide": "Skjul KI-instruks",
+      "copy": "Kopier KI-instruks",
+      "prereqs": "Forutsetninger",
+      "resources": "Ressurser",
+      "mastered": "✓ Mestret",
+      "available": "Tilgjengelig — forutsetninger er oppfylt",
+      "locked": "Låst — mangler forutsetninger",
+      "empty": "Klikk på en node i kartet for å se detaljer."
+    },
+    "loadError": "Kritisk feil ved lasting: {message} (kjører du siden via en lokal server? fetch() av datafilene feiler ved å åpne index.html direkte fra disk i mange nettlesere.)",
+    "defaultTopic": "Annet",
+    "aids": {
+      "heading": "Hjelpemidler",
+      "tagTitle": "Se hva du får bruke på dette nivået",
+      "multipleNote": "Dette læringsmålet hører til flere nivåer. Du bør klare den under det strengeste av dem — altså med færrest hjelpemidler.",
+      "multipleNoteGeneral": "Et læringsmål kan høre til flere nivåer. Merkelappen er da delt i flere farger, og du bør klare læringsmålet under det strengeste av nivåene — altså med færrest hjelpemidler."
+    },
+    "menu": {
+      "label": "Meny"
+    },
+    "download": {
+      "button": "Last ned dette treet",
+      "title": "Last ned treet i to former: regnearket du kan redigere, og én fil som virker uten nett",
+      "working": "Bygger enkeltfila …",
+      "failed": "Enkeltfila kunne ikke bygges",
+      "edit": "Rediger eller last ned",
+      "editTitle": "Åpne treet i redigeringsverktøyet, der du kan endre det og laste det ned som regneark eller som én fil som virker uten nett"
+    },
+    "courseInfo": {
+      "button": "Om faget",
+      "heading": "Om faget",
+      "division": "Trinn eller fakultet",
+      "curriculum": "Læreplan",
+      "institution": "Institusjon",
+      "country": "Land",
+      "language": "Språk",
+      "size": "Omfang",
+      "decompositionVersion": "Dekomponeringsmodell",
+      "credits": "Laget av",
+      "author": "Forfatter",
+      "updated": "Sist oppdatert",
+      "license": "Lisens",
+      "basedOn": "Bygger på",
+      "skills": "{n} ferdigheter",
+      "concepts": "{n} begreper",
+      "facts": "{n} faktalister",
+      "nodes": "{n} noder"
+    },
+    "errorNoStage": "Noden «{id}» mangler trinn. Skriv et tall fra 1 til 7 i kolonnen stage.",
+    "errorStageOrder": "Noden «{id}» ({stage}. trinn) bygger på «{dep}», som ligger på {depStage}. trinn. En forutsetning kan ikke ligge på et senere trinn.",
+    "stage": {
+      "label": "{n}. trinn",
+      "markCell": "Marker «{topic}» på {n}. trinn som mestret",
+      "clearCell": "Fjern mestret-merking for «{topic}» på {n}. trinn",
+      "upTo": "Til og med {n}. trinn:",
+      "mapTest": "Kartleggingsprøve",
+      "mapTestTitle": "Kopier en KI-instruks for en prøve som dekker alt til og med {n}. trinn",
+      "markUpTo": "Marker alt som mestret",
+      "clearUpTo": "Fjern alle merker",
+      "openCell": "Åpne «{topic}» på {n}. trinn",
+      "closeCell": "▴ Lukk",
+      "closeCellTitle": "Lukk «{topic}» på {n}. trinn",
+      "cellCount": "{total} mål · {done} mestret"
+    }
+  },
+  "prompt": {
+    "_comment": "Språklaget i KI-instruksene. Fyller de to hullene prompts/ lar stå åpne. prompts/<instruks>.json sier HVA modellen skal gjøre; dette sier hvilket språk den skal gjøre det på, og gir norske eksempler på de generelle skriverådene i prompts/shared.json → writingStyleGeneral. Bare det som er SÆREGENT FOR NORSK hører hjemme her: selve prinsippene (aktiv form, unngå bokaktige ord) er språkuavhengige og bor i shared.json. Teksten her er på norsk, etter Vidars beslutning 2026-09-20 — et råd om hvordan man skriver god norsk gir lite mening formulert på engelsk. MERK: `outputLanguage` sier hvilket språk samtalen STARTER på — den skal ikke nekte eleven å be om et annet. At eleven kan be om et annet språk, og hva som da skjer, er språkuavhengig og bor i prompts/shared.json → languageSwitch. Ikke skriv et absolutt forbud her: de to ville motsagt hverandre, og modellen følger forbudet.",
+    "conversationLanguage": "norsk (bokmål)",
+    "outputLanguage": "Før hele denne samtalen på {conversationLanguage}. Alt som er sitert fra ferdighetstreet nedenfor — nodenavn, beskrivelser, forutsetninger — er skrevet på {conversationLanguage}, og det er språket brukeren forventer å bli tiltalt på. Deler av instruksen du nå leser er på engelsk; det er ingen oppfordring til å svare på engelsk. Ikke bytt språk på eget initiativ, og ikke kommenter hvilket språk instruksen er skrevet på. Tiltal brukeren som «du», og bruk «hen» framfor «han/hun» når du omtaler noen i tredjeperson. Må den som lærer navngis, er ordet «{learnerDefinite}» - ikke et annet ord for det samme.",
+    "writingStyle": "Norske eksempler på de to rådene over:\n- Aktiv form: skriv «vi kan skrive tallet som …», ikke «tallet kan bare skrives som …»; skriv «vi gjør dette ved å …» eller «du gjør dette ved å …», ikke «det gjøres ved å …». Unngå «blir gjort» og «kan gjøres» der du kan si hvem som gjør det.\n- Ord som er vanlige på norsk, men sjeldne i tale, bokaktige eller litt for voksne — og som du derfor skal bytte ut med et enklere ord: «vaklende», «fundament», «ferdigheter», «motivasjon». Vennetesten: ville du faktisk sagt ordet høyt til en venn?",
+    "overrides": {}
+  }
+}

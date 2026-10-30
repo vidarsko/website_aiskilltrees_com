@@ -1,0 +1,574 @@
+id,type,topic,name,description,depends_on,aids,instruction,stage
+,config,,schemaVersion,3,,,,
+,config,,title,Matematikk 1.–7. trinn,,,,
+,config,,subtitle,"Barneskolen, kartlegging for voksen og barn",,,,
+,config,,description,"Hele barneskolematematikken i ett tre, med ett bånd per trinn og metodene valgt med vilje. Laget for en voksen og et barn som sitter sammen: finn ut hva barnet kan, og øv på det neste.",,,,
+,config,,language,nb,,,,
+,config,,learner,barnet,,,,
+,config,,subjectFamily,mathematics,,,,
+,config,,storageKey,barneskolematte-1-7,,,,
+,config,,features.motivation,false,,,,
+,config,,topicOrder,Tall og plassverdi;Tallfakta;Addisjon og subtraksjon;Multiplikasjon og divisjon;Brøk;Desimaltall og prosent;Algebra;Geometri;Måling;Statistikk og sannsynlighet;Algoritmer og programmering,,,,
+,config,,slots.courseName,matematikk i norsk barneskole,,,,
+,config,,slots.expressionFocus,"bruker likhetstegnet som «og svaret blir» i stedet for «har samme verdi», eller teller på fingrene der et faktum skulle vært husket",,,,
+,config,,aids.label,Regnemåte,,,,
+,config,,aids.1.name,Hoderegning,,,,
+,config,,aids.1.student,"Hoderegning: du regner i hodet, uten å skrive og uten å telle på fingrene.",,,,
+,config,,aids.1.model,"This goal is done as mental calculation: no written working, no counting on fingers, no calculator. Set tasks a child can do in their head.",,,,
+,config,,aids.2.name,Skriftlig,,,,
+,config,,aids.2.student,"Skriftlig: du regner med blyant og papir, uten kalkulator.",,,,
+,config,,aids.2.model,"This goal is done in writing with pencil and paper, using the written method named in the goal. No calculator.",,,,
+,config,,aids.3.name,Kalkulator,,,,
+,config,,aids.3.student,Kalkulator: du kan bruke kalkulator til selve utregningen.,,,,
+,config,,aids.3.model,"A calculator may be used for the arithmetic, so tasks should test choosing the operation and judging whether the answer is reasonable.",,,,
+,config,,author,Vidar Skogvoll,,,,
+,config,,authorUrl,https://skogvoll.com,,,,
+,config,,license,CC BY 4.0,,,,
+,config,,curriculum,LK20,,,,
+,config,,country,NO,,,,
+,config,,updated,2026-10-30,,,,
+,config,,cellSummary.1.Addisjon og subtraksjon,"Del–del–helhet, likhetstegnet som «samme verdi», dele opp tall til 10 og små regnefortellinger.",,,,
+,config,,cellSummary.1.Algebra,"Gjentakende mønstre med farger og former: finne delen som gjentar seg, og fortsette mønsteret.",,,,
+,config,,cellSummary.1.Algoritmer og programmering,"Følge og gi trinnvise instrukser i lek, som «to skritt fram, snu mot høyre».",,,,
+,config,,cellSummary.1.Brøk,"Halvdel: to like store deler. Er delene ulike store, er de ikke halvdeler.",,,,
+,config,,cellSummary.1.Geometri,"Navngi sirkel, trekant, kvadrat og rektangel, og bruke ord som over, under og mellom.",,,,
+,config,,cellSummary.1.Multiplikasjon og divisjon,"Dele en liten mengde likt mellom to eller tre, og se om noe blir igjen.",,,,
+,config,,cellSummary.1.Måling,"Lengst og tyngst ved direkte sammenligning, dagene i uka og myntene opp til 20 kroner.",,,,
+,config,,cellSummary.1.Statistikk og sannsynlighet,"Sortere ting i grupper etter farge, form eller størrelse, og så sortere på nytt.",,,,
+,config,,cellSummary.1.Tall og plassverdi,"Antall, se små mengder uten å telle, tierrammen, telle til 20 og tallinja til 10.",,,,
+,config,,cellSummary.1.Tallfakta,"Tallvennene til 5 og 10 og doblinger til 10, hentet fra hukommelsen uten å telle.",,,,
+,config,,cellSummary.2.Addisjon og subtraksjon,"Strekmodellen, regnestykkefamilien, fylle tieren, og tosifret hoderegning der bare det andre tallet deles opp.",,,,
+,config,,cellSummary.2.Algebra,"Lage egne gjentakende mønstre, og fortsette tallmønstre som 2, 4, 6 og 50, 45, 40.",,,,
+,config,,cellSummary.2.Algoritmer og programmering,"Lage en trinnvis instruks for en vei gjennom et rutenett, teste den og rette feil.",,,,
+,config,,cellSummary.2.Brøk,"Halvparten og en fjerdedel av en figur, en lengde og en liten mengde.",,,,
+,config,,cellSummary.2.Geometri,"Sider og hjørner, sortere figurer, og navngi kule, kube, sylinder, kjegle og pyramide.",,,,
+,config,,cellSummary.2.Multiplikasjon og divisjon,Like store grupper: finne hvor mange det er til sammen ved å telle i hopp.,,,,
+,config,,cellSummary.2.Måling,"Måle i centimeter og meter, veie i kilogram, hel og halv time, kalenderen og betaling.",,,,
+,config,,cellSummary.2.Statistikk og sannsynlighet,"Tellestreker i bunter på fem, en enkel tabell, og søylediagram der hver rute er én.",,,,
+,config,,cellSummary.2.Tall og plassverdi,"Tiere og enere, tiere som enheter, telling i hopp, partall og oddetall, tallinja til 100.",,,,
+,config,,cellSummary.2.Tallfakta,"Pluss og minus innenfor 10 uten å telle, og doblinger og halveringer til 18.",,,,
+,config,,cellSummary.3.Addisjon og subtraksjon,"Oppstilt addisjon og subtraksjon med veksling, flytte begge tallene like mye, og velge regnemåte.",,,,
+,config,,cellSummary.3.Algebra,"Ulikhetstegnene, sammenligne uttrykk uten å regne ut, og likevekt på skålvekt.",,,,
+,config,,cellSummary.3.Algoritmer og programmering,Gi og følge trinnvise instrukser som flytter en figur i et koordinatsystem.,,,,
+,config,,cellSummary.3.Brøk,"Brøk som like store deler av en helhet, teller og nevner, og enhetsbrøker.",,,,
+,config,,cellSummary.3.Geometri,"Koordinatsystemet med punkter, mangekanter etter antall sider, og rett vinkel.",,,,
+,config,,cellSummary.3.Multiplikasjon og divisjon,"Gangetegnet og rutenettet, deling som «hvor mange femmere er 15?», og dele opp en faktor.",,,,
+,config,,cellSummary.3.Måling,"Areal ved å telle ruter, omkrets, mm, cm, m og km, klokka og vekslepenger.",,,,
+,config,,cellSummary.3.Statistikk og sannsynlighet,"Søylediagram der aksen går i hopp, og egne spørsmål med svar samlet i tabell.",,,,
+,config,,cellSummary.3.Tall og plassverdi,"Hundrere og tresifrede tall, telling med 10 og 100, og tallinja til 1000.",,,,
+,config,,cellSummary.3.Tallfakta,"Over tieren uten å telle, hva som mangler til 100, og 2-, 5- og 10-gangen.",,,,
+,config,,cellSummary.4.Addisjon og subtraksjon,"Regne med et rundt tall og rette opp, overslag, og tekstoppgaver med to steg.",,,,
+,config,,cellSummary.4.Algebra,"Voksende mønstre, ganging før pluss, og regneuttrykk som passer til en hverdagssituasjon.",,,,
+,config,,cellSummary.4.Algoritmer og programmering,"Algoritmer med løkke, vilkår og variabel, for eksempel en robot som teller skrittene.",,,,
+,config,,cellSummary.4.Brøk,"Brøk på tallinja, enhetsbrøk av en mengde, og pluss og minus med samme nevner.",,,,
+,config,,cellSummary.4.Geometri,"Spisse og stumpe vinkler, parallelle linjer, firkantene, og flater, kanter og hjørner på romfigurer.",,,,
+,config,,cellSummary.4.Multiplikasjon og divisjon,"Målings- og delingsdivisjon, rest, gange med 10 og 100, rutemetoden og oppstilt ganging.",,,,
+,config,,cellSummary.4.Måling,"Volum i liter, dL og mL, gram og kilogram, klokka på minuttet, areal og omkrets.",,,,
+,config,,cellSummary.4.Statistikk og sannsynlighet,"Tabeller og søylediagrammer med skala, og spørsmål om hvor mange flere og til sammen.",,,,
+,config,,cellSummary.4.Tall og plassverdi,"Tall til 10 000, ti ganger så mye verdt per plass, og å runde av.",,,,
+,config,,cellSummary.4.Tallfakta,"Gangetabellen for 4, 8, 3, 6, 9 og 7, med delestykkene som hører til.",,,,
+,config,,cellSummary.5.Addisjon og subtraksjon,"Store runde tall i hodet med enheter, og oppstilling med mange sifre og nuller.",,,,
+,config,,cellSummary.5.Algebra,"Likning og løsning, teste en løsning, og balansemetoden: gjør det samme på begge sider.",,,,
+,config,,cellSummary.5.Algoritmer og programmering,"Programmere et lite spill med blokker, og finne feil steg for steg.",,,,
+,config,,cellSummary.5.Brøk,"Brøk som divisjon, brøk av en mengde med strekmodellen, like brøker, utvide og forkorte.",,,,
+,config,,cellSummary.5.Desimaltall og prosent,"Tideler og hundredeler, prosent som hundredeler, kjente brøker som desimaltall og prosent, og budsjett.",,,,
+,config,,cellSummary.5.Geometri,"Måle vinkler med gradskive, trekantene, og tegne figurer i koordinatsystemet.",,,,
+,config,,cellSummary.5.Multiplikasjon og divisjon,"Faktorer, primtall og kvadrattall, rutemetoden med to tosifrede tall, oppstilt ganging og norsk divisjonsoppstilling.",,,,
+,config,,cellSummary.5.Måling,"Regne med tid og rutetabeller, gjøre om mellom enheter, og skille areal fra omkrets.",,,,
+,config,,cellSummary.5.Statistikk og sannsynlighet,"Sannsynlighet fra umulig til sikker, sannsynlighet som brøk, og forsøk med terning og mynt.",,,,
+,config,,cellSummary.5.Tall og plassverdi,"Tall opp til en million på tallinja, og minusgrader på termometeret.",,,,
+,config,,cellSummary.5.Tallfakta,"11- og 12-gangen, og hele gangetabellen til 12 · 12 blandet, uten å telle.",,,,
+,config,,cellSummary.6.Addisjon og subtraksjon,"Flytte mellom leddene: legg til på ett ledd, og trekk like mye fra det andre.",,,,
+,config,,cellSummary.6.Algebra,"Likninger med to steg med balansemetoden, uttrykk med bokstav, og regelen for figur nummer n.",,,,
+,config,,cellSummary.6.Algoritmer og programmering,"Funksjoner i et program, mangekanter som snur 360° delt på antall sider, og mønstre.",,,,
+,config,,cellSummary.6.Brøk,"Sammenligne brøker, fellesnevner, brøk ganger helt tall og brøk ganger brøk med et rektangel.",,,,
+,config,,cellSummary.6.Desimaltall og prosent,"Desimaltall på tallinja, pluss, minus og ganging med tideler som enheter, og prosent av mengde.",,,,
+,config,,cellSummary.6.Geometri,"Symmetri, speiling, rotasjon og parallellforskyvning, vinkelsummen i trekanter, og romfigurer med utbrettinger.",,,,
+,config,,cellSummary.6.Multiplikasjon og divisjon,"Oppstilt divisjon med tosifret divisor, regne smart ved å dele opp, felles faktorer, og gange-sammenligning.",,,,
+,config,,cellSummary.6.Måling,"Sirkelen og pi, areal ved å dele opp, areal av trekanter, og volum av bokser.",,,,
+,config,,cellSummary.6.Statistikk og sannsynlighet,"Gjennomsnitt som lik fordeling, linjediagram over tid, og alle utfallene med to terninger.",,,,
+,config,,cellSummary.6.Tall og plassverdi,"Runde av store tall til et passende antall sifre, som «rundt 5,4 millioner».",,,,
+,config,,cellSummary.6.Tallfakta,"Kvadrattallene fra 1 · 1 til 12 · 12, hentet fra hukommelsen.",,,,
+,config,,cellSummary.7.Addisjon og subtraksjon,"Regne med kalkulator, og kontrollere svaret med overslag og ved å regne baklengs.",,,,
+,config,,cellSummary.7.Algebra,"Regnerekkefølgen, likninger med den ukjente på begge sider, ulikheter, og to ukjente med strekmodellen.",,,,
+,config,,cellSummary.7.Algoritmer og programmering,"Lister i programmering, programmer som finner største verdi og gjennomsnitt, og regneark med data.",,,,
+,config,,cellSummary.7.Brøk,"Dele på en brøk ved målingsdivisjon og den omvendte brøken, og finne helheten.",,,,
+,config,,cellSummary.7.Desimaltall og prosent,"Ganging og deling med desimaltall, prosentdel, finne hundre prosent, og vekstfaktor ved økning og rabatt.",,,,
+,config,,cellSummary.7.Geometri,"Alle fire kvadranter i koordinatsystemet, og argumentere for egenskaper ved figurer.",,,,
+,config,,cellSummary.7.Multiplikasjon og divisjon,"Forhold som «for hver», forholdstabell, finne verdien for én, og dele i et forhold.",,,,
+,config,,cellSummary.7.Måling,"Målestokk på kart, fart som strekning per tid, og volum med omgjøring til liter.",,,,
+,config,,cellSummary.7.Statistikk og sannsynlighet,"Median, typetall og gjennomsnitt, sektordiagram, velge diagram, og en egen statistisk undersøkelse.",,,,
+,config,,cellSummary.7.Tall og plassverdi,"Negative tall på tallinja: sammenligne dem, og regne med temperatur og gjeld.",,,,
+,config,,cellSummary.7.Tallfakta,"Flere brøker som desimaltall og prosent: tredjedeler, åttendedeler, femtedeler og tjuendedeler.",,,,
+,prompt,node,role,,,,"You are an AI learning assistant helping a child practise {courseName}, with an adult sitting beside them.",
+,prompt,node,opening,,,,"Start by greeting the child and the adult in one short sentence, with no summary of these instructions. Name the learning goal in words a child understands, then ask the child one small question to get going. Do not list options.",
+,prompt,node,fallibility,,,,"In your first message, in one short sentence addressed to the adult, say that you are a language model and can be wrong while sounding sure, so the adult should keep an eye on what you say.",
+,prompt,exam,withholdAnswers,,,,"Show ONLY the tasks at first, with no answers or hints. The adult reads them to the child and types the child's answers, after each task or all at the end. Then give a complete answer key for the adult: a worked answer for every task, including the ones the child got right.",
+,prompt,node,courseSpecifics,,,,"An adult (a parent or a teacher) and a child sit together in front of the screen, and you talk to both. This learning goal belongs to {gradeLevel} in a Norwegian primary school. Give the tasks to the child, in short sentences, with small numbers that suit {gradeLevel}, and with things the child can count, draw or point at. The child may not type, so the adult types what the child says. Now and then, give the adult a short tip, starting with ""Til den voksne:"", on how to help without giving the answer away. Use the methods, models and words named in the learning goal, and do not teach shortcuts that stop working later, such as ""add a zero"" when multiplying by 10 or ""move it across and change the sign"" in equations.",
+,prompt,exam,role,,,,You are an AI learning assistant making a short written test in {courseName} for a child who sits together with an adult. The test is a mapping: it shows which learning goals the child already masters.,
+,prompt,exam,selection,,,,"The test covers the following {nodeCount} learning goals, up to and including {gradeLevel}:
+{nodeList}",
+,prompt,exam,courseSpecifics,,,,"Order the tasks from the easiest (lowest grade) to the hardest, and keep the language simple enough for a child on {gradeLevel} to follow when the adult reads it aloud. Tasks for the first grades must be ones a young child can do well: small numbers, one step, and things to count or look at. When you give the assessment, list by name, exactly as they are written in the list above, the learning goals the child showed they master and the ones to practise next, so the adult can tick them off in the skill tree.",
+,prompt,lessonPlan,courseSpecifics,,,,"The teacher teaches a class on {gradeLevel} in a Norwegian primary school, and the plan must suit pupils of that age: concrete materials and drawings first, short stretches of explanation, and the methods, models and words named in the learning goals. Do not introduce shortcuts that stop working later, such as ""add a zero"" when multiplying by 10.",
+tierrammen,concept,Tall og plassverdi,Tierrammen,"Tierrammen: en ramme med to rader på fem ruter. Fem fyller én rad og ti fyller hele rammen, så du kan se et antall uten å telle: 7 er en full rad og to til.",,0,,1
+antall,concept,Tall og plassverdi,Antall,"Antall: hvor mange ting det er i en mengde. Det siste tallordet du sier når du teller, forteller hvor mange det er, uansett hvilken rekkefølge du teller tingene i.",,0,,1
+se-antall,skill,Tall og plassverdi,Se antall uten å telle,"se hvor mange det er i en liten mengde, opptil 5, uten å telle: på en terning, på fingrene eller i en tierramme.",tierrammen;antall,1,,1
+vise-tall,skill,Tall og plassverdi,Vise et tall på mange måter,"vise et tall opp til 10 med fingre, prikker, tierramme, tallord og siffer, og se at det er det samme tallet hver gang.",se-antall,1,,1
+telle-til-20,skill,Tall og plassverdi,Telle til 20,"telle høyt framover og bakover til 20, og begynne på hvilket som helst tall.",antall,1,,1
+en-mer-en-mindre,skill,Tall og plassverdi,Én mer og én mindre,"si tallet som er én mer og én mindre enn et tall opp til 20, uten å telle fra begynnelsen.",telle-til-20,1,,1
+sammenligne-mengder,skill,Tall og plassverdi,Sammenligne tall til 20,"si hvilket av to tall eller to mengder til 20 som er størst, med ordene flere, færre og like mange.",telle-til-20;se-antall,1,,1
+tallinja,concept,Tall og plassverdi,Tallinja,Tallinja: en linje der hvert tall har sin faste plass. Avstanden mellom to tall viser hvor mye større det ene er enn det andre.,telle-til-20,0,,1
+plassere-til-10,skill,Tall og plassverdi,Plassere tall til 10 på tallinja,"plassere tall fra 0 til 10 på en tallinje der bare 0 og 10 er skrevet, ved å bruke at 5 ligger midt mellom.",tallinja,1,,1
+tallvenner-5,fact,Tallfakta,Tallvennene til 5,"0 og 5: 5
+1 og 4: 5
+2 og 3: 5",del-del-helhet,1,,1
+tallvenner-10,fact,Tallfakta,Tallvennene til 10,"0 og 10: 10
+1 og 9: 10
+2 og 8: 10
+3 og 7: 10
+4 og 6: 10
+5 og 5: 10",tallvenner-5;tierrammen,1,,1
+dobling-til-10,fact,Tallfakta,Doblinger til 10,"1 + 1: 2
+2 + 2: 4
+3 + 3: 6
+4 + 4: 8
+5 + 5: 10",se-antall,1,,1
+del-del-helhet,concept,Addisjon og subtraksjon,Del–del–helhet,"Del–del–helhet: et tall, helheten, kan deles i to deler, og når delene settes sammen igjen, får du helheten tilbake. Tegnes ofte med helheten øverst og delene under: 7 er helheten, 3 og 4 er delene.",antall,0,,1
+pluss-og-minus,concept,Addisjon og subtraksjon,Pluss og minus,"Pluss (addisjon): å sette to deler sammen til en helhet, eller å legge til.
+Minus (subtraksjon): å finne den ene delen når helheten og den andre delen er kjent, eller å ta bort.",del-del-helhet,0,,1
+dele-opp-til-10,skill,Addisjon og subtraksjon,Dele opp tall til 10,"dele et tall opp til 10 i to deler på alle måter, og se at når den ene delen blir én større, blir den andre én mindre.",del-del-helhet;telle-til-20,1,,1
+likhetstegnet,concept,Addisjon og subtraksjon,Likhetstegnet,"Likhetstegnet: det betyr at det som står på hver side, har samme verdi. 7 = 3 + 4 og 3 + 4 = 7 sier det samme. Det betyr ikke «og svaret blir».",del-del-helhet,0,,1
+regnefortellinger-10,skill,Addisjon og subtraksjon,Regnefortellinger til 10,"lage og løse små regnefortellinger med pluss og minus innenfor 10, og si hva hvert tall i regnestykket står for.",dele-opp-til-10;likhetstegnet;pluss-og-minus,1,,1
+dele-likt,skill,Multiplikasjon og divisjon,Dele likt,"dele en liten mengde likt mellom to eller tre, så alle får like mange, og si om noe blir til overs.",antall,1,,1
+halvdel,concept,Brøk,Halvdel,"Halvdel: når noe deles i to like store deler, er hver del en halvdel. Er delene ulike store, er de ikke halvdeler.",,0,,1
+gjentakende-monster,skill,Algebra,Fortsette et mønster,"finne den delen som gjentar seg i et mønster, som rød, blå, blå, rød, blå, blå, og fortsette mønsteret.",,1,,1
+former,skill,Geometri,Navngi former,"kjenne igjen og navngi sirkel, trekant, kvadrat og rektangel, også når de er snudd eller har ulik størrelse.",,1,,1
+posisjonsord,skill,Geometri,Ord for plassering,"bruke ord for plassering: over, under, foran, bak, ved siden av, mellom, til venstre og til høyre.",,1,,1
+sammenligne-storrelser,skill,Måling,Lengst og tyngst,"sammenligne to ting og si hvilken som er lengst, kortest, tyngst eller lettest, ved å legge dem inntil hverandre eller holde dem i hendene.",,1,,1
+dager-uka,skill,Måling,Dagene i uka,si dagene i uka i rekkefølge og fortelle hva som skjer før og etter i løpet av en dag.,,1,,1
+mynter,skill,Måling,Myntene,"kjenne igjen myntene på 1, 5, 10 og 20 kroner og si hvor mye hver av dem er verdt.",antall,1,,1
+sortere,skill,Statistikk og sannsynlighet,Sortere ting,"sortere ting i grupper etter én egenskap, som farge, form eller størrelse, og så sortere de samme tingene på en annen måte.",,1,,1
+folge-instruks,skill,Algoritmer og programmering,Følge en instruks,"følge en trinnvis instruks i lek, som «to skritt fram, snu deg mot høyre, ett skritt fram», og gi en slik instruks til en annen.",posisjonsord,1,,1
+telle-til-100,skill,Tall og plassverdi,Telle til 100,"telle framover og bakover til 100, også over tierne (39, 40, 41 og 61, 60, 59).",telle-til-20,1,,2
+telle-i-hopp,skill,Tall og plassverdi,"Telle med 2, 5 og 10","telle framover og bakover med 2, med 5 og med 10, også når du begynner på et annet tall enn 0.",telle-til-100,1,,2
+partall-oddetall,concept,Tall og plassverdi,Partall og oddetall,"Partall: et tall som kan deles i par uten at noen blir til overs.
+Oddetall: et tall der én blir til overs når du deler det i par.",telle-i-hopp,0,,2
+plassverdi-tosifret,concept,Tall og plassverdi,Tiere og enere,"Plassverdi: hvor mye et siffer er verdt, kommer an på plassen det står på. I 42 betyr 4 fire tiere og 2 to enere. 10 enere er det samme som 1 tier.",telle-til-100;tierrammen,0,,2
+enhetstenkning-tiere,concept,Tall og plassverdi,Regne med tiere som enheter,"Enhetstenkning: en tier kan regnes med som én ting. 4 tiere og 3 tiere er 7 tiere, akkurat som 4 og 3 er 7.",plassverdi-tosifret,0,,2
+dele-opp-tosifret,skill,Tall og plassverdi,Dele opp tosifrede tall,dele opp et tosifret tall i tiere og enere (68 = 60 + 8) og på andre måter (68 = 50 + 18).,plassverdi-tosifret,1,,2
+sammenligne-til-100,skill,Tall og plassverdi,Sammenligne tall til 100,"si hvilket av to tosifrede tall som er størst ved å se på tierne først, og så på enerne.",plassverdi-tosifret;sammenligne-mengder,1,,2
+plassere-til-100,skill,Tall og plassverdi,Plassere tall til 100 på tallinja,"plassere tall fra 0 til 100 på en tallinje der bare endene er skrevet, og si hvilke to tiere tallet ligger mellom.",plassere-til-10;plassverdi-tosifret,1,,2
+fakta-innenfor-10,skill,Tallfakta,Pluss og minus innenfor 10 uten å telle,"svare på pluss- og minusstykker innenfor 10 med en gang, uten å telle på fingrene eller på tallinja.",tallvenner-10;dobling-til-10;regnefortellinger-10,1,,2
+dobling-6-9,fact,Tallfakta,Doblinger og halveringer til 18,"6 + 6: 12
+7 + 7: 14
+8 + 8: 16
+9 + 9: 18
+halvparten av 12: 6
+halvparten av 14: 7
+halvparten av 16: 8
+halvparten av 18: 9",dobling-til-10,1,,2
+strekmodellen,concept,Addisjon og subtraksjon,Strekmodellen,Strekmodellen: en tegning der tall vises som strimler. To strimler etter hverandre viser to deler og helheten. To strimler under hverandre viser forskjellen mellom to tall.,del-del-helhet,0,,2
+differanse,concept,Addisjon og subtraksjon,Forskjell,"Differanse: hvor mye større det ene tallet er enn det andre. Forskjellen mellom 5 og 3 er 2, og det er avstanden mellom tallene på tallinja.",strekmodellen;tallinja,0,,2
+regnestykkefamilie,skill,Addisjon og subtraksjon,Regnestykkefamilien,"skrive alle regnestykkene som hører til én del–del–helhet, med likhetstegnet på begge sider: 3 + 4 = 7, 4 + 3 = 7, 7 − 3 = 4, 7 − 4 = 3, 7 = 3 + 4 og så videre.",likhetstegnet;dele-opp-til-10,1,,2
+lur-rekkefolge,skill,Addisjon og subtraksjon,Legge sammen i lur rekkefølge,"legge sammen i den rekkefølgen som er lurest, fordi rekkefølgen ikke endrer summen: 7 + 8 + 3 = 7 + 3 + 8 = 18.",regnestykkefamilie;tallvenner-10,1,,2
+fylle-tieren,skill,Addisjon og subtraksjon,Legge sammen over tieren,legge sammen over tieren ved å fylle opp til 10 først: 8 + 5 = 8 + 2 + 3 = 13.,tallvenner-10;dele-opp-til-10,1,,2
+trekke-fra-over-tieren,skill,Addisjon og subtraksjon,Trekke fra over tieren,"trekke fra over tieren på to måter: gjennom tieren (15 − 7 = 15 − 5 − 2) og fra tieren (15 − 7: 10 − 7 = 3, og 3 + 5 = 8).",fylle-tieren,1,,2
+hele-tiere,skill,Addisjon og subtraksjon,Regne med hele tiere,"legge sammen og trekke fra hele tiere, og legge til eller trekke fra enere, med fakta du kan: 4 + 3 = 7, så 40 + 30 = 70, og 10 − 3 = 7, så 30 − 3 = 27.",enhetstenkning-tiere;fakta-innenfor-10,1,,2
+manglende-ledd,skill,Addisjon og subtraksjon,Finne det som mangler,"finne det ukjente tallet i et regnestykke som 19 + ? = 25 ved å se det som en del som mangler, og tegne det med strekmodellen.",differanse;regnestykkefamilie,1,,2
+tosifret-i-hodet,skill,Addisjon og subtraksjon,Tosifrede tall i hodet,legge sammen og trekke fra to tosifrede tall i hodet ved å dele opp bare det andre tallet: 45 + 23 = 45 + 20 + 3 og 63 − 17 = 63 − 10 − 7.,hele-tiere;trekke-fra-over-tieren;dele-opp-tosifret,1,,2
+like-grupper,concept,Multiplikasjon og divisjon,Like store grupper,Like store grupper: flere grupper med like mange i hver. 3 grupper med 5 i hver er 15 til sammen.,dele-likt,0,,2
+telle-grupper,skill,Multiplikasjon og divisjon,Telle like store grupper,"finne hvor mange det er i like store grupper ved å telle i hopp: 3 grupper med 5 er 5, 10, 15.",like-grupper;telle-i-hopp,1,,2
+halv-og-kvart,skill,Brøk,Halvparten og en fjerdedel,"dele en figur, en lengde eller en mengde i to og i fire like store deler, og si halvparten og en fjerdedel: halvparten av 8 er 4.",halvdel;dobling-til-10,1,,2
+lage-monster,skill,Algebra,Lage mønstre,"lage egne gjentakende mønstre med figurer, lyder eller bevegelser, og si hvilken del som gjentar seg.",gjentakende-monster,1,,2
+tallmonster,skill,Algebra,Tallmønstre,"fortsette tallmønstre som 2, 4, 6, … og 50, 45, 40, … og si regelen med ord.",telle-i-hopp;gjentakende-monster,1,,2
+sider-hjorner,concept,Geometri,Sider og hjørner,"Side: en rett strek som er en del av kanten på en figur.
+Hjørne: der to sider møtes.",former,0,,2
+sortere-figurer,skill,Geometri,Sortere figurer,"sortere figurer etter egenskaper som antall sider og hjørner, og forklare hvordan du sorterte.",sider-hjorner;sortere,1,,2
+romfigurer-navn,skill,Geometri,Navngi romfigurer,"kjenne igjen og navngi kule, kube, sylinder, kjegle og pyramide, også i ting rundt deg.",former,1,,2
+male-med-like-ting,skill,Måling,Måle med like store ting,"måle en lengde med like store ting, som binders, lagt etter hverandre uten mellomrom, og forklare hvorfor alle må bruke like store ting.",sammenligne-storrelser,1,,2
+cm-og-meter,skill,Måling,Centimeter og meter,"måle lengder med linjal og meterstokk i centimeter og meter, og begynne å måle fra null.",male-med-like-ting,1,,2
+kilogram,skill,Måling,Veie i kilogram,"veie ting på en vekt i kilogram, og sammenligne to ting med en skålvekt.",sammenligne-storrelser,1,,2
+klokka-hel-halv,skill,Måling,Hel og halv time,lese hel og halv time på en klokke med visere og på en digital klokke.,dager-uka,1,,2
+kalender,skill,Måling,Kalenderen,"finne en dato i kalenderen, si månedene i rekkefølge og vite at en uke har sju dager.",dager-uka,1,,2
+betale,skill,Måling,Betale med mynter og sedler,"betale små beløp opp til 100 kroner med mynter og sedler, på flere måter.",mynter;telle-i-hopp,1,,2
+tellestreker,skill,Statistikk og sannsynlighet,Tellestreker og tabell,"samle inn svar med tellestreker i bunter på fem, og skrive antallet i en tabell.",sortere;telle-i-hopp,1,,2
+enkelt-diagram,skill,Statistikk og sannsynlighet,Enkelt søylediagram,"lage og lese et enkelt søylediagram der hver rute er én, og si hvor mange flere det er i én gruppe enn i en annen.",tellestreker;differanse,1,,2
+lage-instruks,skill,Algoritmer og programmering,Lage en instruks,"lage en trinnvis instruks for en vei gjennom et rutenett, teste den og rette den når den ikke virker.",folge-instruks,1,,2
+hundrere,concept,Tall og plassverdi,Hundrere,"Hundrer: 10 tiere er det samme som 1 hundrer, og 100 er 10 ganger så mye som 10.",enhetstenkning-tiere,0,,3
+plassverdi-tresifret,skill,Tall og plassverdi,Tresifrede tall,"si hva hvert siffer i et tresifret tall er verdt, og dele opp tallet på flere måter: 342 = 300 + 40 + 2 = 302 + 40.",hundrere;dele-opp-tosifret,1,,3
+telle-tiere-hundrere,skill,Tall og plassverdi,Telle med 10 og 100,"telle framover og bakover med 10 og med 100 fra hvilket som helst tall, også over hundreren: 380, 390, 400, 410.",hundrere;telle-i-hopp,1,,3
+plassere-til-1000,skill,Tall og plassverdi,Plassere tall til 1000 på tallinja,"plassere tresifrede tall på tallinja, og finne nærmeste tier og nærmeste hundrer på hver side.",plassere-til-100;plassverdi-tresifret,1,,3
+fakta-over-tieren,skill,Tallfakta,Pluss og minus over tieren uten å telle,"svare raskt på pluss- og minusstykker over tieren, som 8 + 5 og 13 − 5, ved å huske dem eller finne dem fra noe du kan, uten å telle.",fylle-tieren;trekke-fra-over-tieren;dobling-6-9,1,,3
+tierkomplement-100,skill,Tallfakta,Hva som mangler til 100,"finne hva som mangler til 100 (64 + 36 = 100), og vite at tierne blir 9 når enerne blir 10.",hele-tiere;tallvenner-10,1,,3
+gang-10,fact,Tallfakta,10-gangen,"1 · 10: 10
+2 · 10: 20
+3 · 10: 30
+4 · 10: 40
+5 · 10: 50
+6 · 10: 60
+7 · 10: 70
+8 · 10: 80
+9 · 10: 90
+10 · 10: 100
+11 · 10: 110
+12 · 10: 120",gangetegnet;telle-i-hopp,1,,3
+gang-5,fact,Tallfakta,5-gangen,"1 · 5: 5
+2 · 5: 10
+3 · 5: 15
+4 · 5: 20
+5 · 5: 25
+6 · 5: 30
+7 · 5: 35
+8 · 5: 40
+9 · 5: 45
+10 · 5: 50
+11 · 5: 55
+12 · 5: 60",gang-10,1,,3
+gang-2,fact,Tallfakta,2-gangen,"1 · 2: 2
+2 · 2: 4
+3 · 2: 6
+4 · 2: 8
+5 · 2: 10
+6 · 2: 12
+7 · 2: 14
+8 · 2: 16
+9 · 2: 18
+10 · 2: 20
+11 · 2: 22
+12 · 2: 24",gangetegnet;dobling-6-9,1,,3
+dele-2-5-10,skill,Tallfakta,"Delestykker fra 2-, 5- og 10-gangen","løse delestykker fra 2-, 5- og 10-gangen ved å tenke på gangestykket: 35 : 5 er 7, fordi 7 · 5 = 35.",gang-5;gang-2;deling-som-manglende-faktor,1,,3
+invers,concept,Addisjon og subtraksjon,Pluss og minus er motsatte,"Addisjon og subtraksjon er motsatte regnearter. Addisjon finner en ukjent helhet, og subtraksjon finner en ukjent del, uansett hvordan regnestykket er skrevet.",manglende-ledd,0,,3
+hele-hundrere,skill,Addisjon og subtraksjon,Regne med hele hundrere,"legge sammen og trekke fra hele hundrere og tiere med hundrere som enheter: 400 + 300 = 7 hundrere, og 340 + 50 = 390.",hundrere;hele-tiere,1,,3
+oppstilt-addisjon,skill,Addisjon og subtraksjon,Oppstilt addisjon,"legge sammen tresifrede tall med oppstilling, og veksle 10 enere til 1 tier og 10 tiere til 1 hundrer.",plassverdi-tresifret;fakta-over-tieren,2,,3
+oppstilt-subtraksjon,skill,Addisjon og subtraksjon,Oppstilt subtraksjon,"trekke fra tresifrede tall med oppstilling, og veksle 1 tier til 10 enere, også når det står 0 på tierplassen (402 − 135).",oppstilt-addisjon;invers,2,,3
+konstant-differanse,skill,Addisjon og subtraksjon,Flytte begge tallene like mye,"gjøre en subtraksjon enklere ved å legge til eller trekke fra det samme på begge tallene, fordi forskjellen ikke endrer seg: 63 − 17 = 66 − 20.",differanse;tosifret-i-hodet,1,,3
+velge-metode,skill,Addisjon og subtraksjon,Velge regnemåte,"velge mellom hoderegning og oppstilling ut fra tallene, og forklare valget: 402 − 398 regnes best i hodet, 457 − 189 med oppstilling.",oppstilt-subtraksjon;konstant-differanse;tierkomplement-100,1;2,,3
+gangetegnet,concept,Multiplikasjon og divisjon,Gangetegnet,"Gangetegnet: 4 · 3 betyr 4 grupper med 3 i hver, det samme som 3 + 3 + 3 + 3.",like-grupper,0,,3
+rutenett,concept,Multiplikasjon og divisjon,Rutenett,"Rutenett: ting ordnet i like lange rader. 3 rader med 4 i hver viser både 3 · 4 og 4 · 3, og det er 12 til sammen.",gangetegnet,0,,3
+bytte-faktorer,skill,Multiplikasjon og divisjon,Faktorene kan bytte plass,"bruke at 3 · 8 = 8 · 3 til å velge det gangestykket du kan, og forklare det ved å snu et rutenett.",rutenett,1,,3
+doble-halvere,skill,Multiplikasjon og divisjon,Doble og halvere,"doble og halvere i hodet, også større tall: det dobbelte av 35 er 70, og halvparten av 70 er 35.",dobling-6-9;hele-tiere,1,,3
+deling-som-manglende-faktor,skill,Multiplikasjon og divisjon,Dele ved å tenke ganging,"løse delestykker som 15 : 5 ved å spørre «hvor mange femmere er 15?», altså ? · 5 = 15, i stedet for å dele ut én og én.",gangetegnet,1,,3
+dele-opp-faktor,skill,Multiplikasjon og divisjon,Dele opp en faktor,"finne et gangestykke du ikke kan fra to du kan, ved å dele opp en faktor: 7 · 4 = 5 · 4 + 2 · 4, vist som et rutenett delt i to.",rutenett;gang-5;gang-2,1,,3
+gangefortellinger,skill,Multiplikasjon og divisjon,Regnefortellinger med ganging og deling,"lage og løse små regnefortellinger med ganging og deling, og tegne dem som grupper eller rutenett.",gangetegnet;deling-som-manglende-faktor,1,,3
+brok,concept,Brøk,Brøk,"Brøk: en del av en helhet som er delt i like store deler.
+Nevner: tallet under brøkstreken, som sier hvor mange like store deler helheten er delt i.
+Teller: tallet over brøkstreken, som sier hvor mange av delene vi har.",halv-og-kvart,0,,3
+enhetsbrok,concept,Brøk,Enhetsbrøk,"Enhetsbrøk: én av de like store delene, som 1/3. Jo flere deler helheten er delt i, desto mindre er hver del.",brok,0,,3
+brok-av-figur,skill,Brøk,Brøken av en figur,"skrive brøken for den fargelagte delen av en figur, som 3/4, og si den som «3 fjerdedeler».",enhetsbrok,1,,3
+sammenligne-enhetsbroker,skill,Brøk,Sammenligne enhetsbrøker,"si hvilken av to enhetsbrøker som er størst, som 1/3 og 1/5, og forklare det med den samme helheten delt i flere deler.",enhetsbrok,1,,3
+ulikhetstegn,concept,Algebra,Ulikhetstegnene,Ulikhetstegn: < betyr «er mindre enn» og > betyr «er større enn». Den åpne siden vender mot det største tallet.,likhetstegnet;sammenligne-til-100,0,,3
+sammenligne-uttrykk,skill,Algebra,Sammenligne uttrykk,"sette inn <, > eller = mellom to uttrykk, som 7 + 5 og 6 + 6, og forklare uten å regne ut begge sidene når det går.",ulikhetstegn;regnestykkefamilie,1,,3
+likevekt,concept,Algebra,Likevekt,"Likevekt: en skålvekt er i likevekt når begge sidene veier like mye. Legger du til eller tar bort det samme på begge sidene, er den fortsatt i likevekt.",likhetstegnet;kilogram,0,,3
+likevekt-oppgaver,skill,Algebra,Finne det som gir likevekt,"finne tallet som gir likevekt i 8 + 4 = ? + 5, og forklare med skålvekt eller strekmodell.",likevekt;manglende-ledd,1,,3
+koordinatsystem,concept,Geometri,Koordinatsystemet,"Koordinatsystem: et rutenett med to tallinjer, en bortover (x-aksen) og en oppover (y-aksen). Punktet (3, 2) ligger 3 bortover og 2 oppover.",tallinja;posisjonsord,0,,3
+plassere-punkt,skill,Geometri,Punkter i koordinatsystemet,"plassere og lese av punkter med hele tall i et koordinatsystem, og navngi dem med bokstaver.",koordinatsystem,1,,3
+mangekanter,skill,Geometri,Mangekanter,"navngi mangekanter etter antall sider, trekant, firkant, femkant, sekskant og åttekant, og telle sidene og hjørnene.",sortere-figurer,1,,3
+rett-vinkel,concept,Geometri,Rett vinkel,"Rett vinkel: hjørnet på et ark, en kvart omdreining. Andre vinkler er mindre eller større enn en rett vinkel.",sider-hjorner,0,,3
+areal,concept,Måling,Areal,"Areal: hvor stor en flate er, målt i hvor mange like store ruter som dekker den uten mellomrom.",,0,,3
+areal-telle-ruter,skill,Måling,Areal ved å telle ruter,"finne arealet av en figur ved å telle ruter, og se at et rektangel med 3 rader med 5 ruter har 3 · 5 = 15 ruter.",areal;rutenett,1,,3
+omkrets,concept,Måling,Omkrets,Omkrets: lengden hele veien rundt kanten av en figur.,cm-og-meter,0,,3
+lengdeenheter,skill,Måling,"Millimeter, centimeter, meter og kilometer","velge mellom millimeter, centimeter, meter og kilometer, og vite at 1 m = 100 cm og 1 cm = 10 mm.",cm-og-meter,1,,3
+klokka-fem-minutter,skill,Måling,Klokka på fem minutter,"lese klokka på fem minutter nær, også kvart over, kvart på, ti på halv og fem over halv.",klokka-hel-halv;gang-5,1,,3
+vekslepenger,skill,Måling,Vekslepenger,"finne vekslepenger ved å telle opp fra prisen til det du betalte: betaler du 100 kr for noe som koster 64 kr, får du 36 kr tilbake.",tierkomplement-100;betale,1,,3
+soylediagram,skill,Statistikk og sannsynlighet,Søylediagram med hopp,"lage og lese søylediagram der aksen går i hopp på 2, 5 eller 10, og lese av verdier som ligger mellom strekene.",enkelt-diagram;telle-i-hopp,1,,3
+sporre-og-telle,skill,Statistikk og sannsynlighet,Spørre og telle opp,"lage et spørsmål, samle inn svar fra klassen eller familien, og vise resultatet i en tabell.",tellestreker,1,,3
+instruks-koordinat,skill,Algoritmer og programmering,Instrukser i koordinatsystemet,"gi og følge trinnvise instrukser for å flytte en figur i et koordinatsystem, som «3 til høyre, 2 opp», og finne hvor den ender.",plassere-punkt;lage-instruks,1,,3
+plassverdi-firesifret,skill,Tall og plassverdi,Tall til 10 000,"si hva hvert siffer er verdt i tall opp til 10 000, og dele dem opp: 4052 er 4 tusener, 5 tiere og 2 enere.",plassverdi-tresifret,1,,4
+ti-ganger-sa-stor,concept,Tall og plassverdi,Ti ganger så mye verdt,"Ti ganger så mye: hver plass i plassverdisystemet er verdt 10 ganger så mye som plassen til høyre. Ganger du et tall med 10, blir hvert siffer 10 ganger så mye verdt og flytter én plass mot venstre.",plassverdi-firesifret,0,,4
+avrunde,skill,Tall og plassverdi,Runde av,"runde av til nærmeste 10, 100 og 1000 ved å finne hvilket runde tall tallet ligger nærmest på tallinja.",plassere-til-1000;plassverdi-firesifret,1,,4
+gang-4,fact,Tallfakta,4-gangen,"1 · 4: 4
+2 · 4: 8
+3 · 4: 12
+4 · 4: 16
+5 · 4: 20
+6 · 4: 24
+7 · 4: 28
+8 · 4: 32
+9 · 4: 36
+10 · 4: 40
+11 · 4: 44
+12 · 4: 48",gang-2,1,,4
+gang-8,fact,Tallfakta,8-gangen,"1 · 8: 8
+2 · 8: 16
+3 · 8: 24
+4 · 8: 32
+5 · 8: 40
+6 · 8: 48
+7 · 8: 56
+8 · 8: 64
+9 · 8: 72
+10 · 8: 80
+11 · 8: 88
+12 · 8: 96",gang-4,1,,4
+gang-3,fact,Tallfakta,3-gangen,"1 · 3: 3
+2 · 3: 6
+3 · 3: 9
+4 · 3: 12
+5 · 3: 15
+6 · 3: 18
+7 · 3: 21
+8 · 3: 24
+9 · 3: 27
+10 · 3: 30
+11 · 3: 33
+12 · 3: 36",dele-opp-faktor,1,,4
+gang-6,fact,Tallfakta,6-gangen,"1 · 6: 6
+2 · 6: 12
+3 · 6: 18
+4 · 6: 24
+5 · 6: 30
+6 · 6: 36
+7 · 6: 42
+8 · 6: 48
+9 · 6: 54
+10 · 6: 60
+11 · 6: 66
+12 · 6: 72",gang-3;gang-5,1,,4
+gang-9,fact,Tallfakta,9-gangen,"1 · 9: 9
+2 · 9: 18
+3 · 9: 27
+4 · 9: 36
+5 · 9: 45
+6 · 9: 54
+7 · 9: 63
+8 · 9: 72
+9 · 9: 81
+10 · 9: 90
+11 · 9: 99
+12 · 9: 108",gang-10;dele-opp-faktor,1,,4
+gang-7,fact,Tallfakta,7-gangen,"1 · 7: 7
+2 · 7: 14
+3 · 7: 21
+4 · 7: 28
+5 · 7: 35
+6 · 7: 42
+7 · 7: 49
+8 · 7: 56
+9 · 7: 63
+10 · 7: 70
+11 · 7: 77
+12 · 7: 84",gang-5;gang-2;dele-opp-faktor,1,,4
+dele-fakta-10,skill,Tallfakta,Delestykker fra gangetabellen,"løse alle delestykker fra gangetabellen til 10 · 10 ved å tenke på gangestykket: 56 : 8 er 7, fordi 7 · 8 = 56.",gang-8;gang-6;gang-9;gang-7;dele-2-5-10,1,,4
+kompensasjon,skill,Addisjon og subtraksjon,Regne med et rundt tall og rette opp,legge til eller trekke fra et tall nær en hel tier ved å bruke den hele tieren og rette opp etterpå: 46 + 29 = 46 + 30 − 1.,tosifret-i-hodet,1,,4
+overslag,skill,Addisjon og subtraksjon,Overslag,"gjøre overslag ved å runde av, og bruke det til å sjekke om et svar er rimelig: 398 + 207 er omtrent 400 + 200 = 600.",avrunde;oppstilt-subtraksjon,1,,4
+tostegsoppgaver,skill,Addisjon og subtraksjon,Tekstoppgaver med to steg,"løse tekstoppgaver med to steg med pluss og minus, og tegne dem med strekmodellen før du regner.",manglende-ledd;invers,1,,4
+malings-og-delingsdivisjon,concept,Multiplikasjon og divisjon,To slags deling,"Målingsdivisjon: hvor mange grupper på 4 kan du lage av 20? Svaret er antall grupper.
+Delingsdivisjon: del 20 likt på 4. Svaret er hvor mange det blir i hver gruppe.",deling-som-manglende-faktor;dele-likt,0,,4
+rest,concept,Multiplikasjon og divisjon,Rest,Rest: det som blir igjen når en deling ikke går opp. Resten er alltid mindre enn tallet du deler på.,malings-og-delingsdivisjon,0,,4
+tolke-rest,skill,Multiplikasjon og divisjon,Hva resten betyr,"løse delestykker med rest og bestemme ut fra situasjonen hva svaret blir: 23 barn med 4 i hver bil trenger 6 biler, men for 23 kroner får du bare 5 is til 4 kroner.",rest,1,,4
+gange-dele-10-100,skill,Multiplikasjon og divisjon,Gange og dele med 10 og 100,"gange og dele hele tall med 10 og 100 ved å bruke at hvert siffer blir 10 eller 100 ganger så mye verdt, ikke ved å «legge til en null».",ti-ganger-sa-stor;gang-10,1,,4
+gange-hele-tiere,skill,Multiplikasjon og divisjon,Gange med hele tiere,gange med hele tiere og hundrere ved å regne med enheter: 3 · 40 er 3 · 4 tiere = 12 tiere = 120.,gange-dele-10-100;enhetstenkning-tiere,1,,4
+lur-faktorrekkefolge,skill,Multiplikasjon og divisjon,Gange i lur rekkefølge,gange flere tall i den rekkefølgen som er lurest: 4 · 7 · 25 = 7 · 100 = 700.,bytte-faktorer;gang-4,1,,4
+rutemetoden,skill,Multiplikasjon og divisjon,Rutemetoden,"gange et tosifret tall med et ensifret med rutemetoden: tegn et rektangel delt i tiere og enere, 23 · 4 = 20 · 4 + 3 · 4 = 80 + 12 = 92.",dele-opp-faktor;enhetstenkning-tiere,1;2,,4
+oppstilt-ganging-ensifret,skill,Multiplikasjon og divisjon,Oppstilt ganging med ensifret tall,"gange et flersifret tall med et ensifret med oppstilling, og forklare hvert delprodukt med rutemetoden: 243 · 6.",rutemetoden;oppstilt-addisjon,2,,4
+dele-opp-dividend,skill,Multiplikasjon og divisjon,Dele ved å dele opp tallet,dele ved å dele opp tallet i deler som er lette å dele: 84 : 4 = 80 : 4 + 4 : 4 = 20 + 1 = 21.,malings-og-delingsdivisjon;dele-fakta-10,1,,4
+brok-tallinja,skill,Brøk,Brøk på tallinja,"plassere brøker som 1/4, 2/4 og 3/4 på tallinja mellom 0 og 1 ved å dele avstanden i like store deler.",brok-av-figur;plassere-til-100,1,,4
+hele-som-brok,concept,Brøk,En hel som brøk,"En hel som brøk: 4/4 = 1 og 3/3 = 1. En brøk der telleren er større enn nevneren, som 5/4, er mer enn én hel.",brok-av-figur,0,,4
+enhetsbrok-av-mengde,skill,Brøk,En enhetsbrøk av en mengde,finne en enhetsbrøk av en mengde ved å dele på nevneren: 1/5 av 20 er 20 : 5 = 4.,enhetsbrok;dele-2-5-10,1,,4
+brok-samme-nevner,skill,Brøk,Pluss og minus med samme nevner,"legge sammen og trekke fra brøker med samme nevner ved å regne med delene som enheter: 3 åttendedeler + 2 åttendedeler = 5 åttendedeler, og 1 − 3/8 = 5/8.",brok-av-figur;hele-som-brok,1,,4
+voksende-monster,skill,Algebra,Voksende mønstre,"beskrive hvordan et voksende mønster av figurer endrer seg fra figur til figur, og finne hvor mange det er i neste figur og i figur 10.",tallmonster,1,,4
+ganging-for-pluss,concept,Algebra,Ganging før pluss,"Ganging før pluss: i 3 · 25 + 40 regnes 3 · 25 først, fordi det er én samlet mengde (tre is til 25 kr) som legges til 40.",gangefortellinger,0,,4
+uttrykk-til-situasjon,skill,Algebra,Regneuttrykk til en situasjon,"skrive et regneuttrykk til en hverdagssituasjon, som 3 · 25 + 40 for tre is og en brus, og finne på en situasjon som passer til et uttrykk.",ganging-for-pluss;tostegsoppgaver,1,,4
+vinkler,concept,Geometri,Vinkler,"Vinkel: hvor mye to linjer er dreid fra hverandre der de møtes.
+Spiss vinkel: en vinkel mindre enn en rett vinkel.
+Stump vinkel: en vinkel større enn en rett vinkel, men mindre enn en rett linje.",rett-vinkel,0,,4
+parallell-vinkelrett,concept,Geometri,Parallell og vinkelrett,"Parallelle linjer: linjer som går ved siden av hverandre og aldri møtes.
+Vinkelrette linjer: linjer som møtes i en rett vinkel.",rett-vinkel,0,,4
+firkanter,skill,Geometri,Firkantene,"kjenne igjen kvadrat, rektangel, parallellogram, rombe og trapes ut fra sidene og vinklene, og forklare hvorfor et kvadrat også er et rektangel.",parallell-vinkelrett;mangekanter,1,,4
+romfigurer-egenskaper,skill,Geometri,"Flater, kanter og hjørner","beskrive kube, prisme, pyramide, sylinder, kjegle og kule med flater, kanter og hjørner, og telle dem.",romfigurer-navn;sider-hjorner,1,,4
+volum,concept,Måling,Volum,"Volum: hvor mye plass noe tar opp, eller hvor mye en beholder rommer.",,0,,4
+liter,skill,Måling,"Liter, desiliter og milliliter","måle volum i liter, desiliter og milliliter med målebeger, og vite at 1 L = 10 dL = 1000 mL.",volum,1,,4
+gram-kilo,skill,Måling,Gram og kilogram,"veie i gram og kilogram, lese av en skala med streker mellom tallene, og vite at 1 kg = 1000 g.",kilogram,1,,4
+klokka-minutt,skill,Måling,Klokka på minuttet,"lese klokka på minuttet, både med visere og digitalt, og gjøre om mellom 14.30 og «halv tre».",klokka-fem-minutter,1,,4
+tidsperiode,skill,Måling,Hvor lang tid,finne hvor lang tid noe tar ved å telle opp til hel time og videre på en tidslinje: fra 9.40 til 11.15 er 20 min + 1 t + 15 min.,klokka-minutt;tierkomplement-100,1,,4
+areal-rektangel,skill,Måling,Areal av rektangler,finne arealet av et rektangel i cm² og m² ved å tenke rader og ruter: 6 rader med 8 cm² er 48 cm².,areal-telle-ruter;lengdeenheter,1,,4
+omkrets-mangekant,skill,Måling,Omkrets av mangekanter,"finne omkretsen av rektangler og andre mangekanter ved å legge sammen sidene, og finne en side som mangler når omkretsen er kjent.",omkrets;mangekanter,1,,4
+diagram-med-skala,skill,Statistikk og sannsynlighet,Tabeller og diagrammer med skala,"lese og lage tabeller og søylediagrammer med skala, og svare på spørsmål som «hvor mange flere» og «hvor mange til sammen».",soylediagram;sporre-og-telle,1,,4
+algoritme,concept,Algoritmer og programmering,Algoritme,"Algoritme: en presis oppskrift i steg som løser en oppgave, og som gjør det samme hver gang den følges.",lage-instruks,0,,4
+lokke-vilkar-variabel,concept,Algoritmer og programmering,"Løkke, vilkår og variabel","Løkke: en del av en algoritme som gjentas, som «gjenta 4 ganger: gå 3, snu til høyre».
+Vilkår: en sjekk, som «hvis det er en vegg foran, så snu, ellers gå fram».
+Variabel: et navn som husker en verdi som kan endre seg, som poengsummen i et spill.",algoritme,0,,4
+lage-algoritme,skill,Algoritmer og programmering,Lage en algoritme,"lage og uttrykke en algoritme med løkke, vilkår og variabel, for eksempel en robot som går til den treffer en vegg og teller skrittene.",lokke-vilkar-variabel;instruks-koordinat,1,,4
+store-tall,skill,Tall og plassverdi,Tall til en million,"lese, skrive, sammenligne og dele opp tall opp til en million, og plassere dem på en tallinje med passende inndeling.",plassverdi-firesifret;avrunde,1,,5
+negative-temperatur,skill,Tall og plassverdi,Minusgrader,"lese minusgrader på et termometer, og finne hvor mange grader det er mellom for eksempel −4 °C og 3 °C.",plassere-til-100;differanse,1,,5
+gang-11,fact,Tallfakta,11-gangen,"1 · 11: 11
+2 · 11: 22
+3 · 11: 33
+4 · 11: 44
+5 · 11: 55
+6 · 11: 66
+7 · 11: 77
+8 · 11: 88
+9 · 11: 99
+10 · 11: 110
+11 · 11: 121
+12 · 11: 132",gang-10,1,,5
+gang-12,fact,Tallfakta,12-gangen,"1 · 12: 12
+2 · 12: 24
+3 · 12: 36
+4 · 12: 48
+5 · 12: 60
+6 · 12: 72
+7 · 12: 84
+8 · 12: 96
+9 · 12: 108
+10 · 12: 120
+11 · 12: 132
+12 · 12: 144",gang-10;gang-2,1,,5
+hele-gangetabellen,skill,Tallfakta,Hele gangetabellen,"svare på blandede gangestykker og delestykker til 12 · 12 innen noen få sekunder, uten å telle.",gang-11;gang-12;dele-fakta-10,1,,5
+store-tall-i-hodet,skill,Addisjon og subtraksjon,Store runde tall i hodet,"legge sammen og trekke fra store, runde tall i hodet ved å regne med enheter: 4500 + 3700 er 45 hundrere + 37 hundrere = 82 hundrere = 8200.",hele-hundrere;store-tall,1,,5
+oppstilt-store-tall,skill,Addisjon og subtraksjon,Oppstilling med store tall,"legge sammen og trekke fra tall med mange sifre med oppstilling, også flere tall på en gang og med veksling over flere nuller (5000 − 1236).",oppstilt-subtraksjon;store-tall,2,,5
+faktorer-multipler,concept,Multiplikasjon og divisjon,Faktorer og multipler,"Faktor: et tall som går opp i et annet. 3 og 4 er faktorer i 12.
+Multiplum: et tall i gangetabellen til et tall. 12 er et multiplum av både 3 og 4.",dele-fakta-10,0,,5
+primtall,concept,Multiplikasjon og divisjon,Primtall,"Primtall: et tall større enn 1 som bare har 1 og seg selv som faktorer, som 2, 3, 5, 7 og 11.",faktorer-multipler,0,,5
+kvadrattall,concept,Multiplikasjon og divisjon,Kvadrattall,"Kvadrattall: et tall du får ved å gange et tall med seg selv, som 5 · 5 = 25. Det kan legges som et kvadratisk rutenett.",rutenett;faktorer-multipler,0,,5
+gange-tiere-med-tiere,skill,Multiplikasjon og divisjon,Hele tiere ganger hele tiere,gange hele tiere og hundrere med hverandre ved å regne med enheter: 30 · 40 er 3 tiere · 4 tiere = 12 hundrere = 1200.,gange-hele-tiere,1,,5
+rutemetoden-tosifret,skill,Multiplikasjon og divisjon,Rutemetoden med to tosifrede tall,gange to tosifrede tall med rutemetoden i fire deler: 23 · 14 = 20 · 10 + 20 · 4 + 3 · 10 + 3 · 4.,rutemetoden;gange-tiere-med-tiere,2,,5
+lang-multiplikasjon,skill,Multiplikasjon og divisjon,Oppstilt ganging med tosifret tall,"gange et flersifret tall med et tosifret med oppstilling, og forklare de to linjene som delprodukter: 124 · 26 = 124 · 20 + 124 · 6.",rutemetoden-tosifret;oppstilt-ganging-ensifret,2,,5
+oppstilt-divisjon,skill,Multiplikasjon og divisjon,Oppstilt divisjon,"dele med ensifret divisor med den norske oppstillingen (84 : 4 = 21, med subtraksjonene under), med en tabell over gangetabellen til divisoren som støtte.",dele-opp-dividend;tolke-rest,2,,5
+ganger-sa-mange,skill,Multiplikasjon og divisjon,Ganger så mange,"løse oppgaver med «tre ganger så mange» ved å tegne strekmodellen med like lange strimler: Kari har 3 ganger så mange klinkekuler som Ola, og de har 24 til sammen.",strekmodellen;gangefortellinger,1,,5
+overslag-ganging,skill,Multiplikasjon og divisjon,Overslag med ganging og deling,gjøre overslag over ganging og deling ved å runde av til tall som er lette å regne med: 48 · 21 er omtrent 50 · 20 = 1000.,gange-tiere-med-tiere;avrunde,1,,5
+brok-som-divisjon,concept,Brøk,Brøk som divisjon,"Brøk som divisjon: 3/4 er det samme som 3 : 4. Deler du 3 pizzaer likt på 4, får hver 3/4 pizza.",malings-og-delingsdivisjon;brok-tallinja,0,,5
+brok-av-mengde,skill,Brøk,En brøk av en mengde,"finne en brøk av en mengde med strekmodellen, ved å dele på nevneren og gange med telleren: 3/5 av 40 er 3 · 8 = 24.",enhetsbrok-av-mengde;strekmodellen,1,,5
+like-broker,concept,Brøk,Like brøker,"Like brøker: brøker som har samme plass på tallinja, som 1/4, 2/8 og 3/12. 1 er like stor del av 4 som 3 er av 12.",brok-tallinja,0,,5
+utvide-forkorte,skill,Brøk,Utvide og forkorte,"utvide og forkorte brøker ved å gange eller dele teller og nevner med det samme tallet, og forklare med tallinja eller en figur hvorfor verdien ikke endrer seg.",like-broker;faktorer-multipler,1,,5
+blandet-tall,concept,Brøk,Blandet tall,"Blandet tall: et helt tall og en brøk, som 2 3/4. Det er det samme som 11/4, fordi 2 hele er 8 fjerdedeler.",hele-som-brok,0,,5
+brok-beslektede-nevnere,skill,Brøk,Pluss og minus når én nevner går opp i den andre,legge sammen og trekke fra brøker der den ene nevneren er et multiplum av den andre: 1/2 + 3/8 = 4/8 + 3/8 = 7/8.,utvide-forkorte;brok-samme-nevner,1,,5
+tideler,concept,Desimaltall og prosent,Tideler,"Tidel: én av ti like store deler av en ener. 0,1 = 1/10. Plassen rett etter kommaet er tidelsplassen, og en tidel er 10 ganger så lite som en ener.",ti-ganger-sa-stor;brok-tallinja,0,,5
+hundredeler,concept,Desimaltall og prosent,Hundredeler,"Hundredel: én av hundre like store deler av en ener. 0,01 = 1/100, og 10 hundredeler er 1 tidel.",tideler,0,,5
+desimal-i-mal,skill,Desimaltall og prosent,Desimaltall i mål og penger,"skrive mål og beløp med desimaltall og forklare hvert siffer: 1,45 m er 1 m, 4 tideler og 5 hundredeler, altså 1 m og 45 cm.",hundredeler;lengdeenheter,1,,5
+prosent,concept,Desimaltall og prosent,Prosent,"Prosent: hundredeler. 25 % betyr 25 av 100, det samme som 25/100 = 0,25.",hundredeler,0,,5
+brok-desimal-prosent,skill,Desimaltall og prosent,"Brøk, desimaltall og prosent","vise den samme verdien som brøk, desimaltall og prosent med et hundrerutenett og på tallinja, og forklare sammenhengen.",prosent;like-broker,1,,5
+kjente-brok-desimal-prosent,fact,Desimaltall og prosent,Brøker du kjenner som desimaltall og prosent,"1/2: 0,5 = 50 %
+1/4: 0,25 = 25 %
+3/4: 0,75 = 75 %
+1/5: 0,2 = 20 %
+1/10: 0,1 = 10 %
+1/100: 0,01 = 1 %",brok-desimal-prosent,1,,5
+budsjett-regneark,skill,Desimaltall og prosent,Budsjett i regneark,"lage et enkelt budsjett for lommepenger i et regneark, med inntekter og utgifter i hver sin kolonne og en formel som regner ut hva som er igjen.",desimal-i-mal,3,,5
+likning,concept,Algebra,Likning,"Likning: et regnestykke med likhetstegn der ett tall er ukjent, ofte skrevet som en bokstav.
+Løsning: tallet som gjør begge sidene like store.
+Bokstav: står for et tall. 4x betyr 4 · x.",likevekt-oppgaver,0,,5
+teste-losning,skill,Algebra,Teste en løsning,sjekke om et tall er løsningen på en likning ved å sette det inn og se om begge sidene blir like.,likning,1,,5
+balansemetoden,concept,Algebra,Balansemetoden,"Balansemetoden: en likning er som en skålvekt i likevekt. Gjør du det samme på begge sidene, legger til, trekker fra, ganger eller deler med det samme, er den fortsatt i likevekt.",likning;likevekt,0,,5
+likning-ett-steg,skill,Algebra,Likninger med ett steg,"løse likninger som x + 7 = 15 og 4x = 20 ved å gjøre det samme på begge sidene, skrive hvert steg og sjekke svaret.",balansemetoden;teste-losning,1;2,,5
+gradskive,skill,Geometri,Måle vinkler,"måle og tegne vinkler med gradskive, og vite at en rett vinkel er 90°, en rett linje 180° og en hel omdreining 360°.",vinkler,1,,5
+trekanter,skill,Geometri,Trekantene,"kjenne igjen likesidet, likebeint og rettvinklet trekant, og beskrive dem med sider og vinkler.",vinkler;mangekanter,1,,5
+figur-i-koordinatsystem,skill,Geometri,Figurer i koordinatsystemet,"tegne en figur i koordinatsystemet ut fra koordinatene til hjørnene, og finne det hjørnet som mangler i et rektangel.",plassere-punkt;firkanter,1,,5
+regne-med-tid,skill,Måling,Regne med tid,"lage og løse oppgaver om tid med tidspunkt, tidsperioder og rutetabeller, også over midnatt, og gjøre om mellom timer, minutter og sekunder.",tidsperiode,1,,5
+gjore-om-enheter,skill,Måling,Gjøre om mellom enheter,"gjøre om mellom enheter med én omgjøring du kan og plassverdi: 1000 mL er 1 L, så 3700 mL er 3,7 L.",desimal-i-mal;liter;gram-kilo,1,,5
+areal-og-omkrets,skill,Måling,Areal eller omkrets,"vise at to figurer kan ha samme areal og ulik omkrets, og omvendt, og velge riktig av de to i en oppgave.",areal-rektangel;omkrets-mangekant,1,,5
+sannsynlighet,concept,Statistikk og sannsynlighet,Tilfeldighet og sannsynlighet,"Tilfeldig: du kan ikke vite på forhånd hva som skjer, som når du kaster en terning.
+Sannsynlighet: hvor stor sjanse det er for at noe skjer, fra umulig til sikkert.",,0,,5
+sannsynlighetsskala,skill,Statistikk og sannsynlighet,Fra umulig til sikker,"plassere hendelser på en skala fra umulig via like sannsynlig til sikker, og begrunne plasseringen.",sannsynlighet,1,,5
+sannsynlighet-som-brok,skill,Statistikk og sannsynlighet,Sannsynlighet som brøk,angi sannsynligheten som brøk når alle utfallene er like sannsynlige: sjansen for en sekser på en terning er 1/6.,sannsynlighetsskala;brok-av-figur,1,,5
+terningforsok,skill,Statistikk og sannsynlighet,Forsøk med terning og mynt,"kaste en terning eller en mynt mange ganger, telle utfallene og sammenligne med det du ventet.",sannsynlighet-som-brok;diagram-med-skala,1,,5
+blokkprogrammering,skill,Algoritmer og programmering,Programmere med blokker,"programmere et lite spill eller en animasjon i et blokkspråk som Scratch, med løkke, vilkår og en variabel som teller poeng.",lage-algoritme,1,,5
+feilsoke,skill,Algoritmer og programmering,Finne feil i et program,finne og rette feil i et program ved å gå gjennom det steg for steg og si hva hver blokk gjør før du kjører det.,blokkprogrammering,1,,5
+avrunde-store-tall,skill,Tall og plassverdi,Runde av store tall,"runde av store tall til et passende antall sifre, og vite når det er lurt: «rundt 5,4 millioner innbyggere».",store-tall,1,,6
+kvadrattall-fakta,fact,Tallfakta,Kvadrattallene,"1 · 1: 1
+2 · 2: 4
+3 · 3: 9
+4 · 4: 16
+5 · 5: 25
+6 · 6: 36
+7 · 7: 49
+8 · 8: 64
+9 · 9: 81
+10 · 10: 100
+11 · 11: 121
+12 · 12: 144",kvadrattall;hele-gangetabellen,1,,6
+konstant-sum,skill,Addisjon og subtraksjon,Flytte mellom leddene,"bruke at summen ikke endrer seg når du legger til på det ene leddet og trekker like mye fra det andre: 3,8 + 2,7 = 4 + 2,5.",konstant-differanse;pluss-minus-desimal,1,,6
+lang-divisjon,skill,Multiplikasjon og divisjon,Oppstilt divisjon med tosifret divisor,"dele med tosifret divisor med den norske oppstillingen, med en tabell over multiplene av divisoren: 672 : 24 = 28.",oppstilt-divisjon;lang-multiplikasjon,2,,6
+regne-smart-distributiv,skill,Multiplikasjon og divisjon,Dele opp for å regne smart,bruke at en faktor kan deles opp i hoderegning: 6 · 98 = 6 · 100 − 6 · 2 = 588.,rutemetoden-tosifret,1,,6
+felles-faktorer,skill,Multiplikasjon og divisjon,Felles faktorer og multipler,"finne felles faktorer og felles multipler for to tall, og bruke dem til å forkorte brøker og finne fellesnevner.",primtall;faktorer-multipler,1,,6
+additiv-multiplikativ,concept,Multiplikasjon og divisjon,Pluss-sammenligning og gange-sammenligning,"Additiv sammenligning: hvor mye mer? 75 kr er 15 kr mer enn 60 kr.
+Multiplikativ sammenligning: hvor mange ganger så mye? 75 kr er 1,25 ganger så mye som 60 kr.",ganger-sa-mange;hundredeler,0,,6
+sammenligne-broker,skill,Brøk,Sammenligne brøker,"sammenligne og ordne brøker ved å resonnere (samme teller, nærhet til 1/2 eller 1) eller ved fellesnevner, og velge den måten som passer.",like-broker;felles-faktorer,1,,6
+brok-ulike-nevnere,skill,Brøk,Pluss og minus med ulike nevnere,"legge sammen og trekke fra brøker og blandede tall med ulike nevnere ved å utvide til fellesnevner, og ved blandede tall dele opp bare det tallet som trekkes fra.",felles-faktorer;brok-beslektede-nevnere;blandet-tall,1;2,,6
+brok-ganger-heltall,skill,Brøk,Brøk ganger helt tall,gange en brøk med et helt tall ved å regne med delene som enheter: 3 · 2/5 = 6/5 = 1 1/5.,brok-samme-nevner;blandet-tall,1,,6
+brok-ganger-brok,skill,Brøk,Brøk ganger brøk,"gange to brøker ved å finne en brøk av en brøk, med et rektangel delt begge veier: 1/2 av 3/4 er 3/8.",brok-ganger-heltall;rutenett,1,,6
+brok-delt-heltall,skill,Brøk,Brøk delt på helt tall,"dele en brøk på et helt tall: 3/4 : 3 = 1/4, og 1/2 : 3 = 1/6, fordi halvdelen deles i tre like deler.",brok-ganger-brok,1,,6
+desimal-tallinja,skill,Desimaltall og prosent,Desimaltall på tallinja,plassere desimaltall på tallinja ved å dele avstanden mellom to tall i tideler og hundredeler.,hundredeler;plassere-til-1000,1,,6
+sammenligne-desimal,skill,Desimaltall og prosent,Sammenligne desimaltall,"sammenligne og ordne tall med ulikt antall desimaler, og forklare hvorfor 0,5 er større enn 0,45.",desimal-tallinja,1,,6
+avrunde-desimal,skill,Desimaltall og prosent,Runde av desimaltall,"runde av desimaltall til nærmeste hele, tidel og hundredel.",sammenligne-desimal;avrunde,1,,6
+tallvenner-til-1,skill,Desimaltall og prosent,Hva som mangler til 1,"finne hva som mangler til 1 og til neste hele tall: 0,35 + 0,65 = 1, og 2,7 + 0,3 = 3.",hundredeler;tierkomplement-100,1,,6
+pluss-minus-desimal,skill,Desimaltall og prosent,Pluss og minus med desimaltall,"legge sammen og trekke fra desimaltall i hodet og med oppstilling, med plassverdi under plassverdi, og se at det er de samme metodene som for hele tall.",tallvenner-til-1;oppstilt-store-tall;sammenligne-desimal,1;2,,6
+gange-dele-10-desimal,skill,Desimaltall og prosent,"Desimaltall ganger og delt på 10, 100 og 1000","gange og dele desimaltall med 10, 100 og 1000 ved at sifrene blir 10, 100 eller 1000 ganger så mye verdt: 3,7 · 100 = 370. Kommaet står stille, det er sifrene som flytter seg.",gange-dele-10-100;hundredeler,1,,6
+gange-desimal-heltall,skill,Desimaltall og prosent,Desimaltall ganger helt tall,"gange et desimaltall med et helt tall ved å regne med tideler og hundredeler som enheter: 0,3 · 4 = 12 tideler = 1,2, og 2,35 · 6 med oppstilling.",tideler;lang-multiplikasjon,1;2,,6
+dele-desimal-heltall,skill,Desimaltall og prosent,Desimaltall delt på helt tall,"dele et desimaltall på et helt tall: 4,8 : 4 er 48 tideler : 4 = 12 tideler = 1,2.",gange-desimal-heltall;oppstilt-divisjon,1;2,,6
+prosent-av-mengde,skill,Desimaltall og prosent,Prosent av en mengde,"finne 50 %, 25 %, 10 %, 5 % og 1 % av en mengde, og bygge andre prosenter av dem: 35 % = 25 % + 10 %, vist med strekmodellen.",kjente-brok-desimal-prosent;brok-av-mengde,1,,6
+problemer-desimal-brok-prosent,skill,Desimaltall og prosent,"Problemer med desimaltall, brøk og prosent","lage og løse problemer med desimaltall, brøk og prosent fra handling og hverdag, og argumentere for løsningen.",prosent-av-mengde;pluss-minus-desimal,1,,6
+likning-to-steg,skill,Algebra,Likninger med to steg,"løse likninger med to steg, som 3x + 5 = 20, med balansemetoden: trekk fra 5 på begge sidene, og del så begge sidene på 3.",likning-ett-steg,1;2,,6
+uttrykk-med-bokstav,skill,Algebra,Uttrykk med bokstav,"skrive et uttrykk med en bokstav til en situasjon: n poser med 6 boller er 6n boller, og regne ut verdien når n er kjent.",uttrykk-til-situasjon;likning,1,,6
+monster-regel,skill,Algebra,Regelen for figur nummer n,"finne en regel for figur nummer n i et voksende mønster, som 3n + 1 fyrstikker, og bruke den til å finne figur 100.",voksende-monster;uttrykk-med-bokstav,1,,6
+symmetri,skill,Geometri,Symmetri,"finne symmetrilinjer i figurer og mønstre, og fullføre en figur så den blir symmetrisk.",firkanter;trekanter,1,,6
+flytte-figurer,concept,Geometri,"Speiling, rotasjon og parallellforskyvning","Speiling: figuren vendes om en linje, som i et speil.
+Rotasjon: figuren dreies rundt et punkt.
+Parallellforskyvning: figuren flyttes like langt i samme retning, uten å dreies.
+Kongruent: figuren beholder form og størrelse når den flyttes på en av disse måtene.",figur-i-koordinatsystem;symmetri,0,,6
+kongruensavbildning,skill,Geometri,Flytte figurer,"speile, rotere og parallellforskyve figurer med og uten koordinatsystem, og beskrive hvilken flytting som er gjort.",flytte-figurer,1,,6
+vinkelsum,skill,Geometri,Vinkelsummen,"bruke at vinkelsummen i en trekant er 180° og i en firkant 360° til å finne en ukjent vinkel, og vise det ved å rive av hjørnene og legge dem inntil hverandre.",gradskive;trekanter,1,,6
+romfigurer-sammenligne,skill,Geometri,Sammenligne romfigurer,"forklare hva prismer, pyramider og sylindre har til felles og hva som skiller dem, og koble en romfigur til utbrettingen sin.",romfigurer-egenskaper,1,,6
+sirkel,concept,Måling,Sirkelen,"Radius: avstanden fra sentrum til sirkelen.
+Diameter: avstanden tvers over sirkelen gjennom sentrum, 2 ganger radius.
+Omkrets: lengden rundt sirkelen.",omkrets,0,,6
+pi,concept,Måling,Pi,"π (pi): omkretsen av enhver sirkel er litt over 3 ganger diameteren. π ≈ 3,14.",sirkel,0,,6
+omkrets-sirkel,skill,Måling,Omkretsen av en sirkel,"måle radius, diameter og omkrets i sirkler, og regne ut omkretsen som π · diameter.",pi;gange-desimal-heltall,2;3,,6
+areal-oppdeling,skill,Måling,Areal ved å dele opp,"finne arealet av sammensatte figurer ved å dele dem opp i rektangler, og se at 7 · 13 = 7 · 10 + 7 · 3 er det samme som å dele et rektangel i to.",areal-rektangel;regne-smart-distributiv,1,,6
+areal-trekant,skill,Måling,Areal av parallellogram og trekant,"finne arealet av et parallellogram ved å klippe og flytte det til et rektangel, og av en trekant som halvparten av et parallellogram: g · h / 2.",areal-oppdeling;firkanter,1,,6
+volum-boks,skill,Måling,Volum av en boks,"finne volumet av en boks ved å tenke lag med terninger, lengde · bredde · høyde, i cm³, og vite at 1 dm³ = 1 L.",volum;areal-rektangel,1,,6
+velge-maleenhet,skill,Måling,Velge måleenhet,"velge en passende måleenhet og gjøre et overslag før du måler: et klasserom måles i m², et viskelær i cm².",gjore-om-enheter;areal-og-omkrets,1,,6
+gjennomsnitt,concept,Statistikk og sannsynlighet,Gjennomsnitt,"Gjennomsnitt: det hver ville fått hvis alt ble delt likt. Legg sammen alle verdiene, og del på hvor mange verdier det er.",malings-og-delingsdivisjon,0,,6
+regne-gjennomsnitt,skill,Statistikk og sannsynlighet,Regne ut gjennomsnitt,"regne ut gjennomsnittet av et lite datasett, og forklare hva det forteller.",gjennomsnitt;oppstilt-divisjon,1,,6
+linjediagram,skill,Statistikk og sannsynlighet,Linjediagram,"lese og lage linjediagram for noe som endrer seg over tid, som temperaturen gjennom et døgn.",diagram-med-skala,1,,6
+utfall-i-tabell,skill,Statistikk og sannsynlighet,Alle utfallene i en tabell,"finne alle mulige utfall når du kaster to terninger eller to mynter, i en tabell, og bruke tabellen til å finne sannsynligheter.",sannsynlighet-som-brok,1,,6
+funksjon-program,concept,Algoritmer og programmering,Funksjon i et program,"Funksjon: en navngitt bit av et program som kan brukes om igjen, ofte med en verdi inn, som tegn_mangekant(sider).",lokke-vilkar-variabel,0,,6
+tegne-mangekant,skill,Algoritmer og programmering,Programmere mangekanter,"programmere en figur som tegner regulære mangekanter, og forklare hvorfor den må snu 360° delt på antall sider.",blokkprogrammering;gradskive;funksjon-program,1,,6
+monster-program,skill,Algoritmer og programmering,Programmere mønstre,"lage mønstre med en løkke inni en løkke, og endre variabler for å utforske hvordan mønsteret endrer seg.",tegne-mangekant;symmetri,1,,6
+negative-tall,concept,Tall og plassverdi,Negative tall,"Negative tall: tall mindre enn null, til venstre for 0 på tallinja. −5 ligger like langt fra 0 som 5.",negative-temperatur,0,,7
+sammenligne-negative,skill,Tall og plassverdi,Sammenligne negative tall,"ordne og sammenligne negative tall, og forklare hvorfor −7 er mindre enn −2.",negative-tall,1,,7
+pluss-minus-negative,skill,Tall og plassverdi,Regne med negative tall,"legge til og trekke fra med negative tall ved å bevege deg på tallinja, i praktiske situasjoner som temperatur og gjeld, og finne forskjellen som en avstand: fra −3 til 5 er det 8.",sammenligne-negative;differanse,1,,7
+flere-brok-desimal-prosent,fact,Tallfakta,Flere brøker som desimaltall og prosent,"1/3: 0,333… ≈ 33,3 %
+2/3: 0,666… ≈ 66,7 %
+1/8: 0,125 = 12,5 %
+2/5: 0,4 = 40 %
+3/5: 0,6 = 60 %
+4/5: 0,8 = 80 %
+1/20: 0,05 = 5 %",kjente-brok-desimal-prosent;brok-som-divisjon,1,,7
+kontrollere-kalkulator,skill,Addisjon og subtraksjon,Kontrollere med overslag,"regne ut med kalkulator, og kontrollere svaret med et overslag og ved å regne baklengs.",overslag;overslag-ganging;pluss-minus-desimal,3,,7
+forhold,concept,Multiplikasjon og divisjon,Forhold,Forhold: hvor mye det er av én ting for hver av en annen. «For hver 2 blå er det 3 røde» skrives 2 : 3.,additiv-multiplikativ,0,,7
+forholdstabell,skill,Multiplikasjon og divisjon,Forholdstabell,"løse oppgaver om forhold med en forholdstabell, ved å gange eller dele begge radene med det samme tallet.",forhold;brok-av-mengde,1,,7
+enhetsmetoden,skill,Multiplikasjon og divisjon,Finne verdien for én,"finne verdien for én først, og så for det antallet du trenger: 4 kg koster 60 kr, så 1 kg koster 15 kr og 7 kg koster 105 kr.",forholdstabell;dele-desimal-heltall,1,,7
+dele-i-forhold,skill,Multiplikasjon og divisjon,Dele i et forhold,dele en mengde i et gitt forhold med strekmodellen: 35 kr delt i forholdet 2 : 3 blir 14 kr og 21 kr.,forhold;ganger-sa-mange,1,,7
+brok-delt-brok,skill,Brøk,Dele på en brøk,"dele på en brøk ved å tenke målingsdivisjon, «hvor mange fjerdedeler går det på 3?», og forklare regelen om å gange med den omvendte brøken: 3 : 1/4 = 3 · 4 = 12.",brok-delt-heltall;sammenligne-broker,1;2,,7
+brok-finne-helheten,skill,Brøk,Finne helheten,"finne helheten når en brøkdel er kjent, med strekmodellen: 3/5 av elevene er jenter, og det er 12 gutter. Hvor mange elever er det?",brok-av-mengde;strekmodellen,1,,7
+brok-velge-strategi,skill,Brøk,Velge regnemåte med brøk,"velge regnemåte med brøk: regne om til desimaltall, finne fellesnevner eller resonnere, og forklare valget.",brok-ulike-nevnere;brok-ganger-brok;flere-brok-desimal-prosent,1,,7
+gange-desimal-desimal,skill,Desimaltall og prosent,Desimaltall ganger desimaltall,"gange to desimaltall og forklare plassverdien med et rutenett: 0,3 · 0,4 = 0,12, fordi tideler ganger tideler blir hundredeler.",gange-desimal-heltall;brok-ganger-brok,1;2,,7
+dele-med-desimal,skill,Desimaltall og prosent,Dele på et desimaltall,"dele på et desimaltall ved å gjøre om til et delestykke med hele tall som har samme svar: 4,8 : 0,6 = 48 : 6 = 8, fordi begge tallene blir 10 ganger så store.",dele-desimal-heltall;like-broker,1;2,,7
+prosentdel,skill,Desimaltall og prosent,Hvor mange prosent,"finne hvor mange prosent en del er av helheten: 12 av 48 er 1/4, altså 25 %.",prosent-av-mengde;utvide-forkorte,1,,7
+prosent-helheten,skill,Desimaltall og prosent,Finne hundre prosent,"finne helheten når en prosentdel er kjent, med strekmodellen: 20 % er 30 kr, så 100 % er 150 kr.",prosent-av-mengde;brok-finne-helheten,1,,7
+vekstfaktor,concept,Desimaltall og prosent,Vekstfaktor,"Vekstfaktor: tallet du ganger med for å finne den nye verdien. 20 % økning er det samme som å gange med 1,20, og 20 % rabatt er å gange med 0,80.",prosent;gange-desimal-heltall,0,,7
+prosentvis-endring,skill,Desimaltall og prosent,Prosentvis økning og rabatt,"finne ny pris etter prosentvis økning eller rabatt med vekstfaktor, og regne baklengs fra ny pris til gammel pris ved å dele på vekstfaktoren.",vekstfaktor;gange-desimal-desimal,1;2;3,,7
+okonomi-overslag,skill,Desimaltall og prosent,Overslag i økonomi,"gjøre overslag over handlekurver og budsjetter, sammenligne tilbud som «3 for 2» og 30 % rabatt, og vurdere egne og andres utregninger.",prosent-av-mengde;overslag;budsjett-regneark,1;3,,7
+regnerekkefolge,skill,Algebra,Regnerekkefølgen,"regne ut sammensatte uttrykk med parenteser og med ganging og deling før pluss og minus, og lage slike uttrykk til situasjoner.",ganging-for-pluss;uttrykk-med-bokstav,1,,7
+likning-begge-sider,skill,Algebra,Den ukjente på begge sider,"løse likninger med den ukjente på begge sidene, som 5x + 3 = 2x + 15, med balansemetoden: trekk fra 2x på begge sidene først.",likning-to-steg,1;2,,7
+likning-fra-tekst,skill,Algebra,Likninger fra tekst,"lage en likning fra en tekst, løse den, og vurdere om løsningen er gyldig i situasjonen, for eksempel om svaret må være et helt antall.",likning-to-steg;uttrykk-med-bokstav,1,,7
+ulikhet,concept,Algebra,Ulikhet,"Ulikhet: et utsagn med <, >, ≤ eller ≥ der et tall er ukjent. Løsningen er alle tallene som gjør utsagnet sant, ofte et helt område på tallinja.",ulikhetstegn;likning,0,,7
+lose-ulikhet,skill,Algebra,Løse ulikheter,"løse ulikheter som 3x + 2 < 14 med balansemetoden, vise løsningen på tallinja, og teste med tall på begge sider av grensen.",ulikhet;likning-to-steg,1;2,,7
+to-ukjente,skill,Algebra,To ukjente med strekmodellen,løse oppgaver med to ukjente med strekmodellen: to tall har sum 50 og differanse 12. Hvilke tall er det?,ganger-sa-mange;differanse,1,,7
+fire-kvadranter,skill,Geometri,Hele koordinatsystemet,"plassere punkter og figurer i alle de fire kvadrantene, også med negative koordinater, og speile dem i aksene.",negative-tall;kongruensavbildning,1,,7
+argumentere-figurer,skill,Geometri,Argumentere for egenskaper,"argumentere for egenskaper ved figurer, for eksempel hvorfor motstående vinkler i et parallellogram er like store.",vinkelsum;firkanter,1,,7
+malestokk,skill,Måling,Målestokk,bruke målestokk på kart og tegninger: i målestokk 1 : 50 000 er 1 cm på kartet 500 m i virkeligheten.,forhold;gjore-om-enheter,1,,7
+fart,skill,Måling,Fart,"regne med fart som strekning per tid: hvor langt du kommer på en gitt tid, og hvor lang tid en strekning tar.",enhetsmetoden;regne-med-tid,1;2;3,,7
+volum-sammensatt,skill,Måling,Volum og omgjøring,"finne volumet av sammensatte bokser, og gjøre om mellom cm³, dm³, liter og milliliter.",volum-boks;gjore-om-enheter,1,,7
+sentralmal,concept,Statistikk og sannsynlighet,"Median, typetall og variasjonsbredde","Median: den midterste verdien når verdiene er sortert.
+Typetall: den verdien som forekommer oftest.
+Variasjonsbredde: forskjellen mellom den største og den minste verdien.",gjennomsnitt,0,,7
+velge-sentralmal,skill,Statistikk og sannsynlighet,Velge sentralmål,"regne ut gjennomsnitt, median og typetall i et datasett, og velge det sentralmålet som beskriver dataene best, for eksempel medianen når én verdi er mye større enn resten.",sentralmal;regne-gjennomsnitt,1,,7
+sektordiagram,skill,Statistikk og sannsynlighet,Sektordiagram,lese sektordiagram og koble sektorene til brøk og prosent: en kvart sirkel er 25 %.,kjente-brok-desimal-prosent;gradskive,1,,7
+velge-diagram,skill,Statistikk og sannsynlighet,Velge diagram,"logge, sortere og presentere data i tabeller og diagrammer, og forklare hvorfor du valgte søylediagram, linjediagram eller sektordiagram.",linjediagram;sektordiagram,1,,7
+statistisk-undersokelse,skill,Statistikk og sannsynlighet,En statistisk undersøkelse,"planlegge og gjennomføre en liten undersøkelse: stille et spørsmål, samle inn data, presentere dem og trekke en konklusjon.",velge-diagram;velge-sentralmal,1,,7
+liste,concept,Algoritmer og programmering,Liste,"Liste: en variabel som holder mange verdier i rekkefølge, som alle temperaturene fra en uke.",lokke-vilkar-variabel,0,,7
+program-data,skill,Algoritmer og programmering,Programmere med data,"skrive et program som går gjennom en liste eller tabell med data og finner den største verdien, summen og gjennomsnittet.",liste;regne-gjennomsnitt;feilsoke,1,,7
+regneark-data,skill,Algoritmer og programmering,Utforske data i regneark,"bruke formler i et regneark til å utforske et datasett: summere, finne gjennomsnitt og lage diagram.",budsjett-regneark;regne-gjennomsnitt,3,,7
