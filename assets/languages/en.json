@@ -101,7 +101,7 @@
         {
           "id": "lessonPlan",
           "heading": "“Lesson planner” (for teachers)",
-          "body": "In the lesson planner, teachers can tick the learning goals the next lesson should cover, set the length of the lesson, and get an AI instruction for a complete lesson plan: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. The mastery ticks are your own, in your own browser — they show what you personally have been through, not what the class actually knows."
+          "body": "In the lesson planner, teachers can tick the learning goals the next lesson should cover, choose the lesson type and length, and get an AI instruction for a complete lesson plan. Introduction is a lesson on new goals: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. Practice gives problem sets for goals the class has just learnt, Review brings back goals learnt a while ago, and with Other the AI asks you what kind of lesson you have in mind. The mastery ticks are your own, in your own browser — they show what you personally have been through, not what the class actually knows."
         },
         {
           "id": "exam",
@@ -184,7 +184,7 @@
       "selectTopic": "Check every learning goal in “{topic}”",
       "deselectTopic": "Uncheck every learning goal in “{topic}”",
       "heading": "Lesson planner",
-      "intro": "Tick the learning goals the next lesson should cover, set the length of the lesson, and build a complete lesson plan at the bottom. The ticks here are only for this lesson: they do not mark anything as mastered, and they are gone when you reload the page."
+      "intro": "Tick the learning goals the next lesson should cover, choose the lesson type and length, and build a complete lesson plan at the bottom. The ticks here are only for this lesson: they do not mark anything as mastered, and they are gone when you reload the page."
     },
     "search": {
       "button": "Search",
@@ -214,6 +214,14 @@
     "lesson": {
       "button": "Build a lesson plan (for teachers)",
       "title": "Copy an AI instruction for a complete lesson covering the goals you have ticked",
+      "typeLabel": "Lesson type",
+      "typeAria": "What kind of lesson this is",
+      "types": {
+        "intro": "Introduction",
+        "practice": "Practice",
+        "review": "Review",
+        "other": "Other"
+      },
       "minutesLabel": "Length",
       "minutesAria": "Length of the lesson in minutes",
       "includeAria": "Include “{name}” in the lesson plan",

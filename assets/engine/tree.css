@@ -666,7 +666,8 @@ main {
   margin-right: auto;
 }
 
-#lesson-minutes-label {
+#lesson-minutes-label,
+#lesson-type-label {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -675,8 +676,10 @@ main {
   white-space: nowrap;
 }
 
-#lesson-minutes {
-  width: 3.6rem;
+#lesson-minutes { width: 3.6rem; }
+
+#lesson-minutes,
+#lesson-type {
   font-size: 0.82rem;
   padding: 0.3rem 0.4rem;
   border: 1px solid var(--border);

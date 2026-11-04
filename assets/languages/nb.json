@@ -101,7 +101,7 @@
         {
           "id": "lessonPlan",
           "heading": "«Undervisningsplanlegger» (for lærere)",
-          "body": "I undervisningsplanleggeren kan lærere huke av de læringsmålene neste økt skal dekke, sette lengden på økta, og få en KI-instruks for et ferdig undervisningsopplegg: starter, gjennomgang etter example-problem pair-modellen, diagnostiske spørsmål og gjenhenting til slutt. Avkrysningene for mestret er dine egne, i din egen nettleser - de viser hva du selv har vært gjennom, ikke hva klassen faktisk kan."
+          "body": "I undervisningsplanleggeren kan lærere huke av de læringsmålene neste økt skal dekke, velge type time og lengde, og få en KI-instruks for et ferdig undervisningsopplegg. Introduksjon er en time med nye mål: starter, gjennomgang etter example-problem pair-modellen, diagnostiske spørsmål og gjenhenting til slutt. Øving gir oppgavesett til mål klassen nettopp har lært, Repetisjon henter fram mål de lærte for en stund siden, og med Annet spør KI-en deg hva slags time du har tenkt. Avkrysningene for mestret er dine egne, i din egen nettleser - de viser hva du selv har vært gjennom, ikke hva klassen faktisk kan."
         },
         {
           "id": "exam",
@@ -184,7 +184,7 @@
       "selectTopic": "Kryss av alle læringsmål i «{topic}»",
       "deselectTopic": "Fjern krysset for alle læringsmål i «{topic}»",
       "heading": "Undervisningsplanlegger",
-      "intro": "Huk av de læringsmålene neste økt skal dekke, sett lengden på økta, og lag et ferdig undervisningsopplegg nederst. Avkryssingen her gjelder bare denne økta: den markerer ingenting som mestret, og den forsvinner når du laster siden på nytt."
+      "intro": "Huk av de læringsmålene neste økt skal dekke, velg type time og lengde, og lag et ferdig undervisningsopplegg nederst. Avkryssingen her gjelder bare denne økta: den markerer ingenting som mestret, og den forsvinner når du laster siden på nytt."
     },
     "search": {
       "button": "Søk",
@@ -214,6 +214,14 @@
     "lesson": {
       "button": "Lag undervisningsopplegg (for lærere)",
       "title": "Kopier en KI-instruks for en ferdig undervisningsøkt om de læringsmålene du har huket av",
+      "typeLabel": "Type time",
+      "typeAria": "Hva slags time dette er",
+      "types": {
+        "intro": "Introduksjon",
+        "practice": "Øving",
+        "review": "Repetisjon",
+        "other": "Annet"
+      },
       "minutesLabel": "Lengde",
       "minutesAria": "Lengde på økta i minutter",
       "includeAria": "Ta med «{name}» i undervisningsopplegget",

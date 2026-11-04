@@ -606,6 +606,14 @@ select.ed-input { cursor: pointer; }
 .ed-topic__actions .ed-btn--icon:hover:not(:disabled) { border-color: var(--rule-strong); }
 
 .ed-nodes { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+/* Slett-krysset til høyre for hver node, og i temaets topplinje (fra
+   2026-11-04): synlig, men dempet til man peker på det. */
+.ed-nodes__item { display: flex; align-items: center; min-width: 0; }
+.ed-nodes { grid-template-columns: minmax(0, 1fr); }
+.ed-topic { min-width: 0; }
+.ed-nodes__item .ed-nodeitem { flex: 1; min-width: 0; }
+.ed-btn--x { min-width: 30px; min-height: 30px; border-color: transparent; background: transparent; color: var(--ink-3); font-size: 1.1rem; line-height: 1; }
+.ed-btn--x:hover:not(:disabled), .ed-btn--x:focus-visible { color: var(--danger-text); background: var(--danger-tint); border-color: transparent; }
 .ed-nodeitem {
   width: 100%;
   display: flex;

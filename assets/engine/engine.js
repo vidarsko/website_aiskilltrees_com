@@ -285,6 +285,14 @@ const CONDITIONS = {
   allConcepts:      ctx => !!ctx.allConcepts,
   someConcepts:     ctx => !!ctx.hasConcepts && !ctx.allConcepts,
   hasFacts:         ctx => !!ctx.hasFacts,
+  hasSkills:        ctx => !!ctx.hasSkills,
+  /* Typen time læreren velger i undervisningsplanleggeren (fra 0.39.0).
+     Bare den valgte plan-seksjonen kommer med; uten valg er det en
+     introduksjonstime, som før. */
+  lessonIntro:      ctx => (ctx.lessonType || 'intro') === 'intro',
+  lessonPractice:   ctx => ctx.lessonType === 'practice',
+  lessonReview:     ctx => ctx.lessonType === 'review',
+  lessonOther:      ctx => ctx.lessonType === 'other',
 };
 
 /* Betingelsen en seksjon har i en instruks, som navn, eller null. En
@@ -2022,6 +2030,25 @@ function ensureGoalIndexModal() {
   minutesLabel.appendChild(document.createTextNode('min'));
   bar.appendChild(minutesLabel);
 
+  // Type time (fra 0.39.0): avgjør hvilken av plan-seksjonene i
+  // lesson-plan.json som kommer med i instruksen. Står ved siden av
+  // lengden, fordi begge er noe læreren må bestemme om timen uansett.
+  const typeLabel = document.createElement('label');
+  typeLabel.id = 'lesson-type-label';
+  typeLabel.appendChild(document.createTextNode(t('lesson.typeLabel')));
+  const typeSelect = document.createElement('select');
+  typeSelect.id = 'lesson-type';
+  typeSelect.setAttribute('aria-label', t('lesson.typeAria'));
+  LESSON_TYPES.forEach(type => {
+    const opt = document.createElement('option');
+    opt.value = type;
+    opt.textContent = t('lesson.types.' + type);
+    typeSelect.appendChild(opt);
+  });
+  typeSelect.value = LESSON_TYPES[0];
+  typeLabel.appendChild(typeSelect);
+  bar.appendChild(typeLabel);
+
   const planBtn = document.createElement('button');
   planBtn.id = 'lesson-plan-btn';
   planBtn.type = 'button';
@@ -2033,7 +2060,7 @@ function ensureGoalIndexModal() {
 
     const minutes = Math.min(240, Math.max(15, parseInt(minutesInput.value, 10) || LESSON_DEFAULT_MINUTES));
     minutesInput.value = minutes;
-    const text = composeLessonPlanInstruction(nodes, minutes);
+    const text = composeLessonPlanInstruction(nodes, minutes, typeSelect.value);
 
     trackCopy('lesson_plan', { node_count: nodes.length, lesson_minutes: minutes });
 
@@ -2078,11 +2105,16 @@ let goalIndexMode = 'outcomes';
 
 // Lengden økta får hvis læreren ikke oppgir en. Fra 0.27.0 regner motoren
 // ikke ut noen timeplan: hvordan økta deles opp, står i seksjonen
-// `plan` i lesson-plan.json (fram til 4.0.0 `structure`), som hver
+// `planIntro` o.l. i lesson-plan.json (fram til 4.0.0 `structure`, fram til 5.0.0 `plan`), som hver
 // fagfamilie skriver for seg (matematikk med 7 minutter oppstart og 5
 // minutter gjenhenting). Vidar,
 // 2026-10-03: timeplanleggeren skal ikke bestå av en håndfull variabler.
 const LESSON_DEFAULT_MINUTES = 45;
+
+// Typene time i velgeren, i den rekkefølgen de vises. Den første er
+// standard. Hver har sin seksjon i lesson-plan.json (planIntro,
+// planPractice, planReview, planOther) og sin betingelse i CONDITIONS.
+const LESSON_TYPES = ['intro', 'practice', 'review', 'other'];
 
 // Sorteringsnøkkel for en nodes auto-genererte læringsmålkode (A1, A2, ..., B1):
 // bokstav først, deretter tall NUMERISK - ren strengsortering ville gitt
@@ -2950,7 +2982,7 @@ function updateLessonPlanBar() {
 // orker å krysse av alt ville ellers druknet i advarsler. Hvilke
 // forutsetninger som faktisk mangler, vises i stedet som status i
 // læringsmål-lista (se goalStatus).
-function composeLessonPlanInstruction(nodes, totalMinutes) {
+function composeLessonPlanInstruction(nodes, totalMinutes, lessonType) {
   const goalList = nodes.map((n, i) => {
     const tags = [promptTypeTag(n.type)];
     if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
@@ -2971,7 +3003,9 @@ function composeLessonPlanInstruction(nodes, totalMinutes) {
   });
 
   return composePrompt('lessonPlan', {
+    lessonType: LESSON_TYPES.indexOf(lessonType) !== -1 ? lessonType : LESSON_TYPES[0],
     ancestors: prerequisites,
+    hasSkills: nodes.some(n => n.type !== 'concept' && n.type !== 'fact'),
     hasConcepts: nodes.some(n => n.type === 'concept'),
     hasFacts: nodes.some(n => n.type === 'fact'),
     aidsText: aidsTextFor(nodes),

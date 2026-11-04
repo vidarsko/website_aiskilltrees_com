@@ -101,7 +101,7 @@
         {
           "id": "lessonPlan",
           "heading": "«Lektionsplanerare» (för lärare)",
-          "body": "I lektionsplaneraren kan lärare kryssa i de lärandemål nästa lektion ska täcka, ställa in lektionens längd, och få en AI-instruktion för en färdig lektionsplanering: starter, genomgång enligt example-problem pair-modellen, diagnostiska frågor och återkallning på slutet. Ikryssningarna för avklarat är dina egna, i din egen webbläsare - de visar vad du själv gått igenom, inte vad klassen faktiskt kan."
+          "body": "I lektionsplaneraren kan lärare kryssa i de lärandemål nästa lektion ska täcka, välja typ av lektion och längd, och få en AI-instruktion för en färdig lektionsplanering. Introduktion är en lektion med nya mål: starter, genomgång enligt example-problem pair-modellen, diagnostiska frågor och återkallning på slutet. Övning ger uppgiftsuppsättningar för mål klassen just har lärt sig, Repetition tar fram mål de lärde sig för ett tag sedan, och med Annat frågar AI:n dig vilken sorts lektion du tänkt dig. Ikryssningarna för avklarat är dina egna, i din egen webbläsare - de visar vad du själv gått igenom, inte vad klassen faktiskt kan."
         },
         {
           "id": "exam",
@@ -184,7 +184,7 @@
       "selectTopic": "Kryssa i alla lärandemål i «{topic}»",
       "deselectTopic": "Ta bort krysset för alla lärandemål i «{topic}»",
       "heading": "Lektionsplanerare",
-      "intro": "Kryssa i de lärandemål nästa lektion ska täcka, ställ in lektionens längd, och skapa en färdig lektionsplanering längst ner. Kryssen här gäller bara den här lektionen: de markerar inget som avklarat, och de försvinner när du laddar om sidan."
+      "intro": "Kryssa i de lärandemål nästa lektion ska täcka, välj typ av lektion och längd, och skapa en färdig lektionsplanering längst ner. Kryssen här gäller bara den här lektionen: de markerar inget som avklarat, och de försvinner när du laddar om sidan."
     },
     "search": {
       "button": "Sök",
@@ -214,6 +214,14 @@
     "lesson": {
       "button": "Skapa lektionsplanering (för lärare)",
       "title": "Kopiera en AI-instruktion för en färdig lektion om de lärandemål du kryssat i",
+      "typeLabel": "Typ av lektion",
+      "typeAria": "Vilken sorts lektion detta är",
+      "types": {
+        "intro": "Introduktion",
+        "practice": "Övning",
+        "review": "Repetition",
+        "other": "Annat"
+      },
       "minutesLabel": "Längd",
       "minutesAria": "Lektionens längd i minuter",
       "includeAria": "Ta med «{name}» i lektionsplaneringen",

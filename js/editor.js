@@ -845,30 +845,57 @@
     if (name) { name.focus(); name.select(); }
   }
 
+  /* Fjerner nodene fra fila, og dem som forutsetning der andre noder bygger
+     på dem. Kalles inne i change(), så det hele er ett angre-steg. */
+  function removeNodes(ids) {
+    nodeRows().forEach(function (r) {
+      if (ids.indexOf(get(r, 'id').trim()) !== -1) return;
+      var list = deps(r);
+      var rest = list.filter(function (d) { return ids.indexOf(d) === -1; });
+      if (rest.length !== list.length) set(r, 'depends_on', rest.join(';'));
+    });
+    /* En ressurs som bare hørte til disse nodene, går med dem: ellers ville
+       den stått igjen uten node, og motoren sier fra om akkurat det. */
+    resourceRows().forEach(function (r) {
+      var list = deps(r);
+      var rest = list.filter(function (d) { return ids.indexOf(d) === -1; });
+      if (rest.length === list.length) return;
+      if (rest.length) set(r, 'depends_on', rest.join(';'));
+      else state.doc.rows.splice(state.doc.rows.indexOf(r), 1);
+    });
+    ids.forEach(function (id) {
+      var row = nodeRow(id);
+      if (row) state.doc.rows.splice(state.doc.rows.indexOf(row), 1);
+    });
+  }
+
+  /* Ingen bekreftelse (fra 2026-11-04, Vidars ønske): en node skal kunne
+     slettes raskt fra lista, og Angre tar den tilbake, forutsetningene
+     andre noder hadde på den også. */
   function deleteNode(id) {
-    var row = nodeRow(id);
-    if (!row) return;
-    var users = nodeRows().filter(function (r) { return deps(r).indexOf(id) !== -1; });
-    var res = resourcesOf(id);
-    var msg = users.length
-      ? t('confirm-delete-used', { name: nameOf(id), n: users.length })
-      : t('confirm-delete', { name: nameOf(id) });
-    if (!window.confirm(msg)) return;
-    change(null, function () {
-      users.forEach(function (r) {
-        set(r, 'depends_on', deps(r).filter(function (d) { return d !== id; }).join(';'));
-      });
-      /* En ressurs som bare hørte til denne noden, går med den: ellers ville
-         den stått igjen uten node, og motoren sier fra om akkurat det. */
-      res.forEach(function (r) {
-        var rest = deps(r).filter(function (d) { return d !== id; });
-        if (rest.length) set(r, 'depends_on', rest.join(';'));
-        else state.doc.rows.splice(state.doc.rows.indexOf(r), 1);
-      });
-      state.doc.rows.splice(state.doc.rows.indexOf(row), 1);
-    }, { now: true, quiet: true });
-    state.selected = null;
+    if (!nodeRow(id)) return;
+    change(null, function () { removeNodes([id]); }, { now: true, quiet: true });
+    if (state.selected === id) state.selected = null;
     state.tab = 'nodes';
+    renderPanel();
+  }
+
+  /* Et helt tema er mange noder på én gang, så det spør først. */
+  function deleteTopic(topic) {
+    var ids = nodeRows()
+      .filter(function (r) { return get(r, 'topic').trim() === topic; })
+      .map(function (r) { return get(r, 'id').trim(); });
+    if (!ids.length) return;
+    if (!window.confirm(t('confirm-delete-topic', { topic: topic || t('tree-no-topic'), n: ids.length }))) return;
+    change(null, function () {
+      removeNodes(ids);
+      var order = configValue('topicOrder');
+      if (order) {
+        setConfig('topicOrder', order.split(';').map(function (x) { return x.trim(); })
+          .filter(function (x) { return x && x !== topic; }).join(';'));
+      }
+    }, { now: true, quiet: true });
+    if (state.selected && !nodeRow(state.selected)) state.selected = null;
     renderPanel();
   }
 
@@ -1147,19 +1174,24 @@
                    { title: t('topic-down'), 'aria-label': t('topic-down'), disabled: ti === all.length - 1 }),
             button('✎', function () { renameTopic(topic); }, 'ed-btn--icon',
                    { title: t('topic-rename'), 'aria-label': t('topic-rename') }),
+            button('×', function () { deleteTopic(topic); }, 'ed-btn--icon ed-btn--x',
+                   { title: t('topic-delete'), 'aria-label': t('topic-delete') }),
           ]),
         ]),
       ]);
       var ul = h('ul', { class: 'ed-nodes' });
       shown.forEach(function (r) {
         var id = get(r, 'id').trim();
-        ul.appendChild(h('li', {}, [
+        var label = get(r, 'name').trim() || id;
+        ul.appendChild(h('li', { class: 'ed-nodes__item' }, [
           h('button', { type: 'button', class: 'ed-nodeitem', onclick: function () { selectNode(id, false); } }, [
             h('span', { class: 'ed-typedot ed-typedot--' + (NODE_TYPES.indexOf(kind(r)) !== -1 ? kind(r) : 'skill'),
                         'aria-hidden': 'true' }),
-            h('span', { class: 'ed-nodeitem__name', text: get(r, 'name').trim() || id }),
+            h('span', { class: 'ed-nodeitem__name', text: label }),
             h('span', { class: 'ed-nodeitem__type', text: typeLabel(kind(r)) }),
           ]),
+          button('×', function () { deleteNode(id); }, 'ed-btn--icon ed-btn--x',
+                 { title: t('node-delete-named', { name: label }), 'aria-label': t('node-delete-named', { name: label }) }),
         ]));
       });
       group.appendChild(ul);
