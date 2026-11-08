@@ -114,6 +114,7 @@
     "no-uio-in1900",
     "no-uio-mat1100",
     "no-uio-fys1100",
-    "no-uio-mat1120"
+    "no-uio-mat1120",
+    "no-uio-fys1120"
   ]
 }
