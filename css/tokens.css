@@ -92,6 +92,24 @@
   --subject-practical:   #475569;   /* slate — 7.58:1, praktiske og estetiske fag (2026-10-08) */
   --subject-none:        #E2DFD7;   /* greyed level: no tree yet — with --ink-2 text, 6.3:1 */
 
+  /* ---- Department colours — /matnat/ ------------------------------------
+     One per unit at the MN faculty, UiO. Vidar's choice 2026-11-09: physics
+     red, mathematics blue, chemistry yellow, geosciences brown, informatics
+     green; the rest picked here. Contrast is with --ink-inverse text, except
+     chemistry, whose yellow carries --ink text instead (8.7:1). */
+  --dept-fys:      #B3261E;   /* red — 5.95:1 (same as --subject-physics) */
+  --dept-math:     #2563A8;   /* blue — 5.57:1 (same as --subject-mathematics) */
+  --dept-kjemi:    #E9B10A;   /* yellow — dark text */
+  --dept-geofag:   #7A4A22;   /* brown — 6.75:1 */
+  --dept-ifi:      #1F7A3A;   /* green — 4.89:1 */
+  --dept-ibv:      #0F6B73;   /* teal — 5.67:1 */
+  --dept-farmasi:  #6E3A6B;   /* plum — 7.7:1 */
+  --dept-astro:    #3730A3;   /* indigo — 9.04:1 */
+  --dept-its:      #475569;   /* slate — 6.89:1 */
+  --dept-mn:       #C2410C;   /* orange — 4.71:1 */
+  --dept-natfag:   #BE185D;   /* pink — 5.49:1 */
+  --dept-sfe:      #3F6212;   /* olive — 6.4:1 */
+
   /* ---- Scrim ------------------------------------------------------------
      A FLAT overlay, not a gradient: the system has no gradients, and a
      photograph still has to be dimmed before display type can sit on it. */

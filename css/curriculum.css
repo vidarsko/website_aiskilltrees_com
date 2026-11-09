@@ -288,3 +288,77 @@ a.level:focus-visible { color: var(--ink-inverse); filter: brightness(0.85); }
   color: var(--ink-3);
   margin: var(--space-2) 0 0;
 }
+
+/* --------------------------------------------------------------------------
+   /matnat/ — emnene ved MN, UiO, ordnet etter institutt (Vidar 2026-11-09).
+   Ett bånd per enhet, med enhetens farge som en firkant foran overskriften
+   og i snarveiene øverst, så fargene synes selv om de fleste emnene ennå
+   er grå. Et emne med tre får fargen som stripe og knapp, som på /lk20/.
+   Knappen bærer emnekoden, og kortets tittel lenker til emnesiden på uio.no.
+   Kjemi er gul og har derfor mørk tekst.
+   -------------------------------------------------------------------------- */
+
+.level--dept-fys     { background: var(--dept-fys); }
+.level--dept-math    { background: var(--dept-math); }
+.level--dept-kjemi   { background: var(--dept-kjemi); color: var(--ink); }
+.level--dept-geofag  { background: var(--dept-geofag); }
+.level--dept-ifi     { background: var(--dept-ifi); }
+.level--dept-ibv     { background: var(--dept-ibv); }
+.level--dept-farmasi { background: var(--dept-farmasi); }
+.level--dept-astro   { background: var(--dept-astro); }
+.level--dept-its     { background: var(--dept-its); }
+.level--dept-mn      { background: var(--dept-mn); }
+.level--dept-natfag  { background: var(--dept-natfag); }
+.level--dept-sfe     { background: var(--dept-sfe); }
+a.level--dept-kjemi:hover,
+a.level--dept-kjemi:focus-visible { color: var(--ink); }
+
+.subject-card--dept-fys     { --card-colour: var(--dept-fys); }
+.subject-card--dept-math    { --card-colour: var(--dept-math); }
+.subject-card--dept-kjemi   { --card-colour: var(--dept-kjemi); }
+.subject-card--dept-geofag  { --card-colour: var(--dept-geofag); }
+.subject-card--dept-ifi     { --card-colour: var(--dept-ifi); }
+.subject-card--dept-ibv     { --card-colour: var(--dept-ibv); }
+.subject-card--dept-farmasi { --card-colour: var(--dept-farmasi); }
+.subject-card--dept-astro   { --card-colour: var(--dept-astro); }
+.subject-card--dept-its     { --card-colour: var(--dept-its); }
+.subject-card--dept-mn      { --card-colour: var(--dept-mn); }
+.subject-card--dept-natfag  { --card-colour: var(--dept-natfag); }
+.subject-card--dept-sfe     { --card-colour: var(--dept-sfe); }
+
+.dept-heading {
+  --dept-colour: var(--subject-none);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.dept-heading::before {
+  content: "";
+  flex: none;
+  width: 0.8em;
+  height: 0.8em;
+  background: var(--dept-colour);
+}
+.dept-heading + .subjects-count { margin-top: calc(-1 * var(--space-2)); }
+
+.dept-heading--fys     { --dept-colour: var(--dept-fys); }
+.dept-heading--math    { --dept-colour: var(--dept-math); }
+.dept-heading--kjemi   { --dept-colour: var(--dept-kjemi); }
+.dept-heading--geofag  { --dept-colour: var(--dept-geofag); }
+.dept-heading--ifi     { --dept-colour: var(--dept-ifi); }
+.dept-heading--ibv     { --dept-colour: var(--dept-ibv); }
+.dept-heading--farmasi { --dept-colour: var(--dept-farmasi); }
+.dept-heading--astro   { --dept-colour: var(--dept-astro); }
+.dept-heading--its     { --dept-colour: var(--dept-its); }
+.dept-heading--mn      { --dept-colour: var(--dept-mn); }
+.dept-heading--natfag  { --dept-colour: var(--dept-natfag); }
+.dept-heading--sfe     { --dept-colour: var(--dept-sfe); }
+
+.dept-nav { padding-top: 0; }
+
+.subject-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.subject-card__title a:hover,
+.subject-card__title a:focus-visible { text-decoration: underline; }
