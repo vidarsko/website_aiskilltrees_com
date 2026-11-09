@@ -1,0 +1,359 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Måleenheter, omregning og overslag;Prosent, rabatt og merverdiavgift;Formler i dagligliv og yrkesliv;Sammensatte måleenheter og proporsjonalitet;Strøm, effekt og energi;Datamengde og overføringshastighet;Trigonometri i trekanter;Effekttrekanten og elmotoren;Kalkyle, budsjett og anbud;Regneark;Personlig økonomi: lønn, lån og kredittkort;Data og statistikk",,,
+,config,,title,Matematikk 1P-Y EL,,,
+,config,,description,"Prosent, måleenheter, datamengde og overføringshastighet, formler og likninger, Ohms lov, effekt og strømkostnad i kWh, trigonometri og effekttrekanten for elmotorer, og personlig økonomi med lån og kredittkort — dekomponert for elektro og datateknologi, med hjelpemiddelordningen fra våren 2027 lagt til grunn.",,,
+,config,,language,nb,,,
+,config,,subjectFamily,mathematics,,,
+,config,,storageKey,no-vgs-matte-1py-el-ferdighetstre-fullfort,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,matematikk 1P-Y for elektro og datateknologi (Vg1 yrkesfag),,,
+,config,,slots.motivationSubject,matte,,,
+,config,,slots.expressionFocus,"glemmer prosenttegn eller andre enheter, blander sammen prosent og prosentpoeng, bruker likhetstegn feil (f.eks. kjeder sammen uttrykk med ""="" som ikke faktisk er like, eller bruker ""="" til å bety ""neste steg"" i stedet for likhet), runder av for tidlig eller upresist, blander bit og byte (b og B) eller W og kWh, glemmer å gjøre om W til kW eller minutter til timer før energien regnes ut, skriver feil enhet på effektene i effekttrekanten (W, VA og VAr), eller har kalkulatoren stilt på radianer i stedet for grader",,,
+,config,,slots.courseSpecifics,"Elevene går Vg1 elektro og datateknologi, og matematikken skal knyttes til yrket de utdanner seg til. Hent eksemplene fra det en elektriker, automatiker eller dataelektroniker møter: strøm, spenning og effekt i apparater og kretser, strømkostnad i kWh, effekttrekanten for elmotorer og transformatorer, solceller og vannkraft, batterier og lading, filstørrelser og nedlastingshastighet. Bruk formlene og enhetene slik faget skriver dem (P = U·I, U = R·I, E = P·t, S, P og Q i VA, W og VAr), og knytt personlig økonomi til lærlinglønn, egne kjøp, lån og kredittkort.",,,
+,config,,aids.label,Del,,,
+,config,,aids.1.student,"Uten hjelpemidler. Du regner for hånd, uten kalkulator.",,,
+,config,,aids.1.model,"Hjelpemidler: Dette gjelder del 1 av eksamen, uten hjelpemidler. Forvent at eleven regner for hånd, uten kalkulator. Treningen skal gjenspeile hvordan ferdigheten faktisk skal utføres på eksamen, med hjelpemiddelordningen fra våren 2027 (ingen datamaskin/nettbrett på del 2 i det hele tatt - kun en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler).",,,
+,config,,aids.2.student,"Fra våren 2027 besvares denne delen for hånd. Du får bruke en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler — men ingen PC eller nettbrett, og ingen grafisk, likningsløsende eller programmerbar kalkulator.",,,
+,config,,aids.2.model,"Hjelpemidler: Dette gjelder del 2 av eksamen, som fra våren 2027 skal besvares for hånd. Forvent at eleven bruker en enkel vitenskapelig kalkulator (kan regne med kvadratrøtter, logaritmer, sinus/cosinus/tangens og standardavvik), eventuelt egne notater/trykte hjelpemidler. Merk: grafiske kalkulatorer og kalkulatorer som kan løse likninger, er programmerbare eller kan kommunisere med andre enheter, er IKKE tillatt - og heller ikke CAS-programvare eller PC/nettbrett (f.eks. GeoGebra). Treningen skal gjenspeile hvordan ferdigheten faktisk skal utføres på eksamen, med hjelpemiddelordningen fra våren 2027 (ingen datamaskin/nettbrett på del 2 i det hele tatt - kun en enkel vitenskapelig kalkulator, egne notater på papir og trykte hjelpemidler).",,,
+,config,,decompositionVersion,2.15.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Fellesfag, Vg1 elektro og datateknologi",,,
+,config,,curriculum,LK20,,,
+,config,,courseCode,MAT1113,,,
+,config,,country,NO,,,
+,config,,institution,vgs,,,
+,config,,division,vg1,,,
+,config,,subjectArea,mathematics,,,
+,config,,keywords,yrkesfag; elektro; datateknologi; Ohms lov; elektrisk effekt; kWh; strømkostnad; virkningsgrad; transformator; effekttrekant; cos φ; trigonometri; sinus; cosinus; tangens; enhetssirkel; bit og byte; overføringshastighet; likninger; formler; lån; kredittkort; merverdiavgift; eksamen,,,
+,config,,updated,2026-11-09,,,
+prosent-grunnbegrep,concept,"Prosent, rabatt og merverdiavgift",Prosent,"Prosent: hundredeler, så 40 % er 40/100 = 0,40. Prosentandelen er delen delt på helheten.",,0,
+lese-tall-fra-diagram,skill,Data og statistikk,Lese av og bruke tall fra et diagram,"lese av tall i et søylediagram, et sektordiagram eller en tabell, og bruke dem videre i en beregning.",diagramtyper-begrep;prosent-grunnbegrep,1;2,"Vis eleven et sektordiagram over strømproduksjon fordelt på kjernekraft, vannkraft, varmekraft og vindkraft med oppgitt totaleffekt i MW, et søylediagram over hva en lærling har tjent per dag, eller en tabell med ladestatus. Be eleven lese av og regne videre, f.eks. hvor mange MW som kommer fra én kilde."
+prosent-av-tall,skill,"Prosent, rabatt og merverdiavgift",Finne prosentdel av et tall,regne ut hvor mye en gitt prosentandel av et tall er.,prosent-grunnbegrep,1;2,"Bruk situasjoner fra elektrofaget: hvor mange MW av en produksjon som er vannkraft, hvor mange kWh som er igjen i et elbilbatteri på 59 %, eller rabatt på et verktøy. På del 1 holder du deg til prosenter som 10 %, 20 %, 25 % og 40 %, uten kalkulator."
+prosentvis-endring-to-tall,skill,"Prosent, rabatt og merverdiavgift",Finne prosentvis endring mellom to tall,"regne ut hvor mange prosent en størrelse har økt eller minket med, gitt gammel og ny verdi, og vurdere en påstand om at noe er «x % dyrere».",prosent-av-tall,1;2,"Gi to priser eller to verdier (prisen på to varer, strømpris før og etter, CO₂-utslipp med tog og fly) og be eleven finne prosentvis endring, og avgjøre hvilken av to priser som økte prosentvis mest. Pass på at eleven deler på riktig utgangsverdi."
+vekstfaktor-begrep,concept,"Prosent, rabatt og merverdiavgift",Vekstfaktor,"Vekstfaktor: tallet man ganger med for å få verdien etter en prosentvis endring. En økning på p % gir vekstfaktoren 1 + p/100, og en nedgang på p % gir 1 − p/100.",prosent-grunnbegrep,0,
+vekstfaktor-fra-prosent,skill,"Prosent, rabatt og merverdiavgift",Finne vekstfaktor fra prosentvis endring,"finne vekstfaktoren fra en prosentvis økning eller nedgang, og omvendt finne endringen i prosent fra en vekstfaktor.",vekstfaktor-begrep,1;2,"Tren begge retninger: «prisen på kabel øker 12 %» gir 1,12, og vekstfaktoren 0,85 betyr en nedgang på 15 %."
+finne-totalen-fra-prosentdel,skill,"Prosent, rabatt og merverdiavgift",Finne helheten når en prosentdel er kjent,"finne helheten når en del og hvor mange prosent delen utgjør, er kjent.",prosent-av-tall,1;2,"Bruk lading: en hurtiglader leverer 18,3 kWh mens batteriet går fra 28 % til 59 %; hvor stor er batterikapasiteten, og stemmer det med det reklamen lover? Eller en effekt som utgjør en kjent andel av totalproduksjonen."
+sammensatt-vekstfaktor,skill,"Prosent, rabatt og merverdiavgift",Regne ut flere prosentvise endringer på rad,"regne ut verdien etter flere prosentvise endringer på rad ved å gange vekstfaktorene, og forklare hvorfor 20 % nedgang og deretter 14 % nedgang ikke er 34 % nedgang.",vekstfaktor-fra-prosent,1;2,"Bruk verdifallet på en mopedbil, en servicebil eller et verktøysett over to–tre år, med ulik prosent hvert år, og be eleven finne verdien når den skal selges."
+dobling-over-tid,skill,"Prosent, rabatt og merverdiavgift",Regne med fast dobling over tid,"regne ut en størrelse som dobles med faste mellomrom, ved å finne antall doblinger og gange startverdien med 2 opphøyd i dette antallet.",vekstfaktor-begrep;grunntall-eksponent-begrep,1;2,"Bruk Moores lov: lagringskapasiteten eller antall transistorer dobles omtrent hvert andre år. Gi en startverdi (f.eks. 8 GB i 2007) og be eleven regne ut hva kapasiteten «burde» vært mange år senere, og sammenligne med en faktisk verdi."
+prefikser-fakta,fact,"Måleenheter, omregning og overslag",SI-prefikser,"k (kilo): 10³ = 1000
+M (mega): 10⁶ = 1 000 000
+G (giga): 10⁹
+T (tera): 10¹²
+d (desi): 10⁻¹ = 0,1
+c (centi): 10⁻² = 0,01
+m (milli): 10⁻³ = 0,001
+µ (mikro): 10⁻⁶",grunntall-eksponent-begrep,0,
+gjore-om-enheter,skill,"Måleenheter, omregning og overslag",Gjøre om mellom måleenheter,"gjøre om mellom enheter for lengde, areal, volum, masse, tid, effekt og energi, også mellom minutter, timer og desimaltimer (15 min = 0,25 h).",prefikser-fakta,1;2,"Bland enheter fra verkstedet og hverdagen: mm til m for solcellepaneler og kabellengder, mm² til m², W til kW og MWh til kWh, liter og desiliter, gram og kilogram, og klokkeslett til timer (fra 17:35 til 18:13, eller 10 timer og 16 minutter som desimaltall)."
+sammensatte-enheter-begrep,concept,Sammensatte måleenheter og proporsjonalitet,Sammensatte måleenheter,"Sammensatt måleenhet: en enhet som er forholdet mellom to andre, som km/h, kr/kWh, kWh/100 km, W/m² eller Mbit/s. Skråstreken leses «per», og enheten sier hva som måles per enhet av det andre.",,0,
+velge-egnet-enhet,skill,"Måleenheter, omregning og overslag",Velge egnet måleenhet,"velge en måleenhet og et prefiks som passer til størrelsen og situasjonen, og begrunne valget.",sammensatte-enheter-begrep;prefikser-fakta,1;2,"Spør hvilken enhet som passer: effekten til en mobillader, en elmotor og et kraftverk (W, kW, MW), årsproduksjonen til en solcellepark (MWh eller kWh per panel), eller størrelsen på et bilde og en harddisk (MB, TB)."
+regne-ut-enhetspris,skill,Sammensatte måleenheter og proporsjonalitet,Regne ut enhetspris,"regne ut og sammenligne pris per enhet, som kroner per kilogram, per liter, per kWh eller per kjørte kilometer, og forklare hva et slikt forholdstall forteller.",sammensatte-enheter-begrep,1;2,"Gi pris og mengde for to varianter av en vare (en sekk ved med pris, vekt og energiinnhold, kabel på rull mot metervare) og be eleven finne og tolke prisen per enhet. Spør også hva et ferdig utregnet tall som 79/15 = 5,27 betyr."
+proporsjonalitet-begrep,concept,Sammensatte måleenheter og proporsjonalitet,Proporsjonalitet,"Proporsjonalitet: to størrelser er proporsjonale når forholdet mellom dem er konstant, slik at dobbel mengde gir dobbel verdi. Grafen er en rett linje gjennom origo.",,0,
+bruke-proporsjonalitet-beregning,skill,Sammensatte måleenheter og proporsjonalitet,Regne med proporsjonale størrelser,"fylle ut en tabell og finne en ukjent verdi når to størrelser er proporsjonale, også ved omregning mellom valutaer.",proporsjonalitet-begrep,1;2,"Bruk vekt og pris, ladetid og ladet energi ved fast ladeeffekt, eller valutakurser (euro til kroner, kroner til yen via euro). Be eleven fylle ut en tabell og forklare hvorfor sammenhengen er proporsjonal."
+gjennomsnittsfart-begrep,concept,Sammensatte måleenheter og proporsjonalitet,Gjennomsnittsfart,"Gjennomsnittsfart: strekning delt på tid, v = s/t. Samme sammenheng kan skrives s = v·t og t = s/v. Med s i km og t i timer får v enheten km/h.",sammensatte-enheter-begrep,0,
+regne-med-fart,skill,Sammensatte måleenheter og proporsjonalitet,"Regne med fart, strekning og tid","regne ut fart, strekning eller tid når de to andre er kjent, og gjøre om mellom minutter og timer underveis.",gjennomsnittsfart-begrep;gjore-om-enheter,1;2,"Bruk kjøring til en jobb eller et oppdrag: start- og sluttid og kilometerstand fra en servicebil, en moped som kjører i 15 minutter, eller kjøretiden en kartapp oppgir for en lang elbiltur. Be eleven vurdere om svaret er rimelig."
+sammenligne-tid-ved-ulik-fart,skill,Sammensatte måleenheter og proporsjonalitet,Regne ut tidsforskjell ved ulik fart,"regne ut hvor mye tid man taper eller sparer på en strekning når gjennomsnittsfarten endres, og vurdere om forskjellen er stor.",regne-med-fart,2,"Gi en strekning og to farter (f.eks. 8 km med 80 km/h og 60 km/h) og be eleven finne forskjellen i minutter, enten ved å regne ut hver tid eller med formelen t = (1/v₁ − 1/v₂)·s·60."
+bruke-sammensatt-rate-i-flere-steg,skill,Sammensatte måleenheter og proporsjonalitet,Bruke en sammensatt rate i flere steg,"bruke en oppgitt rate, som kWh per 100 km, mL per kg kroppsvekt, gram CO₂ per km eller liter per sekund, i en beregning med flere steg.",sammensatte-enheter-begrep;gjore-om-enheter,1;2,"Bruk elbilens forbruk i kWh per 100 km over en lang tur, utslipp per kilometer for tog og fly, eller hvor mange liter per sekund en slange fyller. La eleven skrive enheten i hvert mellomsvar."
+gjore-overslag,skill,"Måleenheter, omregning og overslag",Gjøre overslag,"runde av til tall som er lette å regne med, gjøre et overslag, og bruke det til å kontrollere om et svar er rimelig.",,1,"Bruk avlesninger fra instrumenter: en powerbank viser 5,1 V og 1,0 W, omtrent hvor mange ampere går det? Be eleven også vurdere svar: kan en moped kjøre 10 km på 15 minutter?"
+regne-med-antakelser-apen-oppgave,skill,"Måleenheter, omregning og overslag",Gjøre og bruke antakelser i en åpen oppgave,"gjøre rimelige antakelser der ikke alt er oppgitt, skrive dem opp, og bruke dem til et begrunnet anslag.",bruke-sammensatt-rate-i-flere-steg;gjore-overslag,2,"Gi en åpen oppgave der noe mangler, f.eks. hvor mange arbeidsdager det ville tatt å fylle et stort basseng med en vannkanne, eller hvor mye strøm et anlegg bruker i løpet av et år. Be eleven skrive antakelsene før de regner."
+bit-byte-begrep,concept,Datamengde og overføringshastighet,Bit og byte,"Bit: den minste enheten for digital informasjon, et 0 eller et 1. Liten b står for bit.
+Byte: 8 bit, så 1 B = 8 bit. Stor B står for byte, og 1 MB er derfor 8 Mbit.",,0,
+gjore-om-bit-byte,skill,Datamengde og overføringshastighet,Gjøre om mellom bit og byte,"gjøre om mellom bit og byte og mellom prefiksene k, M, G og T, i begge retninger.",bit-byte-begrep;prefikser-fakta,1;2,"Bruk 1000 som faktor mellom prefiksene, slik SI-prefiksene er definert. Gi en bildefil i MB og be om Mbit, eller minnet i en gammel datamaskin i kB og be om antall bit."
+overforingshastighet-begrep,concept,Datamengde og overføringshastighet,Overføringshastighet,"Overføringshastighet (bitrate): datamengde per tid, overføringshastighet = datamengde / tid, målt i bit/s, kbit/s, Mbit/s eller Gbit/s. Snudd blir det datamengde = bitrate · tid.",bit-byte-begrep;sammensatte-enheter-begrep,0,
+regne-overforingshastighet,skill,Datamengde og overføringshastighet,Regne med overføringshastighet,"regne ut overføringshastighet, nedlastingstid eller datamengde når de to andre er kjent, og gjøre om mellom byte og bit underveis.",overforingshastighet-begrep;gjore-om-bit-byte,1;2,"Bruk nedlasting og opplasting: en fil på 8 MB som tar 16 sekunder, 100 bilder som skal lastes opp på under to minutter, en sikkerhetskopi av en telefon over 5G med 10 Gbit/s, eller en romsonde som sender med 160 bit/s. Krev at eleven gjør om fra byte til bit før de deler."
+lagringsplass-antall-filer,skill,Datamengde og overføringshastighet,Regne ut hvor mange filer som får plass,"regne ut hvor mange filer, bilder eller disker som får plass på et lagringsmedium, og runde av nedover til et helt antall.",gjore-om-bit-byte,1;2,"Gi ledig plass og filstørrelse med ulike prefikser (f.eks. 152 GB ledig og bilder på 7,5 MB, eller hvor mange CD-er som får plass på en minnepenn på 1 TB)."
+datamengde-stromming,skill,Datamengde og overføringshastighet,Regne ut datamengde ved strømming,"regne ut hvor mye data strømming bruker over en periode ut fra bitrate og tid, og omvendt hvor mange timer musikk eller video en lagringsplass rommer.",regne-overforingshastighet,2,"Bruk musikkstrømming med 96 eller 120 kbit/s i noen timer per dag, regnet om til GB per måned, eller hvor mange timer musikk som får plass på en telefon med 8 GB minne. Sammenlign også bitraten fra en CD med strømming."
+vurdere-lagring-og-abonnement,skill,Datamengde og overføringshastighet,Vurdere databehov og velge abonnement,"sammenligne mobilabonnementer, lagringsløsninger og priser ut fra et beregnet databehov, og gi et begrunnet råd.",datamengde-stromming;lagringsplass-antall-filer;regne-ut-enhetspris,1;2,"Gi eleven et forbruk (surfing per dag pluss strømming) og en tabell med abonnementer, eller valget mellom en telefon med mer minne og en mindre telefon pluss skylagring per måned. Be dem regne ut og anbefale det rimeligste som dekker behovet."
+variabel-begrep,concept,Formler i dagligliv og yrkesliv,Variabel,"Variabel: en bokstav som står for en størrelse som kan variere eller ennå ikke er kjent, som U for spenning eller t for tid. Den lar en sammenheng skrives én gang og brukes for alle verdier.",,0,
+grunntall-eksponent-begrep,concept,Formler i dagligliv og yrkesliv,Grunntall og eksponent,"Grunntall: tallet som ganges med seg selv.
+Eksponent: hvor mange ganger grunntallet står som faktor. I 2⁵ = 2·2·2·2·2 er 2 grunntallet og 5 eksponenten, og I² betyr I·I.",,0,
+rotuttrykk-begrep,concept,Formler i dagligliv og yrkesliv,Kvadratrot,"Kvadratrot: det positive tallet som ganget med seg selv gir tallet under rottegnet, så √49 = 7. Kvadrat og kvadratrot opphever hverandre: √(x²) = x når x ≥ 0.",grunntall-eksponent-begrep,0,
+formelbruk-begrep,concept,Formler i dagligliv og yrkesliv,Formel,"Formel: en sammenheng mellom størrelser skrevet med bokstaver, der hver bokstav har en betydning og en enhet. Når alle størrelsene unntatt én er kjent, kan den siste regnes ut.",variabel-begrep,0,
+sette-inn-i-formel,skill,Formler i dagligliv og yrkesliv,Sette inn i en formel og regne ut,"sette tall med riktige enheter inn i en oppgitt formel og regne ut i riktig rekkefølge: parenteser, potenser og røtter, ganging og deling, og til slutt pluss og minus.",formelbruk-begrep;grunntall-eksponent-begrep;rotuttrykk-begrep,1;2,"Bruk formler fra hverdag og yrke: bremselengde B = x²/2 der x er farten delt på 10, forventet voksenhøyde ut fra foreldrenes høyde, antall håndtrykk H = n·(n − 1)/2, fart ved fritt fall v = 9,8·t og v = √(2·9,8·h), og rentesummen for et serielån. På del 1 skal tallene gå opp."
+vurdere-pastand-med-formel,skill,Formler i dagligliv og yrkesliv,Vurdere en påstand ved hjelp av en formel,"bruke en formel til å vurdere om en påstand stemmer, og forklare svaret ut fra hvordan formelen er bygd opp.",sette-inn-i-formel;proporsjonalitet-begrep,1;2,"Gi påstander som «dobbel høyde gir dobbel fart» med v = √(2·9,8·h), «å lade fra 0 % til 100 % tar tre ganger så lang tid som til 50 %» med en ladeformel P = 10·√m, eller om en gutt med like høye foreldre blir høyere enn faren. Be eleven teste påstanden med tall og forklare."
+likning-begrep,concept,Formler i dagligliv og yrkesliv,Likning og strategier for å løse den,"Likning: en påstand om at to uttrykk er like store. Å løse likningen er å finne verdien av den ukjente som gjør påstanden sann, og svaret kan kontrolleres ved å sette det inn.
+Prøving og tabell: sett inn verdier for den ukjente, gjerne i en tabell, og juster til begge sider blir like.
+Grafisk løsning: tegn hver side som en graf; x-verdien i skjæringspunktet er løsningen.
+Balansemetoden: gjør det samme på begge sider av likhetstegnet til den ukjente står alene.",variabel-begrep,0,
+lose-lineaer-likning,skill,Formler i dagligliv og yrkesliv,Løse lineære likninger med balansemetoden,"løse lineære likninger med balansemetoden, også med brøk, og kontrollere svaret ved å sette det inn.",likning-begrep,1;2,"Lag likninger fra praktiske formler: når er et billån L = 450 000 − 50 000·t nedbetalt, hvor gammelt er et barn som etter en søvnformel trenger 10 timer, eller hvor stor årslønn må en person ha for at et par skal få lånet de trenger."
+losse-formel-for-annen-variabel,skill,Formler i dagligliv og yrkesliv,Snu en formel,"snu en formel slik at en annen størrelse står alene, for eksempel I = P/U fra P = U·I, og sette inn tallverdier.",lose-lineaer-likning;formelbruk-begrep,1;2,"Bruk fagformler: P = U·I, U = R·I, η = Pa/Pt, transformatorformelen og P = η·ρ·g·Q·h. Be eleven først snu formelen med bokstaver og så sette inn tall med enheter."
+lose-likning-prove-tabell,skill,Formler i dagligliv og yrkesliv,"Løse en likning ved prøving, tabell eller graf","løse en likning ved å prøve verdier systematisk, sette opp en tabell, eller tegne grafene for hånd og lese av skjæringspunktet, og begrunne at svaret stemmer.",likning-begrep;sette-inn-i-formel;skjaeringspunkt-begrep;lineaer-sammenheng-begrep,1;2,"Bruk f.eks. antall håndtrykk H = n·(n − 1)/2: hvor mange deltakere er det når det blir 300 håndtrykk? Eller to lønnstilbud eller to måter å betale lading på, der eleven lager verditabell, tegner grafene på papir og leser av hvor de gir like mye. Fra våren 2027 tegnes grafene for hånd."
+lose-likning-med-kvadrat,skill,Formler i dagligliv og yrkesliv,Løse likninger med kvadrat og kvadratrot,"løse likninger der den ukjente står i andre potens eller under et rottegn, ved å ta kvadratroten eller kvadrere begge sider, og forkaste negative svar som ikke gir mening.",lose-lineaer-likning;rotuttrykk-begrep,1;2,"Bruk P = R·I² med kjent P og R, v = √(2·9,8·h) med kjent fart, eller S² = P² + Q² i effekttrekanten. Spør hvorfor bare den positive løsningen gir mening."
+lineaer-sammenheng-begrep,concept,Formler i dagligliv og yrkesliv,Lineær sammenheng,"Lineær sammenheng: y endrer seg like mye for hvert steg i x og kan skrives y = a·x + b. a er endringen per steg, for eksempel kroner per solgt enhet, og b er startverdien, for eksempel fast lønn.",variabel-begrep,0,
+skjaeringspunkt-begrep,concept,Formler i dagligliv og yrkesliv,Graf og skjæringspunkt,"Graf: en tegning av en sammenheng i et koordinatsystem, der hvert punkt (x, y) viser hvilken y-verdi som hører til x.
+Skjæringspunkt: punktet der to grafer møtes og har samme x- og y-verdi. Det svarer til løsningen av likningen man får ved å sette de to uttrykkene like.",variabel-begrep;likning-begrep,0,
+sette-opp-lineaer-modell-tekst,skill,Formler i dagligliv og yrkesliv,Sette opp et lineært uttrykk ut fra en tekst,sette opp et lineært uttrykk ut fra en tekst med en fast del og en del som øker like mye per enhet.,lineaer-sammenheng-begrep,1;2,"Bruk lønn med fast del og tillegg per solgt enhet, en abonnementspris med fast avgift og pris per GB, eller et lån som betales ned med et fast beløp per år."
+sammenligne-lineaere-tilbud,skill,"Kalkyle, budsjett og anbud",Sammenligne to lineære tilbud,"sette opp lineære uttrykk for to tilbud, finne hvor de gir like mye, og gi et begrunnet råd om hvilket som lønner seg.",sette-opp-lineaer-modell-tekst;lose-lineaer-likning;lose-likning-prove-tabell,2,"Gi to tilbud, f.eks. lønn som prosent av salget mot fast lønn pluss tillegg per solgt enhet, og be eleven lage en oversikt (tabell, graf eller likning) som viser når hvert tilbud lønner seg."
+elektro-storrelser-fakta,fact,"Strøm, effekt og energi","Elektriske størrelser, symboler og enheter","U: spenning, målt i volt (V)
+I: strøm, målt i ampere (A)
+R: resistans, målt i ohm (Ω)
+P: aktiv effekt, målt i watt (W)
+S: tilsynelatende effekt, målt i voltampere (VA)
+Q: reaktiv effekt, målt i voltampere reaktiv (VAr)
+E: energi, målt i kilowattimer (kWh) eller joule (J)
+η: virkningsgrad, uten enhet
+Ah: amperetime, enhet for batterikapasitet",,0,
+ohms-lov-begrep,concept,"Strøm, effekt og energi",Ohms lov,"Ohms lov: U = R·I. Spenningen over en motstand er resistansen ganger strømmen gjennom den, så dobbel strøm gir dobbel spenning når R er den samme.",elektro-storrelser-fakta;formelbruk-begrep,0,
+regne-med-ohms-lov,skill,"Strøm, effekt og energi",Regne med Ohms lov i serie- og parallellkobling,"bruke U = R·I til å finne spenning, strøm eller resistans, regne ut totalresistansen for to motstander i serie eller parallell, og finne strømmen med I = U/Rtot.",ohms-lov-begrep;losse-formel-for-annen-variabel;motstandskobling-begrep,1;2,"Bruk enkle kretser fra verkstedet: en motstand på et 12 V-batteri, et varmeelement på 230 V, eller to motstander (f.eks. 16 Ω og 4 Ω) i serie eller parallell med kjent spenning. På del 1 skal tallene gå opp."
+effekt-begrep,concept,"Strøm, effekt og energi",Elektrisk effekt og energi,"Elektrisk effekt: hvor mye energi et apparat bruker eller leverer per sekund, P = U·I, målt i watt (W). 1 kW = 1000 W.
+Energi: effekt ganger tid, E = P·t.
+Kilowattime (kWh): energien et apparat på 1 kW bruker på 1 time. 1 kWh = 3,6 MJ, og 1 MWh = 1000 kWh.",elektro-storrelser-fakta;formelbruk-begrep,0,
+regne-med-effekt-ui,skill,"Strøm, effekt og energi",Regne med P = U·I og P = R·I²,"bruke P = U·I til å finne effekt, strøm eller spenning, gjøre om mellom W og kW, og vise hvordan P = U·I og U = R·I gir P = R·I².",effekt-begrep;losse-formel-for-annen-variabel;gjore-om-enheter;ohms-lov-begrep;grunntall-eksponent-begrep,1;2,"Bruk apparater og anlegg: en tørketrommel på 2,3 kW i en vanlig 230 V-kurs, en iskremmaskin som trekker 0,5 A, en inverter som henter 300 W fra et 12 V bilbatteri, eller en powerbank som viser spenning og effekt. Be også eleven vise utledningen av P = R·I² steg for steg og forklare hvorfor U kan byttes ut med R·I."
+motstandskobling-begrep,concept,"Strøm, effekt og energi",Serie- og parallellkobling,"Seriekobling: motstandene ligger etter hverandre, den samme strømmen går gjennom alle, og Rtot = R₁ + R₂.
+Parallellkobling: motstandene ligger side om side med den samme spenningen. For to motstander er Rtot = R₁·R₂/(R₁ + R₂), og Rtot blir mindre enn den minste av dem.",ohms-lov-begrep,0,
+regne-energi-kwh,skill,"Strøm, effekt og energi",Regne ut energibruk og strømkostnad,"regne ut energibruken i kWh fra effekt og brukstid, etter å ha gjort om W til kW og minutter til timer, og finne hva strømmen koster eller hvor mye man sparer med en pris i kr/kWh.",effekt-begrep;gjore-om-enheter;regne-ut-enhetspris,1;2,"Bruk apparater og anlegg: en maskin på 200 W i 1000 timer, en gammel og en ny tørketrommel over 2000 timers bruk, lading av elbil på en lang tur, eller et kraftverk som produserer i 48 timer og selger strømmen."
+batterikapasitet-begrep,concept,"Strøm, effekt og energi",Batterikapasitet og ladestatus,"Amperetime (Ah): kapasitet = strøm · tid, så et batteri på 10 Ah kan i prinsippet levere 10 A i 1 time eller 5 A i 2 timer.
+Kapasitet i kWh: energien et fulladet batteri kan levere, som for et elbilbatteri.
+Ladestatus: hvor mange prosent av kapasiteten som er igjen.",effekt-begrep;prosent-grunnbegrep;elektro-storrelser-fakta,0,
+regne-med-batterikapasitet,skill,"Strøm, effekt og energi",Regne med batterikapasitet og ladetid,"regne ut ladetid, brukstid eller kapasitet for et batteri ut fra Ah eller kWh, ladestatus i prosent og ladeeffekt eller strøm.",batterikapasitet-begrep;finne-totalen-fra-prosentdel;bruke-proporsjonalitet-beregning,1;2,"Bruk en powerbank på 10 Ah som lader en mobil med 5 A, eller en hurtiglading av elbil med klokkeslett, ladestatus og levert energi: hvor lang tid tar det å nå 80 %, stemmer oppgitt kapasitet, og hvor mange kilometer gir én times lading med et kjent forbruk per km?"
+virkningsgrad-begrep,concept,"Strøm, effekt og energi",Virkningsgrad,"Virkningsgrad: η = avgitt (nyttig) effekt / tilført effekt, Pa/Pt. Den skrives som desimaltall eller prosent og er alltid mindre enn 1 (100 %) i virkelige anlegg, fordi noe går tapt, mest som varme.",effekt-begrep;prosent-grunnbegrep,0,
+regne-med-virkningsgrad,skill,"Strøm, effekt og energi",Regne med virkningsgrad,"regne ut tilført effekt, avgitt effekt eller virkningsgrad, og vurdere om en strømkilde klarer å levere det et anlegg trenger.",virkningsgrad-begrep;losse-formel-for-annen-variabel,2,"Bruk en inverter med 85 % virkningsgrad som skal levere 600 W fra et 12 V-batteri som maks gir 55 A, en elmotor der tilført og avgitt effekt er kjent, eller vedfyring der bare 75 % av energien blir varme. Be eleven konkludere med et råd."
+transformator-begrep,concept,"Strøm, effekt og energi",Transformator,"Transformator: overfører vekselstrøm fra en primærspole til en sekundærspole og endrer spenningen.
+Forholdene i en ideell transformator: U_P/U_S = N_P/N_S, og strømmen følger omvendt forhold, I_P/I_S = N_S/N_P.",elektro-storrelser-fakta;proporsjonalitet-begrep,0,
+regne-med-transformator,skill,"Strøm, effekt og energi",Regne med transformatorformelen,"bruke forholdet mellom spenninger, strømmer og antall vindinger til å finne en ukjent størrelse i en ideell transformator.",transformator-begrep;lose-lineaer-likning,2,"Gi f.eks. primærspenning 400 V, sekundærspenning 230 V og antall primærvindinger, eller primær- og sekundærstrøm og antall primærvindinger, og be eleven finne antall sekundærvindinger."
+regne-energiproduksjon,skill,"Strøm, effekt og energi",Regne ut produksjon fra solceller og vannkraft,"bruke fagformler som P = η·ρ·g·Q·h for et vannkraftverk og effekt = innstråling · areal · virkningsgrad for et solcellepanel, regne om til energi i kWh og til inntekt, og finne en ukjent størrelse.",regne-med-virkningsgrad;regne-energi-kwh;sette-inn-i-formel,2,"Bruk et vannkraftverk med oppgitt virkningsgrad, vannføring (m³/s) og fallhøyde (ρ = 1000 kg/m³, g = 9,81 m/s²), eller solcellepaneler med mål i mm, innstråling 1000 W/m² og virkningsgrad 21 %: hvor mange hele paneler tåler et anlegg på 15 kW? Ta også med årsproduksjon per panel i en solcellepark."
+rettvinklet-trekant-begrep,concept,Trigonometri i trekanter,Sidene i en rettvinklet trekant,"Hypotenus: den lengste siden i en rettvinklet trekant, rett overfor den rette vinkelen.
+Katet: hver av de to sidene som danner den rette vinkelen.
+Motstående og hosliggende katet: sett fra en spiss vinkel v er motstående katet siden rett overfor v, og hosliggende katet den kateten som er med på å danne v.",,0,
+pytagoras-begrep,concept,Trigonometri i trekanter,Pytagoras' setning,Pytagoras' setning: i en rettvinklet trekant med kateter a og b og hypotenus c er a² + b² = c².,rettvinklet-trekant-begrep;grunntall-eksponent-begrep,0,
+bruke-pytagoras,skill,Trigonometri i trekanter,Regne ut en side med Pytagoras' setning,regne ut den tredje siden i en rettvinklet trekant med Pytagoras' setning når to sider er kjent.,pytagoras-begrep;lose-likning-med-kvadrat,1;2,"Bruk mål fra elektrofaget: lengden av en skrå kabel, et stag til en mast, eller aktiv effekt i en effekttrekant der S og Q er kjent. På del 1 skal tallene gå opp."
+sin-cos-tan-begrep,concept,Trigonometri i trekanter,"Sinus, cosinus og tangens","Sinus: sin v = motstående katet / hypotenus.
+Cosinus: cos v = hosliggende katet / hypotenus.
+Tangens: tan v = motstående katet / hosliggende katet.
+Forholdene avhenger bare av vinkelen, ikke av hvor stor trekanten er.",rettvinklet-trekant-begrep,0,
+enhetssirkel-begrep,concept,Trigonometri i trekanter,Sinus og cosinus i enhetssirkelen,"Enhetssirkel: en sirkel med radius 1 og sentrum i origo.
+Sinus og cosinus grafisk: et linjestykke fra origo som danner vinkelen v med den positive x-aksen, treffer sirkelen i punktet (cos v, sin v). Cosinus er x-koordinaten og sinus y-koordinaten, og slik er de definert for alle vinkler fra 0° til 360°.",sin-cos-tan-begrep;skjaeringspunkt-begrep,0,
+lese-enhetssirkel,skill,Trigonometri i trekanter,Lese av sinus og cosinus i enhetssirkelen,"anslå sin v og cos v ved å lese av koordinatene i enhetssirkelen, og finne en annen vinkel mellom 0° og 360° med samme sinus- eller cosinusverdi.",enhetssirkel-begrep,1,"Vis en enhetssirkel med et linjestykke for en vinkel (f.eks. 53°) og be eleven anslå sinus og cosinus. Be dem så finne en annen vinkel med samme cosinusverdi (360° − v) eller samme sinusverdi (180° − v), og begrunne med symmetrien i figuren."
+spesielle-vinkler-fakta,fact,Trigonometri i trekanter,"Eksakte verdier for 30°, 45° og 60°","sin 30°: 1/2
+cos 30°: √3/2 ≈ 0,87
+sin 45°: √2/2 ≈ 0,71
+cos 45°: √2/2 ≈ 0,71
+tan 45°: 1
+sin 60°: √3/2 ≈ 0,87
+cos 60°: 1/2
+sin 0° og cos 90°: 0
+sin 90° og cos 0°: 1",sin-cos-tan-begrep,0,
+trig-finne-side,skill,Trigonometri i trekanter,"Regne ut en side med sinus, cosinus eller tangens","velge riktig forhold ut fra hvilke sider som er kjent og ukjent, og regne ut en ukjent side i en rettvinklet trekant.",sin-cos-tan-begrep;losse-formel-for-annen-variabel,1;2,"På del 1 bruker du eksakte verdier (sin 30° = 1/2, cos 60° = 1/2) og oppgitte verdier som cos 30° ≈ 0,87. På del 2 bruker du situasjoner som et solcellepanel på 1134 mm montert med 35° helning: hvor høyt og hvor langt rekker det?"
+trig-finne-vinkel,skill,Trigonometri i trekanter,Regne ut en vinkel fra sidene,"bruke sin⁻¹, cos⁻¹ eller tan⁻¹ på kalkulatoren til å finne en vinkel i en rettvinklet trekant fra to kjente sider eller fra en kjent sinus-, cosinus- eller tangensverdi, med kalkulatoren stilt på grader.",sin-cos-tan-begrep,2,"Gi to sider (f.eks. høyde og lengde på et skrått tak eller en kabelstige) eller en verdi som cos v = 0,8, og be eleven finne vinkelen. Sjekk at kalkulatoren står i grader."
+trekantareal-begrep,concept,Trigonometri i trekanter,Areal av en trekant,"Grunnlinje og høyde: A = g·h/2, der høyden h står vinkelrett på grunnlinjen g.
+Arealsetningen: A = ½·a·b·sin C, der a og b er to sider og C er vinkelen mellom dem.",sin-cos-tan-begrep,0,
+bruke-trig-i-praksis,skill,Trigonometri i trekanter,Løse praktiske trekantoppgaver fra elektrofaget,"tegne en skisse med en trekant ut fra en praktisk situasjon, sette på kjente mål og vinkler, og regne ut lengder, vinkler eller areal.",trig-finne-side;trig-finne-vinkel;bruke-pytagoras;trekantareal-begrep,2,"Bruk situasjoner som solcellepaneler på et skrått tak, et stag (bardun) til en mast, kabelføring på skrå langs en vegg, eller arealet av en trekantet gavlvegg der det skal monteres utstyr. Krev en skisse med målene satt på."
+effekttrekant-begrep,concept,Effekttrekanten og elmotoren,Effekttrekanten,"Effekttrekant: en rettvinklet trekant som viser effektene i en vekselstrømkrets, for eksempel i en elmotor eller en transformator.
+Tilsynelatende effekt S (VA): hypotenusen.
+Aktiv effekt P (W): kateten som danner fasevinkelen φ med S.
+Reaktiv effekt Q (VAr): kateten rett overfor φ.
+Sammenhengene: S² = P² + Q², cos φ = P/S, sin φ = Q/S og tan φ = Q/P.",sin-cos-tan-begrep;pytagoras-begrep;elektro-storrelser-fakta,0,
+effektfaktor-begrep,concept,Effekttrekanten og elmotoren,Fasevinkel og effektfaktor,"Fasevinkel φ: vinkelen mellom S og P i effekttrekanten.
+Effektfaktor: cos φ = P/S, et tall mellom 0 og 1. Ved ren resistiv last er cos φ = 1, φ = 0° og Q = 0; jo mindre cos φ er, jo større del av S er reaktiv effekt.",effekttrekant-begrep,0,
+motoreffekt-formler-begrep,concept,Effekttrekanten og elmotoren,Effektformler for enfase og trefase,"Enfase: S = U·I og P = U·I·cos φ.
+Trefase: S = √3·U·I og P = √3·U·I·cos φ, der U er spenningen mellom fasene.
+Avgitt effekt: Pa = η·P, effekten motoren gir fra seg, som er den som står på merkeskiltet.",effektfaktor-begrep;effekt-begrep;virkningsgrad-begrep;rotuttrykk-begrep,0,
+tegne-effekttrekant,skill,Effekttrekanten og elmotoren,Skissere en effekttrekant,"skissere effekttrekanten for en motor eller transformator, sette på de oppgitte verdiene med riktige enheter og markere fasevinkelen.",effekttrekant-begrep,1;2,"Gi to av effektene for en transformator eller en elmotor og be eleven skissere trekanten, sette S, P og Q på riktige sider med enheter, og markere φ."
+regne-i-effekttrekanten,skill,Effekttrekanten og elmotoren,"Regne ut P, Q eller S i effekttrekanten","finne den ukjente effekten med Pytagoras' setning eller med sinus, cosinus eller tangens, og vise at de to metodene gir samme svar.",effekttrekant-begrep;bruke-pytagoras;trig-finne-side,1;2,"Gi f.eks. S = 10 kVA og P = 8 kW for en transformator, eller S, Q og cos φ for en enfasemotor, og be eleven regne ut den tredje effekten på to måter. På del 1 skal tallene gå opp (som S = 10 kVA og P = 8 kW, eller sin φ = 0,5)."
+finne-fasevinkel,skill,Effekttrekanten og elmotoren,Finne fasevinkelen,"regne ut fasevinkelen φ i grader fra cos φ eller fra to av effektene P, Q og S.",effektfaktor-begrep;trig-finne-vinkel,1;2,"Bruk merkeskilt med cos φ = 0,8, eller oppgitt P og S (f.eks. 2500 W og 3000 VA). Sammenlign gjerne to motorer: finn først tilført effekt fra avgitt effekt og virkningsgrad, og avgjør så hvilken som har størst fasevinkel."
+regne-motoreffekt-merkeskilt,skill,Effekttrekanten og elmotoren,Regne ut effekt og strøm fra merkeskiltet,"bruke effektformlene for enfase- og trefasemotorer til å finne S, P, avgitt effekt eller en manglende strøm ut fra verdiene på et merkeskilt.",motoreffekt-formler-begrep;regne-med-virkningsgrad;losse-formel-for-annen-variabel,2,"Gi verdiene fra et merkeskilt (spenning, strøm, cos φ, η og avgitt effekt i kW) der én verdi mangler, f.eks. strømmen ved 400 V når den ved 230 V er kjent, og be eleven finne den med Pa = √3·U·I·cos φ·η."
+vurdere-effektfaktor,skill,Effekttrekanten og elmotoren,Vurdere hvordan cos φ påvirker P og Q,"forklare uten utregning hvordan P og Q endres når cos φ øker eller minker og S er den samme, og hva som skjer når P = Q eller ved ren resistiv last.",effektfaktor-begrep,1;2,"Spør f.eks.: en annen motor har samme S, men større cos φ, hva skjer med P og Q? Hvor stor er φ når P og Q er like store? Hva er Q når lasten er rent resistiv? Krev begrunnelse med trekanten."
+budsjett-begrep,concept,"Personlig økonomi: lønn, lån og kredittkort",Budsjett,"Budsjett: en plan over inntekter og utgifter for en periode, for eksempel en måned.
+Overskudd og underskudd: inntekter minus utgifter; et positivt svar er overskudd og et negativt er underskudd.",,0,
+regne-ut-lonn,skill,"Personlig økonomi: lønn, lån og kredittkort",Regne ut lønn og nettolønn,"regne ut lønn fra timelønn, tillegg og provisjon, og finne nettolønnen ved å trekke skatten i prosent fra bruttolønnen.",prosent-av-tall,1;2,"Bruk lærlinglønn og deltidsjobb: timelønn med høyere sats på lørdager, provisjon i prosent av salget, eller en månedslønn med 29 % skattetrekk."
+lage-vurdere-budsjett,skill,"Personlig økonomi: lønn, lån og kredittkort",Sette opp og vurdere et budsjett,"sette opp inntekter og utgifter i et budsjett, finne overskudd eller underskudd, og vurdere om et sparemål eller et kjøp er realistisk.",budsjett-begrep;regne-ut-lonn,1;2,"Bruk situasjoner fra en elev eller lærling: et sparemål over 11 måneder, kjøp av mopedbil eller elbil med faste utgifter til forsikring, lading og service, eller en ferie med utgifter i euro. Be eleven gi et begrunnet råd."
+merverdiavgift-begrep,concept,"Prosent, rabatt og merverdiavgift",Merverdiavgift,"Merverdiavgift (mva): en avgift som legges på prisen uten mva. Med 25 % mva er pris med mva = 1,25 · pris uten mva, og mva-delen er 1/5 av beløpet kunden betaler, fordi 0,25/1,25 = 0,2.",vekstfaktor-begrep,0,
+regne-med-merverdiavgift,skill,"Prosent, rabatt og merverdiavgift",Regne med merverdiavgift,"regne ut pris med og uten mva og hvor stor mva-delen av et totalbeløp er, og forklare hvorfor man deler på 5 og ikke på 4 ved 25 % mva.",merverdiavgift-begrep;finne-totalen-fra-prosentdel,1;2,"Bruk en faktura fra en elektroinstallatør, priser fra en grossist oppgitt uten mva, eller en kunde som betaler et totalbeløp i butikken. Be eleven lage et eget talleksempel som viser hvem som har rett i en uenighet om å dele på 4 eller 5."
+sammenligne-tilbud-gi-rad,skill,"Kalkyle, budsjett og anbud",Sammenligne tilbud og anbud og gi et råd,"regne ut totalprisen for to eller flere tilbud eller anbud (pakkepris, rabatt i prosent, «kjøp 4 for», ulike timepriser og materialpåslag), sammenligne dem og gi et begrunnet råd.",regne-ut-enhetspris;prosent-av-tall,1;2,"Bruk to anbud fra elektrofirmaer på samme installasjon med ulike timepriser og materialpriser, tilbud på varer i butikken, førerkort som pakke eller enkelttimer, eller to måter å reise på med pris, tid og utslipp. Be eleven gi et råd og nevne hva annet enn pris som kan telle."
+lan-begreper,concept,"Personlig økonomi: lønn, lån og kredittkort","Rente, avdrag og terminbeløp","Rente: det man betaler for å låne penger, oppgitt i prosent per år eller per måned av restgjelden.
+Avdrag: den delen av innbetalingen som betaler ned selve lånet.
+Termingebyr: et fast gebyr banken tar for hver innbetaling.
+Terminbeløp: renter + avdrag + gebyr, det man betaler hver termin.
+Restgjeld: det som gjenstår av lånet etter en innbetaling.",prosent-grunnbegrep,0,
+serielan-annuitetslan-begrep,concept,"Personlig økonomi: lønn, lån og kredittkort",Serielån og annuitetslån,"Serielån: like store avdrag hver termin, så terminbeløpet synker etter hvert som rentene blir mindre.
+Annuitetslån: like store terminbeløp hele tiden; først er det mest renter, og avdraget vokser for hver termin.",lan-begreper,0,
+regne-renter-og-lanekostnad,skill,"Personlig økonomi: lønn, lån og kredittkort",Regne ut renter og hva et lån koster,"regne ut renten for én termin, og finne den samlede kostnaden for et lån som summen av alle innbetalinger minus lånebeløpet.",lan-begreper;prosent-av-tall,1;2,"Bruk et kredittlån med månedlig rente og termingebyr, et forbrukslån med kjent terminbeløp over to år, eller en betalingsplan for et kredittkortlån. Ta også med rentesummen for et serielån med formelen S = (L·n + L)/2 · r/100."
+fylle-ut-nedbetalingsplan,skill,"Personlig økonomi: lønn, lån og kredittkort",Regne ut en termin i en nedbetalingsplan,"regne ut renter, avdrag og restgjeld for en termin i en nedbetalingsplan for serie- eller annuitetslån, og lese av lånebeløpet og lånetypen fra en plan.",serielan-annuitetslan-begrep;regne-renter-og-lanekostnad,1;2,"Vis de første terminene av en betalingsplan for et annuitetslån med gebyr, og be eleven fylle ut avdrag og restlån for neste termin. Vis også et diagram over en nedbetalingsplan og spør om det er serie- eller annuitetslån, og hvor stort lånet var."
+effektiv-rente-begrep,concept,"Personlig økonomi: lønn, lån og kredittkort",Kredittkort og effektiv rente,"Kredittkort: et kort der man handler på kreditt og betaler renter av det som ikke er betalt innen fristen, ofte med høy rente per måned.
+Effektiv rente: hva et lån koster i prosent per år når renter regnes av renter og gebyrer tas med. Uten gebyr og med månedsrente r er den effektive årsrenten (1 + r)¹² − 1, som er mer enn 12·r.",vekstfaktor-begrep;lan-begreper;grunntall-eksponent-begrep,0,
+regne-effektiv-rente,skill,"Personlig økonomi: lønn, lån og kredittkort",Regne ut effektiv årsrente fra månedsrente,"regne ut effektiv årsrente fra en månedsrente med vekstfaktorer, og forklare hvorfor den blir høyere enn 12 ganger månedsrenten.",effektiv-rente-begrep;sammensatt-vekstfaktor,2,"Gi en månedsrente på et kredittkort (f.eks. 1,83 %) og be eleven forklare hvorfor banken oppgir 24,3 % per år når 12 · 1,83 % bare er 21,96 %."
+sparing-med-rente,skill,"Personlig økonomi: lønn, lån og kredittkort",Regne ut sparing med rente,"regne ut hvordan et sparebeløp vokser med rente og faste innskudd, termin for termin.",vekstfaktor-fra-prosent;sammensatt-vekstfaktor,2,"Bruk BSU med innskudd i starten av hvert år og årlig rente, eller månedlig sparing med månedsrente mot et mål (f.eks. et førerkort). Be eleven sette opp en tabell over flere terminer for hånd."
+vurdere-lan-og-kreditt,skill,"Personlig økonomi: lønn, lån og kredittkort",Vurdere lån og kredittkort,"sammenligne kostnaden ved ulike måter å låne på (forbrukslån, kredittkort, lån fra familie), vurdere om man har råd, og drøfte konsekvensene av å ta opp lån og å bruke kredittkort.",regne-renter-og-lanekostnad;regne-effektiv-rente;lage-vurdere-budsjett,2,"Gi en situasjon der en ung person vil kjøpe bil, verktøy eller betale en ferie på kreditt: sammenlign et forbrukslån med kredittkort, eller et lån fra familien med en betalingsplan. Ta også med at banken bare låner ut et visst antall ganger årslønnen. Be eleven drøfte risikoen, ikke bare regne."
+regneark-begrep,concept,Regneark,Regneark,"Celle: en rute med en adresse som B3, altså kolonne B og rad 3.
+Formel: starter med =, som =B3*C3, og regnes ut på nytt når tallene endres.
+Kopiering av formler: en cellereferanse flytter seg når formelen kopieres nedover; $ låser den, så $B$1 peker alltid på B1.",variabel-begrep;formelbruk-begrep,0,
+lese-regnearkformler,skill,Regneark,Lese og skrive formler i et regneark,"forklare hva en regnearkformel regner ut, og skrive formelen som skal stå i en celle, for hånd.",regneark-begrep,1;2,"Regneark øves med datamaskin i klasserommet. Fra våren 2027 er det ingen PC på eksamen, så her trener eleven på å lese og skrive formlene for hånd: vis et utsnitt av et regneark for et serielån, en BSU-konto eller bilkostnader per kilometer, og be eleven forklare eller skrive formlene i de tomme cellene."
+lage-regneark-okonomi,skill,Regneark,Lage et regneark for lån og sparing,lage et regneark som regner ut en nedbetalingsplan for et lån eller sparing med rente over flere perioder.,lese-regnearkformler;fylle-ut-nedbetalingsplan;sparing-med-rente,,"Regneark øves i klasserommet med datamaskin; på eksamen fra våren 2027 er det ingen PC. Hjelp eleven å bygge regnearket trinn for trinn, f.eks. en nedbetalingsplan for et serielån til et elektrofirma eller en BSU-konto over flere år, og la eleven endre renten og forklare hva som skjer."
+kalkyle-begreper,concept,"Kalkyle, budsjett og anbud","Kostnad, påslag og fortjeneste","Kostnad: det en jobb koster firmaet, som materialer og arbeidstimer.
+Påslag: et tillegg i prosent eller kroner som legges på kostnaden for å dekke drift og gi fortjeneste.
+Fortjeneste: det kunden betaler uten mva., minus kostnaden.",prosent-grunnbegrep,0,
+anbud-begrep,concept,"Kalkyle, budsjett og anbud",Anbud,"Anbud: et bindende pristilbud på en jobb, satt sammen av materialer, arbeid (timer · timepris), eventuelt påslag, og mva. på toppen når kunden er en privatperson.",kalkyle-begreper;merverdiavgift-begrep,0,
+kostnadsoverslag,skill,"Kalkyle, budsjett og anbud",Sette opp et kostnadsoverslag for en installasjon,"sette opp en oversikt over materialer (antall · stykkpris, meter kabel · meterpris) og arbeidstimer for en elektrojobb, og finne totalkostnaden.",kalkyle-begreper;regne-ut-enhetspris;gjore-om-enheter,1;2,"Lag en jobb fra elektrofaget: nye stikkontakter og lysbrytere i et rom, en lader til elbil med kabel og sikring, eller en varmekabel i et bad. Oppgi antall, stykkpriser, meter kabel og hvor mange timer jobben tar, og be eleven sette opp kostnadsoverslaget i en tabell."
+lage-anbud,skill,"Kalkyle, budsjett og anbud","Lage et anbud med materialer, arbeid, påslag og mva.","lage et anbud ved å legge sammen materialer og arbeid, legge til påslag, og regne ut prisen med 25 % mva. til en privatkunde.",kostnadsoverslag;anbud-begrep;regne-med-merverdiavgift,1;2,"Gi en installasjonsjobb med materialliste, timepris for elektriker og lærling, et påslag på materialene i prosent og 25 % mva., og be eleven sette opp anbudet linje for linje. Spør også hvor mye av sluttsummen som er mva."
+stromforbruk-budsjett,skill,"Kalkyle, budsjett og anbud",Sette opp et strømbudsjett,"sette opp et budsjett over strømforbruket til apparater i en bolig eller et anlegg (effekt · brukstid per dag · antall dager), finne kostnaden per måned eller år, og vurdere hva som lønner seg å bytte ut.",regne-energi-kwh;budsjett-begrep,2,"Gi en liste over apparater i en hybel, et verksted eller en kontorbygning med effekt og brukstid per dag, og en strømpris i kr/kWh. Be eleven finne månedskostnaden, hvilke apparater som koster mest, og hva man sparer ved å bytte f.eks. til LED, varmepumpe eller vedfyring."
+lage-kostnadsregneark,skill,Regneark,Lage et kostnadsregneark for en jobb,"lage et regneark som regner ut et anbud, et kostnadsoverslag eller et strømbudsjett, og endre forutsetningene (timepris, strømpris, antall timer) for å se hvordan resultatet endres.",lese-regnearkformler;lage-anbud;stromforbruk-budsjett,,"Regneark øves i klasserommet med datamaskin; på eksamen fra våren 2027 er det ingen PC. La eleven bygge et anbud for en elektrojobb eller årskostnaden for en elbil (verditap, forsikring, lading, kostnad per km), og så endre timeprisen eller strømprisen og forklare hva som skjer med totalen."
+diagramtyper-begrep,concept,Data og statistikk,"Linjediagram, søylediagram og sektordiagram","Søylediagram: søyler som sammenligner størrelser i ulike kategorier eller perioder.
+Linjediagram: punkter forbundet med linjer, som viser utvikling over tid.
+Sektordiagram: en sirkel delt i sektorer som viser hvordan en helhet fordeler seg i prosent.",prosent-grunnbegrep,0,
+sentralmal-begrep,concept,Data og statistikk,Gjennomsnitt og median,"Gjennomsnitt: summen av alle verdiene delt på antall verdier.
+Median: den midterste verdien når verdiene er sortert etter størrelse; ved et partall verdier er den gjennomsnittet av de to midterste.",,0,
+finne-sentralmal,skill,Data og statistikk,Regne ut gjennomsnitt og median,"regne ut gjennomsnitt og median i en serie målinger, og vurdere hvilket mål som beskriver dataene best når én verdi skiller seg ut.",sentralmal-begrep,1;2,"Bruk målinger fra elektrofaget: strømforbruket i kWh hver måned for et hus, spenningen målt i flere stikkontakter, ladetider for en elbil, eller nedlastingshastigheten målt flere ganger. Ta med én avvikende måling og spør hvilket mål som er mest rettferdig."
+innhente-data-praksis,skill,Data og statistikk,Samle inn data fra praksis og presentere dem,"samle inn målinger eller tall fra verkstedet eller en bolig, gjøre beregninger og overslag, og presentere resultatet i en tabell eller et diagram som passer til dataene.",diagramtyper-begrep;finne-sentralmal;lese-tall-fra-diagram,2,"Be eleven planlegge en undersøkelse fra elektrofaget, f.eks. strømforbruket til apparatene i et klasserom, effekten til laderne i klassen, eller timeforbruket på en installasjonsjobb. Diskuter hvilket diagram som passer (søyle, linje eller sektor), og la eleven lage det for hånd."
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,bruke-proporsjonalitet-beregning,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-ut-enhetspris,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 1c",https://sokeresultat.udir.no/eksamensoppgaver.html,prosentvis-endring-to-tall,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 2a",https://sokeresultat.udir.no/eksamensoppgaver.html,lese-tall-fra-diagram,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 2b",https://sokeresultat.udir.no/eksamensoppgaver.html,sette-inn-i-formel,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 2c",https://sokeresultat.udir.no/eksamensoppgaver.html,vurdere-pastand-med-formel,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 3a",https://sokeresultat.udir.no/eksamensoppgaver.html,gjore-om-enheter,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 3b",https://sokeresultat.udir.no/eksamensoppgaver.html,bruke-sammensatt-rate-i-flere-steg,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,lese-tall-fra-diagram;prosent-av-tall,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,trig-finne-side,,
+,resource,Eksamen,"2023 Høst, Del 1, oppgave 4c",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-ohms-lov;sette-inn-i-formel,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-effekt-ui,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-virkningsgrad;regne-med-effekt-ui,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 2a",https://sokeresultat.udir.no/eksamensoppgaver.html,lagringsplass-antall-filer,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 2b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-overforingshastighet,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 2c",https://sokeresultat.udir.no/eksamensoppgaver.html,datamengde-stromming;vurdere-lagring-og-abonnement,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 3a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-transformator,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 3b",https://sokeresultat.udir.no/eksamensoppgaver.html,tegne-effekttrekant;finne-fasevinkel,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 3c",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-i-effekttrekanten,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-fart;gjore-overslag,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-fart;gjore-om-enheter,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 4c",https://sokeresultat.udir.no/eksamensoppgaver.html,sammenligne-tid-ved-ulik-fart,,
+,resource,Eksamen,"2023 Høst, Del 2, oppgave 5",https://sokeresultat.udir.no/eksamensoppgaver.html,lage-vurdere-budsjett;regne-ut-lonn;sammensatt-vekstfaktor;regne-renter-og-lanekostnad;vurdere-lan-og-kreditt,,
+,resource,Eksamen,"2024 Vår, Del 1, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-ut-enhetspris,,
+,resource,Eksamen,"2024 Vår, Del 1, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,bruke-sammensatt-rate-i-flere-steg;gjore-om-enheter,,
+,resource,Eksamen,"2024 Vår, Del 1, oppgave 2",https://sokeresultat.udir.no/eksamensoppgaver.html,lage-vurdere-budsjett;budsjett-begrep,,
+,resource,Eksamen,"2024 Vår, Del 1, oppgave 3",https://sokeresultat.udir.no/eksamensoppgaver.html,sette-inn-i-formel,,
+,resource,Eksamen,"2024 Vår, Del 1, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,lese-enhetssirkel,,
+,resource,Eksamen,"2024 Vår, Del 1, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,lese-enhetssirkel,,
+,resource,Eksamen,"2024 Vår, Del 1, oppgave 5",https://sokeresultat.udir.no/eksamensoppgaver.html,vurdere-lagring-og-abonnement,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-motoreffekt-merkeskilt;finne-fasevinkel,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-i-effekttrekanten,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 1c",https://sokeresultat.udir.no/eksamensoppgaver.html,vurdere-effektfaktor,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 2",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-batterikapasitet;finne-totalen-fra-prosentdel;bruke-sammensatt-rate-i-flere-steg,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 3a",https://sokeresultat.udir.no/eksamensoppgaver.html,sammenligne-tilbud-gi-rad,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 3b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-renter-og-lanekostnad,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 3c",https://sokeresultat.udir.no/eksamensoppgaver.html,lage-regneark-okonomi;sparing-med-rente,,
+,resource,Eksamen,"2024 Vår, Del 2, oppgave 4",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-fart;gjore-om-enheter;bruke-sammensatt-rate-i-flere-steg;prosentvis-endring-to-tall;sammenligne-tilbud-gi-rad,,
+,resource,Eksamen,"2024 Høst, Del 1, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,sammenligne-tilbud-gi-rad,,
+,resource,Eksamen,"2024 Høst, Del 1, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,sammenligne-tilbud-gi-rad;prosent-av-tall,,
+,resource,Eksamen,"2024 Høst, Del 1, oppgave 2",https://sokeresultat.udir.no/eksamensoppgaver.html,prosentvis-endring-to-tall,,
+,resource,Eksamen,"2024 Høst, Del 1, oppgave 3",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-merverdiavgift;losse-formel-for-annen-variabel,,
+,resource,Eksamen,"2024 Høst, Del 1, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-effekt-ui,,
+,resource,Eksamen,"2024 Høst, Del 1, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-energi-kwh,,
+,resource,Eksamen,"2024 Høst, Del 1, oppgave 5",https://sokeresultat.udir.no/eksamensoppgaver.html,spesielle-vinkler-fakta;trig-finne-side,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-motoreffekt-merkeskilt;finne-fasevinkel,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,finne-fasevinkel;regne-i-effekttrekanten,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 1c",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-virkningsgrad;finne-fasevinkel,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 2",https://sokeresultat.udir.no/eksamensoppgaver.html,lagringsplass-antall-filer;regne-overforingshastighet;datamengde-stromming,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 3a",https://sokeresultat.udir.no/eksamensoppgaver.html,lage-kostnadsregneark;kostnadsoverslag,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 3b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-ut-lonn;lage-vurdere-budsjett,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 3c",https://sokeresultat.udir.no/eksamensoppgaver.html,sammenligne-tid-ved-ulik-fart;sette-inn-i-formel,,
+,resource,Eksamen,"2024 Høst, Del 2, oppgave 4",https://sokeresultat.udir.no/eksamensoppgaver.html,lage-vurdere-budsjett;bruke-proporsjonalitet-beregning;regne-renter-og-lanekostnad;regne-effektiv-rente,,
+,resource,Eksamen,"2025 Vår, Del 1, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,gjore-om-enheter,,
+,resource,Eksamen,"2025 Vår, Del 1, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-ut-enhetspris;sammenligne-tilbud-gi-rad,,
+,resource,Eksamen,"2025 Vår, Del 1, oppgave 2",https://sokeresultat.udir.no/eksamensoppgaver.html,vurdere-pastand-med-formel;lose-likning-med-kvadrat,,
+,resource,Eksamen,"2025 Vår, Del 1, oppgave 3",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-renter-og-lanekostnad,,
+,resource,Eksamen,"2025 Vår, Del 1, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-effekt-ui,,
+,resource,Eksamen,"2025 Vår, Del 1, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-energi-kwh,,
+,resource,Eksamen,"2025 Vår, Del 1, oppgave 5",https://sokeresultat.udir.no/eksamensoppgaver.html,trig-finne-side;spesielle-vinkler-fakta,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-motoreffekt-merkeskilt,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,finne-fasevinkel;vurdere-effektfaktor,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 1c",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-motoreffekt-merkeskilt;losse-formel-for-annen-variabel,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 2",https://sokeresultat.udir.no/eksamensoppgaver.html,gjore-om-bit-byte;regne-overforingshastighet;datamengde-stromming,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 3a",https://sokeresultat.udir.no/eksamensoppgaver.html,lage-regneark-okonomi;fylle-ut-nedbetalingsplan,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 3b",https://sokeresultat.udir.no/eksamensoppgaver.html,sette-inn-i-formel;regne-renter-og-lanekostnad,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,bruke-sammensatt-rate-i-flere-steg,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-ut-enhetspris,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 4c",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-virkningsgrad;regne-energi-kwh;sammenligne-tilbud-gi-rad;stromforbruk-budsjett,,
+,resource,Eksamen,"2025 Vår, Del 2, oppgave 5",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-ut-lonn;sette-opp-lineaer-modell-tekst;sammenligne-lineaere-tilbud,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-fart,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-fart;gjore-om-enheter,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 2a",https://sokeresultat.udir.no/eksamensoppgaver.html,serielan-annuitetslan-begrep,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 2b",https://sokeresultat.udir.no/eksamensoppgaver.html,fylle-ut-nedbetalingsplan,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 3",https://sokeresultat.udir.no/eksamensoppgaver.html,sette-inn-i-formel;lose-lineaer-likning,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,gjore-om-bit-byte,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-overforingshastighet,,
+,resource,Eksamen,"2025 Høst, Del 1, oppgave 5",https://sokeresultat.udir.no/eksamensoppgaver.html,bruke-pytagoras;regne-i-effekttrekanten,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,gjore-om-enheter;prefikser-fakta,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,trig-finne-side;bruke-trig-i-praksis,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 1c",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-energiproduksjon;gjore-om-enheter,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 2",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-energiproduksjon;regne-energi-kwh;losse-formel-for-annen-variabel,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 3a",https://sokeresultat.udir.no/eksamensoppgaver.html,lage-regneark-okonomi;sparing-med-rente,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 3b",https://sokeresultat.udir.no/eksamensoppgaver.html,lose-lineaer-likning;vurdere-lan-og-kreditt,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 4",https://sokeresultat.udir.no/eksamensoppgaver.html,sette-inn-i-formel;vurdere-pastand-med-formel;lose-likning-med-kvadrat,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 5a",https://sokeresultat.udir.no/eksamensoppgaver.html,bruke-sammensatt-rate-i-flere-steg;gjore-om-enheter,,
+,resource,Eksamen,"2025 Høst, Del 2, oppgave 5b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-antakelser-apen-oppgave,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,lese-tall-fra-diagram,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,lese-tall-fra-diagram;regne-ut-lonn,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 2a",https://sokeresultat.udir.no/eksamensoppgaver.html,sette-inn-i-formel;lineaer-sammenheng-begrep,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 2b",https://sokeresultat.udir.no/eksamensoppgaver.html,lose-lineaer-likning,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 3",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-merverdiavgift,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,gjore-overslag;regne-med-effekt-ui,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-batterikapasitet,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 5a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-ohms-lov,,
+,resource,Eksamen,"2026 Vår, Del 1, oppgave 5b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-effekt-ui,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 1a",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-transformator,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 1b",https://sokeresultat.udir.no/eksamensoppgaver.html,finne-fasevinkel;regne-i-effekttrekanten,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 1c",https://sokeresultat.udir.no/eksamensoppgaver.html,effektfaktor-begrep;vurdere-effektfaktor,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 2a",https://sokeresultat.udir.no/eksamensoppgaver.html,dobling-over-tid,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 2b",https://sokeresultat.udir.no/eksamensoppgaver.html,datamengde-stromming;gjore-om-bit-byte,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 2c",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-overforingshastighet,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 3a",https://sokeresultat.udir.no/eksamensoppgaver.html,sette-inn-i-formel,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 3b",https://sokeresultat.udir.no/eksamensoppgaver.html,lose-likning-prove-tabell;lose-likning-med-kvadrat,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 4a",https://sokeresultat.udir.no/eksamensoppgaver.html,bruke-sammensatt-rate-i-flere-steg;regne-energi-kwh,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 4b",https://sokeresultat.udir.no/eksamensoppgaver.html,regne-med-fart;gjore-om-enheter,,
+,resource,Eksamen,"2026 Vår, Del 2, oppgave 5",https://sokeresultat.udir.no/eksamensoppgaver.html,fylle-ut-nedbetalingsplan;regne-renter-og-lanekostnad;vurdere-lan-og-kreditt,,
+,resource,Store norske leksikon,Prosent,https://snl.no/prosent,prosent-grunnbegrep,,
+,resource,Store norske leksikon,Prosentregning,https://snl.no/prosentregning,vekstfaktor-begrep,,
+,resource,Store norske leksikon,Moores lov,https://snl.no/Moores_lov,dobling-over-tid,,
+,resource,Store norske leksikon,SI-prefikser,https://snl.no/SI-prefikser,prefikser-fakta,,
+,resource,Store norske leksikon,Proporsjon,https://snl.no/proporsjon,proporsjonalitet-begrep,,
+,resource,Store norske leksikon,Gjennomsnittsfart,https://snl.no/gjennomsnittsfart,gjennomsnittsfart-begrep,,
+,resource,Store norske leksikon,Bit – digital enhet,https://snl.no/bit_-_digital_enhet,bit-byte-begrep,,
+,resource,Store norske leksikon,Byte,https://snl.no/byte,bit-byte-begrep,,
+,resource,Store norske leksikon,Bitrate,https://snl.no/bitrate,overforingshastighet-begrep,,
+,resource,Store norske leksikon,Overføringshastighet,https://snl.no/overf%C3%B8ringshastighet,overforingshastighet-begrep,,
+,resource,Store norske leksikon,Variabel – matematikk,https://snl.no/variabel_-_matematikk,variabel-begrep,,
+,resource,Store norske leksikon,Potens – matematikk,https://snl.no/potens_-_matematikk,grunntall-eksponent-begrep,,
+,resource,Store norske leksikon,Kvadratrot,https://snl.no/kvadratrot,rotuttrykk-begrep,,
+,resource,Store norske leksikon,Formel – matematikk,https://snl.no/formel_-_matematikk,formelbruk-begrep,,
+,resource,Store norske leksikon,Ligning,https://snl.no/ligning,likning-begrep,,
+,resource,Store norske leksikon,Graf,https://snl.no/graf,skjaeringspunkt-begrep,,
+,resource,Store norske leksikon,Skjæringspunkt,https://snl.no/skj%C3%A6ringspunkt,skjaeringspunkt-begrep,,
+,resource,Store norske leksikon,Elektrisk spenning,https://snl.no/elektrisk_spenning,elektro-storrelser-fakta,,
+,resource,Store norske leksikon,Elektrisk strøm,https://snl.no/elektrisk_str%C3%B8m,elektro-storrelser-fakta,,
+,resource,Store norske leksikon,Resistans,https://snl.no/resistans,elektro-storrelser-fakta,,
+,resource,Store norske leksikon,Ohms lov,https://snl.no/Ohms_lov,ohms-lov-begrep,,
+,resource,Store norske leksikon,Elektrisk effekt,https://snl.no/elektrisk_effekt,effekt-begrep,,
+,resource,Store norske leksikon,Seriekobling,https://snl.no/seriekobling,motstandskobling-begrep,,
+,resource,Store norske leksikon,Parallellkobling – fysikk,https://snl.no/parallellkobling_-_fysikk,motstandskobling-begrep,,
+,resource,Store norske leksikon,Kilowattime,https://snl.no/kilowattime,effekt-begrep,,
+,resource,Store norske leksikon,Elektrisk energi,https://snl.no/elektrisk_energi,effekt-begrep,,
+,resource,Store norske leksikon,Amperetime,https://snl.no/amperetime,batterikapasitet-begrep,,
+,resource,Store norske leksikon,Virkningsgrad,https://snl.no/virkningsgrad,virkningsgrad-begrep,,
+,resource,Store norske leksikon,Transformator,https://snl.no/transformator,transformator-begrep,,
+,resource,Store norske leksikon,Vannkraftverk,https://snl.no/vannkraftverk,regne-energiproduksjon,,
+,resource,Store norske leksikon,Hypotenus,https://snl.no/hypotenus,rettvinklet-trekant-begrep,,
+,resource,Store norske leksikon,Katet,https://snl.no/katet,rettvinklet-trekant-begrep,,
+,resource,Store norske leksikon,Pytagoras' setning,https://snl.no/Pytagoras'_setning,pytagoras-begrep,,
+,resource,Store norske leksikon,Sinus – matematikk,https://snl.no/sinus_-_matematikk,sin-cos-tan-begrep,,
+,resource,Store norske leksikon,Cosinus – matematikk,https://snl.no/cosinus_-_matematikk,sin-cos-tan-begrep,,
+,resource,Store norske leksikon,Tangens,https://snl.no/tangens,sin-cos-tan-begrep,,
+,resource,Store norske leksikon,Enhetssirkel,https://snl.no/enhetssirkel,enhetssirkel-begrep,,
+,resource,Store norske leksikon,Trigonometriske funksjoner,https://snl.no/trigonometriske_funksjoner,enhetssirkel-begrep,,
+,resource,Store norske leksikon,Trekant,https://snl.no/trekant,trekantareal-begrep,,
+,resource,Store norske leksikon,Effekttrekant,https://snl.no/effekttrekant,effekttrekant-begrep,,
+,resource,Store norske leksikon,Aktiv effekt,https://snl.no/aktiv_effekt,effekttrekant-begrep,,
+,resource,Store norske leksikon,Reaktiv effekt,https://snl.no/reaktiv_effekt,effekttrekant-begrep,,
+,resource,Store norske leksikon,Effektfaktor – vekselstrømkrets,https://snl.no/effektfaktor_-_vekselstr%C3%B8mkrets,effektfaktor-begrep,,
+,resource,Store norske leksikon,Cos φ – elektrisitetslære,https://snl.no/cos_%CF%86_-_elektrisitetsl%C3%A6re,effektfaktor-begrep,,
+,resource,Store norske leksikon,Voltampere,https://snl.no/voltampere,motoreffekt-formler-begrep,,
+,resource,Store norske leksikon,Budsjett,https://snl.no/budsjett,budsjett-begrep,,
+,resource,Store norske leksikon,Merverdiavgift (moms),https://snl.no/merverdiavgift,merverdiavgift-begrep,,
+,resource,Store norske leksikon,Rente,https://snl.no/rente,lan-begreper,,
+,resource,Store norske leksikon,Avdrag,https://snl.no/avdrag,lan-begreper,,
+,resource,Store norske leksikon,Serielån,https://snl.no/seriel%C3%A5n,serielan-annuitetslan-begrep,,
+,resource,Store norske leksikon,Annuitetslån,https://snl.no/annuitetsl%C3%A5n,serielan-annuitetslan-begrep,,
+,resource,Store norske leksikon,Kredittkort,https://snl.no/kredittkort,effektiv-rente-begrep,,
+,resource,Store norske leksikon,Effektiv rente,https://snl.no/effektiv_rente,effektiv-rente-begrep,,
+,resource,Store norske leksikon,Regneark,https://snl.no/regneark,regneark-begrep,,
