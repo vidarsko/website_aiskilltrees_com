@@ -83,20 +83,19 @@ regne-med-antakelser-apen-oppgave,skill,"Måleenheter, omregning og overslag",Gj
 bit-byte-begrep,concept,"Digitale data: bit, byte og overføring",Bit og byte,"Bit: den minste enheten for digital informasjon, et siffer som er 0 eller 1. Skrives bit eller b.
 Byte: åtte bit, skrives B. Filstørrelser og lagringsplass oppgis i byte (MB, GB), mens hastigheten på en nettforbindelse oppgis i bit per sekund (Mbit/s).",,0,
 dataenheter-fakta,fact,"Digitale data: bit, byte og overføring",Dataenheter,"1 byte (B): 8 bit
-1 kilobyte (kB): 1000 B
-1 megabyte (MB): 1000 kB
-1 gigabyte (GB): 1000 MB
-1 terabyte (TB): 1000 GB
+1 kilobyte (kB): 1024 B
+1 megabyte (MB): 1024 kB
+1 gigabyte (GB): 1024 MB
+1 terabyte (TB): 1024 GB
 1 kbit/s: 1000 bit/s
-1 Mbit/s: 1000 kbit/s
-binære prefikser: 1 KiB = 1024 B og 1 MiB = 1024 KiB, som noen programmer viser som KB og MB",bit-byte-begrep,0,
-regne-om-bit-byte,skill,"Digitale data: bit, byte og overføring","Gjøre om mellom bit, byte og prefiksene","gjøre om datamengder mellom bit og byte og mellom kB, MB, GB og TB, og tilsvarende for kbit/s og Mbit/s.",dataenheter-fakta,1;2,"Gi eleven filstørrelser fra hverdagen og yrket: et bilde på 6 MB som skal oppgis i Mbit, et datamaskinminne på 69,6 kB som skal oppgis i bit, eller en minnepenn på 1 TB i GB. På del 1 skal tallene gå opp for hånd. Regn med 1000 mellom prefiksene med mindre oppgaven sier noe annet."
+1 Mbit/s: 1000 kbit/s",bit-byte-begrep,0,
+regne-om-bit-byte,skill,"Digitale data: bit, byte og overføring","Gjøre om mellom bit, byte og prefiksene","gjøre om datamengder mellom bit og byte og mellom kB, MB, GB og TB, og tilsvarende for kbit/s og Mbit/s.",dataenheter-fakta,1;2,"Gi eleven filstørrelser fra hverdagen og yrket: et bilde på 6 MB som skal oppgis i Mbit, et datamaskinminne på 69,6 kB som skal oppgis i bit, eller en minnepenn på 1 TB i GB. På del 1 skal tallene gå opp for hånd. Regn med 1024 mellom prefiksene for byte (kB, MB, GB, TB) og 1000 for kbit/s og Mbit/s, med mindre oppgaven sier noe annet."
 lagringsplass,skill,"Digitale data: bit, byte og overføring",Regne ut hvor mye som får plass på et lagringsmedium,"regne ut hvor mange filer eller medier av en gitt størrelse som får plass på et lagringsmedium, og hvor lenge lagringsplassen varer ved et jevnt forbruk per måned.",regne-om-bit-byte,1;2,"Gi eleven f.eks. en mobil med 8 GB og bilder på 4 MB, hvor mange CD-er på 650 MB som får plass på en minnepenn, eller en mobil på 128 GB som fylles med 4 GB per måned."
 overforingshastighet-begrep,concept,"Digitale data: bit, byte og overføring",Overføringshastighet,"Overføringshastighet: datamengden som overføres per tidsenhet, overføringshastighet = datamengde / tid, oppgitt i bit/s, kbit/s eller Mbit/s. Fordi filer oppgis i byte og nettforbindelser i bit, må datamengden gjøres om med 1 B = 8 bit før man deler.",bit-byte-begrep;sammensatte-enheter-begrep,0,
 regne-overforingshastighet,skill,"Digitale data: bit, byte og overføring",Regne ut nedlastingstid og nødvendig hastighet,"bruke overføringshastighet = datamengde / tid til å finne nedlastingstiden for en fil, hastigheten en forbindelse må ha, eller hvor mange tregere forbindelser som trengs for å matche en raskere.",overforingshastighet-begrep;regne-om-bit-byte;tidsomregning,1;2,"Gi eleven f.eks. en fil på 8 MB som tar 16 s å laste ned (finn Mbit/s), en CD på 650 MB som skal lastes ned på 20 s, en romsonde som sender med 160 bit/s, eller ISDN-linjer på 128 kbit/s sammenlignet med bredbånd på 100 Mbit/s."
-bitrate-begrep,concept,"Digitale data: bit, byte og overføring",Bitrate,"Bitrate: hvor mange bit lyd eller video bruker per sekund avspilling, f.eks. 320 kbit/s for strømmet musikk. Filstørrelse = bitrate · spilletid, så høyere bitrate gir større filer og som regel bedre kvalitet.",overforingshastighet-begrep,0,
+bitrate-begrep,concept,"Digitale data: bit, byte og overføring",Bitrate,"Bitrate: overføringshastighet målt i antall bit per sekund (bit/s). For strømmet lyd og video er det antall bit som brukes per sekund avspilling, f.eks. 320 kbit/s for musikk. Filstørrelse = bitrate · spilletid, så høyere bitrate gir større filer og som regel bedre kvalitet.",overforingshastighet-begrep,0,
 regne-med-bitrate,skill,"Digitale data: bit, byte og overføring",Regne med bitrate for lyd og video,"regne ut filstørrelsen til en sang eller video fra bitrate og spilletid, og bitraten fra filstørrelse og spilletid, for eksempel for å sammenligne en CD med strømming.",bitrate-begrep;regne-overforingshastighet,2,"Gi eleven f.eks. en sang på 3 min 30 s med 96 kbit/s, eller en CD med 650 MB og 74 minutter musikk som skal sammenlignes med strømming på 24–320 kbit/s. Be dem også finne hvor rask forbindelse som trengs for å laste ned sangen på ett sekund."
-fordobling-over-tid,skill,"Digitale data: bit, byte og overføring",Regne med fordobling over tid,"regne ut hvor stor en størrelse blir når den dobles med faste mellomrom, som 2, 4, 8 og 16 ganger startverdien, og vurdere om en slik utvikling er rimelig over lang tid.",vekstfaktor-begrep,1;2,"Gi eleven f.eks. Moores lov i den forenklede formen at lagringskapasiteten dobles hvert andre år, og en mobil med 8 GB i 2007, og be dem finne hva den burde hatt fire og ti år senere. Be dem også vurdere om utviklingen kan fortsette."
+fordobling-over-tid,skill,"Digitale data: bit, byte og overføring",Regne med fordobling over tid,"regne ut hvor stor en størrelse blir når den dobles med faste mellomrom, som 2, 4, 8 og 16 ganger startverdien, og vurdere om en slik utvikling er rimelig over lang tid.",vekstfaktor-begrep,1;2,"Gi eleven f.eks. Moores lov, som sier at antall transistorer på en integrert krets dobles hvert andre år, brukt som en forenkling for lagringskapasiteten, og en mobil med 8 GB i 2007, og be dem finne hva den burde hatt fire og ti år senere. Be dem også vurdere om utviklingen kan fortsette."
 forhold-begrep,concept,Geometri og design,Forhold og sideforhold,"Forhold: a : b betyr a/b, altså hvor mange ganger større den ene størrelsen er enn den andre.
 Sideforhold: forholdet mellom bredde og høyde. 16 : 9 betyr at bredden er 16/9 av høyden, uansett hvor stor skjermen eller bildet er.",,0,
 bruke-sideforhold,skill,Geometri og design,Bruke sideforhold til å finne bredde eller høyde,"bruke et sideforhold som 16 : 9 eller 4 : 3 til å finne bredden eller høyden når den andre er kjent, i piksler eller i centimeter.",forhold-begrep,1;2,"Gi eleven f.eks. bakgrunnsgrafikk i 16 : 9 med bredde 3840 piksler, et bilde i 4 : 3 som skal skaleres til en gitt bredde, eller en video som skal klippes til 9 : 16 for mobil. På del 1 skal tallene gå opp for hånd."
@@ -139,8 +138,8 @@ analysere-presentere-datasett,skill,Data og statistikk,Analysere og presentere e
 budsjett-begrep,concept,"Kalkyle, budsjett og anbud","Budsjett, regnskap og resultat","Budsjett: en plan over forventede inntekter og utgifter for en periode.
 Regnskap: en oversikt over de faktiske inntektene og utgiftene.
 Overskudd: inntekter minus utgifter når svaret er positivt; er det negativt, er det et underskudd. I en bedrift kalles driftsinntekter minus driftskostnader driftsresultatet.",,0,
-faste-variable-kostnader-begrep,concept,"Kalkyle, budsjett og anbud",Faste og variable kostnader,"Faste kostnader: kostnader som er like store uansett hvor mye som produseres, som husleie og programvarelisenser.
-Variable kostnader: kostnader som øker med mengden, som lønn per arbeidstime eller frakt per enhet.",budsjett-begrep,0,
+faste-variable-kostnader-begrep,concept,"Kalkyle, budsjett og anbud",Faste og variable kostnader,"Faste kostnader: kostnader som på kort sikt er like store uansett hvor mye som produseres, som husleie og programvarelisenser.
+Variable kostnader: kostnader som øker og minker med aktiviteten, som innkjøp av materialer, salgsprovisjon eller frakt per enhet.",budsjett-begrep,0,
 regne-overskudd-budsjett,skill,"Kalkyle, budsjett og anbud",Sette opp et budsjett og finne overskuddet,"sette opp inntekter og utgifter i et enkelt budsjett, regne ut overskudd eller underskudd, og vurdere om et mål nås.",budsjett-begrep,1,"Gi eleven f.eks. månedsbudsjettet til en fotograf med husleie, materialer og inntekter fra oppdrag og salg av trykk, og be dem finne overskuddet for hånd."
 anbud-begrep,concept,"Kalkyle, budsjett og anbud",Anbud og påslag,"Anbud: et bindende pristilbud på et oppdrag, satt sammen av kostnadene, fortjenesten og mva.
 Påslag: et prosenttillegg på innkjøpsprisen som gir fortjeneste, så 30 % påslag på 4800 kr gir 6240 kr.",budsjett-begrep;vekstfaktor-begrep;merverdiavgift-begrep,0,
@@ -302,7 +301,7 @@ vurdere-lan-og-kreditt,skill,"Personlig økonomi: lønn, lån og kredittkort",Vu
 ,resource,Store norske leksikon,Volum,https://snl.no/volum,arealformler-begrep,,
 ,resource,Store norske leksikon,Trapes,https://snl.no/trapes_-_matematikk,arealformler-begrep,,
 ,resource,Store norske leksikon,Pytagoras' setning,https://snl.no/Pytagoras%27_setning,pytagoras-begrep,,
-,resource,Store norske leksikon,Symmetri,https://snl.no/symmetri,symmetri-begrep,,
+,resource,Store norske leksikon,Symmetri – matematikk,https://snl.no/symmetri_-_matematikk,symmetri-begrep,,
 ,resource,Store norske leksikon,Data – statistikk,https://snl.no/data_-_statistikk,datasett-begrep,,
 ,resource,Store norske leksikon,Søylediagram,https://snl.no/s%C3%B8ylediagram,diagramtyper-begrep,,
 ,resource,Store norske leksikon,Diagram,https://snl.no/diagram,diagramtyper-begrep,,
@@ -323,3 +322,13 @@ vurdere-lan-og-kreditt,skill,"Personlig økonomi: lønn, lån og kredittkort",Vu
 ,resource,Store norske leksikon,Kredittkort,https://snl.no/kredittkort,kredittkort-begrep,,
 ,resource,Store norske leksikon,Nominell rente,https://snl.no/nominell_rente,kredittkort-begrep,,
 ,resource,Store norske leksikon,Effektiv rente,https://snl.no/effektiv_rente,kredittkort-begrep,,
+,resource,Store norske leksikon,Kilobyte,https://snl.no/kilobyte,dataenheter-fakta,,
+,resource,Store norske leksikon,Megabyte,https://snl.no/megabyte,dataenheter-fakta,,
+,resource,Store norske leksikon,Binære multipler,https://snl.no/bin%C3%A6re_multipler,dataenheter-fakta,,
+,resource,Store norske leksikon,SI-prefikser,https://snl.no/SI-prefikser,enhetsprefikser-fakta,,
+,resource,Store norske leksikon,Liter,https://snl.no/liter,enhetsprefikser-fakta,,
+,resource,Store norske leksikon,Tomme,https://snl.no/tomme,enhetsprefikser-fakta,,
+,resource,Store norske leksikon,Faste kostnader,https://snl.no/faste_kostnader,faste-variable-kostnader-begrep,,
+,resource,Store norske leksikon,Variable kostnader,https://snl.no/variable_kostnader,faste-variable-kostnader-begrep,,
+,resource,Store norske leksikon,Frikort,https://snl.no/frikort_-_skatt,lonn-skatt-begrep,,
+,resource,Store norske leksikon,Watt,https://snl.no/watt,energi-effekt-begrep,,

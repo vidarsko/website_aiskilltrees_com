@@ -99,25 +99,25 @@ pris-per-areal,skill,"Oppskrifter, svinn og råvarebehov",Sammenligne hvor mye m
 naeringsstoffer-begrep,concept,Næring og energi,Energigivende næringsstoffer,"Energigivende næringsstoffer: protein, karbohydrat og fett, målt i gram. Næringstabeller oppgir dem som regel per 100 g matvare.
 Mineraler og vitaminer: næringsstoffer som trengs i små mengder og oppgis i mg eller µg, som kalium og magnesium.",,0,Bruk Matvaretabellen og varedeklarasjoner som eksempler.
 energienheter-begrep,concept,Næring og energi,Kilokalori og kilojoule,"Kilokalori (kcal): den vanlige enheten for energiinnhold i mat.
-Kilojoule (kJ): 1000 joule, der joule er SI-enheten for energi. 1 kcal er omtrent 4,18 kJ, så tallet i kJ er drøyt fire ganger tallet i kcal.",naeringsstoffer-begrep,0,
+Kilojoule (kJ): 1000 joule, der joule er SI-enheten for energi. 1 kcal = 4,1868 kJ, omtrent 4,19 kJ, så tallet i kJ er drøyt fire ganger tallet i kcal.",naeringsstoffer-begrep,0,
 energifaktorer,fact,Næring og energi,Energi per gram næringsstoff,"protein: 4 kcal/g, eller 17 kJ/g
 karbohydrat: 4 kcal/g, eller 17 kJ/g
-fett: 9 kcal/g, eller 37 kJ/g
+fett: 9 kcal/g, eller 38 kJ/g
 alkohol: 7 kcal/g, eller 29 kJ/g
 kostfiber: 2 kcal/g, eller 8 kJ/g
-1 kcal: omtrent 4,18 kJ",energienheter-begrep,0,
+1 kcal: 4,1868 kJ",energienheter-begrep,0,
 energiformel-begrep,concept,Næring og energi,Energiformelen,"Energiformelen i kcal: E = 4P + 4K + 9F.
-Energiformelen i kJ: E = 17P + 17K + 37F.
+Energiformelen i kJ: E = 17P + 17K + 38F. Oppgir en eksamensoppgave formelen med 37F, er det forutsetningen i den oppgaven.
 I begge er P gram protein, K gram karbohydrat og F gram fett. Fett gir mer enn dobbelt så mye energi per gram som protein og karbohydrat.",energifaktorer;formelbruk-begrep,0,
 bruke-energiformel,skill,Næring og energi,Regne ut energiinnhold med energiformelen,"sette inn gram protein, karbohydrat og fett i energiformelen i kcal eller kJ, og kontrollere et oppgitt energiinnhold.",energiformel-begrep;sette-inn-i-formel,1;2,"Gi eleven næringsinnholdet i en rett (laks, kyllingsalat med pasta, makrell i tomat, potetmos) og be dem regne ut energien, eller vise at et oppgitt tall stemmer. Bruk både kcal- og kJ-formelen."
-regne-om-kj-kcal,skill,Næring og energi,Regne om mellom kJ og kcal,"regne om energiinnhold mellom kJ og kcal med 1 kcal ≈ 4,18 kJ, og gjøre et raskt overslag med faktoren 4.",energienheter-begrep,1;2,"Bruk varedeklarasjoner der energien står i begge enheter, og la eleven kontrollere dem, eller gi en dagsmeny i kJ som skal sammenlignes med et behov i kcal."
+regne-om-kj-kcal,skill,Næring og energi,Regne om mellom kJ og kcal,"regne om energiinnhold mellom kJ og kcal med 1 kcal = 4,1868 kJ, og gjøre et raskt overslag med faktoren 4.",energienheter-begrep,1;2,"Bruk varedeklarasjoner der energien står i begge enheter, og la eleven kontrollere dem, eller gi en dagsmeny i kJ som skal sammenlignes med et behov i kcal."
 per-100g-til-porsjon,skill,Næring og energi,Regne om fra per 100 g til en porsjon,regne ut innholdet av energi eller et næringsstoff i en porsjon når innholdet per 100 g eller per gram er kjent.,naeringsstoffer-begrep;bruke-proporsjonalitet-beregning,1;2,"Bruk 125 g stekt laks når tabellen gir 207 kcal per 100 g, en boks makrell på 110 g, eller 2 dL melk regnet som 200 g."
 energi-i-maltid,skill,Næring og energi,Regne ut energiinnholdet i et måltid,"summere energi og næringsstoffer fra alle ingrediensene i et måltid eller en oppskrift, og presentere resultatet oversiktlig i en tabell.",per-100g-til-porsjon;bruke-energiformel,1;2,"Bruk en barnehagelunsj, en sykehjemsmiddag (150 g kyllingbryst, 200 g poteter, 125 g grønnsaker) eller pannekakerøre der energien er oppgitt i kcal per gram, og be eleven også regne hva som skjer når en ingrediens reduseres med 25 %."
 energiprosent-begrep,concept,Næring og energi,Energiprosent,"Energiprosent: hvor stor del av den totale energien i et måltid eller kosthold som kommer fra ett næringsstoff, i prosent. Energiprosent fett = 9·F / E · 100 %, der E er total energi i kcal.",energiformel-begrep;prosent-grunnbegrep,0,"Få fram at energiprosent ikke er det samme som gramprosent: fett kan være en liten del av vekten, men en stor del av energien."
 regne-energiprosent,skill,Næring og energi,Regne med energiprosent,"regne ut energiprosenten fra protein, karbohydrat og fett i et måltid, og gå andre veien fra energiprosent til gram.",energiprosent-begrep;bruke-energiformel;finne-prosentandel,1;2,"Gi eleven en frokost på 320 kcal der 50 % av energien kommer fra karbohydrater, og be dem finne antall gram karbohydrater. Gi også et måltid i gram og be om fordelingen i energiprosent."
 dekning-av-behov,skill,Næring og energi,Regne ut hvor mye av dagsbehovet et måltid dekker,"regne ut hvor mange prosent av et anbefalt dagsbehov et måltid dekker, også når behovet er oppgitt per kg kroppsvekt eller i en annen enhet enn innholdet.",finne-prosentandel;regne-med-sammensatte-enheter;per-100g-til-porsjon,2,"Bruk kalium (1,6 g per dag mot mg i måltidene), magnesium (120 mg per dag for barn 2–5 år) eller protein (1,4 g per kg kroppsvekt for eldre på sykehjem)."
 vurdere-maltid,skill,Næring og energi,Vurdere og presentere næringsinnholdet i en meny,"sette sammen beregninger av energi, energifordeling og dekning av behov for en meny, presentere dem med tabell og diagram, og vurdere menyen for en bestemt målgruppe.",energi-i-maltid;regne-energiprosent;dekning-av-behov;velge-og-lage-diagram,2,"Gi eleven en dagsmeny for en elev, et barnehagebarn eller en sykehjemsbeboer, og be dem svare på spørsmål kunden eller institusjonen stiller om energi og næringsstoffer."
-kostpris-salgspris-begrep,concept,"Kalkyle, budsjett og anbud","Kostpris, salgspris og fortjeneste","Kostpris: hva det koster bedriften å lage eller kjøpe inn én enhet, altså direkte og indirekte kostnader per enhet lagt sammen.
+kostpris-salgspris-begrep,concept,"Kalkyle, budsjett og anbud","Kostpris, salgspris og fortjeneste","Kostpris (selvkost): hva det koster bedriften å lage eller kjøpe inn én enhet, altså direkte og indirekte kostnader per enhet lagt sammen.
 Direkte kostnader: kostnader som hører til hver enkelt vare, som råvarer, emballasje og etiketter.
 Indirekte kostnader: felles kostnader som lønn, husleie, strøm og forsikring, fordelt på varene.
 Salgspris: hva kunden betaler for enheten, her uten merverdiavgift.
@@ -300,3 +300,13 @@ data-fra-praksis,skill,Data og statistikk,Samle inn data fra praksis og presente
 ,resource,Store norske leksikon,Nominell rente,https://snl.no/nominell_rente,effektiv-rente-begrep,,
 ,resource,Store norske leksikon,Kredittkort,https://snl.no/kredittkort,sammenligne-laan-kredittkort,,
 ,resource,Store norske leksikon,Søylediagram,https://snl.no/s%C3%B8ylediagram,velge-og-lage-diagram,,
+,resource,Store norske leksikon,Kryddermål,https://snl.no/krydderm%C3%A5l,kjokkenenheter,,
+,resource,Store norske leksikon,Prosentregning,https://snl.no/prosentregning,vekstfaktor-begrep,,
+,resource,Store norske leksikon,Ligning,https://snl.no/ligning,likning-begrep,,
+,resource,Store norske leksikon,Proporsjon,https://snl.no/proporsjon,proporsjonalitet-begrep,,
+,resource,Store medisinske leksikon,Næringsstoffer,https://sml.snl.no/n%C3%A6ringsstoffer,naeringsstoffer-begrep,,
+,resource,Store medisinske leksikon,Energi i matvarer,https://sml.snl.no/energi_i_matvarer,naeringsstoffer-begrep,,
+,resource,Store medisinske leksikon,Energi i matvarer,https://sml.snl.no/energi_i_matvarer,energifaktorer,,
+,resource,Store medisinske leksikon,Energi i matvarer,https://sml.snl.no/energi_i_matvarer,energiformel-begrep,,
+,resource,Store norske leksikon,Selvkost,https://snl.no/selvkost,kostpris-salgspris-begrep,,
+,resource,Store norske leksikon,Prosentregning,https://snl.no/prosentregning,prosent-grunnbegrep,,
