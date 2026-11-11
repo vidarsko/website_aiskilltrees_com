@@ -132,22 +132,23 @@ let LAYOUT = {
   nodeHeight: 92,
   hGap: 34,
   vGap: 96,
-  columnGap: 56,
-  columnLabelHeight: 38,   // emnebåndet øverst — holdes lavt, se .column-header i tree.css
+  columnGap: 26,           // BARNESKOLEMATTE: 26 (maskineriet: 56), så elleve temaer får plass i bredden
+  columnLabelHeight: 44,   // BARNESKOLEMATTE: 44, plass til emnenavn på to linjer over de smale rutene
   maxNodesPerRow: 3, // bryt en emne-rad i flere rader nedover når den blir bredere enn dette
   padding: 12,             // luft rundt hele lerretet; var 20 til 2026-09-20
   barycenterPasses: 4,
   // BARNESKOLEMATTE: stripen øverst i hvert trinnbånd (navn + ✓/✕ per tema)
   // og skillelinja nederst (knappene for alt til og med trinnet).
-  stageHeaderHeight: 34,
-  stageDividerHeight: 64,
-  // BARNESKOLEMATTE: boksen for en lukket celle er bredere og høyere enn en
-  // node, så punktlista får plass. Den løftes `cellBoxLift` opp i luften
-  // over raden, og bunnen (høyde − løft) må holde seg under
-  // nodeHeight + vGap / 2, ellers når den ned i skillelinja.
-  cellBoxWidth: 300,
-  cellBoxHeight: 160,
-  cellBoxLift: 36,
+  stageHeaderHeight: 24,
+  stageDividerHeight: 38,
+  // BARNESKOLEMATTE: en lukket celle er en liten glassrute med et minitre
+  // (2026-11-11, Vidar: hele oversikten skal få plass på én skjerm).
+  // Radhøyden følger innholdet: en rad med bare ruter er
+  // cellBoxHeight + cellRowGap høy, en rad med kort nodeHeight + vGap.
+  cellBoxWidth: 192,       // dobbelt av første utkast (Vidar 2026-11-11: for stor forskjell mot kortene)
+  cellBoxHeight: 124,
+  cellRowGap: 20,
+  cellBoxLift: 0,
   compact: 0,              // 1: hvert kort så høyt opp som avhengighetene tillater
                            //    (fra 2026-11-11, se compactVertically); 0: faste rader.
                            //    BARNESKOLEMATTE: 0, fordi trinnbåndene bygger på faste rader.
@@ -1196,6 +1197,7 @@ function setZoom(newZoom, contentX, contentY, cx, cy) {
     scrollEl.scrollLeft = contentX * zoomLevel - cx;
     scrollEl.scrollTop = contentY * zoomLevel - cy;
   }
+  updateStickyHeaders(); // BARNESKOLEMATTE
 }
 
 // Zoomer inn/ut ett steg, sentrert på midten av synlig kartområde.
@@ -4598,6 +4600,7 @@ function fitToView() {
 
 function setupPanning() {
   const scrollEl = document.getElementById('graph-scroll');
+  scrollEl.addEventListener('scroll', updateStickyHeaders, { passive: true }); // BARNESKOLEMATTE
   const DRAG_THRESHOLD = 4;
   let isPanning = false;
   let didDrag = false;
@@ -4693,6 +4696,16 @@ async function init() {
     publishEffectiveConfig();
     layoutAndRender();
     updateProgressUI();
+    /* BARNESKOLEMATTE: får ikke hele oversikten plass, zoomes den ut så
+       den gjør det, men ikke lenger enn at rutene fortsatt er lesbare. */
+    requestAnimationFrame(() => {
+      const scrollEl = document.getElementById('graph-scroll');
+      const c = document.getElementById('graph-container');
+      const w = parseInt(c.style.width, 10), h = parseInt(c.style.height, 10);
+      // 56 px nederst holder skillelinja for 7. trinn klar av zoomknappene.
+      const fit = Math.min(scrollEl.clientWidth / w, (scrollEl.clientHeight - 56) / h);
+      if (fit < 1 && fit >= 0.6) { setZoom(fit * 0.98); scrollEl.scrollLeft = 0; scrollEl.scrollTop = 0; }
+    });
     /* Kortene måles når de tegnes (se renderGraph). Kommer skrifta etter,
        blir målene feil, så da tegnes treet én gang til. */
     if (document.fonts && document.fonts.status !== 'loaded') {
@@ -5429,41 +5442,57 @@ function layoutAndRender() {
     // BARNESKOLEMATTE: bredden regnes per element, fordi en boks for en
     // lukket celle er bredere enn en node.
     const rowPixelWidth = row => row.reduce((w, n) => w + itemWidth(n), 0) + Math.max(0, row.length - 1) * LAYOUT.hGap;
-    const colPixelWidth = visualRows.reduce((m, row) => Math.max(m, rowPixelWidth(row)), LAYOUT.nodeWidth);
+    // Bredden følger det som står i kolonnen: smal når alt er lukket.
+    const colPixelWidth = visualRows.reduce((m, row) => Math.max(m, rowPixelWidth(row)), 0) || LAYOUT.nodeWidth;
 
-    visualRows.forEach((row, rowIndex) => {
-      let x = cursorX + (colPixelWidth - rowPixelWidth(row)) / 2;
-      row.forEach(node => {
-        node.x = x;
-        node.y = rowTopY(rowIndex, stageIndex(node.stage));
-        x += itemWidth(node) + LAYOUT.hGap;
-        node.row = rowIndex;
-      });
-    });
-
-    columnMeta.push({ topic, x: cursorX, width: colPixelWidth, rowCount: visualRows.length, nodes });
+    columnMeta.push({ topic, x: cursorX, width: colPixelWidth, rowCount: visualRows.length, nodes, visualRows });
     cursorX += colPixelWidth + LAYOUT.columnGap;
   });
 
   /* BARNESKOLEMATTE: ett bånd per trinn. Båndene ligger kant i kant:
-     øverst en stripe med trinnets navn og merk/fjern per tema, så radene,
-     og nederst skillelinja med knappene for alt til og med trinnet.
+     øverst en stripe med trinnets navn, så radene, og nederst skillelinja
+     med knappene for alt til og med trinnet. Hver rad er så høy som det
+     høyeste den inneholder, så et trinn med bare lukkede celler er lavt.
      Den kompakte layouten og optimaliseringen fra maskineriet 0.40.0 er
      slått av her (LAYOUT.compact/optimize), fordi de flytter kortene
      fritt opp og til siden og ville sprengt trinnbåndene og cellene. */
   const stages = stageList();
   const maxRowCount = columnMeta.reduce((m, c) => Math.max(m, c.rowCount), 0);
+  const slotHeight = item => item.isCell
+    ? LAYOUT.cellBoxHeight + LAYOUT.cellRowGap
+    : LAYOUT.nodeHeight + LAYOUT.vGap;
+  const rowHeight = new Array(maxRowCount).fill(0);
+  columnMeta.forEach(c => c.visualRows.forEach((row, r) => {
+    row.forEach(item => { rowHeight[r] = Math.max(rowHeight[r], slotHeight(item)); });
+  }));
+  const rowTop = new Array(maxRowCount).fill(0);
+  let cursorY = LAYOUT.columnLabelHeight;
   const stageMeta = stages.map((stage, i) => {
     const firstRow = globalRowStart[STAGE_FIRST_LEVEL.get(stage)];
     const nextStage = stages[i + 1];
     const lastRow = nextStage !== undefined
       ? globalRowStart[STAGE_FIRST_LEVEL.get(nextStage)] - 1
       : maxRowCount - 1;
-    return {
-      stage,
-      top: rowTopY(firstRow, i) - LAYOUT.stageHeaderHeight - LAYOUT.vGap / 2,
-      bottom: rowTopY(lastRow, i) + LAYOUT.nodeHeight + LAYOUT.vGap / 2 + LAYOUT.stageDividerHeight,
-    };
+    const top = cursorY;
+    cursorY += LAYOUT.stageHeaderHeight;
+    for (let r = firstRow; r <= lastRow; r++) { rowTop[r] = cursorY; cursorY += rowHeight[r]; }
+    cursorY += LAYOUT.stageDividerHeight;
+    return { stage, top, bottom: cursorY };
+  });
+
+  // Hvert element midt i raden sin, loddrett.
+  columnMeta.forEach(c => {
+    c.visualRows.forEach((row, r) => {
+      let x = c.x + (c.width - row.reduce((w, n) => w + itemWidth(n), 0) - Math.max(0, row.length - 1) * LAYOUT.hGap) / 2;
+      row.forEach(item => {
+        item.x = x;
+        item.y = rowTop[r] + (rowHeight[r] - slotHeight(item)) / 2
+          + (item.isCell ? LAYOUT.cellRowGap / 2 : LAYOUT.vGap / 2);
+        item.row = r;
+        x += itemWidth(item) + LAYOUT.hGap;
+      });
+    });
+    delete c.visualRows;
   });
 
   const totalWidth = Math.max(0, cursorX - LAYOUT.columnGap) + LAYOUT.padding * 2;
@@ -5477,18 +5506,17 @@ function layoutAndRender() {
   renderGraph(columnMeta, stageMeta);
 }
 
-/* BARNESKOLEMATTE: øvre kant av visuell rad nr. `rowIndex` i trinn nr. `i`
-   (0-basert). Hvert trinn før dette har lagt til én trinnstripe og én
-   skillelinje. */
-function rowTopY(rowIndex, i) {
-  return LAYOUT.columnLabelHeight + LAYOUT.vGap / 2
-    + rowIndex * (LAYOUT.nodeHeight + LAYOUT.vGap)
-    + i * (LAYOUT.stageHeaderHeight + LAYOUT.stageDividerHeight)
-    + LAYOUT.stageHeaderHeight;
-}
-
-function stageIndex(stage) {
-  return Math.max(0, stageList().indexOf(stage));
+/* BARNESKOLEMATTE: emneoverskriftene står fast øverst når kartet rulles
+   nedover, så man alltid ser hvilket tema en kolonne er. Lerretet er skalert
+   med transform, så rulleavstanden regnes om til lerretets egne enheter. */
+function updateStickyHeaders() {
+  const scrollEl = document.getElementById('graph-scroll');
+  if (!scrollEl) return;
+  const offset = Math.max(0, scrollEl.scrollTop / zoomLevel - 6);
+  document.querySelectorAll('#column-headers .column-header').forEach(h => {
+    h.style.top = (LAYOUT.padding + offset) + 'px';
+    h.classList.toggle('stuck', offset > 0);
+  });
 }
 
 /* BARNESKOLEMATTE: trinnbåndene. For hvert trinn:
@@ -5520,17 +5548,19 @@ function renderStages(columnMeta, stageMeta, bandsLayer, headersLayer) {
     label.className = 'stage-label';
     label.textContent = t('stage.label', { n: stage });
     label.style.left = (LAYOUT.padding) + 'px';
-    label.style.top = (LAYOUT.padding + top + 6) + 'px';
+    label.style.top = (LAYOUT.padding + top + 5) + 'px';
     headersLayer.appendChild(label);
 
+    /* Lukk og merk/fjern står bare over en ÅPEN celle (2026-11-11, Vidar:
+       treet var for bråkete). En lukket celle åpnes først. */
     columnMeta.forEach(col => {
       const cellNodes = col.nodes.filter(n => n.stage === stage);
-      if (!cellNodes.length) return;
+      if (!cellNodes.length || !OPEN_CELLS.has(cellKey(stage, col.topic))) return;
       const actions = document.createElement('span');
       actions.className = 'stage-cell-actions';
       actions.style.left = (LAYOUT.padding + col.x + col.width) + 'px';
-      actions.style.top = (LAYOUT.padding + top + 4) + 'px';
-      if (OPEN_CELLS.has(cellKey(stage, col.topic))) {
+      actions.style.top = (LAYOUT.padding + top + 1) + 'px';
+      {
         const close = document.createElement('button');
         close.type = 'button';
         close.className = 'stage-cell-close nav-btn';
@@ -5861,9 +5891,11 @@ function renderGraph(columnMeta, stageMeta) {
   columnMeta.forEach(col => {
     const header = document.createElement('div');
     header.className = 'column-header';
-    header.style.left = (LAYOUT.padding + col.x) + 'px';
+    // BARNESKOLEMATTE: overskriften får hele kolonnebredden med mellomrommet,
+    // så emnenavnet får plass på to linjer over de smale rutene.
+    header.style.left = (LAYOUT.padding + col.x - LAYOUT.columnGap / 2 + 4) + 'px';
     header.style.top = LAYOUT.padding + 'px';
-    header.style.width = col.width + 'px';
+    header.style.width = (col.width + LAYOUT.columnGap - 8) + 'px';
 
     const label = document.createElement('span');
     label.className = 'column-header-label';
@@ -5871,6 +5903,7 @@ function renderGraph(columnMeta, stageMeta) {
     header.appendChild(label);
     headersLayer.appendChild(header);
   });
+  updateStickyHeaders(); // BARNESKOLEMATTE
 
   const progress = getProgress();
 
@@ -5909,6 +5942,9 @@ function renderGraph(columnMeta, stageMeta) {
       const dep = anchorOf.get(realDep.id) || realDep;
       const node = anchorOf.get(realNode.id) || realNode;
       if (dep === node || node.y <= dep.y) return;
+      // Mellom to lukkede celler tegnes ingen strek: trinnene sier allerede
+      // rekkefølgen, og strekene gjorde oversikten bråkete (2026-11-11).
+      if (dep.isCell && node.isCell) return;
       const edgeKey = dep.id + '>' + node.id;
       if (drawn.has(edgeKey)) return;
       drawn.add(edgeKey);
@@ -5953,10 +5989,12 @@ function renderGraph(columnMeta, stageMeta) {
   updateEdgeHighlight();
 }
 
-/* BARNESKOLEMATTE: boksen for en lukket celle. Den viser temaet, trinnet,
-   punktlista og hvor mange av målene som er mestret, og åpner cellen når
-   den klikkes. Den er ikke et læringsmål, og ser derfor ikke ut som et
-   kort (prinsipp 3): den har trinnets farge og en stabel bak seg. */
+/* BARNESKOLEMATTE: en lukket celle er en glassrute med et minitre av
+   cellen inni, og fremdriftsstripa nederst. Ingen tekst (2026-11-11,
+   Vidar): temaet står over kolonnen og trinnet i båndet. Navn, antall og
+   sammendraget (`cellSummary.*`) ligger i title/aria-label, så de finnes
+   for skjermlesere og ved hover uten å støye i kartet. Ruta er ikke et
+   læringsmål, og ser derfor ikke ut som et kort (prinsipp 3). */
 function createCellBox(box, progress) {
   const el = document.createElement('button');
   el.type = 'button';
@@ -5965,35 +6003,21 @@ function createCellBox(box, progress) {
   el.style.top = (LAYOUT.padding + itemTop(box)) + 'px';
   el.style.width = LAYOUT.cellBoxWidth + 'px';
   el.style.height = LAYOUT.cellBoxHeight + 'px';
-  el.style.setProperty('--stage-color', `var(--stage-${((box.stage - 1) % 7) + 1})`);
-  el.title = t('stage.openCell', { topic: box.topic, n: box.stage });
 
   const total = box.nodes.length;
   const done = box.nodes.filter(n => isNodeMastered(n, progress)).length;
   if (done === total) el.classList.add('mastered');
 
-  const name = document.createElement('span');
-  name.className = 'cell-box-name';
-  name.textContent = box.topic;
-  el.appendChild(name);
+  const summary = (CELL_SUMMARIES.get(cellKey(box.stage, box.topic)) || '')
+    .split('\n').map(s => s.trim()).filter(Boolean);
+  const label = [
+    t('stage.openCell', { topic: box.topic, n: box.stage }),
+    t('stage.cellCount', { total, done }),
+  ].concat(summary.map(p => '• ' + p)).join('\n');
+  el.title = label;
+  el.setAttribute('aria-label', label.replace(/\n/g, '. '));
 
-  const meta = document.createElement('span');
-  meta.className = 'cell-box-count';
-  meta.textContent = t('stage.label', { n: box.stage }) + ' · ' + t('stage.cellCount', { total, done });
-  el.appendChild(meta);
-
-  const summary = CELL_SUMMARIES.get(cellKey(box.stage, box.topic));
-  if (summary) {
-    // Én linje i config-verdien er ett punkt i lista.
-    const list = document.createElement('ul');
-    list.className = 'cell-box-summary';
-    summary.split('\n').map(s => s.trim()).filter(Boolean).forEach(point => {
-      const li = document.createElement('li');
-      li.textContent = point;
-      list.appendChild(li);
-    });
-    el.appendChild(list);
-  }
+  el.appendChild(miniTreeSvg(box.nodes, progress));
 
   const bar = document.createElement('span');
   bar.className = 'cell-box-bar';
@@ -6004,6 +6028,86 @@ function createCellBox(box, progress) {
 
   el.addEventListener('click', () => setCellOpen(box.stage, box.topic, true));
   return el;
+}
+
+/* Minitreet: nodene i cellen som små kort i typens farge og form, i rader
+   etter hvor mange forutsetninger INNI cellen de bygger på, med strekene
+   mellom dem. Mestrede mål er fylt grønne. Tegnes i viewBox-enheter og
+   skaleres inn i ruta, så en stor celle får mindre kort. */
+const MINI = { w: 22, h: 9, gx: 6, gy: 11, perRow: 4, pad: 3 };
+function miniTreeSvg(nodes, progress) {
+  const ids = new Set(nodes.map(n => n.id));
+  const level = new Map();
+  const lvl = n => {
+    if (level.has(n.id)) return level.get(n.id);
+    level.set(n.id, 0);
+    let v = 0;
+    n.depends_on.forEach(d => { if (ids.has(d)) v = Math.max(v, lvl(nodesById.get(d)) + 1); });
+    level.set(n.id, v);
+    return v;
+  };
+  nodes.forEach(lvl);
+
+  // Rader: ett nivå om gangen, brutt etter MINI.perRow. Hvert nivå
+  // sorteres etter snittet av foreldrenes plass, så strekene krysser lite.
+  const pos = new Map();
+  const rows = [];
+  const maxLvl = Math.max(0, ...nodes.map(n => level.get(n.id)));
+  for (let L = 0; L <= maxLvl; L++) {
+    const here = nodes.filter(n => level.get(n.id) === L);
+    const key = n => {
+      const ps = n.depends_on.filter(d => pos.has(d)).map(d => pos.get(d));
+      return ps.length ? ps.reduce((a, b) => a + b, 0) / ps.length : Infinity;
+    };
+    here.sort((a, b) => key(a) - key(b) || compareByGoalIndex(a, b));
+    for (let i = 0; i < here.length; i += MINI.perRow) {
+      const row = here.slice(i, i + MINI.perRow);
+      row.forEach((n, j) => pos.set(n.id, j - (row.length - 1) / 2));
+      rows.push(row);
+    }
+  }
+  const cols = Math.max(1, ...rows.map(r => r.length));
+  /* Minst så stor som fire kort i bredden og tre rader i høyden, så alle
+     rutene har samme målestokk og ett mål ikke blåses opp til et stort
+     kort. Bare celler som er større enn det, krymper. */
+  const W = Math.max(MINI.perRow * MINI.w + (MINI.perRow - 1) * MINI.gx,
+    cols * MINI.w + (cols - 1) * MINI.gx) + 2 * MINI.pad;
+  const H = Math.max(3 * MINI.h + 2 * MINI.gy,
+    rows.length * MINI.h + (rows.length - 1) * MINI.gy) + 2 * MINI.pad;
+  const yOff = (H - 2 * MINI.pad - (rows.length * MINI.h + (rows.length - 1) * MINI.gy)) / 2;
+  const at = new Map();
+  rows.forEach((row, r) => {
+    const rowW = row.length * MINI.w + (row.length - 1) * MINI.gx;
+    row.forEach((n, j) => at.set(n.id, {
+      x: (W - rowW) / 2 + j * (MINI.w + MINI.gx),
+      y: MINI.pad + yOff + r * (MINI.h + MINI.gy),
+    }));
+  });
+
+  let edges = '';
+  nodes.forEach(n => n.depends_on.forEach(d => {
+    if (!at.has(d)) return;
+    const a = at.get(d), b = at.get(n.id);
+    const x1 = a.x + MINI.w / 2, y1 = a.y + MINI.h, x2 = b.x + MINI.w / 2, y2 = b.y, my = (y1 + y2) / 2;
+    edges += `<path d="M${x1} ${y1}C${x1} ${my} ${x2} ${my} ${x2} ${y2}"/>`;
+  }));
+  const RX = { fact: 0.6, concept: 2.5, skill: MINI.h / 2 };
+  let cards = '';
+  nodes.forEach(n => {
+    const p = at.get(n.id);
+    const type = n.type === 'fact' || n.type === 'concept' ? n.type : 'skill';
+    const cls = 'mini-node mini-' + type + (isNodeMastered(n, progress) ? ' mini-mastered' : '');
+    cards += `<rect class="${cls}" x="${p.x}" y="${p.y}" width="${MINI.w}" height="${MINI.h}" rx="${RX[type]}"/>`;
+  });
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('class', 'cell-box-mini');
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.innerHTML = `<g class="mini-edges">${edges}</g>${cards}`;
+  return svg;
 }
 
 /* Stubbene er den første og den siste biten av selve kanten: kurven kuttes der

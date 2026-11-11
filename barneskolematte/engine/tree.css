@@ -2635,35 +2635,44 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   gap: 0.4rem;
 }
 
-/* En lukket celle (ett tema på ett trinn) er en bunke, ikke et
-   læringsmål: flat bakgrunn og to kort bak seg, så den ikke kan forveksles
-   med typene i treet (prinsipp 3). Klikk åpner den. */
+/* En lukket celle (ett tema på ett trinn) er en glassrute med et minitre
+   (2026-11-11). Ingen tekst: temaet står over kolonnen, trinnet i båndet.
+   Glasset er en lys, halvgjennomsiktig flate med uskarphet bak, en lys
+   kant øverst og en myk skygge. Klikk åpner cellen. */
 .cell-box {
   position: absolute;
   z-index: 2;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.3rem;
-  padding: 0.7rem 0.9rem 0.65rem;
+  gap: 9px;
+  padding: 12px 14px 11px;
   overflow: hidden;
   font: inherit;
-  text-align: left;
   color: var(--text);
-  background: var(--surface);
-  border: 1.5px solid var(--border-strong);
-  border-radius: 6px;
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface) 78%, transparent) 0%,
+      color-mix(in srgb, var(--surface) 46%, transparent) 100%);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  backdrop-filter: blur(10px) saturate(1.3);
+  border: 1px solid color-mix(in srgb, var(--surface) 70%, var(--border-strong));
+  border-radius: 14px;
   box-shadow:
-    4px 4px 0 -1.5px var(--surface), 4px 4px 0 0 var(--border-strong),
-    8px 8px 0 -1.5px var(--surface), 8px 8px 0 0 var(--border);
+    inset 0 1px 0 color-mix(in srgb, white 70%, transparent),
+    0 1px 2px color-mix(in srgb, var(--text) 8%, transparent),
+    0 6px 18px -8px color-mix(in srgb, var(--text) 30%, transparent);
   cursor: pointer;
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .cell-box:hover {
   transform: translateY(-2px);
-  border-color: var(--text);
+  border-color: var(--border-strong);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 70%, transparent),
+    0 2px 4px color-mix(in srgb, var(--text) 10%, transparent),
+    0 10px 24px -8px color-mix(in srgb, var(--text) 35%, transparent);
 }
 
 .cell-box:focus-visible {
@@ -2672,56 +2681,41 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 }
 
 .cell-box.mastered {
-  border-color: var(--success);
-  box-shadow:
-    0 0 0 1px var(--success) inset,
-    4px 4px 0 -1.5px var(--surface), 4px 4px 0 0 var(--success),
-    8px 8px 0 -1.5px var(--surface), 8px 8px 0 0 var(--border);
+  border-color: color-mix(in srgb, var(--success) 70%, transparent);
 }
 
-.cell-box-name {
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.2;
+.cell-box-mini {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: block;
 }
 
-.cell-box-count {
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: var(--text-muted);
+.cell-box-mini .mini-edges path {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-opacity: 0.45;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
-/* Kula tegnes med ::before, fordi en vanlig listemarkør ligger utenfor
-   punktet og klippes bort av overflow: hidden (som trengs for «…»). */
-.cell-box-summary {
-  margin: 0.15rem 0 0;
-  padding: 0;
-  font-size: 0.78rem;
-  line-height: 1.35;
-  color: var(--text);
+.cell-box-mini .mini-node {
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  fill: var(--ferdighet-bg);
+  stroke: var(--ferdighet-border);
 }
-
-.cell-box-summary li {
-  list-style: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.cell-box-summary li::before {
-  content: '•';
-  margin-right: 0.45rem;
-  color: var(--text-muted);
-}
+.cell-box-mini .mini-concept { fill: var(--begrep-bg); stroke: var(--begrep-border); }
+.cell-box-mini .mini-fact { fill: var(--fakta-bg); stroke: var(--fakta-border); }
+.cell-box-mini .mini-mastered { fill: var(--success); stroke: var(--success); }
 
 .cell-box-bar {
   display: block;
   width: 100%;
   height: 5px;
-  margin-top: auto;
   flex-shrink: 0;
   border-radius: var(--radius-pill);
-  background: var(--border);
+  background: color-mix(in srgb, var(--text-muted) 18%, transparent);
   overflow: hidden;
 }
 
@@ -2731,3 +2725,33 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   border-radius: var(--radius-pill);
   background: var(--success);
 }
+
+/* Emnenavnene over de smale kolonnene: på to linjer i stedet for
+   avkuttet, og de står fast øverst når kartet rulles nedover (se
+   updateStickyHeaders). Som glass, så det som ruller under, synes svakt. */
+#column-headers .column-header {
+  z-index: 6;
+  align-items: flex-end;
+  min-height: 2.35em;
+  font-size: 0.74rem;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  padding: 4px 0 5px;
+  margin-top: -4px;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+#column-headers .column-header-label {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+#column-headers .column-header.stuck {
+  box-shadow: 0 6px 10px -8px color-mix(in srgb, var(--text) 35%, transparent);
+}
+
+.stage-label { font-size: 0.74rem; }
+.stage-divider-heading { font-size: 0.78rem; }
+.stage-divider-test.resource-copy { font-size: 0.76rem; padding: 0.32rem 0.85rem; }
+.stage-divider .goal-index-bulk-btn .bulk-icon { height: 1.3rem; }
