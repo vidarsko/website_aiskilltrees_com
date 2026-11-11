@@ -288,8 +288,8 @@
       },
       "miniTree": {
         "title": "Mini tree",
-        "desc": "A small skill tree the students practise in on their own: only the selected goals, in the order the tree gives, with problems checked at once, hints before the solution, and mastery that opens the next goal.",
-        "levelsLabel": "Levels per learning goal",
+        "desc": "A skill tree the students practise in on their own before a test: the selected goals gathered into a few themes with levels, a worked example before each round of problems, the answer and an explanation after, and mastery that opens the next level.",
+        "levelsLabel": "Levels per theme",
         "levels1": "One level",
         "levels3": "Three levels",
         "streakLabel": "Correct in a row to master",

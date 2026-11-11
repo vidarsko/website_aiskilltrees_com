@@ -288,8 +288,8 @@
       },
       "miniTree": {
         "title": "Miniträd",
-        "desc": "Ett litet färdighetsträd som eleverna övar i på egen hand: bara de valda målen, i den ordning trädet anger, med uppgifter som rättas direkt, ledtrådar före lösningen och avklarade mål som öppnar nästa.",
-        "levelsLabel": "Nivåer per lärandemål",
+        "desc": "Ett färdighetsträd som eleverna övar i på egen hand inför ett prov: de valda målen samlade i några få teman med nivåer, ett löst exempel före varje omgång uppgifter, facit och förklaring efteråt, och avklarade nivåer som öppnar nästa.",
+        "levelsLabel": "Nivåer per tema",
         "levels1": "En nivå",
         "levels3": "Tre nivåer",
         "streakLabel": "Rätt i rad för att klara",

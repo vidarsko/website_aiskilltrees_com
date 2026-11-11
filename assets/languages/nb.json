@@ -288,8 +288,8 @@
       },
       "miniTree": {
         "title": "Minitre",
-        "desc": "Et lite ferdighetstre som elevene øver i på egen hånd: bare de valgte læringsmålene, i den rekkefølgen treet sier, med oppgaver som rettes med en gang, hint før løsningen og mestring som åpner neste mål.",
-        "levelsLabel": "Nivåer per læringsmål",
+        "desc": "Et ferdighetstre elevene øver i på egen hånd før en prøve: de valgte læringsmålene samlet i noen få temaer med nivåer, et løst eksempel før hver runde med oppgaver, fasit og forklaring etterpå, og mestring som åpner neste nivå.",
+        "levelsLabel": "Nivåer per tema",
         "levels1": "Ett nivå",
         "levels3": "Tre nivåer",
         "streakLabel": "Riktige på rad for å mestre",
