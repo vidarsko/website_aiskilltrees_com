@@ -5200,19 +5200,21 @@ function columnLetter(index) {
 // (se "Ikke gjør" i instruks.md). Hvert emne (kolonne) får en bokstav, i
 // samme rekkefølge som kolonnene vises i kartet (styrt av TOPIC_ORDER - se
 // groupByColumn). Innad i hvert emne får hver node et sekvensielt nummer,
-// sortert på (nivaa, y, x):
+// sortert på (nivaa, row, x):
 //   - node.nivaa (se computeLevels) er beregnet globalt og garanterer at en
 //     forutsetning alltid har lavere nivå enn alt som (direkte eller
 //     indirekte) avhenger av den - også når avhengigheten krysser kolonner.
 //     Dermed vil et læringsmål alltid få et lavere tall enn det som bygger
 //     videre på det, innad i samme emne ("nedover i treet" -> økende tall).
-//   - y og x (satt av layoutColumn/layoutAndRender rett før dette kalles) er
-//     kun tie-break for et stabilt, lesbart resultat som følger rekkefølgen
-//     nodene faktisk vises i kartet (rad for rad, venstre mot høyre).
+//   - row og x (raden i rutenettet fra layoutColumn, og plassen optimizeLayout
+//     ga kortet) avgjør mellom noder på samme nivå, så kodene følger kartet
+//     rad for rad, venstre mot høyre. Den kompakte høyden (y) brukes ikke:
+//     den avhenger av målt kortstørrelse, altså av skrift, nettleser og zoom,
+//     og ga ulike koder i ulike nettlesere fram til 0.41.2.
 function assignLearningGoalIndices(columns) {
   themeList = columns.map(({ topic, nodes }, i) => {
     const letter = columnLetter(i);
-    const sorted = [...nodes].sort((a, b) => a.nivaa - b.nivaa || a.y - b.y || a.x - b.x);
+    const sorted = [...nodes].sort((a, b) => a.nivaa - b.nivaa || a.row - b.row || a.x - b.x);
     sorted.forEach((node, j) => { node.goalIndex = `${letter}${j + 1}`; });
     return { letter, topic, nodes: sorted };
   });
@@ -5262,7 +5264,7 @@ function layoutAndRender() {
   }
   assignLearningGoalIndices(columns);
   /* Flyttet optimaliseringen kortene, nummereres de på nytt etter de nye
-     plassene (nivå, så høyde, så venstre mot høyre), og treet tegnes igjen
+     plassene (nivå, så rad, så venstre mot høyre), og treet tegnes igjen
      med de nye kodene. Skjer bare første gang. */
   if (renderGraph(columnMeta)) {
     assignLearningGoalIndices(columns);
@@ -5330,6 +5332,12 @@ const OPT_WEIGHTS = { cross: 4, under: 6, length: 1 / 120, order: 0.8, height: 1
 
 function optimizeLayout(columnMeta) {
   const U = LAYOUT.nodeWidth + LAYOUT.hGap;
+  /* Søket regner med standardstørrelsen på kortene, ikke den målte.
+     Målt størrelse avhenger av skrift, nettleser og zoom, og ga ulike kart
+     og dermed ulike koder i ulike nettlesere. Tegningen bruker fortsatt
+     den målte størrelsen. */
+  const measured = allNodes.map(n => [n, n.w, n.h]);
+  allNodes.forEach(n => { n.w = LAYOUT.nodeWidth; n.h = LAYOUT.nodeHeight; });
   const cols = columnMeta.map(c => {
     const slots = Math.max(1, Math.round((c.width + LAYOUT.hGap) / U));
     const ids = new Set(c.nodes.map(n => n.id));
@@ -5391,6 +5399,7 @@ function optimizeLayout(columnMeta) {
     });
     if (!improved) break;
   }
+  measured.forEach(([n, w, h]) => { n.w = w; n.h = h; });
   evaluate();
   allNodes.forEach(n => { delete n._pos; delete n._pos0; delete n._colX; });
 }
