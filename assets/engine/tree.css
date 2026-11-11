@@ -2520,3 +2520,19 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   .print-sheet { min-height: 0; }
 }
 
+/* «Vis hele treet» og «tilbake»: piler som SVG, så de snur riktig vei
+   og har samme strek som resten av knappene. */
+#fit-view-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#fit-view-btn[aria-pressed="true"] {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+

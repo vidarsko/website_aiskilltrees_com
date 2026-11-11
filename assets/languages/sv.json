@@ -135,7 +135,7 @@
         "search": "Öppna sökningen",
         "escape": "Stäng fönstret, menyn eller panelen som är öppen",
         "zoom": "Zooma in och ut",
-        "fit": "Visa hela trädet"
+        "fit": "Visa hela trädet, och tillbaka igen"
       }
     },
     "safety": {
@@ -443,7 +443,8 @@
       "legend": "Teckenförklaring",
       "download": "Ladda ner PDF",
       "caption": "{paper}, {orientation}"
-    }
+    },
+    "restoreView": "Tillbaka till vyn du hade"
   },
   "prompt": {
     "_comment": "Språklagret i AI-instruktionerna. Samma roll som languages/nb.json → prompt. Endast det som är SÄRSKILT FÖR SVENSKA hör hemma här: själva principerna (aktiv form, undvik skriftspråkliga ord) är språkoberoende och bor i prompts/shared.json → writingStyleGeneral. Formuleringarna är hämtade från den svenska systermotorn på skogvoll.com, inte nyöversatta. OBS: `outputLanguage` säger vilket språk samtalet BÖRJAR på — den ska inte förbjuda eleven att be om ett annat. Att eleven kan be om ett annat språk, och vad som då händer, är språkoberoende och bor i prompts/shared.json → languageSwitch. Skriv inget absolut förbud här: de två skulle motsäga varandra, och modellen följer förbudet.",

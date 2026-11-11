@@ -135,7 +135,7 @@
         "search": "Åpne søket",
         "escape": "Lukk vinduet, menyen eller panelet som er åpent",
         "zoom": "Zoom inn og ut",
-        "fit": "Vis hele treet"
+        "fit": "Vis hele treet, og tilbake igjen"
       }
     },
     "safety": {
@@ -443,7 +443,8 @@
       "legend": "Tegnforklaring",
       "download": "Last ned PDF",
       "caption": "{paper}, {orientation}"
-    }
+    },
+    "restoreView": "Tilbake til visningen du hadde"
   },
   "prompt": {
     "_comment": "Språklaget i KI-instruksene. Fyller de to hullene prompts/ lar stå åpne. prompts/<instruks>.json sier HVA modellen skal gjøre; dette sier hvilket språk den skal gjøre det på, og gir norske eksempler på de generelle skriverådene i prompts/shared.json → writingStyleGeneral. Bare det som er SÆREGENT FOR NORSK hører hjemme her: selve prinsippene (aktiv form, unngå bokaktige ord) er språkuavhengige og bor i shared.json. Teksten her er på norsk, etter Vidars beslutning 2026-09-20 — et råd om hvordan man skriver god norsk gir lite mening formulert på engelsk. MERK: `outputLanguage` sier hvilket språk samtalen STARTER på — den skal ikke nekte eleven å be om et annet. At eleven kan be om et annet språk, og hva som da skjer, er språkuavhengig og bor i prompts/shared.json → languageSwitch. Ikke skriv et absolutt forbud her: de to ville motsagt hverandre, og modellen følger forbudet.",

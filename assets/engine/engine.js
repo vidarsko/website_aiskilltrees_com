@@ -1175,6 +1175,7 @@ function setZoom(newZoom, contentX, contentY, cx, cy) {
 
 // Zoomer inn/ut ett steg, sentrert på midten av synlig kartområde.
 function zoomBy(factor) {
+  forgetSavedView();
   const scrollEl = document.getElementById('graph-scroll');
   const cx = scrollEl.clientWidth / 2;
   const cy = scrollEl.clientHeight / 2;
@@ -1195,6 +1196,7 @@ function setupZoom() {
     const contentX = (scrollEl.scrollLeft + cx) / zoomLevel;
     const contentY = (scrollEl.scrollTop + cy) / zoomLevel;
     const factor = Math.exp(-e.deltaY * 0.0015);
+    forgetSavedView();
     setZoom(zoomLevel * factor, contentX, contentY, cx, cy);
   }, { passive: false });
 
@@ -1213,10 +1215,8 @@ function setupZoom() {
   const btn = document.createElement('button');
   btn.id = 'fit-view-btn';
   btn.type = 'button';
-  btn.textContent = '⤢';
-  btn.setAttribute('aria-label', t('fitToView'));
-  btn.title = t('fitToViewTitle');
-  btn.addEventListener('click', fitToView);
+  btn.addEventListener('click', toggleFitView);
+  updateFitButton(btn);
 
   const zoomInBtn = document.createElement('button');
   zoomInBtn.id = 'zoom-in-btn';
@@ -3084,7 +3084,7 @@ function setupShortcuts() {
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) || (e.target && e.target.isContentEditable)) return;
     if (e.key === '+' || e.key === '=') { zoomBy(1.25); e.preventDefault(); }
     else if (e.key === '-' || e.key === '−') { zoomBy(1 / 1.25); e.preventDefault(); }
-    else if (e.key === '0') { fitToView(); e.preventDefault(); }
+    else if (e.key === '0') { toggleFitView(); e.preventDefault(); }
   });
 }
 
@@ -4493,6 +4493,46 @@ function resourceArt(kind) {
 
 // Zoomer ut (aldri inn utover 100%) og flytter visningen slik at hele
 // grafen - alle emne-kolonner - får plass i det synlige området.
+/* «Vis hele treet» er en av/på-knapp (fra 2026-11-11, etter et ønske fra
+   Olav Elnan): første trykk husker zoom og posisjon og viser hele treet,
+   neste trykk tar deg tilbake dit du var. Pilene peker utover når knappen
+   viser hele treet, og innover når den tar deg tilbake. Zoomer du selv i
+   mellomtiden, glemmes den gamle visningen, for da har du valgt en ny.
+   Å dra i kartet glemmer den ikke. Tasten 0 gjør det samme som knappen. */
+let savedView = null;
+const FIT_ICONS = {
+  expand: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-6.5 6.5M10 20H4v-6M4 20l6.5-6.5"/></svg>',
+  shrink: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10h-6V4M14 10l6.5-6.5M4 14h6v6M10 14l-6.5 6.5"/></svg>',
+};
+function updateFitButton(btn) {
+  btn = btn || document.getElementById('fit-view-btn');
+  if (!btn) return;
+  const back = !!savedView;
+  btn.innerHTML = back ? FIT_ICONS.shrink : FIT_ICONS.expand;
+  btn.setAttribute('aria-pressed', String(back));
+  btn.setAttribute('aria-label', back ? t('restoreView') : t('fitToView'));
+  btn.title = back ? t('restoreView') : t('fitToViewTitle');
+}
+function forgetSavedView() {
+  if (!savedView) return;
+  savedView = null;
+  updateFitButton();
+}
+function toggleFitView() {
+  const scrollEl = document.getElementById('graph-scroll');
+  if (savedView) {
+    const v = savedView;
+    savedView = null;
+    setZoom(v.zoom);
+    scrollEl.scrollLeft = v.left;
+    scrollEl.scrollTop = v.top;
+  } else {
+    savedView = { zoom: zoomLevel, left: scrollEl.scrollLeft, top: scrollEl.scrollTop };
+    fitToView();
+  }
+  updateFitButton();
+}
+
 function fitToView() {
   const scrollEl = document.getElementById('graph-scroll');
   const container = document.getElementById('graph-container');
