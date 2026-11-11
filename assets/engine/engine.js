@@ -128,10 +128,14 @@ let LAYOUT = {
   hGap: 34,
   vGap: 96,
   columnGap: 56,
-  columnLabelHeight: 28,   // emnebåndet øverst — holdes lavt, se .column-header i tree.css
+  columnLabelHeight: 38,   // emnebåndet øverst — holdes lavt, se .column-header i tree.css
   maxNodesPerRow: 3, // bryt en emne-rad i flere rader nedover når den blir bredere enn dette
   padding: 12,             // luft rundt hele lerretet; var 20 til 2026-09-20
   barycenterPasses: 4,
+  compact: 1,              // 1: hvert kort så høyt opp som avhengighetene tillater
+                           //    (fra 2026-11-11, se compactVertically); 0: faste rader
+  compactGap: 44,          // minste loddrette luft under et kort i kompakt layout
+  optimize: 1,             // 1: flytt kortene litt for ryddigere kanter (se optimizeLayout)
 };
 
 /* ------------------------------------------------------------------ */
@@ -293,6 +297,40 @@ const CONDITIONS = {
   lessonPractice:   ctx => ctx.lessonType === 'practice',
   lessonReview:     ctx => ctx.lessonType === 'review',
   lessonOther:      ctx => ctx.lessonType === 'other',
+  /* Valgene i motivasjonsvinduet (utkast, 2026-11-11). Uten valg brukes
+     `opening` som før, og samtalen har vanlig lengde. */
+  motNoStart:       ctx => !ctx.motivation || !ctx.motivation.start || ctx.motivation.start === 'unknown',
+  motStartHard:     ctx => !!ctx.motivation && ctx.motivation.start === 'hard',
+  motStartBored:    ctx => !!ctx.motivation && ctx.motivation.start === 'bored',
+  motStartUse:      ctx => !!ctx.motivation && ctx.motivation.start === 'use',
+  motShort:         ctx => !!ctx.motivation && ctx.motivation.length === 'short',
+  motLong:          ctx => !!ctx.motivation && ctx.motivation.length === 'long',
+  /* Valgene i prøvevinduet (utkast, 2026-11-11). Uten valg er prøven
+     middels og blandet, som instruksen var før valgene kom. */
+  examEasy:         ctx => !!ctx.exam && ctx.exam.difficulty === 'easy',
+  examMedium:       ctx => !ctx.exam || !ctx.exam.difficulty || ctx.exam.difficulty === 'medium',
+  examHard:         ctx => !!ctx.exam && ctx.exam.difficulty === 'hard',
+  examClosed:       ctx => !!ctx.exam && ctx.exam.format === 'closed',
+  examOpen:         ctx => !!ctx.exam && ctx.exam.format === 'open',
+  examMixed:        ctx => !ctx.exam || !ctx.exam.format || ctx.exam.format === 'mixed',
+  /* Valgene læreren gjør på minitre-kortet i ressursvelgeren (utkast,
+     2026-11-10). Se prompts/mini-tree.json. */
+  miniThreeLevels:  ctx => !!ctx.mini && ctx.mini.levels === 3,
+  miniOneLevel:     ctx => !!ctx.mini && ctx.mini.levels !== 3,
+  miniMixedTest:    ctx => !!ctx.mini && !!ctx.mini.mixedTest,
+  miniGame:         ctx => !!ctx.mini && !!ctx.mini.game,
+  miniEasyRead:     ctx => !!ctx.mini && !!ctx.mini.easyRead,
+  miniPlainRead:    ctx => !!ctx.mini && !ctx.mini.easyRead,
+  miniReadAloud:    ctx => !!ctx.mini && !!ctx.mini.readAloud,
+  /* Og på simuleringskortet. Se prompts/simulation.json. */
+  simDesignFirst:   ctx => !!ctx.sim && ctx.sim.workflow !== 'build',
+  simBuildNow:      ctx => !!ctx.sim && ctx.sim.workflow === 'build',
+  simScreenLaptop:  ctx => !!ctx.sim && (ctx.sim.screen || 'laptop') === 'laptop',
+  simScreenTablet:  ctx => !!ctx.sim && ctx.sim.screen === 'tablet',
+  simScreenProjector: ctx => !!ctx.sim && ctx.sim.screen === 'projector',
+  simTasks:         ctx => !!ctx.sim && !!ctx.sim.tasks,
+  simCritique:      ctx => !!ctx.sim && !!ctx.sim.critique,
+  simExport:        ctx => !!ctx.sim && !!ctx.sim.export,
 };
 
 /* Betingelsen en seksjon har i en instruks, som navn, eller null. En
@@ -813,7 +851,14 @@ function buildConfig(entries) {
     /* exams.csv ble resources.csv i 0.22.0. Et tre fra før det får en
        beskjed om hva som skal endres, ikke bare «ukjent innstilling». */
     if (entry.key === 'features.exams') {
-      pushError('errorExamsRenamed', { row: entry.row });
+      /* `false` sa bare «ingen eksamensoppgaver», som er standard i dag.
+         Den godtas stille, som features.resources under: et tre lastet
+         ned i september 2026 skal kunne importeres uten feil (fanget av
+         tools/check-import.py, 2026-11-11). Bare `true` har noe som må
+         flyttes, og får beskjeden. */
+      if (String(entry.value).trim().toLowerCase() !== 'false') {
+        pushError('errorExamsRenamed', { row: entry.row });
+      }
       return;
     }
     /* Fra 0.34.0 står ressursene som resource-rader i tree.csv, og
@@ -1172,7 +1217,6 @@ function setupZoom() {
   btn.setAttribute('aria-label', t('fitToView'));
   btn.title = t('fitToViewTitle');
   btn.addEventListener('click', fitToView);
-  group.appendChild(btn);
 
   const zoomInBtn = document.createElement('button');
   zoomInBtn.id = 'zoom-in-btn';
@@ -1182,6 +1226,9 @@ function setupZoom() {
   zoomInBtn.title = t('zoomIn');
   zoomInBtn.addEventListener('click', () => zoomBy(1.25));
   group.appendChild(zoomInBtn);
+  // «Vis hele treet» står ytterst, etter − og + (Vidar, 2026-11-11), så de
+  // to zoomknappene står sammen.
+  group.appendChild(btn);
 
   getBottomToolbar().appendChild(group);
 }
@@ -1285,6 +1332,16 @@ function ensureActionMenu() {
   panel.id = 'action-menu-panel';
   wrap.appendChild(panel);
 
+  /* Kryss øverst til høyre i menyen (Vidar, 2026-11-11), som i alle andre
+     vinduer. Menyen lukkes også av et trykk utenfor og av Esc. */
+  const menuClose = makeEl('button', 'menu-close-btn');
+  menuClose.type = 'button';
+  menuClose.setAttribute('aria-label', t('close'));
+  menuClose.title = t('close');
+  menuClose.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  menuClose.addEventListener('click', closeActionMenu);
+  panel.appendChild(menuClose);
+
   // Tilbake-lenke + dag/natt-knapp på samme rad øverst i panelet - akkurat
   // som de lå side om side i den gamle headeren.
   const navRow = document.createElement('div');
@@ -1300,10 +1357,12 @@ function ensureActionMenu() {
   // flytt dem inn i panelet i stedet for å ta plass over grafen hele tiden.
   const progressRow = headerInner.querySelector('.progress-row');
   if (progressRow) panel.appendChild(progressRow);
-  const heading = headerInner.querySelector('h1');
-  const tagline = headerInner.querySelector('p.tagline');
-  if (heading) panel.appendChild(heading);
-  if (tagline) panel.appendChild(tagline);
+  /* Tittelen («Ferdighetstre for …») og ingressen står ikke lenger i
+     menyen (2026-11-11): fagnavnet står allerede øverst på sida, og
+     ingressen forklarte det kartet viser selv. De blir liggende i den
+     skjulte headeren. Tilbake-lenka får samme form som alle andre
+     tilbake-knapper. */
+  if (backLink) backLink.classList.add('back-btn');
 
   document.addEventListener('click', e => {
     if (!panel.classList.contains('open')) return;
@@ -1315,6 +1374,82 @@ function ensureActionMenu() {
   });
 
   return panel;
+}
+
+/* Menyen i tre grupper, etter hvem valget er for (2026-11-11). Hvert valg
+   heter et SUBSTANTIV, det du får («Læringsmål», «Prøve»), ikke en
+   oppfordring eller et spørsmål: en meny blir skumlest, og det første
+   ordet skal være tingen. Hver gruppe har én farge fra nettstedets tre, og
+   hvert valg et lite lavpoly-ikon i samme stil som ressursvelgeren.
+   Knappene lages av setup*-funksjonene som før; denne flytter dem inn i
+   gruppene etterpå, så hver av dem kan stå i fred. */
+const MENU_GROUPS = [
+  { key: 'practice', hue: '--primary', items: [
+    ['goal-index-btn', 'list'], ['search-btn', 'search'], ['resources-btn', 'sources'],
+    ['exam-btn', 'test'], ['motivation-btn', 'spark']] },
+  { key: 'plan', hue: '--amber', items: [
+    ['lesson-planner-btn', 'board'], ['print-btn', 'print'], ['edit-link', 'pencil'],
+    ['download-btn', 'download']] },
+  { key: 'about', hue: '--blue', items: [
+    ['course-info-btn', 'info'], ['help-btn', 'question']] },
+];
+
+const MENU_GLYPHS = {
+  list: '<path d="M32 30h36M32 48h36M32 66h24"/><circle cx="22" cy="30" r="1.5"/><circle cx="22" cy="48" r="1.5"/><circle cx="22" cy="66" r="1.5"/>',
+  search: '<circle cx="42" cy="42" r="17"/><path d="M55 55l17 17"/>',
+  sources: '<path d="M26 22h30l14 14v40H26z"/><path d="M56 22v14h14M36 50h24M36 62h18"/>',
+  test: '<path d="M24 34l6 6 11-13M24 62l6 6 11-13M52 34h20M52 62h20"/>',
+  spark: '<path d="M48 18l8 20 20 2-15 14 5 21-18-11-18 11 5-21-15-14 20-2z"/>',
+  board: '<path d="M20 22h56v38H20z"/><path d="M34 60l-8 18M62 60l8 18M30 36l10-4 9 6 11-7 8 5"/>',
+  pencil: '<path d="M28 68l36-36 8 8-36 36-11 3z"/><path d="M58 38l8 8"/>',
+  download: '<path d="M48 20v36M32 42l16 16 16-16M24 72h48"/>',
+  print: '<path d="M32 38V20h32v18"/><path d="M22 38h52v26H22z"/><path d="M32 54h32v22H32z"/>',
+  info: '<circle cx="48" cy="48" r="28"/><path d="M48 44v20"/><circle cx="48" cy="33" r="1.5"/>',
+  question: '<circle cx="48" cy="48" r="28"/><path d="M39 40a9 9 0 1 1 13 8c-3 2-4 4-4 8"/><circle cx="48" cy="65" r="1.5"/>',
+};
+
+function menuIcon(name, hue, seed) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 96 96');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('class', 'menu-icon');
+  svg.innerHTML = lowPolyBackground(hue, seed) +
+    '<g fill="none" style="stroke:var(' + hue + ')" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">' +
+    (MENU_GLYPHS[name] || '') + '</g>';
+  return svg;
+}
+
+function organizeActionMenu() {
+  const panel = document.getElementById('action-menu-panel');
+  if (!panel) return;
+  MENU_GROUPS.forEach((group, gi) => {
+    const items = group.items
+      .map(([id, icon]) => [document.getElementById(id), icon])
+      .filter(([el]) => el && panel.contains(el));
+    if (!items.length) return;
+    const section = makeEl('div', 'menu-group menu-group-' + group.key);
+    section.appendChild(makeEl('div', 'menu-group-label', t('menu.groups.' + group.key)));
+    items.forEach(([el, icon], i) => {
+      el.classList.add('menu-item');
+      const label = makeEl('span', 'menu-label');
+      while (el.firstChild) label.appendChild(el.firstChild);
+      el.appendChild(menuIcon(icon, group.hue, 11 + gi * 7 + i * 3));
+      el.appendChild(label);
+      if (el.dataset.shortcut) el.appendChild(makeEl('kbd', 'menu-kbd', el.dataset.shortcut));
+      section.appendChild(el);
+    });
+    panel.appendChild(section);
+  });
+}
+
+/* Teksten på et menyvalg, uten å viske ut ikonet ved siden av. Brukes av
+   knapper som midlertidig sier «Kopiert!» eller «Bygger …». */
+function setMenuLabel(btn, text) {
+  (btn.querySelector('.menu-label') || btn).textContent = text;
+}
+function menuLabel(btn) {
+  return (btn.querySelector('.menu-label') || btn).textContent;
 }
 
 function toggleActionMenu() {
@@ -1345,16 +1480,11 @@ function setupMotivationButton() {
   btn.type = 'button';
   btn.textContent = t('motivation.button');
   btn.title = t('motivation.title');
+  /* Fra 2026-11-11 (utkast) åpner knappen et vindu med to valg, som
+     prøven og undervisningsopplegget, framfor å kopiere med en gang. */
   btn.addEventListener('click', () => {
-    const original = btn.textContent;
-    trackCopy('motivation');
-    const motivationText = composePrompt('motivation', {});
-    navigator.clipboard.writeText(motivationText).then(() => {
-      btn.textContent = t('copied');
-      setTimeout(() => { btn.textContent = original; }, 1500);
-    }).catch(() => {
-      window.prompt(t('copyFallback'), motivationText);
-    });
+    closeActionMenu();
+    openMotivationModal();
   });
   actions.appendChild(btn);
 }
@@ -1411,7 +1541,7 @@ function setupDownloadButton() {
   btn.title = t('download.title');
   btn.addEventListener('click', async () => {
     if (btn.disabled) return;
-    const original = btn.textContent;
+    const original = menuLabel(btn);
     const slug = treeSlug();
 
     /* Regnearket først, og uten å vente på noe: det er alt i minnet, og
@@ -1419,7 +1549,7 @@ function setupDownloadButton() {
     saveFile(slug + '.csv', TREE_CSV_TEXT, 'text/csv');
 
     btn.disabled = true;
-    btn.textContent = t('download.working');
+    setMenuLabel(btn, t('download.working'));
     try {
       const html = await buildStandaloneHtml();
       saveFile(slug + '.html', html, 'text/html');
@@ -1428,18 +1558,518 @@ function setupDownloadButton() {
           tree_slug: slug, size_kb: Math.round(html.length / 1024)
         });
       }
-      btn.textContent = original;
+      setMenuLabel(btn, original);
     } catch (err) {
       console.error('Kunne ikke bygge enkeltfil-utgaven:', err);
       /* Feilen blir stående til neste klikk framfor å forsvinne etter et
          par sekunder: den som nettopp fikk én fil av to skal ikke måtte
          gjette på om den andre kommer. */
-      btn.textContent = t('download.failed');
+      setMenuLabel(btn, t('download.failed'));
     } finally {
       btn.disabled = false;
     }
   });
   panel.appendChild(btn);
+}
+
+/* «Skriv ut» (fra 2026-11-11): hele treet som én side i PDF, til en lærer
+   som vil henge det opp eller dele det ut. Knappen åpner et vindu med
+   valg og en forhåndsvisning av arket: arkstørrelse (A4, A3, A2),
+   retning, farger eller svart-hvitt, ringer å krysse av i og
+   tegnforklaring. Tittelen og aiskilltrees.com står alltid på arket.
+   PDF-en lages her i nettleseren, uten bibliotek og uten nett, så den
+   virker også i enkeltfila. Treet tegnes på et lerret med samme skrift,
+   farger, former og kanter som på skjermen, men alltid i lys modus og
+   uten markering eller mestret-status. Bildet pakkes tapsfritt
+   (FlateDecode) der nettleseren kan det, ellers som JPEG. Oppløsningen er
+   høyst 300 dpi, og lavere for de største arkene, fordi Safari på iPad
+   ikke tegner lerreter over 16,7 millioner piksler. */
+const PAPER_MM = { A4: [210, 297], A3: [297, 420], A2: [420, 594] };
+const PRINT_OPTIONS = { paper: 'A3', orientation: 'auto', color: 'color', rings: true, legend: true };
+
+function printDpi(paper) {
+  const [w, h] = PAPER_MM[paper];
+  return Math.min(300, Math.floor(Math.sqrt(16.5e6 / ((w / 25.4) * (h / 25.4)))));
+}
+
+function setupPrintButton() {
+  const panel = ensureActionMenu();
+  if (!panel) return;
+  const btn = document.createElement('button');
+  btn.id = 'print-btn';
+  btn.type = 'button';
+  btn.textContent = t('print.button');
+  btn.title = t('print.title');
+  btn.addEventListener('click', () => {
+    closeActionMenu();
+    openPrintModal();
+  });
+  panel.appendChild(btn);
+}
+
+let printScene = null;
+function openPrintModal() {
+  if (activeNodeId) closeDetail();
+  printScene = capturePrintScene();
+  const overlay = ensureSimpleModal('print', t('print.heading'), t('print.help'));
+  renderPrintBody(overlay.querySelector('.aist-modal-body'));
+  overlay.classList.add('open');
+}
+
+function capturePrintScene() {
+  const root = document.documentElement;
+  const prevTheme = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', 'light');
+  try {
+    return captureTreeScene();
+  } finally {
+    if (prevTheme === null) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', prevTheme);
+  }
+}
+
+function renderPrintBody(body) {
+  body.innerHTML = '';
+  const o = PRINT_OPTIONS;
+  const wrap = makeEl('div', 'print-layout');
+  const fields = makeEl('div', 'resource-options print-options');
+  const preview = makeEl('div', 'print-preview');
+  const canvasHolder = makeEl('div', 'print-sheet');
+  preview.appendChild(canvasHolder);
+  const caption = makeEl('p', 'print-caption');
+  preview.appendChild(caption);
+
+  /* Forhåndsvisningen tegnes med samme kode som PDF-en, bare med færre
+     piksler, så den viser nøyaktig det som lastes ned. */
+  const redraw = () => {
+    const layout = printLayout(printScene, o);
+    const mmW = layout.landscape ? PAPER_MM[o.paper][1] : PAPER_MM[o.paper][0];
+    const dpi = 520 / (mmW / 25.4);
+    const canvas = drawTreeScene(printScene, o, dpi, layout);
+    canvas.className = 'print-canvas' + (o.color === 'gray' ? ' gray' : '');
+    canvasHolder.innerHTML = '';
+    canvasHolder.appendChild(canvas);
+    caption.textContent = t('print.caption', {
+      paper: o.paper,
+      orientation: t(layout.landscape ? 'print.orientation.landscape' : 'print.orientation.portrait').toLowerCase(),
+    });
+  };
+
+  fields.appendChild(resourceField(t('print.paperLabel'), segmented(t('print.paperLabel'),
+    Object.keys(PAPER_MM).map(v => ({ value: v, label: v })), o.paper, v => { o.paper = v; redraw(); })));
+  fields.appendChild(resourceField(t('print.orientationLabel'), segmented(t('print.orientationLabel'),
+    ['auto', 'landscape', 'portrait'].map(v => ({ value: v, label: t('print.orientation.' + v) })),
+    o.orientation, v => { o.orientation = v; redraw(); })));
+  fields.appendChild(resourceField(t('print.colorLabel'), segmented(t('print.colorLabel'),
+    ['color', 'gray'].map(v => ({ value: v, label: t('print.color.' + v) })), o.color, v => { o.color = v; redraw(); })));
+  const toggles = makeEl('div', 'print-toggles');
+  toggles.appendChild(switchToggle(t('print.rings'), o.rings, v => { o.rings = v; redraw(); }));
+  toggles.appendChild(switchToggle(t('print.legend'), o.legend, v => { o.legend = v; redraw(); }));
+  fields.appendChild(toggles);
+
+  const download = makeEl('button', 'resource-copy print-download');
+  download.type = 'button';
+  const setLabel = swapLabel(download, [t('print.download'), t('print.working'), t('print.failed')]);
+  download.addEventListener('click', async () => {
+    if (download.disabled) return;
+    download.disabled = true;
+    setLabel(1);
+    await new Promise(r => setTimeout(r, 30));   // la teksten tegnes først
+    try {
+      const layout = printLayout(printScene, o);
+      const canvas = drawTreeScene(printScene, o, printDpi(o.paper), layout);
+      const blob = await canvasToPdf(canvas, layout, o, CONFIG.title || '');
+      saveBlob(treeSlug() + '-' + o.paper + '.pdf', blob);
+      if (window.aistTrack) window.aistTrack('tree_print', { tree_slug: treeSlug(), paper: o.paper });
+      setLabel(0);
+    } catch (err) {
+      console.error('Kunne ikke lage PDF-en:', err);
+      setLabel(2);
+    } finally {
+      download.disabled = false;
+    }
+  });
+  const foot = makeEl('div', 'resource-foot');
+  foot.appendChild(download);
+  fields.appendChild(foot);
+
+  wrap.appendChild(fields);
+  wrap.appendChild(preview);
+  body.appendChild(wrap);
+  redraw();
+}
+
+function saveBlob(name, blob) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+
+/* Leser treet slik det står i siden: bokser, tekstlinjer, kanter, bånd og
+   overskrifter, i lerretets egne koordinater (uten zoom). */
+function captureTreeScene() {
+  const container = document.getElementById('graph-container');
+  const W = container.offsetWidth;
+  const H = container.offsetHeight;
+  const cRect = container.getBoundingClientRect();
+  const z = (cRect.width / W) || 1;
+  const fontOf = cs => `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+  const bodyCs = getComputedStyle(document.body);
+
+  const bands = [...document.querySelectorAll('#column-bands .column-band')].map(el => {
+    const cs = getComputedStyle(el);
+    return { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight,
+             fill: cs.backgroundColor, r: parseFloat(cs.borderTopLeftRadius) || 0 };
+  });
+
+  const headers = [...document.querySelectorAll('#column-headers .column-header-label')].map(el => {
+    const cs = getComputedStyle(el);
+    const r = el.getBoundingClientRect();
+    let text = el.textContent;
+    if (cs.textTransform === 'uppercase') text = text.toUpperCase();
+    return { text, x: (r.left - cRect.left) / z, top: (r.top - cRect.top) / z, h: r.height / z,
+             font: fontOf(cs), color: cs.color,
+             spacing: cs.letterSpacing === 'normal' ? '0px' : cs.letterSpacing };
+  });
+
+  const edges = [...document.querySelectorAll('#edges path')].map(p => {
+    const cs = getComputedStyle(p);
+    if (cs.display === 'none' || cs.visibility === 'hidden') return null;
+    return { d: p.getAttribute('d'), stroke: cs.stroke, width: parseFloat(cs.strokeWidth) || 1.3,
+             cap: cs.strokeLinecap };
+  }).filter(Boolean);
+
+  const nodes = [...document.querySelectorAll('#nodes-layer .node-box')].map(el => {
+    const cs = getComputedStyle(el);
+    const box = el.getBoundingClientRect();
+    const node = { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight,
+                   fill: cs.backgroundColor, stroke: cs.borderTopColor,
+                   lw: parseFloat(cs.borderTopWidth) || 1.5, r: parseFloat(cs.borderTopLeftRadius) || 0,
+                   lines: [], check: null };
+    const local = r => ({ x: node.x + (r.left - box.left) / z, y: node.y + (r.top - box.top) / z,
+                          w: r.width / z, h: r.height / z });
+    const textEl = el.querySelector('.node-text');
+    if (textEl) {
+      const walker = document.createTreeWalker(textEl, NodeFilter.SHOW_TEXT);
+      const range = document.createRange();
+      let tn;
+      while ((tn = walker.nextNode())) {
+        const pcs = getComputedStyle(tn.parentElement);
+        const font = fontOf(pcs);
+        let seg = null;
+        for (let i = 0; i < tn.length; i++) {
+          range.setStart(tn, i);
+          range.setEnd(tn, i + 1);
+          const rect = [...range.getClientRects()].find(r => r.width > 0);
+          const ch = tn.data[i];
+          if (!rect) { if (seg) seg.text += ch; continue; }
+          const lr = local(rect);
+          if (!seg || Math.abs(lr.y - seg.y) > 2) {
+            seg = { text: '', x: lr.x, y: lr.y, h: lr.h, font, color: pcs.color };
+            node.lines.push(seg);
+          }
+          seg.text += ch;
+        }
+      }
+      node.lines.forEach(l => { l.text = l.text.replace(/\s+$/, ''); });
+    }
+    const check = el.querySelector('.mastery-check');
+    if (check) node.check = local(check.getBoundingClientRect());
+    return node;
+  });
+
+  const legend = ['fact', 'concept', 'skill'].map(type => {
+    const probe = document.querySelector('#nodes-layer .node-box.type-' + type);
+    if (!probe) return null;
+    const cs = getComputedStyle(probe);
+    return { label: typeLabelText(type), fill: cs.backgroundColor, stroke: cs.borderTopColor,
+             r: parseFloat(cs.borderTopLeftRadius) || 0 };
+  }).filter(Boolean);
+
+  const sc = { W, H, bands, headers, edges, nodes, legend, title: CONFIG.title || '', font: bodyCs.fontFamily };
+  assignPrintColumns(sc);
+  return sc;
+}
+
+/* Hvert element hører til ett emne (én kolonne), så emnene kan flyttes for
+   seg på arket. Kanter mellom emner er bare stubber i hvile (se edgeStub),
+   så ingen strek blir revet over. */
+function assignPrintColumns(sc) {
+  sc.cols = sc.bands.map((b, i) => ({ x0: b.x, x1: b.x + b.w, top: b.y, bottom: b.y, band: i }))
+    .sort((a, b) => a.x0 - b.x0);
+  const colOf = x => {
+    let best = 0;
+    sc.cols.forEach((c, i) => { if (x >= c.x0) best = i; });
+    return best;
+  };
+  sc.bands.forEach(b => { b.col = colOf(b.x + 1); });
+  sc.nodes.forEach(n => { n.col = colOf(n.x + n.w / 2); });
+  sc.headers.forEach(h => { h.col = colOf(h.x + 1); });
+  sc.edges.forEach(e => {
+    const m = /M\s*([-\d.]+)/.exec(e.d);
+    e.col = colOf(m ? parseFloat(m[1]) : 0);
+  });
+  sc.nodes.forEach(n => { if (sc.cols[n.col]) sc.cols[n.col].bottom = Math.max(sc.cols[n.col].bottom, n.y + n.h); });
+  sc.cols.forEach(c => { c.w = c.x1 - c.x0; c.h = c.bottom - c.top + 14; });
+}
+
+/* Et tre med mange emner er mye bredere enn høyt (2P: rundt 4700 × 1600),
+   og på ett ark ville det bare fylt en stripe øverst med bitteliten tekst.
+   Emnene legges derfor i så mange rader som gir størst tekst, og retningen
+   velges etter det som passer best når den står på «Automatisk». */
+function printLayout(sc, o) {
+  const [pw, ph] = PAPER_MM[o.paper];
+  const gap = 24;
+  const orientations = o.orientation === 'landscape' ? [true] : o.orientation === 'portrait' ? [false] : [true, false];
+  if (!sc.cols.length) {
+    const landscape = o.orientation === 'auto' ? sc.W >= sc.H : o.orientation === 'landscape';
+    return { W: sc.W, H: sc.H, landscape, moves: [], bandH: [] };
+  }
+  let best = null;
+  for (let rows = 1; rows <= sc.cols.length; rows++) {
+    const total = sc.cols.reduce((sum, c) => sum + c.w, 0);
+    const target = total / rows;
+    const packed = [];
+    let row = [], width = 0;
+    sc.cols.forEach(c => {
+      if (row.length && width + c.w > target * 1.15 && packed.length < rows - 1) {
+        packed.push(row); row = []; width = 0;
+      }
+      row.push(c); width += c.w;
+    });
+    if (row.length) packed.push(row);
+    const rowW = Math.max(...packed.map(r => r.reduce((sum, c) => sum + c.w, 0)));
+    const rowHs = packed.map(r => Math.max(...r.map(c => c.h)));
+    const H = rowHs.reduce((a, b) => a + b, 0) + gap * (packed.length - 1);
+    orientations.forEach(landscape => {
+      const availW = ((landscape ? ph : pw) - 24);
+      const availH = ((landscape ? pw : ph) - 24 - 26);
+      const scale = Math.min(availW / rowW, availH / H);
+      if (!best || scale > best.scale * 1.02) best = { scale, packed, rowHs, W: rowW, H, landscape };
+    });
+  }
+  const moves = sc.cols.map(() => ({ dx: 0, dy: 0 }));
+  const bandH = sc.cols.map(c => c.h);
+  let y = 0;
+  best.packed.forEach((row, ri) => {
+    let x = 0;
+    row.forEach(c => {
+      const i = sc.cols.indexOf(c);
+      moves[i] = { dx: x - c.x0, dy: y - c.top };
+      bandH[i] = best.rowHs[ri];
+      x += c.w;
+    });
+    y += best.rowHs[ri] + gap;
+  });
+  return { W: best.W, H: best.H, landscape: best.landscape, moves, bandH };
+}
+
+function roundRectPath(ctx, x, y, w, h, r) {
+  const rr = Math.max(0, Math.min(r, w / 2, h / 2));
+  ctx.beginPath();
+  ctx.moveTo(x + rr, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rr);
+  ctx.arcTo(x + w, y + h, x, y + h, rr);
+  ctx.arcTo(x, y + h, x, y, rr);
+  ctx.arcTo(x, y, x + w, y, rr);
+  ctx.closePath();
+}
+
+function drawTreeScene(sc, o, dpi, layout) {
+  const mm = dpi / 25.4;
+  const [pw, ph] = PAPER_MM[o.paper];
+  const pageW = Math.round((layout.landscape ? ph : pw) * mm);
+  const pageH = Math.round((layout.landscape ? pw : ph) * mm);
+  const canvas = document.createElement('canvas');
+  canvas.width = pageW;
+  canvas.height = pageH;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, pageW, pageH);
+
+  const margin = 12 * mm;
+  const headH = 16 * mm;
+  const footH = 10 * mm;
+  const availW = pageW - margin * 2;
+  const availH = pageH - margin * 2 - headH - footH;
+  // Et lite tre blåses ikke opp til plakatstørrelse: høyst 1 skjermpiksel = 0,5 mm.
+  const s = Math.min(availW / layout.W, availH / layout.H, 0.5 * mm);
+  const ox = margin + (availW - layout.W * s) / 2;
+  const oy = margin + headH;
+
+  // Tittel øverst og nettstedet til høyre, alltid.
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = '#1a1a1a';
+  ctx.font = `700 ${Math.round(8 * mm)}px ${sc.font}`;
+  ctx.fillText(sc.title, margin, margin + 9 * mm);
+  ctx.fillStyle = '#777777';
+  ctx.font = `500 ${Math.round(3.6 * mm)}px ${sc.font}`;
+  ctx.textAlign = 'right';
+  ctx.fillText('aiskilltrees.com', pageW - margin, margin + 9 * mm);
+  ctx.textAlign = 'left';
+
+  ctx.save();
+  ctx.translate(ox, oy);
+  ctx.scale(s, s);
+  const at = (col, draw) => {
+    const mv = layout.moves[col];
+    ctx.save();
+    if (mv) ctx.translate(mv.dx, mv.dy);
+    draw();
+    ctx.restore();
+  };
+  sc.bands.forEach(b => at(b.col, () => {
+    ctx.fillStyle = b.fill;
+    roundRectPath(ctx, b.x, b.y, b.w, layout.bandH[b.col] || b.h, b.r);
+    ctx.fill();
+  }));
+  sc.edges.forEach(e => at(e.col, () => {
+    ctx.strokeStyle = e.stroke;
+    ctx.lineWidth = e.width;
+    ctx.lineCap = e.cap || 'butt';
+    ctx.lineJoin = 'round';
+    ctx.stroke(new Path2D(e.d));
+  }));
+  sc.nodes.forEach(n => at(n.col, () => {
+    roundRectPath(ctx, n.x + n.lw / 2, n.y + n.lw / 2, n.w - n.lw, n.h - n.lw, n.r);
+    ctx.fillStyle = n.fill;
+    ctx.fill();
+    ctx.strokeStyle = n.stroke;
+    ctx.lineWidth = n.lw;
+    ctx.stroke();
+    n.lines.forEach(l => {
+      ctx.font = l.font;
+      ctx.fillStyle = l.color;
+      const m = ctx.measureText('Hg');
+      const asc = m.fontBoundingBoxAscent || m.actualBoundingBoxAscent || l.h * 0.8;
+      const desc = m.fontBoundingBoxDescent || l.h * 0.2;
+      ctx.fillText(l.text, l.x, l.y + (l.h - (asc + desc)) / 2 + asc);
+    });
+    if (n.check && o.rings) {
+      const r = Math.min(n.check.w, n.check.h) / 2 - 1;
+      ctx.beginPath();
+      ctx.arc(n.check.x + n.check.w / 2, n.check.y + n.check.h / 2, r, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(0,0,0,0.45)';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+    }
+  }));
+  sc.headers.forEach(h => at(h.col, () => {
+    ctx.font = h.font;
+    ctx.fillStyle = h.color;
+    if ('letterSpacing' in ctx) ctx.letterSpacing = h.spacing;
+    const m = ctx.measureText('H');
+    const asc = m.fontBoundingBoxAscent || h.h * 0.8;
+    const desc = m.fontBoundingBoxDescent || h.h * 0.2;
+    ctx.fillText(h.text, h.x, h.top + (h.h - (asc + desc)) / 2 + asc);
+    if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+  }));
+  ctx.restore();
+
+  // Tegnforklaring nederst: de tre formene.
+  if (o.legend) {
+    let lx = margin;
+    const ly = pageH - margin - 4 * mm;
+    ctx.font = `500 ${Math.round(3.4 * mm)}px ${sc.font}`;
+    ctx.textBaseline = 'middle';
+    sc.legend.forEach(item => {
+      const bw = 9 * mm, bh = 5.5 * mm;
+      roundRectPath(ctx, lx, ly - bh / 2, bw, bh, Math.min(item.r / 26 * bh / 2, bh / 2));
+      ctx.fillStyle = item.fill;
+      ctx.fill();
+      ctx.strokeStyle = item.stroke;
+      ctx.lineWidth = 0.35 * mm;
+      ctx.stroke();
+      ctx.fillStyle = '#333333';
+      ctx.fillText(item.label, lx + bw + 2 * mm, ly);
+      lx += bw + 2 * mm + ctx.measureText(item.label).width + 7 * mm;
+    });
+  }
+  return canvas;
+}
+
+function pdfHexString(text) {
+  let hex = 'FEFF';
+  for (const ch of String(text)) {
+    const code = ch.codePointAt(0);
+    if (code > 0xffff) {
+      const v = code - 0x10000;
+      hex += (0xd800 + (v >> 10)).toString(16).padStart(4, '0') + (0xdc00 + (v & 0x3ff)).toString(16).padStart(4, '0');
+    } else {
+      hex += code.toString(16).padStart(4, '0');
+    }
+  }
+  return '<' + hex.toUpperCase() + '>';
+}
+
+async function canvasToPdf(canvas, layout, o, title) {
+  const [mw, mh] = PAPER_MM[o.paper];
+  const pt = v => Math.round(v / 25.4 * 72 * 100) / 100;
+  const pw = pt(layout.landscape ? mh : mw);
+  const ph = pt(layout.landscape ? mw : mh);
+  const gray = o.color === 'gray';
+  const w = canvas.width, h = canvas.height;
+  let img, filter, space;
+  if (typeof CompressionStream === 'function') {
+    const rgba = canvas.getContext('2d').getImageData(0, 0, w, h).data;
+    let raw;
+    if (gray) {
+      raw = new Uint8Array(w * h);
+      for (let i = 0, j = 0; i < rgba.length; i += 4, j++) {
+        raw[j] = Math.round(0.2126 * rgba[i] + 0.7152 * rgba[i + 1] + 0.0722 * rgba[i + 2]);
+      }
+    } else {
+      raw = new Uint8Array(w * h * 3);
+      for (let i = 0, j = 0; i < rgba.length; i += 4, j += 3) {
+        raw[j] = rgba[i]; raw[j + 1] = rgba[i + 1]; raw[j + 2] = rgba[i + 2];
+      }
+    }
+    const stream = new Blob([raw]).stream().pipeThrough(new CompressionStream('deflate'));
+    img = new Uint8Array(await new Response(stream).arrayBuffer());
+    filter = '/FlateDecode';
+    space = gray ? '/DeviceGray' : '/DeviceRGB';
+  } else {
+    if (gray) {
+      const ctx = canvas.getContext('2d');
+      ctx.globalCompositeOperation = 'saturation';
+      ctx.fillStyle = '#808080';
+      ctx.fillRect(0, 0, w, h);
+      ctx.globalCompositeOperation = 'source-over';
+    }
+    const blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.92));
+    img = new Uint8Array(await blob.arrayBuffer());
+    filter = '/DCTDecode';
+    space = '/DeviceRGB';
+  }
+  const enc = new TextEncoder();
+  const parts = [];
+  const offsets = [];
+  let pos = 0;
+  const push = b => { const u = typeof b === 'string' ? enc.encode(b) : b; parts.push(u); pos += u.length; };
+  const obj = (n, write) => { offsets[n] = pos; push(n + ' 0 obj\n'); write(); push('\nendobj\n'); };
+  const content = `q ${pw} 0 0 ${ph} 0 0 cm /Im0 Do Q`;
+  push('%PDF-1.4\n%âãÏÓ\n');
+  obj(1, () => push('<< /Type /Catalog /Pages 2 0 R >>'));
+  obj(2, () => push('<< /Type /Pages /Kids [3 0 R] /Count 1 >>'));
+  obj(3, () => push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] ` +
+                    '/Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>'));
+  obj(4, () => {
+    push(`<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace ${space} ` +
+         `/BitsPerComponent 8 /Filter ${filter} /Length ${img.length} >>\nstream\n`);
+    push(img);
+    push('\nendstream');
+  });
+  obj(5, () => push(`<< /Length ${content.length} >>\nstream\n${content}\nendstream`));
+  obj(6, () => push(`<< /Title ${pdfHexString(title)} /Creator (AI Skill Trees) >>`));
+  const xref = pos;
+  push('xref\n0 7\n0000000000 65535 f \n' +
+       offsets.slice(1).map(o => String(o).padStart(10, '0') + ' 00000 n \n').join(''));
+  push(`trailer\n<< /Size 7 /Root 1 0 R /Info 6 0 R >>\nstartxref\n${xref}\n%%EOF\n`);
+  return new Blob(parts, { type: 'application/pdf' });
 }
 
 function saveFile(name, text, type) {
@@ -1601,7 +2231,7 @@ function ensureCourseInfoModal() {
   h2.textContent = t('courseInfo.heading');
   header.appendChild(h2);
   const closeBtn = document.createElement('button');
-  closeBtn.className = 'btn secondary';
+  closeBtn.className = 'nav-btn';
   closeBtn.textContent = t('close');
   closeBtn.addEventListener('click', closeCourseInfoModal);
   header.appendChild(closeBtn);
@@ -1864,7 +2494,7 @@ function ensureTextModal(prefix, heading, render) {
   header.appendChild(h2);
 
   const closeBtn = document.createElement('button');
-  closeBtn.className = 'btn secondary';
+  closeBtn.className = 'nav-btn';
   closeBtn.textContent = t('close');
   closeBtn.addEventListener('click', close);
   header.appendChild(closeBtn);
@@ -1895,13 +2525,88 @@ function helpSection(body, heading, text) {
   body.appendChild(p);
 }
 
+/* Små figurer i Hjelp (fra 2026-11-11): hver forklaring har en tegning
+   av det den forklarer, i treets egne farger og former, så teksten kan
+   være kort. Tegnes i motoren som SVG og følger dag/natt. Seksjonene i
+   språkfila sier hvilken figur de vil ha (`figure`). */
+function helpFigure(key) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svgOf = (vb, inner) => {
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', vb);
+    svg.setAttribute('aria-hidden', 'true');
+    svg.innerHTML = inner;
+    return svg;
+  };
+  const card = (x, y, w, h, r, type, extra) =>
+    `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" style="fill:var(--${type}-bg);stroke:var(--${type}-border)" stroke-width="1.5"/>` + (extra || '');
+  const lines = (x, y, w) => `<path d="M${x} ${y}h${w}M${x} ${y + 5}h${w * 0.7}" style="stroke:var(--text-muted)" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>`;
+  const ring = (cx, cy, on) => on
+    ? `<circle cx="${cx}" cy="${cy}" r="5.5" style="fill:var(--success)"/><path d="M${cx - 2.6} ${cy}l1.9 2 3.4-4" fill="none" style="stroke:var(--surface)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>`
+    : `<circle cx="${cx}" cy="${cy}" r="5.5" fill="none" style="stroke:var(--text-muted)" stroke-width="1.3" opacity="0.7"/>`;
+  const arrow = (x1, y1, x2, y2) => `<path d="M${x1} ${y1}C${x1} ${(y1 + y2) / 2} ${x2} ${(y1 + y2) / 2} ${x2} ${y2}" fill="none" style="stroke:var(--text-muted)" stroke-width="1.4"/>` +
+    `<path d="M${x2 - 3} ${y2 - 4}L${x2} ${y2}L${x2 + 3} ${y2 - 4}" fill="none" style="stroke:var(--text-muted)" stroke-width="1.4" stroke-linecap="round"/>`;
+  switch (key) {
+    case 'menu':
+      return svgOf('0 0 96 64', `<circle cx="48" cy="32" r="22" style="fill:var(--primary-tint);stroke:var(--primary)" stroke-opacity="0.4" stroke-width="1.5"/>` +
+        `<path d="M38 24h20M38 32h20M38 40h20" style="stroke:var(--primary-strong, var(--primary))" stroke-width="2.6" stroke-linecap="round"/>`);
+    case 'map':
+      return svgOf('0 0 96 64', card(4, 4, 36, 16, 1, 'fakta') + card(56, 4, 36, 16, 5, 'begrep') +
+        arrow(22, 20, 46, 42) + arrow(74, 20, 50, 42) + card(26, 42, 44, 18, 9, 'ferdighet'));
+    case 'check':
+      return svgOf('0 0 96 64', card(2, 20, 40, 24, 12, 'ferdighet', lines(9, 29, 16) + ring(33, 32, false)) +
+        `<path d="M46 32h8M51 28l4 4-4 4" fill="none" style="stroke:var(--text-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` +
+        card(58, 20, 36, 24, 12, 'ferdighet', lines(64, 29, 14) + ring(86, 32, true)));
+    case 'detail':
+      return svgOf('0 0 96 64', `<rect x="18" y="2" width="60" height="60" rx="4" style="fill:var(--surface);stroke:var(--border-strong)" stroke-width="1.2"/>` +
+        `<path d="M25 12h34" style="stroke:var(--text)" stroke-width="3" stroke-linecap="round"/>` + lines(25, 22, 44) + lines(25, 33, 38) +
+        `<rect x="25" y="46" width="34" height="9" rx="4.5" style="fill:var(--primary)"/>`);
+    case 'bulk': {
+      const wrap = makeEl('div', 'help-fig-bulk');
+      wrap.innerHTML = bulkIcon(true, false) + bulkIcon(false, false) + bulkIcon(true, true);
+      return wrap;
+    }
+    case 'search': return menuIcon('search', '--primary', 13);
+    case 'print': return menuIcon('print', '--amber', 17);
+    case 'exam': case 'lesson': case 'motivation': return resourceArt(key);
+    default: return null;
+  }
+}
+
 function renderHelpBody(body) {
   body.innerHTML = '';
   const enabled = { 'feature:aids': treeUsesAids(), 'feature:motivation': SHOW_MOTIVATION_BUTTON };
   (LANG.ui.help.sections || []).forEach(sec => {
     if (sec.when && !enabled[sec.when]) return;
-    helpSection(body, sec.heading, sec.body);
+    const item = makeEl('div', 'help-item');
+    const fig = makeEl('div', 'help-fig');
+    const drawn = sec.figure ? helpFigure(sec.figure) : null;
+    if (drawn) fig.appendChild(drawn);
+    item.appendChild(fig);
+    const text = makeEl('div', 'help-text');
+    helpSection(text, sec.heading, sec.body);
+    item.appendChild(text);
+    body.appendChild(item);
   });
+  /* Hurtigtastene står sist, som en liste: tast til venstre, hva den gjør
+     til høyre. Se setupShortcuts. */
+  const keys = [
+    [shortcutLabel('K'), t('help.shortcuts.search')],
+    ['Esc', t('help.shortcuts.escape')],
+    ['+  −', t('help.shortcuts.zoom')],
+    ['0', t('help.shortcuts.fit')],
+  ];
+  const h3 = document.createElement('h3');
+  h3.textContent = t('help.shortcuts.heading');
+  body.appendChild(h3);
+  const ul = makeEl('ul', 'help-kbd-list');
+  keys.forEach(([k, what]) => {
+    const li = document.createElement('li');
+    li.appendChild(makeEl('kbd', null, k));
+    li.appendChild(makeEl('span', null, what));
+    ul.appendChild(li);
+  });
+  body.appendChild(ul);
 }
 
 function openHelpModal() {
@@ -1975,16 +2680,27 @@ function ensureGoalIndexModal() {
   const actions = document.createElement('div');
   actions.id = 'goal-index-actions';
 
+  /* Forklaringen står bak «?» framfor øverst i lista (fra 2026-11-11).
+     Teksten settes ved åpning, etter hva vinduet brukes til. */
+  const help = makeEl('p', 'aist-help');
+  help.id = 'goal-index-help';
+  help.hidden = true;
+  const helpBtn = helpToggle(help);
+  helpBtn.id = 'goal-index-help-btn';
+  actions.appendChild(helpBtn);
+
+  /* Sekundær: vinduets hovedhandling er å krysse av (og «Lag ressurs»
+     nederst i undervisningsopplegg). Én fremhevet knapp per vindu. */
   const copyBtn = document.createElement('button');
-  copyBtn.className = 'btn';
-  copyBtn.textContent = t('goalIndex.copyAll');
+  copyBtn.className = 'btn secondary';
+  copyBtn.id = 'goal-index-copy';
+  const showCopy = swapLabel(copyBtn, [t('goalIndex.copyAll'), t('copied')]);
   copyBtn.addEventListener('click', () => {
     const text = composeGoalIndexText();
     trackCopy('goal_index');
     navigator.clipboard.writeText(text).then(() => {
-      const original = copyBtn.textContent;
-      copyBtn.textContent = t('copied');
-      setTimeout(() => { copyBtn.textContent = original; }, 1500);
+      showCopy(1);
+      setTimeout(() => showCopy(0), 1500);
     }).catch(() => {
       window.prompt(t('copyFallback'), text);
     });
@@ -1992,13 +2708,14 @@ function ensureGoalIndexModal() {
   actions.appendChild(copyBtn);
 
   const closeBtn = document.createElement('button');
-  closeBtn.className = 'btn secondary';
+  closeBtn.className = 'nav-btn';
   closeBtn.textContent = t('close');
   closeBtn.addEventListener('click', closeGoalIndexModal);
   actions.appendChild(closeBtn);
 
   header.appendChild(actions);
   modal.appendChild(header);
+  modal.appendChild(help);
 
   const body = document.createElement('div');
   body.id = 'goal-index-body';
@@ -2011,70 +2728,29 @@ function ensureGoalIndexModal() {
   const bar = document.createElement('div');
   bar.id = 'lesson-plan-bar';
 
-  const countLabel = document.createElement('span');
+  const countLabel = document.createElement('div');
   countLabel.id = 'lesson-plan-count';
   bar.appendChild(countLabel);
 
-  const minutesLabel = document.createElement('label');
-  minutesLabel.id = 'lesson-minutes-label';
-  minutesLabel.appendChild(document.createTextNode(t('lesson.minutesLabel')));
-  const minutesInput = document.createElement('input');
-  minutesInput.type = 'number';
-  minutesInput.id = 'lesson-minutes';
-  minutesInput.min = '15';
-  minutesInput.max = '240';
-  minutesInput.step = '5';
-  minutesInput.value = String(LESSON_DEFAULT_MINUTES);
-  minutesInput.setAttribute('aria-label', t('lesson.minutesAria'));
-  minutesLabel.appendChild(minutesInput);
-  minutesLabel.appendChild(document.createTextNode('min'));
-  bar.appendChild(minutesLabel);
-
-  // Type time (fra 0.39.0): avgjør hvilken av plan-seksjonene i
-  // lesson-plan.json som kommer med i instruksen. Står ved siden av
-  // lengden, fordi begge er noe læreren må bestemme om timen uansett.
-  const typeLabel = document.createElement('label');
-  typeLabel.id = 'lesson-type-label';
-  typeLabel.appendChild(document.createTextNode(t('lesson.typeLabel')));
-  const typeSelect = document.createElement('select');
-  typeSelect.id = 'lesson-type';
-  typeSelect.setAttribute('aria-label', t('lesson.typeAria'));
-  LESSON_TYPES.forEach(type => {
-    const opt = document.createElement('option');
-    opt.value = type;
-    opt.textContent = t('lesson.types.' + type);
-    typeSelect.appendChild(opt);
-  });
-  typeSelect.value = LESSON_TYPES[0];
-  typeLabel.appendChild(typeSelect);
-  bar.appendChild(typeLabel);
-
+  // Utkast 2026-11-10: lengde og type time har flyttet inn i ressursvelgeren,
+  // på kortet for undervisningsopplegget. Bunnlinja har nå bare én knapp,
+  // som åpner velgeren. Id-en `lesson-plan-btn` er beholdt for stilens skyld.
   const planBtn = document.createElement('button');
   planBtn.id = 'lesson-plan-btn';
   planBtn.type = 'button';
-  planBtn.textContent = t('lesson.button');
-  planBtn.title = t('lesson.title');
-  planBtn.addEventListener('click', () => {
-    const nodes = getLessonSelectionNodes();
-    if (!nodes.length) return;
-
-    const minutes = Math.min(240, Math.max(15, parseInt(minutesInput.value, 10) || LESSON_DEFAULT_MINUTES));
-    minutesInput.value = minutes;
-    const text = composeLessonPlanInstruction(nodes, minutes, typeSelect.value);
-
-    trackCopy('lesson_plan', { node_count: nodes.length, lesson_minutes: minutes });
-
-    const original = planBtn.textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      planBtn.textContent = t('copied');
-      setTimeout(() => { planBtn.textContent = original; }, 1500);
-    }).catch(() => {
-      window.prompt(t('copyFallback'), text);
-    });
-  });
+  planBtn.textContent = t('make.button');
+  planBtn.title = t('make.buttonTitle');
+  planBtn.addEventListener('click', openResourcePicker);
   bar.appendChild(planBtn);
 
   modal.appendChild(bar);
+
+  // Ressursvelgeren ligger i samme vindu som lista, og bytter plass med den.
+  // Utvalget av læringsmål ligger fast mens læreren velger hva som skal lages.
+  const picker = document.createElement('div');
+  picker.id = 'resource-picker';
+  picker.hidden = true;
+  modal.appendChild(picker);
 
   overlay.appendChild(modal);
   document.body.appendChild(overlay);
@@ -2183,22 +2859,58 @@ function setGoalIndexChecks(nodes, on) {
   }
 }
 
-// En ✓/✕-knapp som de i kolonneoverskriftene i kartet (.column-header-btn).
-function goalIndexBulkButton(symbol, title, nodes, on, body, extraClass) {
+/* Ikonene for «merk mange» (fra 2026-11-11): en liten punktliste der
+   alle radene har grønn hake (merk alle) eller tom ring (fjern alle).
+   Gjelder ett emne er det én liste; gjelder det hele treet er det to
+   lister side om side, merket A og B, som står for alle emnene. Teksten
+   står i title og aria-label, så knappen har fortsatt et navn. Brukes
+   overalt der mange mål merkes på én gang: over kolonnene i treet, i
+   Læringsmål, i Undervisningsopplegg og i Prøve. */
+function bulkIcon(on, multi) {
+  const mark = (cx, cy, r) => on
+    ? `<circle cx="${cx}" cy="${cy}" r="${r}" class="bi-on"/><path d="M${cx - r * 0.5} ${cy}l${r * 0.38} ${r * 0.4} ${r * 0.62}-${r * 0.75}" class="bi-tick"/>`
+    : `<circle cx="${cx}" cy="${cy}" r="${r}" class="bi-off"/>`;
+  const list = (x0, y0, rows, len) => {
+    let out = '';
+    for (let i = 0; i < rows; i++) {
+      const cy = y0 + i * 6.4;
+      out += mark(x0 + 2.6, cy, 2.3) + `<path d="M${x0 + 7} ${cy}h${len}" class="bi-line"/>`;
+    }
+    return out;
+  };
+  let body, w;
+  if (multi) {
+    w = 34;
+    body = `<text x="2" y="5.6" class="bi-letter">A</text><text x="19" y="5.6" class="bi-letter">B</text>` +
+           list(1, 10.2, 3, 6) + list(18, 10.2, 3, 6);
+  } else {
+    w = 22;
+    body = list(1, 5.2, 3, 12);
+  }
+  return `<svg viewBox="0 0 ${w} 24" width="${w}" height="24" aria-hidden="true" class="bulk-icon${on ? ' on' : ''}">${body}</svg>`;
+}
+
+function bulkIconButton(title, on, multi, onClick, extraClass) {
   const btn = document.createElement('button');
   btn.type = 'button';
-  btn.className = 'column-header-btn' + (extraClass ? ' ' + extraClass : '');
-  btn.textContent = symbol;
+  btn.className = 'column-header-btn bulk-btn' + (multi ? ' bulk-multi' : '') + (extraClass ? ' ' + extraClass : '');
+  btn.innerHTML = bulkIcon(on, multi);
   btn.title = title;
   btn.setAttribute('aria-label', title);
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', onClick);
+  return btn;
+}
+
+// Merk/fjern mange i Læringsmål og Undervisningsopplegg.
+function goalIndexBulkButton(title, nodes, on, body, multi) {
+  const btn = bulkIconButton(title, on, multi, () => {
     // Å fjerne mestret for hele treet sletter elevens framgang; det ene
     // trykket som ikke kan angres med ett nytt, spør først.
     if (!on && goalIndexMode !== 'lesson' && nodes === allNodes &&
         !window.confirm(t('goalIndex.clearAllConfirm'))) return;
     setGoalIndexChecks(nodes, on);
     rerenderGoalIndexBody(body, null);
-  });
+  }, multi ? 'goal-index-bulk-btn' : '');
   return btn;
 }
 
@@ -2207,17 +2919,13 @@ function renderGoalIndexBody(body) {
   const progress = getProgress();
   const lessonMode = goalIndexMode === 'lesson';
 
-  const intro = document.createElement('p');
-  intro.id = 'goal-index-intro';
-  intro.textContent = t(lessonMode ? 'lessonPlanner.intro' : 'goalIndex.intro');
-  body.appendChild(intro);
 
   const bulk = document.createElement('div');
   bulk.id = 'goal-index-bulk';
   const allOn = lessonMode ? t('lessonPlanner.selectAll') : t('goalIndex.markAllButton');
   const allOff = lessonMode ? t('lessonPlanner.deselectAll') : t('goalIndex.clearAllButton');
-  bulk.appendChild(goalIndexBulkButton('✓ ' + allOn, allOn, allNodes, true, body, 'goal-index-bulk-btn'));
-  bulk.appendChild(goalIndexBulkButton('✕ ' + allOff, allOff, allNodes, false, body, 'goal-index-bulk-btn'));
+  bulk.appendChild(goalIndexBulkButton(allOn, allNodes, true, body, true));
+  bulk.appendChild(goalIndexBulkButton(allOff, allNodes, false, body, true));
   body.appendChild(bulk);
 
   themeList.forEach(({ letter, topic, nodes }) => {
@@ -2230,69 +2938,72 @@ function renderGoalIndexBody(body) {
     h3.appendChild(label);
     const actions = document.createElement('span');
     actions.className = 'column-header-actions';
-    actions.appendChild(goalIndexBulkButton('✓',
-      t(lessonMode ? 'lessonPlanner.selectTopic' : 'column.markAll', { topic: topic }), nodes, true, body));
-    actions.appendChild(goalIndexBulkButton('✕',
-      t(lessonMode ? 'lessonPlanner.deselectTopic' : 'column.clearAll', { topic: topic }), nodes, false, body));
+    actions.appendChild(goalIndexBulkButton(
+      t(lessonMode ? 'lessonPlanner.selectTopic' : 'column.markAll', { topic: topic }), nodes, true, body, false));
+    actions.appendChild(goalIndexBulkButton(
+      t(lessonMode ? 'lessonPlanner.deselectTopic' : 'column.clearAll', { topic: topic }), nodes, false, body, false));
     h3.appendChild(actions);
     section.appendChild(h3);
 
+    /* Fra 2026-11-11 (utkast) er hvert læringsmål en liten utgave av
+       kortet i treet: samme farge og form etter typen, svak til det er
+       valgt (i undervisningsopplegg) eller mestret (i læringsmål-lista),
+       i full farge når det er det. Hele boksen trykkes. Det lille sikte-
+       ikonet til høyre hopper til noden i treet, som navnet gjorde før. */
     const ul = document.createElement('ul');
+    ul.className = 'goal-list';
     nodes.forEach(n => {
       const status = goalStatus(n, progress);
+      const on = lessonMode ? lessonSelection.has(n.id) : status.kind === 'mastered';
 
-      const li = document.createElement('li');
-      li.className = 'goal-index-item status-' + status.kind;
+      const li = makeEl('li', 'goal-row');
+      const box = makeEl('button', 'goal-box type-' + n.type + (on ? ' on' : '') + (lessonMode ? ' no-check' : ''));
+      box.type = 'button';
+      box.id = 'goal-pick-' + n.id;
+      box.setAttribute('aria-pressed', String(on));
+      box.setAttribute('aria-label', t(lessonMode ? 'lesson.includeAria' : 'goalIndex.markAria', { name: n.name }));
+      box.appendChild(makeEl('span', 'node-index', n.goalIndex + ') '));
+      box.appendChild(document.createTextNode(n.name));
+      /* Ingen statuslinje («Klar til å læres», «Mangler først: A2») under
+         navnet (fjernet 2026-11-11). Den gjorde lista tung å lese, og
+         boksen endret høyde når et mål ble krysset av, så alt under hoppet. */
+      /* Haken betyr «mestret», så den hører bare hjemme i læringsmål-lista.
+         I undervisningsopplegg viser full farge at målet er valgt
+         (Vidar, 2026-11-11: haken der «gir ingen mening»). */
+      if (!lessonMode) {
+        const check = makeEl('span', 'mastery-check');
+        check.setAttribute('aria-hidden', 'true');
+        check.innerHTML = CHECK_SVG;
+        box.appendChild(check);
+      }
 
-      const cb = document.createElement('input');
-      cb.type = 'checkbox';
-      cb.className = 'goal-pick';
-      cb.id = 'goal-pick-' + n.id;
-      if (lessonMode) {
-        cb.checked = lessonSelection.has(n.id);
-        cb.setAttribute('aria-label', t('lesson.includeAria', { name: n.name }));
-        cb.addEventListener('change', () => {
-          if (cb.checked) lessonSelection.add(n.id);
-          else lessonSelection.delete(n.id);
+      box.addEventListener('click', () => {
+        if (lessonMode) {
+          const now = !lessonSelection.has(n.id);
+          if (now) lessonSelection.add(n.id); else lessonSelection.delete(n.id);
+          box.classList.toggle('on', now);
+          box.setAttribute('aria-pressed', String(now));
           updateLessonPlanBar();
-        });
-      } else {
-        cb.checked = status.kind === 'mastered';
-        cb.setAttribute('aria-label', t('goalIndex.markAria', { name: n.name }));
-        cb.addEventListener('change', () => {
-          setNodeProgress(n.id, 'mastered', cb.checked);
+        } else {
+          setNodeProgress(n.id, 'mastered', status.kind !== 'mastered');
           // Statusen til alt som bygger på noden endres også (klar/mangler),
           // så hele lista tegnes på nytt.
-          rerenderGoalIndexBody(body, cb.id);
-        });
-      }
-      li.appendChild(cb);
+          rerenderGoalIndexBody(body, box.id);
+        }
+      });
+      li.appendChild(box);
 
-      const main = document.createElement('div');
-      main.className = 'goal-index-item-main';
-
-      /* Navnet er en KNAPP som hopper til noden i kartet, ikke en <label>
-         som huker av boksen. En elev som blar i lista vil se noden, ikke
-         krysse den av ved et uhell. Boksen står der for den som vil krysse. */
-      const jump = document.createElement('button');
-      jump.type = 'button';
-      jump.className = 'goal-index-item-name';
-      jump.textContent = `${n.goalIndex}) ${n.name}`;
-      jump.title = t('goalIndex.openNode');
-      jump.addEventListener('click', () => {
+      const locate = makeEl('button', 'goal-locate');
+      locate.type = 'button';
+      locate.title = t('goalIndex.openNode');
+      locate.setAttribute('aria-label', t('goalIndex.openNode') + ': ' + n.name);
+      locate.innerHTML = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 1.5v3.5M10 15v3.5M1.5 10h3.5M15 10h3.5"/></svg>';
+      locate.addEventListener('click', () => {
         closeGoalIndexModal();
         scrollNodeIntoView(n.id);   // «gå til noden i treet», ikke bare åpne panelet
         openDetail(n.id);
       });
-      main.appendChild(jump);
-
-      const badge = document.createElement('span');
-      badge.className = 'goal-index-item-status';
-      badge.textContent = `${status.symbol} ${status.text}`;
-      if (status.title) badge.title = status.title;
-      main.appendChild(badge);
-
-      li.appendChild(main);
+      li.appendChild(locate);
       ul.appendChild(li);
     });
     section.appendChild(ul);
@@ -2308,6 +3019,10 @@ function openGoalIndexModal(mode) {
   document.getElementById('goal-index-heading').textContent =
     t(lessonMode ? 'lessonPlanner.heading' : 'goalIndex.heading');
   document.getElementById('lesson-plan-bar').hidden = !lessonMode;
+  document.getElementById('resource-picker').hidden = true;
+  document.getElementById('goal-index-body').hidden = false;
+  document.getElementById('goal-index-copy').hidden = false;
+  setGoalIndexHelp(lessonMode ? 'lessonPlanner.intro' : 'goalIndex.intro');
   renderGoalIndexBody(document.getElementById('goal-index-body'));
   updateLessonPlanBar();
   overlay.classList.add('open');
@@ -2343,7 +3058,34 @@ function setupSearchButton() {
     closeActionMenu();
     openSearchModal();
   });
+  btn.dataset.shortcut = shortcutLabel('K');
   panel.appendChild(btn);
+}
+
+/* Hurtigtaster (fra 2026-11-11). Ctrl+K (⌘K på Mac) åpner søket, slik
+   det gjør i de fleste nettsteder med søk. Esc lukker det som er øverst.
+   + og − zoomer og 0 viser hele treet, men bare når markøren ikke står i
+   et tekstfelt. Alle står i Hjelp under «Hurtigtaster». */
+const IS_MAC = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent || '');
+function shortcutLabel(key) { return (IS_MAC ? '⌘' : 'Ctrl+') + key; }
+function setupShortcuts() {
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'k') {
+      if (!document.getElementById('search-btn')) return;
+      e.preventDefault();
+      closeActionMenu();
+      openSearchModal();
+      return;
+    }
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (document.querySelector('.open[id$="-overlay"], .aist-overlay.open, .text-overlay.open')) return;
+    if (e.key === 'Escape' && activeNodeId) { closeDetail(); return; }
+    const tag = (e.target && e.target.tagName) || '';
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) || (e.target && e.target.isContentEditable)) return;
+    if (e.key === '+' || e.key === '=') { zoomBy(1.25); e.preventDefault(); }
+    else if (e.key === '-' || e.key === '−') { zoomBy(1 / 1.25); e.preventDefault(); }
+    else if (e.key === '0') { fitToView(); e.preventDefault(); }
+  });
 }
 
 /* Tegn som ikke brytes opp av NFD-normalisering, og som brukere skriver om
@@ -2484,13 +3226,20 @@ function ensureSearchModal() {
   h2.textContent = t('search.heading');
   header.appendChild(h2);
 
+  /* Forklaringen bak «?», som i de andre vinduene (2026-11-11). */
+  const help = makeEl('p', 'aist-help', t('search.hint'));
+  help.hidden = true;
+  const headActions = makeEl('div', 'aist-modal-actions');
+  headActions.appendChild(helpToggle(help));
   const closeBtn = document.createElement('button');
-  closeBtn.className = 'btn secondary';
+  closeBtn.className = 'nav-btn';
   closeBtn.textContent = t('close');
   closeBtn.addEventListener('click', closeSearchModal);
-  header.appendChild(closeBtn);
+  headActions.appendChild(closeBtn);
+  header.appendChild(headActions);
 
   modal.appendChild(header);
+  modal.appendChild(help);
 
   const field = document.createElement('div');
   field.id = 'search-field';
@@ -2532,13 +3281,7 @@ function renderSearchBody() {
   body.innerHTML = '';
 
   const query = input.value.trim();
-  if (!query) {
-    const hint = document.createElement('p');
-    hint.className = 'search-note';
-    hint.textContent = t('search.hint');
-    body.appendChild(hint);
-    return;
-  }
+  if (!query) return;   // forklaringen står bak «?»
 
   const result = searchMatches(query);
   const terms = result.terms;
@@ -2571,7 +3314,7 @@ function renderSearchBody() {
 
     const jump = document.createElement('button');
     jump.type = 'button';
-    jump.className = 'search-item-name';
+    jump.className = 'search-item-name goal-ref type-' + n.type;
     jump.title = t('search.openNode');
     jump.appendChild(document.createTextNode(n.goalIndex + ') '));
     renderHighlighted(jump, n.name, terms);
@@ -2691,12 +3434,18 @@ function ensureResourcesModal() {
   const h2 = document.createElement('h2');
   h2.textContent = t('resourceList.heading');
   header.appendChild(h2);
+  const help = makeEl('p', 'aist-help', t('resourceList.help'));
+  help.hidden = true;
+  const headActions = makeEl('div', 'aist-modal-actions');
+  headActions.appendChild(helpToggle(help));
   const closeBtn = document.createElement('button');
-  closeBtn.className = 'btn secondary';
+  closeBtn.className = 'nav-btn';
   closeBtn.textContent = t('close');
   closeBtn.addEventListener('click', closeResourcesModal);
-  header.appendChild(closeBtn);
+  headActions.appendChild(closeBtn);
+  header.appendChild(headActions);
   modal.appendChild(header);
+  modal.appendChild(help);
 
   const field = document.createElement('div');
   field.id = 'resources-field';
@@ -2799,7 +3548,7 @@ function renderResourcesBody() {
         if (!n) return;   // feillista har allerede sagt fra om en ukjent id
         const jump = document.createElement('button');
         jump.type = 'button';
-        jump.className = 'resources-node';
+        jump.className = 'resources-node goal-ref type-' + n.type;
         jump.textContent = (n.goalIndex ? n.goalIndex + ') ' : '') + n.name;
         jump.title = t('resourceList.openNode');
         jump.addEventListener('click', () => {
@@ -2834,59 +3583,132 @@ function closeResourcesModal() {
 /* Prøvegenerator: KI-instruks for en prøve basert på mestrede noder    */
 /* ------------------------------------------------------------------ */
 
+/* Prøven (utkast 2026-11-11): knappen i menyen åpner et vindu i samme form
+   som ressursvelgeren, med vanskelighetsgrad, antall oppgaver og
+   oppgaveform. Til nå var det et tallfelt og en knapp rett i menyen.
+   Prøven bygger fortsatt på det som er krysset av som mestret. */
+const EXAM_OPTIONS = { difficulty: 'medium', count: 10, format: 'mixed' };
+const EXAM_COUNT_CHOICES = [5, 10, 15, 20];
+
 function setupExamButton() {
   const actions = ensureActionMenu();
   if (!actions) return;
-
-  const widget = document.createElement('div');
-  widget.id = 'exam-widget';
-
-  const countLabel = document.createElement('label');
-  countLabel.id = 'exam-count-label';
-  countLabel.textContent = t('exam.countLabel');
-  const countInput = document.createElement('input');
-  countInput.type = 'number';
-  countInput.id = 'exam-count';
-  countInput.min = '1';
-  countInput.max = '50';
-  countInput.value = '10';
-  countInput.setAttribute('aria-label', t('exam.countAria'));
-  countLabel.appendChild(countInput);
-  widget.appendChild(countLabel);
 
   const examBtn = document.createElement('button');
   examBtn.id = 'exam-btn';
   examBtn.type = 'button';
   examBtn.textContent = t('exam.button');
   examBtn.title = t('exam.title');
-  widget.appendChild(examBtn);
-
   examBtn.addEventListener('click', () => {
-    const original = examBtn.textContent;
-    const progress = getProgress();
-    const masteredNodes = allNodes.filter(n => isNodeMastered(n, progress));
-
-    if (!masteredNodes.length) {
-      examBtn.textContent = t('exam.none');
-      setTimeout(() => { examBtn.textContent = original; }, 1800);
-      return;
-    }
-
-    const count = Math.min(50, Math.max(1, parseInt(countInput.value, 10) || 10));
-    countInput.value = count;
-    const text = composeExamInstruction(masteredNodes, count);
-
-    trackCopy('exam', { node_count: masteredNodes.length, task_count: count });
-
-    navigator.clipboard.writeText(text).then(() => {
-      examBtn.textContent = t('copied');
-      setTimeout(() => { examBtn.textContent = original; }, 1500);
-    }).catch(() => {
-      window.prompt(t('copyFallback'), text);
-    });
+    closeActionMenu();
+    openExamModal();
   });
+  actions.appendChild(examBtn);
+}
 
-  actions.appendChild(widget);
+const MOTIVATION_OPTIONS = { start: 'unknown', length: 'normal' };
+
+function openMotivationModal() {
+  const overlay = ensureSimpleModal('motivation', t('motivation.heading'), t('motivation.help'));
+  const body = overlay.querySelector('.aist-modal-body');
+  body.innerHTML = '';
+  const o = MOTIVATION_OPTIONS;
+  body.appendChild(resourceCard('motivation', {
+    desc: t('motivation.desc'),
+    fields: [
+      resourceField(t('motivation.startLabel'), segmented(t('motivation.startLabel'),
+        ['unknown', 'hard', 'bored', 'use'].map(v => ({ value: v, label: t('motivation.start.' + v) })),
+        o.start, v => { o.start = v; })),
+      resourceField(t('motivation.lengthLabel'), segmented(t('motivation.lengthLabel'),
+        ['short', 'normal', 'long'].map(v => ({ value: v, label: t('motivation.length.' + v) })),
+        o.length, v => { o.length = v; })),
+    ],
+    copy: copyButton(t('make.copy'),
+      () => composePrompt('motivation', { motivation: o }),
+      () => trackCopy('motivation')),
+  }));
+  overlay.classList.add('open');
+}
+
+function openExamModal() {
+  /* Utvalget starter som det som er krysset av som mestret, og kan
+     endres i vinduet. Det lagres ikke. */
+  const progress = getProgress();
+  examSelection = new Set(allNodes.filter(n => isNodeMastered(n, progress)).map(n => n.id));
+  const overlay = ensureSimpleModal('exam', t('exam.heading'), t('exam.help'));
+  renderExamBody(overlay.querySelector('.aist-modal-body'));
+  overlay.classList.add('open');
+}
+
+let examSelection = new Set();
+
+function renderExamBody(body) {
+  body.innerHTML = '';
+  const o = EXAM_OPTIONS;
+  const selected = () => allNodes.filter(n => examSelection.has(n.id)).sort(compareByGoalIndex);
+
+  /* «Prøven dekker:» og alle læringsmålene som små merker i treets farger,
+     ett emne per rad. De mestrede er valgt fra start; trykk for å velge
+     bort eller legge til (fra 2026-11-11). */
+  const cover = makeEl('div', 'resource-summary exam-cover');
+  cover.appendChild(makeEl('span', 'goal-tags-label', t('exam.coversLabel')));
+  const rows = makeEl('div', 'goal-tag-rows');
+  const empty = makeEl('span', 'goal-tags-empty', t('lesson.selectedNone'));
+  /* Velg alle / velg bort alle, for hele prøven og for hvert emne, med de
+     samme listeikonene som i Læringsmål. */
+  const setAll = (nodes, on) => {
+    nodes.forEach(n => { if (on) examSelection.add(n.id); else examSelection.delete(n.id); });
+    renderExamBody(body);
+  };
+  const allRow = makeEl('div', 'goal-tag-row exam-bulk-row');
+  allRow.appendChild(bulkIconButton(t('lessonPlanner.selectAll'), true, true, () => setAll(allNodes, true), 'goal-index-bulk-btn'));
+  allRow.appendChild(bulkIconButton(t('lessonPlanner.deselectAll'), false, true, () => setAll(allNodes, false), 'goal-index-bulk-btn'));
+  rows.appendChild(allRow);
+  themeList.forEach(({ letter, topic, nodes }) => {
+    const row = makeEl('div', 'goal-tag-row');
+    row.appendChild(makeEl('span', 'goal-tag-letter', letter));
+    nodes.forEach(n => row.appendChild(goalTag(n, examSelection.has(n.id), on => {
+      if (on) examSelection.add(n.id); else examSelection.delete(n.id);
+      sync();
+    })));
+    const acts = makeEl('span', 'goal-tag-row-actions');
+    acts.appendChild(bulkIconButton(t('lessonPlanner.selectTopic', { topic }), true, false, () => setAll(nodes, true)));
+    acts.appendChild(bulkIconButton(t('lessonPlanner.deselectTopic', { topic }), false, false, () => setAll(nodes, false)));
+    row.appendChild(acts);
+    rows.appendChild(row);
+  });
+  cover.appendChild(rows);
+  cover.appendChild(empty);
+  body.appendChild(cover);
+
+  const diffHint = swapHint(['easy', 'medium', 'hard'].map(v => 'exam.difficultyHints.' + v), 'exam.difficultyHints.' + o.difficulty);
+  const formatHint = swapHint(['closed', 'open', 'mixed'].map(v => 'exam.formatHints.' + v), 'exam.formatHints.' + o.format);
+  const copy = copyButton(t('make.copy'),
+    () => composeExamInstruction(selected(), o.count, o),
+    () => trackCopy('exam', { node_count: examSelection.size, task_count: o.count }));
+  function sync() {
+    copy.disabled = examSelection.size === 0;
+    // Synlighet, ikke display: linja holder plassen, så ingenting hopper.
+    empty.style.visibility = examSelection.size === 0 ? '' : 'hidden';
+  }
+  sync();
+
+  body.appendChild(resourceCard('exam', {
+    desc: t('exam.desc'),
+    fields: [
+      resourceField(t('exam.difficultyLabel'), segmented(t('exam.difficultyLabel'),
+        ['easy', 'medium', 'hard'].map(v => ({ value: v, label: t('exam.difficulty.' + v), glyph: 'level-' + v })),
+        o.difficulty, v => { o.difficulty = v; diffHint.set('exam.difficultyHints.' + v); }),
+        diffHint.el),
+      resourceField(t('exam.countLabel'), chipStepper(t('exam.countLabel'), EXAM_COUNT_CHOICES, o.count, 1, 1, 50,
+        v => String(v), v => { o.count = v; })),
+      resourceField(t('exam.formatLabel'), segmented(t('exam.formatLabel'),
+        ['closed', 'open', 'mixed'].map(v => ({ value: v, label: t('exam.format.' + v), glyph: 'format-' + v })),
+        o.format, v => { o.format = v; formatHint.set('exam.formatHints.' + v); }),
+        formatHint.el),
+    ],
+    copy: copy,
+  }));
 }
 
 
@@ -2895,7 +3717,7 @@ function setupExamButton() {
 // slik composeInstruction() gjør. Prøven trenger ikke dekke alle mestrede
 // noder; instruksen ber KI-en velge et representativt utvalg på `count`
 // oppgaver som til sammen dekker flest mulig av dem.
-function composeExamInstruction(nodes, count) {
+function composeExamInstruction(nodes, count, opts) {
   const list = nodes.map(n => {
     const tags = [promptTypeTag(n.type)];
     if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
@@ -2903,6 +3725,7 @@ function composeExamInstruction(nodes, count) {
   }).join('\n');
 
   return composePrompt('exam', {
+    exam: opts || null,
     hasConcepts: nodes.some(n => n.type === 'concept'),
     allConcepts: nodes.length > 0 && nodes.every(n => n.type === 'concept'),
     hasFacts: nodes.some(n => n.type === 'fact'),
@@ -2954,11 +3777,11 @@ function updateLessonPlanBar() {
   const countLabel = document.getElementById('lesson-plan-count');
   const btn = document.getElementById('lesson-plan-btn');
   if (!countLabel || !btn) return;
-  const n = lessonSelection.size;
-  countLabel.textContent = n === 0
-    ? t('lesson.selectedNone')
-    : n === 1 ? t('lesson.selectedOne') : t('lesson.selectedMany', { n: n });
-  btn.disabled = n === 0;
+  /* Utvalget vises som de små merkene i treets farger, ikke som et tall
+     (fra 2026-11-11). Tomt utvalg står i rødt. */
+  countLabel.innerHTML = '';
+  countLabel.appendChild(goalTagList(getLessonSelectionNodes()));
+  btn.disabled = lessonSelection.size === 0;
 }
 
 // Fast metodikk-tekst, lik for alle fag. Ligger hardkodet her (ikke i CSV
@@ -3017,6 +3840,655 @@ function composeLessonPlanInstruction(nodes, totalMinutes, lessonType) {
       aidsText: aidsTextFor(nodes),
     },
   });
+}
+
+/* ------------------------------------------------------------------ */
+/* Ressursvelgeren: undervisningsopplegg, minitre og simulering          */
+/*                                                                      */
+/* UTKAST 2026-11-10, ikke i noen release. Læreren huker av læringsmål  */
+/* i «Undervisningsopplegg og andre ressurser», trykker «Lag ressurs»,  */
+/* og velger hva som skal lages. Alle tre er en instruks læreren limer  */
+/* inn i en KI-chat; motoren kaller fortsatt ingen språkmodell, og den  */
+/* lager ingen HTML selv. Det er grensen som holder dette lite: treet   */
+/* bidrar med læringsmålene og forutsetningene mellom dem, modellen     */
+/* lager fila. Minitreet bygger på Nina Haugeruds prinsipper,           */
+/* simuleringen på Henning Vinjusveen Myhrehagens ledetekst på          */
+/* skolesim.no. Valgene lagres ikke, som utvalget av læringsmål.         */
+/* ------------------------------------------------------------------ */
+
+const RESOURCE_OPTIONS = {
+  lessonType: 'intro',
+  minutes: LESSON_DEFAULT_MINUTES,
+  mini: { levels: 3, streak: 3, easyRead: true, readAloud: true, game: true, mixedTest: true },
+  sim: { workflow: 'design', screen: 'laptop', tasks: true, critique: true, export: false },
+};
+
+const LESSON_MINUTE_CHOICES = [30, 45, 60, 90];
+
+/* Forutsetningene innenfor UTVALGET for én node: de valgte forfedrene,
+   uten dem som allerede ligger under en annen valgt forfar. Det er
+   kantene minitreet skal tegne - hele kjeden ville gitt piler på kryss
+   og tvers for det samme. */
+function selectedPrerequisites(node, selectedIds) {
+  const anc = getAllAncestors(node).filter(a => selectedIds.has(a.id));
+  const ancIds = new Set(anc.map(a => a.id));
+  const covered = new Set();
+  anc.forEach(a => getAllAncestors(a).forEach(x => { if (ancIds.has(x.id)) covered.add(x.id); }));
+  return anc.filter(a => !covered.has(a.id)).sort(compareByGoalIndex);
+}
+
+/* Forutsetninger UTENFOR utvalget, som i composeLessonPlanInstruction:
+   det elevene antas å kunne fra før. */
+function outsidePrerequisites(nodes) {
+  const selectedIds = new Set(nodes.map(n => n.id));
+  const out = [];
+  const seen = new Set();
+  nodes.forEach(node => getAllAncestors(node).forEach(a => {
+    if (selectedIds.has(a.id) || seen.has(a.id)) return;
+    seen.add(a.id);
+    out.push(a);
+  }));
+  return out.sort(compareByGoalIndex);
+}
+
+/* Læringsmål-lista i instruksen. Med koden fra treet (A1, B3 ...) fordi
+   minitreet skal vise den, og læreren skal kunne finne målet igjen. */
+function resourceGoalList(nodes, withBuildsOn) {
+  const selectedIds = new Set(nodes.map(n => n.id));
+  return nodes.map(n => {
+    const tags = [promptTypeTag(n.type)];
+    if (treeUsesAids() && n.aids.length) tags.push(aidsTagText(n.aids));
+    let line = `${n.goalIndex}) ${n.name} [${tags.join(', ')}]\n   ${descriptionInline(n.description)}`;
+    if (withBuildsOn) {
+      const deps = selectedPrerequisites(n, selectedIds);
+      line += '\n   builds on: ' + (deps.length ? deps.map(d => d.goalIndex).join(', ') : '-');
+    }
+    return line;
+  }).join('\n');
+}
+
+function resourceContext(nodes, extra) {
+  const pre = outsidePrerequisites(nodes);
+  return Object.assign({
+    ancestors: pre,
+    hasSkills: nodes.some(n => n.type !== 'concept' && n.type !== 'fact'),
+    hasConcepts: nodes.some(n => n.type === 'concept'),
+    hasFacts: nodes.some(n => n.type === 'fact'),
+    aidsText: aidsTextFor(nodes),
+    multipleAids: nodes.some(n => (n.aids || []).length > 1),
+  }, extra, {
+    vars: Object.assign({
+      prerequisiteList: pre.map(a => '- ' + a.name).join('\n'),
+      aidsText: aidsTextFor(nodes),
+    }, (extra && extra.vars) || {}),
+  });
+}
+
+function composeMiniTreeInstruction(nodes, opts) {
+  return composePrompt('miniTree', resourceContext(nodes, {
+    mini: opts,
+    vars: { goalList: resourceGoalList(nodes, true), masteryStreak: opts.streak },
+  }));
+}
+
+function composeSimulationInstruction(nodes, opts) {
+  return composePrompt('simulation', resourceContext(nodes, {
+    sim: opts,
+    vars: { goalList: resourceGoalList(nodes, false) },
+  }));
+}
+
+function openResourcePicker() {
+  const nodes = getLessonSelectionNodes();
+  if (!nodes.length) return;
+  document.getElementById('goal-index-body').hidden = true;
+  document.getElementById('lesson-plan-bar').hidden = true;
+  document.getElementById('goal-index-heading').textContent = t('make.heading');
+  // «Kopier alle» kopierer lista over læringsmål, og hører ikke hjemme her.
+  document.getElementById('goal-index-copy').hidden = true;
+  setGoalIndexHelp('make.help');
+  const picker = document.getElementById('resource-picker');
+  renderResourcePicker(picker, nodes);
+  picker.hidden = false;
+  picker.scrollTop = 0;
+}
+
+function closeResourcePicker() {
+  document.getElementById('resource-picker').hidden = true;
+  document.getElementById('goal-index-body').hidden = false;
+  document.getElementById('lesson-plan-bar').hidden = false;
+  document.getElementById('goal-index-copy').hidden = false;
+  setGoalIndexHelp('lessonPlanner.intro');
+  document.getElementById('goal-index-heading').textContent = t('lessonPlanner.heading');
+}
+
+function setGoalIndexHelp(key) {
+  const help = document.getElementById('goal-index-help');
+  const btn = document.getElementById('goal-index-help-btn');
+  if (!help) return;
+  help.textContent = t(key);
+  help.hidden = true;
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+
+/* ---- Små byggeklosser for valgene på kortene ---------------------- */
+
+function makeEl(tag, className, text) {
+  const e = document.createElement(tag);
+  if (className) e.className = className;
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+/* Et felt med etikett over. */
+function resourceField(label, control, hint) {
+  const field = makeEl('div', 'resource-field');
+  field.appendChild(makeEl('span', 'resource-field-label', label));
+  field.appendChild(control);
+  if (hint) field.appendChild(hint);
+  return field;
+}
+
+/* Segmentert valg: knapper side om side, én trykket inn. Framfor en
+   nedtrekksmeny fordi alle valgene da synes på en gang. */
+function segmented(label, options, current, onChange) {
+  const group = makeEl('div', 'seg');
+  group.setAttribute('role', 'radiogroup');
+  group.setAttribute('aria-label', label);
+  const buttons = options.map(opt => {
+    const b = makeEl('button', 'seg-btn');
+    b.type = 'button';
+    b.setAttribute('role', 'radio');
+    if (opt.glyph) b.appendChild(segGlyph(opt.glyph));
+    b.appendChild(makeEl('span', null, opt.label));
+    b.addEventListener('click', () => {
+      buttons.forEach(x => x.setAttribute('aria-checked', String(x === b)));
+      onChange(opt.value);
+    });
+    b.setAttribute('aria-checked', String(opt.value === current));
+    group.appendChild(b);
+    return b;
+  });
+  return group;
+}
+
+/* Bryter med tekst. En ekte avkryssingsboks under, så den virker med
+   tastatur og skjermleser. */
+function switchToggle(label, checked, onChange) {
+  const wrap = makeEl('label', 'switch');
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.setAttribute('role', 'switch');
+  input.checked = !!checked;
+  input.addEventListener('change', () => onChange(input.checked));
+  wrap.appendChild(input);
+  wrap.appendChild(makeEl('span', 'switch-track'));
+  wrap.appendChild(makeEl('span', 'switch-label', label));
+  return wrap;
+}
+
+/* De vanlige verdiene som knapper, og en teller for alt annet. Brukes for
+   lengden på timen og antall oppgaver i prøven. */
+function chipStepper(label, choices, current, step, min, max, format, onChange) {
+  const wrap = makeEl('div', 'minutes-control');
+  let value = current;
+  const chips = segmented(label, choices.map(m => ({ value: m, label: String(m) })), value, v => set(v));
+  wrap.appendChild(chips);
+
+  const stepper = makeEl('div', 'stepper');
+  const minus = makeEl('button', 'stepper-btn', '−');
+  minus.type = 'button';
+  minus.setAttribute('aria-label', t('make.less'));
+  const out = makeEl('output', 'stepper-value');
+  const plus = makeEl('button', 'stepper-btn', '+');
+  plus.type = 'button';
+  plus.setAttribute('aria-label', t('make.more'));
+  stepper.appendChild(minus);
+  stepper.appendChild(out);
+  stepper.appendChild(plus);
+  wrap.appendChild(stepper);
+
+  function set(v) {
+    value = Math.min(max, Math.max(min, v));
+    out.textContent = format(value);
+    chips.querySelectorAll('.seg-btn').forEach((b, i) =>
+      b.setAttribute('aria-checked', String(choices[i] === value)));
+    onChange(value);
+  }
+  minus.addEventListener('click', () => set(value - step));
+  plus.addEventListener('click', () => set(value + step));
+  set(value);
+  return wrap;
+}
+
+function minutesControl(current, onChange) {
+  return chipStepper(t('lesson.minutesLabel'), LESSON_MINUTE_CHOICES, current, 5, 15, 240,
+    v => v + ' ' + t('make.lesson.minutes'), onChange);
+}
+
+/* «?»-knappen: forklaringen ligger bak den framfor å stå øverst i
+   vinduet. Vinduet skal kunne brukes uten at noen trykker på den
+   (Vidar, 2026-11-11). Forklaringen er en liten boble som legger seg OVER
+   innholdet, rett under knappen, og ikke et avsnitt som skyver resten av
+   vinduet ned: ingenting skal hoppe når man trykker (fra 2026-11-11).
+   Boblen lukkes av et nytt trykk på «?», et trykk utenfor eller Esc. */
+let openHelpPopover = null;
+function closeHelpPopover() {
+  if (!openHelpPopover) return;
+  openHelpPopover.panel.hidden = true;
+  openHelpPopover.button.setAttribute('aria-expanded', 'false');
+  openHelpPopover = null;
+}
+function helpToggle(panel) {
+  const b = makeEl('button', 'help-toggle', '?');
+  b.type = 'button';
+  b.setAttribute('aria-label', t('helpToggle'));
+  b.title = t('helpToggle');
+  b.setAttribute('aria-expanded', 'false');
+  panel.classList.add('aist-popover');
+  panel.setAttribute('role', 'note');
+  b.addEventListener('click', e => {
+    e.stopPropagation();
+    if (!panel.hidden) { closeHelpPopover(); return; }
+    closeHelpPopover();
+    panel.hidden = false;
+    b.setAttribute('aria-expanded', 'true');
+    openHelpPopover = { panel, button: b };
+    const host = panel.offsetParent || panel.parentElement;
+    const hr = host.getBoundingClientRect();
+    const br = b.getBoundingClientRect();
+    panel.style.top = (br.bottom - hr.top + 8) + 'px';
+    const right = Math.max(8, hr.right - br.right);
+    panel.style.right = right + 'px';
+    panel.style.setProperty('--arrow-right', (br.width / 2 - 7) + 'px');
+  });
+  return b;
+}
+/* Trykk utenfor boblen lukker den. Et trykk på selve «?»-knappen hoppes
+   over her: knappen slår av og på selv, og lukket denne lytteren boblen
+   først, åpnet knappen den igjen med en gang (feil til 2026-11-11). */
+document.addEventListener('click', e => {
+  if (!openHelpPopover) return;
+  if (openHelpPopover.panel.contains(e.target) || openHelpPopover.button.contains(e.target)) return;
+  closeHelpPopover();
+}, true);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && openHelpPopover) { closeHelpPopover(); e.stopImmediatePropagation(); }
+}, true);
+
+/* Knapper som bytter tekst («Kopier» → «Kopiert!», «Vis» → «Skjul») skal
+   ikke endre bredde, ellers flytter naboene seg (fra 2026-11-11). Alle
+   variantene ligger oppå hverandre i samme rutenettcelle, og bare én er
+   synlig, så knappen er alltid så bred som den lengste. */
+function swapLabel(btn, labels) {
+  btn.classList.add('swap-label');
+  btn.textContent = '';
+  const spans = labels.map(l => { const sp = makeEl('span', null, l); btn.appendChild(sp); return sp; });
+  const set = i => spans.forEach((sp, j) => {
+    sp.style.visibility = j === i ? '' : 'hidden';
+    if (j === i) sp.removeAttribute('aria-hidden'); else sp.setAttribute('aria-hidden', 'true');
+  });
+  set(0);
+  return set;
+}
+
+/* Det samme for forklaringen under et valg: alle variantene ligger i samme
+   celle, så linja er alltid like høy som den lengste, og feltene under
+   flytter seg ikke når et annet valg trykkes. */
+function swapHint(keys, current) {
+  const el = makeEl('p', 'resource-hint swap-hint');
+  const spans = new Map(keys.map(k => { const sp = makeEl('span', null, t(k)); el.appendChild(sp); return [k, sp]; }));
+  const set = key => spans.forEach((sp, k) => {
+    sp.style.visibility = k === key ? '' : 'hidden';
+    if (k === key) sp.removeAttribute('aria-hidden'); else sp.setAttribute('aria-hidden', 'true');
+  });
+  set(current);
+  return { el, set };
+}
+
+/* Et enkelt vindu med overskrift, «?» og lukkeknapp, og en kropp som
+   den som åpner det fyller. Bygges lat, én gang per id. */
+function ensureSimpleModal(id, heading, helpText) {
+  let overlay = document.getElementById(id + '-overlay');
+  if (overlay) {
+    closeHelpPopover();
+    return overlay;
+  }
+  overlay = makeEl('div', 'aist-overlay');
+  overlay.id = id + '-overlay';
+  const close = () => overlay.classList.remove('open');
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+  });
+
+  const modal = makeEl('div', 'aist-modal');
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-label', heading);
+  const header = makeEl('div', 'aist-modal-header');
+  header.appendChild(makeEl('h2', null, heading));
+  const help = makeEl('p', 'aist-help', helpText);
+  help.hidden = true;
+  const actions = makeEl('div', 'aist-modal-actions');
+  actions.appendChild(helpToggle(help));
+  const closeBtn = makeEl('button', 'nav-btn', t('close'));
+  closeBtn.type = 'button';
+  closeBtn.addEventListener('click', close);
+  actions.appendChild(closeBtn);
+  header.appendChild(actions);
+  modal.appendChild(header);
+  modal.appendChild(help);
+  modal.appendChild(makeEl('div', 'aist-modal-body'));
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  return overlay;
+}
+
+/* Kopier-knappen nederst på hvert kort. */
+function copyButton(label, compose, track) {
+  const b = makeEl('button', 'resource-copy');
+  b.type = 'button';
+  const show = swapLabel(b, [label, t('copied')]);
+  b.addEventListener('click', () => {
+    const text = compose();
+    track();
+    navigator.clipboard.writeText(text).then(() => {
+      show(1);
+      b.classList.add('done');
+      setTimeout(() => { show(0); b.classList.remove('done'); }, 1600);
+    }).catch(() => {
+      window.prompt(t('copyFallback'), text);
+    });
+  });
+  return b;
+}
+
+function resourceCard(kind, opts) {
+  const card = makeEl('section', 'resource-card resource-' + kind);
+  const art = makeEl('div', 'resource-art');
+  art.appendChild(resourceArt(kind));
+  card.appendChild(art);
+
+  const main = makeEl('div', 'resource-main');
+  /* Uten tittel når vinduet selv har den (prøven), så den ikke står to ganger. */
+  if (opts.title) {
+    const h3 = makeEl('h3', 'resource-title', opts.title);
+    if (opts.badge) h3.appendChild(makeEl('span', 'resource-badge', opts.badge));
+    main.appendChild(h3);
+  }
+  main.appendChild(makeEl('p', 'resource-desc', opts.desc));
+  const fields = makeEl('div', 'resource-options');
+  opts.fields.forEach(f => fields.appendChild(f));
+  main.appendChild(fields);
+
+  const foot = makeEl('div', 'resource-foot');
+  foot.appendChild(opts.copy);
+  if (opts.after) foot.appendChild(makeEl('span', 'resource-after', opts.after));
+  main.appendChild(foot);
+  if (opts.credit) main.appendChild(makeEl('p', 'resource-credit', opts.credit));
+  card.appendChild(main);
+  return card;
+}
+
+function renderResourcePicker(picker, nodes) {
+  picker.innerHTML = '';
+  const o = RESOURCE_OPTIONS;
+
+  const top = makeEl('div', 'resource-top');
+  const back = makeEl('button', 'back-btn', t('make.back'));
+  back.type = 'button';
+  back.addEventListener('click', closeResourcePicker);
+  top.appendChild(back);
+  const summary = makeEl('div', 'resource-summary');
+  summary.appendChild(goalTagList(nodes, t('make.forLabel')));
+  top.appendChild(summary);
+  picker.appendChild(top);
+
+  const list = makeEl('div', 'resource-list');
+
+  /* 1. Undervisningsopplegg: planleggeren som før, med valgene synlige. */
+  const typeHint = swapHint(LESSON_TYPES.map(v => 'make.lesson.typeHints.' + v), 'make.lesson.typeHints.' + o.lessonType);
+  list.appendChild(resourceCard('lesson', {
+    title: t('make.lesson.title'),
+    desc: t('make.lesson.desc'),
+    fields: [
+      resourceField(t('lesson.typeLabel'), segmented(t('lesson.typeAria'),
+        LESSON_TYPES.map(type => ({ value: type, label: t('lesson.types.' + type), glyph: type })),
+        o.lessonType, v => { o.lessonType = v; typeHint.set('make.lesson.typeHints.' + v); }),
+        typeHint.el),
+      resourceField(t('lesson.minutesLabel'), minutesControl(o.minutes, v => { o.minutes = v; })),
+    ],
+    copy: copyButton(t('make.copy'),
+      () => composeLessonPlanInstruction(getLessonSelectionNodes(), o.minutes, o.lessonType),
+      () => trackCopy('lesson_plan', { node_count: nodes.length, lesson_minutes: o.minutes })),
+  }));
+
+  /* 2. Minitre: en HTML-fil der elevene øver selv, etter Ninas prinsipper. */
+  if (CORE.prompts.miniTree) {
+    const m = o.mini;
+    list.appendChild(resourceCard('minitree', {
+      title: t('make.miniTree.title'),
+      badge: t('make.htmlBadge'),
+      desc: t('make.miniTree.desc'),
+      fields: [
+        resourceField(t('make.miniTree.levelsLabel'), segmented(t('make.miniTree.levelsLabel'), [
+          { value: 1, label: t('make.miniTree.levels1') },
+          { value: 3, label: t('make.miniTree.levels3') },
+        ], m.levels, v => { m.levels = v; })),
+        resourceField(t('make.miniTree.streakLabel'), segmented(t('make.miniTree.streakLabel'),
+          [2, 3, 4, 5].map(n => ({ value: n, label: String(n) })), m.streak, v => { m.streak = v; })),
+        resourceField(t('make.miniTree.supportLabel'), (() => {
+          const box = makeEl('div', 'switches');
+          box.appendChild(switchToggle(t('make.miniTree.easyRead'), m.easyRead, v => { m.easyRead = v; }));
+          box.appendChild(switchToggle(t('make.miniTree.readAloud'), m.readAloud, v => { m.readAloud = v; }));
+          box.appendChild(switchToggle(t('make.miniTree.game'), m.game, v => { m.game = v; }));
+          box.appendChild(switchToggle(t('make.miniTree.mixedTest'), m.mixedTest, v => { m.mixedTest = v; }));
+          return box;
+        })()),
+      ],
+      copy: copyButton(t('make.copy'),
+        () => composeMiniTreeInstruction(getLessonSelectionNodes(), m),
+        () => trackCopy('mini_tree', { node_count: nodes.length })),
+      credit: t('make.miniTree.credit'),
+    }));
+  }
+
+  /* 3. Simulering, etter Hennings ledetekst. */
+  if (CORE.prompts.simulation) {
+    const s = o.sim;
+    list.appendChild(resourceCard('simulation', {
+      title: t('make.simulation.title'),
+      badge: t('make.htmlBadge'),
+      desc: t('make.simulation.desc'),
+      fields: [
+        resourceField(t('make.simulation.workflowLabel'), segmented(t('make.simulation.workflowLabel'), [
+          { value: 'design', label: t('make.simulation.design') },
+          { value: 'build', label: t('make.simulation.build') },
+        ], s.workflow, v => { s.workflow = v; })),
+        resourceField(t('make.simulation.screenLabel'), segmented(t('make.simulation.screenLabel'), [
+          { value: 'laptop', label: t('make.simulation.laptop'), glyph: 'laptop' },
+          { value: 'tablet', label: t('make.simulation.tablet'), glyph: 'tablet' },
+          { value: 'projector', label: t('make.simulation.projector'), glyph: 'projector' },
+        ], s.screen, v => { s.screen = v; })),
+        resourceField(t('make.simulation.extrasLabel'), (() => {
+          const box = makeEl('div', 'switches');
+          box.appendChild(switchToggle(t('make.simulation.tasks'), s.tasks, v => { s.tasks = v; }));
+          box.appendChild(switchToggle(t('make.simulation.critique'), s.critique, v => { s.critique = v; }));
+          box.appendChild(switchToggle(t('make.simulation.export'), s.export, v => { s.export = v; }));
+          return box;
+        })()),
+      ],
+      copy: copyButton(t('make.copy'),
+        () => composeSimulationInstruction(getLessonSelectionNodes(), s),
+        () => trackCopy('simulation', { node_count: nodes.length })),
+      credit: t('make.simulation.credit'),
+    }));
+  }
+
+  picker.appendChild(list);
+}
+
+/* ---- Illustrasjonene ---------------------------------------------- */
+
+/* Små ikoner i de segmenterte knappene. Strek i currentColor, så de tar
+   fargen fra teksten i knappen, trykket inn eller ikke. */
+const SEG_GLYPHS = {
+  intro: '<circle cx="8" cy="7" r="4"/><path d="M6.5 13h3M7 15h2"/>',
+  practice: '<path d="M3 8a5 5 0 0 1 9-3M13 8a5 5 0 0 1-9 3"/><path d="M12 2v3H9M4 14v-3h3"/>',
+  review: '<path d="M3 8a5 5 0 1 0 1.5-3.5"/><path d="M3 2v3h3"/><path d="M8 5v3l2 1.5"/>',
+  other: '<circle cx="3.5" cy="8" r="1"/><circle cx="8" cy="8" r="1"/><circle cx="12.5" cy="8" r="1"/>',
+  laptop: '<rect x="3" y="3.5" width="10" height="7" rx="0.5"/><path d="M1.5 12.5h13"/>',
+  tablet: '<rect x="2.5" y="3" width="11" height="10" rx="1"/><path d="M7.5 11h1"/>',
+  projector: '<rect x="1.5" y="2.5" width="13" height="8"/><path d="M8 10.5v3M5.5 13.5h5"/>',
+  /* Tre søyler som på et signalmerke: én, to eller alle tre fylt. */
+  'level-easy': '<path d="M3.5 13.5v-3" stroke-width="2.4"/><path d="M8 13.5v-6M12.5 13.5v-9" stroke-opacity="0.3" stroke-width="2.4"/>',
+  'level-medium': '<path d="M3.5 13.5v-3M8 13.5v-6" stroke-width="2.4"/><path d="M12.5 13.5v-9" stroke-opacity="0.3" stroke-width="2.4"/>',
+  'level-hard': '<path d="M3.5 13.5v-3M8 13.5v-6M12.5 13.5v-9" stroke-width="2.4"/>',
+  'format-closed': '<circle cx="4" cy="5" r="1.6"/><circle cx="4" cy="11" r="1.6"/><path d="M8 5h6M8 11h6"/>',
+  'format-open': '<path d="M2 4h12M2 8h12M2 12h8"/>',
+  'format-mixed': '<circle cx="4" cy="5" r="1.6"/><path d="M8 5h6M2 10h12M2 13.5h8"/>',
+};
+
+function segGlyph(name) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 16 16');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('class', 'seg-glyph');
+  svg.innerHTML = SEG_GLYPHS[name] || '';
+  return svg;
+}
+
+/* Lavpoly i nettstedets tre farger: grønn (--primary), oransje (--amber)
+   og blå (--blue), samme stil som de genererte bildene på læremedki.no og
+   skolesim.no, men tegnet her som SVG: et tre skal virke uten nett, og et
+   bilde ville måttet ligge i den nedlastede fila. Fargene er CSS-variabler,
+   så illustrasjonene følger dag/natt og treets egne farger. Hver flate er
+   samme farge med ulik dekkevne - det er det som gir det fasetterte. */
+const ART_HUE = { lesson: '--primary', minitree: '--amber', simulation: '--blue', exam: '--primary', motivation: '--primary' };
+
+/* Deterministisk «tilfeldig», så bildet er likt hver gang. */
+function artRandom(seed) {
+  let s = seed;
+  return () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+}
+
+function poly(points, hue, opacity) {
+  return `<polygon points="${points}" style="fill:var(${hue})" fill-opacity="${opacity}"/>`;
+}
+
+/* Bakgrunnen: et rutenett av trekanter med forskjøvne hjørner. */
+function lowPolyBackground(hue, seed) {
+  const rnd = artRandom(seed);
+  const n = 4, step = 96 / n;
+  const pts = [];
+  for (let y = 0; y <= n; y++) {
+    pts.push([]);
+    for (let x = 0; x <= n; x++) {
+      const edge = x === 0 || y === 0 || x === n || y === n;
+      pts[y].push([
+        x * step + (edge ? 0 : (rnd() - 0.5) * step * 0.7),
+        y * step + (edge ? 0 : (rnd() - 0.5) * step * 0.7),
+      ]);
+    }
+  }
+  const p = q => q[0].toFixed(1) + ',' + q[1].toFixed(1);
+  let out = `<rect width="96" height="96" style="fill:var(--surface)"/>`;
+  for (let y = 0; y < n; y++) {
+    for (let x = 0; x < n; x++) {
+      const a = pts[y][x], b = pts[y][x + 1], c = pts[y + 1][x + 1], d = pts[y + 1][x];
+      const flip = (x + y) % 2 === 0;
+      const t1 = flip ? [a, b, c] : [a, b, d];
+      const t2 = flip ? [a, c, d] : [b, c, d];
+      out += poly(t1.map(p).join(' '), hue, (0.07 + rnd() * 0.12).toFixed(2));
+      out += poly(t2.map(p).join(' '), hue, (0.07 + rnd() * 0.12).toFixed(2));
+    }
+  }
+  return out;
+}
+
+/* En fasettert rombe: fire trekanter rundt midten. */
+function facetDiamond(cx, cy, r, hue) {
+  const top = `${cx},${cy - r}`, right = `${cx + r},${cy}`, bottom = `${cx},${cy + r}`, left = `${cx - r},${cy}`;
+  const c = `${cx},${cy}`;
+  return poly(`${top} ${right} ${c}`, hue, 1) + poly(`${right} ${bottom} ${c}`, hue, 0.78) +
+         poly(`${bottom} ${left} ${c}`, hue, 0.62) + poly(`${left} ${top} ${c}`, hue, 0.88);
+}
+
+/* En fasettert ball: åtte trekanter rundt midten. */
+function facetBall(cx, cy, r, hue) {
+  let out = '';
+  const ops = [1, 0.85, 0.7, 0.6, 0.66, 0.78, 0.9, 0.95];
+  for (let i = 0; i < 8; i++) {
+    const a1 = (i / 8) * Math.PI * 2 - Math.PI / 2, a2 = ((i + 1) / 8) * Math.PI * 2 - Math.PI / 2;
+    out += poly(`${cx},${cy} ${(cx + r * Math.cos(a1)).toFixed(1)},${(cy + r * Math.sin(a1)).toFixed(1)} ` +
+                `${(cx + r * Math.cos(a2)).toFixed(1)},${(cy + r * Math.sin(a2)).toFixed(1)}`, hue, ops[i]);
+  }
+  return out;
+}
+
+const ART_FOREGROUND = {
+  /* En tavle på staffeli, med en krittstrek. */
+  lesson: hue =>
+    poly('30,60 36,60 25,84', hue, 0.9) + poly('66,60 60,60 71,84', hue, 0.75) +
+    poly('18,20 78,20 48,40', hue, 1) + poly('78,20 78,62 48,40', hue, 0.82) +
+    poly('78,62 18,62 48,40', hue, 0.68) + poly('18,62 18,20 48,40', hue, 0.9) +
+    '<polyline points="26,34 36,29 45,35 55,27 66,33" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.95"/>' +
+    '<path d="M28 48h22" style="stroke:var(--surface)" stroke-width="2.4" stroke-linecap="round" stroke-opacity="0.8"/>' +
+    poly('56,62 72,62 64,67', '--amber', 1),
+  /* Et lite tre: fire noder med kanter, den nederste mestret (grønn). */
+  minitree: hue =>
+    '<g style="stroke:var(' + hue + ')" stroke-width="3" stroke-opacity="0.75" stroke-linecap="round">' +
+      '<path d="M48 76 L24 49 M48 76 L72 49 M24 49 L48 20 M72 49 L48 20"/></g>' +
+    facetDiamond(48, 20, 14, hue) + facetDiamond(24, 49, 14, hue) + facetDiamond(72, 49, 14, hue) +
+    facetDiamond(48, 76, 15, '--primary') +
+    '<path d="M42 76l4.5 4.5 8-9" fill="none" style="stroke:var(--surface)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+  /* Et prøveark med to avkryssede oppgaver og én som venter. */
+  exam: hue =>
+    poly('24,14 66,14 48,40', hue, 1) + poly('66,14 74,22 48,40', hue, 0.85) +
+    poly('74,22 74,84 48,40', hue, 0.72) + poly('74,84 24,84 48,40', hue, 0.62) +
+    poly('24,84 24,14 48,40', hue, 0.9) +
+    '<g fill="none" style="stroke:var(--surface)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.95">' +
+      '<path d="M31 32l4 4 7-8M31 52l4 4 7-8M48 32h18M48 52h18M48 70h18"/>' +
+      '<rect x="31" y="65" width="9" height="9" rx="1"/></g>' +
+    poly('70,62 84,48 88,52 74,66', '--amber', 1) + poly('70,62 74,66 67,69', '--amber', 0.7),
+  /* En fasettert stjerne med en liten oransje gnist. */
+  motivation: hue => {
+    let out = '';
+    const cx = 46, cy = 50, R = 30, r = 13;
+    const pts = [];
+    for (let i = 0; i < 10; i++) {
+      const a = -Math.PI / 2 + i * Math.PI / 5, rad = i % 2 ? r : R;
+      pts.push([cx + rad * Math.cos(a), cy + rad * Math.sin(a)]);
+    }
+    const ops = [1, 0.8, 0.92, 0.7, 0.85, 0.62, 0.78, 0.68, 0.95, 0.74];
+    pts.forEach((p, i) => {
+      const q = pts[(i + 1) % 10];
+      out += poly(`${cx},${cy} ${p[0].toFixed(1)},${p[1].toFixed(1)} ${q[0].toFixed(1)},${q[1].toFixed(1)}`, hue, ops[i]);
+    });
+    return out + poly('76,16 80,26 90,28 80,31 76,41 72,31 62,28 72,26', '--amber', 0.95);
+  },
+  /* En pendel som svinger, med buen den følger. */
+  simulation: hue =>
+    poly('22,14 74,14 48,22', hue, 0.95) +
+    '<path d="M48 20 L64 62" style="stroke:var(' + hue + ')" stroke-width="2.2" stroke-opacity="0.85"/>' +
+    '<path d="M28 66 Q48 82 68 66" fill="none" style="stroke:var(' + hue + ')" stroke-width="2" stroke-dasharray="3 4" stroke-opacity="0.7"/>' +
+    '<path d="M48 20 L36 60" style="stroke:var(' + hue + ')" stroke-width="1.6" stroke-opacity="0.3"/>' +
+    facetBall(36, 62, 8, hue).replace(/fill-opacity="([\d.]+)"/g, (m, v) => `fill-opacity="${(v * 0.3).toFixed(2)}"`) +
+    facetBall(64, 64, 11, hue) +
+    poly('0,96 30,84 52,92', '--primary', 0.55) + poly('52,92 78,82 96,96', '--amber', 0.6) +
+    poly('30,84 52,92 0,96', '--primary', 0.35),
+};
+
+function resourceArt(kind) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 96 96');
+  svg.setAttribute('aria-hidden', 'true');
+  const hue = ART_HUE[kind] || '--primary';
+  const seed = { lesson: 7, minitree: 19, simulation: 31, exam: 43, motivation: 53 }[kind] || 3;
+  svg.innerHTML = lowPolyBackground(hue, seed) + (ART_FOREGROUND[kind] ? ART_FOREGROUND[kind](hue) : '');
+  return svg;
 }
 
 // Zoomer ut (aldri inn utover 100%) og flytter visningen slik at hele
@@ -3116,7 +4588,10 @@ async function init() {
   if (SHOW_MOTIVATION_BUTTON) setupMotivationButton();
   /* Sist i panelet: «ta treet med deg» er det sjeldneste av valgene, og
      det eneste som ikke handler om å bruke treet her og nå. */
+  setupPrintButton();
   setupDownloadButton();
+  organizeActionMenu();
+  setupShortcuts();
   try {
     /* Nodene er allerede lest av bootstrap() - tree.csv er ÉN fil, og den
        måtte leses først for å finne treets språk. Ressursene står i den
@@ -3132,6 +4607,11 @@ async function init() {
     publishEffectiveConfig();
     layoutAndRender();
     updateProgressUI();
+    /* Kortene måles når de tegnes (se renderGraph). Kommer skrifta etter,
+       blir målene feil, så da tegnes treet én gang til. */
+    if (document.fonts && document.fonts.status !== 'loaded') {
+      document.fonts.ready.then(() => { layoutOptimizedX = null; refreshAfterProgressChange(); });
+    }
   } catch (err) {
     console.error('Kunne ikke laste ferdighetstreet:', err);
     validationErrors.push(t('loadError', { message: err.message }));
@@ -3715,6 +5195,7 @@ function layoutAndRender() {
       row.forEach((node, i) => {
         node.x = rowStartX + i * (LAYOUT.nodeWidth + LAYOUT.hGap);
         node.y = LAYOUT.columnLabelHeight + rowIndex * (LAYOUT.nodeHeight + LAYOUT.vGap);
+        node.row = rowIndex;
       });
     });
 
@@ -3732,13 +5213,230 @@ function layoutAndRender() {
   container.style.width = totalWidth + 'px';
   container.style.height = totalHeight + 'px';
 
+  /* Er treet optimalisert fra før, står kortene på de optimaliserte
+     plassene også når kodene deles ut, ellers ville kodene byttet tilbake
+     hver gang noe ble krysset av. */
+  if (layoutOptimizedX && Number(LAYOUT.compact) && Number(LAYOUT.optimize)) {
+    allNodes.forEach(n => { if (layoutOptimizedX.has(n.id)) n.x = layoutOptimizedX.get(n.id); });
+    if (allNodes.every(n => n.h)) compactVertically();
+  }
   assignLearningGoalIndices(columns);
-  renderGraph(columnMeta);
+  /* Flyttet optimaliseringen kortene, nummereres de på nytt etter de nye
+     plassene (nivå, så høyde, så venstre mot høyre), og treet tegnes igjen
+     med de nye kodene. Skjer bare første gang. */
+  if (renderGraph(columnMeta)) {
+    assignLearningGoalIndices(columns);
+    renderGraph(columnMeta);
+  }
 }
 
 /* ------------------------------------------------------------------ */
 /* Rendering av grafen                                                  */
 /* ------------------------------------------------------------------ */
+
+/* Et kort som bryter teksten over flere linjer, blir ellers like bredt som
+   største bredde (LAYOUT.nodeWidth) selv om ingen linje fyller det, og får
+   et tomt felt til høyre (Vidar, 2026-11-11). Den lengste linja måles, og
+   teksten får akkurat den bredden. */
+function shrinkWrapNode(el) {
+  const text = el.querySelector('.node-text');
+  if (!text || !text.offsetWidth) return;
+  const range = document.createRange();
+  range.selectNodeContents(text);
+  const rects = [...range.getClientRects()].filter(r => r.width > 0);
+  if (rects.length < 2) return;
+  const tops = new Set(rects.map(r => Math.round(r.top)));
+  if (tops.size < 2) return;            // én linje: allerede så smal som teksten
+  const scale = (text.getBoundingClientRect().width / text.offsetWidth) || 1;
+  const left = Math.min(...rects.map(r => r.left));
+  const right = Math.max(...rects.map(r => r.right));
+  text.style.flex = '0 0 auto';
+  text.style.width = Math.ceil((right - left) / scale + 1) + 'px';
+}
+
+/* Kompakt layout (forsøk fra 2026-11-11). Før sto kortene i faste rader
+   etter nivå, og et kort med én forutsetning høyt oppe kunne bli stående
+   langt ned fordi et annet emne trengte mange rader. Nå legges kortene ut
+   rad for rad, og hvert kort havner så høyt som to krav tillater:
+     1. under ALLE forutsetningene sine, med luft til kanten (compactGap),
+        også når forutsetningen står i et annet emne. Pilene peker derfor
+        fortsatt alltid nedover;
+     2. under kortet som allerede står i samme plass i kolonnen.
+   Den vannrette plasseringen er uendret. Et kort som venter på en
+   forutsetning langt nede et annet sted, står fortsatt langt nede.
+   Returnerer underkanten av det nederste kortet. */
+function boxSpan(n) {
+  const w = n.w || LAYOUT.nodeWidth;
+  const left = n.x + (LAYOUT.nodeWidth - w) / 2;
+  return [left, left + w];
+}
+
+/* Ryddigere kanter (fra 2026-11-11). Etter at kortene er lagt ut, prøver
+   motoren små trekk og beholder dem som gjør kartet ryddigere: et kort
+   kan flytte seg en halv plass til siden, eller bytte plass med naboen i
+   samme rad. Et trekk beholdes bare når summen av fire ting blir mindre:
+     - linjer som krysser hverandre (teller mye),
+     - linjer som går under et kort de ikke hører til (teller mest),
+     - lengden på linjene,
+     - hvor langt kortene har flyttet seg fra der de startet, så
+       rekkefølgen (A1, A2 …) stort sett blir som før.
+   Bare linjer innenfor samme emne teller, siden linjer mellom emner bare
+   vises som stubber. Søket er grådig og deterministisk, uten tilfeldighet:
+   samme tre gir alltid samme kart, og dermed de samme kodene. Det kjøres
+   én gang når treet lastes (se layoutOptimizedX), ikke for hvert trykk.
+   Slås av med `layout.optimize,0`. */
+let layoutOptimizedX = null;
+const OPT_WEIGHTS = { cross: 4, under: 6, length: 1 / 120, order: 0.8, height: 1 / 150 };
+
+function optimizeLayout(columnMeta) {
+  const U = LAYOUT.nodeWidth + LAYOUT.hGap;
+  const cols = columnMeta.map(c => {
+    const slots = Math.max(1, Math.round((c.width + LAYOUT.hGap) / U));
+    const ids = new Set(c.nodes.map(n => n.id));
+    const edges = [];
+    c.nodes.forEach(n => {
+      n._colX = c.x;
+      n._pos = n._pos0 = Math.round(2 * (n.x - c.x) / U);
+      drawnDependencies(n).forEach(id => { if (ids.has(id)) edges.push([nodesById.get(id), n]); });
+    });
+    const rows = new Map();
+    c.nodes.forEach(n => { if (!rows.has(n.row)) rows.set(n.row, []); rows.get(n.row).push(n); });
+    return { nodes: c.nodes, edges, maxPos: 2 * (slots - 1), rows: [...rows.values()], sig: null, cost: 0 };
+  });
+  const place = n => { n.x = n._colX + n._pos / 2 * U; };
+  const signature = col => col.nodes.reduce((h, n, i) => h + (n.x * 31 + n.y * 17) * (i + 1), 0);
+  const evaluate = () => {
+    compactVertically();
+    let total = 0;
+    cols.forEach(col => {
+      const sig = signature(col);
+      if (sig !== col.sig) { col.sig = sig; col.cost = columnLayoutCost(col); }
+      total += col.cost;
+    });
+    return total;
+  };
+  const free = (n, pos, row) => pos >= 0 && row.every(m => m === n || Math.abs(m._pos - pos) >= 2);
+
+  let best = evaluate();
+  for (let pass = 0; pass < 4; pass++) {
+    let improved = false;
+    cols.forEach(col => {
+      if (col.maxPos === 0) return;
+      col.rows.forEach(row => {
+        [...row].sort((a, b) => a._pos - b._pos).forEach(n => {
+          const sorted = [...row].sort((a, b) => a._pos - b._pos);
+          const i = sorted.indexOf(n);
+          const moves = [
+            { to: n._pos - 1 }, { to: n._pos + 1 },
+            { swap: sorted[i - 1] }, { swap: sorted[i + 1] },
+          ];
+          for (const mv of moves) {
+            const from = n._pos;
+            if (mv.swap === undefined) {
+              if (mv.to > col.maxPos || !free(n, mv.to, row)) continue;
+              n._pos = mv.to; place(n);
+              const c = evaluate();
+              if (c < best - 0.01) { best = c; improved = true; break; }
+              n._pos = from; place(n);
+            } else if (mv.swap) {
+              const m = mv.swap, mf = m._pos;
+              n._pos = mf; m._pos = from; place(n); place(m);
+              const c = evaluate();
+              if (c < best - 0.01) { best = c; improved = true; break; }
+              n._pos = from; m._pos = mf; place(n); place(m);
+            }
+          }
+        });
+      });
+    });
+    if (!improved) break;
+  }
+  evaluate();
+  allNodes.forEach(n => { delete n._pos; delete n._pos0; delete n._colX; });
+}
+
+function columnLayoutCost(col) {
+  const W = LAYOUT.nodeWidth;
+  const N = 10;
+  const polys = col.edges.map(([a, b]) => {
+    const x1 = a.x + W / 2, y1 = a.y + a.h, x2 = b.x + W / 2, y2 = b.y, my = (y1 + y2) / 2;
+    const pts = [];
+    for (let k = 0; k <= N; k++) {
+      const t = k / N, u = 1 - t;
+      pts.push([u * u * u * x1 + 3 * u * u * t * x1 + 3 * u * t * t * x2 + t * t * t * x2,
+                u * u * u * y1 + 3 * u * u * t * my + 3 * u * t * t * my + t * t * t * y2]);
+    }
+    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+    return { a, b, pts, box: [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)] };
+  });
+  let length = 0;
+  polys.forEach(pl => { for (let k = 1; k <= N; k++) length += Math.hypot(pl.pts[k][0] - pl.pts[k - 1][0], pl.pts[k][1] - pl.pts[k - 1][1]); });
+
+  const orient = (p, q, r) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]);
+  const segX = (p1, p2, p3, p4) => {
+    const d1 = orient(p3, p4, p1), d2 = orient(p3, p4, p2), d3 = orient(p1, p2, p3), d4 = orient(p1, p2, p4);
+    return ((d1 > 0) !== (d2 > 0)) && ((d3 > 0) !== (d4 > 0));
+  };
+  let cross = 0;
+  for (let i = 0; i < polys.length; i++) {
+    for (let j = i + 1; j < polys.length; j++) {
+      const P = polys[i], Q = polys[j];
+      if (P.a === Q.a || P.a === Q.b || P.b === Q.a || P.b === Q.b) continue;
+      if (P.box[2] < Q.box[0] || Q.box[2] < P.box[0] || P.box[3] < Q.box[1] || Q.box[3] < P.box[1]) continue;
+      let hit = false;
+      for (let k = 1; k <= N && !hit; k++) {
+        for (let m = 1; m <= N && !hit; m++) {
+          if (segX(P.pts[k - 1], P.pts[k], Q.pts[m - 1], Q.pts[m])) hit = true;
+        }
+      }
+      if (hit) cross++;
+    }
+  }
+
+  let under = 0;
+  polys.forEach(pl => {
+    col.nodes.forEach(n => {
+      if (n === pl.a || n === pl.b) return;
+      const [l, r] = boxSpan(n);
+      const t = n.y + 3, btm = n.y + n.h - 3;
+      if (pl.box[2] < l || r < pl.box[0] || pl.box[3] < t || btm < pl.box[1]) return;
+      if (pl.pts.some(([x, y]) => x > l + 3 && x < r - 3 && y > t && y < btm)) under++;
+    });
+  });
+
+  const order = col.nodes.reduce((sum, n) => sum + Math.abs(n._pos - n._pos0), 0);
+  const height = col.nodes.reduce((m, n) => Math.max(m, n.y + n.h), 0);
+  return cross * OPT_WEIGHTS.cross + under * OPT_WEIGHTS.under + length * OPT_WEIGHTS.length +
+         order * OPT_WEIGHTS.order + height * OPT_WEIGHTS.height;
+}
+
+function compactVertically() {
+  const gap = Number(LAYOUT.compactGap) || 44;
+  const top = LAYOUT.columnLabelHeight;
+  const order = [...allNodes].sort((a, b) => a.row - b.row || a.x - b.x);
+  const placed = [];
+  let bottom = top;
+  order.forEach(node => {
+    let y = top;
+    node.depends_on.forEach(id => {
+      const dep = nodesById.get(id);
+      if (dep && dep._placed) y = Math.max(y, dep.y + dep.h + gap);
+    });
+    /* Bare kort som faktisk står over hverandre teller, med kortenes
+       virkelige bredde (de er sentrert i plassen sin). */
+    const [l, r] = boxSpan(node);
+    placed.forEach(m => {
+      const [ml, mr] = boxSpan(m);
+      if (ml < r + 16 && l < mr + 16) y = Math.max(y, m.y + m.h + gap);
+    });
+    node.y = y;
+    node._placed = true;
+    placed.push(node);
+    bottom = Math.max(bottom, y + node.h);
+  });
+  allNodes.forEach(n => { delete n._placed; });
+  return bottom;
+}
 
 function renderGraph(columnMeta) {
   const container = document.getElementById('graph-container');
@@ -3752,22 +5450,8 @@ function renderGraph(columnMeta) {
   svg.innerHTML = '';
 
   const width = container.clientWidth || parseInt(container.style.width, 10);
-  const height = container.clientHeight || parseInt(container.style.height, 10);
   svg.setAttribute('width', width);
-  svg.setAttribute('height', height);
-
-  // Bakgrunnsbånd bak hver kolonne, annenhver farge, så det er lett å se hvor
-  // ett emne slutter og det neste begynner.
-  const bandHeight = height - LAYOUT.padding * 2;
-  columnMeta.forEach((col, i) => {
-    const band = document.createElement('div');
-    band.className = 'column-band' + (i % 2 === 1 ? ' column-band-alt' : '');
-    band.style.left = (LAYOUT.padding + col.x - LAYOUT.columnGap / 2) + 'px';
-    band.style.top = LAYOUT.padding + 'px';
-    band.style.width = (col.width + LAYOUT.columnGap) + 'px';
-    band.style.height = bandHeight + 'px';
-    bandsLayer.appendChild(band);
-  });
+  svg.setAttribute('height', container.clientHeight || parseInt(container.style.height, 10));
 
   // Kolonneoverskrifter, med snarveier for å merke/fjerne mestret-status for
   // alle noder i temaet samtidig (se bulkSetMastery).
@@ -3786,27 +5470,72 @@ function renderGraph(columnMeta) {
     const actions = document.createElement('span');
     actions.className = 'column-header-actions';
 
-    const markBtn = document.createElement('button');
-    markBtn.type = 'button';
-    markBtn.className = 'column-header-btn';
-    markBtn.textContent = '✓';
-    markBtn.title = t('column.markAll', { topic: col.topic });
-    markBtn.addEventListener('click', () => bulkSetMastery(col.nodes, true));
-    actions.appendChild(markBtn);
-
-    const clearBtn = document.createElement('button');
-    clearBtn.type = 'button';
-    clearBtn.className = 'column-header-btn';
-    clearBtn.textContent = '✕';
-    clearBtn.title = t('column.clearAll', { topic: col.topic });
-    clearBtn.addEventListener('click', () => bulkSetMastery(col.nodes, false));
-    actions.appendChild(clearBtn);
+    actions.appendChild(bulkIconButton(t('column.markAll', { topic: col.topic }), true, false,
+      () => bulkSetMastery(col.nodes, true)));
+    actions.appendChild(bulkIconButton(t('column.clearAll', { topic: col.topic }), false, false,
+      () => bulkSetMastery(col.nodes, false)));
 
     header.appendChild(actions);
     headersLayer.appendChild(header);
   });
 
   const progress = getProgress();
+
+  // Noder FØRST (fra 2026-11-11): kortene er så store som teksten, så de
+  // må måles før kantene kan tegnes. Hvert kort sentreres i plassen sin,
+  // og høyden lagres på noden (node.h) til kantene under.
+  const nodeEls = new Map();
+  allNodes.forEach(node => {
+    const el = createNodeElement(node, progress);
+    nodesLayer.appendChild(el);
+    shrinkWrapNode(el);
+    node.w = el.offsetWidth || LAYOUT.nodeWidth;
+    node.h = el.offsetHeight || LAYOUT.nodeHeight;
+    nodeEls.set(node.id, el);
+  });
+
+  /* Ryddigere kanter: optimaliseringen kjøres første gang, og resultatet
+     brukes igjen ved hver ny tegning (se optimizeLayout). */
+  let optimizedNow = false;
+  if (Number(LAYOUT.compact) && Number(LAYOUT.optimize)) {
+    if (!layoutOptimizedX) {
+      optimizeLayout(columnMeta);
+      layoutOptimizedX = new Map(allNodes.map(n => [n.id, n.x]));
+      optimizedNow = true;
+    } else {
+      allNodes.forEach(n => { if (layoutOptimizedX.has(n.id)) n.x = layoutOptimizedX.get(n.id); });
+    }
+  }
+  allNodes.forEach(node => {
+    nodeEls.get(node.id).style.left = (LAYOUT.padding + node.x + (LAYOUT.nodeWidth - node.w) / 2) + 'px';
+  });
+
+  /* Kompakt layout: kortene flyttes opp så langt avhengighetene og
+     kortene over tillater, og lerretet blir så høyt som det trengs. */
+  let height = container.clientHeight || parseInt(container.style.height, 10);
+  if (Number(LAYOUT.compact)) {
+    const bottom = compactVertically();
+    height = bottom + LAYOUT.padding * 2;
+    container.style.height = height + 'px';
+    svg.setAttribute('height', height);
+  }
+  allNodes.forEach(node => {
+    nodeEls.get(node.id).style.top = (LAYOUT.padding + node.y) + 'px';
+  });
+
+  // Bakgrunnsbånd bak hver kolonne, annenhver farge, så det er lett å se hvor
+  // ett emne slutter og det neste begynner.
+  const bandHeight = height - LAYOUT.padding * 2;
+  columnMeta.forEach((col, i) => {
+    const band = document.createElement('div');
+    band.className = 'column-band' + (i % 2 === 1 ? ' column-band-alt' : '');
+    band.style.left = (LAYOUT.padding + col.x - LAYOUT.columnGap / 2) + 'px';
+    band.style.top = LAYOUT.padding + 'px';
+    band.style.width = (col.width + LAYOUT.columnGap) + 'px';
+    band.style.height = bandHeight + 'px';
+    bandsLayer.appendChild(band);
+  });
+
 
   // Kanter. Bare de direkte kantene tegnes: en avhengighet som allerede følger
   // av en lengre vei (A→C når A→B→C finnes) utelates fra tegningen. Fila,
@@ -3817,7 +5546,7 @@ function renderGraph(columnMeta) {
       const dep = nodesById.get(depId);
       if (!dep) return;
       const x1 = LAYOUT.padding + dep.x + LAYOUT.nodeWidth / 2;
-      const y1 = LAYOUT.padding + dep.y + LAYOUT.nodeHeight;
+      const y1 = LAYOUT.padding + dep.y + (dep.h || LAYOUT.nodeHeight);
       const x2 = LAYOUT.padding + node.x + LAYOUT.nodeWidth / 2;
       const y2 = LAYOUT.padding + node.y;
       const midY = (y1 + y2) / 2;
@@ -3854,12 +5583,8 @@ function renderGraph(columnMeta) {
     });
   });
 
-  // Noder
-  allNodes.forEach(node => {
-    nodesLayer.appendChild(createNodeElement(node, progress));
-  });
-
   updateEdgeHighlight();
+  return optimizedNow;
 }
 
 /* Stubbene er den første og den siste biten av selve kanten: kurven kuttes der
@@ -3940,13 +5665,71 @@ function updateEdgeHighlight() {
   });
 }
 
+/* Det lille merket for ett læringsmål: bare koden, i treets farge og form
+   (fra 2026-11-11). Uten onToggle er det en visning; med er det en knapp
+   som er svak når målet er valgt bort. */
+function goalTag(node, on, onToggle) {
+  const tag = makeEl(onToggle ? 'button' : 'span', 'goal-tag type-' + node.type, node.goalIndex);
+  tag.title = node.goalIndex + ') ' + node.name;
+  if (onToggle) {
+    tag.type = 'button';
+    tag.setAttribute('aria-pressed', String(!!on));
+    tag.setAttribute('aria-label', node.goalIndex + ') ' + node.name);
+    if (!on) tag.classList.add('off');
+    tag.addEventListener('click', () => {
+      const now = tag.classList.contains('off');
+      tag.classList.toggle('off', !now);
+      tag.setAttribute('aria-pressed', String(now));
+      onToggle(now);
+    });
+  }
+  return tag;
+}
+
+/* Et utvalg som rekke av merker, med en kort etikett foran. Tomt utvalg
+   gir «Ingen læringsmål valgt» i rødt. */
+function goalTagList(nodes, label) {
+  const wrap = makeEl('div', 'goal-tags');
+  if (!nodes.length) {
+    wrap.appendChild(makeEl('span', 'goal-tags-empty', t('lesson.selectedNone')));
+    return wrap;
+  }
+  if (label) wrap.appendChild(makeEl('span', 'goal-tags-label', label));
+  nodes.forEach(n => wrap.appendChild(goalTag(n)));
+  return wrap;
+}
+
+/* Haken for «mestret»: grå og svak til den trykkes, så grønn. Samme
+   komponent på kortet i treet og i læringsmål-lista (fra 2026-11-11, i
+   stedet for en avkrysningsboks). En knapp med aria-pressed, så den virker
+   med tastatur og skjermleser. */
+const CHECK_SVG = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M6 10.3l2.7 2.7 5.4-5.8"/></svg>';
+function masteryCheck(on, label, onChange) {
+  const b = makeEl('button', 'mastery-check');
+  b.type = 'button';
+  b.setAttribute('aria-pressed', String(!!on));
+  b.setAttribute('aria-label', label);
+  b.title = label;
+  b.innerHTML = CHECK_SVG;
+  b.addEventListener('click', e => {
+    e.stopPropagation();
+    const now = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', String(now));
+    onChange(now);
+  });
+  return b;
+}
+
 function createNodeElement(node, progress) {
   const el = document.createElement('div');
   el.className = `node-box type-${node.type}`;
   el.style.left = (LAYOUT.padding + node.x) + 'px';
   el.style.top = (LAYOUT.padding + node.y) + 'px';
-  el.style.width = LAYOUT.nodeWidth + 'px';
-  el.style.minHeight = LAYOUT.nodeHeight + 'px';
+  /* Fra 2026-11-11 (utkast) er kortet så stort som teksten, opptil
+     plassen det har i rutenettet: et kort navn gir et lite kort. Det
+     sentreres i plassen sin etter at det er målt (renderGraph), og kantene
+     går fra den målte underkanten. */
+  el.style.maxWidth = LAYOUT.nodeWidth + 'px';
   el.dataset.nodeId = node.id;
 
   const mastered = isNodeMastered(node, progress);
@@ -3960,55 +5743,49 @@ function createNodeElement(node, progress) {
 
   const name = document.createElement('div');
   name.className = 'node-name';
+  const text = makeEl('span', 'node-text');
   const indexSpan = document.createElement('span');
   indexSpan.className = 'node-index';
   indexSpan.textContent = node.goalIndex + ') ';
-  name.appendChild(indexSpan);
-  name.appendChild(document.createTextNode(node.name));
+  text.appendChild(indexSpan);
+  text.appendChild(document.createTextNode(node.name));
+  name.appendChild(text);
+  /* Teksten og haken står i hver sin kolonne: koden oppe til venstre,
+     haken nederst til høyre, på linje med siste tekstlinje. Haken lå først
+     i hjørnet av kortet og havnet oppå den runde kanten på ferdighetskortene,
+     og som flyt i teksten hoppet den ned på en egen linje når kortet bare
+     var så bredt som teksten (Vidar, 2026-11-11: «ser rar ut»). */
+  const entry = progress[node.id] || {};
+  name.appendChild(masteryCheck(!!entry.mastered, t('node.markMastered'),
+    on => setNodeProgress(node.id, 'mastered', on)));
   topRow.appendChild(name);
 
   el.appendChild(topRow);
 
-  const entry = progress[node.id] || {};
+  /* «Del 1» og «FERDIGHET» står ikke på kortet (fra 2026-11-11), bare i
+     detaljpanelet. Typen synes gjennom farge og form. */
 
-  const meta = document.createElement('div');
-  meta.className = 'node-meta';
-
-  const metaLeft = document.createElement('div');
-  metaLeft.className = 'node-meta-left';
-  if (treeUsesAids()) { const tag = makeAidsTag(node); if (tag) metaLeft.appendChild(tag); }
-  const typeLabel = document.createElement('span');
-  typeLabel.className = 'badge-type';
-  typeLabel.textContent = typeLabelText(node.type);
-  metaLeft.appendChild(typeLabel);
-  meta.appendChild(metaLeft);
-
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.className = 'node-checkbox';
-  checkbox.checked = !!entry.mastered;
-  checkbox.title = t('node.markMastered');
-  checkbox.addEventListener('click', e => e.stopPropagation());
-  checkbox.addEventListener('change', () => setNodeProgress(node.id, 'mastered', checkbox.checked));
-  meta.appendChild(checkbox);
-
-  el.appendChild(meta);
-
-  el.addEventListener('click', () => openDetail(node.id));
+  /* Et nytt trykk på det markerte kortet avmarkerer det og lukker panelet
+     (Vidar, 2026-11-11). */
+  el.addEventListener('click', () => {
+    if (activeNodeId === node.id) closeDetail(); else openDetail(node.id);
+  });
 
   return el;
 }
 
 function createMasteryToggle(labelText, checked, onChange) {
-  const label = document.createElement('label');
-  label.className = 'mastered-toggle';
-  const input = document.createElement('input');
-  input.type = 'checkbox';
-  input.checked = !!checked;
-  input.addEventListener('change', () => onChange(input.checked));
-  label.appendChild(input);
-  label.appendChild(document.createTextNode(labelText));
-  return label;
+  /* Samme hake som på kortet og i lista (fra 2026-11-11), med teksten ved
+     siden av. Teksten kan også trykkes. */
+  const wrap = makeEl('div', 'mastered-toggle');
+  const check = masteryCheck(checked, labelText, onChange);
+  check.classList.add('inline');
+  const text = makeEl('button', 'mastered-toggle-text', labelText);
+  text.type = 'button';
+  text.addEventListener('click', () => check.click());
+  wrap.appendChild(check);
+  wrap.appendChild(text);
+  return wrap;
 }
 
 
@@ -4181,6 +5958,7 @@ function renderDetail(node) {
 
   const closeBtn = document.createElement('button');
   closeBtn.id = 'detail-close';
+  closeBtn.className = 'nav-btn';
   closeBtn.textContent = t('closeLower');
   closeBtn.addEventListener('click', closeDetail);
   inner.appendChild(closeBtn);
@@ -4192,8 +5970,10 @@ function renderDetail(node) {
   const meta = document.createElement('div');
   meta.id = 'detail-meta';
   if (treeUsesAids()) { const tag = makeAidsTag(node); if (tag) meta.appendChild(tag); }
+  /* Typen står i et lite merke med typens egen farge og form, som et
+     læringsmål ellers i treet (fra 2026-11-11). */
   const typeBadge = document.createElement('span');
-  typeBadge.className = 'badge-type';
+  typeBadge.className = 'type-chip goal-tag type-' + node.type;
   typeBadge.textContent = typeLabelText(node.type);
   meta.appendChild(typeBadge);
   inner.appendChild(meta);
@@ -4287,12 +6067,12 @@ function renderDetail(node) {
 
   const showBtn = document.createElement('button');
   showBtn.className = 'btn secondary';
-  showBtn.textContent = t('detail.show');
+  const showLabel = swapLabel(showBtn, [t('detail.show'), t('detail.hide')]);
   actions.appendChild(showBtn);
 
   const copyBtn = document.createElement('button');
   copyBtn.className = 'btn';
-  copyBtn.textContent = t('detail.copy');
+  const copyLabel = swapLabel(copyBtn, [t('detail.copy'), t('copied')]);
   actions.appendChild(copyBtn);
 
   inner.appendChild(actions);
@@ -4306,15 +6086,14 @@ function renderDetail(node) {
 
   showBtn.addEventListener('click', () => {
     const visible = textarea.classList.toggle('visible');
-    showBtn.textContent = visible ? t('detail.hide') : t('detail.show');
+    showLabel(visible ? 1 : 0);
   });
 
   copyBtn.addEventListener('click', () => {
     trackCopy('node', { node_id: node.id, node_title: node.name || null, node_topic: node.topic || null });
     navigator.clipboard.writeText(instructionText).then(() => {
-      const original = copyBtn.textContent;
-      copyBtn.textContent = t('copied');
-      setTimeout(() => { copyBtn.textContent = original; }, 1500);
+      copyLabel(1);
+      setTimeout(() => copyLabel(0), 1500);
     }).catch(() => {
       textarea.classList.add('visible');
       textarea.select();

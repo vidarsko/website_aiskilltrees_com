@@ -204,23 +204,33 @@ header {
   line-height: 1.5;
 }
 
+/* Menyvalgene (fra 2026-11-11): en rad med et lite lavpoly-ikon til
+   venstre og navnet til høyre, gruppert under Øve / Planlegge / Om. Se
+   organizeActionMenu i engine.js. Radene har ingen ramme; gruppene skiller
+   dem. */
 #action-menu-panel #motivation-btn,
 #action-menu-panel #goal-index-btn,
 #action-menu-panel #lesson-planner-btn,
+#action-menu-panel #exam-btn,
 #action-menu-panel #search-btn,
 #action-menu-panel #resources-btn,
 #action-menu-panel #course-info-btn,
 #action-menu-panel #help-btn,
+#action-menu-panel #print-btn,
 #action-menu-panel #download-btn,
 #action-menu-panel #edit-link {
-  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font: inherit;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
-  padding: 0.55rem 0.9rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-  background: var(--bg);
+  padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
   color: var(--text);
+  text-decoration: none;
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -231,18 +241,43 @@ header {
 #action-menu-panel #motivation-btn:hover,
 #action-menu-panel #goal-index-btn:hover,
 #action-menu-panel #lesson-planner-btn:hover,
+#action-menu-panel #exam-btn:hover,
 #action-menu-panel #search-btn:hover,
 #action-menu-panel #resources-btn:hover,
 #action-menu-panel #course-info-btn:hover,
 #action-menu-panel #help-btn:hover,
+#action-menu-panel #print-btn:hover,
 #action-menu-panel #download-btn:hover,
 #action-menu-panel #edit-link:hover {
-  border-color: var(--border-strong);
+  border-color: var(--border);
   background: var(--surface-hover);
+}
+
+.menu-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.menu-group {
+  display: grid;
+  gap: 0.1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+.menu-group-label {
+  padding: 0 0.35rem 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 /* Enkeltfil-utgaven tar et par sekunder å sette sammen. Knappen sier det
    med teksten sin; dette er bare for at den ikke skal se trykkbar ut imens. */
+#action-menu-panel #print-btn[disabled],
 #action-menu-panel #download-btn[disabled] {
   opacity: 0.6;
   cursor: progress;
@@ -475,25 +510,6 @@ main {
   color: var(--text);
 }
 
-#action-menu-panel #exam-btn {
-  flex: 1 1 auto;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  padding: 0.55rem 0.9rem;
-  border-radius: var(--radius-pill);
-  border: none;
-  background: var(--accent-grad);
-  color: var(--ink-inverse);
-  cursor: pointer;
-  white-space: normal;
-  transition: transform 0.15s ease, opacity 0.15s ease;
-}
-
-#action-menu-panel #exam-btn:hover {
-  transform: translateY(-1px);
-  opacity: 0.92;
-}
 
 @media (max-width: 720px) {
   #bottom-toolbar { left: 1rem; bottom: 1rem; }
@@ -709,6 +725,253 @@ main {
 #lesson-plan-btn:disabled {
   cursor: default;
   opacity: 0.45;
+}
+
+/* Ressursvelgeren (utkast 2026-11-10): bytter plass med lista i samme
+   vindu. Hvert kort har sin farge fra nettstedets tre - grønn, oransje,
+   blå - gjennom --card-hue, som valgte knapper, kopier-knappen og kanten
+   bruker. */
+#resource-picker {
+  overflow-y: auto;
+  padding: 1rem 1.6rem 1.8rem;
+}
+#resource-picker[hidden] { display: none; }
+#goal-index-body[hidden],
+#goal-index-copy[hidden] { display: none; }
+
+.resource-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin-bottom: 1.1rem;
+}
+.resource-summary {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.resource-codes { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 600; }
+
+.resource-list { display: grid; gap: 1rem; }
+
+.resource-card {
+  --card-hue: var(--primary);
+  --card-tint: var(--primary-tint);
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1.1rem;
+  padding: 1.1rem 1.2rem 1.1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--card-hue);
+  background: var(--surface);
+}
+.resource-minitree { --card-hue: var(--amber); --card-tint: var(--amber-tint); }
+.resource-simulation { --card-hue: var(--blue); --card-tint: rgba(37, 99, 168, 0.10); }
+
+.resource-art svg {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--border);
+}
+
+.resource-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+.resource-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--card-tint);
+  color: var(--card-hue);
+}
+.resource-desc {
+  margin: 0.3rem 0 0.8rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.resource-options { display: grid; gap: 0.75rem; }
+.resource-field { display: grid; gap: 0.35rem; }
+.resource-field-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.resource-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* Segmentert valg */
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.seg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.38rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.seg-btn:hover { border-color: var(--border-strong); }
+.seg-btn[aria-checked="true"] {
+  background: var(--card-hue);
+  border-color: var(--card-hue);
+  color: var(--ink-inverse);
+}
+.seg-btn:focus-visible,
+.stepper-btn:focus-visible,
+.resource-copy:focus-visible,
+.switch input:focus-visible + .switch-track {
+  outline: 2px solid var(--card-hue);
+  outline-offset: 2px;
+}
+.seg-glyph {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Lengden: knapper + teller */
+.minutes-control {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+}
+.stepper-btn {
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+}
+.stepper-btn:hover { background: var(--surface-hover); }
+.stepper-value {
+  min-width: 4.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Brytere */
+.switches { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; }
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.switch-track {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 1.2rem;
+  border-radius: var(--radius-pill);
+  background: var(--rule-strong, rgba(26, 29, 27, 0.30));
+  transition: background 0.15s ease;
+}
+.switch-track::after {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--surface);
+  transition: transform 0.15s ease;
+}
+.switch input:checked + .switch-track { background: var(--card-hue); }
+.switch input:checked + .switch-track::after { transform: translateX(0.9rem); }
+
+.resource-foot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+  margin-top: 1rem;
+}
+.resource-copy {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: var(--card-hue);
+  color: var(--ink-inverse);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.resource-copy:hover { transform: translateY(-1px); opacity: 0.92; }
+.resource-after {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  flex: 1 1 14rem;
+}
+.resource-credit {
+  margin: 0.6rem 0 0;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+@media (max-width: 720px) {
+  #resource-picker { padding: 0.9rem 1rem 1.4rem; }
+  .resource-card { grid-template-columns: 1fr; gap: 0.7rem; }
+  .resource-art svg { width: 64px; height: 64px; }
 }
 
 @media (max-width: 720px) {
@@ -1240,8 +1503,13 @@ main {
    `skill` | `concept` in every language (schema 3). Until 0.16.1 this rule
    said `.type-ferdighet`, the Norwegian name from before the enum, so no node
    ever matched it and every skill was drawn as a concept. */
+/* Hjørnene sier typen, ikke bare fargen (WCAG 1.4.1: farge alene er ikke
+   nok). Fra hardt til mykt: fakta 2px, begrep 10px, ferdighet 26px. Vidar,
+   2026-11-11. Forskjellen må være stor nok til å synes når treet er zoomet
+   ut; 8px mot 3px gjorde ikke det. */
+.node-box.type-concept { border-radius: 10px; }
 .node-box.type-skill {
-  border-radius: 8px;
+  border-radius: 26px;
   background: var(--ferdighet-bg);
   border-color: var(--ferdighet-border);
 }
@@ -1249,7 +1517,7 @@ main {
 /* A fact node gets a third corner as well as a third colour, so the three
    types differ in shape too, not only in fill. */
 .node-box.type-fact {
-  border-radius: 3px;
+  border-radius: 2px;
   background: var(--fakta-bg);
   border-color: var(--fakta-border);
 }
@@ -1610,9 +1878,6 @@ main {
    (modals, panels, the node boxes) stay square, so --radius is still 0.
    The marketing pages are untouched and remain square throughout. */
 .btn,
-#action-menu-panel #goal-index-btn,
-#action-menu-panel #lesson-planner-btn,
-#action-menu-panel #exam-btn,
 #lesson-plan-btn,
 .linkbtn,
 .column-header-btn {
@@ -1744,3 +2009,513 @@ body {
   stroke: color-mix(in srgb, var(--accent) 85%, transparent);
   stroke-width: 2.4;
 }
+
+/* ------------------------------------------------------------------ */
+/* Utkast 2026-11-11: én tilbake-knapp, «?» i stedet for innledninger,   */
+/* et felles enkelt vindu (prøven), og plass i den runde ferdighetsnoden. */
+/* ------------------------------------------------------------------ */
+
+/* ÉN tilbake-knapp overalt: lenka til alle trær i menyen og «Læringsmålene»
+   i ressursvelgeren. Samme pille, samme pil, og teksten sier hvor du havner. */
+.back-btn,
+.back-link.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.back-btn:hover,
+.back-btn:focus-visible,
+.back-link.back-btn:hover,
+.back-link.back-btn:focus-visible {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+/* «?»: forklaringen ligger bak den, og vinduet skal virke uten. */
+.help-toggle {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.help-toggle:hover,
+.help-toggle[aria-expanded="true"] {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+.aist-help {
+  margin: 0;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  background: var(--paper-2, var(--bg));
+  border-bottom: 1px solid var(--border);
+}
+.aist-help[hidden] { display: none; }
+
+/* Et enkelt vindu i samme ramme som læringsmål-lista. */
+.aist-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+.aist-overlay.open { display: flex; }
+.aist-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+.aist-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.aist-modal-header h2 { font-size: 1.3rem; font-weight: 700; }
+.aist-modal-actions { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+.aist-modal-body { overflow-y: auto; padding: 1rem 1.6rem 1.8rem; }
+.aist-modal-body .resource-summary { margin-bottom: 1rem; }
+#goal-index-actions { align-items: center; }
+
+.resource-exam { --card-hue: var(--primary); --card-tint: var(--primary-tint); }
+.resource-copy:disabled { opacity: 0.45; cursor: default; transform: none; }
+
+/* Ferdighetsnoden er den rundeste; litt mer luft på sidene, så teksten
+   ikke kommer for nær de runde hjørnene. */
+.node-box.type-skill { padding-left: 1.05rem; padding-right: 1.05rem; }
+
+@media (max-width: 720px) {
+  .aist-overlay { padding: 0; }
+  .aist-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+  .aist-help { padding: 0.8rem 1rem; }
+  .aist-modal-body { padding: 0.9rem 1rem 1.4rem; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utkast 2026-11-11, runde 2: kort som er så store som teksten, haken  */
+/* for mestret, og læringsmål som små bokser i treets farger og former. */
+/* ------------------------------------------------------------------ */
+
+/* Kortet er så bredt som teksten, opptil plassen i rutenettet
+   (max-width settes i engine.js), og så høyt som teksten. */
+.node-box {
+  width: max-content;
+  min-width: 6.5rem;
+  position: absolute;
+}
+.node-box .node-name { padding-right: 0; }
+.node-check-spacer { display: inline-block; width: 1.5rem; height: 1px; }
+
+/* Haken nede til høyre. Grå og svak til den trykkes, så grønn. */
+.mastery-check {
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.4rem;
+  width: 1.45rem;
+  height: 1.45rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  opacity: 0.38;
+  cursor: pointer;
+  transition: opacity 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.mastery-check svg { width: 100%; height: 100%; display: block; }
+.mastery-check circle { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.mastery-check path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mastery-check:hover { opacity: 0.75; transform: scale(1.08); }
+.mastery-check[aria-pressed="true"] { color: var(--success); opacity: 1; }
+.mastery-check[aria-pressed="true"] circle { fill: var(--success); stroke: var(--success); }
+.mastery-check[aria-pressed="true"] path { stroke: var(--surface); }
+.mastery-check:focus-visible { outline: 2px solid var(--success); outline-offset: 2px; border-radius: 50%; opacity: 1; }
+
+/* Typen gir farge og form, samme sted fra for kortene i treet, boksene i
+   lista og de små merkene: én kilde, så de alltid ser like ut. */
+.goal-box, .goal-tag { --g-bg: var(--begrep-bg); --g-border: var(--begrep-border); }
+.goal-box.type-skill, .goal-tag.type-skill { --g-bg: var(--ferdighet-bg); --g-border: var(--ferdighet-border); }
+.goal-box.type-fact, .goal-tag.type-fact { --g-bg: var(--fakta-bg); --g-border: var(--fakta-border); }
+
+/* Et læringsmål i en liste: en liten utgave av kortet i treet. Svak når
+   det ikke er valgt (eller ikke mestret), i full farge når det er det.
+   Hele boksen er en knapp. */
+.goal-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  padding: 0.5rem 2.4rem 0.5rem 0.8rem;
+  background: var(--g-bg);
+  border: 1.5px solid var(--g-border);
+  border-radius: 8px;
+  opacity: 0.42;
+  filter: saturate(0.35);
+  cursor: pointer;
+  transition: opacity 0.15s ease, filter 0.15s ease, transform 0.15s ease;
+}
+.goal-box.no-check { padding-right: 0.8rem; }
+.goal-box.type-concept { border-radius: 7px; }
+.goal-box.type-skill { border-radius: 18px; }
+.goal-box.type-fact { border-radius: 2px; }
+.goal-box:hover { opacity: 0.75; filter: none; }
+.goal-box.on { opacity: 1; filter: none; }
+.goal-box .node-index { font-weight: 500; color: var(--text-muted); }
+.goal-box .mastery-check { right: 0.55rem; bottom: auto; top: 50%; margin-top: -0.72rem; opacity: 0.45; }
+.goal-box.on .mastery-check { opacity: 1; color: var(--success); }
+.goal-box.on .mastery-check circle { fill: var(--success); stroke: var(--success); }
+.goal-box.on .mastery-check path { stroke: var(--surface); }
+.goal-box:focus-visible { outline: 2px solid var(--g-border); outline-offset: 2px; }
+
+.goal-row { display: flex; align-items: center; gap: 0.4rem; }
+.goal-locate {
+  flex-shrink: 0;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0.35rem;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.goal-locate svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.goal-locate:hover { border-color: var(--border); background: var(--surface-hover); color: var(--text); }
+
+/* Det lille merket: bare koden, i treets farge og form. Brukes der et
+   utvalg av læringsmål vises (bunnlinja, velgeren, prøven). I prøven kan
+   merkene trykkes, og er da svake når de er valgt bort. */
+.goal-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
+.goal-tag {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  padding: 0.12rem 0.38rem;
+  color: var(--text);
+  background: var(--g-bg);
+  border: 1px solid var(--g-border);
+  border-radius: 4px;
+}
+.goal-tag.type-skill { border-radius: 9px; }
+.goal-tag.type-fact { border-radius: 1px; }
+button.goal-tag { cursor: pointer; transition: opacity 0.15s ease, filter 0.15s ease; }
+button.goal-tag.off { opacity: 0.35; filter: saturate(0.2); }
+button.goal-tag:hover { opacity: 0.8; filter: none; }
+.goal-tag-topic { display: contents; }
+.goal-tags-label { font-size: 0.82rem; color: var(--text-muted); margin-right: 0.3rem; }
+.goal-tags-empty { font-size: 0.82rem; font-weight: 600; color: var(--danger-text); }
+.goal-tag-rows { display: grid; gap: 0.35rem; }
+.goal-tag-row { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
+.goal-tag-letter { width: 1.2rem; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); }
+.resource-motivation { --card-hue: var(--primary); --card-tint: var(--primary-tint); }
+.exam-cover { display: grid; gap: 0.5rem; margin-bottom: 1rem; }
+#lesson-plan-count { flex: 1 1 auto; min-width: 0; }
+
+/* Et læringsmål med navn, der det nevnes i et annet vindu (søket, oppgaver
+   og kilder): samme farge og form som kortet i treet (2026-11-11). */
+.goal-ref { --g-bg: var(--begrep-bg); --g-border: var(--begrep-border); }
+.goal-ref.type-skill { --g-bg: var(--ferdighet-bg); --g-border: var(--ferdighet-border); }
+.goal-ref.type-fact { --g-bg: var(--fakta-bg); --g-border: var(--fakta-border); }
+.resources-node.goal-ref,
+.search-item-name.goal-ref {
+  color: var(--text);
+  background: var(--g-bg);
+  border: 1px solid var(--g-border);
+  border-radius: 6px;
+}
+.resources-node.goal-ref.type-skill,
+.search-item-name.goal-ref.type-skill { border-radius: 14px; }
+.resources-node.goal-ref.type-fact,
+.search-item-name.goal-ref.type-fact { border-radius: 2px; }
+.search-item-name.goal-ref { display: inline-block; padding: 0.3rem 0.7rem; }
+.resources-node.goal-ref:hover,
+.search-item-name.goal-ref:hover { color: var(--text); border-color: var(--border-strong); }
+#search-header, #resources-header { align-items: center; }
+
+/* Haken i detaljpanelet står i teksten, ikke i et hjørne. */
+.mastery-check.inline { position: static; width: 1.6rem; height: 1.6rem; opacity: 0.5; }
+.mastered-toggle { display: flex; align-items: center; gap: 0.5rem; }
+.mastered-toggle-text { font: inherit; font-size: 0.9rem; color: var(--text); background: none; border: 0; padding: 0; cursor: pointer; }
+.mastery-check.inline[aria-pressed="true"] { opacity: 1; }
+
+/* Haken på kortet står i en egen kolonne til høyre for teksten, nede på
+   linje med siste tekstlinje (se createNodeElement). */
+.node-name { display: flex; align-items: center; gap: 0.45rem; }
+.node-text { flex: 1 1 auto; min-width: 0; }
+.node-name .mastery-check {
+  position: static;
+  flex-shrink: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0 0 0.02rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Runde tre, 2026-11-11: navigasjon som tekst, «?» som boble, kryss i   */
+/* menyen, hurtigtaster og faste knappebredder.                         */
+/* ------------------------------------------------------------------ */
+
+/* Navigasjon (tilbake, lukk) er ren tekst med strek under ved hover, ikke
+   piller. En pille betyr en handling; å gå et sted er ikke en handling. */
+.nav-btn,
+.back-btn,
+.back-link.back-btn,
+#detail-close.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.1rem;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1.5px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.nav-btn:hover,
+.nav-btn:focus-visible,
+.back-btn:hover,
+.back-btn:focus-visible,
+.back-link.back-btn:hover,
+.back-link.back-btn:focus-visible {
+  color: var(--text);
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+/* «?»-forklaringen er en boble over innholdet, rett under knappen. Den
+   skyver ingenting. */
+.aist-modal, #goal-index-modal, #search-modal, #resources-modal { position: relative; }
+.aist-help.aist-popover {
+  position: absolute;
+  z-index: 60;
+  width: min(22rem, calc(100% - 2rem));
+  margin: 0;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: var(--shadow-modal);
+}
+.aist-help.aist-popover::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: var(--arrow-right, 0.6rem);
+  width: 12px;
+  height: 12px;
+  background: var(--surface);
+  border-left: 1px solid var(--border-strong);
+  border-top: 1px solid var(--border-strong);
+  transform: rotate(45deg);
+}
+
+/* Kryss øverst til høyre i menyen. */
+#action-menu-panel { padding-top: 0.8rem; }
+.menu-close-btn {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 1;
+}
+.menu-close-btn svg { width: 18px; height: 18px; }
+.menu-close-btn:hover, .menu-close-btn:focus-visible { color: var(--text); background: var(--surface-hover); }
+#menu-nav-row { padding-right: 2.2rem; min-height: 2rem; }
+
+/* Hurtigtasten står til høyre i menyvalget. */
+.menu-kbd {
+  margin-left: auto;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+}
+.help-kbd-list { margin: 0.2rem 0 0; padding: 0; list-style: none; }
+.help-kbd-list li { display: flex; gap: 0.8rem; align-items: baseline; padding: 0.2rem 0; }
+.help-kbd-list kbd {
+  flex: 0 0 7.5rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Knapper som bytter tekst er alltid så brede som den lengste teksten. */
+.swap-label { display: inline-grid; justify-items: center; align-items: center; }
+.swap-label > span { grid-area: 1 / 1; }
+
+/* Vinduene står fast øverst i stedet for midt på skjermen. Et sentrert
+   vindu som vokser (et valg som viser et felt til), flytter seg opp, og da
+   hopper alt i det. Nå vokser det bare nedover. */
+#goal-index-overlay, .aist-overlay, .text-overlay, #course-info-overlay {
+  align-items: flex-start;
+  padding-top: max(2rem, 6vh);
+}
+.swap-hint { display: grid; }
+.swap-hint > span { grid-area: 1 / 1; }
+
+/* Hurtigtasten vises ikke på berøringsskjermer, der det ikke finnes tastatur. */
+@media (hover: none) { .menu-kbd { display: none; } }
+
+/* ------------------------------------------------------------------ */
+/* Runde fire, 2026-11-11.                                              */
+/* ------------------------------------------------------------------ */
+
+/* Emnenavnene over kolonnene er større, og knappene ved dem også. */
+.column-header {
+  font-size: 0.86rem;
+  font-weight: 700;
+  align-items: center;
+  padding-bottom: 0.35rem;
+}
+
+/* Merk-mange-knappene: et listeikon, ikke et tegn. */
+.column-header-btn.bulk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.3rem;
+  line-height: 0;
+  border-radius: 7px;
+}
+.bulk-icon { width: auto; height: 1.35rem; display: block; }
+.bulk-icon .bi-off { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.75; }
+.bulk-icon .bi-on { fill: var(--success); stroke: var(--success); stroke-width: 1; }
+.bulk-icon .bi-tick { fill: none; stroke: var(--surface); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.bulk-icon .bi-line { stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; opacity: 0.7; }
+.bulk-icon .bi-letter { font: 700 5.6px/1 var(--font-sans, system-ui, sans-serif); fill: currentColor; }
+.goal-index-bulk-btn.bulk-btn { padding: 0.2rem 0.4rem; }
+.goal-index-bulk-btn .bulk-icon { height: 1.6rem; }
+#goal-index-bulk { margin: -0.3rem 0 1rem; gap: 0.5rem; }
+.goal-index-section h3 { align-items: center; font-size: 0.86rem; }
+.goal-tag-row-actions { display: inline-flex; gap: 0.25rem; margin-left: 0.3rem; }
+.exam-bulk-row { gap: 0.5rem; margin-bottom: 0.15rem; }
+
+/* Typen i detaljpanelet står i et merke i typens farge og form. */
+.type-chip {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.14rem 0.5rem;
+}
+
+/* Hjelp: en liten figur til venstre for hver korte forklaring. */
+.help-item {
+  display: grid;
+  grid-template-columns: 4.6rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.help-item:last-of-type { border-bottom: none; }
+.help-fig svg { width: 4.6rem; height: auto; display: block; border-radius: 8px; }
+.help-fig .menu-icon { width: 3.4rem; height: 3.4rem; margin: 0 auto; }
+.help-fig-bulk { display: flex; flex-wrap: wrap; gap: 0.3rem; color: var(--text-muted); }
+.help-fig-bulk svg { width: auto; height: 1.4rem; }
+.help-text h3 { margin-top: 0; }
+.help-text p { margin: 0.2rem 0 0; }
+
+/* Skriv ut: valgene til venstre, arket til høyre. */
+#print-overlay .aist-modal { max-width: 980px; }
+.print-layout {
+  /* Samme farge som gruppa i menyen (Planlegge), og det som gir de valgte
+     knappene, bryterne og nedlastingsknappen farge. */
+  --card-hue: var(--amber);
+  --card-tint: var(--amber-tint);
+  display: grid;
+  grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.25fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+.print-toggles { display: grid; gap: 0.5rem; }
+.print-preview { display: grid; gap: 0.4rem; justify-items: center; }
+.print-sheet {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 22rem;
+}
+.print-canvas {
+  max-width: 100%;
+  max-height: 60vh;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-float);
+}
+.print-canvas.gray { filter: grayscale(1); }
+.print-caption { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+@media (max-width: 720px) {
+  .print-layout { grid-template-columns: 1fr; }
+  .print-sheet { min-height: 0; }
+}
+

@@ -2,7 +2,7 @@
   "_comment": "Everything that is true of the practical and aesthetic subjects but NOT of every subject, in one place: music, arts and crafts, drama, dance, physical education. A tree opts in with `subjectFamily` = `practical-aesthetic` in its tree.csv. Two halves, with different readers: `instructions` is spliced into the generated AI instructions by the engine, and `decomposition` is appended to the authoring prompt when a new subject is built. The engine ignores `decomposition` entirely. What sets the family apart: much of what the student must master is performed with the voice, the body, an instrument or a material, and the AI can neither hear nor see that. There is deliberately no column or marker for a practical node; the model tells them apart by the verb in the name, and every text below is written conditionally. Carries its own `version`, cited separately in the paper's appendix. From 0.25.0 a family REPLACES general sections (`sections`, keyed by the section id) instead of adding its own after them: each point has one text, the family's or the general one, so a teacher edits it in one place. A replacement is therefore the whole section, general wording included, written for this subject. EVERY family carries the SAME set of sections (Vidar, 2026-10-03), so a teacher can put two families side by side and see exactly where the subjects differ without jumping between files; where a family has nothing of its own to say, the section is a verbatim copy of the general text. When you change the general text of one of these sections, change the copies too. tools/check-families.py checks that the sets match. `add` remains only for a section the general instructions do not have at all, placed after `after` and taking that section's condition.",
   "family": "practical-aesthetic",
   "title": "Practical and aesthetic subjects",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "schemaVersion": 3,
   "sourceLanguage": "en",
   "decomposition": {
@@ -27,7 +27,7 @@
     },
     "exam": {
       "sections": {
-        "task": "Make a test with exactly {taskCount} task(s). Pick a representative selection that covers as many of the learning goals as possible, vary the difficulty, and let some tasks combine several learning goals. Number the tasks and word them as on a written test in the subject. Make tasks only on theory and notation. If a skill in the list is performed with the voice, the body, an instrument or a material, set no task on it, and say at the top of the test that those skills are assessed outside the chat, by doing them.",
+        "task": "Make a test with exactly {taskCount} task(s). Pick a representative selection that covers as many of the learning goals as possible. Number the tasks and word them as on a written test in the subject. Make tasks only on theory and notation. If a skill in the list is performed with the voice, the body, an instrument or a material, set no task on it, and say at the top of the test that those skills are assessed outside the chat, by doing them.",
         "conceptMix": "Each learning goal is marked [skill], [concept] or [fact]. Test [skill] goals with full tasks. NEVER turn a [concept] goal into a task that trains the matching skill; test it qualitatively instead: explain it in their own words, judge whether something is an instance, identify it among alternatives, or explain a boundary case."
       }
     },

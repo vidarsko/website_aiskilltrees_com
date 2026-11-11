@@ -1,9 +1,9 @@
 {
-  "_comment": "The \"make a test from what I've mastered\" button. `groups` is the order of the sections AND the headings they are shown under, both in the builder and on /prompts/ and in the instruction a student pastes (\"## Role and style\"). The order is what a teacher wants to read first: who the AI is and how it talks, then the method, then the goal, and last the technical context the engine fills in. `when` names the condition a section has, from CONDITIONS in engine.js; a section without one always renders. A section that is null here is filled by another layer: outputLanguage and writingStyle by the language file, nodeInstruction and aids by the engine.",
+  "_comment": "The \"make a test from what I've mastered\" button. `groups` is the order of the sections AND the headings they are shown under, both in the builder and on /prompts/ and in the instruction a student pastes (\"## Role and style\"). The order is what a teacher wants to read first: who the AI is and how it talks, then the method, then the goal, and last the technical context the engine fills in. `when` names the condition a section has, from CONDITIONS in engine.js; a section without one always renders. A section that is null here is filled by another layer: outputLanguage and writingStyle by the language file, nodeInstruction and aids by the engine.\nFrom 2.2.0 (DRAFT, 2026-11-11) the test window lets the student or teacher choose the difficulty (easy, medium, hard) and the form of the tasks (closed, open, mixed). Each choice is one section with its condition (examEasy/examMedium/examHard, examClosed/examOpen/examMixed). Without a choice the test is medium and mixed; `task` no longer says \"vary the difficulty\" itself, since that is now difficultyMedium. The goals start as the ones marked as mastered and can be changed in the window, so `role` and `selection` say \"chosen\" rather than \"marked as mastered\".",
   "id": "exam",
   "title": "Test generator",
   "contribution": 3,
-  "version": "2.1.0",
+  "version": "2.2.0",
   "schemaVersion": 3,
   "sourceLanguage": "en",
   "groups": [
@@ -18,10 +18,16 @@
     },
     {
       "title": "The test",
-      "description": "Which goals the test covers, what the tasks look like, and that answers are held back until the student has tried.",
+      "description": "Which goals the test covers, how hard it is, whether the tasks are open or closed, and that answers are held back until the student has tried.",
       "sections": [
         "selection",
         "task",
+        "difficultyEasy",
+        "difficultyMedium",
+        "difficultyHard",
+        "formatClosed",
+        "formatOpen",
+        "formatMixed",
         "withholdAnswers"
       ]
     },
@@ -60,13 +66,25 @@
     "factMix": "hasFacts",
     "aids": "aids",
     "aidsMultiple": "severalAids",
-    "courseSpecifics": "courseSpecifics"
+    "courseSpecifics": "courseSpecifics",
+    "difficultyEasy": "examEasy",
+    "difficultyMedium": "examMedium",
+    "difficultyHard": "examHard",
+    "formatClosed": "examClosed",
+    "formatOpen": "examOpen",
+    "formatMixed": "examMixed"
   },
   "sections": {
-    "role": "You are an AI learning assistant making a written test in {courseName} for a student, based on the skills, concepts and fact lists marked as mastered in their skill tree.",
+    "role": "You are an AI learning assistant making a written test in {courseName} for a student, based on learning goals chosen from their skill tree.",
     "outputLanguage": null,
-    "selection": "The test covers the following {nodeCount} learning goals (skills, concepts and fact lists), which the student has marked as mastered:\n{nodeList}",
-    "task": "Make a test with exactly {taskCount} task(s). Pick a representative selection that covers as many of the learning goals as possible, vary the difficulty, and let some tasks combine several learning goals. Number the tasks and word them as on a written test in the subject.",
+    "selection": "The test covers the following {nodeCount} learning goals (skills, concepts and fact lists), chosen in the skill tree (by default the ones marked as mastered):\n{nodeList}",
+    "task": "Make a test with exactly {taskCount} task(s). Pick a representative selection that covers as many of the learning goals as possible. Number the tasks and word them as on a written test in the subject.",
+    "difficultyEasy": "Keep the test easy: one learning goal per task, the most common cases, short and direct wording, and no traps. A student who has just learnt the goals should be able to answer most of it, so the test confirms what they can rather than finding the edges.",
+    "difficultyMedium": "Vary the difficulty around the level of an ordinary written test in the subject, from a few straightforward tasks to some that combine several learning goals.",
+    "difficultyHard": "Make the test demanding: most tasks combine several learning goals, use contexts the student has not seen, or ask them to explain, justify or find a mistake, at the level of the hardest tasks on a written exam in the subject.",
+    "formatClosed": "Make every task closed, so the answer can be checked against a key: either multiple choice with three to five options, where every wrong option is a common misconception and not filler, or a short answer that is a single number, word or expression.",
+    "formatOpen": "Make every task open: the student shows their working or explains in their own words, as on a written test, and the key says what a full answer contains.",
+    "formatMixed": "Mix closed tasks (multiple choice, or a short answer that is a single number, word or expression) with open tasks where the student shows their working or explains in their own words, roughly half of each.",
     "withholdAnswers": "Show ONLY the tasks at first, with no answers or hints, until the student asks for an assessment (after each task or at the end). Then give a complete answer key: a worked answer with reasoning for every task, including the ones the student got right. Then say what they got right and what to practise more.",
     "conceptMix": "Each learning goal is marked [skill], [concept] or [fact]. Test [skill] goals with full tasks. NEVER turn a [concept] goal into a task that trains the matching skill; test it qualitatively instead: explain it in their own words, judge whether something is an instance, identify it among alternatives, or explain a boundary case.",
     "conceptMixAllConcepts": "Every learning goal here is a [concept] goal, so every task is qualitative.",

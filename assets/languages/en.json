@@ -19,7 +19,7 @@
     }
   },
   "ui": {
-    "backLink": "← all skill trees",
+    "backLink": "← All trees",
     "pageTitle": "Skill tree for {title}",
     "tagline": "A map of how learning goals build on one another — tick off what you have mastered, and copy an AI instruction to practise what comes next.",
     "makeYourOwn": "{subject}. Make your own tree:",
@@ -29,7 +29,7 @@
     "fitToView": "Show the whole tree",
     "fitToViewTitle": "Show the whole tree (Ctrl+scroll to zoom)",
     "close": "✕ Close",
-    "closeLower": "✕ close",
+    "closeLower": "✕ Close",
     "copied": "Copied!",
     "copyFallback": "Could not copy automatically — copy the text below manually:",
     "errorBanner": "⚠ {n} problem(s) found in the data files (see console for details):",
@@ -70,57 +70,73 @@
       "blocked": "Missing first: {codes}"
     },
     "help": {
-      "label": "How do I use this page?",
-      "heading": "How do I use this page?",
+      "label": "Help",
+      "heading": "Help",
       "sections": [
         {
-          "id": "menuButton",
-          "heading": "The menu button",
-          "body": "Press the ☰ button at the bottom left, next to this help button, to open a menu with the back link, light/dark mode, your progress and the other buttons on the page — explained below."
+          "heading": "The menu",
+          "body": "Everything else is behind ☰ at the bottom left: the learning goals, search, test, print and the rest. Every window has a “?” that explains it.",
+          "figure": "menu"
         },
         {
-          "id": "map",
           "heading": "The map",
-          "body": "The map shows how learning goals build on one another, from the most basic at the top to the most composite at the bottom. Boxes you do not have the prerequisites for yet appear grey and locked — tick off the ones you are missing first. Drag to pan the map, and use +/- or the mouse wheel to zoom."
+          "body": "Each box is a learning goal, and the arrows run from what you need to know first. The shape shows the type: facts are square, concepts slightly rounded and skills round. Drag to move the map and zoom with + and −.",
+          "figure": "map"
         },
         {
-          "id": "clickBox",
-          "heading": "Click a box",
-          "body": "When you click a box you get the prerequisites, a full description of the learning goal, and an AI instruction you can copy and paste into an AI chat to practise that particular learning goal. Mark the box as mastered when you know it — your progress is saved in your browser, and you can remove the mark again whenever you like."
+          "heading": "Mastered",
+          "body": "Press the ring in a box when you know the learning goal, and it turns into a green tick. It is saved only in your browser.",
+          "figure": "check"
         },
         {
-          "id": "goalIndex",
-          "heading": "“Show all learning goals”",
-          "body": "This button gives you a single systematic list of every learning goal in the course, sorted by topic — useful when you want an overview or want to read the whole list without clicking through the map. Each goal shows its status: ✓ means you have marked it as mastered, ◇ means you have everything you need to learn it now, and ⊘ shows which goals you should take first (with their code, e.g. C1). You can tick goals as mastered straight from the list, in order, instead of finding each node in the map."
+          "heading": "One box",
+          "body": "Press a box to see what the learning goal requires, what it builds on, and an AI instruction you can paste into an AI chat to practise with. Press again to close.",
+          "figure": "detail"
         },
         {
-          "id": "search",
-          "heading": "“Search”",
-          "body": "The search looks in the name, the description and the topic of every learning goal, and marks where the word occurs. It is the quickest way into the map when you remember a word from a learning goal but not which topic it sits under. Click a result to go to the node."
+          "heading": "Mark many",
+          "body": "The list icons mark every goal in a topic at once, or remove the marks. With A and B they apply to the whole tree.",
+          "figure": "bulk"
         },
         {
-          "id": "lessonPlan",
-          "heading": "“Lesson planner” (for teachers)",
-          "body": "In the lesson planner, teachers can tick the learning goals the next lesson should cover, choose the lesson type and length, and get an AI instruction for a complete lesson plan. Introduction is a lesson on new goals: a starter, a walkthrough using the example-problem pair model, diagnostic questions and retrieval practice at the end. Practice gives problem sets for goals the class has just learnt, Review brings back goals learnt a while ago, and with Other the AI asks you what kind of lesson you have in mind. The mastery ticks are your own, in your own browser — they show what you personally have been through, not what the class actually knows."
+          "heading": "Search",
+          "body": "Find a learning goal by a word from its name or description.",
+          "figure": "search"
         },
         {
-          "id": "exam",
-          "heading": "“Make a test from mastered learning goals”",
-          "body": "This button gives you an AI instruction for a test covering a selection of what you have already marked as mastered. Paste it into an AI chat to test yourself across several learning goals at once."
+          "heading": "Test",
+          "body": "An AI instruction for a test on the goals you choose. You decide the difficulty, the number and the type of tasks.",
+          "figure": "exam"
         },
         {
-          "id": "aids",
-          "heading": "The aid tag",
-          "body": "The tag on a box shows which aid level the learning goal belongs to — for example \"Part 1\" or \"Part 2\". If it is split into several colours, the learning goal belongs to several levels, and you should be able to manage it under the most restrictive one. Click the tag to open \"About the course\", where each level is explained.",
+          "heading": "Lesson plans (for teachers)",
+          "body": "Choose learning goals and press “Make a resource” for a lesson plan, a mini tree or a simulation.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Print",
+          "body": "Download the whole tree as a PDF, with rings students can tick with a pen.",
+          "figure": "print"
+        },
+        {
+          "heading": "The aids label",
+          "body": "“Part 1” or “Part 2” in the panel shows which level of aids the goal belongs to. Press the label to read more in “About the course”.",
           "when": "feature:aids"
         },
         {
-          "id": "motivation",
-          "heading": "“Why should I learn this?”",
-          "body": "This button gives you an AI instruction for a short conversation about why the subject is worth learning at all. Paste it into an AI chat if you need a nudge in the right direction.",
+          "heading": "Motivation",
+          "body": "A short conversation with an AI about why the subject is worth learning.",
+          "figure": "motivation",
           "when": "feature:motivation"
         }
-      ]
+      ],
+      "shortcuts": {
+        "heading": "Keyboard shortcuts",
+        "search": "Open search",
+        "escape": "Close the open window, menu or panel",
+        "zoom": "Zoom in and out",
+        "fit": "Show the whole tree"
+      }
     },
     "safety": {
       "label": "Safety",
@@ -165,9 +181,9 @@
       ]
     },
     "goalIndex": {
-      "button": "Show all learning goals",
+      "button": "Learning goals",
       "title": "Show a systematic list of every learning goal, sorted by topic",
-      "heading": "All learning goals",
+      "heading": "Learning goals",
       "copyAll": "Copy all",
       "intro": "The list shows every learning goal in the course, sorted by topic, with the status of each. Tick a goal to mark it as mastered — the same tick as on the node in the map — so you can go down the list in order and mark what you have been through.",
       "markAria": "Mark “{name}” as mastered",
@@ -177,14 +193,14 @@
       "openNode": "Go to this node in the map"
     },
     "lessonPlanner": {
-      "button": "Lesson planner (for teachers)",
-      "title": "Pick the learning goals for a lesson and copy an AI instruction for a complete lesson plan",
+      "button": "Lesson plans",
+      "title": "Pick learning goals and copy an AI instruction for a lesson plan, a mini tree or a simulation",
       "selectAll": "Check all",
       "deselectAll": "Uncheck all",
       "selectTopic": "Check every learning goal in “{topic}”",
       "deselectTopic": "Uncheck every learning goal in “{topic}”",
-      "heading": "Lesson planner",
-      "intro": "Tick the learning goals the next lesson should cover, choose the lesson type and length, and build a complete lesson plan at the bottom. The ticks here are only for this lesson: they do not mark anything as mastered, and they are gone when you reload the page."
+      "heading": "Lesson plans",
+      "intro": "Tick the learning goals you want to make something for, and press “Make a resource” at the bottom. There you choose what it should be: a lesson plan, a mini tree or a simulation. The ticks here are only for this: they do not mark anything as mastered, and they are gone when you reload the page."
     },
     "search": {
       "button": "Search",
@@ -198,18 +214,35 @@
       "openNode": "Go to this node in the map"
     },
     "resourceList": {
-      "button": "Resources",
+      "button": "Tasks and sources",
       "title": "Show every resource in the tree and the learning goals it belongs to",
-      "heading": "Resources",
-      "placeholder": "Filter the resources …",
-      "intro": "{n} resources. Under each one are the learning goals it belongs to; click one to go to it in the map.",
-      "countFiltered": "{n} of {total} resources",
+      "heading": "Tasks and sources",
+      "placeholder": "Filter tasks and sources …",
+      "intro": "{n} tasks and sources",
+      "countFiltered": "{n} of {total}",
       "noResults": "No resource matches “{query}”.",
-      "openNode": "Go to this node in the map"
+      "openNode": "Go to this node in the map",
+      "help": "Tasks and sources that belong to the tree, such as exam questions, links and videos. Under each one are the learning goals it belongs to; press one to go to it in the map. Type in the field to filter."
     },
     "motivation": {
-      "button": "Why should I learn this?",
-      "title": "Copy an AI instruction for a conversation about why the subject is worth learning"
+      "button": "Motivation",
+      "title": "Copy an AI instruction for a conversation about why the subject is worth learning",
+      "heading": "Motivation",
+      "desc": "A short conversation with an AI about why the subject is worth learning. The AI asks and listens, and you work out the answer together.",
+      "help": "Press “Copy the instruction” and paste it into an AI chat. The conversation starts where you say you are, and the AI asks one question at a time. Nothing you write is saved here.",
+      "startLabel": "How do you feel about the subject?",
+      "start": {
+        "unknown": "Don't know",
+        "hard": "It's hard",
+        "bored": "It's boring",
+        "use": "What will I need it for?"
+      },
+      "lengthLabel": "Length",
+      "length": {
+        "short": "Short",
+        "normal": "Normal",
+        "long": "Long"
+      }
     },
     "lesson": {
       "button": "Build a lesson plan (for teachers)",
@@ -229,12 +262,100 @@
       "selectedOne": "1 learning goal selected",
       "selectedMany": "{n} learning goals selected"
     },
+    "make": {
+      "button": "Make a resource →",
+      "buttonTitle": "Choose what to make for the learning goals you have ticked",
+      "heading": "What do you want to make?",
+      "back": "← The learning goals",
+      "forOne": "For 1 learning goal:",
+      "forMany": "For {n} learning goals:",
+      "copy": "Copy the instruction",
+      "htmlBadge": "HTML file",
+      "htmlAfter": "Paste it into an AI chat. The answer is an HTML file you save and open in a browser, and can share with your students.",
+      "lesson": {
+        "title": "Lesson plan",
+        "desc": "A complete plan for one lesson, with minute markings, what goes on the board and answers to every problem.",
+        "minutes": "min",
+        "shorter": "Shorter",
+        "longer": "Longer",
+        "after": "Paste it into an AI chat. The answer is a plan you can read from while you teach.",
+        "typeHints": {
+          "intro": "New learning goals: a starter task, worked examples in rounds, a diagnostic question per goal and retrieval at the end.",
+          "practice": "Goals the students learnt recently: a short reminder, then problem sets with small variations and less and less support.",
+          "review": "Goals from a while ago: retrieval without notes, a check of what stuck, teaching again where needed, and mixed practice.",
+          "other": "Something else: describe the lesson yourself, or the AI will ask you first."
+        }
+      },
+      "miniTree": {
+        "title": "Mini tree",
+        "desc": "A small skill tree the students practise in on their own: only the selected goals, in the order the tree gives, with problems checked at once, hints before the solution, and mastery that opens the next goal.",
+        "levelsLabel": "Levels per learning goal",
+        "levels1": "One level",
+        "levels3": "Three levels",
+        "streakLabel": "Correct in a row to master",
+        "supportLabel": "Adaptation",
+        "easyRead": "Easy read (Comic Sans, little text)",
+        "readAloud": "Read aloud",
+        "game": "Stars and unlocking",
+        "mixedTest": "Mixed practice test",
+        "credit": "Built on the principles of special-education teacher Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulation",
+        "desc": "An interactive simulation the students can explore, with a subject model that is not made up and a panel explaining what the model can and cannot do.",
+        "workflowLabel": "Way of working",
+        "design": "Design conversation first",
+        "build": "Prototype straight away",
+        "screenLabel": "Screen",
+        "laptop": "Laptop",
+        "tablet": "Tablet",
+        "projector": "Projector",
+        "extrasLabel": "Include",
+        "tasks": "Student tasks",
+        "critique": "Model critique",
+        "export": "Data export (CSV)",
+        "credit": "After the prompt by Henning Vinjusveen Myhrehagen on skolesim.no."
+      },
+      "less": "Less",
+      "more": "More",
+      "help": "Each resource is an AI instruction. Choose what you want, press “Copy the instruction” and paste it into an AI chat such as ChatGPT or Claude. The lesson plan becomes a plan you can read from while you teach. The mini tree and the simulation become an HTML file you save, open in a browser and can share with your students. The choices are not saved.",
+      "forLabel": "For:"
+    },
     "exam": {
-      "button": "Make a test from mastered learning goals",
-      "title": "Copy an AI instruction to build a test based on what you have marked as mastered",
+      "button": "Test",
+      "title": "Make an AI instruction for a test on what you have marked as mastered",
       "none": "No mastered learning goals yet",
       "countLabel": "Number of tasks",
-      "countAria": "Number of tasks in the test"
+      "countAria": "Number of tasks in the test",
+      "heading": "Test",
+      "desc": "A written test on what you have marked as mastered, with answers when you ask for them.",
+      "help": "The test is built from the learning goals you have marked as mastered in the tree. Choose the difficulty, the number of tasks and the form of the tasks, press “Copy the instruction” and paste it into an AI chat. The AI shows only the tasks at first, and gives the answers and an assessment when you ask.",
+      "covers": "The test covers {n} mastered learning goals:",
+      "coversOne": "The test covers 1 mastered learning goal:",
+      "noneHint": "You have not marked any learning goals as mastered yet. Tick what you can do in the tree, and then you can make a test.",
+      "difficultyLabel": "Difficulty",
+      "difficulty": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      },
+      "difficultyHints": {
+        "easy": "One learning goal per task, the most common cases and no traps.",
+        "medium": "Like an ordinary test: some straightforward tasks, some that combine several goals.",
+        "hard": "Most tasks combine goals, use new contexts or ask you to explain or find a mistake."
+      },
+      "formatLabel": "Form of the tasks",
+      "format": {
+        "closed": "Closed",
+        "open": "Open",
+        "mixed": "Mixed"
+      },
+      "formatHints": {
+        "closed": "Multiple choice or short answers that can be checked against a key.",
+        "open": "You show your working or explain in your own words.",
+        "mixed": "Roughly half of each."
+      },
+      "coversLabel": "The test covers:"
     },
     "node": {
       "markMastered": "Mark as mastered"
@@ -244,9 +365,9 @@
       "clearAll": "Remove the mastered mark from every learning goal in “{topic}”"
     },
     "detail": {
-      "show": "Show AI instruction",
-      "hide": "Hide AI instruction",
-      "copy": "Copy AI instruction",
+      "show": "Show the instruction",
+      "hide": "Hide the instruction",
+      "copy": "Copy the instruction",
       "prereqs": "Prerequisites",
       "resources": "Resources",
       "mastered": "✓ Mastered",
@@ -263,14 +384,19 @@
       "multipleNoteGeneral": "A learning goal can belong to several levels. Its tag is then split into several colours, and you should be able to manage the learning goal under the most restrictive of those levels — that is, with the fewest aids."
     },
     "menu": {
-      "label": "Menu"
+      "label": "Menu",
+      "groups": {
+        "practice": "Practise",
+        "plan": "Plan",
+        "about": "About"
+      }
     },
     "download": {
-      "button": "Download this tree",
+      "button": "Download the tree",
       "title": "Download the tree twice over: the spreadsheet you can edit, and a single file that works offline",
       "working": "Building the single file…",
       "failed": "The single file could not be built",
-      "edit": "Edit or download",
+      "edit": "Edit the tree",
       "editTitle": "Open the tree in the editor, where you can change it and download it as a spreadsheet or as a single file that works offline"
     },
     "courseInfo": {
@@ -292,6 +418,31 @@
       "concepts": "{n} concepts",
       "facts": "{n} fact lists",
       "nodes": "{n} nodes"
+    },
+    "helpToggle": "Explanation",
+    "print": {
+      "button": "Print",
+      "title": "Download the whole tree as a PDF, ready to print",
+      "working": "Making PDF …",
+      "failed": "The PDF could not be made",
+      "heading": "Print",
+      "help": "Download the whole tree as one PDF page, ready to print. The preview shows the sheet as it will be. The title and aiskilltrees.com are always on the sheet.",
+      "paperLabel": "Paper size",
+      "orientationLabel": "Orientation",
+      "orientation": {
+        "auto": "Automatic",
+        "landscape": "Landscape",
+        "portrait": "Portrait"
+      },
+      "colorLabel": "Colours",
+      "color": {
+        "color": "Colour",
+        "gray": "Black and white"
+      },
+      "rings": "Rings to tick",
+      "legend": "Legend",
+      "download": "Download PDF",
+      "caption": "{paper}, {orientation}"
     }
   },
   "prompt": {

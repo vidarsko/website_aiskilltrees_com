@@ -19,7 +19,7 @@
     }
   },
   "ui": {
-    "backLink": "← alla färdighetsträd",
+    "backLink": "← Alla träd",
     "pageTitle": "Färdighetsträd för {title}",
     "tagline": "En karta över hur lärandemålen bygger på varandra — kryssa i det du behärskar, och kopiera en AI-instruktion för att träna vidare.",
     "makeYourOwn": "{subject}. Gör ditt eget träd:",
@@ -29,7 +29,7 @@
     "fitToView": "Visa hela trädet",
     "fitToViewTitle": "Visa hela trädet (Ctrl+scroll för att zooma)",
     "close": "✕ Stäng",
-    "closeLower": "✕ stäng",
+    "closeLower": "✕ Stäng",
     "copied": "Kopierat!",
     "copyFallback": "Det gick inte att kopiera automatiskt - kopiera texten nedan manuellt:",
     "errorBanner": "⚠ {n} problem hittades i datafilerna (se konsolen för detaljer):",
@@ -70,57 +70,73 @@
       "blocked": "Saknas först: {codes}"
     },
     "help": {
-      "label": "Hur använder jag den här sidan?",
-      "heading": "Hur använder jag den här sidan?",
+      "label": "Hjälp",
+      "heading": "Hjälp",
       "sections": [
         {
-          "id": "menuButton",
-          "heading": "Menyknappen",
-          "body": "Tryck på ☰-knappen längst ner till vänster, bredvid den här hjälpknappen, för att öppna en meny med tillbaka-länk, ljust/mörkt läge, ditt framsteg och de andra knapparna på sidan - förklarade nedan."
+          "heading": "Menyn",
+          "body": "Allt annat finns bakom ☰ längst ner till vänster: lärandemålen, sök, prov, utskrift och resten. Varje fönster har ett ”?” som förklarar det.",
+          "figure": "menu"
         },
         {
-          "id": "map",
           "heading": "Kartan",
-          "body": "Kartan visar hur lärandemålen bygger på varandra, från det mest grundläggande högst upp till det mest sammansatta längst ner. Rutorna du inte har förkunskaperna för än ser du som grå och låsta - kryssa i det som saknas först. Dra för att panorera kartan, och använd +/- eller mushjulet för att zooma."
+          "body": "Varje ruta är ett lärandemål, och pilarna går från det du måste kunna först. Formen visar typen: fakta är fyrkantig, begrepp lite rundad och färdighet rund. Dra för att flytta kartan och zooma med + och −.",
+          "figure": "map"
         },
         {
-          "id": "clickBox",
-          "heading": "Klicka på en ruta",
-          "body": "När du klickar på en ruta får du upp förkunskaperna, en fullständig beskrivning av lärandemålet, och en AI-instruktion du kan kopiera och klistra in i en AI-chatt för att träna på just det lärandemålet. Markera rutan som avklarad när du kan den - framstegen sparas i din webbläsare, och du kan ta bort markeringen igen när du vill."
+          "heading": "Avklarat",
+          "body": "Tryck på ringen i en ruta när du kan lärandemålet, så blir den en grön bock. Det sparas bara i din webbläsare.",
+          "figure": "check"
         },
         {
-          "id": "goalIndex",
-          "heading": "«Visa alla lärandemål»",
-          "body": "När du trycker på den här knappen får du en samlad, systematisk lista över alla lärandemålen i ämnet, sorterad efter tema - praktiskt när du vill ha överblick eller läsa igenom hela listan utan att klicka dig igenom kartan. Varje lärandemål visar status: ✓ betyder att du markerat det som avklarat, ◇ att du har allt du behöver för att lära dig det nu, och ⊘ visar vilka lärandemål du bör ta först (med deras kod, t.ex. C1). Du kan kryssa i lärandemål som avklarade direkt i listan, i ordning, i stället för att leta upp varje nod i kartan."
+          "heading": "En ruta",
+          "body": "Tryck på en ruta för att se vad lärandemålet kräver, vad det bygger på och en AI-instruktion du kan klistra in i en AI-chatt och öva med. Tryck igen för att stänga.",
+          "figure": "detail"
         },
         {
-          "id": "search",
-          "heading": "«Sök»",
-          "body": "Sökningen letar i namnet, beskrivningen och temat för varje lärandemål, och markerar var ordet står. Det är snabbaste vägen in i kartan när du minns ett ord från ett lärandemål men inte vilket tema det ligger under. Klicka på träffen för att gå till noden."
+          "heading": "Markera många",
+          "body": "Listikonerna markerar alla mål i ett område på en gång, eller tar bort markeringarna. Med A och B gäller det hela trädet.",
+          "figure": "bulk"
         },
         {
-          "id": "lessonPlan",
-          "heading": "«Lektionsplanerare» (för lärare)",
-          "body": "I lektionsplaneraren kan lärare kryssa i de lärandemål nästa lektion ska täcka, välja typ av lektion och längd, och få en AI-instruktion för en färdig lektionsplanering. Introduktion är en lektion med nya mål: starter, genomgång enligt example-problem pair-modellen, diagnostiska frågor och återkallning på slutet. Övning ger uppgiftsuppsättningar för mål klassen just har lärt sig, Repetition tar fram mål de lärde sig för ett tag sedan, och med Annat frågar AI:n dig vilken sorts lektion du tänkt dig. Ikryssningarna för avklarat är dina egna, i din egen webbläsare - de visar vad du själv gått igenom, inte vad klassen faktiskt kan."
+          "heading": "Sök",
+          "body": "Hitta ett lärandemål med ett ord från namnet eller beskrivningen.",
+          "figure": "search"
         },
         {
-          "id": "exam",
-          "heading": "«Skapa prov av avklarade lärandemål»",
-          "body": "När du trycker på den här knappen får du en AI-instruktion för ett prov som täcker ett urval av det du redan markerat som avklarat. Klistra in den i en AI-chatt för att testa dig själv över flera lärandemål samtidigt."
+          "heading": "Prov",
+          "body": "En AI-instruktion för ett prov på de mål du väljer. Du bestämmer svårighetsgrad, antal och typ av uppgifter.",
+          "figure": "exam"
         },
         {
-          "id": "aids",
-          "heading": "Hjälpmedelsmärkningen",
-          "body": "Märkningen på en ruta visar vilken hjälpmedelsnivå lärandemålet hör till — till exempel «Del 1» eller «Del 2». Är den delad i flera färger hör lärandemålet till flera nivåer, och du bör klara den under den striktaste av dem. Klicka på märkningen för att öppna «Om ämnet», där varje nivå förklaras.",
+          "heading": "Lektionsplaneringar (för lärare)",
+          "body": "Välj lärandemål och tryck på ”Skapa resurs” för en lektionsplanering, ett miniträd eller en simulering.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Skriv ut",
+          "body": "Ladda ner hela trädet som PDF, med ringar eleverna kan bocka av med penna.",
+          "figure": "print"
+        },
+        {
+          "heading": "Hjälpmedelsetiketten",
+          "body": "”Del 1” eller ”Del 2” i panelen visar vilken hjälpmedelsnivå målet hör till. Tryck på etiketten för att läsa mer i ”Om ämnet”.",
           "when": "feature:aids"
         },
         {
-          "id": "motivation",
-          "heading": "«Varför ska jag lära mig det här?»",
-          "body": "När du trycker på den här knappen får du en AI-instruktion för ett kort samtal om varför det är värt att lära sig ämnet överhuvudtaget. Klistra in den i en AI-chatt om du behöver en knuff i rätt riktning.",
+          "heading": "Motivation",
+          "body": "Ett kort samtal med en AI om varför ämnet är värt att lära sig.",
+          "figure": "motivation",
           "when": "feature:motivation"
         }
-      ]
+      ],
+      "shortcuts": {
+        "heading": "Kortkommandon",
+        "search": "Öppna sökningen",
+        "escape": "Stäng fönstret, menyn eller panelen som är öppen",
+        "zoom": "Zooma in och ut",
+        "fit": "Visa hela trädet"
+      }
     },
     "safety": {
       "label": "Säkerhet",
@@ -165,9 +181,9 @@
       ]
     },
     "goalIndex": {
-      "button": "Visa alla lärandemål",
+      "button": "Lärandemål",
       "title": "Visa en systematisk lista över alla lärandemål, sorterad efter tema",
-      "heading": "Alla lärandemål",
+      "heading": "Lärandemål",
       "copyAll": "Kopiera alla",
       "intro": "Listan visar alla lärandemål i ämnet, sorterade efter tema, med status för vart och ett. Kryssa i ett lärandemål för att markera det som avklarat - samma kryss som på noden i kartan - så kan du gå nedåt i listan i ordning och kryssa i det du gått igenom.",
       "markAria": "Markera «{name}» som avklarat",
@@ -177,14 +193,14 @@
       "openNode": "Gå till den här noden i kartan"
     },
     "lessonPlanner": {
-      "button": "Lektionsplanerare (för lärare)",
-      "title": "Välj lärandemålen för en lektion och kopiera en AI-instruktion för en färdig lektionsplanering",
+      "button": "Lektionsplaneringar",
+      "title": "Välj lärandemål och kopiera en AI-instruktion för en lektionsplanering, ett miniträd eller en simulering",
       "selectAll": "Kryssa i alla",
       "deselectAll": "Ta bort alla kryss",
       "selectTopic": "Kryssa i alla lärandemål i «{topic}»",
       "deselectTopic": "Ta bort krysset för alla lärandemål i «{topic}»",
-      "heading": "Lektionsplanerare",
-      "intro": "Kryssa i de lärandemål nästa lektion ska täcka, välj typ av lektion och längd, och skapa en färdig lektionsplanering längst ner. Kryssen här gäller bara den här lektionen: de markerar inget som avklarat, och de försvinner när du laddar om sidan."
+      "heading": "Lektionsplaneringar",
+      "intro": "Kryssa i de lärandemål du vill göra något till, och tryck på ”Skapa resurs” längst ner. Där väljer du vad det ska bli: en lektionsplanering, ett miniträd eller en simulering. Kryssen här gäller bara detta: de markerar inget som avklarat, och de försvinner när du laddar om sidan."
     },
     "search": {
       "button": "Sök",
@@ -198,18 +214,35 @@
       "openNode": "Gå till den här noden i kartan"
     },
     "resourceList": {
-      "button": "Resurser",
+      "button": "Uppgifter och källor",
       "title": "Visa alla resurser i trädet och lärandemålen de hör till",
-      "heading": "Resurser",
-      "placeholder": "Filtrera resurserna …",
-      "intro": "{n} resurser. Under varje står lärandemålen den hör till; klicka på ett för att gå till det i kartan.",
-      "countFiltered": "{n} av {total} resurser",
+      "heading": "Uppgifter och källor",
+      "placeholder": "Filtrera uppgifter och källor …",
+      "intro": "{n} uppgifter och källor",
+      "countFiltered": "{n} av {total}",
       "noResults": "Ingen resurs matchar »{query}«.",
-      "openNode": "Gå till den här noden i kartan"
+      "openNode": "Gå till den här noden i kartan",
+      "help": "Uppgifter och källor som hör till trädet, till exempel provuppgifter, länkar och videor. Under varje står de lärandemål den hör till; tryck på ett för att gå till det i kartan. Skriv i fältet för att filtrera."
     },
     "motivation": {
-      "button": "Varför ska jag lära mig det här?",
-      "title": "Kopiera en AI-instruktion för ett samtal om varför det är värt att lära sig ämnet"
+      "button": "Motivation",
+      "title": "Kopiera en AI-instruktion för ett samtal om varför det är värt att lära sig ämnet",
+      "heading": "Motivation",
+      "desc": "Ett kort samtal med en AI om varför ämnet är värt att lära sig. AI:n frågar och lyssnar, och ni kommer fram till svaret tillsammans.",
+      "help": "Tryck på ”Kopiera instruktionen” och klistra in den i en AI-chatt. Samtalet börjar där du säger att du är, och AI:n ställer en fråga i taget. Inget av det du skriver sparas här.",
+      "startLabel": "Hur känner du inför ämnet?",
+      "start": {
+        "unknown": "Vet inte",
+        "hard": "Det är svårt",
+        "bored": "Det är tråkigt",
+        "use": "Vad ska jag ha det till?"
+      },
+      "lengthLabel": "Längd",
+      "length": {
+        "short": "Kort",
+        "normal": "Normal",
+        "long": "Lång"
+      }
     },
     "lesson": {
       "button": "Skapa lektionsplanering (för lärare)",
@@ -229,12 +262,100 @@
       "selectedOne": "1 lärandemål valt",
       "selectedMany": "{n} lärandemål valda"
     },
+    "make": {
+      "button": "Skapa resurs →",
+      "buttonTitle": "Välj vad du vill skapa till de lärandemål du har kryssat i",
+      "heading": "Vad vill du skapa?",
+      "back": "← Lärandemålen",
+      "forOne": "Till 1 lärandemål:",
+      "forMany": "Till {n} lärandemål:",
+      "copy": "Kopiera instruktionen",
+      "htmlBadge": "HTML-fil",
+      "htmlAfter": "Klistra in i en AI-chatt. Svaret är en HTML-fil du sparar och öppnar i webbläsaren, och kan dela med eleverna.",
+      "lesson": {
+        "title": "Lektionsplanering",
+        "desc": "En färdig plan för en lektion, med minutmarkering, det som ska stå på tavlan och facit till alla uppgifter.",
+        "minutes": "min",
+        "shorter": "Kortare",
+        "longer": "Längre",
+        "after": "Klistra in i en AI-chatt. Svaret är en planering du kan läsa från medan du undervisar.",
+        "typeHints": {
+          "intro": "Nya lärandemål: en startuppgift, genomgångna exempel i omgångar, en diagnostisk fråga per mål och återhämtning på slutet.",
+          "practice": "Mål eleverna nyss har lärt sig: en kort påminnelse, sedan uppgiftsserier med små variationer och mindre och mindre stöd.",
+          "review": "Mål från ett tag sedan: återhämtning utan anteckningar, koll på vad som satt, ny genomgång där det behövs och blandad övning.",
+          "other": "Något annat: beskriv lektionen själv, annars frågar AI:n dig först."
+        }
+      },
+      "miniTree": {
+        "title": "Miniträd",
+        "desc": "Ett litet färdighetsträd som eleverna övar i på egen hand: bara de valda målen, i den ordning trädet anger, med uppgifter som rättas direkt, ledtrådar före lösningen och avklarade mål som öppnar nästa.",
+        "levelsLabel": "Nivåer per lärandemål",
+        "levels1": "En nivå",
+        "levels3": "Tre nivåer",
+        "streakLabel": "Rätt i rad för att klara",
+        "supportLabel": "Anpassning",
+        "easyRead": "Lättläst (Comic Sans, lite text)",
+        "readAloud": "Uppläsning",
+        "game": "Stjärnor och upplåsning",
+        "mixedTest": "Blandad provträning",
+        "credit": "Byggt på principerna hos specialpedagogen Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulering",
+        "desc": "En interaktiv simulering eleverna kan utforska, med en ämnesmodell som inte är påhittad och en panel som förklarar vad modellen kan och inte kan.",
+        "workflowLabel": "Arbetssätt",
+        "design": "Designsamtal först",
+        "build": "Prototyp direkt",
+        "screenLabel": "Skärm",
+        "laptop": "Bärbar dator",
+        "tablet": "Surfplatta",
+        "projector": "Projektor",
+        "extrasLabel": "Ta med",
+        "tasks": "Elevuppgifter",
+        "critique": "Modellkritik",
+        "export": "Dataexport (CSV)",
+        "credit": "Efter instruktionen av Henning Vinjusveen Myhrehagen på skolesim.no."
+      },
+      "less": "Mindre",
+      "more": "Mer",
+      "help": "Varje resurs är en AI-instruktion. Välj det du vill ha, tryck på ”Kopiera instruktionen” och klistra in den i en AI-chatt, till exempel ChatGPT eller Claude. Lektionsplaneringen blir en plan du kan läsa från medan du undervisar. Miniträdet och simuleringen blir en HTML-fil du sparar, öppnar i webbläsaren och kan dela med eleverna. Valen sparas inte.",
+      "forLabel": "Till:"
+    },
     "exam": {
-      "button": "Skapa prov av avklarade lärandemål",
-      "title": "Kopiera en AI-instruktion för att skapa ett prov baserat på det du har markerat som avklarat",
+      "button": "Prov",
+      "title": "Skapa en AI-instruktion för ett prov på det du har markerat som avklarat",
       "none": "Inga avklarade lärandemål än",
       "countLabel": "Antal uppgifter",
-      "countAria": "Antal uppgifter i provet"
+      "countAria": "Antal uppgifter i provet",
+      "heading": "Prov",
+      "desc": "Ett skriftligt prov på det du har markerat som avklarat, med facit när du ber om det.",
+      "help": "Provet bygger på de lärandemål du har markerat som avklarade i trädet. Välj svårighetsgrad, antal uppgifter och uppgiftsform, tryck på ”Kopiera instruktionen” och klistra in den i en AI-chatt. AI:n visar bara uppgifterna först, och ger facit och bedömning när du ber om det.",
+      "covers": "Provet täcker {n} avklarade lärandemål:",
+      "coversOne": "Provet täcker 1 avklarat lärandemål:",
+      "noneHint": "Du har inte markerat några lärandemål som avklarade ännu. Kryssa i det du kan i trädet, så kan du skapa ett prov.",
+      "difficultyLabel": "Svårighetsgrad",
+      "difficulty": {
+        "easy": "Lätt",
+        "medium": "Medel",
+        "hard": "Svår"
+      },
+      "difficultyHints": {
+        "easy": "Ett lärandemål per uppgift, de vanligaste fallen och inga fällor.",
+        "medium": "Som ett vanligt prov: några uppgifter rakt på, några som kombinerar flera mål.",
+        "hard": "De flesta uppgifterna kombinerar mål, använder nya sammanhang eller ber dig förklara eller hitta fel."
+      },
+      "formatLabel": "Uppgiftsform",
+      "format": {
+        "closed": "Slutna",
+        "open": "Öppna",
+        "mixed": "Blandat"
+      },
+      "formatHints": {
+        "closed": "Flerval eller korta svar som kan kontrolleras mot facit.",
+        "open": "Du visar uträkningen eller förklarar med egna ord.",
+        "mixed": "Ungefär hälften av varje."
+      },
+      "coversLabel": "Provet täcker:"
     },
     "node": {
       "markMastered": "Markera som avklarad"
@@ -244,9 +365,9 @@
       "clearAll": "Ta bort avklarad-markering för alla lärandemål i «{topic}»"
     },
     "detail": {
-      "show": "Visa AI-instruktion",
-      "hide": "Dölj AI-instruktion",
-      "copy": "Kopiera AI-instruktion",
+      "show": "Visa instruktionen",
+      "hide": "Dölj instruktionen",
+      "copy": "Kopiera instruktionen",
       "prereqs": "Förkunskaper",
       "resources": "Resurser",
       "mastered": "✓ Avklarad",
@@ -263,14 +384,19 @@
       "multipleNoteGeneral": "Ett lärandemål kan höra till flera nivåer. Märkningen är då delad i flera färger, och du bör klara lärandemålet under den striktaste av nivåerna — alltså med minst hjälpmedel."
     },
     "menu": {
-      "label": "Meny"
+      "label": "Meny",
+      "groups": {
+        "practice": "Öva",
+        "plan": "Planera",
+        "about": "Om"
+      }
     },
     "download": {
-      "button": "Ladda ner det här trädet",
+      "button": "Ladda ner trädet",
       "title": "Ladda ner trädet i två former: kalkylarket du kan redigera, och en enda fil som fungerar utan nät",
       "working": "Bygger enkelfilen …",
       "failed": "Enkelfilen kunde inte byggas",
-      "edit": "Redigera eller ladda ner",
+      "edit": "Redigera trädet",
       "editTitle": "Öppna trädet i redigeringsverktyget, där du kan ändra det och ladda ner det som kalkylark eller som en enda fil som fungerar utan nät"
     },
     "courseInfo": {
@@ -292,6 +418,31 @@
       "concepts": "{n} begrepp",
       "facts": "{n} faktalistor",
       "nodes": "{n} noder"
+    },
+    "helpToggle": "Förklaring",
+    "print": {
+      "button": "Skriv ut",
+      "title": "Ladda ner hela trädet som PDF, klar att skriva ut",
+      "working": "Skapar PDF …",
+      "failed": "PDF:en kunde inte skapas",
+      "heading": "Skriv ut",
+      "help": "Ladda ner hela trädet som en PDF-sida, klar att skriva ut. Förhandsvisningen visar arket som det blir. Titeln och aiskilltrees.com står alltid på arket.",
+      "paperLabel": "Pappersstorlek",
+      "orientationLabel": "Riktning",
+      "orientation": {
+        "auto": "Automatisk",
+        "landscape": "Liggande",
+        "portrait": "Stående"
+      },
+      "colorLabel": "Färger",
+      "color": {
+        "color": "Färg",
+        "gray": "Svartvitt"
+      },
+      "rings": "Ringar att bocka av",
+      "legend": "Teckenförklaring",
+      "download": "Ladda ner PDF",
+      "caption": "{paper}, {orientation}"
     }
   },
   "prompt": {
