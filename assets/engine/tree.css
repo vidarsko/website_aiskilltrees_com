@@ -283,9 +283,10 @@ header {
   cursor: progress;
 }
 
-/* Lenken til redigeringsverktøyet ser ut som knappene over den. */
+/* Lenken til redigeringsverktøyet ser ut som knappene over den. Den sto
+   som display: block fra før menyen fikk ikoner, og det la teksten under
+   ikonet i stedet for ved siden av (rettet i 0.40.3). */
 #action-menu-panel #edit-link {
-  display: block;
   box-sizing: border-box;
   text-decoration: none;
 }
