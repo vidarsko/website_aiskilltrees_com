@@ -578,13 +578,55 @@ function emptyState() {
   return li;
 }
 
+/* Små SVG-ikoner foran fakta-lista på kortet, tegnet i sidens grønne
+   (currentColor). Ingen emoji (ux-design). */
+const META_ICONS = {
+  country:  '<circle cx="8" cy="8" r="6.2"/><path d="M1.8 8h12.4M8 1.8c2 2 2 10.4 0 12.4M8 1.8c-2 2-2 10.4 0 12.4"/>',
+  level:    '<path d="M1.5 6 8 3l6.5 3L8 9z"/><path d="M4.2 7.3v3.2c1 1.2 6.6 1.2 7.6 0V7.3M14.5 6v4"/>',
+  subject:  '<path d="M2.5 3.2h4.2c.8 0 1.3.5 1.3 1.3v9c0-.7-.5-1.2-1.3-1.2H2.5zM13.5 3.2H9.3c-.8 0-1.3.5-1.3 1.3v9c0-.7.5-1.2 1.3-1.2h4.2z"/>',
+  language: '<path d="M2.5 3h11v7.5H7.5L4.5 13v-2.5h-2z"/>',
+};
+
+function metaIcon(kind) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 16 16');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('class', 'treecard__icon');
+  svg.innerHTML = META_ICONS[kind];
+  return svg;
+}
+
+/* «i» med en boble over innholdet: samme mekanikk som «?» (helptip.js),
+   bare med i-en, siden dette er opplysninger om treet, ikke en forklaring
+   av siden. */
+function infotip(parts) {
+  const wrap = helptip('');
+  wrap.classList.add('helptip--info');
+  const btn = wrap.querySelector('.helptip__btn');
+  btn.textContent = 'i';
+  btn.setAttribute('data-own-label', '');
+  btn.setAttribute('aria-label', t('card-info'));
+  const bubble = wrap.querySelector('.helptip__bubble');
+  bubble.innerHTML = '';
+  parts.filter(Boolean).forEach(text => {
+    const span = document.createElement('span');
+    span.textContent = text;
+    bubble.appendChild(span);
+  });
+  return wrap;
+}
+
 function card(tree, position) {
   const li = document.createElement('li');
 
-  const a = document.createElement('a');
-  a.className = 'treecard';
-  a.href = tree.path;
-  a.addEventListener('click', () => {
+  /* Kortet er ikke lenger én stor lenke (fra 2026-11-12): «i» er en knapp,
+     og en knapp kan ikke ligge inne i en lenke. Tittelen og «Open the tree»
+     er lenkene. */
+  const box = document.createElement('article');
+  box.className = 'treecard';
+
+  const track = () => {
     if (!window.aistTrack) return;
     window.aistTrack('tree_open', {
       tree_slug: tree.slug,
@@ -597,65 +639,76 @@ function card(tree, position) {
       ui_language: lang(),
       search_term: query || null
     });
+  };
+
+  const head = document.createElement('div');
+  head.className = 'treecard__head';
+  const h3 = document.createElement('h3');
+  h3.className = 'treecard__title';
+  const titleLink = document.createElement('a');
+  titleLink.href = tree.path;
+  titleLink.textContent = tree.title;
+  titleLink.addEventListener('click', track);
+  h3.appendChild(titleLink);
+  head.appendChild(h3);
+  /* Undertittel og beskrivelse står bak «i», ikke på kortet. */
+  if (tree.subtitle || tree.summary) head.appendChild(infotip([tree.subtitle, tree.summary]));
+  box.appendChild(head);
+
+  /* Antallene i bokser med samme farge og form som nodetypen i treet:
+     ferdighet oransje og rund, begrep grønn, fakta blå og skarp. */
+  const counts = document.createElement('p');
+  counts.className = 'treecard__counts';
+  [
+    ['skill', 'card-skills', tree.skillCount],
+    ['concept', 'card-concepts', tree.conceptCount],
+    ['fact', 'card-facts', tree.factCount],
+  ].forEach(([kind, key, n]) => {
+    if (!n) return;
+    const span = document.createElement('span');
+    span.className = 'treecard__count treecard__count--' + kind;
+    span.textContent = fmt(key, { n });
+    counts.appendChild(span);
   });
+  if (!counts.children.length && tree.nodeCount) {
+    const span = document.createElement('span');
+    span.className = 'treecard__count';
+    span.textContent = fmt('card-nodes', { n: tree.nodeCount });
+    counts.appendChild(span);
+  }
+  if (counts.children.length) box.appendChild(counts);
 
   /* Treets eget språk står på kortet, ikke bare i filteret: trærne er ikke
      oversatt, så språket er noe leseren trenger FØR klikket. Verdiene er
      nøkler i tree.csv og slås opp i vokabularet på katalogens språk. */
-  const meta = document.createElement('p');
+  const meta = document.createElement('ul');
   meta.className = 'treecard__meta';
   [
-    vocab('country', tree.country),
-    divisionText(tree.institution, tree.division),
-    vocab('subjectArea', tree.subjectArea),
-    vocab('language', tree.language),
-  ].filter(Boolean).forEach(v => {
+    ['country', vocab('country', tree.country)],
+    ['level', divisionText(tree.institution, tree.division)],
+    ['subject', vocab('subjectArea', tree.subjectArea)],
+    ['language', vocab('language', tree.language)],
+  ].filter(([, v]) => v).forEach(([kind, v]) => {
+    const row = document.createElement('li');
+    row.appendChild(metaIcon(kind));
     const span = document.createElement('span');
     span.textContent = v;
-    meta.appendChild(span);
+    row.appendChild(span);
+    meta.appendChild(row);
   });
-  a.appendChild(meta);
-
-  const h3 = document.createElement('h3');
-  h3.className = 'treecard__title';
-  h3.textContent = tree.title;
-  a.appendChild(h3);
-
-  if (tree.subtitle) {
-    const sub = document.createElement('p');
-    sub.className = 'treecard__subtitle';
-    sub.textContent = tree.subtitle;
-    a.appendChild(sub);
-  }
-
-  if (tree.summary) {
-    const sum = document.createElement('p');
-    sum.className = 'treecard__summary';
-    sum.textContent = tree.summary;
-    a.appendChild(sum);
-  }
-
-  const foot = document.createElement('div');
-  foot.className = 'treecard__foot';
-
-  const left = document.createElement('span');
-  const counts = [];
-  if (tree.skillCount) counts.push(fmt('card-skills', { n: tree.skillCount }));
-  if (tree.conceptCount) counts.push(fmt('card-concepts', { n: tree.conceptCount }));
-  if (tree.factCount) counts.push(fmt('card-facts', { n: tree.factCount }));
-  left.textContent = counts.join(' · ') || (tree.nodeCount ? fmt('card-nodes', { n: tree.nodeCount }) : '');
-  foot.appendChild(left);
+  box.appendChild(meta);
 
   /* Ingen utkast/publisert-merking: ligger treet på sida, er det
      publisert. Skillet ble fjernet 2026-09-20 — det beskrev hvor ferdig
      Vidar syntes et tre var, ikke noe leseren kunne bruke. */
-  const go = document.createElement('span');
-  go.className = 'treecard__go';
+  const go = document.createElement('a');
+  go.className = 'btn btn--small treecard__go';
+  go.href = tree.path;
   go.textContent = t('card-open');
-  foot.appendChild(go);
+  go.addEventListener('click', track);
+  box.appendChild(go);
 
-  a.appendChild(foot);
-  li.appendChild(a);
+  li.appendChild(box);
   return li;
 }
 

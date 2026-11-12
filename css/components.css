@@ -273,8 +273,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Two clips, each the shape of the box it is meant for: 2880x1104 for a
-     desktop hero (1920x736 at 1.5x), 900x1480 for a phone hero (portrait,
+  /* Two clips, each the shape of the box it is meant for: 1440x1104 for the
+     right-hand box of a desktop hero (960x736 at 1.5x; until 2026-11-12 the
+     clip was 2880x1104 and filled the whole hero), 900x1480 for a phone hero (portrait,
      at 2x; index.html picks it with max-aspect-ratio: 1/1). Whatever is left
      to trim is trimmed evenly from the sides, and from the bottom rather
      than the top, where the column headings are. */
@@ -334,6 +335,28 @@
   opacity: 0.72;
   margin-top: var(--space-4);
   margin-bottom: 0;
+}
+
+/* From 900px the clip stands to the right, as the photo does on tavela.se
+   (Vidar, 2026-11-12: the full-bleed clip under a 62% scrim was hard to make
+   out). The left 40% is solid --primary and holds the text; the clip fills
+   the right 55%, and a wide fade from 40% to 68% runs over its left part
+   (Vidar wanted it much wider than the first 45-50%). That fade is the one gradient on the
+   site, taken over from tavela.se on purpose. The clip for this box is
+   recorded at 1440x1104 (960x736 at 1.5x); see frontpage-video_private/. */
+@media (min-width: 900px) {
+  .hero { background: var(--primary); }
+  .hero__media { left: auto; width: 55%; }
+  .hero__scrim {
+    background: linear-gradient(90deg,
+      var(--primary) 0%, var(--primary) 40%,
+      color-mix(in srgb, var(--primary) 0%, transparent) 68%);
+  }
+  /* The text keeps to the solid panel: 40vw minus the gutter and the
+     centring margin, minus some air before the fade. */
+  .hero__inner > * { max-width: min(34rem, calc(40vw - var(--gutter) - max(0px, (100vw - var(--measure-wide)) / 2) - 1rem)); }
+  .hero__title { font-size: clamp(2.5rem, 3.6vw + 0.5rem, 4.25rem); }
+  .hero__lede { font-size: var(--step-m); }
 }
 
 /* --------------------------------------------------------------------------
@@ -860,7 +883,7 @@
   font-size: var(--step-s);
   line-height: 1.6;
   color: var(--ink-2);
-  max-width: 62ch;
+  max-width: var(--measure-prose);
 }
 
 /* <details> framfor egen JavaScript: virker uten script, kan søkes i av

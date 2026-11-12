@@ -83,8 +83,8 @@ h4 { font-size: var(--step-s);   line-height: 1.4;  }
 p { margin: 0 0 var(--space-3); }
 p:last-child, h1:last-child, h2:last-child, h3:last-child { margin-bottom: 0; }
 
-/* Running prose: serif, comfortable measure, never wider than 68ch even
-   inside a wide band. */
+/* Running prose: serif. Since 2026-11-12 it runs to the same right edge as
+   everything else in the band (--measure-prose is none); see tokens.css. */
 .prose {
   font-family: var(--font-serif);
   font-size: var(--step-m);
@@ -96,7 +96,7 @@ p:last-child, h1:last-child, h2:last-child, h3:last-child { margin-bottom: 0; }
   font-family: var(--font-serif);
   font-size: var(--step-l);
   line-height: 1.45;
-  max-width: 46ch;
+  max-width: var(--measure-prose);
 }
 
 .eyebrow {

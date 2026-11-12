@@ -131,7 +131,10 @@
   --gutter:        clamp(1.25rem, 5vw, 4rem);   /* 20px phone → 64px desktop, INSIDE bands */
   --space-band:    clamp(3rem, 8vw, 7rem);      /* vertical padding of a band */
   --space-band-lg: clamp(4.5rem, 12vw, 10rem);  /* hero and closing CTA only */
-  --measure-prose: 68ch;
+  /* Text runs the full width of the band's content, so every page has the
+     same margins (Vidar, 2026-11-12). Was 68ch, with ledes at 46ch. Kept as a
+     token so a measure can come back in one place. */
+  --measure-prose: none;
   --measure-wide:  1280px;
 
   --space-1: 0.5rem;

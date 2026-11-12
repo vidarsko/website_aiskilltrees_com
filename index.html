@@ -163,17 +163,19 @@
   <main>
 
     <!--
-      HERO. Full-bleed screen recording with a flat scrim over it.
+      HERO. A screen recording beside the text. From 900px the clip fills the
+      right 55% at full strength, beside a solid green panel with the text, as
+      the photo does on tavela.se (2026-11-12). Below 900px it is full-bleed
+      under a flat scrim, as before.
 
       The clip is the method in use, recorded by a script driving a real tree
       page (frontpage-video_private/): nodes opened, instructions copied and
       pasted into a simulated "AI service" chat, nodes ticked off so the ones
-      after them unlock. It is decorative. The scrim is 62% opaque, so nothing
-      in it is meant to be read — the h1 carries the meaning, which is why the
-      video is aria-hidden.
+      after them unlock. It is meant to be watched on a desktop, but the h1
+      carries the meaning, which is why the video is aria-hidden.
 
-      There are two recordings of the same kind of session. The wide one
-      (2880x1104, the shape of the hero box on a desktop) goes to landscape
+      There are two recordings of the same kind of session. The landscape one
+      (1440x1104, the shape of the right-hand box on a desktop) goes to landscape
       viewports; the tall one (900x1480, the tree's own phone layout) goes to
       portrait viewports, where a wide clip would be cropped down to a sliver.
       The inline script after the video does the picking.
