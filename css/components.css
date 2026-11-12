@@ -340,13 +340,16 @@
 /* From 900px the clip stands to the right, as the photo does on tavela.se
    (Vidar, 2026-11-12: the full-bleed clip under a 62% scrim was hard to make
    out). The left 40% is solid --primary and holds the text; the clip fills
-   the right 55%, and a wide fade from 40% to 68% runs over its left part
+   the right 60%, and a wide fade from 40% to 68% runs over its left part
    (Vidar wanted it much wider than the first 45-50%). That fade is the one gradient on the
    site, taken over from tavela.se on purpose. The clip for this box is
    recorded at 1440x1104 (960x736 at 1.5x); see frontpage-video_private/. */
 @media (min-width: 900px) {
   .hero { background: var(--primary); }
-  .hero__media { left: auto; width: 55%; }
+  /* The clip starts exactly where the fade starts (40%). With the clip at
+     45% the fade was still 82% green there, beside solid green with no clip
+     behind it, and the seam showed as a hard line. */
+  .hero__media { left: auto; width: 60%; }
   .hero__scrim {
     background: linear-gradient(90deg,
       var(--primary) 0%, var(--primary) 40%,
