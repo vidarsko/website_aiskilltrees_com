@@ -95,8 +95,8 @@
 
   /* Ikonet og etikettene er det eneste som skiller de to lagvelgerne. */
   var PICKERS = {
-    lang: { icon: '🌐', label: 'lang-label', choose: 'lang-choose' },
-    family: { icon: '📚', label: 'family-label', choose: 'family-choose' }
+    lang: { icon: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" focusable="false"><circle cx="8" cy="8" r="6.5"/><ellipse cx="8" cy="8" rx="2.8" ry="6.5"/><path d="M1.5 8h13M2.7 4.6h10.6M2.7 11.4h10.6"/></svg>', label: 'lang-label', choose: 'lang-choose' },
+    family: { icon: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" focusable="false"><rect x="1.5" y="3" width="3.2" height="11"/><rect x="5.6" y="1.8" width="3.2" height="12.2"/><path d="M10.2 4.3l2.9-.8 2.5 9.7-2.9.8z"/></svg>', label: 'family-label', choose: 'family-choose' }
   };
 
   function t(key) {
@@ -1246,6 +1246,21 @@
     return sel;
   }
 
+  /* «?» med en boble; js/helptip.js åpner og lukker den. */
+  function helptip(text) {
+    var wrap = el('span', 'helptip');
+    var b = el('button', 'helptip__btn', '?');
+    b.type = 'button';
+    b.setAttribute('aria-expanded', 'false');
+    var bubble = el('span', 'helptip__bubble');
+    bubble.setAttribute('role', 'note');
+    bubble.hidden = true;
+    bubble.appendChild(el('span', null, text));
+    wrap.appendChild(b);
+    wrap.appendChild(bubble);
+    return wrap;
+  }
+
   function field(labelKey, control) {
     var lab = el('label', 'promptbar__field');
     lab.appendChild(el('span', 'promptbar__label', t(labelKey)));
@@ -1274,6 +1289,9 @@
     btn.setAttribute('aria-pressed', state.compare ? 'true' : 'false');
     btn.addEventListener('click', toggleCompare);
     bar.appendChild(btn);
+    /* Hva releasene og sammenlikningen er, står bak «?» ved velgeren
+       (ux-design regel 6). Fram til 2026-11-12 var det et avsnitt øverst. */
+    bar.appendChild(helptip(t('versions-note')));
     if (focusKey) {
       var again = bar.querySelector('[data-focus-key="' + focusKey + '"]');
       if (again) again.focus();
@@ -1378,7 +1396,8 @@
     btn.type = 'button';
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
-    var icon = el('span', 'lang-select__icon', conf.icon);
+    var icon = el('span', 'lang-select__icon');
+    icon.innerHTML = conf.icon;   /* an SVG string, never emoji */
     icon.setAttribute('aria-hidden', 'true');
     var name = el('span', 'lang-select__code');
     var caret = el('span', 'lang-select__caret', '▾');

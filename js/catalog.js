@@ -278,7 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
     syncUrl();
     trackSearchSoon();
   });
-  el.sort.addEventListener('change', () => { sort = el.sort.value; page = 1; render(); syncUrl(); });
+  el.sort.addEventListener('click', e => {
+    const b = e.target.closest('[data-sort]');
+    if (!b || b.dataset.sort === sort) return;
+    sort = b.dataset.sort; page = 1; reflectSort(); render(); syncUrl();
+  });
   el.reset.addEventListener('click', clearAll);
 
   // Filterlista er sammenslått på smal skjerm. Knappen finnes bare der
@@ -299,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.i18n && window.i18n.onChange) {
     window.i18n.onChange(() => {
       buildSortOptions();
-      el.sort.value = sort;
       if (TREES.length) { buildFacets(); render(); }
     });
   }
@@ -307,13 +310,24 @@ document.addEventListener('DOMContentLoaded', () => {
   loadTrees();
 });
 
+/* Sorteringen er knapper side om side, ikke en nedtrekksmeny (ux-design
+   regel 8): fire valg får plass, og det valgte synes uten et trykk. */
 function buildSortOptions() {
   el.sort.innerHTML = '';
   Object.keys(SORTS).forEach(key => {
-    const opt = document.createElement('option');
-    opt.value = key;
-    opt.textContent = t(SORTS[key].labelKey);
-    el.sort.appendChild(opt);
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'segmented__option';
+    b.dataset.sort = key;
+    b.textContent = t(SORTS[key].labelKey);
+    el.sort.appendChild(b);
+  });
+  reflectSort();
+}
+
+function reflectSort() {
+  el.sort.querySelectorAll('[data-sort]').forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.sort === sort ? 'true' : 'false');
   });
 }
 
@@ -672,6 +686,10 @@ function buildFacets() {
     const legend = document.createElement('legend');
     legend.className = 'facet__legend';
     legend.textContent = facetLegend(facet);
+    /* Språkfasetten har en «?» som sier at trærne ikke er oversatt. Fram til
+       2026-11-12 sto det som et eget avsnitt under ingressen; nå ligger det
+       der det gjelder, bak «?» (ux-design regel 6). */
+    if (facet.key === 'language') legend.appendChild(helptip(t('page-language-note')));
     fieldset.appendChild(legend);
 
     const ul = document.createElement('ul');
@@ -760,6 +778,26 @@ function facetValues(facet) {
    er valgt — «Trinn» for et skoleslag, «Fakultet» for et universitet — og
    faller tilbake på sidas nøytrale overskrift når flere institusjoner med
    ulike ord er huket av samtidig. */
+function helptip(text) {
+  const wrap = document.createElement('span');
+  wrap.className = 'helptip';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'helptip__btn';
+  btn.setAttribute('aria-expanded', 'false');
+  btn.textContent = '?';
+  const bubble = document.createElement('span');
+  bubble.className = 'helptip__bubble';
+  bubble.setAttribute('role', 'note');
+  bubble.hidden = true;
+  const p = document.createElement('span');
+  p.textContent = text;
+  bubble.appendChild(p);
+  wrap.appendChild(btn);
+  wrap.appendChild(bubble);
+  return wrap;
+}
+
 function facetLegend(facet) {
   if (facet.key === 'division') {
     const chosen = Array.from(selected.get('institution'));
@@ -866,7 +904,7 @@ function clearAll() {
    endrer `selected` utenfor selve boksen (chip, nullstill, tilbakeknapp). */
 function reflectControls() {
   el.search.value = query;
-  el.sort.value = sort;
+  reflectSort();
   el.facets.querySelectorAll('.facet').forEach(fieldset => {
     const key = fieldset.dataset.facet;
     fieldset.querySelectorAll('.facet__row input').forEach(input => {

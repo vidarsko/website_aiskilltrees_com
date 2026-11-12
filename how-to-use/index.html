@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How to use | AI Skill Trees</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="description" content="How to use a skill tree: practise one learning goal at a time with an AI chat, read the three kinds of node, make a test, and plan a lesson." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
@@ -13,6 +14,8 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="/js/helptip.js" defer></script>
   <script src="/js/random-tree.js" defer></script>
 
   <!--
@@ -77,21 +80,6 @@
           "en": "As a teacher, you can make a tree for a subject that does not have one yet, or change one that does. It all happens on <b>Make your own</b>: nothing is uploaded, and the tree stays in your browser until you download it.",
           "nb": "Som lærer kan du lage et tre for et fag som ikke har et ennå, eller endre et som finnes. Alt skjer på <b>Lag ditt eget</b>: ingenting lastes opp, og treet blir værende i nettleseren din til du laster det ned.",
           "sv": "Som lärare kan du göra ett träd för ett ämne som inte har något än, eller ändra ett som finns. Allt sker på <b>Gör ditt eget</b>: ingenting laddas upp, och trädet stannar i din webbläsare tills du laddar ner det."
-      },
-      "footer-line-1": {
-          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
-          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
-          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
-      },
-      "footer-privacy": {
-          "en": "Privacy",
-          "nb": "Personvern",
-          "sv": "Integritet"
-      },
-      "footer-affiliation": {
-          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
-          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
-          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
       },
       "practice-title": {
           "en": "Practise skills",
@@ -412,16 +400,18 @@
         <p class="eyebrow" data-i18n="page-eyebrow">How to use</p>
         <h1 data-i18n="page-heading">How to use a skill tree</h1>
         <div class="prose">
-          <p class="lede-p" data-i18n="page-lede">Every tree on this site works the same way. You can try each step below in any tree as you read.</p>
+          <!-- What the clips are sits behind «?» (ux-design rule 6) since
+               2026-11-12; it was a note under the buttons. -->
+          <p class="lede-p"><span data-i18n="page-lede">Every tree on this site works the same way. You can try each step below in any tree as you read.</span>
+            <span class="helptip"><button type="button" class="helptip__btn" aria-expanded="false">?</button><span class="helptip__bubble" role="note" hidden><span data-i18n="mock-note">The clips are recorded in the Mathematics 2P demo tree. The AI chats in them are real conversations with Claude Sonnet: the instruction was copied from the tree and pasted into a new chat, and the replies are shown as they came, only faster. Another AI service, or another try, will answer differently.</span></span></span></p>
         </div>
         <div class="btn-row howto__cta">
           <!-- A real link to the catalogue; js/random-tree.js swaps the href
                for a random tree in the reader's language once it has
                catalog.json. -->
           <a class="btn btn--primary" href="/trees/" data-random-tree data-track-cta="howto-random-tree" data-i18n="cta-random">Open a random tree</a>
-          <a class="btn btn--ghost" href="/trees/" data-track-cta="howto-all-trees" data-i18n="cta-all">See all trees</a>
+          <a class="golink" href="/trees/" data-track-cta="howto-all-trees" data-i18n="cta-all">See all trees</a>
         </div>
-        <p class="note howto__mocknote" data-i18n="mock-note">The clips are recorded in the Mathematics 2P demo tree. The AI chats in them are real conversations with Claude Sonnet: the instruction was copied from the tree and pasted into a new chat, and the replies are shown as they came, only faster. Another AI service, or another try, will answer differently.</p>
       </div>
     </section>
 
@@ -698,13 +688,7 @@
 
   </main>
 
-  <footer class="band band--dark sitefooter">
-    <div class="band__inner sitefooter__inner">
-      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p><a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
-      <p class="sitefooter__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
-    </div>
-  </footer>
+  <footer class="band band--dark sitefooter" data-site-footer></footer>
 
   <!-- The clips play only while on screen, and not at all for a visitor who
        has asked for reduced motion — they get the controls instead. -->

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The prompts | AI Skill Trees</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="description" content="Every instruction the method gives an AI, in full, as it is actually written." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
@@ -13,6 +14,8 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="/js/helptip.js" defer></script>
   <script src="/js/prompts-page.js?v=2026-10-04b" defer></script>
 
   <!--
@@ -641,26 +644,6 @@
           "nb": "Instruksene kunne ikke lastes:",
           "sv": "Instruktionerna kunde inte laddas:"
       },
-      "footer-affiliation": {
-          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
-          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
-          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
-      },
-      "footer-privacy": {
-          "en": "Privacy",
-          "nb": "Personvern",
-          "sv": "Integritet"
-      },
-      "footer-line-1": {
-          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
-          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
-          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
-      },
-      "footer-line-2": {
-          "en": "The instructions on this page are CC BY 4.0. Rewrite them.",
-          "nb": "Instruksene på denne siden er CC BY 4.0. Skriv dem om.",
-          "sv": "Instruktionerna på den här sidan är CC BY 4.0. Skriv om dem."
-      },
       "show-prompt": {
           "en": "Show the instruction",
           "nb": "Vis instruksen",
@@ -875,10 +858,11 @@
         <p class="eyebrow" data-i18n="page-eyebrow">The prompts</p>
         <h1 data-i18n="page-heading">Everything the AI is told</h1>
         <div class="prose">
-          <p class="lede-p" data-i18n="page-lede">These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full.</p>
-          <p class="note" data-i18n="layers-note">The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.</p>
-          <p class="note" data-i18n="versions-note">Every release of the method is here, back to the first. Choosing a version of one instruction moves the whole page to a release that had that version, so the page only shows instructions that were released together. Compare shows each instruction as one table, section by section, with the newer release in the middle column and the older on the right: what was added is green, what was removed is struck through in red.</p>
-          <p class="note" data-i18n="pickers-note">The language layer and the subject family each have a card of their own further down, with a picker in it. Both choices also decide which marked sections stand inside the instructions above them.</p>
+          <!-- The explanations of the layers and the releases sit behind «?»
+               (ux-design rule 6) since 2026-11-12: the layers next to the
+               lede, the releases next to the release picker (prompts-page.js). -->
+          <p class="lede-p"><span data-i18n="page-lede">These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full.</span>
+            <span class="helptip"><button type="button" class="helptip__btn" aria-expanded="false">?</button><span class="helptip__bubble" role="note" hidden><span data-i18n="layers-note">The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.</span><span data-i18n="pickers-note">The language layer and the subject family each have a card of their own further down, with a picker in it. Both choices also decide which marked sections stand inside the instructions above them.</span></span></span></p>
         </div>
       </div>
     </section>
@@ -897,14 +881,7 @@
 
   </main>
 
-  <footer class="band band--dark sitefooter">
-    <div class="band__inner sitefooter__inner">
-      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p data-i18n="footer-line-2">The instructions on this page are CC BY 4.0. Rewrite them.</p>
-      <p><a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
-      <p class="sitefooter__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
-    </div>
-  </footer>
+  <footer class="band band--dark sitefooter" data-site-footer></footer>
 
 </body>
 </html>

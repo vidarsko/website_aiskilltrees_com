@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | AI Skill Trees</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="description" content="What a skill tree is, what happens when a student copies an instruction, and who made this." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
@@ -13,29 +14,10 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <script src="/js/footer.js" defer></script>
 
   <script type="application/json" id="i18n-dict">
   {
-      "footer-affiliation": {
-          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
-          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
-          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
-      },
-      "footer-privacy": {
-          "en": "Privacy",
-          "nb": "Personvern",
-          "sv": "Integritet"
-      },
-      "footer-line-1": {
-          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
-          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
-          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
-      },
-      "footer-line-2": {
-          "en": "The engine is MIT-licensed; the instructions and the trees are CC BY 4.0.",
-          "nb": "Motoren er MIT-lisensiert; instruksene og trærne er CC BY 4.0.",
-          "sv": "Motorn är MIT-licensierad; instruktionerna och träden är CC BY 4.0."
-      },
       "doc-title": {
           "en": "About | AI Skill Trees",
           "nb": "Om | AI Skill Trees",
@@ -67,9 +49,9 @@
           "sv": "Den här sidan säger vad som händer, inte varför det fungerar. Resonemanget, referenserna och belägget hör hemma i artikeln."
       },
       "theory-cta": {
-          "en": "Read the method",
-          "nb": "Les metoden",
-          "sv": "Läs metoden"
+          "en": "Research",
+          "nb": "Forskning",
+          "sv": "Forskning"
       },
       "flow-eyebrow": {
           "en": "What actually happens",
@@ -122,9 +104,9 @@
           "sv": "Det AI:n ombeds göra är inte gömt inne i en produkt. Det är en handfull textfiler, versionerade och öppna, och en lärare som är oenig om en rad kan överstyra den för sitt eget träd. Det är poängen, inte en bieffekt: didaktik du inte kan läsa är didaktik du inte kan invända mot."
       },
       "prompts-cta": {
-          "en": "Read the instructions",
-          "nb": "Les instruksene",
-          "sv": "Läs instruktionerna"
+          "en": "The prompts",
+          "nb": "Instruksene",
+          "sv": "Instruktionerna"
       },
       "not-eyebrow": {
           "en": "What it does not do",
@@ -188,7 +170,7 @@
           <p class="lede-p" data-i18n="page-lede">A skill tree is a map of one school subject: every skill and concept as a node, with a line from each node to the ones it builds on. A teacher writes it. A student reads it, ticks off what they have mastered, and copies an instruction for whatever comes next.</p>
           <p class="note" data-i18n="theory-note">This page says what happens, not why it works. The reasoning, the references and the evidence belong in the paper.</p>
         </div>
-        <a class="btn btn--ghost" href="/research/" data-i18n="theory-cta">Read the method</a>
+        <a class="golink" href="/research/" data-i18n="theory-cta">Research</a>
       </div>
     </section>
 
@@ -222,18 +204,20 @@
         <div class="prose">
           <p data-i18n="prompts-body">What the AI is told to do is not hidden in a product. It is a handful of text files, versioned and open, and a teacher who disagrees with a line can overrule it for their own tree. That is the point rather than a side effect: teaching you cannot read is teaching you cannot argue with.</p>
         </div>
-        <a class="btn btn--primary" href="/prompts/" data-i18n="prompts-cta">Read the instructions</a>
+        <a class="golink" href="/prompts/" data-i18n="prompts-cta">The prompts</a>
       </div>
     </section>
 
     <section class="band band--alt">
       <div class="band__inner">
         <p class="eyebrow" data-i18n="not-eyebrow">What it does not do</p>
-        <ul class="checklist">
-          <li data-i18n="not-1">It does not store what a student ticks off anywhere but in their own browser. Nothing about a student's progress reaches this site, or me.</li>
-          <li data-i18n="not-2">It does not call a language model, so it cannot know what the student then asked, or what they were told.</li>
-          <li data-i18n="not-3">It does not mark anything, and it is not a syllabus. A tree is one teacher's reading of a subject, and may be missing something yours needs.</li>
-        </ul>
+        <div class="prose">
+          <ul class="checklist">
+            <li data-i18n="not-1">It does not store what a student ticks off anywhere but in their own browser. Nothing about a student's progress reaches this site, or me.</li>
+            <li data-i18n="not-2">It does not call a language model, so it cannot know what the student then asked, or what they were told.</li>
+            <li data-i18n="not-3">It does not mark anything, and it is not a syllabus. A tree is one teacher's reading of a subject, and may be missing something yours needs.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -252,20 +236,13 @@
         <div class="prose">
           <p data-i18n="open-body">The engine, the instructions and the trees are on GitHub. The engine is MIT-licensed and the written material is CC BY 4.0, so you may use, change and republish it, also in your own materials and on your own terms. The only condition is that you say where it came from.</p>
         </div>
-        <a class="btn btn--ghost" href="https://github.com/vidarsko/ai-skill-trees" data-i18n="open-cta">The method repository</a>
+        <a class="golink" href="https://github.com/vidarsko/ai-skill-trees" data-i18n="open-cta">The method repository</a>
       </div>
     </section>
 
   </main>
 
-  <footer class="band band--dark sitefooter">
-    <div class="band__inner sitefooter__inner">
-      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p data-i18n="footer-line-2">The engine is MIT-licensed; the instructions and the trees are CC BY 4.0.</p>
-      <p><a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
-      <p class="sitefooter__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
-    </div>
-  </footer>
+  <footer class="band band--dark sitefooter" data-site-footer></footer>
 
 </body>
 </html>

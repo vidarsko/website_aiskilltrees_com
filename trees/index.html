@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skill trees | AI Skill Trees</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="description" content="Search and filter the skill trees — maps of how the skills and concepts in a subject build on one another, with an AI instruction for every node." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
@@ -14,6 +15,8 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="/js/helptip.js" defer></script>
 
   <!--
     The translation dictionary for THIS page. Two kinds of key live here:
@@ -46,7 +49,7 @@
           "sv": "Sök och filtrera bland färdighetsträden — kartor över hur färdigheter och begrepp i ett ämne bygger på varandra, med en AI-instruktion till varje nod."
       },
       "page-eyebrow": {
-          "en": "Skill trees",
+          "en": "Trees",
           "nb": "Ferdighetstrær",
           "sv": "Färdighetsträd"
       },
@@ -234,26 +237,6 @@
           "en": "Remove the filter {facet}: {value}",
           "nb": "Fjern filteret {facet}: {value}",
           "sv": "Ta bort filtret {facet}: {value}"
-      },
-      "footer-affiliation": {
-          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
-          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
-          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
-      },
-      "footer-privacy": {
-          "en": "Privacy",
-          "nb": "Personvern",
-          "sv": "Integritet"
-      },
-      "footer-line-1": {
-          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
-          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
-          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
-      },
-      "footer-line-2": {
-          "en": "The trees are being moved here from skogvoll.com. For now they exist in both places.",
-          "nb": "Trærne er under flytting hit fra skogvoll.com. Foreløpig ligger de begge steder.",
-          "sv": "Träden håller på att flyttas hit från skogvoll.com. Tills vidare finns de på båda ställena."
       }
   }
   </script>
@@ -267,18 +250,13 @@
     <!-- Title band -->
     <section class="band">
       <div class="band__inner">
-        <p class="eyebrow" data-i18n="page-eyebrow">Skill trees</p>
+        <p class="eyebrow" data-i18n="page-eyebrow">Trees</p>
         <h1 data-i18n="page-heading">Find a skill tree</h1>
         <div class="prose">
           <p data-i18n="page-intro">
             Each tree maps one subject: what a student needs to be able to do, and what
             each thing builds on. Open a tree to tick off what you have mastered and copy
             the AI instruction for a given skill.
-          </p>
-          <p class="note" data-i18n="page-language-note">
-            The trees themselves are not translated. Each one is written in a single
-            language by the teacher who made it, and that language is shown on its card
-            and in the Language filter.
           </p>
         </div>
       </div>
@@ -294,11 +272,11 @@
                    placeholder="Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”"
                    data-i18n-attr="placeholder:search-placeholder">
           </div>
-          <div class="searchbar__field searchbar__field--narrow">
-            <label class="field-label" for="sort" data-i18n="sort-label">Sort by</label>
-            <div class="select-wrap">
-              <select class="select" id="sort"></select>
-            </div>
+          <div class="searchbar__field searchbar__field--choice">
+            <span class="field-label" id="sort-label" data-i18n="sort-label">Sort by</span>
+            <!-- Four choices, so buttons side by side rather than a dropdown
+                 (ux-design rule 8). Built by catalog.js (buildSortOptions). -->
+            <div class="segmented" id="sort" role="group" aria-labelledby="sort-label"></div>
           </div>
         </div>
       </div>
@@ -348,14 +326,7 @@
 
   </main>
 
-  <footer class="band band--dark sitefooter">
-    <div class="band__inner sitefooter__inner">
-      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p data-i18n="footer-line-2">The trees are being moved here from skogvoll.com. For now they exist in both places.</p>
-      <p><a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
-      <p class="sitefooter__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
-    </div>
-  </footer>
+  <footer class="band band--dark sitefooter" data-site-footer></footer>
 
   <script src="/js/catalog.js" defer></script>
 </body>

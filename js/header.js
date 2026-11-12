@@ -48,6 +48,22 @@
     main:     { en: 'Main',            nb: 'Hovedmeny',   sv: 'Huvudmeny' }
   };
 
+  /* Icons are drawn here as SVG, never emoji (ux-design rule 11). The mark
+     is the same drawing as /favicon.svg: a fact and a concept leading into a
+     skill that is also a robot head. Keep the two in step. */
+  var ICON = {
+    mark: '<svg viewBox="0 0 32 32" width="22" height="22" focusable="false">' +
+          '<path d="M7 9 L11.5 16 M25 9 L20.5 16" fill="none" stroke="var(--amber)" stroke-width="2.4" stroke-linecap="round"/>' +
+          '<rect x="1.5" y="1.5" width="11" height="8" rx="0.6" fill="var(--blue)"/>' +
+          '<rect x="19.5" y="1.5" width="11" height="8" rx="2.4" fill="var(--primary)"/>' +
+          '<rect x="5" y="15" width="22" height="15" rx="6.5" fill="var(--amber)"/>' +
+          '<circle cx="12" cy="22.5" r="2.3" fill="var(--ink-inverse)"/>' +
+          '<circle cx="20" cy="22.5" r="2.3" fill="var(--ink-inverse)"/></svg>',
+    globe: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" focusable="false">' +
+           '<circle cx="8" cy="8" r="6.5"/><ellipse cx="8" cy="8" rx="2.8" ry="6.5"/>' +
+           '<path d="M1.5 8h13M2.7 4.6h10.6M2.7 11.4h10.6"/></svg>'
+  };
+
   var host = document.querySelector('[data-site-header]');
   if (!host) return;
 
@@ -76,7 +92,7 @@
 
     var mark = el('a', 'wordmark');
     mark.href = '/';
-    mark.innerHTML = '<span class="wordmark__mark" aria-hidden="true">&#9679;</span>AI Skill Trees';
+    mark.innerHTML = '<span class="wordmark__mark" aria-hidden="true">' + ICON.mark + '</span>AI Skill Trees';
     inner.appendChild(mark);
 
     /* Burger. Hidden above 768px in CSS; it is not removed from the DOM,
@@ -118,7 +134,7 @@
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-label', txt(UI.language) + ': ' + current.name);
-    btn.innerHTML = '<span class="lang-select__globe" aria-hidden="true">&#127760;</span>' +
+    btn.innerHTML = '<span class="lang-select__globe" aria-hidden="true">' + ICON.globe + '</span>' +
                     '<span class="lang-select__code">' + current.short + '</span>' +
                     '<span class="lang-select__caret" aria-hidden="true">&#9662;</span>';
     select.appendChild(btn);

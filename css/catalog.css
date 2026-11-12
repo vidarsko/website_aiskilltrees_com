@@ -25,6 +25,7 @@
 
 .searchbar__field { flex: 1 1 22rem; min-width: 0; }
 .searchbar__field--narrow { flex: 0 1 14rem; }
+.searchbar__field--choice { flex: 0 1 auto; min-width: 0; }
 
 .field-label {
   display: block;
@@ -321,10 +322,12 @@
 
 .pager__gap { min-width: 1.5rem; text-align: center; color: var(--ink-3); }
 
-/* On a phone the step buttons take their own row under the numbers, so the
-   numbers never wrap mid-row. */
+/* On a phone Previous and Next share the first row, half each, with the
+   numbers on the row under them. Before 2026-11-12 the steps went under the
+   numbers, and Previous fitted on the numbers' row while Next fell to a row
+   of its own. */
 @media (max-width: 480px) {
-  .pager__step { order: 1; flex: 1 1 40%; }
+  .pager__step { order: -1; flex: 1 1 calc(50% - 0.35rem); }
 }
 
 /* --------------------------------------------------------------------------

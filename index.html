@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Skill Trees</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="description" content="A skill tree is a graph of the skills and concepts in one school subject, written by a teacher. Each node carries an instruction you copy into an AI chat." data-i18n-attr="content:meta-description">
 
   <link rel="stylesheet" href="/css/tokens.css">
@@ -13,6 +14,7 @@
   <script src="/js/analytics.js"></script>
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <script src="/js/footer.js" defer></script>
 
   <!--
     The translation dictionary for THIS page. English is the source: the
@@ -61,11 +63,6 @@
           "nb": "Se alle trær",
           "sv": "Se alla träd"
       },
-      "hero-cta-secondary": {
-          "en": "Read the method",
-          "nb": "Les metoden",
-          "sv": "Läs metoden"
-      },
       "hero-cta-make": {
           "en": "Make your own",
           "nb": "Lag ditt eget",
@@ -97,9 +94,9 @@
           "sv": "Börja här"
       },
       "tile-1-title": {
-          "en": "Existing skill trees",
-          "nb": "Ferdighetstrær som finnes",
-          "sv": "Färdighetsträd som finns"
+          "en": "Find a skill tree",
+          "nb": "Finn et ferdighetstre",
+          "sv": "Hitta ett färdighetsträd"
       },
       "tile-1-body": {
           "en": "Browse the subjects that have a tree, and see what a finished tree and a single node look like.",
@@ -117,14 +114,14 @@
           "sv": "Gör ditt eget"
       },
       "tile-2-body": {
-          "en": "The decomposition specification, the instructions, and a template for starting a new subject.",
-          "nb": "Dekomponeringsspesifikasjonen, instruksene og en mal for å starte et nytt fag.",
-          "sv": "Nedbrytningsspecifikationen, instruktionerna och en mall för att börja med ett nytt ämne."
+          "en": "Make a tree with an AI chat, change it on screen and download it for your students.",
+          "nb": "Lag et tre med en KI-chat, endre det på skjermen og last det ned til elevene dine.",
+          "sv": "Gör ett träd med en AI-chatt, ändra det på skärmen och ladda ner det till dina elever."
       },
       "tile-2-go": {
-          "en": "Get the spec →",
-          "nb": "Hent spesifikasjonen →",
-          "sv": "Hämta specifikationen →"
+          "en": "Open the editor →",
+          "nb": "Åpne verktøyet →",
+          "sv": "Öppna verktyget →"
       },
       "tile-3-title": {
           "en": "Submit your tree",
@@ -147,34 +144,14 @@
           "sv": "Forskning"
       },
       "tile-4-body": {
-          "en": "Background reading on the design, and the paper describing the method.",
-          "nb": "Bakgrunnslesning om designet, og artikkelen som beskriver metoden.",
-          "sv": "Bakgrundsläsning om designen, och artikeln som beskriver metoden."
+          "en": "The released version of the method, and how to cite it.",
+          "nb": "Den publiserte versjonen av metoden, og hvordan du siterer den.",
+          "sv": "Den publicerade versionen av metoden, och hur du citerar den."
       },
       "tile-4-go": {
-          "en": "Read the paper →",
-          "nb": "Les artikkelen →",
-          "sv": "Läs artikeln →"
-      },
-      "footer-affiliation": {
-          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
-          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
-          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
-      },
-      "footer-privacy": {
-          "en": "Privacy",
-          "nb": "Personvern",
-          "sv": "Integritet"
-      },
-      "footer-line-1": {
-          "en": "AI Skill Trees — an open method by Vidar Skogvoll.",
-          "nb": "AI Skill Trees — en åpen metode av Vidar Skogvoll.",
-          "sv": "AI Skill Trees — en öppen metod av Vidar Skogvoll."
-      },
-      "footer-line-2": {
-          "en": "Placeholder landing page. Content and destinations are still being decided.",
-          "nb": "Midlertidig forside. Innhold og lenkemål er ikke avgjort ennå.",
-          "sv": "Tillfällig startsida. Innehåll och länkmål är ännu inte bestämda."
+          "en": "Cite the method →",
+          "nb": "Siter metoden →",
+          "sv": "Citera metoden →"
       }
   }
   </script>
@@ -242,9 +219,8 @@
                2026-10-18. Knappen til et tilfeldig tre står nå øverst på
                /how-to-use/, med js/random-tree.js. -->
           <a class="btn btn--primary" href="/how-to-use/" data-track-cta="hero-how-to-use" data-i18n="hero-cta-primary">How to use</a>
-          <a class="btn btn--ghost" href="/trees/" data-track-cta="hero-all-trees" data-i18n="hero-cta-all">See all trees</a>
-          <a class="btn btn--ghost" href="/research/" data-track-cta="hero-read-the-method" data-i18n="hero-cta-secondary">Read the method</a>
-          <a class="btn btn--ghost" href="/make-your-own/" data-track-cta="hero-make-your-own" data-i18n="hero-cta-make">Make your own</a>
+          <a class="golink" href="/trees/" data-track-cta="hero-all-trees" data-i18n="hero-cta-all">See all trees</a>
+          <a class="golink" href="/make-your-own/" data-track-cta="hero-make-your-own" data-i18n="hero-cta-make">Make your own</a>
         </div>
       </div>
     </section>
@@ -320,7 +296,7 @@
                tile-04-research). See CHANGELOG-landing-page.md. -->
           <a class="tile" href="/trees/" data-track-cta="tile-01-existing-trees">
             <span class="tile__index">01</span>
-            <h3 class="tile__title" data-i18n="tile-1-title">Existing skill trees</h3>
+            <h3 class="tile__title" data-i18n="tile-1-title">Find a skill tree</h3>
             <p class="tile__body" data-i18n="tile-1-body">
               Browse the subjects that have a tree, and see what a finished tree and a
               single node look like.
@@ -332,10 +308,10 @@
             <span class="tile__index">02</span>
             <h3 class="tile__title" data-i18n="tile-2-title">Make your own</h3>
             <p class="tile__body" data-i18n="tile-2-body">
-              The decomposition specification, the instructions, and a template for starting
-              a new subject.
+              Make a tree with an AI chat, change it on screen and download it for your
+              students.
             </p>
-            <span class="tile__go" aria-hidden="true" data-i18n="tile-2-go">Get the spec &rarr;</span>
+            <span class="tile__go" aria-hidden="true" data-i18n="tile-2-go">Open the editor &rarr;</span>
           </a>
 
           <a class="tile" href="/contribute/" data-track-cta="tile-03-submit-your-tree">
@@ -352,9 +328,9 @@
             <span class="tile__index">04</span>
             <h3 class="tile__title" data-i18n="tile-4-title">Research</h3>
             <p class="tile__body" data-i18n="tile-4-body">
-              Background reading on the design, and the paper describing the method.
+              The released version of the method, and how to cite it.
             </p>
-            <span class="tile__go" aria-hidden="true" data-i18n="tile-4-go">Read the paper &rarr;</span>
+            <span class="tile__go" aria-hidden="true" data-i18n="tile-4-go">Cite the method &rarr;</span>
           </a>
 
         </div>
@@ -363,14 +339,7 @@
 
   </main>
 
-  <footer class="band band--dark sitefooter">
-    <div class="band__inner sitefooter__inner">
-      <p data-i18n="footer-line-1">AI Skill Trees — an open method by Vidar Skogvoll.</p>
-      <p data-i18n="footer-line-2">Placeholder landing page. Content and destinations are still being decided.</p>
-      <p><a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
-      <p class="sitefooter__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
-    </div>
-  </footer>
+  <footer class="band band--dark sitefooter" data-site-footer></footer>
 
 </body>
 </html>

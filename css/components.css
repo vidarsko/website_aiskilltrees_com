@@ -24,6 +24,9 @@
 }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
   font-family: var(--font-sans);
   font-size: var(--step-s);
   font-weight: 600;
@@ -33,10 +36,8 @@
 }
 .wordmark:hover { color: var(--primary); }
 
-.wordmark__mark {
-  color: var(--primary);
-  margin-right: 0.35em;
-}
+/* The mark is the favicon drawing (js/header.js, /favicon.svg). */
+.wordmark__mark { display: inline-flex; flex: 0 0 auto; }
 
 .sitenav {
   display: flex;
@@ -306,6 +307,10 @@
   color: var(--ink-inverse);
 }
 
+/* The eyebrow sits on the scrim, so it needs the inverse ink like the rest of
+   the hero text; the default --ink-3 vanished into the video. */
+.hero .eyebrow { color: var(--ink-inverse); opacity: 0.85; }
+
 .hero__title {
   font-size: var(--step-3xl);
   font-weight: 700;
@@ -486,22 +491,33 @@
   font-size: var(--step-xs);
 }
 
+/* Rendered by js/footer.js, the same on every page: who made it on the
+   left, the links on the right, then the licence and the affiliation as
+   full rows underneath. */
 .sitefooter__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3) var(--space-5);
+  gap: var(--space-2) var(--space-5);
   justify-content: space-between;
   align-items: baseline;
 }
 
 .sitefooter p { margin: 0; opacity: 0.8; }
 .sitefooter a { color: var(--ink-inverse); }
+.sitefooter__by { font-weight: 500; opacity: 1 !important; }
 
-/* The institutional affiliation gets its own row under the other two lines.
-   `.sitefooter__inner` is space-between, so a third item would otherwise be
-   pulled into the middle of a row where the two existing lines are already
-   pinned left and right. flex-basis: 100% wraps it instead. */
+.sitefooter__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.sitefooter__meta,
 .sitefooter__affiliation { flex-basis: 100%; }
+.sitefooter__links + .sitefooter__meta { margin-top: var(--space-2); }
 
 /* --------------------------------------------------------------------------
    Numbered steps — the contribution flow on /make-your-own/.
@@ -1289,3 +1305,150 @@ html:not([lang="nb"]) [data-lang-only="nb"] { display: none; }
   .howto { grid-template-columns: 1fr; gap: var(--space-3); }
 }
 .howto__cta { margin-top: var(--space-4); }
+
+/* --------------------------------------------------------------------------
+   Segmented choice — a few options as buttons side by side, never a
+   dropdown (ux-design rule 8). Flush, with the hairline showing through a
+   1px gap, the same trick as .tiles. The chosen one has full fill AND
+   aria-pressed, never the fill alone.
+   -------------------------------------------------------------------------- */
+
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+  max-width: 100%;
+}
+.segmented__option {
+  flex: 1 0 auto;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.segmented__option:hover { background: var(--primary-tint); color: var(--ink); }
+.segmented__option[aria-pressed="true"] { background: var(--primary); color: var(--ink-inverse); }
+
+/* --------------------------------------------------------------------------
+   «?» help — an explanation behind a question mark in a circle, placed next
+   to what it explains (ux-design rule 6). The bubble lies over the content
+   and pushes nothing (rule 7). Same object as the tree app's help toggle:
+   a 2rem circle with a bold «?». js/helptip.js opens and closes it.
+
+   The bubble is the one floating element on the content pages, so it gets
+   --shadow-float like the app's floating toolbar: without elevation it would
+   read as part of the page under it. Its corners stay square.
+   -------------------------------------------------------------------------- */
+
+.helptip {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.35em;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+}
+.helptip__btn {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+.helptip__btn:hover,
+.helptip__btn[aria-expanded="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--ink-2);
+}
+/* A 44px hit area around the 32px circle. */
+.helptip__btn::after { content: ""; position: absolute; inset: -6px; }
+
+.helptip__bubble {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 10px);
+  left: var(--bubble-left, -0.6rem);
+  width: min(26rem, calc(100vw - 2 * var(--gutter)));
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  box-shadow: var(--shadow-float);
+  font-family: var(--font-serif);
+  font-size: var(--step-s);
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+  white-space: normal;
+}
+.helptip__bubble[hidden] { display: none; }
+.helptip__bubble::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: var(--arrow-left, 1.2rem);
+  width: 12px;
+  height: 12px;
+  background: var(--surface);
+  border-left: 1px solid var(--rule-strong);
+  border-top: 1px solid var(--rule-strong);
+  transform: rotate(45deg);
+}
+.helptip__bubble > span { display: block; }
+.helptip__bubble > span + span { margin-top: var(--space-2); }
+.band--dark .helptip__bubble a, .band--primary .helptip__bubble a { color: var(--primary); }
+
+/* --------------------------------------------------------------------------
+   Go-links — navigation as text (ux-design rule 4). A link that takes the
+   reader to another page is words with an arrow, underlined on hover; a
+   button means something happens. The one exception is a page's single
+   main way forward, which may stay the primary button (rule 14).
+   -------------------------------------------------------------------------- */
+
+.golink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+}
+.golink::after { content: "\00a0\2192"; }
+.golink:hover { color: var(--primary-strong); text-decoration: underline; text-underline-offset: 0.2em; }
+.hero .golink, .band--dark .golink, .band--primary .golink { color: var(--ink-inverse); }
+.btn-row .golink { margin-inline: var(--space-2); }
+
+.golink-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-4);
+}
+
+/* A button or a go-link right after running text gets air above it. */
+.prose + .btn, .prose + .golink, .prose + .btn-row, .prose + .golink-row,
+.checklist + .golink { margin-top: var(--space-3); }
+.promptbar .helptip { margin-bottom: 6px; }
