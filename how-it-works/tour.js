@@ -65,6 +65,12 @@
   /* Text                                                                */
   /* ------------------------------------------------------------------ */
 
+  /* On a phone or tablet the chat never opens the keyboard (2026-11-13):
+     on an iPhone the keyboard moves the page and the visible area apart,
+     and the tour came loose from the screen every time. Pasting is a
+     «Paste» button there instead, which is how a paste is done on a
+     phone anyway, and the input cannot be typed in. */
+  var TOUCH = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   var KEY = /Mac|iPhone|iPad/.test(navigator.platform || '') ? '⌘' : 'Ctrl';
   var PASTE = ' <kbd>' + KEY + '</kbd> + <kbd>V</kbd>';
   /* As little text as possible: the tour shows, it does not explain
@@ -75,10 +81,10 @@
       next: 'Next', clickHere: 'Click here',
       intro: 'This is an AI skill tree.',
       types: 'Facts, concepts and skills.',
-      node: '', copy: '', paste: 'Paste:' + PASTE, pasteHelp: 'Insert it for me',
+      node: '', copy: '', paste: TOUCH ? '' : 'Paste:' + PASTE, pasteBtn: 'Paste', pasteHelp: 'Insert it for me',
       send: '', reply: '', tutorDone: '', master: '', menu: '', test: '',
       covers: 'Only mastered goals. The icon shows all.',
-      examCopy: '', paste2: 'Paste:' + PASTE, send2: '', testDone: '',
+      examCopy: '', paste2: TOUCH ? '' : 'Paste:' + PASTE, send2: '', testDone: '',
       endTitle: 'That\u2019s it.', endTrees: 'See all the trees', endMake: 'Make your own',
       chatName: 'AI service', chatSub: '· new chat', chatEmpty: 'How can I help?', chatEmptySub: '',
       chatPh: 'Message AI service…', pasted: 'Pasted text', words: 'words',
@@ -88,10 +94,10 @@
       next: 'Neste', clickHere: 'Klikk her',
       intro: 'Dette er et KI-ferdighetstre.',
       types: 'Fakta, begreper og ferdigheter.',
-      node: '', copy: '', paste: 'Lim inn:' + PASTE, pasteHelp: 'Sett inn for meg',
+      node: '', copy: '', paste: TOUCH ? '' : 'Lim inn:' + PASTE, pasteBtn: 'Lim inn', pasteHelp: 'Sett inn for meg',
       send: '', reply: '', tutorDone: '', master: '', menu: '', test: '',
       covers: 'Bare mestrede mål. Ikonet viser alle.',
-      examCopy: '', paste2: 'Lim inn:' + PASTE, send2: '', testDone: '',
+      examCopy: '', paste2: TOUCH ? '' : 'Lim inn:' + PASTE, send2: '', testDone: '',
       endTitle: 'Det var det.', endTrees: 'Se alle trærne', endMake: 'Lag ditt eget',
       chatName: 'KI-tjeneste', chatSub: '· ny chat', chatEmpty: 'Hva kan jeg hjelpe med?', chatEmptySub: '',
       chatPh: 'Skriv til KI-tjenesten…', pasted: 'Innlimt tekst', words: 'ord',
@@ -101,10 +107,10 @@
       next: 'Nästa', clickHere: 'Klicka här',
       intro: 'Det här är ett AI-färdighetsträd.',
       types: 'Fakta, begrepp och färdigheter.',
-      node: '', copy: '', paste: 'Klistra in:' + PASTE, pasteHelp: 'Sätt in åt mig',
+      node: '', copy: '', paste: TOUCH ? '' : 'Klistra in:' + PASTE, pasteBtn: 'Klistra in', pasteHelp: 'Sätt in åt mig',
       send: '', reply: '', tutorDone: '', master: '', menu: '', test: '',
       covers: 'Bara avklarade mål. Ikonen visar alla.',
-      examCopy: '', paste2: 'Klistra in:' + PASTE, send2: '', testDone: '',
+      examCopy: '', paste2: TOUCH ? '' : 'Klistra in:' + PASTE, send2: '', testDone: '',
       endTitle: 'Det var allt.', endTrees: 'Se alla träd', endMake: 'Gör ditt eget',
       chatName: 'AI-tjänst', chatSub: '· ny chatt', chatEmpty: 'Hur kan jag hjälpa till?', chatEmptySub: '',
       chatPh: 'Skriv till AI-tjänsten…', pasted: 'Inklistrad text', words: 'ord',
@@ -416,10 +422,11 @@
       '<div class="tour-chat__hd"><span class="tour-chat__logo">✦</span><span class="tour-chat__name">' + esc(T.chatName) + '</span><span class="tour-chat__sub">' + esc(T.chatSub) + '</span></div>' +
       '<div class="tour-chat__msgs"></div>' +
       '<div class="tour-chat__in"><div class="tour-chat__chip" hidden></div><textarea class="tour-chat__ta" rows="2" placeholder="' + esc(T.chatPh) + '"></textarea>' +
-      '<div class="tour-chat__bar"><span class="tour-chat__plus">＋</span><button type="button" class="tour-chat__send" aria-label="Send">↑</button></div></div>' +
+      '<div class="tour-chat__bar"><span class="tour-chat__plus">＋</span><button type="button" class="tour-chat__pastebtn" hidden>' + esc(T.pasteBtn) + '</button><button type="button" class="tour-chat__send" aria-label="Send">↑</button></div></div>' +
       '<p class="tour-chat__note">' + esc(T.chatNote) + '</p>';
     document.body.appendChild(chat);
     var ta = $('.tour-chat__ta', chat);
+    if (TOUCH) { ta.readOnly = true; ta.tabIndex = -1; ta.setAttribute('inputmode', 'none'); }
     /* Keys typed here belong to the chat, not to the tree's shortcuts. */
     ta.addEventListener('keydown', function (e) {
       e.stopPropagation();
@@ -461,11 +468,16 @@
         take(text);
       }
       ta.addEventListener('paste', onPaste);
-      if (help) help.addEventListener('click', function () {
+      /* Read the clipboard; if the browser says no, paste anyway, since
+         what is pasted is never used. */
+      var fromClipboard = function () {
         var p = navigator.clipboard && navigator.clipboard.readText ? navigator.clipboard.readText() : Promise.reject();
-        p.then(take, function () { take(''); });
-      }, { once: true });
-      setTimeout(function () { ta.focus({ preventScroll: true }); }, 60);
+        p.then(function (t) { pb.hidden = true; take(t); }, function () { pb.hidden = true; take(''); });
+      };
+      var pb = $('.tour-chat__pastebtn', chat);
+      if (TOUCH) { pb.hidden = false; pb.addEventListener('click', fromClipboard, { once: true }); }
+      if (help) help.addEventListener('click', fromClipboard, { once: true });
+      if (!TOUCH) setTimeout(function () { ta.focus({ preventScroll: true }); }, 60);
     });
   }
 
@@ -514,6 +526,7 @@
 
   function sendBtn() { return $('.tour-chat__send', chat); }
   function chatInput() { return $('.tour-chat__in', chat); }
+  function pasteTarget() { return TOUCH ? $('.tour-chat__pastebtn', chat) : chatInput(); }
 
   /* While the AI answers: the whole chat in view, no card. */
   async function watch(text) {
@@ -556,7 +569,7 @@
     /* First chat: the practice tutor. */
     await chatOpen();
     var help = el('button', 'tour-card__link', esc(T.pasteHelp)); help.type = 'button';
-    await step({ html: T.paste, find: chatInput, wait: waitForPaste(help), extra: help });
+    await step({ html: T.paste, find: pasteTarget, round: TOUCH, wait: waitForPaste(TOUCH ? null : help), extra: TOUCH ? null : help });
     await step({ html: T.send, find: sendBtn, round: true, wait: waitForSend() });
     await watch(REPLIES.tutor1);
     $('.tour-chat__ta', chat).value = REPLIES.pupil; syncSend();
@@ -594,7 +607,7 @@
     closeWindows();
     await chatOpen();
     var help2 = el('button', 'tour-card__link', esc(T.pasteHelp)); help2.type = 'button';
-    await step({ html: T.paste2, find: chatInput, wait: waitForPaste(help2), extra: help2 });
+    await step({ html: T.paste2, find: pasteTarget, round: TOUCH, wait: waitForPaste(TOUCH ? null : help2), extra: TOUCH ? null : help2 });
     await step({ html: T.send2, find: sendBtn, round: true, wait: waitForSend() });
     await watch(REPLIES.test);
     await step({ html: T.testDone, find: function () { return chat; }, rect: true, interactive: true });

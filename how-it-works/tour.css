@@ -123,6 +123,8 @@
 .tour-chat__in:focus-within { border-color: var(--tour-chat-logo); }
 .tour-chat__ta { border: 0; outline: 0; resize: none; font: inherit; font-size: 14.5px; color: var(--tour-chat-ink); background: transparent; min-height: 24px; }
 .tour-chat__bar { display: flex; align-items: center; justify-content: space-between; color: var(--tour-chat-muted); font-size: 18px; }
+.tour-chat__pastebtn { margin-left: 8px; margin-right: auto; font: 600 14px/1 var(--font-sans); color: var(--tour-chat-ink); background: var(--tour-chat-user); border: 1px solid var(--tour-chat-line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+.tour-chat__pastebtn[hidden] { display: none; }
 .tour-chat__send { width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--tour-chat-send); color: var(--tour-chat-bg); font-size: 16px; display: grid; place-items: center; cursor: default; }
 .tour-chat__send.ready { background: var(--tour-chat-ink); cursor: pointer; }
 .tour-chat__note { margin: 0 14px 10px; font-size: 11.5px; color: var(--tour-chat-muted); text-align: center; }
