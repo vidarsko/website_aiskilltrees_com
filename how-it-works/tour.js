@@ -65,87 +65,50 @@
   /* Text                                                                */
   /* ------------------------------------------------------------------ */
 
+  var KEY = /Mac|iPhone|iPad/.test(navigator.platform || '') ? '⌘' : 'Ctrl';
+  var PASTE = ' <kbd>' + KEY + '</kbd> + <kbd>V</kbd>';
+  /* As little text as possible: the tour shows, it does not explain
+     (Vidar, 2026-11-13). An empty string means the card has only
+     «Click here» or the Next button. */
   var T = {
     en: {
       next: 'Next', clickHere: 'Click here',
-      intro: '<b>This is an AI skill tree.</b> Each box is a learning goal in a subject, and the lines show what builds on what. This one is a small demo tree for natural science, Year 9.',
-      types: 'There are three kinds of learning goals. <b>Facts</b> (blue) are things to remember, <b>concepts</b> (green) are things to understand, and <b>skills</b> (orange) are things to be able to do. We will go through one of them.',
-      node: 'Open a learning goal.',
-      copy: 'Every learning goal has an instruction for an AI. Copy it.',
-      chatIntro: 'Here is an AI service. It can be any one you like: the tree never calls an AI itself.',
-      paste: 'Paste the instruction here. Press <kbd>Ctrl</kbd> + <kbd>V</kbd> (<kbd>⌘</kbd> + <kbd>V</kbd> on a Mac).',
-      pasteHelp: 'Can’t paste? Insert it for me',
-      send: 'Send it. You can also press <kbd>Enter</kbd>.',
-      reply: 'We have written the pupil’s answer for you. Send it.',
-      tutorDone: 'That is the practice tutor: the AI gives a task, the pupil answers, and the AI follows up. The instruction tells it to give hints, not answers.',
-      master: 'When the pupil can do it, they tick it off as mastered. The tick is saved in the browser only. There is no login.',
-      menu: 'Open the menu.',
-      test: 'Make a test.',
-      covers: 'The test covers what is marked as mastered, and only that is shown here. Press the icon to see all the learning goals and add more.',
-      examCopy: 'Copy the instruction for the test.',
-      paste2: 'Paste it into a new chat.',
-      send2: 'And send it.',
-      testDone: 'The AI writes the test, and gives the answers when the pupil asks. Teachers can make lesson plans from the menu in the same way.',
-      endTitle: 'That is how it works.',
-      endText: 'Find a tree for your subject, or make your own.',
-      endTrees: 'See all the trees', endMake: 'Make your own',
-      chatName: 'AI service', chatSub: '· new chat', chatEmpty: 'How can I help?', chatEmptySub: 'Ask anything, or paste an instruction.',
+      intro: 'This is an AI skill tree.',
+      types: 'Facts, concepts and skills.',
+      node: '', copy: '', paste: 'Paste:' + PASTE, pasteHelp: 'Insert it for me',
+      send: '', reply: '', tutorDone: '', master: '', menu: '', test: '',
+      covers: 'Only mastered goals. The icon shows all.',
+      examCopy: '', paste2: 'Paste:' + PASTE, send2: '', testDone: '',
+      endTitle: 'That\u2019s it.', endTrees: 'See all the trees', endMake: 'Make your own',
+      chatName: 'AI service', chatSub: '· new chat', chatEmpty: 'How can I help?', chatEmptySub: '',
       chatPh: 'Message AI service…', pasted: 'Pasted text', words: 'words',
-      chatNote: 'The replies here are written in advance. A real AI service answers differently each time.'
+      chatNote: 'Pre-written replies.'
     },
     nb: {
       next: 'Neste', clickHere: 'Klikk her',
-      intro: '<b>Dette er et KI-ferdighetstre.</b> Hver boks er et læringsmål i et fag, og strekene viser hva som bygger på hva. Dette er et lite demotre i naturfag for 9. trinn.',
-      types: 'Det finnes tre slags læringsmål. <b>Fakta</b> (blå) er noe man skal huske, <b>begreper</b> (grønne) er noe man skal forstå, og <b>ferdigheter</b> (oransje) er noe man skal kunne gjøre. Vi går gjennom ett av dem.',
-      node: 'Åpne et læringsmål.',
-      copy: 'Hvert læringsmål har en instruks til en KI. Kopier den.',
-      chatIntro: 'Her er en KI-tjeneste. Det kan være hvilken som helst: treet kaller aldri en KI selv.',
-      paste: 'Lim inn instruksen her. Trykk <kbd>Ctrl</kbd> + <kbd>V</kbd> (<kbd>⌘</kbd> + <kbd>V</kbd> på Mac).',
-      pasteHelp: 'Får du ikke limt inn? Sett den inn for meg',
-      send: 'Send den. Du kan også trykke <kbd>Enter</kbd>.',
-      reply: 'Vi har skrevet elevens svar for deg. Send det.',
-      tutorDone: 'Det er øvingshjelperen: KI-en gir en oppgave, eleven svarer, og KI-en følger opp. Instruksen ber den gi hint, ikke svar.',
-      master: 'Når eleven kan det, krysser hen det av som mestret. Haken lagres bare i nettleseren. Det finnes ingen innlogging.',
-      menu: 'Åpne menyen.',
-      test: 'Lag en prøve.',
-      covers: 'Prøven dekker det som er krysset av som mestret, og bare det vises her. Trykk på ikonet for å se alle læringsmålene og legge til flere.',
-      examCopy: 'Kopier instruksen for prøven.',
-      paste2: 'Lim den inn i en ny chat.',
-      send2: 'Og send den.',
-      testDone: 'KI-en lager prøven, og gir fasit når eleven ber om det. Lærere kan lage undervisningsopplegg fra menyen på samme måte.',
-      endTitle: 'Slik virker det.',
-      endText: 'Finn et tre for faget ditt, eller lag ditt eget.',
-      endTrees: 'Se alle trærne', endMake: 'Lag ditt eget',
-      chatName: 'KI-tjeneste', chatSub: '· ny chat', chatEmpty: 'Hva kan jeg hjelpe med?', chatEmptySub: 'Spør om hva som helst, eller lim inn en instruks.',
+      intro: 'Dette er et KI-ferdighetstre.',
+      types: 'Fakta, begreper og ferdigheter.',
+      node: '', copy: '', paste: 'Lim inn:' + PASTE, pasteHelp: 'Sett inn for meg',
+      send: '', reply: '', tutorDone: '', master: '', menu: '', test: '',
+      covers: 'Bare mestrede mål. Ikonet viser alle.',
+      examCopy: '', paste2: 'Lim inn:' + PASTE, send2: '', testDone: '',
+      endTitle: 'Det var det.', endTrees: 'Se alle trærne', endMake: 'Lag ditt eget',
+      chatName: 'KI-tjeneste', chatSub: '· ny chat', chatEmpty: 'Hva kan jeg hjelpe med?', chatEmptySub: '',
       chatPh: 'Skriv til KI-tjenesten…', pasted: 'Innlimt tekst', words: 'ord',
-      chatNote: 'Svarene her er skrevet på forhånd. En ekte KI-tjeneste svarer annerledes hver gang.'
+      chatNote: 'Ferdigskrevne svar.'
     },
     sv: {
       next: 'Nästa', clickHere: 'Klicka här',
-      intro: '<b>Det här är ett AI-färdighetsträd.</b> Varje ruta är ett lärandemål i ett ämne, och linjerna visar vad som bygger på vad. Det här är ett litet demoträd i NO för årskurs 9.',
-      types: 'Det finns tre sorters lärandemål. <b>Fakta</b> (blå) är sådant man ska komma ihåg, <b>begrepp</b> (gröna) är sådant man ska förstå, och <b>färdigheter</b> (orange) är sådant man ska kunna göra. Vi går igenom ett av dem.',
-      node: 'Öppna ett lärandemål.',
-      copy: 'Varje lärandemål har en instruktion till en AI. Kopiera den.',
-      chatIntro: 'Här är en AI-tjänst. Det kan vara vilken som helst: trädet anropar aldrig en AI själv.',
-      paste: 'Klistra in instruktionen här. Tryck <kbd>Ctrl</kbd> + <kbd>V</kbd> (<kbd>⌘</kbd> + <kbd>V</kbd> på Mac).',
-      pasteHelp: 'Går det inte att klistra in? Sätt in den åt mig',
-      send: 'Skicka den. Du kan också trycka <kbd>Enter</kbd>.',
-      reply: 'Vi har skrivit elevens svar åt dig. Skicka det.',
-      tutorDone: 'Det är övningshjälpen: AI:n ger en uppgift, eleven svarar och AI:n följer upp. Instruktionen säger åt den att ge ledtrådar, inte svar.',
-      master: 'När eleven kan det, bockar hen av det som avklarat. Bocken sparas bara i webbläsaren. Det finns ingen inloggning.',
-      menu: 'Öppna menyn.',
-      test: 'Gör ett prov.',
-      covers: 'Provet täcker det som är markerat som avklarat, och bara det visas här. Tryck på ikonen för att se alla lärandemål och lägga till fler.',
-      examCopy: 'Kopiera instruktionen för provet.',
-      paste2: 'Klistra in den i en ny chatt.',
-      send2: 'Och skicka den.',
-      testDone: 'AI:n skriver provet och ger facit när eleven ber om det. Lärare kan göra lektionsplaneringar från menyn på samma sätt.',
-      endTitle: 'Så fungerar det.',
-      endText: 'Hitta ett träd för ditt ämne, eller gör ditt eget.',
-      endTrees: 'Se alla träd', endMake: 'Gör ditt eget',
-      chatName: 'AI-tjänst', chatSub: '· ny chatt', chatEmpty: 'Hur kan jag hjälpa till?', chatEmptySub: 'Fråga vad som helst, eller klistra in en instruktion.',
+      intro: 'Det här är ett AI-färdighetsträd.',
+      types: 'Fakta, begrepp och färdigheter.',
+      node: '', copy: '', paste: 'Klistra in:' + PASTE, pasteHelp: 'Sätt in åt mig',
+      send: '', reply: '', tutorDone: '', master: '', menu: '', test: '',
+      covers: 'Bara avklarade mål. Ikonen visar alla.',
+      examCopy: '', paste2: 'Klistra in:' + PASTE, send2: '', testDone: '',
+      endTitle: 'Det var allt.', endTrees: 'Se alla träd', endMake: 'Gör ditt eget',
+      chatName: 'AI-tjänst', chatSub: '· ny chatt', chatEmpty: 'Hur kan jag hjälpa till?', chatEmptySub: '',
       chatPh: 'Skriv till AI-tjänsten…', pasted: 'Inklistrad text', words: 'ord',
-      chatNote: 'Svaren här är skrivna i förväg. En riktig AI-tjänst svarar olika varje gång.'
+      chatNote: 'Förskrivna svar.'
     }
   }[lang];
 
@@ -313,8 +276,8 @@
       root.dataset.click = (opts.click || opts.wait) ? 'yes' : 'no';
       root.classList.toggle('light', !!opts.light);
       card.innerHTML = '';
-      if (opts.click) card.appendChild(el('span', 'tour-card__pulse', T.clickHere));
-      card.appendChild(el('p', 'tour-card__text', opts.html));
+      if (opts.click || (opts.wait && !opts.html)) card.appendChild(el('span', 'tour-card__pulse', T.clickHere));
+      if (opts.html) card.appendChild(el('p', 'tour-card__text', opts.html));
       if (opts.extra) card.appendChild(opts.extra);
       if (!opts.click && !opts.wait) {
         var nb = el('button', 'tour-card__next', T.next);
@@ -544,7 +507,6 @@
     card.classList.add('tour-card--end');
     card.innerHTML = '';
     card.appendChild(el('h2', 'tour-card__title', esc(T.endTitle)));
-    card.appendChild(el('p', 'tour-card__text', esc(T.endText)));
     var row = el('div', 'tour-card__ctas');
     var a1 = el('a', 'tour-card__cta tour-card__cta--primary', esc(T.endTrees)); a1.href = '/trees/' + langQuery; a1.setAttribute('data-track-cta', 'tour-end-trees');
     var a2 = el('a', 'tour-card__cta', esc(T.endMake)); a2.href = '/make-your-own/' + langQuery; a2.setAttribute('data-track-cta', 'tour-end-make');

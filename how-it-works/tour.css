@@ -30,7 +30,7 @@
 
 .tour-card {
   position: fixed; pointer-events: auto;
-  width: min(360px, calc(100vw - 32px));
+  width: max-content; max-width: min(320px, calc(100vw - 32px));
   background: var(--surface); color: var(--ink);
   border-radius: 12px; box-shadow: var(--shadow-modal);
   padding: 1.1rem 1.2rem 1rem;
@@ -38,13 +38,14 @@
   transition: left .45s ease, top .45s ease, opacity .2s ease;
 }
 .tour-card__text { margin: 0; }
+.tour-card__pulse + .tour-card__text { margin-top: .4rem; }
 .tour-card__text b { font-weight: 650; }
 .tour-card__text kbd {
   font: 600 .8em/1 var(--font-sans); padding: .15em .4em; border-radius: 4px;
   border: 1px solid var(--rule-strong); background: var(--paper);
 }
 .tour-card__pulse {
-  display: inline-flex; align-items: center; gap: .45rem; margin-bottom: .4rem;
+  display: flex; align-items: center; gap: .45rem;
   font: 700 .78rem/1 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; color: var(--primary);
 }
 .tour-card__pulse::before {
@@ -54,6 +55,9 @@
 @keyframes tourpulse { 0% { box-shadow: 0 0 0 0 rgba(31,111,74,.55); } 100% { box-shadow: 0 0 0 .7rem rgba(31,111,74,0); } }
 .tour-card__next {
   margin-top: .85rem; float: right;
+}
+.tour-card > .tour-card__next:first-child { margin-top: 0; }
+.tour-card__next {
   font: 600 .95rem/1 var(--font-sans); color: var(--ink-inverse); background: var(--primary);
   border: 0; border-radius: 999px; padding: .65rem 1.2rem; cursor: pointer;
 }
