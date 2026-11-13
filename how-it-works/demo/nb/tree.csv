@@ -1,0 +1,37 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Naturfag (demo),,,
+,config,,description,"Et lite demotre i naturfag for 9. trinn, laget for å vise hvordan et ferdighetstre virker.",,,
+,config,,language,nb,,,
+,config,,learner,eleven,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,aist-demo-natural-science-nb,,,
+,config,,topicOrder,Atomer og stoffer;Energi;Celler,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"naturfag, 9. trinn",,,
+,config,,author,Vidar Skogvoll,,,
+,config,,license,CC BY 4.0,,,
+atom-molekyl,concept,Atomer og stoffer,Atom og molekyl,"Atom: den minste delen av et grunnstoff som fortsatt har egenskapene til grunnstoffet.
+Molekyl: to eller flere atomer som holdes sammen av kjemiske bindinger.",,,
+grunnstoffsymboler,fact,Atomer og stoffer,Vanlige grunnstoffsymboler,"H: hydrogen
+C: karbon
+N: nitrogen
+O: oksygen
+Na: natrium
+Cl: klor",,,
+lese-formel,skill,Atomer og stoffer,Lese en kjemisk formel,"si hvilke grunnstoffer en kjemisk formel inneholder og hvor mange atomer det er av hvert, for eksempel at H₂O har to hydrogenatomer og ett oksygenatom.",atom-molekyl;grunnstoffsymboler,,
+kjemisk-reaksjon,skill,Atomer og stoffer,Beskrive en kjemisk reaksjon,"beskrive hva som skjer i en kjemisk reaksjon, og forklare hvorfor antallet atomer av hvert grunnstoff er det samme før og etter.",lese-formel,,
+energiformer,concept,Energi,Energiformer,"Bevegelsesenergi: energi noe har fordi det beveger seg.
+Stillingsenergi: energi som er lagret på grunn av plassering, som vann bak en demning.
+Kjemisk energi: energi lagret i bindingene mellom atomer, som i mat og brensel.",,,
+energibevaring,concept,Energi,Energibevaring,"Energibevaring: energi blir aldri brukt opp eller skapt, bare omdannet fra én form til en annen.",energiformer,,
+energienheter,fact,Energi,Enheter for energi og effekt,"J (joule): enheten for energi.
+W (watt): én joule per sekund, enheten for effekt.
+1 kWh: 3,6 millioner joule.",,,
+energikjede,skill,Energi,Beskrive en energikjede,"beskrive energiomdanningene fra et kraftverk til en lampe, og peke på hvor energi går tapt som varme.",energibevaring;energienheter,,
+celle,concept,Celler,Celle,"Celle: den minste enheten som kan kalles levende. Alt levende består av én eller flere celler.",,,
+organeller,fact,Celler,Delene i cellen,"Cellekjerne: inneholder DNA-et.
+Mitokondrie: der celleåndingen frigjør energi.
+Kloroplast: der fotosyntesen skjer, bare i planteceller.
+Cellevegg: et stivt ytterlag, bare i planteceller.",celle,,
+fotosyntese,skill,Celler,Forklare fotosyntese og celleånding,"forklare hvordan fotosyntese og celleånding henger sammen, med ordene glukose, oksygen, karbondioksid og energi.",organeller;kjemisk-reaksjon;energiformer,,

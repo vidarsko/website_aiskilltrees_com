@@ -1,0 +1,37 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,Natural science (demo),,,
+,config,,description,"A small demo tree for Year 9 natural science, made to show how a skill tree works.",,,
+,config,,language,en,,,
+,config,,learner,the pupil,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,aist-demo-natural-science-en,,,
+,config,,topicOrder,Atoms and substances;Energy;Cells,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"natural science, Year 9",,,
+,config,,author,Vidar Skogvoll,,,
+,config,,license,CC BY 4.0,,,
+atom-molecule,concept,Atoms and substances,Atom and molecule,"Atom: the smallest part of an element that still has the properties of that element.
+Molecule: two or more atoms held together by chemical bonds.",,,
+element-symbols,fact,Atoms and substances,Common element symbols,"H: hydrogen
+C: carbon
+N: nitrogen
+O: oxygen
+Na: sodium
+Cl: chlorine",,,
+read-formula,skill,Atoms and substances,Read a chemical formula,"say which elements a chemical formula contains and how many atoms of each, for example that H₂O has two hydrogen atoms and one oxygen atom.",atom-molecule;element-symbols,,
+chemical-reaction,skill,Atoms and substances,Describe a chemical reaction,"describe what happens in a chemical reaction, and explain why the number of atoms of each element is the same before and after.",read-formula,,
+energy-forms,concept,Energy,Forms of energy,"Kinetic energy: energy something has because it moves.
+Potential energy: energy stored because of position, such as water held behind a dam.
+Chemical energy: energy stored in the bonds between atoms, such as in food and fuel.",,,
+energy-conservation,concept,Energy,Conservation of energy,"Conservation of energy: energy is never used up or created, only converted from one form to another.",energy-forms,,
+energy-units,fact,Energy,Units of energy and power,"J (joule): the unit of energy.
+W (watt): one joule per second, the unit of power.
+1 kWh: 3.6 million joules.",,,
+energy-chain,skill,Energy,Describe an energy chain,"describe the energy conversions from a power station to a lamp, and point out where energy is lost as heat.",energy-conservation;energy-units,,
+cell,concept,Cells,Cell,"Cell: the smallest unit that can be called alive. All living things are made of one or more cells.",,,
+organelles,fact,Cells,Parts of the cell,"Nucleus: holds the DNA.
+Mitochondrion: where cellular respiration releases energy.
+Chloroplast: where photosynthesis happens, only in plant cells.
+Cell wall: a stiff outer layer, only in plant cells.",cell,,
+photosynthesis,skill,Cells,Explain photosynthesis and respiration,"explain how photosynthesis and cellular respiration are linked, using the words glucose, oxygen, carbon dioxide and energy.",organelles;chemical-reaction;energy-forms,,

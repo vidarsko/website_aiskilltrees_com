@@ -333,6 +333,8 @@
       "covers": "Prøven dekker {n} mestrede læringsmål:",
       "coversOne": "Prøven dekker 1 mestret læringsmål:",
       "noneHint": "Du har ikke krysset av noen læringsmål som mestret ennå. Kryss av det du kan i treet, så kan du lage en prøve.",
+      "showAll": "Vis alle læringsmålene",
+      "showSelected": "Vis bare de valgte læringsmålene",
       "difficultyLabel": "Vanskelighetsgrad",
       "difficulty": {
         "easy": "Lett",

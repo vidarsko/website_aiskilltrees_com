@@ -3630,51 +3630,91 @@ function openMotivationModal() {
   overlay.classList.add('open');
 }
 
+/* Ikonet for «vis alle læringsmålene»: tre rader med små merker, der de
+   som er skjult står stiplet. Når alle vises, er alle merkene hele. */
+function examShowAllIcon(all) {
+  const rowsSpec = [[0, 7, 14], [0, 7], [0, 7, 14, 21]];
+  let out = '';
+  rowsSpec.forEach((xs, r) => xs.forEach((x, i) => {
+    const hidden = !all && (i > 0 && (r + i) % 2 === 1);
+    out += `<rect x="${x + 1}" y="${3 + r * 7}" width="5.5" height="4.6" rx="1.4" class="${hidden ? 'ea-hidden' : 'ea-tag'}"/>`;
+  }));
+  return `<svg viewBox="0 0 30 24" width="30" height="24" aria-hidden="true" class="exam-all-icon">${out}</svg>`;
+}
+
 function openExamModal() {
   /* Utvalget starter som det som er krysset av som mestret, og kan
      endres i vinduet. Det lagres ikke. */
   const progress = getProgress();
   examSelection = new Set(allNodes.filter(n => isNodeMastered(n, progress)).map(n => n.id));
+  examShowAll = false;
+  examShown = new Set(examSelection);
   const overlay = ensureSimpleModal('exam', t('exam.heading'), t('exam.help'));
   renderExamBody(overlay.querySelector('.aist-modal-body'));
   overlay.classList.add('open');
 }
 
 let examSelection = new Set();
+/* Vinduet viser bare de valgte læringsmålene til man ber om alle (fra
+   0.42.0): hele treet som merker var for mye å se på en gang. `examShown`
+   er utvalget slik det var da lista ble vist, så et mål man velger bort,
+   blir stående som et svakt merke i stedet for å forsvinne (prinsipp 12). */
+let examShowAll = false;
+let examShown = new Set();
 
 function renderExamBody(body) {
   body.innerHTML = '';
   const o = EXAM_OPTIONS;
   const selected = () => allNodes.filter(n => examSelection.has(n.id)).sort(compareByGoalIndex);
 
-  /* «Prøven dekker:» og alle læringsmålene som små merker i treets farger,
-     ett emne per rad. De mestrede er valgt fra start; trykk for å velge
-     bort eller legge til (fra 2026-11-11). */
+  /* «Prøven dekker:» og de valgte læringsmålene som små merker i treets
+     farger, ett emne per rad. De mestrede er valgt fra start; trykk for å
+     velge bort. Ikonet foran viser alle målene, så man kan legge til. */
   const cover = makeEl('div', 'resource-summary exam-cover');
   cover.appendChild(makeEl('span', 'goal-tags-label', t('exam.coversLabel')));
   const rows = makeEl('div', 'goal-tag-rows');
   const empty = makeEl('span', 'goal-tags-empty', t('lesson.selectedNone'));
-  /* Velg alle / velg bort alle, for hele prøven og for hvert emne, med de
-     samme listeikonene som i Læringsmål. */
   const setAll = (nodes, on) => {
     nodes.forEach(n => { if (on) examSelection.add(n.id); else examSelection.delete(n.id); });
     renderExamBody(body);
   };
+  const toggleAll = () => {
+    examShowAll = !examShowAll;
+    if (!examShowAll) examShown = new Set(examSelection);
+    renderExamBody(body);
+  };
   const allRow = makeEl('div', 'goal-tag-row exam-bulk-row');
-  allRow.appendChild(bulkIconButton(t('lessonPlanner.selectAll'), true, true, () => setAll(allNodes, true), 'goal-index-bulk-btn'));
-  allRow.appendChild(bulkIconButton(t('lessonPlanner.deselectAll'), false, true, () => setAll(allNodes, false), 'goal-index-bulk-btn'));
+  const showBtn = makeEl('button', 'column-header-btn exam-show-all-btn' + (examShowAll ? ' on' : ''));
+  showBtn.type = 'button';
+  showBtn.innerHTML = examShowAllIcon(examShowAll);
+  const showLabel = t(examShowAll ? 'exam.showSelected' : 'exam.showAll');
+  showBtn.title = showLabel;
+  showBtn.setAttribute('aria-label', showLabel);
+  showBtn.setAttribute('aria-pressed', String(examShowAll));
+  showBtn.addEventListener('click', toggleAll);
+  allRow.appendChild(showBtn);
+  /* Velg alle / velg bort alle gir bare mening når alle målene vises. */
+  if (examShowAll) {
+    allRow.appendChild(bulkIconButton(t('lessonPlanner.selectAll'), true, true, () => setAll(allNodes, true), 'goal-index-bulk-btn'));
+    allRow.appendChild(bulkIconButton(t('lessonPlanner.deselectAll'), false, true, () => setAll(allNodes, false), 'goal-index-bulk-btn'));
+  }
   rows.appendChild(allRow);
+  const visible = n => examShowAll || examShown.has(n.id);
   themeList.forEach(({ letter, topic, nodes }) => {
+    const shown = nodes.filter(visible);
+    if (!shown.length) return;
     const row = makeEl('div', 'goal-tag-row');
     row.appendChild(makeEl('span', 'goal-tag-letter', letter));
-    nodes.forEach(n => row.appendChild(goalTag(n, examSelection.has(n.id), on => {
+    shown.forEach(n => row.appendChild(goalTag(n, examSelection.has(n.id), on => {
       if (on) examSelection.add(n.id); else examSelection.delete(n.id);
       sync();
     })));
-    const acts = makeEl('span', 'goal-tag-row-actions');
-    acts.appendChild(bulkIconButton(t('lessonPlanner.selectTopic', { topic }), true, false, () => setAll(nodes, true)));
-    acts.appendChild(bulkIconButton(t('lessonPlanner.deselectTopic', { topic }), false, false, () => setAll(nodes, false)));
-    row.appendChild(acts);
+    if (examShowAll) {
+      const acts = makeEl('span', 'goal-tag-row-actions');
+      acts.appendChild(bulkIconButton(t('lessonPlanner.selectTopic', { topic }), true, false, () => setAll(nodes, true)));
+      acts.appendChild(bulkIconButton(t('lessonPlanner.deselectTopic', { topic }), false, false, () => setAll(nodes, false)));
+      row.appendChild(acts);
+    }
     rows.appendChild(row);
   });
   cover.appendChild(rows);

@@ -1,0 +1,37 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,title,NO (demo),,,
+,config,,description,"Ett litet demoträd i NO för årskurs 9, gjort för att visa hur ett färdighetsträd fungerar.",,,
+,config,,language,sv,,,
+,config,,learner,eleven,,,
+,config,,subjectFamily,natural-sciences,,,
+,config,,storageKey,aist-demo-natural-science-sv,,,
+,config,,topicOrder,Atomer och ämnen;Energi;Celler,,,
+,config,,features.motivation,false,,,
+,config,,slots.courseName,"NO, årskurs 9",,,
+,config,,author,Vidar Skogvoll,,,
+,config,,license,CC BY 4.0,,,
+atom-molekyl,concept,Atomer och ämnen,Atom och molekyl,"Atom: den minsta delen av ett grundämne som fortfarande har grundämnets egenskaper.
+Molekyl: två eller fler atomer som hålls ihop av kemiska bindningar.",,,
+grundamnessymboler,fact,Atomer och ämnen,Vanliga grundämnessymboler,"H: väte
+C: kol
+N: kväve
+O: syre
+Na: natrium
+Cl: klor",,,
+lasa-formel,skill,Atomer och ämnen,Läsa en kemisk formel,"säga vilka grundämnen en kemisk formel innehåller och hur många atomer det finns av varje, till exempel att H₂O har två väteatomer och en syreatom.",atom-molekyl;grundamnessymboler,,
+kemisk-reaktion,skill,Atomer och ämnen,Beskriva en kemisk reaktion,"beskriva vad som händer i en kemisk reaktion, och förklara varför antalet atomer av varje grundämne är detsamma före och efter.",lasa-formel,,
+energiformer,concept,Energi,Energiformer,"Rörelseenergi: energi något har för att det rör sig.
+Lägesenergi: energi som är lagrad på grund av läget, som vatten bakom en damm.
+Kemisk energi: energi lagrad i bindningarna mellan atomer, som i mat och bränsle.",,,
+energiprincipen,concept,Energi,Energiprincipen,"Energiprincipen: energi kan aldrig förbrukas eller skapas, bara omvandlas från en form till en annan.",energiformer,,
+energienheter,fact,Energi,Enheter för energi och effekt,"J (joule): enheten för energi.
+W (watt): en joule per sekund, enheten för effekt.
+1 kWh: 3,6 miljoner joule.",,,
+energikedja,skill,Energi,Beskriva en energikedja,"beskriva energiomvandlingarna från ett kraftverk till en lampa, och peka ut var energi går förlorad som värme.",energiprincipen;energienheter,,
+cell,concept,Celler,Cell,"Cell: den minsta enheten som kan kallas levande. Allt levande består av en eller flera celler.",,,
+organeller,fact,Celler,Cellens delar,"Cellkärna: innehåller DNA:t.
+Mitokondrie: där cellandningen frigör energi.
+Kloroplast: där fotosyntesen sker, bara i växtceller.
+Cellvägg: ett styvt ytterlager, bara i växtceller.",cell,,
+fotosyntes,skill,Celler,Förklara fotosyntes och cellandning,"förklara hur fotosyntes och cellandning hänger ihop, med orden glukos, syre, koldioxid och energi.",organeller;kemisk-reaktion;energiformer,,

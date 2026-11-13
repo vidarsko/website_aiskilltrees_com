@@ -333,6 +333,8 @@
       "covers": "The test covers {n} mastered learning goals:",
       "coversOne": "The test covers 1 mastered learning goal:",
       "noneHint": "You have not marked any learning goals as mastered yet. Tick what you can do in the tree, and then you can make a test.",
+      "showAll": "Show all learning goals",
+      "showSelected": "Show only the selected learning goals",
       "difficultyLabel": "Difficulty",
       "difficulty": {
         "easy": "Easy",

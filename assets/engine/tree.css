@@ -2457,6 +2457,12 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 .goal-index-section h3 { align-items: center; font-size: 0.86rem; }
 .goal-tag-row-actions { display: inline-flex; gap: 0.25rem; margin-left: 0.3rem; }
 .exam-bulk-row { gap: 0.5rem; margin-bottom: 0.15rem; }
+.exam-show-all-btn { padding: 0.2rem 0.4rem; color: var(--text-muted); }
+.exam-show-all-btn.on { color: var(--primary); }
+.exam-all-icon { width: auto; height: 1.6rem; display: block; }
+.exam-all-icon .ea-tag { fill: currentColor; opacity: 0.55; }
+.exam-show-all-btn.on .exam-all-icon .ea-tag { opacity: 0.9; }
+.exam-all-icon .ea-hidden { fill: none; stroke: currentColor; stroke-width: 0.8; stroke-dasharray: 1.4 1.1; opacity: 0.6; }
 
 /* Typen i detaljpanelet står i et merke i typens farge og form. */
 .type-chip {

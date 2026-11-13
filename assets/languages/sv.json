@@ -333,6 +333,8 @@
       "covers": "Provet täcker {n} avklarade lärandemål:",
       "coversOne": "Provet täcker 1 avklarat lärandemål:",
       "noneHint": "Du har inte markerat några lärandemål som avklarade ännu. Kryssa i det du kan i trädet, så kan du skapa ett prov.",
+      "showAll": "Visa alla lärandemål",
+      "showSelected": "Visa bara de valda lärandemålen",
       "difficultyLabel": "Svårighetsgrad",
       "difficulty": {
         "easy": "Lätt",
