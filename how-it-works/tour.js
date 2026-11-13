@@ -112,27 +112,8 @@
     }
   }[lang];
 
-  /* The pretend conversation. Written in advance; never generated. */
-  var REPLIES = {
-    en: {
-      tutor1: 'Let’s practise reading chemical formulas. Here is the first one:\n\n**CO₂**\n\nWhich elements does it contain, and how many atoms of each?',
-      pupil: 'One carbon atom and two oxygen atoms.',
-      tutor2: 'Exactly right. The small 2 belongs to the O just before it, and C has no number, which means one.\n\nThe next one is a bit harder: **C₆H₁₂O₆**, which is glucose. How many atoms are there in total?',
-      test: '## Test: Atoms and substances\n\n**1.** What is the difference between an atom and a molecule?\n\n**2.** Which element has the symbol Na?\na) nitrogen  b) sodium  c) neon\n\n**3.** Write the symbols for carbon, oxygen and chlorine.\n\n**4.** How many atoms of each element are there in NH₃?\n\n**5.** True or false: O₂ is a molecule.\n\n**6.** How many atoms are there in total in H₂SO₄?\n\n**7.** A formula has one carbon atom and four hydrogen atoms. Write it.\n\n**8.** Explain what the small number in H₂O tells you.\n\n**9.** Which of these is an element, and which is a compound: O₂, CO₂, N₂?\n\n**10.** NaCl is table salt. Which two elements does it contain, and in what ratio?\n\nTell me when you are done, and I will go through the answers with you.'
-    },
-    nb: {
-      tutor1: 'La oss øve på å lese kjemiske formler. Her er den første:\n\n**CO₂**\n\nHvilke grunnstoffer inneholder den, og hvor mange atomer er det av hvert?',
-      pupil: 'Ett karbonatom og to oksygenatomer.',
-      tutor2: 'Helt riktig. Det lille 2-tallet hører til O-en rett foran, og C har ikke noe tall, som betyr én.\n\nDen neste er litt vanskeligere: **C₆H₁₂O₆**, som er glukose. Hvor mange atomer er det til sammen?',
-      test: '## Prøve: Atomer og stoffer\n\n**1.** Hva er forskjellen på et atom og et molekyl?\n\n**2.** Hvilket grunnstoff har symbolet Na?\na) nitrogen  b) natrium  c) neon\n\n**3.** Skriv symbolene for karbon, oksygen og klor.\n\n**4.** Hvor mange atomer av hvert grunnstoff er det i NH₃?\n\n**5.** Sant eller usant: O₂ er et molekyl.\n\n**6.** Hvor mange atomer er det til sammen i H₂SO₄?\n\n**7.** En formel har ett karbonatom og fire hydrogenatomer. Skriv den.\n\n**8.** Forklar hva det lille tallet i H₂O forteller deg.\n\n**9.** Hvilke av disse er grunnstoffer, og hvilke er forbindelser: O₂, CO₂, N₂?\n\n**10.** NaCl er bordsalt. Hvilke to grunnstoffer inneholder det, og i hvilket forhold?\n\nSi fra når du er ferdig, så går vi gjennom svarene sammen.'
-    },
-    sv: {
-      tutor1: 'Vi övar på att läsa kemiska formler. Här är den första:\n\n**CO₂**\n\nVilka grundämnen innehåller den, och hur många atomer finns det av varje?',
-      pupil: 'En kolatom och två syreatomer.',
-      tutor2: 'Helt rätt. Den lilla 2:an hör till O:et precis framför, och C har ingen siffra, vilket betyder en.\n\nNästa är lite svårare: **C₆H₁₂O₆**, som är glukos. Hur många atomer finns det sammanlagt?',
-      test: '## Prov: Atomer och ämnen\n\n**1.** Vad är skillnaden mellan en atom och en molekyl?\n\n**2.** Vilket grundämne har symbolen Na?\na) kväve  b) natrium  c) neon\n\n**3.** Skriv symbolerna för kol, syre och klor.\n\n**4.** Hur många atomer av varje grundämne finns det i NH₃?\n\n**5.** Sant eller falskt: O₂ är en molekyl.\n\n**6.** Hur många atomer finns det sammanlagt i H₂SO₄?\n\n**7.** En formel har en kolatom och fyra väteatomer. Skriv den.\n\n**8.** Förklara vad den lilla siffran i H₂O säger dig.\n\n**9.** Vilka av dessa är grundämnen, och vilka är föreningar: O₂, CO₂, N₂?\n\n**10.** NaCl är koksalt. Vilka två grundämnen innehåller det, och i vilket förhållande?\n\nSäg till när du är klar, så går vi igenom svaren tillsammans.'
-    }
-  }[lang];
+  /* The conversation: real Sonnet replies, verbatim, in replies.js. */
+  var REPLIES = (window.AIST_TOUR_REPLIES || {})[lang];
 
   /* ------------------------------------------------------------------ */
   /* Helpers                                                             */
@@ -168,13 +149,18 @@
 
   /* The little Markdown a chat renders: headings, **bold**, line breaks. */
   function md(s) {
+    var span = function (x) { return esc(x).replace(/\*\*([^*\n]+)\*\*/g, '<b>$1</b>').replace(/`([^`\n]+)`/g, '<code>$1</code>'); };
     return s.split('\n').map(function (line) {
-      var m = line.match(/^(#{1,3}) (.*)/);
-      var span = esc(m ? m[2] : line).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
-      if (m) return '<b class="tour-chat__h">' + span + '</b>';
-      return span + '<br>';
+      var m;
+      if ((m = line.match(/^(#{1,3}) (.*)/))) return '<b class="tour-chat__h">' + span(m[2]) + '</b>';
+      if (/^---+$/.test(line)) return '<hr class="tour-chat__hr">';
+      if (/^\|[-| :]+\|$/.test(line)) return '';
+      if (/^\|.*\|$/.test(line)) return '<span class="tour-chat__row">' + line.slice(1, -1).split('|').map(function (c) { return '<span>' + span(c.trim()) + '</span>'; }).join('') + '</span>';
+      if ((m = line.match(/^[-*] (.*)/))) return '<span class="tour-chat__li">' + span(m[1]) + '</span>';
+      return span(line) + '<br>';
     }).join('');
   }
+
 
   /* ------------------------------------------------------------------ */
   /* The spotlight: a dark screen with a window onto one control         */
@@ -227,6 +213,7 @@
       var w = r.right - r.left, h = r.bottom - r.top;
       hw = w * 1.18 + 36; hh = h * 1.3 + 30;
       if (shape === 'round') { var d = Math.max(hw, hh); hw = d; hh = d; }
+      if (shape === 'rect') { hw = w + 16; hh = h + 16; }
       hx = r.left + w / 2 - hw / 2; hy = r.top + h / 2 - hh / 2;
       hole.style.opacity = '1';
     } else {
@@ -235,6 +222,7 @@
     }
     hole.style.left = hx + 'px'; hole.style.top = hy + 'px';
     hole.style.width = hw + 'px'; hole.style.height = hh + 'px';
+    hole.classList.toggle('is-rect', shape === 'rect');
 
     /* Four transparent blockers around the target, so only it takes a click. */
     var cut = r ? { l: r.left - 4, t: r.top - 4, r: r.right + 4, b: r.bottom + 4 } : null;
@@ -272,8 +260,8 @@
   function step(opts) {
     return new Promise(function (resolve) {
       current = opts.find || null;
-      shape = opts.round ? 'round' : null;
-      root.dataset.click = (opts.click || opts.wait) ? 'yes' : 'no';
+      shape = opts.round ? 'round' : opts.rect ? 'rect' : null;
+      root.dataset.click = (opts.click || opts.wait || opts.interactive) ? 'yes' : 'no';
       root.classList.toggle('light', !!opts.light);
       card.innerHTML = '';
       if (opts.click || (opts.wait && !opts.html)) card.appendChild(el('span', 'tour-card__pulse', T.clickHere));
@@ -290,24 +278,77 @@
       root.classList.add('wide');
       place();
       requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('wide'); place(); }); });
-      clearInterval(follow);
-      follow = setInterval(place, 250);
 
-      var target = null;
-      function onClick() { setTimeout(done, opts.after || 350); }
-      if (opts.click) {
-        target = current && current();
-        if (Array.isArray(target)) target = target[0];
-        if (target) target.addEventListener('click', onClick, { once: true, capture: true });
+      /* Every tick: if the reader has closed what the target lives in (a
+         menu, a window, the panel), open it again, so the tour never waits
+         for a control that is not on the screen. `skip` ends the step when
+         the reader has already done it some other way. */
+      var lastFix = 0;
+      clearInterval(follow);
+      follow = setInterval(function () {
+        if (finished) return;
+        if (opts.skip && opts.skip()) { done(); return; }
+        if (opts.ensure && Date.now() - lastFix > 700 && !usable(firstOf(current && current()))) {
+          lastFix = Date.now();
+          opts.ensure();
+        }
+        place();
+      }, 250);
+
+      /* A click counts when it lands on the target as it is NOW: the engine
+         redraws its panels, so a listener on the element found at the
+         start of the step could be on an element that is gone. */
+      function onClick(e) {
+        if (finished) return;
+        var t = current && current();
+        var list = Array.isArray(t) ? t : [t];
+        for (var i = 0; i < list.length; i++) {
+          if (list[i] && list[i].contains(e.target)) { setTimeout(done, opts.after || 350); return; }
+        }
       }
+      if (opts.click) document.addEventListener('click', onClick, true);
       if (opts.wait) opts.wait.then(function () { done(); });
       var finished = false;
       function done() {
         if (finished) return; finished = true;
-        if (target) target.removeEventListener('click', onClick, { capture: true });
+        document.removeEventListener('click', onClick, true);
         resolve();
       }
     });
+  }
+
+  function firstOf(x) { return Array.isArray(x) ? x[0] : x; }
+
+  /* Is this element on the screen and the thing a click there would hit? */
+  function usable(e) {
+    if (!e || !e.isConnected) return false;
+    var r = e.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return false;
+    var x = r.left + r.width / 2, y = r.top + r.height / 2;
+    if (x < 0 || y < 0 || x > window.innerWidth || y > window.innerHeight) return false;
+    root.style.visibility = 'hidden';
+    var hit = document.elementFromPoint(x, y);
+    root.style.visibility = '';
+    return !!hit && (e === hit || e.contains(hit));
+  }
+
+  /* What the tree has open, and how to put it back. */
+  function menuOpen() { var b = $('#menu-toggle-btn'); return !!b && b.getAttribute('aria-expanded') === 'true'; }
+  function closeMenu() { if (menuOpen()) $('#menu-toggle-btn').click(); }
+  function closeWindows() {
+    Array.prototype.forEach.call(document.querySelectorAll('.aist-overlay.open'), function (o) { o.classList.remove('open'); });
+  }
+  function closePanelIfCovering(e) {
+    if (e && !usable(e) && $('#detail-close')) $('#detail-close').click();
+  }
+  function openTarget() {
+    closeMenu(); closeWindows();
+    var b = nodeBox(IDS.target); if (!b) return;
+    var t = firstOf(current && current());
+    /* Already open: the control is just out of view in the panel. Clicking
+       the goal again could close the panel, so scroll instead. */
+    if (b.classList.contains('active') && t && t.isConnected && t.getBoundingClientRect().width) t.scrollIntoView({ block: 'center' });
+    else b.click();
   }
 
   /* ------------------------------------------------------------------ */
@@ -420,6 +461,17 @@
   function sendBtn() { return $('.tour-chat__send', chat); }
   function chatInput() { return $('.tour-chat__in', chat); }
 
+  /* While the AI answers: the whole chat in view, no card. */
+  async function watch(text) {
+    current = function () { return chat; };
+    shape = 'rect';
+    root.dataset.click = 'no';
+    root.classList.add('quiet');
+    place();
+    await reply(text);
+    root.classList.remove('quiet');
+  }
+
   async function run() {
     var box = await waitFor(function () { return nodeBox(IDS.target); });
     await sleep(300);
@@ -444,55 +496,52 @@
       return bs[bs.length - 1] || null;
     };
     await waitFor(copyBtn);
-    await step({ html: T.copy, click: true, find: copyBtn, after: 500 });
+    /* If the panel was closed, or shows another goal, open the right one. */
+    await step({ html: T.copy, click: true, find: copyBtn, after: 500, ensure: openTarget });
 
     /* First chat: the practice tutor. */
     await chatOpen();
     var help = el('button', 'tour-card__link', esc(T.pasteHelp)); help.type = 'button';
     await step({ html: T.paste, find: chatInput, wait: waitForPaste(help), extra: help });
     await step({ html: T.send, find: sendBtn, round: true, wait: waitForSend() });
-    root.classList.add('quiet');
-    await reply(REPLIES.tutor1);
-    root.classList.remove('quiet');
+    await watch(REPLIES.tutor1);
     $('.tour-chat__ta', chat).value = REPLIES.pupil; syncSend();
     await step({ html: T.reply, find: chatInput, wait: waitForSend() });
-    root.classList.add('quiet');
-    await reply(REPLIES.tutor2);
-    root.classList.remove('quiet');
-    await step({ html: T.tutorDone, find: function () { return chat; } });
+    await watch(REPLIES.tutor2);
+    await step({ html: T.tutorDone, find: function () { return chat; }, rect: true, interactive: true });
     await chatClose();
 
     /* Tick it off. */
-    await step({ html: T.master, click: true, find: function () {
+    await step({ html: T.master, click: true, ensure: openTarget, find: function () {
       var a = $('#detail-panel .mastery-check'), b = $('#detail-panel .mastered-toggle-text');
       return [a, b].filter(Boolean);
     } });
 
-    /* The test. On a phone the panel covers the whole screen, menu button
-       included, so close it first. */
-    var mb = $('#menu-toggle-btn');
-    if (mb) {
-      var r = mb.getBoundingClientRect();
-      var hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
-      root.style.visibility = 'hidden';
-      hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
-      root.style.visibility = '';
-      if (hit && !mb.contains(hit) && $('#detail-close')) { $('#detail-close').click(); await sleep(400); }
-    }
-    await step({ html: T.menu, click: true, round: true, find: function () { return $('#menu-toggle-btn'); }, after: 450 });
-    await step({ html: T.test, click: true, find: function () { return $('#exam-btn'); }, after: 500 });
+    /* The test. Each step puts back what it needs: on a phone the panel
+       covers the menu button; a menu closed by a stray click is opened
+       again; a closed Test window is opened again. */
+    var examOpen = function () { return !!$('#exam-overlay.open'); };
+    await step({ html: T.menu, click: true, round: true, after: 450,
+      find: function () { return $('#menu-toggle-btn'); },
+      skip: function () { return menuOpen() || examOpen(); },
+      ensure: function () { closeWindows(); closePanelIfCovering($('#menu-toggle-btn')); } });
+    await step({ html: T.test, click: true, after: 500,
+      find: function () { return $('#exam-btn'); },
+      skip: examOpen,
+      ensure: function () { closePanelIfCovering($('#menu-toggle-btn')); if (!menuOpen()) $('#menu-toggle-btn').click(); } });
+    var reopenExam = function () { if (!examOpen()) { var b = $('#exam-btn'); if (b) b.click(); } };
+    if (!examOpen()) reopenExam();
     await waitFor('#exam-overlay.open .exam-cover');
-    await step({ html: T.covers, find: function () { return $('#exam-overlay.open .exam-cover'); } });
-    await step({ html: T.examCopy, click: true, find: function () { return $('#exam-overlay.open .resource-copy'); }, after: 500 });
-    var ov = $('#exam-overlay'); if (ov) ov.classList.remove('open');
+    await step({ html: T.covers, find: function () { return $('#exam-overlay.open .exam-cover'); }, ensure: reopenExam });
+    await step({ html: T.examCopy, click: true, after: 500, ensure: reopenExam,
+      find: function () { return $('#exam-overlay.open .resource-copy'); } });
+    closeWindows();
     await chatOpen();
     var help2 = el('button', 'tour-card__link', esc(T.pasteHelp)); help2.type = 'button';
     await step({ html: T.paste2, find: chatInput, wait: waitForPaste(help2), extra: help2 });
     await step({ html: T.send2, find: sendBtn, round: true, wait: waitForSend() });
-    root.classList.add('quiet');
-    await reply(REPLIES.test);
-    root.classList.remove('quiet');
-    await step({ html: T.testDone, find: function () { return chat; } });
+    await watch(REPLIES.test);
+    await step({ html: T.testDone, find: function () { return chat; }, rect: true, interactive: true });
     await chatClose();
 
     /* The end: two ways on. */
