@@ -166,18 +166,35 @@
   /* The spotlight: a dark screen with a window onto one control         */
   /* ------------------------------------------------------------------ */
 
-  var root, hole, card, blockers = [], current = null, follow = null;
+  var root, hole, clip, card, blockers = [], current = null, follow = null;
 
   function buildOverlay() {
     root = el('div', 'tour');
     hole = el('div', 'tour-hole');
-    root.appendChild(hole);
+    /* The window sits in a frame the size of the visible area, which clips
+       it: nothing of the overlay may reach past what is on screen (see the
+       walls in place()). */
+    clip = el('div', 'tour-clip');
+    clip.appendChild(hole);
+    root.appendChild(clip);
     for (var i = 0; i < 4; i++) { var b = el('div', 'tour-block'); blockers.push(b); root.appendChild(b); }
     card = el('div', 'tour-card');
     root.appendChild(card);
     document.body.appendChild(root);
+    /* The overlay lives in DOCUMENT coordinates (position: absolute from
+       the page's origin), not fixed to the screen, and is measured again on
+       every frame. On an iPhone the keyboard and the browser's toolbars
+       move the page and the visible area apart; anything fixed to the
+       screen then drifts away from the control it points at. Anchored to
+       the page and re-measured each frame, the window stays on its target
+       whatever scrolls. */
+    (function loop() { place(); requestAnimationFrame(loop); })();
     window.addEventListener('resize', place);
     window.addEventListener('scroll', place, true);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', place);
+      window.visualViewport.addEventListener('scroll', place);
+    }
     /* Escape closes the engine's windows, which would lose the reader's
        place in the tour. Not while the tour runs. */
     window.addEventListener('keydown', function (e) {
@@ -202,56 +219,75 @@
     return r;
   }
 
-  var shape = null;
+  var shape = null, settleTimer = null;
+  /* The visible part of the page, in the page's own coordinates. */
+  function viewport() {
+    var vv = window.visualViewport;
+    var sx = window.scrollX || window.pageXOffset || 0, sy = window.scrollY || window.pageYOffset || 0;
+    if (vv) return { x: sx + vv.offsetLeft, y: sy + vv.offsetTop, w: vv.width, h: vv.height, sx: sx, sy: sy };
+    return { x: sx, y: sy, w: window.innerWidth, h: window.innerHeight, sx: sx, sy: sy };
+  }
+
   function place() {
     if (!root) return;
+    var V = viewport();
     var r = targetRect();
-    var W = window.innerWidth, H = window.innerHeight;
+    /* targetRect() is relative to the layout viewport; add the scroll to
+       get page coordinates. */
+    if (r) r = { left: r.left + V.sx, top: r.top + V.sy, right: r.right + V.sx, bottom: r.bottom + V.sy };
     var hx, hy, hw, hh;
-    if (r) {
+    if (root.classList.contains('wide')) {
+      /* Start of a step: the window is the whole visible area, and narrows. */
+      hx = V.x; hy = V.y; hw = V.w; hh = V.h;
+    } else if (r) {
       /* An ellipse around the target, a little larger than it. */
       var w = r.right - r.left, h = r.bottom - r.top;
       hw = w * 1.18 + 36; hh = h * 1.3 + 30;
       if (shape === 'round') { var d = Math.max(hw, hh); hw = d; hh = d; }
       if (shape === 'rect') { hw = w + 16; hh = h + 16; }
       hx = r.left + w / 2 - hw / 2; hy = r.top + h / 2 - hh / 2;
-      hole.style.opacity = '1';
     } else {
-      hw = 0; hh = 0; hx = W / 2; hy = H / 2;
-      hole.style.opacity = '1';
+      hw = 0; hh = 0; hx = V.x + V.w / 2; hy = V.y + V.h / 2;
     }
-    hole.style.left = hx + 'px'; hole.style.top = hy + 'px';
+    clip.style.left = V.x + 'px'; clip.style.top = V.y + 'px';
+    clip.style.width = V.w + 'px'; clip.style.height = V.h + 'px';
+    hole.style.left = (hx - V.x) + 'px'; hole.style.top = (hy - V.y) + 'px';
     hole.style.width = hw + 'px'; hole.style.height = hh + 'px';
     hole.classList.toggle('is-rect', shape === 'rect');
 
-    /* Four transparent blockers around the target, so only it takes a click. */
-    var cut = r ? { l: r.left - 4, t: r.top - 4, r: r.right + 4, b: r.bottom + 4 } : null;
+    /* Four transparent walls around the target, so only it takes a click.
+       They cover exactly the visible area and no more: an element reaching
+       past it would make the page larger, and a phone then zooms the whole
+       page out to fit it. They are measured again on every frame, so a page
+       that moves under the finger is covered again at once. */
+    var L = V.x, T = V.y, R = V.x + V.w, B = V.y + V.h;
+    var cut = r ? { l: Math.max(L, r.left - 4), t: Math.max(T, r.top - 4), r: Math.min(R, r.right + 4), b: Math.min(B, r.bottom + 4) } : null;
     var interactive = cut && root.dataset.click === 'yes';
     var rects = interactive
-      ? [[0, 0, W, cut.t], [0, cut.b, W, H - cut.b], [0, cut.t, cut.l, cut.b - cut.t], [cut.r, cut.t, W - cut.r, cut.b - cut.t]]
-      : [[0, 0, W, H], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+      ? [[L, T, R - L, cut.t - T], [L, cut.b, R - L, B - cut.b], [L, cut.t, cut.l - L, cut.b - cut.t], [cut.r, cut.t, R - cut.r, cut.b - cut.t]]
+      : [[L, T, R - L, B - T], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
     blockers.forEach(function (b, i) {
       var q = rects[i];
       b.style.left = q[0] + 'px'; b.style.top = q[1] + 'px';
       b.style.width = Math.max(0, q[2]) + 'px'; b.style.height = Math.max(0, q[3]) + 'px';
     });
-    placeCard(r ? { left: hx, top: hy, right: hx + hw, bottom: hy + hh } : null);
+    placeCard(r ? { left: hx, top: hy, right: hx + hw, bottom: hy + hh } : null, V);
   }
 
-  function placeCard(r) {
-    var W = window.innerWidth, H = window.innerHeight;
+  function placeCard(r, V) {
     var cw = card.offsetWidth, ch = card.offsetHeight, m = 16, x, y;
-    if (!r) { x = (W - cw) / 2; y = (H - ch) / 2; }
+    var vl = V.x, vt = V.y, vr = V.x + V.w, vb = V.y + V.h;
+    if (!r) { x = vl + (V.w - cw) / 2; y = vt + (V.h - ch) / 2; }
     else {
-      var below = H - r.bottom, above = r.top, right = W - r.right, left = r.left;
+      var below = vb - r.bottom, above = r.top - vt, right = vr - r.right, left = r.left - vl;
       if (below >= ch + m * 2) { y = r.bottom + m; x = (r.left + r.right) / 2 - cw / 2; }
       else if (above >= ch + m * 2) { y = r.top - ch - m; x = (r.left + r.right) / 2 - cw / 2; }
       else if (left >= cw + m * 2) { x = r.left - cw - m; y = (r.top + r.bottom) / 2 - ch / 2; }
       else if (right >= cw + m * 2) { x = r.right + m; y = (r.top + r.bottom) / 2 - ch / 2; }
-      else { x = (W - cw) / 2; y = H - ch - m; }
+      else { x = vl + (V.w - cw) / 2; y = vb - ch - m; }
     }
-    card.style.left = Math.max(m, Math.min(W - cw - m, x)) + 'px';
-    card.style.top = Math.max(m, Math.min(H - ch - m, y)) + 'px';
+    card.style.left = Math.max(vl + m, Math.min(vr - cw - m, x)) + 'px';
+    card.style.top = Math.max(vt + m, Math.min(vb - ch - m, y)) + 'px';
   }
 
   /* One step: point at `find`, say `html`. With `click`, the reader must
@@ -275,9 +311,14 @@
         setTimeout(function () { nb.focus({ preventScroll: true }); }, 50);
       }
       /* The window starts wide and narrows onto the target. */
+      root.classList.remove('settled');
       root.classList.add('wide');
       place();
       requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('wide'); place(); }); });
+      /* Once it has narrowed, the window follows its target exactly, with
+         no easing to lag behind a scroll. */
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(function () { root.classList.add('settled'); }, 650);
 
       /* Every tick: if the reader has closed what the target lives in (a
          menu, a window, the panel), open it again, so the tour never waits

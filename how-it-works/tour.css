@@ -3,13 +3,14 @@
    Colours come from css/tokens.css (--tour-* for the pretend AI service).
    ========================================================================== */
 
-.tour { position: fixed; inset: 0; z-index: 2147483000; pointer-events: none; }
+/* Anchored to the page, not the screen: see the comment in buildOverlay(). */
+.tour { position: absolute; top: 0; left: 0; width: 0; height: 0; z-index: 2147483000; pointer-events: none; }
 .tour.done { display: none; }
 
 /* The window onto one control. The dark screen is the window's own shadow,
    so the window and the darkness move together. */
 .tour-hole {
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   box-shadow: 0 0 0 200vmax var(--tour-dim);
   transition: left .55s cubic-bezier(.2,.7,.2,1), top .55s cubic-bezier(.2,.7,.2,1),
@@ -17,20 +18,23 @@
               box-shadow .3s ease;
   pointer-events: none;
 }
-.tour.wide .tour-hole { transition: none; left: -60vmax !important; top: -60vmax !important; width: calc(100vw + 120vmax) !important; height: calc(100vh + 120vmax) !important; }
+.tour.wide .tour-hole { transition: none; border-radius: 0; }
 .tour.light .tour-hole { box-shadow: 0 0 0 200vmax rgba(10, 12, 11, 0.42); }
 .tour-hole.is-rect, .tour-hole.is-rect::after { border-radius: 18px; }
 .tour-hole::after {
   content: ""; position: absolute; inset: -3px; border-radius: 50%;
   border: 2px solid var(--ink-inverse); opacity: .75;
 }
+.tour.settled .tour-hole { transition: box-shadow .3s ease; }
+.tour.settled .tour-card { transition: opacity .2s ease; }
 .tour.quiet .tour-card { opacity: 0; pointer-events: none; }
 
 /* Transparent walls around the target, so only the target takes a click. */
-.tour-block { position: fixed; pointer-events: auto; }
+.tour-clip { position: absolute; overflow: hidden; pointer-events: none; }
+.tour-block { position: absolute; pointer-events: auto; }
 
 .tour-card {
-  position: fixed; pointer-events: auto;
+  position: absolute; pointer-events: auto;
   width: max-content; max-width: min(320px, calc(100vw - 32px));
   background: var(--surface); color: var(--ink);
   border-radius: 12px; box-shadow: var(--shadow-modal);
