@@ -338,8 +338,21 @@
   function closeWindows() {
     Array.prototype.forEach.call(document.querySelectorAll('.aist-overlay.open'), function (o) { o.classList.remove('open'); });
   }
+  /* On a phone (the engine's breakpoint, 720px) the open panel covers the
+     whole screen, menu button included. Decided from the layout, not from a
+     hit test: on an iPhone the page can be left scrolled by the keyboard,
+     and then the hit test answers for the wrong spot. */
   function closePanelIfCovering(e) {
-    if (e && !usable(e) && $('#detail-close')) $('#detail-close').click();
+    var phone = window.matchMedia && window.matchMedia('(max-width: 720px)').matches;
+    if ($('#detail-panel.open') && (phone || (e && !usable(e))) && $('#detail-close')) $('#detail-close').click();
+  }
+  /* The keyboard on a phone scrolls the page to show the chat's input, and
+     leaves it scrolled. Put it back. */
+  function unscroll() {
+    var a = document.activeElement; if (a && a.blur) a.blur();
+    window.scrollTo(0, 0);
+    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }
   function openTarget() {
     closeMenu(); closeWindows();
@@ -386,7 +399,7 @@
     $('.tour-chat__send', chat).classList.toggle('ready', ready);
   }
   function chatOpen() { chatReset(); chat.classList.add('on'); return sleep(350); }
-  function chatClose() { chat.classList.remove('on'); return sleep(300); }
+  function chatClose() { unscroll(); chat.classList.remove('on'); return sleep(300).then(unscroll); }
 
   /* Resolves when something is pasted (whatever it is) or the reader asks
      for it to be inserted. */
@@ -521,6 +534,8 @@
        covers the menu button; a menu closed by a stray click is opened
        again; a closed Test window is opened again. */
     var examOpen = function () { return !!$('#exam-overlay.open'); };
+    closePanelIfCovering($('#menu-toggle-btn'));
+    await sleep(300);
     await step({ html: T.menu, click: true, round: true, after: 450,
       find: function () { return $('#menu-toggle-btn'); },
       skip: function () { return menuOpen() || examOpen(); },
