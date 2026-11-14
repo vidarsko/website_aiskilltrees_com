@@ -111,14 +111,14 @@
 
   var chat = el('div', 'chat');
   chat.innerHTML =
-    '<div class="chat__hd"><span class="chat__logo">✦</span><span class="chat__name">' + esc(T.chatName) + '</span><span class="chat__sub">' + esc(T.chatSub) + '</span></div>' +
+    '<div class="chat__hd"><span class="chat__logo">✦</span><span class="chat__name">' + esc(T.chatName) + '</span><span class="chat__sub">' + esc(T.chatSub) + '</span><span class="chat__x">✕</span></div>' +
     '<div class="chat__msgs"></div>' +
     '<div class="chat__in"><div class="chat__chip" hidden></div><div class="chat__field"></div>' +
     '<div class="chat__bar"><span class="chat__plus">＋</span><span class="chat__pastebtn">' + esc(T.paste) + '</span><span class="chat__send">↑</span></div></div>' +
     '<p class="chat__note">' + esc(T.note) + '</p>';
   stage.appendChild(chat);
   var msgs = $('.chat__msgs', chat), field = $('.chat__field', chat), chip = $('.chat__chip', chat);
-  var sendEl = $('.chat__send', chat), pasteEl = $('.chat__pastebtn', chat);
+  var sendEl = $('.chat__send', chat), pasteEl = $('.chat__pastebtn', chat), closeEl = $('.chat__x', chat);
 
   function chatReset() {
     msgs.innerHTML = '<div class="chat__empty">' + esc(T.chatEmpty) + '</div>';
@@ -322,7 +322,8 @@
     doSend();
     await watch(REPLIES.tutor2);
     await look(1500);
-    await step({ read: true, shape: 'rect', target: function () { return chatRect(chat); } });
+    /* The chat can be scrolled while the reader decides to close it. */
+    await step({ click: true, read: true, shape: 'round', target: function () { return chatRect(closeEl); } });
     await chatClose();
     await look(1200);
 
@@ -332,8 +333,11 @@
        before anything moves (on a phone the panel then closes). */
     show('ticked');
     await look(1500);
+
+    /* Close the goal: back to the whole tree, where A3 is now ticked. */
+    await step({ click: true, target: rectOf('ticked', 'close') });
     show('mastered');
-    await look(1200);
+    await look(2000);
 
     /* The test. */
     await step({ click: true, shape: 'round', target: rectOf('mastered', 'menu') });
@@ -346,7 +350,6 @@
     await step({ click: true, target: rectOf('exam', 'copy') });
     markCopied('exam', '#exam-overlay .resource-copy');
     await look(1000);
-    show('mastered');
     await chooseService(1200);
     await chatOpen();
     await look(900);
@@ -357,9 +360,14 @@
     doSend();
     await watch(REPLIES.test);
     await look(2000);
-    await step({ read: true, shape: 'rect', target: function () { return chatRect(chat); } });
+    await step({ click: true, read: true, shape: 'round', target: function () { return chatRect(closeEl); } });
     await chatClose();
     await look(1000);
+
+    /* Back in the tree: close the Test window too. */
+    await step({ click: true, target: rectOf('exam', 'close') });
+    show('mastered');
+    await look(1500);
 
     /* The end: two ways on. */
     spot(null);
