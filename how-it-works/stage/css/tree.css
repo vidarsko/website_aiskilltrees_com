@@ -1,0 +1,2544 @@
+/*! AI Skill Trees engine · Copyright (c) 2026 Vidar Skogvoll · MIT License · https://github.com/vidarsko/ai-skill-trees */
+/* ==========================================================================
+   tree.css — the skill-tree graph app (the view at /trees/<slug>/).
+
+   PORTED from skogvoll.com's ferdighetstre/style.css, 2026-09-19. Everything
+   below the bridge is that file verbatim: the layout, the detail panel, the
+   floating toolbar and every tuning comment in it are the result of a lot of
+   iteration and are NOT to be re-derived here. What changed on the way over is
+   this header, and the override block at the very BOTTOM of the file.
+
+   The bridge below re-expresses the names that file uses (--bg, --accent,
+   --text, --radius ...) in terms of aiskilltrees-style tokens, so the app
+   inherits this site's palette without touching 1000 lines of tuned CSS. If a
+   value looks wrong on this site, fix it HERE, in the bridge — or, when a
+   single rule rather than a color needs to change, in the override block at
+   the bottom. Editing a rule in the body would make the two copies diverge
+   for no reason, and makes the next port harder than it needs to be.
+
+   The page loads tokens.css and then this file, and NOT base.css: base.css
+   carries the band model and prose defaults for the marketing pages, which
+   would fight the app's own layout. That means the small reset below has to
+   live here.
+
+   Design system: aiskilltrees-style v1.0. No hardcoded hex values, no font
+   stacks — every color below resolves to a token in tokens.css.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ---- Bridge: engine token name → aiskilltrees token --------------------- */
+  --bg:            var(--paper);
+  --surface-hover: var(--paper-2);
+  --border:        var(--rule);
+  --border-strong: var(--rule-strong);
+  --text:          var(--ink);
+  --text-muted:    var(--ink-3);
+  --accent:        var(--primary);
+
+  /* The source system used a gradient here. aiskilltrees-style has no
+     gradients at all, so the "gradient" is a flat primary fill. */
+  --accent-grad:   var(--primary);
+
+  /* "Mastered" in the graph is the primary green, per the design system's
+     note on the skill-tree graph. State is never carried by color alone —
+     a mastered node also gets an inset ring and a checked box. */
+  --success:       var(--primary);
+  --danger-soft:   var(--danger-text);
+
+  /* Square corners are the system's rule. --radius-pill stays round: it is
+     only used on circular icon buttons (zoom, menu, help), which are controls,
+     not page-level containers. */
+  --radius:        0;
+  --radius-sm:     0;
+  --radius-pill:   9999px;
+
+  /* ---- Node types --------------------------------------------------------
+     Begrep (a concept) is green and ferdighet (a skill) is orange, and the
+     two are also told apart by the label on the node itself, never by fill
+     alone. Both fills are opaque, so the edge lines behind a node never read
+     through the card. The skill fill is 40% amber rather than the pale
+     --amber-tint: at the tint it read as beige beside the green, and the two
+     types stopped looking like two colours (Vidar, 2026-09-26). */
+  --begrep-bg:        var(--primary-tint);
+  --begrep-border:    color-mix(in srgb, var(--primary) 55%, transparent);
+
+  --ferdighet-bg:     color-mix(in srgb, var(--amber) 40%, var(--surface));
+  --ferdighet-border: var(--amber);
+
+  /* Fakta (a fact node, from 0.21.0) is blue: a third hue, and a fill
+     between the two others in strength, so it differs from the pale green
+     in lightness as well as in hue. */
+  --fakta-bg:         color-mix(in srgb, var(--blue) 24%, var(--surface));
+  --fakta-border:     var(--blue);
+
+  --locked-opacity: 0.45;
+
+  --column-alt: color-mix(in srgb, var(--ink) 4%, transparent);
+
+}
+
+body { font-family: var(--font-sans); }
+
+
+html, body { height: 100%; }
+
+a { color: var(--accent); }
+
+/* Den opprinnelige <header> er tømt av ensureActionMenu() (se engine.js) -
+   ALT innholdet dens (tilbake-lenke, dag/natt-knapp, fremdriftslinje,
+   tittel, undertekst) flyttes inn i #action-menu-panel, slik at grafen kan
+   fylle hele skjermhøyden. Skjules derfor unconditionally her i CSS (ikke
+   bare via JS) for å unngå et glimt av den gamle headeren før JS rekker å
+   flytte innholdet. */
+header {
+  display: none;
+}
+
+/* The source page had a light/dark toggle. aiskilltrees-style has no dark
+   mode in v1 and this page ships no toggle button, so those rules are gone.
+   engine.js looks the button up with querySelector and tolerates its
+   absence (see ensureActionMenu), so nothing else had to change. */
+
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.back-link:hover, .back-link:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Meny-knapp nederst til venstre, til venstre for zoom-knappene i
+   #bottom-toolbar (se setupZoom/getBottomToolbar i engine.js) - IKKE øverst
+   til høyre, siden den da nesten overlappet tilbake-knappen i detaljpanelet
+   når det er åpent på mobil (begge endte i samme hjørne). Slår ut
+   #action-menu-panel, som ensureActionMenu() (engine.js) fyller med ALT som
+   før lå i headeren: tilbake-lenke + dag/natt-knapp (#menu-nav-row),
+   fremdriftslinje, tittel/undertekst, og til slutt de sjeldnere brukte
+   knappene (læringsmål-liste, prøvegenerator, motivasjon). Selve #menu-wrap
+   er bare et ankerpunkt for panelet - #bottom-toolbar (fixed) gir selve den
+   flytende posisjoneringen.
+
+   Fra 2026-09-20 ligger OGSÅ «?»-knappen og «Om faget» inne i panelet.
+   Verktøylinjen har da bare burgeren og zoom-kontrollene, og burgeren er
+   gjort litt større enn dem: den åpner alt det andre, så den skal lese som
+   hovedknappen framfor som én av fire like. */
+#menu-wrap {
+  position: relative;
+}
+
+/* Bevisst større enn zoom-knappene (2,6rem) og svakt grønn: dette er
+   inngangen til alt annet på sida, og den eneste knappen en ny bruker MÅ
+   finne. Tinten er --primary-tint, systemets bleke grønn — nok til å skille
+   den fra de nøytrale zoom-knappene, ikke nok til å lese som en CTA. */
+#menu-toggle-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+  background: var(--primary-tint);
+  color: var(--primary-strong);
+  cursor: pointer;
+  box-shadow: var(--shadow-float);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#menu-toggle-btn svg { width: 24px; height: 24px; }
+
+#menu-toggle-btn:hover, #menu-toggle-btn[aria-expanded="true"] {
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+}
+
+#action-menu-panel {
+  display: none;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 30;
+  width: min(320px, calc(100vw - 2.4rem));
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+  padding: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#action-menu-panel.open { display: flex; }
+
+#menu-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#action-menu-panel h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+#action-menu-panel p.tagline {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Menyvalgene (fra 2026-11-11): en rad med et lite lavpoly-ikon til
+   venstre og navnet til høyre, gruppert under Øve / Planlegge / Om. Se
+   organizeActionMenu i engine.js. Radene har ingen ramme; gruppene skiller
+   dem. */
+#action-menu-panel #motivation-btn,
+#action-menu-panel #goal-index-btn,
+#action-menu-panel #lesson-planner-btn,
+#action-menu-panel #exam-btn,
+#action-menu-panel #search-btn,
+#action-menu-panel #resources-btn,
+#action-menu-panel #course-info-btn,
+#action-menu-panel #help-btn,
+#action-menu-panel #print-btn,
+#action-menu-panel #download-btn,
+#action-menu-panel #edit-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  white-space: normal;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#action-menu-panel #motivation-btn:hover,
+#action-menu-panel #goal-index-btn:hover,
+#action-menu-panel #lesson-planner-btn:hover,
+#action-menu-panel #exam-btn:hover,
+#action-menu-panel #search-btn:hover,
+#action-menu-panel #resources-btn:hover,
+#action-menu-panel #course-info-btn:hover,
+#action-menu-panel #help-btn:hover,
+#action-menu-panel #print-btn:hover,
+#action-menu-panel #download-btn:hover,
+#action-menu-panel #edit-link:hover {
+  border-color: var(--border);
+  background: var(--surface-hover);
+}
+
+.menu-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.menu-group {
+  display: grid;
+  gap: 0.1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+.menu-group-label {
+  padding: 0 0.35rem 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Enkeltfil-utgaven tar et par sekunder å sette sammen. Knappen sier det
+   med teksten sin; dette er bare for at den ikke skal se trykkbar ut imens. */
+#action-menu-panel #print-btn[disabled],
+#action-menu-panel #download-btn[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* Lenken til redigeringsverktøyet ser ut som knappene over den. Den sto
+   som display: block fra før menyen fikk ikoner, og det la teksten under
+   ikonet i stedet for ved siden av (rettet i 0.40.3). */
+#action-menu-panel #edit-link {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.progress-bar {
+  flex: 1;
+  max-width: 420px;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent-grad);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+#error-banner {
+  display: none;
+  background: var(--danger-tint);
+  border-bottom: 1px solid var(--danger);
+  color: var(--danger-soft);
+  font-size: 0.85rem;
+  padding: 0.8rem 2rem;
+  white-space: pre-wrap;
+}
+
+#error-banner.visible { display: block; }
+
+/* Øverste linje: fagnavnet, og veien videre for den som vil lage sitt eget.
+   Den ligger i flex-kolonnen FØR <main>, så grafen mister nøyaktig høyden
+   linja tar og ingenting legger seg oppå noe annet. Venstremargen er den
+   samme som #graph-scroll har, slik at teksten står rett over den første
+   kolonneoverskriften. Størrelsen er kolonneoverskriftens, men uten
+   versalene og sperringen: dette er en setning, ikke en etikett. */
+.made-with {
+  flex: 0 0 auto;
+  margin: 0;
+  /* line-height: 1 fjerner den halve linjeavstanden som ellers ligger under
+     teksten. De 5px ned til første emneoverskrift lages IKKE her: se
+     #graph-container, som trekker lerretet opp inne i rullefeltet i
+     stedet. Linja skal beholde hele sin egen høyde, ellers rulles grafen
+     opp i teksten. */
+  padding: 0.5rem 2rem 0;
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--text-muted);
+}
+
+/* Fagnavnet er det eneste som skal stikke seg ut: det sier hvilket tre dette
+   er. Resten av linja er en invitasjon, og den kan ligge stille. */
+.made-with strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.made-with a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.made-with a:hover,
+.made-with a:focus-visible {
+  border-bottom-color: var(--accent);
+}
+
+/* «⚠ Sikkerhet» sist i linja. Rød, fordi den skal ses før man tar treet i
+   bruk; en knapp og ikke en lenke, fordi den åpner et vindu på sida. */
+.made-with__safety {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  color: var(--danger-text);
+  cursor: pointer;
+}
+.made-with__safety:hover,
+.made-with__safety:focus-visible {
+  border-bottom-color: var(--danger-text);
+}
+.warning-icon {
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.2em;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  width: 100%;
+}
+
+#graph-scroll {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  /* Ingen padding-top: over grafen står .made-with, som holder den klar av
+     skjermkanten, og avstanden derfra ned til første kolonneoverskrift er
+     LAYOUT.padding i selve layout-algoritmen (se
+     computeGlobalRowStarts/layoutColumn). To luftrom oppå hverandre ble
+     synlig for mye. */
+  padding: 0 2rem 2.4rem;
+  position: relative;
+  cursor: grab;
+}
+
+#graph-scroll.panning {
+  cursor: grabbing;
+  user-select: none;
+}
+
+/* margin-top: 5px ned til første emneoverskrift, og regnestykket er dette:
+   lerretet har 12px egen luft (LAYOUT.padding) som gjelder alle fire sidene
+   og ikke skal krympes for å rette én av dem, så lerretet trekkes 7px opp
+   INNE i rullefeltet. De 7px lå til 21.09 som negativ bunnmarg på
+   .made-with, og det var feil sted: da startet #graph-scroll 7px inne i
+   toppteksten, og nodekortene rullet opp over de nederste 7px av bokstavene
+   i stedet for å stoppe under dem. Her er det bare tomrommet øverst i
+   lerretet som beskjæres, og teksten står i fred. */
+#graph-container {
+  position: relative;
+  margin: -7px auto 0;
+  transform-origin: 0 0;
+}
+
+/* Flytende verktøylinje for zoom - eneste innhold igjen i bottom-toolbar
+   etter at "vis alle læringsmål" og prøvegeneratoren flyttet inn i
+   #action-menu-panel (se ensureActionMenu i engine.js). Disse knappene
+   brukes aktivt mens man utforsker kartet, så de forblir synlige i stedet
+   for gjemt bak et trekkspill. */
+#bottom-toolbar {
+  position: fixed;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+#zoom-controls {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+/* Ikon-only knapper (+/−/⤢), ingen tekst - holder knappene små også på
+   mobil, se prosjektnotat om at knappene var for store der. */
+#zoom-in-btn, #zoom-out-btn, #fit-view-btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-float);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+#zoom-in-btn:hover, #zoom-out-btn:hover, #fit-view-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  transform: translateY(-1px);
+}
+
+/* Prøvegenerator-widget - nå inne i #action-menu-panel, se der for
+   panel-spesifikk styling av knappen selv. */
+#exam-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+}
+
+#exam-count-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+#exam-count {
+  width: 3.2rem;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+@media (max-width: 720px) {
+  #bottom-toolbar { left: 1rem; bottom: 1rem; }
+}
+
+/* "Vis alle læringsmål"-vindu */
+
+#goal-index-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+
+#goal-index-overlay.open { display: flex; }
+
+#goal-index-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#goal-index-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#goal-index-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#goal-index-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+#goal-index-body {
+  overflow-y: auto;
+  padding: 1.2rem 1.6rem 1.8rem;
+}
+
+.goal-index-section { margin-bottom: 1.4rem; }
+.goal-index-section:last-child { margin-bottom: 0; }
+
+.goal-index-section h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Overskriften bærer ✓/✕ for hele temaet, som kolonneoverskriftene i kartet. */
+.goal-index-section h3 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+/* ✓/✕ for hele lista, under innledningen. */
+#goal-index-bulk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: -0.4rem 0 1.2rem;
+}
+
+.goal-index-bulk-btn {
+  font-size: 0.74rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.goal-index-section ul {
+  list-style: none;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+#goal-index-intro {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+/* Én rad per læringsmål: avkryssing til venstre (mestret, eller utvalg til
+   økta i undervisningsplanleggeren), navn + status til høyre. De to er bevisst visuelt forskjellige - status
+   er ren lesbar informasjon (mestret/klar/mangler), mens avkryssinga er det
+   eneste man kan klikke på her. */
+.goal-index-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.18rem 0;
+}
+
+.goal-index-item .goal-pick {
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.goal-index-item-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  min-width: 0;
+}
+
+.goal-index-item-name {
+  cursor: pointer;
+}
+
+.goal-index-item-status {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  white-space: normal;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.goal-index-item.status-mastered .goal-index-item-name { color: var(--text); }
+.goal-index-item.status-mastered .goal-index-item-status { color: var(--accent); opacity: 1; }
+.goal-index-item.status-blocked .goal-index-item-name { opacity: 0.72; }
+
+/* Fast bunnlinje i modalen med undervisningsopplegg-generatoren. */
+#lesson-plan-bar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0.9rem 1.6rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* Bare i undervisningsplanleggeren; display: flex over ville ellers vunnet
+   over [hidden]. */
+#lesson-plan-bar[hidden] { display: none; }
+
+#lesson-plan-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-right: auto;
+}
+
+#lesson-minutes-label,
+#lesson-type-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+#lesson-minutes { width: 3.6rem; }
+
+#lesson-minutes,
+#lesson-type {
+  font-size: 0.82rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#lesson-plan-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--accent-grad);
+  color: var(--ink-inverse);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#lesson-plan-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+#lesson-plan-btn:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+/* Ressursvelgeren (utkast 2026-11-10): bytter plass med lista i samme
+   vindu. Hvert kort har sin farge fra nettstedets tre - grønn, oransje,
+   blå - gjennom --card-hue, som valgte knapper, kopier-knappen og kanten
+   bruker. */
+#resource-picker {
+  overflow-y: auto;
+  padding: 1rem 1.6rem 1.8rem;
+}
+#resource-picker[hidden] { display: none; }
+#goal-index-body[hidden],
+#goal-index-copy[hidden] { display: none; }
+
+.resource-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin-bottom: 1.1rem;
+}
+.resource-summary {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.resource-codes { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 600; }
+
+.resource-list { display: grid; gap: 1rem; }
+
+.resource-card {
+  --card-hue: var(--primary);
+  --card-tint: var(--primary-tint);
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1.1rem;
+  padding: 1.1rem 1.2rem 1.1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--card-hue);
+  background: var(--surface);
+}
+.resource-minitree { --card-hue: var(--amber); --card-tint: var(--amber-tint); }
+.resource-simulation { --card-hue: var(--blue); --card-tint: rgba(37, 99, 168, 0.10); }
+
+.resource-art svg {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--border);
+}
+
+.resource-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+.resource-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--card-tint);
+  color: var(--card-hue);
+}
+.resource-desc {
+  margin: 0.3rem 0 0.8rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.resource-options { display: grid; gap: 0.75rem; }
+.resource-field { display: grid; gap: 0.35rem; }
+.resource-field-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.resource-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* Segmentert valg */
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.seg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.38rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.seg-btn:hover { border-color: var(--border-strong); }
+.seg-btn[aria-checked="true"] {
+  background: var(--card-hue);
+  border-color: var(--card-hue);
+  color: var(--ink-inverse);
+}
+.seg-btn:focus-visible,
+.stepper-btn:focus-visible,
+.resource-copy:focus-visible,
+.switch input:focus-visible + .switch-track {
+  outline: 2px solid var(--card-hue);
+  outline-offset: 2px;
+}
+.seg-glyph {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Lengden: knapper + teller */
+.minutes-control {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+}
+.stepper-btn {
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+}
+.stepper-btn:hover { background: var(--surface-hover); }
+.stepper-value {
+  min-width: 4.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Brytere */
+.switches { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; }
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.switch-track {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 1.2rem;
+  border-radius: var(--radius-pill);
+  background: var(--rule-strong, rgba(26, 29, 27, 0.30));
+  transition: background 0.15s ease;
+}
+.switch-track::after {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--surface);
+  transition: transform 0.15s ease;
+}
+.switch input:checked + .switch-track { background: var(--card-hue); }
+.switch input:checked + .switch-track::after { transform: translateX(0.9rem); }
+
+.resource-foot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+  margin-top: 1rem;
+}
+.resource-copy {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: var(--card-hue);
+  color: var(--ink-inverse);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.resource-copy:hover { transform: translateY(-1px); opacity: 0.92; }
+.resource-after {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  flex: 1 1 14rem;
+}
+.resource-credit {
+  margin: 0.6rem 0 0;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+@media (max-width: 720px) {
+  #resource-picker { padding: 0.9rem 1rem 1.4rem; }
+  .resource-card { grid-template-columns: 1fr; gap: 0.7rem; }
+  .resource-art svg { width: 64px; height: 64px; }
+}
+
+@media (max-width: 720px) {
+  #goal-index-overlay { padding: 0; }
+  #goal-index-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+  #lesson-plan-bar { padding: 0.8rem 1rem; border-radius: 0; }
+  #lesson-plan-count { margin-right: 0; flex: 1 0 100%; }
+  #lesson-plan-btn { flex: 1 1 auto; }
+}
+
+/* Søkevindu: samme ramme som læringsmål-lista, med et søkefelt øverst */
+
+#search-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+
+#search-overlay.open { display: flex; }
+
+#search-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+}
+
+#search-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#search-field {
+  padding: 0 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#search-input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+}
+
+#search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+#search-body {
+  overflow-y: auto;
+  padding: 1.2rem 1.6rem 1.8rem;
+}
+
+.search-note {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+#search-results {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.search-item-name {
+  display: block;
+  text-align: left;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-item-name:hover { color: var(--accent); }
+
+.search-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+/* Beskrivelsen står med samme ledetekst som detaljpanelet («Deltakeren
+   kan:»), fordi det er den som gjør en bar verbfrase lesbar. */
+.search-item-description {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  white-space: pre-line;
+  margin-top: 0.2rem;
+}
+
+.search-item-leadin {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+#search-body mark {
+  background: var(--accent);
+  color: var(--surface);
+  padding: 0 0.12em;
+}
+
+@media (max-width: 720px) {
+  #search-overlay { padding: 0; }
+  #search-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+}
+
+/* Ressursvindu: samme ramme som søket. Hver ressurs står med nodene den
+   hører til under seg, som knapper som hopper til noden i kartet. */
+
+#resources-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+
+#resources-overlay.open { display: flex; }
+
+#resources-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+#resources-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+}
+
+#resources-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#resources-field {
+  padding: 0 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#resources-input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+}
+
+#resources-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+#resources-body {
+  overflow-y: auto;
+  padding: 1.2rem 1.6rem 1.8rem;
+}
+
+.resources-section { margin-bottom: 1.4rem; }
+.resources-section:last-child { margin-bottom: 0; }
+
+.resources-section h3 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.resources-section ul { list-style: none; }
+
+.resources-item {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.resources-item:first-child { border-top: none; }
+
+.resources-item-label {
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.resources-item-label a { text-decoration: none; }
+.resources-item-label a:hover,
+.resources-item-label a:focus-visible { text-decoration: underline; }
+
+.resources-item-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.resources-node {
+  font: inherit;
+  font-size: 0.76rem;
+  line-height: 1.3;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.15rem 0.6rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.resources-node:hover { color: var(--accent); border-color: var(--accent); }
+.resources-node:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  #resources-overlay { padding: 0; }
+  #resources-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+}
+
+/* «Hvordan bruker jeg denne siden?» og «Sikkerhet». Samme vindu med ulik
+   tekst, bygget av ensureTextModal() i engine.js. */
+
+.text-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+
+/* --------------------------------------------------------------------------
+   Kursinfo-vinduet. Samme form som hjelpevinduet, og bevisst ikke en ny
+   modal-variant: to vinduer som ser ulike ut uten grunn er verre enn ett
+   gjentatt sett regler.
+   -------------------------------------------------------------------------- */
+#course-info-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: rgba(26, 29, 27, 0.5);
+}
+#course-info-overlay.open { display: flex; }
+
+#course-info-modal {
+  width: min(42rem, 100%);
+  max-height: min(80vh, 46rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-modal);
+}
+
+#course-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+#course-info-header h2 { margin: 0; font-size: 1.1rem; }
+
+#course-info-body {
+  padding: 1.2rem;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+#course-info-body h3 {
+  margin: 1.6rem 0 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+#course-info-body > h3:first-child { margin-top: 0; }
+#course-info-aids h3 { margin-top: 1.6rem; }
+
+/* Står nå ETTER faktatabellen, så den trenger luft over seg. */
+.course-info__lead { margin: 1rem 0; }
+
+/* Etikett/verdi-par. Grid framfor <dl>-standardoppførsel, så verdiene
+   står på linje uansett hvor lang etiketten er. */
+.course-info__facts {
+  display: grid;
+  grid-template-columns: minmax(7rem, auto) 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0;
+}
+.course-info__facts dt {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.course-info__facts dd { margin: 0; }
+
+.course-info__level { margin: 0 0 0.6rem; }
+.course-info__note {
+  margin: 0.8rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 560px) {
+  .course-info__facts { grid-template-columns: 1fr; gap: 0.1rem 0; }
+  .course-info__facts dd { margin-bottom: 0.6rem; }
+}
+
+.text-overlay.open { display: flex; }
+
+.text-modal {
+  width: 100%;
+  max-width: 620px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+
+.text-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.text-modal-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.text-modal-body {
+  overflow-y: auto;
+  padding: 1.2rem 1.6rem 1.8rem;
+}
+
+.text-modal-body h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.text-modal-body h3:not(:first-child) {
+  margin-top: 1.2rem;
+}
+
+.text-modal-body p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Innledningen i sikkerhetsvinduet: den ene setningen alle skal få med seg,
+   så den står i vanlig tekstfarge og ikke dempet som resten. */
+.text-modal-body p.text-modal-lead {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+@media (max-width: 720px) {
+  .text-overlay { padding: 0; }
+  .text-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+}
+
+#edges {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#edges path {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1.6;
+}
+
+
+.column-band {
+  position: absolute;
+  background: transparent;
+  pointer-events: none;
+}
+
+.column-band-alt {
+  background: var(--column-alt);
+}
+
+.column-header {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  /* Holdt lavt med vilje: båndet er en etikett, ikke en header. Sammen med
+     LAYOUT.columnLabelHeight og LAYOUT.padding i engine.js bestemmer det
+     hvor mye av skjermen grafen mister på toppen. */
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.column-header-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.column-header-actions {
+  display: flex;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.column-header-btn {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.column-header-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+#nodes-layer {
+  position: relative;
+  z-index: 2;
+}
+
+.node-box {
+  position: absolute;
+  padding: 0.7rem 0.85rem 0.6rem;
+  background: var(--begrep-bg);
+  border: 1.5px solid var(--begrep-border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease, border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  user-select: none;
+}
+
+.node-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+/* The class is `type-${node.type}`, and the type is the English data enum
+   `skill` | `concept` in every language (schema 3). Until 0.16.1 this rule
+   said `.type-ferdighet`, the Norwegian name from before the enum, so no node
+   ever matched it and every skill was drawn as a concept. */
+/* Hjørnene sier typen, ikke bare fargen (WCAG 1.4.1: farge alene er ikke
+   nok). Fra hardt til mykt: fakta 2px, begrep 10px, ferdighet 26px. Vidar,
+   2026-11-11. Forskjellen må være stor nok til å synes når treet er zoomet
+   ut; 8px mot 3px gjorde ikke det. */
+.node-box.type-concept { border-radius: 10px; }
+.node-box.type-skill {
+  border-radius: 26px;
+  background: var(--ferdighet-bg);
+  border-color: var(--ferdighet-border);
+}
+
+/* A fact node gets a third corner as well as a third colour, so the three
+   types differ in shape too, not only in fill. */
+.node-box.type-fact {
+  border-radius: 2px;
+  background: var(--fakta-bg);
+  border-color: var(--fakta-border);
+}
+
+.node-box.locked {
+  opacity: var(--locked-opacity);
+}
+
+.node-box.mastered {
+  box-shadow: 0 0 0 2px var(--success) inset;
+}
+
+.node-box.active {
+  box-shadow: 0 0 0 2px var(--text) inset;
+}
+
+.node-box.highlight-pulse {
+  animation: prereq-pulse 1.6s ease-out;
+}
+
+@keyframes prereq-pulse {
+  0% { box-shadow: 0 0 0 0 var(--accent); }
+  40% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.node-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.node-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.node-index {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.node-checkbox {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--success);
+  cursor: pointer;
+}
+
+.node-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.node-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.badge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   Aid tag.
+
+   Replaces the old .badge-del1/.badge-del2/.badge-begge trio, which hardcoded
+   a two-level Norwegian exam split into CSS class names. Levels are now open
+   ended: the colour comes from --aid-N in tokens.css, chosen by LEVEL, and is
+   set inline by makeAidsTag() in engine.js — that is the one place a `style`
+   attribute is legitimate here, because the level count is data.
+
+   A tag ALWAYS carries its label in words ("Del 1", "Del 1+2"). The --aid-*
+   colours separate by hue rather than luminance, so the text is what carries
+   the meaning; a wordless tag would be colour-only. See tokens.css.
+
+   It is a <button>: clicking it opens the detail panel at the aids section,
+   which is the only place a student can read what the level actually allows.
+   -------------------------------------------------------------------------- */
+
+.aidtag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.45rem;
+  border: 0;
+  border-radius: 0;
+  color: var(--surface);
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.aidtag:hover { filter: brightness(1.12); }
+.aidtag:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* A split tag is the same size as a single one — that is the whole point of
+   splitting rather than stacking two tags. The text sits on top of both
+   stripes, so it needs a shadow to stay readable across the seam. */
+.aidtag--split { text-shadow: 0 0 2px rgba(26, 29, 27, 0.55); }
+
+/* In the detail panel the tag is a label, not a control. */
+.aidtag--static { cursor: default; }
+.aidtag--static:hover { filter: none; }
+
+
+
+.badge-type {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Detail panel */
+
+#detail-panel {
+  width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  transition: width 0.22s ease;
+  flex-shrink: 0;
+}
+
+#detail-panel.open {
+  width: min(440px, 92vw);
+}
+
+#detail-panel-inner {
+  width: min(440px, 92vw);
+  height: 100%;
+  overflow-y: auto;
+  padding: 1.6rem 1.6rem 3rem;
+}
+
+#detail-close {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+#detail-close:hover, #detail-close:focus-visible { color: var(--text); }
+
+#detail-panel h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  clear: both;
+  padding-top: 0.1rem;
+}
+
+#detail-meta {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#detail-status {
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+#detail-status.available { color: var(--accent); }
+
+.mastery-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.mastered-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+#detail-desc {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.4rem;
+}
+
+.prereq-list {
+  margin: 0 0 1.4rem 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.prereq-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.prereq-check {
+  flex: 0 0 auto;
+  width: 1em;
+  text-align: center;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.prereq-item-done .prereq-check {
+  color: var(--success);
+  opacity: 1;
+}
+
+.prereq-link {
+  font: inherit;
+  color: var(--accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s;
+}
+
+.prereq-link:hover,
+.prereq-link:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.instruction-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--accent-grad);
+  color: var(--ink-inverse);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn:hover { transform: translateY(-1px); opacity: 0.92; }
+.btn.secondary:hover { border-color: var(--border-strong); background: var(--surface-hover); transform: none; opacity: 1; }
+
+#instruction-text {
+  display: none;
+  width: 100%;
+  min-height: 220px;
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  resize: vertical;
+  margin-bottom: 1.4rem;
+}
+
+#instruction-text.visible { display: block; }
+
+.resource-list {
+  list-style: none;
+  font-size: 0.86rem;
+}
+
+.resource-list li {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.resource-list li:first-child { border-top: none; }
+
+.resource-list a { text-decoration: none; }
+.resource-list a:hover, .resource-list a:focus-visible { text-decoration: underline; }
+
+#detail-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+/* Legend */
+
+/* Kortene selv skriver nå ut "Del 1"/"Del 2"/"Del 1+2" i sin egen badge
+   (se makeHjelpemiddelBadge i engine.js) i stedet for forkortelsen "D1" -
+   en egen forklarende legend er derfor overflødig. #legend-elementet står
+   igjen tomt i hvert fags index.html; skjul det helt så det ikke tar opp
+   plass. */
+#legend {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  #detail-panel.open { width: 100vw; position: fixed; inset: 0; z-index: 20; }
+  #detail-panel-inner { width: 100vw; }
+}
+
+/* ==========================================================================
+   SITE-SPECIFIC OVERRIDES — must stay last in the file.
+
+   Everything above this line is the ported source, unchanged. Rules that
+   aiskilltrees-style actually contradicts go here instead of being edited
+   in place, so the two copies stay easy to diff.
+
+   They have to be LAST: the rules they overrule have the same specificity,
+   so only source order decides. Put this block at the top and it silently
+   does nothing.
+   ========================================================================== */
+
+/* BUTTONS ARE ROUNDED IN THE TREE APP — a deliberate departure from
+   aiskilltrees-style, decided by Vidar 2026-09-20.
+
+   The port originally squared every text button to match the design system,
+   which left #goal-index-btn and #exam-btn square while the icon controls
+   next to them stayed pills — an inconsistency visible in the same menu.
+   Rather than square the pills too, the whole app goes round.
+
+   The rule is now: in the tree app, CONTROLS are pills and CONTAINERS
+   (modals, panels, the node boxes) stay square, so --radius is still 0.
+   The marketing pages are untouched and remain square throughout. */
+.btn,
+#lesson-plan-btn,
+.linkbtn,
+.column-header-btn {
+  border-radius: var(--radius-pill);
+}
+
+/* Læringsmålnavnet i «Vis alle læringsmål» er en knapp (den hopper til noden
+   i kartet), men skal lese som tekst. Se renderGoalIndexBody i engine.js. */
+button.goal-index-item-name {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+button.goal-index-item-name:hover { color: var(--accent); text-decoration: underline; }
+button.goal-index-item-name:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* THE APP FILLS THE VIEWPORT — <body> HAS TO BE THE FLEX COLUMN.
+
+   `main` asks for `flex: 1; min-height: 0`, which only means something inside a
+   flex container, and nothing ever made <body> one. So `main` took its content
+   height instead: #graph-scroll grew to the full height of the graph (2600px+
+   on a 900px screen), the WINDOW scrolled vertically, and the scroll container
+   itself had no vertical range at all — scrollHeight === clientHeight.
+
+   That is what made drag-to-pan work sideways and do nothing downwards.
+   setupPanning() in engine.js sets scrollLeft AND scrollTop on every move; the
+   horizontal one had somewhere to go and the vertical one did not. Same reason
+   the mouse wheel scrolled the page rather than the map.
+
+   Missing in the skogvoll.com original too, so this is a fix, not a port
+   artefact to keep. `height: 100%` on html+body near the top of this file is
+   what gives the column a definite height to divide up; `overflow: hidden`
+   keeps a stray child from bringing the page scrollbar back. The detail panel
+   scrolls itself (#detail-panel-inner is overflow-y: auto), so nothing inside
+   depends on the page scrolling. */
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* LEDETEKSTEN OVER BESKRIVELSEN — «Eleven kan:» / «Eleven kan forklare:».
+
+   Beskrivelsen i tree.csv er fra 2026-09-21 en bar verbfrase (ferdighet)
+   eller en bar definisjon (begrep); setningen fullføres her. Ledeteksten er
+   derfor ikke pynt, den er halve setningen, og den står i primærgrønt på
+   egen linje for å vise at den kommer fra verktøyet og ikke fra læreren som
+   skrev noden. Se learnerLeadIn() i engine.js. */
+#detail-lead {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* #detail-desc er et <div> fra samme dato, fordi en node kan holde flere
+   definisjoner. Avsnittsmargen slås av her; avstanden ned til
+   forutsetningene er elementets egen margin-bottom lenger opp i fila. */
+#detail-desc > p { margin: 0; }
+
+#detail-desc .definition-list {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+#detail-desc .definition-list li { margin-bottom: 0.4rem; }
+#detail-desc .definition-list li:last-child { margin-bottom: 0; }
+/* Termen står i samme farge som brødteksten ellers, bare i halvfeit: den
+   skal skille seg fra definisjonen, ikke fra siden. Gjelder både avsnittet
+   med én definisjon og punktlista med flere. */
+#detail-desc strong { color: var(--text); }
+
+
+/* KANTENE ER SVAKE SOM STANDARD - tre nivåer, ikke ett.
+
+   Et tre med hundre noder tegner flere hundre kurver, og i full styrke legger
+   de seg som et garnnøste over kolonnene (Vidar, 2026-09-21). Grunnfargen er
+   derfor lys nok til at strukturen anes uten å konkurrere med boksene, og to
+   tilstander henter en kant tilbake:
+
+     .edge-from-mastered  kanten GÅR FRA en node eleven har huket av. Det er
+                          kantene som peker videre inn i det eleven kan ta fatt
+                          på nå, så de er de eneste som er verdt å lese i en
+                          graf man ikke har valgt noe i.
+     .edge-selected       kanten hører til noden som er åpen i detaljpanelet,
+                          inn eller ut. Denne er grønn - den svarer på «hva
+                          henger sammen med DENNE?», som er et annet spørsmål
+                          enn «hvor er jeg», og skal kunne følges på tvers av
+                          hele kartet.
+
+   Grønn er aldri det eneste signalet: den valgte noden har også .active, og en
+   avhuket node har sin egen ring og avkryssede boks. Se updateEdgeHighlight()
+   i engine.js, som også flytter de valgte kantene sist i <svg> så de tegnes
+   øverst. Erstatter .edge-active, som lyste opp kanter der BEGGE endene var
+   mestret - en tilstand eleven ikke har bruk for å se. */
+#edges path {
+  stroke: color-mix(in srgb, var(--ink) 25%, transparent);
+  stroke-width: 1.3;
+}
+
+#edges path.edge-from-mastered {
+  stroke: color-mix(in srgb, var(--ink) 40%, transparent);
+  stroke-width: 1.7;
+}
+
+/* Kanter mellom emner: i hvile bare stubbene, når en av nodene er åpen bare
+   hele kanten (se edgeStub i engine.js). */
+#edges path.edge-cross:not(.edge-selected),
+#edges path.edge-stub.edge-selected {
+  display: none;
+}
+
+#edges path.edge-stub {
+  stroke: color-mix(in srgb, var(--ink) 40%, transparent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#edges path.edge-stub.edge-from-mastered {
+  stroke: color-mix(in srgb, var(--ink) 55%, transparent);
+}
+
+#edges path.edge-selected {
+  stroke: color-mix(in srgb, var(--accent) 85%, transparent);
+  stroke-width: 2.4;
+}
+
+/* ------------------------------------------------------------------ */
+/* Utkast 2026-11-11: én tilbake-knapp, «?» i stedet for innledninger,   */
+/* et felles enkelt vindu (prøven), og plass i den runde ferdighetsnoden. */
+/* ------------------------------------------------------------------ */
+
+/* ÉN tilbake-knapp overalt: lenka til alle trær i menyen og «Læringsmålene»
+   i ressursvelgeren. Samme pille, samme pil, og teksten sier hvor du havner. */
+.back-btn,
+.back-link.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.back-btn:hover,
+.back-btn:focus-visible,
+.back-link.back-btn:hover,
+.back-link.back-btn:focus-visible {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+/* «?»: forklaringen ligger bak den, og vinduet skal virke uten. */
+.help-toggle {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.help-toggle:hover,
+.help-toggle[aria-expanded="true"] {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+.aist-help {
+  margin: 0;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  background: var(--paper-2, var(--bg));
+  border-bottom: 1px solid var(--border);
+}
+.aist-help[hidden] { display: none; }
+
+/* Et enkelt vindu i samme ramme som læringsmål-lista. */
+.aist-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--scrim);
+}
+.aist-overlay.open { display: flex; }
+.aist-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+}
+.aist-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.aist-modal-header h2 { font-size: 1.3rem; font-weight: 700; }
+.aist-modal-actions { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+.aist-modal-body { overflow-y: auto; padding: 1rem 1.6rem 1.8rem; }
+.aist-modal-body .resource-summary { margin-bottom: 1rem; }
+#goal-index-actions { align-items: center; }
+
+.resource-exam { --card-hue: var(--primary); --card-tint: var(--primary-tint); }
+.resource-copy:disabled { opacity: 0.45; cursor: default; transform: none; }
+
+/* Ferdighetsnoden er den rundeste; litt mer luft på sidene, så teksten
+   ikke kommer for nær de runde hjørnene. */
+.node-box.type-skill { padding-left: 1.05rem; padding-right: 1.05rem; }
+
+@media (max-width: 720px) {
+  .aist-overlay { padding: 0; }
+  .aist-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+  .aist-help { padding: 0.8rem 1rem; }
+  .aist-modal-body { padding: 0.9rem 1rem 1.4rem; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utkast 2026-11-11, runde 2: kort som er så store som teksten, haken  */
+/* for mestret, og læringsmål som små bokser i treets farger og former. */
+/* ------------------------------------------------------------------ */
+
+/* Kortet er så bredt som teksten, opptil plassen i rutenettet
+   (max-width settes i engine.js), og så høyt som teksten. */
+.node-box {
+  width: max-content;
+  min-width: 6.5rem;
+  position: absolute;
+}
+.node-box .node-name { padding-right: 0; }
+.node-check-spacer { display: inline-block; width: 1.5rem; height: 1px; }
+
+/* Haken nede til høyre. Grå og svak til den trykkes, så grønn. */
+.mastery-check {
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.4rem;
+  width: 1.45rem;
+  height: 1.45rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  opacity: 0.38;
+  cursor: pointer;
+  transition: opacity 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.mastery-check svg { width: 100%; height: 100%; display: block; }
+.mastery-check circle { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.mastery-check path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mastery-check:hover { opacity: 0.75; transform: scale(1.08); }
+.mastery-check[aria-pressed="true"] { color: var(--success); opacity: 1; }
+.mastery-check[aria-pressed="true"] circle { fill: var(--success); stroke: var(--success); }
+.mastery-check[aria-pressed="true"] path { stroke: var(--surface); }
+.mastery-check:focus-visible { outline: 2px solid var(--success); outline-offset: 2px; border-radius: 50%; opacity: 1; }
+
+/* Typen gir farge og form, samme sted fra for kortene i treet, boksene i
+   lista og de små merkene: én kilde, så de alltid ser like ut. */
+.goal-box, .goal-tag { --g-bg: var(--begrep-bg); --g-border: var(--begrep-border); }
+.goal-box.type-skill, .goal-tag.type-skill { --g-bg: var(--ferdighet-bg); --g-border: var(--ferdighet-border); }
+.goal-box.type-fact, .goal-tag.type-fact { --g-bg: var(--fakta-bg); --g-border: var(--fakta-border); }
+
+/* Et læringsmål i en liste: en liten utgave av kortet i treet. Svak når
+   det ikke er valgt (eller ikke mestret), i full farge når det er det.
+   Hele boksen er en knapp. */
+.goal-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  padding: 0.5rem 2.4rem 0.5rem 0.8rem;
+  background: var(--g-bg);
+  border: 1.5px solid var(--g-border);
+  border-radius: 8px;
+  opacity: 0.42;
+  filter: saturate(0.35);
+  cursor: pointer;
+  transition: opacity 0.15s ease, filter 0.15s ease, transform 0.15s ease;
+}
+.goal-box.no-check { padding-right: 0.8rem; }
+.goal-box.type-concept { border-radius: 7px; }
+.goal-box.type-skill { border-radius: 18px; }
+.goal-box.type-fact { border-radius: 2px; }
+.goal-box:hover { opacity: 0.75; filter: none; }
+.goal-box.on { opacity: 1; filter: none; }
+.goal-box .node-index { font-weight: 500; color: var(--text-muted); }
+.goal-box .mastery-check { right: 0.55rem; bottom: auto; top: 50%; margin-top: -0.72rem; opacity: 0.45; }
+.goal-box.on .mastery-check { opacity: 1; color: var(--success); }
+.goal-box.on .mastery-check circle { fill: var(--success); stroke: var(--success); }
+.goal-box.on .mastery-check path { stroke: var(--surface); }
+.goal-box:focus-visible { outline: 2px solid var(--g-border); outline-offset: 2px; }
+
+.goal-row { display: flex; align-items: center; gap: 0.4rem; }
+.goal-locate {
+  flex-shrink: 0;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0.35rem;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.goal-locate svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.goal-locate:hover { border-color: var(--border); background: var(--surface-hover); color: var(--text); }
+
+/* Det lille merket: bare koden, i treets farge og form. Brukes der et
+   utvalg av læringsmål vises (bunnlinja, velgeren, prøven). I prøven kan
+   merkene trykkes, og er da svake når de er valgt bort. */
+.goal-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
+.goal-tag {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  padding: 0.12rem 0.38rem;
+  color: var(--text);
+  background: var(--g-bg);
+  border: 1px solid var(--g-border);
+  border-radius: 4px;
+}
+.goal-tag.type-skill { border-radius: 9px; }
+.goal-tag.type-fact { border-radius: 1px; }
+button.goal-tag { cursor: pointer; transition: opacity 0.15s ease, filter 0.15s ease; }
+button.goal-tag.off { opacity: 0.35; filter: saturate(0.2); }
+button.goal-tag:hover { opacity: 0.8; filter: none; }
+.goal-tag-topic { display: contents; }
+.goal-tags-label { font-size: 0.82rem; color: var(--text-muted); margin-right: 0.3rem; }
+.goal-tags-empty { font-size: 0.82rem; font-weight: 600; color: var(--danger-text); }
+.goal-tag-rows { display: grid; gap: 0.35rem; }
+.goal-tag-row { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
+.goal-tag-letter { width: 1.2rem; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); }
+.resource-motivation { --card-hue: var(--primary); --card-tint: var(--primary-tint); }
+.exam-cover { display: grid; gap: 0.5rem; margin-bottom: 1rem; }
+#lesson-plan-count { flex: 1 1 auto; min-width: 0; }
+
+/* Et læringsmål med navn, der det nevnes i et annet vindu (søket, oppgaver
+   og kilder): samme farge og form som kortet i treet (2026-11-11). */
+.goal-ref { --g-bg: var(--begrep-bg); --g-border: var(--begrep-border); }
+.goal-ref.type-skill { --g-bg: var(--ferdighet-bg); --g-border: var(--ferdighet-border); }
+.goal-ref.type-fact { --g-bg: var(--fakta-bg); --g-border: var(--fakta-border); }
+.resources-node.goal-ref,
+.search-item-name.goal-ref {
+  color: var(--text);
+  background: var(--g-bg);
+  border: 1px solid var(--g-border);
+  border-radius: 6px;
+}
+.resources-node.goal-ref.type-skill,
+.search-item-name.goal-ref.type-skill { border-radius: 14px; }
+.resources-node.goal-ref.type-fact,
+.search-item-name.goal-ref.type-fact { border-radius: 2px; }
+.search-item-name.goal-ref { display: inline-block; padding: 0.3rem 0.7rem; }
+.resources-node.goal-ref:hover,
+.search-item-name.goal-ref:hover { color: var(--text); border-color: var(--border-strong); }
+#search-header, #resources-header { align-items: center; }
+
+/* Haken i detaljpanelet står i teksten, ikke i et hjørne. */
+.mastery-check.inline { position: static; width: 1.6rem; height: 1.6rem; opacity: 0.5; }
+.mastered-toggle { display: flex; align-items: center; gap: 0.5rem; }
+.mastered-toggle-text { font: inherit; font-size: 0.9rem; color: var(--text); background: none; border: 0; padding: 0; cursor: pointer; }
+.mastery-check.inline[aria-pressed="true"] { opacity: 1; }
+
+/* Haken på kortet står i en egen kolonne til høyre for teksten, nede på
+   linje med siste tekstlinje (se createNodeElement). */
+.node-name { display: flex; align-items: center; gap: 0.45rem; }
+.node-text { flex: 1 1 auto; min-width: 0; }
+.node-name .mastery-check {
+  position: static;
+  flex-shrink: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0 0 0.02rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Runde tre, 2026-11-11: navigasjon som tekst, «?» som boble, kryss i   */
+/* menyen, hurtigtaster og faste knappebredder.                         */
+/* ------------------------------------------------------------------ */
+
+/* Navigasjon (tilbake, lukk) er ren tekst med strek under ved hover, ikke
+   piller. En pille betyr en handling; å gå et sted er ikke en handling. */
+.nav-btn,
+.back-btn,
+.back-link.back-btn,
+#detail-close.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.1rem;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1.5px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.nav-btn:hover,
+.nav-btn:focus-visible,
+.back-btn:hover,
+.back-btn:focus-visible,
+.back-link.back-btn:hover,
+.back-link.back-btn:focus-visible {
+  color: var(--text);
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+/* «?»-forklaringen er en boble over innholdet, rett under knappen. Den
+   skyver ingenting. */
+.aist-modal, #goal-index-modal, #search-modal, #resources-modal { position: relative; }
+.aist-help.aist-popover {
+  position: absolute;
+  z-index: 60;
+  width: min(22rem, calc(100% - 2rem));
+  margin: 0;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: var(--shadow-modal);
+}
+.aist-help.aist-popover::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: var(--arrow-right, 0.6rem);
+  width: 12px;
+  height: 12px;
+  background: var(--surface);
+  border-left: 1px solid var(--border-strong);
+  border-top: 1px solid var(--border-strong);
+  transform: rotate(45deg);
+}
+
+/* Kryss øverst til høyre i menyen. */
+#action-menu-panel { padding-top: 0.8rem; }
+.menu-close-btn {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 1;
+}
+.menu-close-btn svg { width: 18px; height: 18px; }
+.menu-close-btn:hover, .menu-close-btn:focus-visible { color: var(--text); background: var(--surface-hover); }
+#menu-nav-row { padding-right: 2.2rem; min-height: 2rem; }
+
+/* Hurtigtasten står til høyre i menyvalget. */
+.menu-kbd {
+  margin-left: auto;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+}
+.help-kbd-list { margin: 0.2rem 0 0; padding: 0; list-style: none; }
+.help-kbd-list li { display: flex; gap: 0.8rem; align-items: baseline; padding: 0.2rem 0; }
+.help-kbd-list kbd {
+  flex: 0 0 7.5rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Knapper som bytter tekst er alltid så brede som den lengste teksten. */
+.swap-label { display: inline-grid; justify-items: center; align-items: center; }
+.swap-label > span { grid-area: 1 / 1; }
+
+/* Vinduene står fast øverst i stedet for midt på skjermen. Et sentrert
+   vindu som vokser (et valg som viser et felt til), flytter seg opp, og da
+   hopper alt i det. Nå vokser det bare nedover. */
+#goal-index-overlay, .aist-overlay, .text-overlay, #course-info-overlay {
+  align-items: flex-start;
+  padding-top: max(2rem, 6vh);
+}
+.swap-hint { display: grid; }
+.swap-hint > span { grid-area: 1 / 1; }
+
+/* Hurtigtasten vises ikke på berøringsskjermer, der det ikke finnes tastatur. */
+@media (hover: none) { .menu-kbd { display: none; } }
+
+/* ------------------------------------------------------------------ */
+/* Runde fire, 2026-11-11.                                              */
+/* ------------------------------------------------------------------ */
+
+/* Emnenavnene over kolonnene er større, og knappene ved dem også. */
+.column-header {
+  font-size: 0.86rem;
+  font-weight: 700;
+  align-items: center;
+  padding-bottom: 0.35rem;
+}
+
+/* Merk-mange-knappene: et listeikon, ikke et tegn. */
+.column-header-btn.bulk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.3rem;
+  line-height: 0;
+  border-radius: 7px;
+}
+.bulk-icon { width: auto; height: 1.35rem; display: block; }
+.bulk-icon .bi-off { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.75; }
+.bulk-icon .bi-on { fill: var(--success); stroke: var(--success); stroke-width: 1; }
+.bulk-icon .bi-tick { fill: none; stroke: var(--surface); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.bulk-icon .bi-line { stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; opacity: 0.7; }
+.bulk-icon .bi-letter { font: 700 5.6px/1 var(--font-sans, system-ui, sans-serif); fill: currentColor; }
+.goal-index-bulk-btn.bulk-btn { padding: 0.2rem 0.4rem; }
+.goal-index-bulk-btn .bulk-icon { height: 1.6rem; }
+#goal-index-bulk { margin: -0.3rem 0 1rem; gap: 0.5rem; }
+.goal-index-section h3 { align-items: center; font-size: 0.86rem; }
+.goal-tag-row-actions { display: inline-flex; gap: 0.25rem; margin-left: 0.3rem; }
+.exam-bulk-row { gap: 0.5rem; margin-bottom: 0.15rem; }
+.exam-show-all-btn { padding: 0.2rem 0.4rem; color: var(--text-muted); }
+.exam-show-all-btn.on { color: var(--primary); }
+.exam-all-icon { width: auto; height: 1.6rem; display: block; }
+.exam-all-icon .ea-tag { fill: currentColor; opacity: 0.55; }
+.exam-show-all-btn.on .exam-all-icon .ea-tag { opacity: 0.9; }
+.exam-all-icon .ea-hidden { fill: none; stroke: currentColor; stroke-width: 0.8; stroke-dasharray: 1.4 1.1; opacity: 0.6; }
+
+/* Typen i detaljpanelet står i et merke i typens farge og form. */
+.type-chip {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.14rem 0.5rem;
+}
+
+/* Hjelp: en liten figur til venstre for hver korte forklaring. */
+.help-item {
+  display: grid;
+  grid-template-columns: 4.6rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.help-item:last-of-type { border-bottom: none; }
+.help-fig svg { width: 4.6rem; height: auto; display: block; border-radius: 8px; }
+.help-fig .menu-icon { width: 3.4rem; height: 3.4rem; margin: 0 auto; }
+.help-fig-bulk { display: flex; flex-wrap: wrap; gap: 0.3rem; color: var(--text-muted); }
+.help-fig-bulk svg { width: auto; height: 1.4rem; }
+.help-text h3 { margin-top: 0; }
+.help-text p { margin: 0.2rem 0 0; }
+
+/* Skriv ut: valgene til venstre, arket til høyre. */
+#print-overlay .aist-modal { max-width: 980px; }
+.print-layout {
+  /* Samme farge som gruppa i menyen (Planlegge), og det som gir de valgte
+     knappene, bryterne og nedlastingsknappen farge. */
+  --card-hue: var(--amber);
+  --card-tint: var(--amber-tint);
+  display: grid;
+  grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.25fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+.print-toggles { display: grid; gap: 0.5rem; }
+.print-preview { display: grid; gap: 0.4rem; justify-items: center; }
+.print-sheet {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 22rem;
+}
+.print-canvas {
+  max-width: 100%;
+  max-height: 60vh;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-float);
+}
+.print-canvas.gray { filter: grayscale(1); }
+.print-caption { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+@media (max-width: 720px) {
+  .print-layout { grid-template-columns: 1fr; }
+  .print-sheet { min-height: 0; }
+}
+
+/* «Vis hele treet» og «tilbake»: piler som SVG, så de snur riktig vei
+   og har samme strek som resten av knappene. */
+#fit-view-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#fit-view-btn[aria-pressed="true"] {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
