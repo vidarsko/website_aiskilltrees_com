@@ -34,8 +34,23 @@
   document.documentElement.lang = lang;
 
   /* Portrait or narrow: the phone pictures. Otherwise the desktop ones. */
-  var layout = (window.innerWidth < 700 || window.innerHeight > window.innerWidth) ? 'mobile' : 'desktop';
   var S = window.AIST_STAGE;
+  /* Portrait or narrow: the phone picture whose shape is closest to the
+     screen's, so it fills the width with no bars at the sides. */
+  var layout = 'desktop';
+  (function () {
+    var vv = window.visualViewport;
+    var W = vv ? vv.width : window.innerWidth, H = vv ? vv.height : window.innerHeight;
+    if (!(W < 700 || H > W)) return;
+    var best = null, ratio = H / W;
+    Object.keys(S.layouts).forEach(function (k) {
+      if (k.indexOf('mobile') !== 0) return;
+      var d = Math.abs(S.layouts[k].height / S.layouts[k].width - ratio);
+      if (!best || d < best.d) best = { k: k, d: d };
+    });
+    if (best) layout = best.k;
+  })();
+  var phone = layout.indexOf('mobile') === 0;
   var SIZE = S.layouts[layout];
   var G = S.geo[layout + '-' + lang];
   var REPLIES = window.AIST_TOUR_REPLIES[lang];
@@ -67,7 +82,8 @@
   /* ------------------------------------------------------------------ */
 
   var stage = $('#stage');
-  stage.classList.add('stage--' + layout);
+  stage.classList.add(phone ? 'stage--mobile' : 'stage--desktop');
+  document.documentElement.classList.toggle('is-phone', phone);
   stage.style.width = SIZE.width + 'px';
   stage.style.height = SIZE.height + 'px';
 

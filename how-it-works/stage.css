@@ -5,6 +5,8 @@
    ========================================================================== */
 
 html, body { margin: 0; height: 100%; overflow: hidden; background: var(--paper-2); }
+/* On a phone any sliver left over is the colour of the tree's own ground. */
+html.is-phone, html.is-phone body { background: var(--surface); }
 body { position: fixed; inset: 0; touch-action: manipulation; -webkit-user-select: none; user-select: none;
   font: 400 16px/1.5 var(--font-sans); color: var(--ink); -webkit-tap-highlight-color: transparent; }
 
@@ -72,7 +74,7 @@ body { position: fixed; inset: 0; touch-action: manipulation; -webkit-user-selec
   overflow: hidden; opacity: 0; transform: translateY(14px) scale(.97); transition: opacity .3s ease, transform .3s ease; }
 .chat.on { opacity: 1; transform: none; }
 .stage--desktop .chat { right: 28px; top: 50px; width: 440px; height: 640px; }
-.stage--mobile .chat { left: 8px; right: 8px; bottom: 8px; height: 560px; }
+.stage--mobile .chat { left: 8px; right: 8px; bottom: 8px; top: 72px; }
 .chat__hd { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--tour-chat-line); }
 .chat__logo { width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--tour-chat-logo); color: var(--tour-chat-bg);
   display: grid; place-items: center; font-size: 13px; }
