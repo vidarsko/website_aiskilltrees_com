@@ -99,7 +99,7 @@
 
   /* One iframe per picture, all loaded up front, so a change of picture
      never flashes. */
-  var STATES = ['tree', 'panel', 'ticked', 'mastered', 'menu', 'exam'];
+  var STATES = ['tree', 'panel', 'ticked', 'mastered', 'menu', 'exam', 'examcopy'];
   var pics = {};
   var first = $('#pic');
   STATES.forEach(function (name, i) {
@@ -240,16 +240,33 @@
     return r ? { x: x, y: y, w: w, h: h } : null;
   }
 
-  function placeCard(h) {
-    var cw = card.offsetWidth, ch = card.offsetHeight, m = 14, W = SIZE.width, H = SIZE.height, x, y;
+  /* A gentle arrow from the card to what is to be pressed, so «Click here»
+     is not read as being about the card itself (2026-11-14). */
+  var arrow = el('div', 'arrow', '<svg viewBox="0 0 24 30" aria-hidden="true"><path d="M12 28V4M3 12l9-9 9 9"/></svg>');
+  stage.appendChild(arrow);
+
+  function placeCard(h, pointing) {
+    var cw = card.offsetWidth, ch = card.offsetHeight, W = SIZE.width, H = SIZE.height, x, y, side = null;
+    var m = 14, g = pointing ? 50 : 14;
     if (!h) { x = (W - cw) / 2; y = (H - ch) / 2; }
-    else if (H - (h.y + h.h) >= ch + m * 2) { y = h.y + h.h + m; x = h.x + h.w / 2 - cw / 2; }
-    else if (h.y >= ch + m * 2) { y = h.y - ch - m; x = h.x + h.w / 2 - cw / 2; }
-    else if (h.x >= cw + m * 2) { x = h.x - cw - m; y = h.y + h.h / 2 - ch / 2; }
-    else if (W - (h.x + h.w) >= cw + m * 2) { x = h.x + h.w + m; y = h.y + h.h / 2 - ch / 2; }
+    else if (H - (h.y + h.h) >= ch + g + m) { side = 'below'; y = h.y + h.h + g; x = h.x + h.w / 2 - cw / 2; }
+    else if (h.y >= ch + g + m) { side = 'above'; y = h.y - ch - g; x = h.x + h.w / 2 - cw / 2; }
+    else if (h.x >= cw + g + m) { side = 'left'; x = h.x - cw - g; y = h.y + h.h / 2 - ch / 2; }
+    else if (W - (h.x + h.w) >= cw + g + m) { side = 'right'; x = h.x + h.w + g; y = h.y + h.h / 2 - ch / 2; }
     else { x = (W - cw) / 2; y = H - ch - m; }
-    card.style.left = Math.max(m, Math.min(W - cw - m, x)) + 'px';
-    card.style.top = Math.max(m, Math.min(H - ch - m, y)) + 'px';
+    x = Math.max(m, Math.min(W - cw - m, x)); y = Math.max(m, Math.min(H - ch - m, y));
+    card.style.left = x + 'px'; card.style.top = y + 'px';
+
+    arrow.className = 'arrow';
+    if (!pointing || !h || !side) return;
+    var cx = h.x + h.w / 2, cy = h.y + h.h / 2, ax, ay, rot;
+    if (side === 'below') { ax = Math.max(x + 18, Math.min(x + cw - 18, cx)); ay = y - g / 2; rot = 0; }
+    if (side === 'above') { ax = Math.max(x + 18, Math.min(x + cw - 18, cx)); ay = y + ch + g / 2; rot = 180; }
+    if (side === 'left') { ax = x + cw + g / 2; ay = Math.max(y + 18, Math.min(y + ch - 18, cy)); rot = 90; }
+    if (side === 'right') { ax = x - g / 2; ay = Math.max(y + 18, Math.min(y + ch - 18, cy)); rot = -90; }
+    arrow.style.left = ax + 'px'; arrow.style.top = ay + 'px';
+    arrow.style.setProperty('--rot', rot + 'deg');
+    arrow.className = 'arrow on';
   }
 
   /* One step. target: a rect (stage pixels) or a function returning one.
@@ -261,6 +278,7 @@
   function look(ms) {
     hot.style.display = 'none'; catcher.style.display = 'block';
     card.className = 'card card--hidden';
+    arrow.className = 'arrow';
     dim.classList.add('off');
     return sleep(ms);
   }
@@ -288,7 +306,7 @@
         nb.onclick = function () { nb.onclick = null; resolve(); };
         card.appendChild(nb);
       }
-      placeCard(h);
+      placeCard(h, !!(o.click && r));
     });
   }
 
@@ -296,6 +314,7 @@
   async function watch(text) {
     hot.style.display = 'none'; catcher.style.display = 'block';
     card.className = 'card card--hidden';
+    arrow.className = 'arrow';
     dim.classList.remove('off');
     spot(chatRect(chat), 'rect');
     await reply(text);
@@ -363,8 +382,11 @@
     show('exam');
     await look(2200);
     await step({ html: esc(T.covers), target: rectOf('exam', 'covers') });
-    await step({ click: true, target: rectOf('exam', 'copy') });
-    markCopied('exam', '#exam-overlay .resource-copy');
+    /* On a phone «Copy» is further down the window: scroll to it first. */
+    show('examcopy');
+    await look(900);
+    await step({ click: true, target: rectOf('examcopy', 'copy') });
+    markCopied('examcopy', '#exam-overlay .resource-copy');
     await look(1000);
     await chooseService(1200);
     await chatOpen();
@@ -381,6 +403,8 @@
     await look(1000);
 
     /* Back in the tree: close the Test window too. */
+    show('exam');
+    await look(700);
     await step({ click: true, target: rectOf('exam', 'close') });
     show('mastered');
     await look(1500);
