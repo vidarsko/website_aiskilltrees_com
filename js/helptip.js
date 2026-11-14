@@ -57,10 +57,15 @@
     /* Keep the bubble on screen: shift it left if it runs past the right
        edge, never past the left one. The arrow stays under the button. */
     var margin = 16;
+    /* clientWidth, not innerWidth: on a phone, a bubble that sticks out
+       widens the layout viewport, and innerWidth grows with it, so the
+       bubble never looked too wide and stayed half off screen (bug until
+       2026-11-14). */
+    var vw = document.documentElement.clientWidth;
     var r = bubble.getBoundingClientRect();
     var b = btn.getBoundingClientRect();
     var shift = 0;
-    if (r.right > window.innerWidth - margin) shift = window.innerWidth - margin - r.right;
+    if (r.right > vw - margin) shift = vw - margin - r.right;
     if (r.left + shift < margin) shift = margin - r.left;
     var left = (r.left + shift) - b.left;
     bubble.style.setProperty('--bubble-left', left + 'px');

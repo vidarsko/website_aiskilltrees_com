@@ -4138,9 +4138,16 @@ function helpToggle(panel) {
     const hr = host.getBoundingClientRect();
     const br = b.getBoundingClientRect();
     panel.style.top = (br.bottom - hr.top + 8) + 'px';
-    const right = Math.max(8, hr.right - br.right);
-    panel.style.right = right + 'px';
-    panel.style.setProperty('--arrow-right', (br.width / 2 - 7) + 'px');
+    /* Boblen står med høyre kant under knappen, men aldri utenfor
+       skjermen: på en smal mobil var den bredere enn plassen til venstre
+       for «?», og venstre del havnet utenfor (feil til 2026-11-14). Pila
+       følger knappen uansett hvor boblen havner. */
+    const vw = document.documentElement.clientWidth;
+    const pw = panel.offsetWidth;
+    let panelRight = Math.min(br.right, hr.right - 8, vw - 8);
+    panelRight = Math.max(panelRight, Math.min(pw + 8, vw - 8));
+    panel.style.right = (hr.right - panelRight) + 'px';
+    panel.style.setProperty('--arrow-right', (panelRight - (br.left + br.width / 2) - 7) + 'px');
   });
   return b;
 }

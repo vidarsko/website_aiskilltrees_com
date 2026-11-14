@@ -975,6 +975,16 @@ main {
   .resource-art svg { width: 64px; height: 64px; }
 }
 
+/* På en smal skjerm får ikke overskrift og knapper plass på én linje
+   («Undervisningsopplegg» + «?» + «Kopier alle» + «Lukk»). Da brytes
+   knappene ned på en egen linje i stedet for å skyve vinduet ut over
+   skjermkanten (feil til 2026-11-14). */
+@media (max-width: 720px) {
+  #goal-index-header, #search-header, #resources-header, .aist-modal-header { flex-wrap: wrap; row-gap: 0.6rem; }
+  #goal-index-header h2, #search-header h2, #resources-header h2, .aist-modal-header h2 { min-width: 0; overflow-wrap: anywhere; }
+  #goal-index-actions, .aist-modal-actions { margin-left: auto; }
+}
+
 @media (max-width: 720px) {
   #goal-index-overlay { padding: 0; }
   #goal-index-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
@@ -2339,7 +2349,7 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 .aist-help.aist-popover {
   position: absolute;
   z-index: 60;
-  width: min(22rem, calc(100% - 2rem));
+  width: min(22rem, calc(100% - 2rem), calc(100vw - 16px));
   margin: 0;
   padding: 0.75rem 0.95rem;
   font-size: 0.85rem;
