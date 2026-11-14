@@ -231,7 +231,7 @@
 
 /* The card. --surface fill, square, 1px rule, no shadow — the system's card.
    Since 2026-11-12 it is small: title with «i», the counts in node-shaped
-   boxes, the facts as an icon list, and «Open the tree» as a button. The
+   boxes, the facts as an icon list, and «Open» as a button beside them. The
    subtitle and description sit behind «i». */
 .treecard {
   display: flex;
@@ -290,9 +290,10 @@
   stroke-linecap: round;
 }
 
+/* Facts on the left, «Open» in the bottom right corner (2026-11-14). */
+.treecard__body { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-2); margin-top: auto; }
 .treecard__go {
-  margin-top: auto;
-  align-self: flex-start;
+  flex: none;
   border-color: var(--primary);
   color: var(--primary);
   background: var(--surface);

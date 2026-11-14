@@ -621,7 +621,7 @@ function card(tree, position) {
   const li = document.createElement('li');
 
   /* Kortet er ikke lenger én stor lenke (fra 2026-11-12): «i» er en knapp,
-     og en knapp kan ikke ligge inne i en lenke. Tittelen og «Open the tree»
+     og en knapp kan ikke ligge inne i en lenke. Tittelen og «Open»
      er lenkene. */
   const box = document.createElement('article');
   box.className = 'treecard';
@@ -696,17 +696,22 @@ function card(tree, position) {
     row.appendChild(span);
     meta.appendChild(row);
   });
-  box.appendChild(meta);
+  /* Fakta til venstre og «Åpne» til høyre, midt på høyden av dem
+     (Vidar, 2026-11-14). */
+  const body = document.createElement('div');
+  body.className = 'treecard__body';
+  body.appendChild(meta);
+  box.appendChild(body);
 
   /* Ingen utkast/publisert-merking: ligger treet på sida, er det
      publisert. Skillet ble fjernet 2026-09-20 — det beskrev hvor ferdig
      Vidar syntes et tre var, ikke noe leseren kunne bruke. */
   const go = document.createElement('a');
-  go.className = 'btn btn--small treecard__go';
+  go.className = 'btn treecard__go';
   go.href = tree.path;
   go.textContent = t('card-open');
   go.addEventListener('click', track);
-  box.appendChild(go);
+  body.appendChild(go);
 
   li.appendChild(box);
   return li;
