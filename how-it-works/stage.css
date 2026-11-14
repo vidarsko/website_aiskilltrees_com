@@ -15,7 +15,10 @@ body { position: fixed; inset: 0; touch-action: manipulation; -webkit-user-selec
 .stage__pic.on { visibility: visible; }
 
 /* ---- Spotlight ---------------------------------------------------------- */
-.spot { position: absolute; inset: 0; pointer-events: none; z-index: 30; }
+.spot { position: absolute; inset: 0; pointer-events: none; z-index: 30; transition: opacity .6s ease; }
+/* Time to look: no darkness. The window moves while it is invisible. */
+.spot.off { opacity: 0; }
+.spot.off .spot__hole { transition: none; }
 .spot__hole { position: absolute; border-radius: 50%; box-shadow: 0 0 0 3000px var(--tour-dim);
   transition: left .5s cubic-bezier(.2,.7,.2,1), top .5s cubic-bezier(.2,.7,.2,1),
               width .5s cubic-bezier(.2,.7,.2,1), height .5s cubic-bezier(.2,.7,.2,1), border-radius .3s ease; }
@@ -49,6 +52,17 @@ body { position: fixed; inset: 0; touch-action: manipulation; -webkit-user-selec
 .card__cta { font: 600 16px/1 var(--font-sans); text-decoration: none; border-radius: 999px; padding: 13px 20px;
   color: var(--primary); border: 1.5px solid var(--primary); }
 .card__cta--primary { background: var(--primary); color: var(--ink-inverse); }
+
+/* ---- «Open an AI service» ---------------------------------------------- */
+.picker { position: absolute; z-index: 25; left: 50%; top: 50%; width: 300px; max-width: 86%;
+  transform: translate(-50%, -46%) scale(.97); opacity: 0; transition: opacity .25s ease, transform .25s ease;
+  background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-modal); padding: 18px; pointer-events: none; }
+.picker.on { opacity: 1; transform: translate(-50%, -50%); }
+.picker__title { margin: 0 0 12px; font: 700 18px/1.3 var(--font-sans); color: var(--ink); }
+.picker__list { display: grid; gap: 8px; }
+.picker__opt { display: block; padding: 12px 14px; border: 1px solid var(--rule-strong); border-radius: 10px;
+  font: 600 15px/1.2 var(--font-sans); color: var(--ink-2); background: var(--surface); }
+.picker__opt--demo { border-color: var(--tour-chat-logo); color: var(--tour-chat-logo); }
 
 /* ---- The pretend AI chat ------------------------------------------------ */
 .chat { position: absolute; z-index: 20; display: flex; flex-direction: column;

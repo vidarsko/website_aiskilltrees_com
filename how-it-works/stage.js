@@ -46,15 +46,15 @@
     en: { next: 'Next', clickHere: 'Click here', intro: 'This is an AI skill tree.', types: 'Facts, concepts and skills.',
       covers: 'Only mastered goals. The icon shows all.', end: 'That’s it.', trees: 'See all the trees', make: 'Make your own',
       chatName: 'AI service', chatSub: '· new chat', chatEmpty: 'How can I help?', ph: 'Message AI service…',
-      paste: 'Paste', pasted: 'Pasted text', words: 'words', note: 'Pre-written replies.' },
+      paste: 'Paste', pick: 'Open an AI service', school: 'Your school\u2019s AI', demo: 'Demo AI', pasted: 'Pasted text', words: 'words', note: 'Pre-written replies.' },
     nb: { next: 'Neste', clickHere: 'Klikk her', intro: 'Dette er et KI-ferdighetstre.', types: 'Fakta, begreper og ferdigheter.',
       covers: 'Bare mestrede mål. Ikonet viser alle.', end: 'Det var det.', trees: 'Se alle trærne', make: 'Lag ditt eget',
       chatName: 'KI-tjeneste', chatSub: '· ny chat', chatEmpty: 'Hva kan jeg hjelpe med?', ph: 'Skriv til KI-tjenesten…',
-      paste: 'Lim inn', pasted: 'Innlimt tekst', words: 'ord', note: 'Ferdigskrevne svar.' },
+      paste: 'Lim inn', pick: 'Åpne en KI-tjeneste', school: 'Skolens egen KI', demo: 'Demo-KI', pasted: 'Innlimt tekst', words: 'ord', note: 'Ferdigskrevne svar.' },
     sv: { next: 'Nästa', clickHere: 'Klicka här', intro: 'Det här är ett AI-färdighetsträd.', types: 'Fakta, begrepp och färdigheter.',
       covers: 'Bara avklarade mål. Ikonen visar alla.', end: 'Det var allt.', trees: 'Se alla träd', make: 'Gör ditt eget',
       chatName: 'AI-tjänst', chatSub: '· ny chatt', chatEmpty: 'Hur kan jag hjälpa till?', ph: 'Skriv till AI-tjänsten…',
-      paste: 'Klistra in', pasted: 'Inklistrad text', words: 'ord', note: 'Förskrivna svar.' }
+      paste: 'Klistra in', pick: 'Öppna en AI-tjänst', school: 'Skolans egen AI', demo: 'Demo-AI', pasted: 'Inklistrad text', words: 'ord', note: 'Förskrivna svar.' }
   }[lang];
 
   function $(sel, root) { return (root || document).querySelector(sel); }
@@ -176,6 +176,26 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* «Open an AI service»: the tree works with any of them                */
+  /* ------------------------------------------------------------------ */
+
+  var picker = el('div', 'picker');
+  picker.innerHTML = '<p class="picker__title">' + esc(T.pick) + '</p><div class="picker__list">' +
+    ['ChatGPT', 'Claude', 'Gemini', T.school].map(function (n) { return '<span class="picker__opt">' + esc(n) + '</span>'; }).join('') +
+    '<span class="picker__opt picker__opt--demo">' + esc(T.demo) + '</span></div>';
+  stage.appendChild(picker);
+  var demoOpt = $('.picker__opt--demo', picker);
+  function pickerOpen() { picker.classList.add('on'); return sleep(300); }
+  function pickerClose() { picker.classList.remove('on'); return sleep(250); }
+  /* Show the choices, let them be read, then point at the demo. */
+  async function chooseService(ms) {
+    await pickerOpen();
+    await look(ms);
+    await step({ click: true, target: function () { return chatRect(demoOpt); } });
+    await pickerClose();
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Spotlight, catcher and cards                                        */
   /* ------------------------------------------------------------------ */
 
@@ -218,10 +238,22 @@
   /* One step. target: a rect (stage pixels) or a function returning one.
      click: the reader presses the target. Otherwise a Next button. read: the
      chat can be scrolled while the card shows. Resolves when done. */
+  /* Time to look: the whole stage clear, nothing to press, no card. Used
+     after every change of picture, so the reader sees what happened before
+     the spotlight moves on (Vidar, 2026-11-14). */
+  function look(ms) {
+    hot.style.display = 'none'; catcher.style.display = 'block';
+    card.className = 'card card--hidden';
+    dim.classList.add('off');
+    return sleep(ms);
+  }
+
   function step(o) {
     return new Promise(function (resolve) {
       var r = typeof o.target === 'function' ? o.target() : o.target || null;
       var h = spot(r, o.shape);
+      /* The intro shows the tree with no darkness at all. */
+      dim.classList.toggle('off', !!o.clear);
 
       card.innerHTML = '';
       card.className = 'card';
@@ -247,6 +279,7 @@
   async function watch(text) {
     hot.style.display = 'none'; catcher.style.display = 'block';
     card.className = 'card card--hidden';
+    dim.classList.remove('off');
     spot(chatRect(chat), 'rect');
     await reply(text);
   }
@@ -256,55 +289,76 @@
   /* ------------------------------------------------------------------ */
 
   async function run() {
-    await step({ html: esc(T.intro) });
+    /* The tree on its own first, then one line about it. */
+    await look(2500);
+    await step({ html: esc(T.intro), clear: true });
     await step({ html: esc(T.types), target: rectOf('tree', 'types') });
+    await look(900);
     await step({ click: true, target: rectOf('tree', 'target') });
     show('panel');
+    await look(2200);
 
     await step({ click: true, target: rectOf('panel', 'copy') });
     markCopied('panel', '#detail-panel button.btn:not(.secondary)');
-    await sleep(350);
+    await look(1200);
+
+    /* Any AI service will do; the demo uses a pretend one. */
+    await chooseService(2200);
 
     /* The practice tutor. */
     await chatOpen();
+    await look(1300);
     await step({ click: true, shape: 'round', target: function () { return chatRect(pasteEl); } });
     doPaste(PROMPTS.node);
+    await look(1300);
     await step({ click: true, shape: 'round', target: function () { return chatRect(sendEl); } });
     doSend();
     await watch(REPLIES.tutor1);
+    await look(2500);
     setField(REPLIES.pupil);
+    await look(1000);
     await step({ click: true, shape: 'round', target: function () { return chatRect(sendEl); } });
     doSend();
     await watch(REPLIES.tutor2);
+    await look(1500);
     await step({ read: true, shape: 'rect', target: function () { return chatRect(chat); } });
     await chatClose();
+    await look(1200);
 
     /* Tick it off. */
     await step({ click: true, target: rectOf('panel', 'master') });
     show('mastered');
-    await sleep(250);
+    await look(1800);
 
     /* The test. */
     await step({ click: true, shape: 'round', target: rectOf('mastered', 'menu') });
     show('menu');
+    await look(1800);
     await step({ click: true, target: rectOf('menu', 'test') });
     show('exam');
+    await look(2200);
     await step({ html: esc(T.covers), target: rectOf('exam', 'covers') });
     await step({ click: true, target: rectOf('exam', 'copy') });
     markCopied('exam', '#exam-overlay .resource-copy');
-    await sleep(350);
+    await look(1000);
     show('mastered');
+    await chooseService(1200);
     await chatOpen();
+    await look(900);
     await step({ click: true, shape: 'round', target: function () { return chatRect(pasteEl); } });
     doPaste(PROMPTS.exam);
+    await look(1000);
     await step({ click: true, shape: 'round', target: function () { return chatRect(sendEl); } });
     doSend();
     await watch(REPLIES.test);
+    await look(2000);
     await step({ read: true, shape: 'rect', target: function () { return chatRect(chat); } });
     await chatClose();
+    await look(1000);
 
     /* The end: two ways on. */
     spot(null);
+    dim.classList.remove('off');
     hot.style.display = 'none'; catcher.style.display = 'block';
     card.className = 'card card--end';
     var q = '?lang=' + lang;

@@ -147,7 +147,7 @@
   /* The pretend AI service on /how-it-works/ (2026-11-13). Deliberately NOT
      the site's palette: it stands for "any AI chat", like the popup in the
      hero clip (frontpage-video_private/aichat.js), so it borrows no brand. */
-  --tour-dim:        rgba(10, 12, 11, 0.66);
+  --tour-dim:        rgba(10, 12, 11, 0.5);
   --tour-chat-bg:    #FFFFFF;
   --tour-chat-ink:   #1D1D1F;
   --tour-chat-muted: #8A8A93;
