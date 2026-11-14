@@ -83,7 +83,7 @@
 
   /* One iframe per picture, all loaded up front, so a change of picture
      never flashes. */
-  var STATES = ['tree', 'panel', 'mastered', 'menu', 'exam'];
+  var STATES = ['tree', 'panel', 'ticked', 'mastered', 'menu', 'exam'];
   var pics = {};
   var first = $('#pic');
   STATES.forEach(function (name, i) {
@@ -181,8 +181,9 @@
 
   var picker = el('div', 'picker');
   picker.innerHTML = '<p class="picker__title">' + esc(T.pick) + '</p><div class="picker__list">' +
-    ['ChatGPT', 'Claude', 'Gemini', T.school].map(function (n) { return '<span class="picker__opt">' + esc(n) + '</span>'; }).join('') +
-    '<span class="picker__opt picker__opt--demo">' + esc(T.demo) + '</span></div>';
+    [['chatgpt', 'ChatGPT'], ['claude', 'Claude'], ['gemini', 'Gemini'], ['school', T.school], ['demo', T.demo]].map(function (o) {
+      return '<span class="picker__opt' + (o[0] === 'demo' ? ' picker__opt--demo' : '') + '"><img src="/how-it-works/logos/' + o[0] + '.svg" alt="" width="22" height="22">' + esc(o[1]) + '</span>';
+    }).join('') + '</div>';
   stage.appendChild(picker);
   var demoOpt = $('.picker__opt--demo', picker);
   function pickerOpen() { picker.classList.add('on'); return sleep(300); }
@@ -327,8 +328,12 @@
 
     /* Tick it off. */
     await step({ click: true, target: rectOf('panel', 'master') });
+    /* The tick turns green and the panel says «Mastered»: let it be seen
+       before anything moves (on a phone the panel then closes). */
+    show('ticked');
+    await look(1500);
     show('mastered');
-    await look(1800);
+    await look(1200);
 
     /* The test. */
     await step({ click: true, shape: 'round', target: rectOf('mastered', 'menu') });
