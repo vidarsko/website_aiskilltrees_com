@@ -58,15 +58,15 @@
 
   /* As little text as possible: the demo shows, it does not explain. */
   var T = {
-    en: { next: 'Next', clickHere: 'Click here', intro: 'This is an AI skill tree.', types: 'Facts, concepts and skills.',
+    en: { next: 'Next', clickHere: 'Click here', intro: 'This is an AI skill tree.', types: '<span class="nt nt--fact">Facts</span>, <span class="nt nt--concept">concepts</span> and <span class="nt nt--skill">skills</span>.',
       covers: 'Only mastered goals. The icon shows all.', end: 'That’s it.', trees: 'See all the trees', make: 'Make your own',
       chatName: 'AI service', chatSub: '· new chat', chatEmpty: 'How can I help?', ph: 'Message AI service…',
       paste: 'Paste', pick: 'Open an AI service', school: 'Your school\u2019s AI', demo: 'Demo AI', pasted: 'Pasted text', words: 'words', note: 'Pre-written replies.' },
-    nb: { next: 'Neste', clickHere: 'Klikk her', intro: 'Dette er et KI-ferdighetstre.', types: 'Fakta, begreper og ferdigheter.',
+    nb: { next: 'Neste', clickHere: 'Klikk her', intro: 'Dette er et KI-ferdighetstre.', types: '<span class="nt nt--fact">Fakta</span>, <span class="nt nt--concept">begreper</span> og <span class="nt nt--skill">ferdigheter</span>.',
       covers: 'Bare mestrede mål. Ikonet viser alle.', end: 'Det var det.', trees: 'Se alle trærne', make: 'Lag ditt eget',
       chatName: 'KI-tjeneste', chatSub: '· ny chat', chatEmpty: 'Hva kan jeg hjelpe med?', ph: 'Skriv til KI-tjenesten…',
       paste: 'Lim inn', pick: 'Åpne en KI-tjeneste', school: 'Skolens egen KI', demo: 'Demo-KI', pasted: 'Innlimt tekst', words: 'ord', note: 'Ferdigskrevne svar.' },
-    sv: { next: 'Nästa', clickHere: 'Klicka här', intro: 'Det här är ett AI-färdighetsträd.', types: 'Fakta, begrepp och färdigheter.',
+    sv: { next: 'Nästa', clickHere: 'Klicka här', intro: 'Det här är ett AI-färdighetsträd.', types: '<span class="nt nt--fact">Fakta</span>, <span class="nt nt--concept">begrepp</span> och <span class="nt nt--skill">färdigheter</span>.',
       covers: 'Bara avklarade mål. Ikonen visar alla.', end: 'Det var allt.', trees: 'Se alla träd', make: 'Gör ditt eget',
       chatName: 'AI-tjänst', chatSub: '· ny chatt', chatEmpty: 'Hur kan jag hjälpa till?', ph: 'Skriv till AI-tjänsten…',
       paste: 'Klistra in', pick: 'Öppna en AI-tjänst', school: 'Skolans egen AI', demo: 'Demo-AI', pasted: 'Inklistrad text', words: 'ord', note: 'Förskrivna svar.' }
@@ -328,7 +328,8 @@
     /* The tree on its own first, then one line about it. */
     await look(2500);
     await step({ html: esc(T.intro), clear: true });
-    await step({ html: esc(T.types), target: rectOf('tree', 'types') });
+    /* T.types is trusted HTML: each word in a box shaped like its node type. */
+    await step({ html: T.types, target: rectOf('tree', 'types') });
     await look(900);
     await step({ click: true, target: rectOf('tree', 'target') });
     show('panel');

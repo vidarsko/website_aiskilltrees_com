@@ -127,3 +127,11 @@ body { position: fixed; inset: 0; touch-action: manipulation; -webkit-user-selec
   .spot__hole, .card, .chat { transition: none; }
   .arrow svg { animation: none; }
 }
+
+/* ---- «Facts, concepts and skills»: each word boxed like its node type -- */
+/* Same fill, border and corners as .node-box.type-* in the engine's tree.css
+   (fact 2px, concept 10px, skill 26px), only small: just around the word. */
+.nt { display: inline-block; padding: 0 .4em; line-height: 1.35; border: 1.5px solid; white-space: nowrap; }
+.nt--fact    { border-radius: 2px;  background: color-mix(in srgb, var(--blue) 24%, var(--surface));  border-color: var(--blue); }
+.nt--concept { border-radius: 10px; background: var(--primary-tint); border-color: color-mix(in srgb, var(--primary) 55%, transparent); }
+.nt--skill   { border-radius: 26px; background: color-mix(in srgb, var(--amber) 40%, var(--surface)); border-color: var(--amber); padding: 0 .55em; }
