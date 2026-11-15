@@ -299,9 +299,10 @@
 }
 
 /* Below 900px the text sits on the clip, so the scrim is darker there than
-   the default 62% (Vidar, 2026-11-15: the text has to read clearly). */
+   the default 62% (Vidar, 2026-11-15: the text has to read clearly; 85% was
+   a little too dark, so 78%). */
 @media (max-width: 899.98px) {
-  .hero__scrim { background: rgba(26, 29, 27, 0.85); }
+  .hero__scrim { background: rgba(26, 29, 27, 0.78); }
 }
 
 .hero__inner {
