@@ -169,11 +169,10 @@
       after them unlock. It is meant to be watched on a desktop, but the h1
       carries the meaning, which is why the video is aria-hidden.
 
-      There are two recordings of the same kind of session. The landscape one
-      (1440x1104, the shape of the right-hand box on a desktop) goes to landscape
-      viewports; the tall one (900x1480, the tree's own phone layout) goes to
-      portrait viewports, where a wide clip would be cropped down to a sliver.
-      The inline script after the video does the picking.
+      There is one recording (1440x1104, the shape of the right-hand box on a
+      desktop). Phones show it in a 16:9 box under the text, so the green and
+      the clip fit on one screen together (2026-11-15). Until then phones had
+      a tall clip of their own (media/hero-mobile.mp4, now unused).
 
       The still is frame 0 of the matching clip and sits underneath the video
       at all times, so the handoff from still to playing video is invisible. It
@@ -182,22 +181,13 @@
     -->
     <section class="hero">
       <div class="hero__media">
-        <picture>
-          <source srcset="/media/hero-mobile.jpg" media="(max-aspect-ratio: 1/1)">
-          <img class="hero__still" src="/media/hero.jpg"
-               alt="A screen recording of the method in use: nodes in a skill tree are opened, their AI instructions copied, and the nodes ticked off as mastered."
-               data-i18n-attr="alt:hero-img-alt">
-        </picture>
+        <img class="hero__still" src="/media/hero.jpg"
+             alt="A screen recording of the method in use: nodes in a skill tree are opened, their AI instructions copied, and the nodes ticked off as mastered."
+             data-i18n-attr="alt:hero-img-alt">
         <video class="hero__video"
                autoplay muted loop playsinline preload="auto" aria-hidden="true">
           <source src="/media/hero.mp4" type="video/mp4">
         </video>
-        <!-- Chromium ignores media= on a video's <source>, so the tall clip is
-             picked here instead, before the element has chosen a source. -->
-        <script>
-          if (matchMedia('(max-aspect-ratio: 1/1)').matches)
-            document.currentScript.previousElementSibling.src = '/media/hero-mobile.mp4';
-        </script>
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
 

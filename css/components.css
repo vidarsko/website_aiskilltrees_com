@@ -273,12 +273,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Two clips, each the shape of the box it is meant for: 1440x1104 for the
-     right-hand box of a desktop hero (960x736 at 1.5x; until 2026-11-12 the
-     clip was 2880x1104 and filled the whole hero), 900x1480 for a phone hero (portrait,
-     at 2x; index.html picks it with max-aspect-ratio: 1/1). Whatever is left
-     to trim is trimmed evenly from the sides, and from the bottom rather
-     than the top, where the column headings are. */
+  /* One clip, 1440x1104, the shape of the right-hand box of a desktop hero
+     (960x736 at 1.5x; until 2026-11-12 the clip was 2880x1104 and filled the
+     whole hero). Phones show the same clip in a 16:9 box under the text
+     (2026-11-15); until then they had a tall 900x1480 clip of their own.
+     Whatever is left to trim is trimmed evenly from the sides, and from the
+     bottom rather than the top, where the column headings are. */
   object-position: 50% 0%;
 }
 
@@ -338,9 +338,11 @@
 }
 
 /* Below 900px the desktop split runs top to bottom (Vidar, 2026-11-15): the
-   green panel with the text first, then the clip at its own shape, with a
+   green panel with the text first, then the clip in a widescreen box, with a
    fade from green over its top part, as the desktop fade runs over its left
-   part. The scrim layer stays the fade; it only moves onto the clip's box. */
+   part. Green and clip are meant to fit on one phone screen together, so the
+   box is 16:9 and the panel's padding is tighter than a band's. The scrim
+   layer is the fade; it only moves onto the clip's box. */
 @media (max-width: 899.98px) {
   .hero {
     display: grid;
@@ -351,25 +353,26 @@
   }
   .hero__inner {
     grid-area: text;
-    padding-bottom: var(--space-4);
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-3);
   }
+  .hero__title { font-size: clamp(2.25rem, 9vw, 3.25rem); margin-bottom: var(--space-2); }
+  .hero__lede { font-size: var(--step-m); margin-bottom: var(--space-3); }
+  .hero .btn-row { gap: 0 var(--space-2); }
+  .hero .btn-row .golink { margin-inline: 0 var(--space-2); }
   .hero__media,
   .hero__scrim {
     grid-area: clip;
     position: relative;
     inset: auto;
     width: 100%;
-    aspect-ratio: 1440 / 1104;  /* the landscape clip */
+    aspect-ratio: 16 / 9;
   }
   .hero__scrim {
     background: linear-gradient(180deg,
       var(--primary) 0%,
-      color-mix(in srgb, var(--primary) 0%, transparent) 30%);
+      color-mix(in srgb, var(--primary) 0%, transparent) 35%);
   }
-}
-@media (max-width: 899.98px) and (max-aspect-ratio: 1/1) {
-  .hero__media,
-  .hero__scrim { aspect-ratio: 900 / 1480; }  /* the tall clip */
 }
 
 /* From 900px the clip stands to the right, as the photo does on tavela.se
