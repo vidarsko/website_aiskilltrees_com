@@ -337,6 +337,41 @@
   margin-bottom: 0;
 }
 
+/* Below 900px the desktop split runs top to bottom (Vidar, 2026-11-15): the
+   green panel with the text first, then the clip at its own shape, with a
+   fade from green over its top part, as the desktop fade runs over its left
+   part. The scrim layer stays the fade; it only moves onto the clip's box. */
+@media (max-width: 899.98px) {
+  .hero {
+    display: grid;
+    grid-template-areas: "text" "clip";
+    align-items: start;
+    min-height: 0;
+    background: var(--primary);
+  }
+  .hero__inner {
+    grid-area: text;
+    padding-bottom: var(--space-4);
+  }
+  .hero__media,
+  .hero__scrim {
+    grid-area: clip;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1440 / 1104;  /* the landscape clip */
+  }
+  .hero__scrim {
+    background: linear-gradient(180deg,
+      var(--primary) 0%,
+      color-mix(in srgb, var(--primary) 0%, transparent) 30%);
+  }
+}
+@media (max-width: 899.98px) and (max-aspect-ratio: 1/1) {
+  .hero__media,
+  .hero__scrim { aspect-ratio: 900 / 1480; }  /* the tall clip */
+}
+
 /* From 900px the clip stands to the right, as the photo does on tavela.se
    (Vidar, 2026-11-12: the full-bleed clip under a 62% scrim was hard to make
    out). The left 40% is solid --primary and holds the text; the clip fills
