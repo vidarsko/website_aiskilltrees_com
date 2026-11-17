@@ -112,7 +112,42 @@
   });
   function show(name) { STATES.forEach(function (n) { pics[n].classList.toggle('on', n === name); }); }
   function inPic(name, sel) { try { var a = pics[name].contentDocument.querySelectorAll(sel); return a[a.length - 1] || null; } catch (e) { return null; } }
-  function rectOf(name, key) { var r = G[name] && G[name][key]; return r ? { x: r[0], y: r[1], w: r[2], h: r[3] } : null; }
+  /* Where a control is, measured in the picture itself when it is shown.
+     The stored numbers in geometry.js are where it was in Chromium when the
+     picture was taken; another browser can wrap the panel's text on a
+     different line and move the button by a line, so the spotlight missed
+     «Copy the instruction» (Vidar, 2026-11-17). Same selectors as
+     capture.js; a key ending in * is the box around all matches. The iframe
+     fills the stage at its own size, so its pixels are the stage's. */
+  var BOX = {
+    tree: { target: 'TGT', 'types*': 'SEED0, SEED1, TGT' },
+    panel: { copy: '#detail-panel button.btn:not(.secondary)', 'master*': '#detail-panel .mastery-check, #detail-panel .mastered-toggle-text' },
+    ticked: { close: '#detail-close' },
+    mastered: { menu: '#menu-toggle-btn', target: 'TGT' },
+    menu: { test: '#exam-btn' },
+    exam: { covers: '#exam-overlay.open .exam-cover', close: '#exam-overlay.open .nav-btn' },
+    examcopy: { copy: '#exam-overlay.open .resource-copy' }
+  };
+  var IDS = { en: ['read-formula', 'atom-molecule', 'element-symbols'], nb: ['lese-formel', 'atom-molekyl', 'grunnstoffsymboler'], sv: ['lasa-formel', 'atom-molekyl', 'grundamnessymboler'] }[lang];
+  function nodeSel(id) { return '.node-box[data-node-id="' + id + '"]'; }
+  function measure(name, key) {
+    var map = BOX[name] || {}, all = (key + '*') in map, sel = map[all ? key + '*' : key];
+    if (!sel) return null;
+    sel = sel.replace('TGT', nodeSel(IDS[0])).replace('SEED0', nodeSel(IDS[1])).replace('SEED1', nodeSel(IDS[2]));
+    var doc; try { doc = pics[name].contentDocument; } catch (e) { return null; }
+    if (!doc) return null;
+    var els = Array.prototype.filter.call(doc.querySelectorAll(sel), function (e) { var r = e.getBoundingClientRect(); return r.width && r.height; });
+    if (!els.length) return null;
+    var pick = all ? els : [els[els.length - 1]];
+    var b = pick.map(function (e) { return e.getBoundingClientRect(); }).reduce(function (a, r) {
+      return { left: Math.min(a.left, r.left), top: Math.min(a.top, r.top), right: Math.max(a.right, r.right), bottom: Math.max(a.bottom, r.bottom) };
+    });
+    return { x: b.left, y: b.top, w: b.right - b.left, h: b.bottom - b.top };
+  }
+  function rectOf(name, key) {
+    var m = measure(name, key); if (m) return m;
+    var r = G[name] && G[name][key]; return r ? { x: r[0], y: r[1], w: r[2], h: r[3] } : null;
+  }
 
   /* The «Copied!» label the engine itself shows after a copy. */
   function markCopied(name, sel) {
