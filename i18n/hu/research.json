@@ -1,0 +1,13 @@
+{
+  "doc-title": "Kutatás | AI Skill Trees",
+  "meta-description": "Háttérolvasmány a tervezésről, és a módszert leíró tanulmány.",
+  "page-heading": "Kutatás",
+  "page-lede": "A módszer kiadott verziója, és hogyan hivatkozz rá.",
+  "cite-eyebrow": "Szoftver és hivatkozás",
+  "cite-heading": "0.33.0-s verzió",
+  "cite-body-1": "A motor, az utasítások, a nyelvi fájlok és a kezdő fa egy nyilvános GitHub-tárolóban vannak: <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Ez az oldal ennek a <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> kiadását használja.",
+  "cite-body-2": "Minden kiadás saját DOI-val archiválva van a Zenodón. A 0.33.0-s kiadás DOI-ja: <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. A <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> DOI mindig a legújabb kiadásra mutat.",
+  "cite-body-3": "Ha használod a módszert vagy az anyagot, kérlek, arra a kiadásra hivatkozz, amelyet használtál, ne a fő ágra:",
+  "cite-cta-github": "Kiadás a GitHubon",
+  "cite-cta-zenodo": "Archívum a Zenodón"
+}

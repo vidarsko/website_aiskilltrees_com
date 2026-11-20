@@ -1,0 +1,13 @@
+{
+  "doc-title": "Onderzoek | AI Skill Trees",
+  "meta-description": "Achtergrond bij het ontwerp, en het artikel dat de methode beschrijft.",
+  "page-heading": "Onderzoek",
+  "page-lede": "De uitgebrachte versie van de methode, en hoe je ernaar verwijst.",
+  "cite-eyebrow": "Software en bronvermelding",
+  "cite-heading": "Versie 0.33.0",
+  "cite-body-1": "De engine, de instructies, de taalbestanden en de startboom staan in een openbare GitHub-repository, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Deze site publiceert release <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> daarvan.",
+  "cite-body-2": "Elke release wordt gearchiveerd bij Zenodo met een eigen DOI. Release 0.33.0 heeft <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. De DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> wijst altijd naar de nieuwste release.",
+  "cite-body-3": "Gebruik je de methode of het materiaal, verwijs dan naar de release die je hebt gebruikt en niet naar de hoofdbranch:",
+  "cite-cta-github": "Release op GitHub",
+  "cite-cta-zenodo": "Archief bij Zenodo"
+}

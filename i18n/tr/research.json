@@ -1,0 +1,13 @@
+{
+  "doc-title": "Araştırma | AI Skill Trees",
+  "meta-description": "Tasarımın arka planına dair okumalar ve yöntemi anlatan makale.",
+  "page-heading": "Araştırma",
+  "page-lede": "Yöntemin yayımlanmış sürümü ve ona nasıl atıf yapılacağı.",
+  "cite-eyebrow": "Yazılım ve atıf",
+  "cite-heading": "Sürüm 0.33.0",
+  "cite-body-1": "Motor, talimatlar, dil dosyaları ve başlangıç ağacı herkese açık bir GitHub deposunda: <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Bu site, deponun <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> sürümünü yayımlıyor.",
+  "cite-body-2": "Her sürüm, kendi DOI'siyle Zenodo'da arşivlenir. 0.33.0 sürümünün DOI'si <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> DOI'si ise her zaman en yeni sürümü gösterir.",
+  "cite-body-3": "Yöntemi ya da materyali kullanırsan, lütfen ana dala değil, kullandığın sürüme atıf yap:",
+  "cite-cta-github": "GitHub'daki sürüm",
+  "cite-cta-zenodo": "Zenodo'daki arşiv"
+}

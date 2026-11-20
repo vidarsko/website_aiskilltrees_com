@@ -1,0 +1,458 @@
+{
+  "code": "ro",
+  "htmlLang": "ro",
+  "name": "Română",
+  "endonym": "Română",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Standard Romanian, written with the comma-below letters ș and ț (U+0219, U+021B), never the cedilla forms ş and ţ; it serves both Romania and the Republic of Moldova. AI is \"IA\" (inteligența artificială). Adjectives and participles are gendered in Romanian (sigur/sigură, pregătit/pregătită), so the strings addressed to the user avoid them: imperatives, present tense and verb forms that do not mark gender. Counts use the form \"Label: {n}\", because Romanian puts \"de\" between a number from 20 upwards and the noun (5 obiective, 20 de obiective). Placeholders sit where their case does not matter: after a colon, or in quotation marks after a noun.",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use. Romanian attaches the definite article to the noun: \"elevul\", \"studentul\", \"participantul\". A tree sets it with the config row `learner`, as free text (\"eleva\", \"cursantul\" ...); left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. A skill is a bare (short) infinitive phrase or a \"să\" clause (\"Elevul poate: aduna fracții\" / \"Elevul poate: să adune fracții\"), and \"poate\" takes both; a concept is a definition. The lead-ins use present-tense verbs, which do not change with gender, so they also fit \"eleva\".",
+    "default": "elevul",
+    "legacy": {
+      "pupil": "elevul",
+      "student": "studentul",
+      "participant": "participantul"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} poate:",
+      "concept": "{LearnerDefinite} poate explica:",
+      "fact": "{LearnerDefinite} își amintește:"
+    }
+  },
+  "ui": {
+    "backLink": "← Toți arborii",
+    "pageTitle": "Arbore de abilități: {title}",
+    "tagline": "O hartă a felului în care obiectivele de învățare se sprijină unele pe altele — bifează ce stăpânești deja și copiază o instrucțiune pentru IA ca să exersezi ce urmează.",
+    "makeYourOwn": "{subject}. Fă-ți propriul arbore:",
+    "progressLabel": "Obiective stăpânite: {done} din {total}",
+    "zoomIn": "Mărește",
+    "zoomOut": "Micșorează",
+    "fitToView": "Tot arborele",
+    "fitToViewTitle": "Arată tot arborele (Ctrl + rotița mouse-ului pentru zoom)",
+    "close": "✕ Închide",
+    "closeLower": "✕ Închide",
+    "copied": "Copiat!",
+    "copyFallback": "Copierea automată nu a reușit — copiază manual textul de mai jos:",
+    "errorBanner": "⚠ Probleme în fișierele de date: {n} (detalii în consolă):",
+    "errorCsv": "Foaia de calcul nu a putut fi citită la rândul {row}: {message}",
+    "errorCsvHeader": "Primul rând din fișierul {file} trebuie să conțină numele coloanelor. Lipsesc: {missing}. Primul rând este: {found}. Probabil fișierul a fost salvat fără primul rând sau în alt format; salvează-l din nou ca CSV simplu.",
+    "errorUnknownDep": "Nodul „{id}” are ca cerință prealabilă „{dep}”, dar niciun nod nu are acest id.",
+    "errorNoTopic": "Nodul „{id}” nu are temă și ajunge în coloana generală „{topic}”.",
+    "errorUnknownResourceNode": "Rândul {row} din tree.csv: resursa face trimitere în depends_on la id-ul de nod „{id}”, care nu există.",
+    "errorExamsRenamed": "Rândul {row} din tree.csv: setarea „features.exams” este de dinainte de versiunea 0.22.0. Resursele sunt acum rânduri în tree.csv cu tipul „resource”: topic = grup, name = titlu, description = link, depends_on = nodurile. Șterge rândul și deschide arborele în editor ca să convertești vechiul exams.csv. Nu s-a aplicat nimic.",
+    "errorResourceEmpty": "Rândul {row} din tree.csv: resursa nu are nici titlu (name), nici link (description).",
+    "errorResourceNoNode": "Rândul {row} din tree.csv: resursa „{label}” nu aparține niciunui nod. Scrie unul sau mai multe id-uri de nod în depends_on sau șterge rândul.",
+    "errorResourceDuplicate": "Rândul {row} din tree.csv: resursa „{label}” este aceeași ca pe rândul {first}. Fă din ele un singur rând, cu toate nodurile în depends_on.",
+    "errorResourceUrl": "Rândul {row} din tree.csv: linkul resursei „{label}” trebuie să înceapă cu https:// sau mailto:. De aceea apare ca text simplu, fără link.",
+    "errorCycle": "Aceste noduri sunt cerințe prealabile unele pentru altele, în cerc: {cycle}. Una dintre aceste legături trebuie eliminată.",
+    "errorUnknownConfig": "Setare necunoscută „{key}” pe rândul {row} din tree.csv. Nu s-a aplicat nimic.",
+    "errorUnknownNodeType": "Nodul „{id}” are tipul „{type}”, care nu există. Tipurile sunt: {valid}.",
+    "errorUnknownPromptSection": "Secțiune necunoscută „{section}” în rândul prompt (rândul {row} din tree.csv). Nu s-a aplicat nimic.",
+    "errorUnknownPromptTarget": "Rândul prompt (rândul {row} din tree.csv) se adresează lui „{name}”, care nu este o instrucțiune pe care o compune acest arbore. Nu s-a aplicat nimic.",
+    "errorDidYouMean": "Te-ai gândit la „{key}”?",
+    "errorMissingConfig": "În tree.csv lipsește rândul config obligatoriu pentru „{key}”.",
+    "errorStyleColor": "Setarea „{key}” de pe rândul {row} din tree.csv trebuie să fie o culoare scrisă cu cod hexazecimal, de exemplu #1F6F4A. „{value}” nu este o astfel de culoare, așa că a rămas culoarea implicită.",
+    "errorLinkUrl": "Setarea „{key}” de pe rândul {row} din tree.csv trebuie să fie un link care începe cu https:// sau mailto:. „{value}” nu este un astfel de link, așa că apare ca text simplu.",
+    "errorStyleFont": "Font necunoscut „{value}” pe rândul {row} din tree.csv. Fonturile pe care le poate folosi un arbore: {valid}. A rămas fontul implicit.",
+    "nodeType": {
+      "skill": "abilitate",
+      "concept": "concept",
+      "fact": "fapte"
+    },
+    "badges": {
+      "del1": "Partea 1",
+      "del2": "Partea 2",
+      "begge": "Partea 1+2"
+    },
+    "status": {
+      "mastered": "Stăpânit",
+      "ready": "Gata de învățat",
+      "notMastered": "Încă nestăpânit",
+      "blocked": "Mai întâi lipsesc: {codes}"
+    },
+    "help": {
+      "label": "Ajutor",
+      "heading": "Ajutor",
+      "sections": [
+        {
+          "heading": "Meniul",
+          "body": "Tot restul se află în spatele ☰, jos în stânga: obiectivele de învățare, căutarea, testul, tipărirea și celelalte. Fiecare fereastră are un „?” care o explică.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Harta",
+          "body": "Fiecare căsuță este un obiectiv de învățare, iar săgețile pornesc de la ce trebuie să știi mai întâi. Forma arată tipul: faptele sunt pătrate, conceptele puțin rotunjite, iar abilitățile rotunde. Trage ca să muți harta și folosește + și − pentru zoom.",
+          "figure": "map"
+        },
+        {
+          "heading": "Stăpânit",
+          "body": "Apasă cercul dintr-o căsuță când știi obiectivul, și se face o bifă verde. Bifa se salvează doar în browserul tău.",
+          "figure": "check"
+        },
+        {
+          "heading": "O căsuță",
+          "body": "Apasă o căsuță ca să vezi ce cere obiectivul, pe ce se bazează și o instrucțiune pe care o poți lipi într-un chat cu IA ca să exersezi. Apasă din nou ca s-o închizi.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Mai multe deodată",
+          "body": "Pictogramele de listă marchează deodată toate obiectivele dintr-o temă sau șterg marcajele. Cu A și B se aplică întregului arbore.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Căutare",
+          "body": "Găsește un obiectiv de învățare după un cuvânt din numele sau din descrierea lui.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "O instrucțiune pentru IA pentru un test pe obiectivele pe care le alegi. Tu hotărăști dificultatea, numărul și tipul exercițiilor.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Planuri de lecție (pentru profesori)",
+          "body": "Alege obiective de învățare și apasă „Creează o resursă” pentru un plan de lecție, un mini-arbore sau o simulare.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Tipărire",
+          "body": "Descarcă tot arborele ca PDF, cu cercuri pe care elevii le pot bifa cu pixul.",
+          "figure": "print"
+        },
+        {
+          "heading": "Eticheta de materiale permise",
+          "body": "„Partea 1” sau „Partea 2” din panou arată de ce nivel de materiale permise ține obiectivul. Apasă eticheta ca să citești mai mult în „Despre curs”.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivație",
+          "body": "O scurtă conversație cu IA despre de ce merită să înveți materia.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Comenzi rapide",
+        "search": "Deschide căutarea",
+        "escape": "Închide fereastra, meniul sau panoul deschis",
+        "zoom": "Mărește și micșorează",
+        "fit": "Arată tot arborele și înapoi"
+      }
+    },
+    "safety": {
+      "label": "Siguranță",
+      "heading": "Siguranță",
+      "lead": "Un arbore de abilități este făcut de un profesor, dar oricine poate face un fișier care arată ca unul. Citește asta înainte să folosești un arbore pe care ți l-a trimis cineva.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Un arbore de abilități nu cere niciodată date personale",
+          "body": "Arborele nu are autentificare și nu are nevoie de nimic despre tine. Nu îți cere niciodată numele, o parolă, contul de la școală, CNP-ul sau IDNP-ul, adresa, numărul de telefon sau la ce școală înveți. Progresul tău se păstrează doar în browserul de pe acest dispozitiv. Dacă o pagină care arată ca un arbore de abilități îți cere așa ceva, nu este una adevărată. Închide-o și spune-i profesorului."
+        },
+        {
+          "id": "sender",
+          "heading": "Cine ți-a trimis arborele?",
+          "body": "Cea mai importantă întrebare este de unde vine arborele. Unui arbore de pe aiskilltrees.com sau unuia pe care profesorul l-a pus acolo de unde primești de obicei materialele poți să-i acorzi atâta încredere câtă îi acorzi profesorului. Dacă ai primit un fișier pe e-mail, pe chat sau pe rețelele sociale de la cineva pe care nu-l cunoști, sau a venit pe neașteptate, nu te încrede ușor, chiar dacă pare în regulă."
+        },
+        {
+          "id": "html",
+          "heading": "Un fișier HTML este o pagină web, nu un document",
+          "body": "Când un arbore e trimis ca fișier .html, nu primești un document ca un PDF sau un fișier Word. Primești o pagină web întreagă, cu cod care rulează când o deschizi. Browserul o împiedică să-ți citească fișierele sau să instaleze ceva pe calculator, dar poate să arate orice: o pagină falsă de autentificare, un buton care descarcă ceva sau linkuri către alte site-uri. Cine a făcut fișierul hotărăște ce face. Faptul că arată ca un arbore de abilități nu înseamnă că este unul. Nu te autentifica niciodată și nu descărca nimic de pe o pagină deschisă dintr-un fișier."
+        },
+        {
+          "id": "links",
+          "heading": "Verifică linkurile înainte să dai clic",
+          "body": "Resursele din arbore pot avea linkuri către videoclipuri, exerciții și manuale. Ține mouse-ul deasupra linkului sau apasă lung pe el și uită-te unde duce înainte să dai clic. Dacă nu recunoști site-ul sau adresa arată ciudat, las-o baltă."
+        },
+        {
+          "id": "injection",
+          "heading": "Instrucțiunile pot fi modificate cu rea intenție",
+          "body": "Instrucțiunea pentru IA pe care o copiezi este un text scris de cine a făcut arborele, iar tu o lipești direct într-un chat cu IA. Cine face un arbore poate scrie orice în ea, inclusiv ordine care fac chatul să se poarte altfel decât te aștepți: să-ți dea răspunsuri greșite, să te trimită pe alt site sau să te întrebe lucruri care nu-l privesc. Asta se numește prompt injection. Merită să parcurgi textul înainte să-l lipești și să nu ai încredere oarbă în chat."
+        },
+        {
+          "id": "chat",
+          "heading": "Tu hotărăști ce îi spui chatului",
+          "body": "Unele instrucțiuni îi cer chatului să te cunoască, de exemplu ce simți față de materie și la ce te pricepi. Poți răspunde cât de mult sau cât de puțin vrei. Dar nicio instrucțiune nu are nevoie de numele tău, de datele tale de contact sau de parole. Dacă chatul îți cere așa ceva, nu răspunde și spune-i profesorului. Ține minte și că ce scrii într-un chat cu IA este păstrat de firma care îl administrează. Școala ta are adesea acces la un serviciu de IA în care datele tale sunt protejate. Întreabă-l pe profesor și folosește-l, dacă există."
+        },
+        {
+          "id": "teachers",
+          "heading": "Pentru profesori: un arbore de la un coleg",
+          "body": "Dacă ai primit un arbore de la altcineva, îl poți deschide în editorul de pe aiskilltrees.com/make-your-own/ înainte să-l dai elevilor, ca să nu ai nicio grijă. Editorul scoate din fișier doar foaia de calcul și face din ea un fișier nou și curat, iar acolo poți citi fiecare instrucțiune pe care o folosește arborele."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Obiective de învățare",
+      "title": "Arată o listă ordonată cu toate obiectivele de învățare, pe teme",
+      "heading": "Obiective de învățare",
+      "copyAll": "Copiază tot",
+      "intro": "Lista arată toate obiectivele de învățare ale cursului, pe teme, fiecare cu starea lui. Bifează un obiectiv ca să-l marchezi ca stăpânit — aceeași bifă ca la nodul de pe hartă —, ca să poți parcurge lista în ordine și să marchezi ce ai parcurs.",
+      "markAria": "Marchează „{name}” ca stăpânit",
+      "markAllButton": "Marchează toate ca stăpânite",
+      "clearAllButton": "Șterge toate marcajele",
+      "clearAllConfirm": "Ștergi marcajul „stăpânit” de pe toate obiectivele de învățare din arbore?",
+      "openNode": "Mergi la acest nod pe hartă"
+    },
+    "lessonPlanner": {
+      "button": "Planuri de lecție",
+      "title": "Alege obiective de învățare și copiază o instrucțiune pentru IA pentru un plan de lecție, un mini-arbore sau o simulare",
+      "selectAll": "Bifează tot",
+      "deselectAll": "Debifează tot",
+      "selectTopic": "Bifează toate obiectivele din tema „{topic}”",
+      "deselectTopic": "Debifează toate obiectivele din tema „{topic}”",
+      "heading": "Planuri de lecție",
+      "intro": "Bifează obiectivele de învățare pentru care vrei să faci ceva și apasă „Creează o resursă” jos. Acolo alegi ce să fie: un plan de lecție, un mini-arbore sau o simulare. Bifele de aici servesc doar la asta: nu marchează nimic ca stăpânit și dispar când reîncarci pagina."
+    },
+    "search": {
+      "button": "Căutare",
+      "title": "Caută în obiectivele de învățare după nume și descriere",
+      "heading": "Căutare",
+      "placeholder": "Caută în obiectivele de învățare …",
+      "hint": "Scrie un cuvânt. Căutarea se uită în numele, descrierea și tema fiecărui obiectiv de învățare, iar tu poți da clic direct pe nodul de pe hartă.",
+      "noResults": "Niciun obiectiv de învățare nu conține „{query}”.",
+      "countOne": "1 obiectiv de învățare",
+      "countMany": "Obiective găsite: {n}",
+      "openNode": "Mergi la acest nod pe hartă"
+    },
+    "resourceList": {
+      "button": "Exerciții și surse",
+      "title": "Arată toate resursele din arbore și obiectivele de învățare cărora le aparțin",
+      "heading": "Exerciții și surse",
+      "placeholder": "Filtrează exercițiile și sursele …",
+      "intro": "Exerciții și surse: {n}",
+      "countFiltered": "{n} din {total}",
+      "noResults": "Nicio resursă nu se potrivește cu „{query}”.",
+      "openNode": "Mergi la acest nod pe hartă",
+      "help": "Exerciții și surse care țin de arbore, de exemplu subiecte de examen, linkuri și videoclipuri. Sub fiecare sunt obiectivele de învățare cărora le aparține; apasă pe unul ca să ajungi la el pe hartă. Scrie în câmp ca să filtrezi."
+    },
+    "motivation": {
+      "button": "Motivație",
+      "title": "Copiază o instrucțiune pentru IA pentru o conversație despre de ce merită să înveți materia",
+      "heading": "Motivație",
+      "desc": "O scurtă conversație cu IA despre de ce merită să înveți materia. IA întreabă și ascultă, iar voi doi găsiți răspunsul împreună.",
+      "help": "Apasă „Copiază instrucțiunea” și lipește-o într-un chat cu IA. Conversația pornește de unde spui că te afli, iar IA pune câte o întrebare pe rând. Nimic din ce scrii nu se salvează aici.",
+      "startLabel": "Ce simți față de materie?",
+      "start": {
+        "unknown": "Nu știu",
+        "hard": "E grea",
+        "bored": "E plictisitoare",
+        "use": "La ce o să-mi folosească?"
+      },
+      "lengthLabel": "Durată",
+      "length": {
+        "short": "Scurtă",
+        "normal": "Normală",
+        "long": "Lungă"
+      }
+    },
+    "lesson": {
+      "button": "Fă un plan de lecție (pentru profesori)",
+      "title": "Copiază o instrucțiune pentru IA pentru o lecție completă pe obiectivele bifate",
+      "typeLabel": "Tipul lecției",
+      "typeAria": "Ce fel de lecție este",
+      "types": {
+        "intro": "Predare",
+        "practice": "Exersare",
+        "review": "Recapitulare",
+        "other": "Altceva"
+      },
+      "minutesLabel": "Durată",
+      "minutesAria": "Durata lecției în minute",
+      "includeAria": "Include „{name}” în planul de lecție",
+      "selectedNone": "Niciun obiectiv de învățare selectat",
+      "selectedOne": "1 obiectiv de învățare selectat",
+      "selectedMany": "Obiective selectate: {n}"
+    },
+    "make": {
+      "button": "Creează o resursă →",
+      "buttonTitle": "Alege ce să faci pentru obiectivele de învățare bifate",
+      "heading": "Ce vrei să faci?",
+      "back": "← Obiectivele de învățare",
+      "forOne": "Pentru 1 obiectiv de învățare:",
+      "forMany": "Pentru obiectivele de învățare ({n}):",
+      "copy": "Copiază instrucțiunea",
+      "htmlBadge": "Fișier HTML",
+      "htmlAfter": "Lipește-o într-un chat cu IA. Răspunsul este un fișier HTML pe care îl salvezi, îl deschizi în browser și îl poți da elevilor.",
+      "lesson": {
+        "title": "Plan de lecție",
+        "desc": "Un plan complet pentru o lecție, cu minutaj, ce scrii pe tablă și răspunsuri la toate exercițiile.",
+        "minutes": "min",
+        "shorter": "Mai scurt",
+        "longer": "Mai lung",
+        "after": "Lipește-o într-un chat cu IA. Răspunsul este un plan după care poți citi în timp ce predai.",
+        "typeHints": {
+          "intro": "Obiective noi: o sarcină de început, exemple rezolvate pe runde, o întrebare de diagnostic pentru fiecare obiectiv și reactualizare la final.",
+          "practice": "Obiective învățate de curând: o scurtă reamintire, apoi seturi de exerciții cu mici variații și tot mai puțin sprijin.",
+          "review": "Obiective de acum ceva timp: reactualizare fără notițe, verificarea a ce s-a reținut, predare din nou unde e nevoie și exersare mixtă.",
+          "other": "Altceva: descrie tu lecția sau IA te va întreba mai întâi."
+        }
+      },
+      "miniTree": {
+        "title": "Mini-arbore",
+        "desc": "Un arbore de abilități în care elevii exersează singuri înainte de un test: obiectivele alese, strânse în câteva teme cu niveluri, un exemplu rezolvat înainte de fiecare rundă de exerciții, răspunsul și o explicație după, iar stăpânirea deblochează nivelul următor.",
+        "levelsLabel": "Niveluri pe temă",
+        "levels1": "Un nivel",
+        "levels3": "Trei niveluri",
+        "streakLabel": "Răspunsuri corecte la rând pentru stăpânire",
+        "supportLabel": "Adaptare",
+        "easyRead": "Ușor de citit (Comic Sans, text puțin)",
+        "readAloud": "Citire cu voce tare",
+        "game": "Stele și deblocare",
+        "mixedTest": "Test mixt de exersare",
+        "credit": "Construit pe principiile profesoarei de educație specială Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulare",
+        "desc": "O simulare interactivă pe care elevii o pot explora, cu un model științific care nu e inventat și un panou care explică ce poate și ce nu poate face modelul.",
+        "workflowLabel": "Mod de lucru",
+        "design": "Mai întâi o discuție de proiectare",
+        "build": "Prototip direct",
+        "screenLabel": "Ecran",
+        "laptop": "Laptop",
+        "tablet": "Tabletă",
+        "projector": "Proiector",
+        "extrasLabel": "Include",
+        "tasks": "Sarcini pentru elevi",
+        "critique": "Critica modelului",
+        "export": "Export de date (CSV)",
+        "credit": "După promptul lui Henning Vinjusveen Myhrehagen de pe skolesim.no."
+      },
+      "less": "Mai puțin",
+      "more": "Mai mult",
+      "help": "Fiecare resursă este o instrucțiune pentru IA. Alege ce vrei, apasă „Copiază instrucțiunea” și lipește-o într-un chat cu IA, de exemplu ChatGPT sau Claude. Planul de lecție devine un plan după care poți citi în timp ce predai. Mini-arborele și simularea devin un fișier HTML pe care îl salvezi, îl deschizi în browser și îl poți da elevilor. Alegerile nu se salvează.",
+      "forLabel": "Pentru:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Fă o instrucțiune pentru IA pentru un test din ce ai marcat ca stăpânit",
+      "none": "Încă niciun obiectiv stăpânit",
+      "countLabel": "Număr de exerciții",
+      "countAria": "Numărul de exerciții din test",
+      "heading": "Test",
+      "desc": "Un test scris din ce ai marcat ca stăpânit, cu răspunsuri când le ceri.",
+      "help": "Testul se face din obiectivele de învățare pe care le-ai marcat ca stăpânite în arbore. Alege dificultatea, numărul de exerciții și forma lor, apasă „Copiază instrucțiunea” și lipește-o într-un chat cu IA. IA arată mai întâi doar exercițiile și îți dă răspunsurile și o evaluare când le ceri.",
+      "covers": "Testul acoperă obiectivele stăpânite ({n}):",
+      "coversOne": "Testul acoperă 1 obiectiv stăpânit:",
+      "noneHint": "Nu ai marcat încă niciun obiectiv de învățare ca stăpânit. Bifează în arbore ce știi să faci și apoi poți face un test.",
+      "showAll": "Arată toate obiectivele de învățare",
+      "showSelected": "Arată doar obiectivele selectate",
+      "difficultyLabel": "Dificultate",
+      "difficulty": {
+        "easy": "Ușor",
+        "medium": "Mediu",
+        "hard": "Greu"
+      },
+      "difficultyHints": {
+        "easy": "Un obiectiv pe exercițiu, cazurile cele mai obișnuite și fără capcane.",
+        "medium": "Ca un test obișnuit: câteva exerciții directe, câteva care combină mai multe obiective.",
+        "hard": "Majoritatea exercițiilor combină obiective, folosesc contexte noi sau îți cer să explici ori să găsești o greșeală."
+      },
+      "formatLabel": "Forma exercițiilor",
+      "format": {
+        "closed": "Închise",
+        "open": "Deschise",
+        "mixed": "Mixte"
+      },
+      "formatHints": {
+        "closed": "Alegere multiplă sau răspunsuri scurte care pot fi verificate după barem.",
+        "open": "Îți arăți rezolvarea sau explici cu cuvintele tale.",
+        "mixed": "Cam jumătate din fiecare."
+      },
+      "coversLabel": "Testul acoperă:"
+    },
+    "node": {
+      "markMastered": "Marchează ca stăpânit"
+    },
+    "column": {
+      "markAll": "Marchează ca stăpânite toate obiectivele din tema „{topic}”",
+      "clearAll": "Șterge marcajul „stăpânit” de pe toate obiectivele din tema „{topic}”"
+    },
+    "detail": {
+      "show": "Arată instrucțiunea",
+      "hide": "Ascunde instrucțiunea",
+      "copy": "Copiază instrucțiunea",
+      "prereqs": "Cerințe prealabile",
+      "resources": "Resurse",
+      "mastered": "✓ Stăpânit",
+      "available": "Disponibil — cerințele prealabile sunt îndeplinite",
+      "locked": "Blocat — lipsesc cerințe prealabile",
+      "empty": "Dă clic pe un nod de pe hartă ca să vezi detaliile."
+    },
+    "loadError": "Eroare critică la încărcare: {message} (deschizi pagina printr-un server local? În multe browsere, fetch() pentru fișierele de date nu merge când index.html e deschis direct de pe disc.)",
+    "defaultTopic": "Altele",
+    "aids": {
+      "heading": "Materiale permise",
+      "tagTitle": "Vezi ce ai voie să folosești la acest nivel",
+      "multipleNote": "Acest obiectiv de învățare ține de mai multe niveluri. Ar trebui să-l poți face la cel mai strict dintre ele — adică cu cele mai puține materiale permise.",
+      "multipleNoteGeneral": "Un obiectiv de învățare poate ține de mai multe niveluri. Atunci eticheta lui e împărțită în mai multe culori, iar tu ar trebui să-l poți face la cel mai strict dintre aceste niveluri — adică cu cele mai puține materiale permise."
+    },
+    "menu": {
+      "label": "Meniu",
+      "groups": {
+        "practice": "Exersează",
+        "plan": "Planifică",
+        "about": "Despre"
+      }
+    },
+    "download": {
+      "button": "Descarcă arborele",
+      "title": "Descarcă arborele în două feluri: foaia de calcul pe care o poți modifica și un singur fișier care merge fără internet",
+      "working": "Se face fișierul unic…",
+      "failed": "Fișierul unic nu a putut fi făcut",
+      "edit": "Modifică arborele",
+      "editTitle": "Deschide arborele în editor, unde îl poți modifica și descărca ca foaie de calcul sau ca un singur fișier care merge fără internet"
+    },
+    "courseInfo": {
+      "button": "Despre curs",
+      "heading": "Despre curs",
+      "division": "Clasa sau facultatea",
+      "curriculum": "Programa școlară",
+      "institution": "Instituția",
+      "country": "Țara",
+      "language": "Limba",
+      "size": "Dimensiune",
+      "decompositionVersion": "Model de descompunere",
+      "credits": "Realizat de",
+      "author": "Autor",
+      "updated": "Ultima actualizare",
+      "license": "Licență",
+      "basedOn": "Bazat pe",
+      "skills": "abilități: {n}",
+      "concepts": "concepte: {n}",
+      "facts": "liste de fapte: {n}",
+      "nodes": "noduri: {n}"
+    },
+    "helpToggle": "Explicație",
+    "print": {
+      "button": "Tipărește",
+      "title": "Descarcă tot arborele ca PDF, gata de tipărit",
+      "working": "Se face PDF-ul …",
+      "failed": "PDF-ul nu a putut fi făcut",
+      "heading": "Tipărește",
+      "help": "Descarcă tot arborele ca o singură pagină PDF, gata de tipărit. Previzualizarea arată foaia exact cum va ieși. Titlul și aiskilltrees.com sunt mereu pe foaie.",
+      "paperLabel": "Format hârtie",
+      "orientationLabel": "Orientare",
+      "orientation": {
+        "auto": "Automată",
+        "landscape": "Peisaj",
+        "portrait": "Portret"
+      },
+      "colorLabel": "Culori",
+      "color": {
+        "color": "Color",
+        "gray": "Alb-negru"
+      },
+      "rings": "Cercuri de bifat",
+      "legend": "Legendă",
+      "download": "Descarcă PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Înapoi la vederea anterioară"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Romanian, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO ROMANIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is \"română\", the form that follows \"limba\" (\"în limba română\") and also reads acceptably in the English core (\"Comment the code in română\"); the rest of `outputLanguage` refers back to it as \"această limbă\" rather than inflecting it. Standard Romanian, for Romania and the Republic of Moldova alike. Address is informal (\"tu\"), as teachers address pupils. The gender note is the Romanian counterpart of the Swedish \"hen\": adjectives and participles are gendered. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "română",
+    "outputLanguage": "Poartă toată această conversație în limba {conversationLanguage}. Tot ce este citat mai jos din arborele de abilități — numele nodurilor, descrierile, cerințele prealabile — este scris în această limbă, iar utilizatorul se așteaptă să-i vorbești în această limbă. O parte din instrucțiunea pe care o citești acum este în engleză; asta nu înseamnă că trebuie să răspunzi în engleză. Nu schimba limba din proprie inițiativă și nu comenta în ce limbă este scrisă instrucțiunea. Adresează-te utilizatorului cu „tu”, așa cum se adresează profesorul elevului. Cât timp nu știi dacă vorbești cu un băiat sau cu o fată, evită formele care arată genul (scrie, de exemplu, „ai reușit” sau „ești gata”, nu „ești sigur” sau „ești pregătită”). Dacă trebuie numită persoana care învață, cuvântul este „{learnerDefinite}” — nu alt cuvânt pentru același lucru.",
+    "writingStyle": "Exemple în română pentru cele două sfaturi de mai sus:\n- Diateza activă: scrie „putem scrie numărul ca …”, nu „numărul poate fi scris ca …”; scrie „facem asta așa: …” sau „faci asta așa: …”, nu „acest lucru se realizează prin …” sau „este efectuat de …”. Evită „este calculat”, „se efectuează” și „se calculează” atunci când poți spune cine face asta.\n- Cuvintele corecte, dar rare în vorbire, livrești sau prea „de om mare”, înlocuiește-le cu altele mai simple: „a efectua” (→ „a face”), „a deține” (→ „a avea”), „în vederea” (→ „ca să”), „de asemenea” (→ „și”), „însă” (→ „dar”). Testul prietenului: ai spune cu adevărat cuvântul ăsta cu voce tare unui prieten?",
+    "overrides": {}
+  }
+}

@@ -1,0 +1,286 @@
+id,type,topic,name,description,depends_on,aids,instruction
+,config,,schemaVersion,3,,,
+,config,,topicOrder,"Čísla a dělitelnost;Mocniny a odmocniny;Poměr a procenta;Výrazy a mnohočleny;Rovnice a jejich soustavy;Funkce;Práce s daty;Rovinné útvary;Konstrukce, shodnost a podobnost;Tělesa;Nestandardní úlohy",,,
+,config,,title,Matematika – 2. stupeň ZŠ,,,
+,config,,description,"Čísla a dělitelnost, poměr a procenta, výrazy a rovnice, funkce, práce s daty, rovinné útvary a tělesa – rozložené na to, co žák 6.–9. ročníku opravdu musí umět, s jednotnou přijímací zkouškou po 9. ročníku na obzoru.",,,
+,config,,language,cs,,,
+,config,,learner,žák,,,
+,config,,subjectFamily,mathematics,,,
+,config,,storageKey,cz-zakladni-matematika-2-stupen,,,
+,config,,features.motivation,true,,,
+,config,,slots.courseName,"matematika na 2. stupni základní školy (6.–9. ročník, podle RVP ZV, s jednotnou přijímací zkouškou na střední školu po 9. ročníku)",,,
+,config,,slots.motivationSubject,matika,,,
+,config,,slots.expressionFocus,"spojuje rovnítkem výrazy, které si nejsou rovny (píše postup jako jeden řetěz rovností), zapomíná změnit znaménka při odstraňování závorky, před kterou je minus, píše (a + b)² = a² + b², plete si −3² a (−3)², zaokrouhluje mezivýsledky příliš brzy, vynechává jednotky nebo plete cm² a cm³, u slovní úlohy nezapíše, co označil neznámou, a chybí mu odpověď celou větou, a v konstrukční úloze vynechá náčrt, zápis postupu nebo diskusi o počtu řešení",,,
+,config,,slots.courseSpecifics,"Žáci jsou na 2. stupni české základní školy (6.–9. ročník). V 9. ročníku většina z nich skládá jednotnou přijímací zkoušku z matematiky (CERMAT), kde jsou povoleny jen psací a rýsovací potřeby: žádná kalkulačka ani matematické tabulky. Testový sešit obsahuje jen druhé mocniny čísel 11–20, π ≐ 3,14 a π ≈ 22/7, vzorce pro obvod a obsah kruhu a vzorce pro rozklad a² ± 2ab + b² a a² − b². Proto procvičuj počítání zpaměti a písemně s čísly, která jdou spočítat bez kalkulačky, a výsledky s π nebo odmocninou nech v přesném tvaru, pokud úloha nežádá přibližnou hodnotu; v hodinách kalkulačku používat lze. Používej českou školní symboliku: desetinnou čárku, mezeru mezi trojicemi číslic, tečku pro násobení, dvojtečku pro dělení i poměr, body A[2; −3], délku úsečky |AB|, úhel ∢ABC a ≐ pro výsledek po zaokrouhlení. Konstrukční úlohy řeš s náčrtem, rozborem, zápisem postupu, konstrukcí a diskusí o počtu řešení. Učivo RVP ZV nezahrnuje goniometrické funkce, kvadratické rovnice, lomené výrazy ani pravděpodobnost – nevyžaduj je a neopírej o ně řešení.",,,
+,config,,decompositionVersion,2.15.2,,,
+,config,,author,Vidar Skogvoll,,,
+,config,,authorUrl,https://skogvoll.com,,,
+,config,,license,CC BY 4.0,,,
+,config,,subtitle,"Základní škola, 2. stupeň (6.–9. ročník)",,,
+,config,,curriculum,RVP ZV,,,
+,config,,country,CZ,,,
+,config,,institution,zakladni-skola,,,
+,config,,division,6-9,,,
+,config,,subjectArea,mathematics,,,
+,config,,keywords,matematika; matika; základní škola; 2. stupeň; 6. ročník; 7. ročník; 8. ročník; 9. ročník; RVP ZV; jednotná přijímací zkouška; přijímačky; CERMAT; zlomky; dělitelnost; poměr; měřítko; procenta; úrok; mocniny a odmocniny; mnohočleny; vzorce; vytýkání; lineární rovnice; soustavy rovnic; slovní úlohy; funkce; přímá úměrnost; nepřímá úměrnost; lineární funkce; statistika; aritmetický průměr; Pythagorova věta; konstrukční úlohy; Thaletova kružnice; shodnost; podobnost; souměrnost; tělesa; objem a povrch,,,
+,config,,updated,2026-11-19,,,
+cela-racionalni-cisla,concept,Čísla a dělitelnost,Celá a racionální čísla,"Celá čísla: přirozená čísla, nula a čísla k nim opačná: …, −2, −1, 0, 1, 2, …
+Opačná čísla: dvě čísla, která leží na číselné ose ve stejné vzdálenosti od nuly na opačných stranách, např. 4 a −4.
+Absolutní hodnota: vzdálenost čísla od nuly na číselné ose, např. |−7| = 7.
+Racionální číslo: číslo, které lze zapsat jako zlomek a/b, kde a, b jsou celá čísla a b ≠ 0; patří sem celá čísla, zlomky a ukončená i periodická desetinná čísla, kladná i záporná.",,,
+zlomky-desetinna-cisla,concept,Čísla a dělitelnost,Zlomek a desetinné číslo,"Zlomek: zápis a/b; jmenovatel b udává, na kolik stejných dílů je celek rozdělen, čitatel a, kolik těch dílů bereme; zlomek je také podíl a : b (b ≠ 0).
+Krácení a rozšiřování zlomku: vydělení nebo vynásobení čitatele i jmenovatele týmž nenulovým číslem; hodnota zlomku se nemění.
+Základní tvar zlomku: tvar, který už nelze krátit, např. 3/4.
+Desetinné číslo: číslo zapsané s desetinnou čárkou, např. 3/4 = 0,75.
+Periodické číslo: desetinné číslo, v němž se skupina číslic donekonečna opakuje, např. 1/3 = 0,333… = 0,3̄.",,,
+smisene-prevracene-slozene,concept,Čísla a dělitelnost,"Smíšené číslo, převrácené číslo a složený zlomek","Smíšené číslo: zápis součtu celého čísla a zlomku menšího než 1, např. 2 1/3 = 7/3.
+Převrácené číslo: číslo, které dává s daným číslem součin 1; k číslu a/b je to b/a, např. k 3/5 je to 5/3.
+Složený zlomek: zlomek, v jehož čitateli nebo jmenovateli je opět zlomek; znamená dělení čitatele jmenovatelem.",zlomky-desetinna-cisla,,
+pocitani-s-celymi-cisly,skill,Čísla a dělitelnost,Počítat s celými čísly,"sčítat, odčítat, násobit a dělit celá čísla, správně určit znaménko výsledku a odstranit závorku, před kterou je znaménko minus.",cela-racionalni-cisla,,"Dej žákovi postupně pět krátkých příkladů, např. −7 + 12, −4 − (−9), (−6) · (−5), −48 : 6 a 15 − (8 − 11). U každého ať nejdřív řekne znaménko výsledku a teprve pak počítá. Když se splete, ukaž příklad na číselné ose nebo na teploměru."
+pocitani-se-zlomky,skill,Čísla a dělitelnost,Počítat se zlomky a smíšenými čísly,"sčítat, odčítat, násobit a dělit zlomky, smíšená a desetinná čísla, krátit výsledek na základní tvar a převádět zlomky na desetinná čísla a naopak.",zlomky-desetinna-cisla;smisene-prevracene-slozene,,"Zadávej po jednom: 5/6 + 3/4, 3 1/4 − 1 2/3, 4/5 · 0,25 a 6/7 : 9/14. Žák počítá bez kalkulačky a u každého výsledku řekne, zda je v základním tvaru. Nakonec ať převede 3/8 a 2/3 na desetinná čísla a vysvětlí, proč jedno vyjde ukončené a druhé periodické."
+poradi-operaci,skill,Čísla a dělitelnost,Vypočítat hodnotu číselného výrazu,"vypočítat hodnotu číselného výrazu s racionálními čísly, závorkami a více početními operacemi ve správném pořadí, včetně složeného zlomku.",pocitani-s-celymi-cisly;pocitani-se-zlomky,,"Dej žákovi výraz (2/3 − 1,5) · 6 − 4 : (−0,5) a pak složený zlomek, v jehož čitateli je 1/2 + 1/3 a ve jmenovateli 5/6 − 1/2. Ať zapisuje každý krok na nový řádek a řekne, kterou operaci provádí jako první a proč. Pohlídej, aby rovnítkem nespojoval mezivýsledky, které si nejsou rovny."
+zaokrouhlovani-odhad,skill,Čísla a dělitelnost,Zaokrouhlovat a odhadovat výsledek,"zaokrouhlit číslo na daný řád nebo počet desetinných míst, odhadnout výsledek výpočtu předem a podle odhadu posoudit, zda výsledek z písemného výpočtu nebo z kalkulačky dává smysl.",zlomky-desetinna-cisla,,"Ať žák zaokrouhlí 3 847,256 na stovky, na desetiny a na setiny. Pak mu ukaž tři výpočty s hotovými výsledky, z nichž jeden je zjevně špatně (např. 48,7 · 0,51 = 248,37), a ať odhadem najde chybný a vysvětlí, jak to poznal. Připomeň, že u přijímací zkoušky kalkulačka není, ale odhad je kontrola výsledku v obou případech."
+delitelnost-pojmy,concept,Čísla a dělitelnost,"Dělitel, násobek a prvočíslo","Dělitel čísla n: přirozené číslo, kterým lze n vydělit beze zbytku.
+Násobek čísla k: číslo tvaru k · m, kde m je přirozené číslo.
+Prvočíslo: přirozené číslo větší než 1, které má právě dva dělitele, číslo 1 a samo sebe.
+Číslo složené: přirozené číslo větší než 1, které má více než dva dělitele; číslo 1 není prvočíslo ani číslo složené.",,,
+kriteria-delitelnosti,fact,Čísla a dělitelnost,Znaky dělitelnosti,"dělitelnost dvěma: poslední číslice je 0, 2, 4, 6 nebo 8
+dělitelnost třemi: ciferný součet je dělitelný třemi
+dělitelnost čtyřmi: číslo tvořené posledními dvěma číslicemi je dělitelné čtyřmi
+dělitelnost pěti: poslední číslice je 0 nebo 5
+dělitelnost šesti: číslo je dělitelné dvěma i třemi
+dělitelnost devíti: ciferný součet je dělitelný devíti
+dělitelnost deseti: poslední číslice je 0
+dělitelnost pětadvaceti: poslední dvojčíslí je 00, 25, 50 nebo 75
+dělitelnost stem: poslední dvě číslice jsou 00",delitelnost-pojmy,,
+nsd-nsn,concept,Čísla a dělitelnost,Největší společný dělitel a nejmenší společný násobek,"Největší společný dělitel D(a, b): největší přirozené číslo, které dělí obě čísla a i b, např. D(12, 18) = 6.
+Nejmenší společný násobek n(a, b): nejmenší přirozené číslo, které je násobkem obou čísel a i b, např. n(12, 18) = 36.
+Nesoudělná čísla: čísla, jejichž největší společný dělitel je 1, např. 8 a 15.",delitelnost-pojmy,,
+nsd-nsn-vypocet,skill,Čísla a dělitelnost,Určit největší společný dělitel a nejmenší společný násobek,"rozložit číslo na součin prvočísel, z rozkladu určit největší společný dělitel a nejmenší společný násobek dvou nebo tří čísel a použít je v úlohách o dělení na stejné skupiny nebo o dějích, které se pravidelně opakují.",nsd-nsn;kriteria-delitelnosti,,"Ať žák rozloží 84 a 120 na prvočinitele a z rozkladu určí D(84, 120) a n(84, 120). Pak zadej: Z 84 červených a 120 bílých růží se má uvázat co nejvíc stejných kytic tak, aby žádná růže nezbyla. Kolik kytic bude a z kolika růží každé barvy? Nakonec: dva autobusy vyjíždějí ze zastávky současně, jeden jezdí každých 12 minut, druhý každých 18 minut; za kolik minut odjedou zase společně?"
+mocnina-odmocnina,concept,Mocniny a odmocniny,Mocnina a druhá odmocnina,"Mocnina aⁿ: součin n stejných činitelů a; a je základ mocniny, n mocnitel (exponent), např. 2⁵ = 2 · 2 · 2 · 2 · 2 = 32.
+Druhá mocnina: a² = a · a; druhá mocnina každého čísla je nezáporná, např. (−3)² = 9.
+Druhá odmocnina nezáporného čísla a: nezáporné číslo, jehož druhá mocnina je a, zapisuje se √a, např. √49 = 7; ze záporného čísla se druhá odmocnina neurčuje.
+Rozvinutý zápis čísla: zápis čísla jako součtu násobků mocnin deseti, např. 3 405 = 3 · 10³ + 4 · 10² + 0 · 10 + 5.",cela-racionalni-cisla,,
+druhe-mocniny-fakta,fact,Mocniny a odmocniny,Druhé mocniny čísel 1–20,"1²: 1
+2²: 4
+3²: 9
+4²: 16
+5²: 25
+6²: 36
+7²: 49
+8²: 64
+9²: 81
+10²: 100
+11²: 121
+12²: 144
+13²: 169
+14²: 196
+15²: 225
+16²: 256
+17²: 289
+18²: 324
+19²: 361
+20²: 400",mocnina-odmocnina,,
+vypocet-mocnin-odmocnin,skill,Mocniny a odmocniny,Vypočítat druhou mocninu a odmocninu,"určit druhou mocninu a druhou odmocninu celého čísla, zlomku a desetinného čísla zpaměti nebo pomocí známých mocnin, odhadnout odmocninu z čísla, které není druhou mocninou, a rozlišit zápisy −a² a (−a)².",mocnina-odmocnina;druhe-mocniny-fakta;pocitani-se-zlomky,,"Zadej postupně 13², (−0,4)², (3/5)², √196, √0,09, √(16/25) a otázku, mezi kterými dvěma celými čísly leží √50. Žák počítá bez kalkulačky. U (−0,4)² a −0,4² se zeptej, proč vyjdou různá čísla."
+pravidla-pro-mocniny,skill,Mocniny a odmocniny,Počítat s mocninami se stejným základem,"násobit a dělit mocniny se stejným základem, umocnit mocninu a součin a zapsat velké číslo pomocí mocnin deseti, vždy s porozuměním, proč pravidlo platí.",mocnina-odmocnina;pocitani-s-celymi-cisly,,"Dej žákovi k úpravě a³ · a⁴, x⁷ : x² (x ≠ 0), (y²)³, (2b)³ a (−1)⁵. U každého ať nejdřív rozepíše mocninu jako součin, aby viděl, proč pravidlo platí, a teprve pak použije zkratku. Nakonec ať zapíše 3 405 a 7 000 000 v rozvinutém tvaru pomocí mocnin deseti."
+pomer,concept,Poměr a procenta,Poměr a měřítko,"Poměr: porovnání dvou veličin dělením, zapisuje se a : b; říká, kolikrát je první větší nebo menší než druhá.
+Krácení a rozšiřování poměru: vydělení nebo vynásobení obou členů poměru týmž nenulovým číslem; poměr se tím nemění.
+Postupný poměr: poměr tří a více čísel, např. 2 : 3 : 5.
+Měřítko mapy nebo plánu: poměr délky na mapě ke skutečné délce, zapisuje se 1 : n; 1 cm na mapě pak odpovídá n cm ve skutečnosti.",zlomky-desetinna-cisla,,
+uprava-pomeru,skill,Poměr a procenta,Upravovat poměr a dělit celek v poměru,"krátit a rozšiřovat poměr, zapsat ho v základním tvaru, zvětšit nebo zmenšit číslo v daném poměru a rozdělit celek na části v daném, i postupném, poměru.",pomer;pocitani-se-zlomky,,"Ať žák zkrátí poměry 0,6 : 1,5 a 3/4 : 2/3 na základní tvar v celých číslech, zvětší číslo 40 v poměru 5 : 4 a rozdělí 360 Kč mezi tři sourozence v poměru 2 : 3 : 4. Ať si vždy nejdřív spočítá, kolik připadá na jeden díl."
+meritko-vypocet,skill,Poměr a procenta,Počítat s měřítkem mapy a plánu,"vypočítat skutečnou vzdálenost z mapy nebo plánu a naopak, určit měřítko z dvojice délek a převádět přitom jednotky délky.",pomer;jednotky-fakta,,"Zadej mapu v měřítku 1 : 50 000: vzdálenost na mapě je 7,4 cm, kolik je to kilometrů ve skutečnosti? Pak opačně: kolik centimetrů na téže mapě odpovídá 1,2 km? Nakonec ať žák určí měřítko plánu, na kterém má zahrada dlouhá 15 m délku 6 cm."
+prima-neprima-umernost,concept,Funkce,Přímá a nepřímá úměrnost,"Přímá úměrnost: závislost y = k · x (k ≠ 0); kolikrát se zvětší x, tolikrát se zvětší y, a podíl y : x je stále stejný.
+Nepřímá úměrnost: závislost y = k/x (k ≠ 0, x ≠ 0); kolikrát se zvětší x, tolikrát se zmenší y, a součin x · y je stále stejný.",funkce-pojem;pomer,,
+trojclenka,skill,Poměr a procenta,Řešit úlohy trojčlenkou,"rozhodnout, zda jde o přímou, nebo nepřímou úměrnost, a dopočítat chybějící údaj trojčlenkou nebo úměrou.",prima-neprima-umernost;uprava-pomeru,,"Zadej dvě úlohy a žák nejdřív rozhodne, zda jde o přímou, nebo nepřímou úměrnost, a zapíše to šipkami: 5 kg jablek stojí 140 Kč, kolik stojí 8 kg? Šest dělníků udělá práci za 10 dní, za kolik dní ji udělají čtyři dělníci? Pak přidej situaci, která není ani jedno (např. věk a výška člověka), a ať vysvětlí, proč tam trojčlenka nefunguje."
+procenta,concept,Poměr a procenta,"Procento, základ a procentová část","Procento: jedna setina celku, 1 % = 1/100 = 0,01.
+Promile: jedna tisícina celku, 1 ‰ = 1/1 000 = 0,001.
+Základ: celek, ze kterého se procenta počítají; odpovídá 100 %.
+Procentová část: část základu, která odpovídá danému počtu procent.
+Počet procent: kolik setin základu tvoří procentová část; může být i větší než 100.",zlomky-desetinna-cisla,,
+zlomky-procenta-fakta,fact,Poměr a procenta,"Zlomky, desetinná čísla a procenta, která k sobě patří","1/2: 0,5 = 50 %
+1/4: 0,25 = 25 %
+3/4: 0,75 = 75 %
+1/5: 0,2 = 20 %
+1/10: 0,1 = 10 %
+1/20: 0,05 = 5 %
+1/25: 0,04 = 4 %
+1/50: 0,02 = 2 %
+1/100: 0,01 = 1 %
+1/8: 0,125 = 12,5 %
+1/3: 0,3̄ ≐ 33,3 %
+2/3: 0,6̄ ≐ 66,7 %",procenta,,
+celek-cast,skill,Poměr a procenta,Vyjádřit část celku různými způsoby,"vyjádřit, jakou část celku tvoří daná část, přirozeným číslem, zlomkem, desetinným číslem, procentem i poměrem a přecházet mezi těmito zápisy.",procenta;pomer;pocitani-se-zlomky,,"Vezmi situaci: z 25 žáků třídy jich 15 jezdí do školy autobusem. Ať žák vyjádří tuto část zlomkem v základním tvaru, desetinným číslem, procentem a pak poměrem žáků, kteří jezdí autobusem, k ostatním. Pak úlohu obrať: 0,35 celku – kolik je to procent a jaký je to zlomek v základním tvaru?"
+vypocet-procent,skill,Poměr a procenta,"Vypočítat procentovou část, základ a počet procent","vypočítat procentovou část, základ nebo počet procent, když jsou dány zbylé dvě veličiny, přes jedno procento, trojčlenkou nebo desetinným číslem, i když je procentová část větší než základ.",procenta;pocitani-se-zlomky,,"Zadej tři úlohy, v každé chybí jiná veličina: kolik je 35 % z 240 Kč; 18 žáků je 30 % třídy, kolik žáků má třída; kolik procent je 45 z 36? Žák ještě před počítáním řekne, co je v úloze základ. U poslední ať si všimne, že procentová část je větší než základ, a výsledek je proto přes 100 %."
+zmena-o-procenta,skill,Poměr a procenta,Počítat zvýšení a snížení o procenta,"vypočítat novou hodnotu po zvýšení nebo snížení o daný počet procent, určit, o kolik procent se hodnota změnila, a rozlišit „o kolik procent“ a „na kolik procent“.",vypocet-procent,,"Zadej: bunda za 1 800 Kč je zlevněná o 15 %, kolik stojí teď? Cena vzrostla z 250 Kč na 290 Kč, o kolik procent? Pak se zeptej na rozdíl mezi „cena klesla o 20 %“ a „cena klesla na 20 %“. Nakonec past: zboží zdražilo o 10 % a pak zlevnilo o 10 %; stojí zase původní cenu?"
+urok,concept,Poměr a procenta,Úrok a úroková sazba,"Jistina: částka, kterou si člověk uloží do banky nebo si půjčí.
+Úroková sazba: počet procent z jistiny, které banka připíše nebo si účtuje za jedno období, obvykle za rok (% p. a.).
+Úrok: částka, o kterou se jistina za dané období zvýší.
+Jednoduché úrokování: úrok se počítá stále jen z původní jistiny.
+Daň z úroku: část úroku, kterou banka odvede státu; v Česku činí 15 %.",procenta,,
+vypocet-uroku,skill,Poměr a procenta,Vypočítat úrok,"vypočítat úrok, úrok po zdanění a naspořenou částku při jednoduchém úrokování za jeden nebo více let a porovnat dvě nabídky banky.",urok;vypocet-procent,,"Zadej: na spořicím účtu je 40 000 Kč s roční úrokovou sazbou 3 %. Jaký je úrok za rok, kolik zbude po odečtení 15% daně a kolik bude na účtu po roce? Pak: za kolik let dosáhne čistý úrok při jednoduchém úrokování celkem aspoň 3 000 Kč? Ať žák u každého čísla řekne, ze kterého základu počítá."
+slovni-ulohy-procenta,skill,Poměr a procenta,Řešit slovní úlohy na procenta,"řešit slovní úlohy na procenta z běžného života (slevy, zdražení, složení roztoků, výsledky průzkumů), i s několika změnami za sebou, a zapsat odpověď celou větou.",zmena-o-procenta;celek-cast,,"Dej žákovi úlohu se dvěma kroky: kolo stálo 12 000 Kč, nejdřív zdražilo o 5 % a pak bylo ve výprodeji zlevněno o 20 %. Kolik stojí teď a o kolik procent je levnější než na začátku? Pak úlohu o roztoku: 300 g roztoku obsahuje 6 % soli; kolik gramů soli v něm je? Žák zapíše odpověď celou větou."
+promenna-vyraz,concept,Výrazy a mnohočleny,Proměnná a výraz,"Proměnná: písmeno, které zastupuje libovolné číslo z daného oboru.
+Výraz s proměnnou: zápis složený z čísel, proměnných, znaků početních operací a závorek, např. 3x − 2y.
+Hodnota výrazu: číslo, které vyjde, když za proměnné dosadíme daná čísla.",,,
+hodnota-vyrazu,skill,Výrazy a mnohočleny,Určit hodnotu výrazu,"dosadit do výrazu s proměnnými daná čísla, i záporná a zlomky, a vypočítat jeho hodnotu.",promenna-vyraz;poradi-operaci,,"Zadej výraz 2x² − 3xy + y pro x = −2 a y = 1/2 a trvej na tom, aby žák každé dosazené záporné číslo dal do závorky. Pak ať vysvětlí, proč −x² a (−x)² mají pro x = −2 různou hodnotu."
+zapis-vyrazem,skill,Výrazy a mnohočleny,Zapsat situaci výrazem,"zapsat slovně popsanou situaci výrazem s proměnnou a naopak popsat slovy, co daný výraz vyjadřuje.",promenna-vyraz,,"Zadávej situace, které žák zapíše výrazem: cena permanentky do bazénu, za kterou se platí 500 Kč ročně a 80 Kč za každý vstup, při x vstupech; obvod obdélníku, jehož délka je o 3 cm větší než šířka a; trojnásobek čísla zmenšený o jeho polovinu. Pak obráceně: co může znamenat výraz 50 + 8n?"
+mnohocleny,concept,Výrazy a mnohočleny,Mnohočlen,"Jednočlen: součin čísla a mocnin proměnných, např. −5a²b.
+Koeficient: číselný činitel jednočlenu; u −5a²b je to −5.
+Mnohočlen: součet jednočlenů, např. 3x² − 2x + 7; jednotlivé sčítance jsou jeho členy.
+Podobné členy: členy, které se liší nejvýše koeficientem, např. 4xy a −xy.",promenna-vyraz;mocnina-odmocnina,,
+scitani-mnohoclenu,skill,Výrazy a mnohočleny,Sčítat a odčítat mnohočleny,"sčítat a odčítat mnohočleny sloučením podobných členů a správně odstranit závorku, před kterou je znaménko minus.",mnohocleny;pocitani-s-celymi-cisly,,Dej žákovi (3x² − 5x + 2) − (x² − 2x − 7) a (2a − 3b) + (−a + b) − (4a − b). Ať nejdřív odstraní závorky a stejnou značkou označí podobné členy. Chybu ve znaménku po odstranění závorky s minusem rozeber zvlášť.
+nasobeni-mnohoclenu,skill,Výrazy a mnohočleny,Násobit mnohočleny,násobit jednočlen mnohočlenem a mnohočlen mnohočlenem a výsledek upravit sloučením podobných členů.,scitani-mnohoclenu;pravidla-pro-mocniny,,"Zadej postupně −3a · (2a² − a + 4), (x + 5)(x − 2) a (2y − 1)(y² + 3y − 2). U součinu dvou mnohočlenů ať žák nejdřív řekne, kolik členů vznikne před sloučením, a teprve pak roznásobí."
+uzivani-vzorcu,skill,Výrazy a mnohočleny,Umocnit dvojčlen podle vzorce,"umocnit dvojčlen a vynásobit součet a rozdíl týchž výrazů podle vzorců (a + b)² = a² + 2ab + b², (a − b)² = a² − 2ab + b² a (a + b)(a − b) = a² − b², i když a nebo b je součin, např. (3x − 2y)².",nasobeni-mnohoclenu,,"Začni otázkou, zda platí (x + 3)² = x² + 9, a ať to žák ověří dosazením x = 1. Pak zadej (x + 3)², (2a − 5)², (3x − 2y)² a (4 + y)(4 − y). U každého ať nejdřív řekne, co je v daném příkladu a a co b."
+vytykani,skill,Výrazy a mnohočleny,Rozložit mnohočlen vytýkáním,"rozložit mnohočlen na součin vytknutím společného činitele před závorku, i postupným vytýkáním u čtyřčlenu, a rozklad ověřit roznásobením.",nasobeni-mnohoclenu;nsd-nsn,,"Zadej 6x² − 9x, 4a²b + 10ab² − 2ab a čtyřčlen ax + ay + 3x + 3y. Žák vždy nejdřív najde největší společný činitel, vytkne ho a ověří rozklad roznásobením. U čtyřčlenu ať vytýká postupně."
+rozklad-vzorce,skill,Výrazy a mnohočleny,Rozložit mnohočlen podle vzorců,"poznat ve dvojčlenu rozdíl druhých mocnin a v trojčlenu druhou mocninu dvojčlenu a rozložit je na součin, případně až po vytknutí.",uzivani-vzorcu;vytykani;druhe-mocniny-fakta,,"Zadej k rozkladu 49 − y², x² + 10x + 25, 9a² − 12a + 4 a 2x² − 18. U posledního ať žák sám zjistí, že musí nejdřív vytknout. Pak dej výraz, který podle vzorce rozložit nejde (např. x² + 9), a ať vysvětlí proč."
+rovnice-pojem,concept,Rovnice a jejich soustavy,Rovnice a její řešení,"Rovnice: zápis rovnosti dvou výrazů, z nichž aspoň jeden obsahuje neznámou.
+Kořen rovnice: číslo, které po dosazení za neznámou dá na obou stranách stejnou hodnotu.
+Zkouška: dosazení kořene zvlášť do levé a zvlášť do pravé strany původní rovnice a porovnání výsledků.",promenna-vyraz,,
+ekvivalentni-upravy,concept,Rovnice a jejich soustavy,Ekvivalentní úpravy rovnice,"Ekvivalentní úprava: úprava, která nezmění řešení rovnice: přičtení nebo odečtení téhož čísla či výrazu na obou stranách, vynásobení nebo vydělení obou stran týmž nenulovým číslem a výměna stran.",rovnice-pojem,,
+linearni-rovnice,skill,Rovnice a jejich soustavy,Řešit lineární rovnici,"řešit lineární rovnici s jednou neznámou ekvivalentními úpravami, i se závorkami a s neznámou na obou stranách, provést zkoušku a poznat rovnici, která nemá řešení nebo má nekonečně mnoho řešení.",ekvivalentni-upravy;scitani-mnohoclenu,,"Zadej 5x − 7 = 2x + 8, pak 3(2y − 1) − 2(y + 4) = 5 a nakonec 2(x + 3) = 2x + 5. Žák ke každému kroku napíše, jakou úpravu dělá, a u prvních dvou provede zkoušku. U třetí ať vysvětlí, co znamená, že rovnice nemá řešení."
+rovnice-se-zlomky,skill,Rovnice a jejich soustavy,Řešit rovnici se zlomky,odstranit z lineární rovnice zlomky nebo desetinná čísla vynásobením obou stran vhodným číslem a rovnici dořešit.,linearni-rovnice;nsd-nsn-vypocet;pocitani-se-zlomky,,"Zadej (x + 1)/3 − (x − 2)/4 = 2 a pak 0,4(x − 5) = 0,3x + 1. Hlídej hlavně dvě místa: aby žák společným jmenovatelem vynásobil všechny členy, i ty bez zlomku, a aby čitatel zlomku, před kterým je minus, dal po odstranění zlomku do závorky."
+vyjadreni-promenne,skill,Rovnice a jejich soustavy,Vyjádřit neznámou ze vzorce,"vyjádřit ze vzorce nebo z rovnice s více proměnnými zadanou proměnnou, např. čas ze vzorce s = v · t nebo výšku z objemu válce.",linearni-rovnice,,"Zadej vzorce, ze kterých má žák vyjádřit danou proměnnou: t ze s = v · t, c ze S = (a + c) · v / 2 a v z V = π · r² · v. Pak ať dosadí čísla do původního i do upraveného vzorce a zkontroluje, že vychází totéž."
+slovni-ulohy-rovnice,skill,Rovnice a jejich soustavy,Řešit slovní úlohy rovnicí,"zvolit neznámou, sestavit ze slovní úlohy lineární rovnici, vyřešit ji, ověřit výsledek v textu úlohy a zapsat odpověď.",linearni-rovnice;zapis-vyrazem,,"Zadej úlohu: tři kamarádi si rozdělili 1 260 Kč tak, že druhý dostal o 120 Kč víc než první a třetí dvakrát víc než první. Kolik dostal každý? Žák nejdřív napíše, co označí x, a vyjádří pomocí x všechny ostatní údaje; teprve pak sestaví rovnici. Výsledek ověří v textu úlohy, ne v rovnici, a napíše odpověď."
+ulohy-o-pohybu,skill,Rovnice a jejich soustavy,Řešit úlohy o pohybu,"řešit úlohy o pohybu dvou těles proti sobě a za sebou pomocí vztahu s = v · t a rovnice, včetně převodu jednotek času a rychlosti.",slovni-ulohy-rovnice;jednotky-fakta,,"Zadej úlohu o pohybu proti sobě: z měst vzdálených 150 km vyjedou současně proti sobě auto rychlostí 80 km/h a autobus rychlostí 70 km/h; za jak dlouho se potkají? Pak úlohu o pohybu za sebou: za chodcem, který jde rychlostí 5 km/h, vyjede o 1,5 hodiny později cyklista rychlostí 20 km/h; za jak dlouho chodce dohoní? Ať si žák nakreslí náčrt a zapíše dráhy obou do tabulky."
+soustava-rovnic,concept,Rovnice a jejich soustavy,Soustava dvou lineárních rovnic,"Soustava rovnic: dvě rovnice se dvěma neznámými, které mají platit zároveň.
+Řešení soustavy: uspořádaná dvojice čísel [x; y], která po dosazení splňuje obě rovnice.",rovnice-pojem,,
+dosazovaci-metoda,skill,Rovnice a jejich soustavy,Řešit soustavu dosazovací metodou,"vyjádřit z jedné rovnice jednu neznámou, dosadit ji do druhé rovnice, soustavu dořešit a provést zkoušku v obou rovnicích.",soustava-rovnic;vyjadreni-promenne,,"Zadej soustavu x + 2y = 7 a 3x − y = 7 a ať žák vyjádří x z první rovnice. Pak dej soustavu, ve které je výhodnější vyjádřit y, a ať sám rozhodne, kterou neznámou z které rovnice vyjádří a proč. Zkoušku provede v obou rovnicích."
+scitaci-metoda,skill,Rovnice a jejich soustavy,Řešit soustavu sčítací metodou,"vynásobit rovnice vhodnými čísly tak, aby se po sečtení jedna neznámá vyrušila, dopočítat obě neznámé a provést zkoušku.",soustava-rovnic;linearni-rovnice,,"Zadej soustavu 2x + 3y = 12 a 5x − 3y = 9, kde stačí rovnice sečíst, a pak 3x + 2y = 4 a 2x + 5y = −1, kde je třeba násobit obě rovnice. Ať žák před násobením řekne, kterou neznámou chce vyrušit a jakými čísly bude násobit."
+slovni-ulohy-soustavy,skill,Rovnice a jejich soustavy,Řešit slovní úlohy soustavou rovnic,"sestavit ze slovní úlohy se dvěma neznámými soustavu dvou rovnic, vyřešit ji vhodnou metodou a odpověď ověřit v textu úlohy.",dosazovaci-metoda;scitaci-metoda;slovni-ulohy-rovnice,,"Zadej úlohu: vstupenka do kina stojí 150 Kč pro dospělé a 90 Kč pro děti. Prodalo se 85 vstupenek za 10 050 Kč. Kolik bylo dospělých a kolik dětí? Žák pojmenuje obě neznámé, sestaví dvě rovnice, vyřeší je zvolenou metodou a odpověď ověří v textu úlohy."
+soustava-souradnic,concept,Funkce,Pravoúhlá soustava souřadnic,"Pravoúhlá soustava souřadnic: dvě navzájem kolmé číselné osy x a y, které se protínají v počátku O.
+Souřadnice bodu: uspořádaná dvojice čísel, zapisuje se A[2; −3]; první číslo je x-ová, druhé y-ová souřadnice.
+Kvadrant: jedna ze čtyř částí, na které osy rozdělí rovinu.",cela-racionalni-cisla,,
+zakresleni-bodu,skill,Funkce,Zakreslit bod a přečíst jeho souřadnice,"zakreslit do soustavy souřadnic bod s danými souřadnicemi, i zápornými a desetinnými, a přečíst souřadnice zakresleného bodu.",soustava-souradnic,,"Ať žák zakreslí body A[3; −2], B[−1,5; 4], C[0; −3] a D[−2; 0] a řekne, ve kterém kvadrantu nebo na které ose každý leží. Pak mu polohu bodu popiš slovy (např. 2 jednotky vlevo od osy y a 3 jednotky nad osou x) a ať zapíše jeho souřadnice."
+funkce-pojem,concept,Funkce,Funkce,"Funkce: předpis, který každému číslu x z daného oboru přiřadí právě jedno číslo y.
+Definiční obor: množina všech čísel x, pro která je funkce určena.
+Graf funkce: množina všech bodů [x; y] v soustavě souřadnic, kde y je hodnota funkce pro x.",soustava-souradnic;promenna-vyraz,,
+funkce-tabulka-graf,skill,Funkce,"Vyjádřit funkci tabulkou, předpisem a grafem","sestavit k funkci tabulku hodnot, sestrojit její graf, přečíst z grafu hodnotu funkce a přecházet mezi tabulkou, předpisem a grafem.",funkce-pojem;zakresleni-bodu;hodnota-vyrazu,,"Zadej funkci y = 2x − 1 pro x od −2 do 3; ať žák vyplní tabulku hodnot a zakreslí body. Pak mu dej graf jiné závislosti a ať z něj přečte hodnotu y pro dané x a naopak. Zeptej se, podle čeho by z tabulky poznal, že nejde o funkci."
+umernost-graf,skill,Funkce,Rozpoznat úměrnost a nakreslit její graf,"rozhodnout podle tabulky, grafu nebo slovního popisu, zda jde o přímou úměrnost, nepřímou úměrnost, nebo ani jedno, určit koeficient k a sestrojit graf přímé úměrnosti (přímka procházející počátkem) a nepřímé úměrnosti (hyperbola).",prima-neprima-umernost;funkce-tabulka-graf,,"Dej žákovi tři tabulky: x 1, 2, 5 a y 3, 6, 15; x 1, 2, 4 a y 12, 6, 3; x 1, 2, 3 a y 3, 5, 7. Ať u každé rozhodne podle podílu nebo součinu a určí k. Pak ať nakreslí grafy y = 3x a y = 12/x pro kladná x a popíše, čím se liší."
+linearni-funkce,concept,Funkce,Lineární funkce,"Lineární funkce: funkce s předpisem y = ax + b, kde a, b jsou daná čísla; jejím grafem je přímka.
+Koeficient a: udává, o kolik se změní y, když se x zvětší o 1; pro a > 0 je funkce rostoucí, pro a < 0 klesající, pro a = 0 konstantní.
+Koeficient b: y-ová souřadnice průsečíku grafu s osou y.",funkce-pojem,,
+graf-linearni-funkce,skill,Funkce,Sestrojit graf lineární funkce,"sestrojit graf lineární funkce ze dvou bodů, určit průsečíky grafu s osami a z předpisu i z grafu poznat, zda je funkce rostoucí, klesající, nebo konstantní.",linearni-funkce;funkce-tabulka-graf,,"Zadej y = −2x + 4 a y = 1/2 · x − 1. Žák spočítá dva body, nakreslí přímku, určí průsečíky s osami a řekne, zda je funkce rostoucí, nebo klesající. Ať si vždy ověří třetím bodem, že leží na přímce."
+predpis-linearni-funkce,skill,Funkce,Určit předpis lineární funkce,"určit předpis lineární funkce z jejího grafu, ze dvou bodů nebo ze slovního popisu a rozhodnout, zda daný bod leží na grafu.",graf-linearni-funkce;linearni-rovnice,,"Dej žákovi body [0; 3] a [2; 7] a ať určí předpis lineární funkce, jejímž grafem je přímka těmito body. Pak body [1; 5] a [3; 1], kde b nejde přečíst hned. Nakonec ať rozhodne, zda bod [−1; 9] leží na grafu druhé funkce."
+modelovani-funkci,skill,Funkce,Popsat reálnou situaci funkcí,"popsat reálnou závislost lineární funkcí nebo úměrností, sestavit předpis, nakreslit graf, pomocí něj porovnat dvě nabídky a posoudit, kde model přestává platit.",predpis-linearni-funkce;umernost-graf,,"Zadej dva tarify: taxi A účtuje 60 Kč za nástup a 30 Kč za kilometr, taxi B 40 Kč za kilometr bez nástupného. Ať žák zapíše oba předpisy, nakreslí grafy do jedné soustavy souřadnic a určí, od kolika kilometrů se vyplatí taxi A. Pak ať řekne, kde model se skutečností nesouhlasí (např. čekání v koloně)."
+statisticky-soubor,concept,Práce s daty,"Statistický soubor, znak a četnost","Statistický soubor: množina všech prvků (jednotek), u kterých zkoumáme určitou vlastnost.
+Statistický znak: zkoumaná vlastnost, např. výška žáka nebo oblíbený sport.
+Četnost: počet jednotek, které mají danou hodnotu znaku.
+Relativní četnost: podíl četnosti a počtu všech jednotek, často vyjádřený v procentech.",procenta,,
+prumer-modus-median,concept,Práce s daty,"Aritmetický průměr, modus, medián a rozpětí","Aritmetický průměr: součet všech hodnot vydělený jejich počtem.
+Modus: hodnota znaku s největší četností.
+Medián: prostřední hodnota souboru seřazeného podle velikosti; při sudém počtu hodnot průměr dvou prostředních.
+Rozpětí: rozdíl největší a nejmenší hodnoty souboru.",statisticky-soubor,,
+tabulka-cetnosti,skill,Práce s daty,Zpracovat data do tabulky četností,"vyhledat a roztřídit data, sestavit z nich tabulku četností a relativních četností a zkontrolovat, že relativní četnosti dávají dohromady 100 %.",statisticky-soubor;vypocet-procent,,"Dej žákovi neuspořádaný seznam asi dvaceti odpovědí z třídní ankety nebo známek z písemky a ať sestaví tabulku četností a relativních četností v procentech. Pohlídej, aby relativní četnosti dohromady daly 100 %, a když kvůli zaokrouhlení vyjde 99 % nebo 101 %, ať to umí vysvětlit."
+diagramy,skill,Práce s daty,Číst a sestrojit diagramy a grafy,"sestrojit sloupcový a kruhový diagram z tabulky četností, číst údaje z diagramů, tabulek a grafů závislostí a poznat zavádějící graf.",tabulka-cetnosti;uhly,,"Vyjdi z tabulky: ze 40 žáků má 14 nejraději fotbal, 10 florbal, 6 plavání a 10 jiný sport. Ať žák spočítá procenta a úhly pro kruhový diagram a řekne, proč se sloupcový diagram hodí spíš k porovnání a kruhový k podílům z celku. Pak mu popiš graf, jehož osa y nezačíná nulou, a ať vysvětlí, co je na něm zavádějící."
+vypocet-prumeru,skill,Práce s daty,"Vypočítat průměr, modus a medián","vypočítat aritmetický průměr, modus, medián a rozpětí souboru dat, i z tabulky četností, a dopočítat chybějící hodnotu, když je dán průměr.",prumer-modus-median;poradi-operaci,,"Zadej známky 1, 2, 2, 3, 1, 4, 2, 5 a ať žák určí průměr, modus, medián a rozpětí. Pak: žák má ze čtyř známek průměr 2,5; jakou známku musí dostat, aby měl z pěti známek průměr 2,2?"
+porovnani-souboru,skill,Práce s daty,Porovnat dva soubory dat,"porovnat dva soubory dat pomocí průměru, mediánu, modu a rozpětí a posoudit, který údaj danou situaci vystihuje lépe.",vypocet-prumeru;diagramy,,"Dej dvě skupiny dat, např. měsíční kapesné v Kč ve dvou třídách, kde jedna třída má jednu hodně vysokou hodnotu. Ať žák porovná průměr, medián a rozpětí a řekne, který údaj lépe popisuje typického žáka a proč."
+zakladni-utvary,concept,Rovinné útvary,"Přímka, polopřímka a úsečka","Přímka AB: neomezená rovná čára, která prochází body A a B.
+Polopřímka AB: část přímky AB, která začíná v bodě A a obsahuje bod B.
+Úsečka AB: část přímky mezi body A a B včetně nich; její délka se zapisuje |AB|.
+Rovnoběžky: přímky v rovině, které nemají žádný společný bod nebo splývají.
+Kolmice: přímky, které svírají pravý úhel.
+Vzdálenost bodu od přímky: délka úsečky, která spojuje bod s patou kolmice vedené z bodu k přímce.",,,
+uhly,concept,Rovinné útvary,Úhel a dvojice úhlů,"Úhel: část roviny ohraničená dvěma polopřímkami (rameny) se společným počátkem (vrcholem); úhel AVB se zapisuje ∢AVB a jeho velikost se měří ve stupních, 1° = 60′.
+Druhy úhlů: ostrý (menší než 90°), pravý (90°), tupý (větší než 90° a menší než 180°) a přímý (180°).
+Vedlejší úhly: dva úhly se společným vrcholem a jedním společným ramenem, jejichž zbylá ramena tvoří přímku; jejich součet je 180°.
+Vrcholové úhly: dva úhly se společným vrcholem, jejichž ramena jsou navzájem opačné polopřímky; jsou shodné.
+Souhlasné a střídavé úhly: dvojice úhlů, které vzniknou, když přímka protne dvě rovnoběžky; jsou shodné.",zakladni-utvary,,
+trojuhelnik,concept,Rovinné útvary,Trojúhelník,"Součet vnitřních úhlů trojúhelníku: vždy 180°.
+Vnější úhel trojúhelníku: úhel vedlejší k vnitřnímu úhlu; je roven součtu vnitřních úhlů při zbylých dvou vrcholech.
+Trojúhelníková nerovnost: součet délek kterýchkoli dvou stran trojúhelníku je větší než délka třetí strany.
+Rovnoramenný trojúhelník: trojúhelník se dvěma shodnými stranami (rameny); úhly při základně jsou shodné.
+Rovnostranný trojúhelník: trojúhelník se třemi shodnými stranami; každý jeho vnitřní úhel má 60°.
+Výška trojúhelníku: úsečka, která spojuje vrchol s patou kolmice vedené z něj k protější straně nebo k její přímce.
+Těžnice: úsečka, která spojuje vrchol se středem protější strany.",uhly,,
+ctyruhelniky-mnohouhelniky,concept,Rovinné útvary,Čtyřúhelníky a pravidelné mnohoúhelníky,"Rovnoběžník: čtyřúhelník, jehož protější strany jsou rovnoběžné; patří sem čtverec, obdélník, kosočtverec a kosodélník.
+Úhlopříčky rovnoběžníku: navzájem se půlí; v obdélníku a čtverci jsou shodné, v kosočtverci a čtverci jsou na sebe kolmé.
+Lichoběžník: čtyřúhelník, který má právě jednu dvojici rovnoběžných stran (základny); zbylé dvě strany jsou ramena.
+Součet vnitřních úhlů čtyřúhelníku: 360°.
+Pravidelný mnohoúhelník: mnohoúhelník, který má všechny strany shodné a všechny vnitřní úhly shodné; jeho vrcholy leží na jedné kružnici.",trojuhelnik,,
+kruh-kruznice,concept,Rovinné útvary,Kružnice a kruh,"Kružnice k(S; r): množina všech bodů roviny, které mají od středu S vzdálenost r (poloměr).
+Kruh: kružnice spolu se všemi body uvnitř ní.
+Tětiva: úsečka, která spojuje dva body kružnice; nejdelší tětivou je průměr d = 2r, který prochází středem.
+Tečna: přímka, která má s kružnicí právě jeden společný bod; je kolmá k poloměru vedenému do bodu dotyku.
+Číslo π: podíl obvodu kruhu a jeho průměru, stejný pro každý kruh; π ≐ 3,14.",zakladni-utvary,,
+jednotky-fakta,fact,Rovinné útvary,Převody jednotek,"1 km: 1 000 m
+1 m: 10 dm = 100 cm = 1 000 mm
+1 m²: 100 dm² = 10 000 cm²
+1 a: 100 m²
+1 ha: 100 a = 10 000 m²
+1 km²: 100 ha = 1 000 000 m²
+1 m³: 1 000 dm³ = 1 000 000 cm³
+1 dm³: 1 l
+1 cm³: 1 ml
+1 l: 10 dl = 100 cl = 1 000 ml
+1 hl: 100 l
+1 t: 1 000 kg
+1 kg: 1 000 g
+1 h: 60 min = 3 600 s
+1 m/s: 3,6 km/h",,,
+vzorce-obsah-obvod,fact,Rovinné útvary,Vzorce pro obvod a obsah rovinných útvarů,"obvod obdélníku se stranami a, b: o = 2 · (a + b)
+obsah obdélníku se stranami a, b: S = a · b
+obvod a obsah čtverce se stranou a: o = 4a, S = a²
+obsah trojúhelníku se stranou a a výškou vₐ k ní: S = a · vₐ / 2
+obsah rovnoběžníku se stranou a a výškou vₐ k ní: S = a · vₐ
+obsah lichoběžníku se základnami a, c a výškou v: S = (a + c) · v / 2
+obvod kruhu o poloměru r: o = 2πr
+obsah kruhu o poloměru r: S = πr²",ctyruhelniky-mnohouhelniky;kruh-kruznice,,
+uhly-vypocet,skill,Rovinné útvary,Vypočítat velikosti úhlů,"sčítat a odčítat velikosti úhlů ve stupních a minutách a dopočítat neznámé úhly v trojúhelníku, čtyřúhelníku a pravidelném mnohoúhelníku pomocí vedlejších, vrcholových, souhlasných a střídavých úhlů a součtu úhlů, s odůvodněním každého kroku.",uhly;trojuhelnik;ctyruhelniky-mnohouhelniky,,"Nejdřív ať žák sečte 37°48′ + 25°35′ a vypočítá 90° − 42°17′. Pak mu popiš dvě rovnoběžky proťaté přímkou, kde jeden z úhlů má 63°, a ať dopočítá ostatní úhly a u každého řekne, jaký vztah použil. Nakonec trojúhelník, jehož vnější úhel při vrcholu A má 128° a vnitřní úhel při vrcholu B má 47°, a vnitřní úhel pravidelného šestiúhelníku."
+obvod-obsah-mnohouhelniku,skill,Rovinné útvary,Vypočítat obvod a obsah mnohoúhelníku,"odhadnout a vypočítat obvod a obsah trojúhelníku, čtverce, obdélníku, rovnoběžníku a lichoběžníku a obsah složeného útvaru rozdělením na jednodušší části, s převodem jednotek obsahu.",vzorce-obsah-obvod;jednotky-fakta;trojuhelnik,,"Zadej lichoběžník se základnami 9 cm a 5 cm a výškou 4 cm a trojúhelník se stranou 6 cm a výškou k ní 7 cm. Pak složený útvar: z obdélníkového pozemku 8 m × 5 m se v rohu odřízne čtverec 2 m × 2 m; jaký je obsah a obvod zbytku? Ať žák nejdřív řekne, jak útvar rozdělí. Nakonec ať převede 3,5 m² na dm² a cm²."
+obvod-obsah-kruhu,skill,Rovinné útvary,Vypočítat obvod a obsah kruhu,"vypočítat obvod a obsah kruhu, půlkruhu a mezikruží a zpětně určit poloměr z obvodu, s π ≐ 3,14 nebo π ≈ 22/7, nebo výsledek ponechat s π.",vzorce-obsah-obvod;vypocet-mocnin-odmocnin,,"Zadej kruh s poloměrem 7 cm (počítej s π ≈ 22/7), kruh s průměrem 10 m (π ≐ 3,14) a mezikruží s poloměry 5 cm a 3 cm (výsledek ponech s π). Pak opačně: obvod kruhu je 31,4 cm, jaký je jeho poloměr? Ať žák vždy nejdřív řekne, zda je dán poloměr, nebo průměr."
+pythagorova-veta,concept,Rovinné útvary,Pythagorova věta,"Přepona a odvěsny: přepona je strana pravoúhlého trojúhelníku proti pravému úhlu, odvěsny jsou strany, které pravý úhel svírají.
+Pythagorova věta: v pravoúhlém trojúhelníku s odvěsnami a, b a přeponou c platí c² = a² + b².
+Věta obrácená k Pythagorově: platí-li pro strany trojúhelníku c² = a² + b², je trojúhelník pravoúhlý a pravý úhel leží proti straně c.",trojuhelnik;mocnina-odmocnina,,
+pythagorova-veta-vypocet,skill,Rovinné útvary,Dopočítat stranu pravoúhlého trojúhelníku,"vypočítat třetí stranu pravoúhlého trojúhelníku pomocí Pythagorovy věty a podle délek stran rozhodnout, zda je trojúhelník pravoúhlý.",pythagorova-veta;vypocet-mocnin-odmocnin,,"Zadej pravoúhlý trojúhelník s odvěsnami 9 cm a 12 cm a pak trojúhelník s přeponou 13 cm a odvěsnou 5 cm. Žák vždy nejdřív řekne, která strana je přepona. Pak ať rozhodne, zda je trojúhelník se stranami 7 cm, 8 cm a 11 cm pravoúhlý."
+pythagorova-veta-uziti,skill,Rovinné útvary,Použít Pythagorovu větu v úlohách,"použít Pythagorovu větu k výpočtu úhlopříčky obdélníku a čtverce, výšky rovnoramenného a rovnostranného trojúhelníku, vzdálenosti dvou bodů v soustavě souřadnic a v úlohách z praxe.",pythagorova-veta-vypocet;ctyruhelniky-mnohouhelniky;zakresleni-bodu,,"Zadej: úhlopříčku obdélníku 6 cm × 8 cm; výšku k základně rovnoramenného trojúhelníku se základnou 10 cm a rameny 13 cm; žebřík dlouhý 5 m opřený o zeď s patou 1,4 m od zdi – do jaké výšky sahá? Nakonec vzdálenost bodů A[1; 2] a B[4; 6]. Ke každé úloze ať si žák udělá náčrt a vyznačí pravý úhel."
+mnoziny-bodu,concept,"Konstrukce, shodnost a podobnost",Množiny bodů dané vlastnosti,"Osa úsečky AB: množina všech bodů, které mají stejnou vzdálenost od bodů A a B; je to přímka kolmá k úsečce v jejím středu.
+Osa úhlu: množina všech bodů úhlu, které mají stejnou vzdálenost od obou jeho ramen.
+Rovnoběžky s přímkou p ve vzdálenosti v: množina všech bodů, které mají od přímky p vzdálenost v; tvoří ji dvě přímky rovnoběžné s p.
+Thaletova kružnice nad úsečkou AB: kružnice s průměrem AB; každý její bod X různý od A a B je vrcholem pravého úhlu AXB.",kruh-kruznice;uhly,,
+zakladni-konstrukce,skill,"Konstrukce, shodnost a podobnost","Sestrojit osu, kolmici, rovnoběžku a úhel","sestrojit kružítkem a pravítkem střed a osu úsečky, osu úhlu, kolmici a rovnoběžku daným bodem a úhly 60°, 30°, 120°, 90° a 45°.",mnoziny-bodu,,"Ať žák slovy popíše krok po kroku (nebo narýsuje a popíše, co udělal) konstrukci osy úsečky, osy úhlu, kolmice z bodu k přímce a úhlů 60° a 45° jen kružítkem a pravítkem. Ke každé konstrukci ať řekne, proč funguje, s odkazem na příslušnou množinu bodů."
+thaletova-kruznice,skill,"Konstrukce, shodnost a podobnost",Využít Thaletovu kružnici,"sestrojit pomocí Thaletovy kružnice pravoúhlý trojúhelník s danou přeponou a tečnu ke kružnici z bodu, který leží vně kružnice.",zakladni-konstrukce,,"Zadej: sestroj pravoúhlý trojúhelník ABC s přeponou |AB| = 8 cm a odvěsnou |AC| = 5 cm. Ať žák nejdřív udělá náčrt a rozbor a vysvětlí, proč bod C leží na Thaletově kružnici nad AB. Pak ať popíše, jak sestrojí tečny z bodu P ke kružnici k(S; 3 cm), je-li |SP| = 7 cm, a kolik tečen existuje."
+shodnost,concept,"Konstrukce, shodnost a podobnost",Shodnost trojúhelníků,"Shodné útvary: útvary, které lze přemístit tak, aby se navzájem kryly.
+Věty o shodnosti trojúhelníků: dva trojúhelníky jsou shodné, shodují-li se ve všech třech stranách (sss), ve dvou stranách a úhlu jimi sevřeném (sus), v jedné straně a obou úhlech k ní přilehlých (usu), nebo ve dvou stranách a úhlu proti větší z nich (Ssu).",trojuhelnik,,
+konstrukce-trojuhelniku,skill,"Konstrukce, shodnost a podobnost",Sestrojit trojúhelník,"sestrojit trojúhelník ze tří daných prvků podle vět sss, sus a usu, i když je mezi nimi výška nebo těžnice, s náčrtem, rozborem, zápisem postupu, konstrukcí a diskusí o počtu řešení.",shodnost;zakladni-konstrukce,,"Zadej trojúhelník ABC, kde c = 6 cm, a = 5 cm a β = 60°, a ať žák řekne, podle které věty je určen. Pak trojúhelník ABC, kde c = 7 cm, b = 5 cm a výška vc = 4 cm. Ať zapíše postup po krocích obvyklou školní symbolikou a v diskusi řekne, kolik řešení má úloha v jedné polorovině s hraniční přímkou AB."
+konstrukce-ctyruhelniku,skill,"Konstrukce, shodnost a podobnost",Sestrojit čtyřúhelník,"sestrojit rovnoběžník, kosočtverec a lichoběžník z daných délek stran, úhlopříček, úhlů nebo výšek, s náčrtem, rozborem a zápisem postupu.",konstrukce-trojuhelniku;ctyruhelniky-mnohouhelniky,,"Zadej rovnoběžník ABCD, kde |AB| = 7 cm, |AD| = 4 cm a úhlopříčka |AC| = 9 cm, a ať žák najde v náčrtu trojúhelník, který lze sestrojit jako první. Pak lichoběžník ABCD se základnami |AB| = 8 cm a |CD| = 3 cm a rameny |BC| = 5 cm a |AD| = 4 cm; ať najde pomocný trojúhelník, ze kterého konstrukce vychází."
+polohove-konstrukce,skill,"Konstrukce, shodnost a podobnost",Řešit polohové konstrukční úlohy,"najít všechny body, které mají několik předepsaných vlastností najednou, jako průnik množin bodů a určit, kolik řešení úloha má podle polohy daných útvarů.",thaletova-kruznice,,"Zadej: jsou dány body A, B a přímka p; najdi na přímce p všechny body, které mají stejnou vzdálenost od A i od B. Pak: najdi všechny body, které mají od bodu S vzdálenost 3 cm a od přímky q vzdálenost 2 cm. Ať žák nejdřív řekne, jaká množina bodů odpovídá každé podmínce, a pak hledá jejich průnik a diskutuje, jak počet řešení závisí na vzájemné poloze."
+podobnost,concept,"Konstrukce, shodnost a podobnost",Podobnost,"Podobné útvary: útvary, z nichž jeden je zvětšeninou nebo zmenšeninou druhého; odpovídající si úhly jsou shodné a délky odpovídajících si stran jsou ve stejném poměru.
+Poměr podobnosti k: podíl délek odpovídajících si stran; pro k > 1 jde o zvětšení, pro k < 1 o zmenšení.
+Věty o podobnosti trojúhelníků: trojúhelníky jsou podobné, shodují-li se ve dvou úhlech (uu), jsou-li všechny tři dvojice odpovídajících si stran ve stejném poměru (sss), nebo jsou-li dvě dvojice stran ve stejném poměru a shodují-li se v úhlu jimi sevřeném (sus).",shodnost;pomer,,
+podobnost-vypocet,skill,"Konstrukce, shodnost a podobnost",Počítat s podobností trojúhelníků,"určit poměr podobnosti, dopočítat délky stran podobných trojúhelníků a řešit úlohy z praxe, ve kterých podobnost využije.",podobnost;uprava-pomeru,,"Zadej trojúhelník se stranami 4 cm, 6 cm a 8 cm a podobný trojúhelník, jehož nejkratší strana měří 6 cm. Ať žák určí poměr podobnosti a zbylé strany. Pak úlohu se stínem: tyč dlouhá 1,5 m vrhá stín 2 m a strom vrhá ve stejnou chvíli stín 12 m; jak vysoký je strom? Ať žák zdůvodní, proč jsou trojúhelníky podobné."
+soumernost,concept,"Konstrukce, shodnost a podobnost",Osová a středová souměrnost,"Osová souměrnost s osou o: zobrazení, které každému bodu X přiřadí bod X′ tak, že o je osou úsečky XX′; body osy se zobrazí samy na sebe.
+Středová souměrnost se středem S: zobrazení, které každému bodu X přiřadí bod X′ tak, že S je středem úsečky XX′.
+Osově souměrný útvar: útvar, který se v osové souměrnosti s nějakou osou zobrazí sám na sebe.
+Středově souměrný útvar: útvar, který se ve středové souměrnosti s nějakým středem zobrazí sám na sebe.",mnoziny-bodu,,
+obraz-v-soumernosti,skill,"Konstrukce, shodnost a podobnost",Sestrojit obraz útvaru v souměrnosti,"sestrojit obraz bodu, úsečky, trojúhelníku a kružnice v osové a ve středové souměrnosti a určit osy souměrnosti a střed souměrnosti daného útvaru.",soumernost;zakladni-konstrukce,,"Ať žák popíše, jak sestrojí obraz trojúhelníku v osové souměrnosti, jejíž osa trojúhelník protíná, a pak obraz téhož trojúhelníku ve středové souměrnosti se středem mimo něj. Nakonec ať určí, kolik os souměrnosti má rovnostranný trojúhelník, čtverec, obdélník a kruh a které z nich jsou středově souměrné."
+telesa,concept,Tělesa,Základní tělesa,"Kvádr: těleso ohraničené šesti obdélníky; krychle je kvádr, jehož stěny jsou shodné čtverce.
+Kolmý hranol: těleso se dvěma shodnými rovnoběžnými podstavami (mnohoúhelníky) a obdélníkovými bočními stěnami kolmými k podstavám.
+Rotační válec: těleso se dvěma shodnými kruhovými podstavami; jeho plášť se rozvine do obdélníku.
+Jehlan: těleso s mnohoúhelníkovou podstavou a trojúhelníkovými bočními stěnami, které se sbíhají v hlavním vrcholu.
+Rotační kužel: těleso s kruhovou podstavou, jehož plášť se sbíhá do vrcholu.
+Koule: množina všech bodů prostoru, které mají od středu vzdálenost nejvýše r.",ctyruhelniky-mnohouhelniky;kruh-kruznice,,
+povrch-objem,concept,Tělesa,Povrch a objem,"Povrch tělesa: součet obsahů všech jeho stěn (u válce a kužele obsah podstav a pláště); udává se v jednotkách obsahu, např. cm².
+Plášť: povrch tělesa bez podstav.
+Objem tělesa: velikost části prostoru, kterou těleso zaujímá; udává se v jednotkách objemu, např. cm³ nebo l.",telesa,,
+vzorce-telesa,fact,Tělesa,Vzorce pro objem a povrch těles,"objem kvádru s hranami a, b, c: V = a · b · c
+povrch kvádru s hranami a, b, c: S = 2 · (ab + bc + ac)
+objem a povrch krychle s hranou a: V = a³, S = 6a²
+objem kolmého hranolu: obsah podstavy krát výška hranolu, V = Sₚ · v
+povrch kolmého hranolu: dvakrát obsah podstavy plus obsah pláště
+objem válce s poloměrem podstavy r a výškou v: V = πr²v
+povrch válce s poloměrem podstavy r a výškou v: S = 2πr² + 2πrv
+objem jehlanu: třetina součinu obsahu podstavy a výšky, V = Sₚ · v / 3
+objem kužele s poloměrem podstavy r a výškou v: V = πr²v / 3
+povrch kužele s poloměrem podstavy r a stranou s: S = πr² + πrs
+objem koule o poloměru r: V = 4/3 · πr³
+povrch koule o poloměru r: S = 4πr²",povrch-objem,,
+sit-a-obraz-telesa,skill,Tělesa,Načrtnout síť a obraz tělesa,"načrtnout a sestrojit síť kvádru, krychle, kolmého hranolu a válce, rozhodnout, zda daný obrazec je sítí krychle, a načrtnout kvádr, hranol a jehlan ve volném rovnoběžném promítání s neviditelnými hranami čárkovaně.",telesa;zakladni-konstrukce,,"Ať žák popíše nebo načrtne síť kvádru 4 cm × 3 cm × 2 cm a síť válce s poloměrem podstavy 2 cm a řekne, jak dlouhá je strana obdélníku pláště, která se obtočí kolem podstavy. Pak mu popiš několik obrazců ze šesti čtverců a ať rozhodne, které z nich jsou sítí krychle. Nakonec ať načrtne kvádr ve volném rovnoběžném promítání."
+objem-povrch-hranol,skill,Tělesa,Vypočítat objem a povrch kvádru a hranolu,"odhadnout a vypočítat objem a povrch kvádru, krychle a kolmého hranolu s trojúhelníkovou nebo lichoběžníkovou podstavou a převádět jednotky objemu včetně litrů.",vzorce-telesa;obvod-obsah-mnohouhelniku,,"Zadej kvádr 5 cm × 4 cm × 3 cm a pak kolmý hranol, jehož podstavou je pravoúhlý trojúhelník s odvěsnami 6 cm a 8 cm a jehož výška je 10 cm; chybějící stranu podstavy ať žák dopočítá sám. Nakonec: kolik litrů vody se vejde do akvária 60 cm × 30 cm × 40 cm?"
+objem-povrch-valec,skill,Tělesa,Vypočítat objem a povrch válce,"vypočítat objem, povrch a obsah pláště válce a použít je v úlohách z praxe.",vzorce-telesa;obvod-obsah-kruhu,,"Zadej sud tvaru válce s poloměrem podstavy 3 dm a výškou 10 dm: kolik litrů se do něj vejde (π ≐ 3,14)? Pak plechovku s průměrem 8 cm a výškou 12 cm: kolik cm² plechu je na ni potřeba bez odpadu? Ať žák hlídá, zda pracuje s poloměrem, nebo s průměrem, a převede dm³ na litry."
+objem-povrch-jehlan-kuzel-koule,skill,Tělesa,"Vypočítat objem a povrch jehlanu, kužele a koule","vypočítat objem jehlanu, kužele a koule a povrch pravidelného čtyřbokého jehlanu, kužele a koule a chybějící výšku stěny nebo stranu kužele dopočítat Pythagorovou větou.",objem-povrch-hranol;objem-povrch-valec;pythagorova-veta-vypocet,,"Zadej pravidelný čtyřboký jehlan s podstavnou hranou 6 cm a výškou 4 cm: objem a povrch, kde výšku boční stěny žák dopočítá Pythagorovou větou. Pak kužel s poloměrem podstavy 3 cm a výškou 4 cm (objem a strana kužele) a kouli s poloměrem 3 cm (objem, výsledek ponech s π)."
+aplikacni-geometricke,skill,Tělesa,Řešit geometrické úlohy z praxe,"řešit úlohy z praxe, ve kterých je potřeba zvolit vhodný geometrický model, výsledek zaokrouhlit podle situace a posoudit, zda je reálný.",objem-povrch-hranol;objem-povrch-valec;pythagorova-veta-uziti;zaokrouhlovani-odhad,,"Zadej úlohu s více kroky: bazén tvaru kvádru 25 m × 10 m je hluboký 1,8 m. Kolik hektolitrů vody je potřeba, má-li být napuštěn do výšky 1,6 m, a kolik m² dlaždic je potřeba na dno a stěny? Ať žák nejdřív načrtne model, řekne, co zanedbává, a nakonec posoudí, zda je výsledek reálný."
+ciselne-rady,skill,Nestandardní úlohy,Najít pravidlo číselné a obrázkové řady,"najít pravidlo, podle kterého vzniká číselná nebo obrázková řada, pokračovat v ní, zapsat n-tý člen výrazem a určit člen na vzdálenějším místě.",zapis-vyrazem,,"Zadej řadu 3, 7, 11, 15, … a ať žák najde pravidlo, určí 10. člen a zapíše n-tý člen výrazem. Pak obrázkovou řadu: čtverce ze sirek v jedné řadě, kde 1 čtverec potřebuje 4 sirky, 2 čtverce 7 sirek a 3 čtverce 10 sirek. Kolik sirek je potřeba na 20 čtverců?"
+logicke-kombinacni,skill,Nestandardní úlohy,Řešit logické a kombinační úlohy,"systematicky vypsat všechny možnosti (stromem, tabulkou nebo uspořádaným seznamem), spočítat, kolik jich je, a řešit logické úlohy, ve kterých je třeba vyvodit závěr z několika podmínek.",,,"Zadej: kolik různých trojciferných čísel lze sestavit z číslic 1, 2, 5 a 7, nesmějí-li se číslice opakovat? Ať žák možnosti nejdřív systematicky vypisuje a pak sám objeví, proč stačí násobit. Pak logickou úlohu, např. tři kamarádi, tři různé sporty a tři nápovědy, kterou žák řeší tabulkou."
+prostorova-predstavivost,skill,Nestandardní úlohy,Řešit úlohy na prostorovou představivost,"určit, z kolika krychlí je stavba složena a jak vypadá při pohledu zepředu, shora a zboku, a usuzovat, jak se změní povrch nebo počet obarvených stěn, když se těleso rozřeže.",povrch-objem,,"Popiš stavbu z krychlí plánem, kde čísla udávají, kolik krychlí stojí na sobě, a ať žák určí počet krychlí a popíše pohled zepředu a zprava. Pak: natřená krychle s hranou 3 cm se rozřeže na krychličky s hranou 1 cm. Kolik krychliček vznikne a kolik z nich má obarvené právě dvě stěny?"
+hypoteza-protipriklad,skill,Nestandardní úlohy,Ověřit domněnku nebo ji vyvrátit protipříkladem,"vyslovit domněnku na základě několika příkladů, ověřit ji dalšími příklady, vyvrátit nepravdivé tvrzení jedním protipříkladem a jednoduché pravdivé tvrzení zdůvodnit obecně.",delitelnost-pojmy;zapis-vyrazem,,"Předlož žákovi tři tvrzení a ať u každého rozhodne, zda platí vždy: „Součet dvou prvočísel je sudé číslo.“ „Součet tří po sobě jdoucích přirozených čísel je dělitelný třemi.“ „Když číslo zvětším o 10 % a pak zmenším o 10 %, dostanu původní číslo.“ U nepravdivých ať najde protipříklad, u pravdivého ať zkusí obecné zdůvodnění pomocí proměnné."
+slozena-uloha,skill,Nestandardní úlohy,Vyřešit složitější úlohu z více oblastí,"rozebrat delší úlohu, která spojuje poznatky z několika oblastí, naplánovat postup, odhadnout výsledek, ověřit, zda odpověď splňuje všechny podmínky, a najít chybu v cizím řešení.",slovni-ulohy-rovnice;slovni-ulohy-procenta;aplikacni-geometricke,,"Zadej delší úlohu, která spojuje dvě nebo tři oblasti, např. zahradu tvaru lichoběžníku, z níž se 40 % oseje trávou a na zbytek se koupí štěrk za danou cenu za m². Než žák začne počítat, ať řekne plán řešení v bodech a odhadne výsledek. Pak mu ukaž hotové řešení podobné úlohy s jednou chybou, třeba jako by ho napsal chatbot, a ať chybu najde a vysvětlí."

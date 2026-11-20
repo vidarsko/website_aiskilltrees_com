@@ -1,0 +1,13 @@
+{
+  "doc-title": "Έρευνα | AI Skill Trees",
+  "meta-description": "Υπόβαθρο για τον σχεδιασμό, και το άρθρο που περιγράφει τη μέθοδο.",
+  "page-heading": "Έρευνα",
+  "page-lede": "Η δημοσιευμένη έκδοση της μεθόδου και πώς να την παραθέσεις.",
+  "cite-eyebrow": "Λογισμικό και παραπομπή",
+  "cite-heading": "Έκδοση 0.33.0",
+  "cite-body-1": "Η μηχανή, οι οδηγίες, τα γλωσσικά αρχεία και το αρχικό δέντρο βρίσκονται σε δημόσιο αποθετήριο στο GitHub, το <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Αυτός ο ιστότοπος δημοσιεύει την έκδοση <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Κάθε έκδοση αρχειοθετείται στο Zenodo με το δικό της DOI. Η έκδοση 0.33.0 έχει το <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. Το DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> δείχνει πάντα στην πιο πρόσφατη έκδοση.",
+  "cite-body-3": "Αν χρησιμοποιήσεις τη μέθοδο ή το υλικό, παράθεσε την έκδοση που χρησιμοποίησες και όχι τον κύριο κλάδο (main):",
+  "cite-cta-github": "Η έκδοση στο GitHub",
+  "cite-cta-zenodo": "Το αρχείο στο Zenodo"
+}

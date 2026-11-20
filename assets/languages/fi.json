@@ -1,0 +1,458 @@
+{
+  "code": "fi",
+  "htmlLang": "fi",
+  "name": "Suomi",
+  "endonym": "Suomi",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, the prompts and the tree folders stay untouched. See AGENTS.md, «Ferdighetstrærne». Finnish inflects nouns, so a {placeholder} that is a name is never inflected: it stands in quotation marks after a head noun that carries the case (»aihealueen ”{topic}” oppimistavoitteet«), or after a colon.",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the form the instructions and the panel use: ”oppilas”, ”opiskelija”, ”osallistuja” or anything else. Finnish has no articles, so the »definite« form is the plain nominative. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. A skill is a bare infinitive phrase (”Oppilas osaa: laskea murtolukuja yhteen”), a concept a definition, and they need different lead-ins.",
+    "default": "oppilas",
+    "legacy": {
+      "pupil": "oppilas",
+      "student": "opiskelija",
+      "participant": "osallistuja"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} osaa:",
+      "concept": "{LearnerDefinite} osaa selittää:",
+      "fact": "{LearnerDefinite} muistaa:"
+    }
+  },
+  "ui": {
+    "backLink": "← Kaikki puut",
+    "pageTitle": "Taitopuu: {title}",
+    "tagline": "Kartta siitä, miten oppimistavoitteet rakentuvat toistensa varaan — merkitse, mitä osaat, ja kopioi tekoälyohje, jolla harjoittelet seuraavaa.",
+    "makeYourOwn": "{subject}. Tee oma puusi:",
+    "progressLabel": "Osattu {done}/{total} oppimistavoitteesta",
+    "zoomIn": "Lähennä",
+    "zoomOut": "Loitonna",
+    "fitToView": "Näytä koko puu",
+    "fitToViewTitle": "Näytä koko puu (zoomaa Ctrl + rullalla)",
+    "close": "✕ Sulje",
+    "closeLower": "✕ Sulje",
+    "copied": "Kopioitu!",
+    "copyFallback": "Automaattinen kopiointi ei onnistunut — kopioi alla oleva teksti käsin:",
+    "errorBanner": "⚠ Datatiedostoista löytyi ongelmia: {n} (lisätiedot konsolissa):",
+    "errorCsv": "Taulukkoa ei voitu lukea, rivi {row}: {message}",
+    "errorCsvHeader": "Tiedoston {file} ensimmäisellä rivillä pitää olla sarakkeiden nimet. Puuttuu: {missing}. Ensimmäinen rivi on: {found}. Tiedosto on luultavasti tallennettu ilman ensimmäistä riviä tai eri muodossa; tallenna se uudelleen tavallisena CSV-tiedostona.",
+    "errorUnknownDep": "Solmu ”{id}” mainitsee esitietona tunnuksen ”{dep}”, mutta millään solmulla ei ole sitä.",
+    "errorNoTopic": "Solmulla ”{id}” ei ole aihealuetta, joten se päätyy kokoojasarakkeeseen ”{topic}”.",
+    "errorUnknownResourceNode": "tree.csv, rivi {row}: resurssi viittaa depends_on-sarakkeessa solmutunnukseen ”{id}”, jota ei ole olemassa.",
+    "errorExamsRenamed": "tree.csv, rivi {row}: asetus ”features.exams” on ajalta ennen versiota 0.22.0. Resurssit ovat nyt tree.csv:n rivejä, joiden tyyppi on ”resource”: topic = ryhmä, name = otsikko, description = linkki, depends_on = solmut. Poista rivi ja avaa puu rakentajassa, niin voit muuntaa vanhan exams.csv:n. Mitään ei otettu käyttöön.",
+    "errorResourceEmpty": "tree.csv, rivi {row}: resurssilla ei ole otsikkoa (name) eikä linkkiä (description).",
+    "errorResourceNoNode": "tree.csv, rivi {row}: resurssi ”{label}” ei kuulu mihinkään solmuun. Kirjoita depends_on-sarakkeeseen yksi tai useampi solmutunnus tai poista rivi.",
+    "errorResourceDuplicate": "tree.csv, rivi {row}: resurssi ”{label}” on sama kuin rivillä {first}. Yhdistä ne yhdeksi riviksi, jonka depends_on-sarakkeessa ovat kaikki solmut.",
+    "errorResourceUrl": "tree.csv, rivi {row}: resurssin ”{label}” linkin pitää alkaa https:// tai mailto:. Siksi se näytetään tavallisena tekstinä ilman linkkiä.",
+    "errorCycle": "Nämä solmut ovat toistensa esitietoja kehässä: {cycle}. Yksi näistä yhteyksistä on poistettava.",
+    "errorUnknownConfig": "Tuntematon asetus ”{key}” (tree.csv, rivi {row}). Mitään ei otettu käyttöön.",
+    "errorUnknownNodeType": "Solmun ”{id}” tyyppi on ”{type}”, jota ei ole olemassa. Tyypit ovat: {valid}.",
+    "errorUnknownPromptSection": "Tuntematon osio ”{section}” prompt-rivillä (tree.csv, rivi {row}). Mitään ei otettu käyttöön.",
+    "errorUnknownPromptTarget": "Prompt-rivi (tree.csv, rivi {row}) kohdistuu ohjeeseen ”{name}”, jota tämä puu ei kokoa. Mitään ei otettu käyttöön.",
+    "errorDidYouMean": "Tarkoititko: ”{key}”?",
+    "errorMissingConfig": "tree.csv:stä puuttuu pakollinen config-rivi ”{key}”.",
+    "errorStyleColor": "Asetuksen ”{key}” (tree.csv, rivi {row}) pitää olla heksakoodina kirjoitettu väri, esimerkiksi #1F6F4A. ”{value}” ei ole sellainen, joten oletusväri säilytettiin.",
+    "errorLinkUrl": "Asetuksen ”{key}” (tree.csv, rivi {row}) pitää olla linkki, joka alkaa https:// tai mailto:. ”{value}” ei ole sellainen, joten se näytetään tavallisena tekstinä.",
+    "errorStyleFont": "Tuntematon fontti ”{value}” (tree.csv, rivi {row}). Fontit, joita puu voi käyttää: {valid}. Oletusfontti säilytettiin.",
+    "nodeType": {
+      "skill": "taito",
+      "concept": "käsite",
+      "fact": "faktat"
+    },
+    "badges": {
+      "del1": "Osa 1",
+      "del2": "Osa 2",
+      "begge": "Osa 1+2"
+    },
+    "status": {
+      "mastered": "Osattu",
+      "ready": "Valmis opittavaksi",
+      "notMastered": "Ei vielä osattu",
+      "blocked": "Ensin puuttuu: {codes}"
+    },
+    "help": {
+      "label": "Ohje",
+      "heading": "Ohje",
+      "sections": [
+        {
+          "heading": "Valikko",
+          "body": "Kaikki muu löytyy vasemman alakulman ☰-painikkeen takaa: oppimistavoitteet, haku, koe, tulostus ja muut. Jokaisessa ikkunassa on ”?”, joka selittää sen.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Kartta",
+          "body": "Jokainen laatikko on oppimistavoite, ja nuolet lähtevät siitä, mitä sinun pitää osata ensin. Muoto kertoo tyypin: faktat ovat neliöitä, käsitteet hieman pyöristettyjä ja taidot pyöreitä. Siirrä karttaa vetämällä ja zoomaa painikkeilla + ja −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Osattu",
+          "body": "Paina laatikon rengasta, kun osaat oppimistavoitteen, niin siihen tulee vihreä rasti. Tieto tallentuu vain selaimeesi.",
+          "figure": "check"
+        },
+        {
+          "heading": "Yksi laatikko",
+          "body": "Paina laatikkoa, niin näet, mitä oppimistavoite vaatii ja mihin se perustuu, sekä tekoälyohjeen, jonka voit liittää tekoälychattiin ja harjoitella sen avulla. Sulje painamalla uudelleen.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Merkitse monta",
+          "body": "Luettelokuvakkeet merkitsevät kerralla kaikki aihealueen tavoitteet tai poistavat merkinnät. A ja B koskevat koko puuta.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Haku",
+          "body": "Etsi oppimistavoite sanalla, joka on sen nimessä tai kuvauksessa.",
+          "figure": "search"
+        },
+        {
+          "heading": "Koe",
+          "body": "Tekoälyohje kokeeseen valitsemistasi tavoitteista. Sinä päätät vaikeustason sekä tehtävien määrän ja tyypin.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Tuntisuunnitelmat (opettajille)",
+          "body": "Valitse oppimistavoitteet ja paina ”Tee materiaali”, niin saat tuntisuunnitelman, minipuun tai simulaation.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Tulostus",
+          "body": "Lataa koko puu PDF-tiedostona, jossa on renkaat, joihin oppilaat voivat merkitä rastin kynällä.",
+          "figure": "print"
+        },
+        {
+          "heading": "Apuvälinemerkintä",
+          "body": "”Osa 1” tai ”Osa 2” paneelissa kertoo, mihin apuvälinetasoon tavoite kuuluu. Paina merkintää, niin voit lukea lisää kohdasta ”Tietoa oppiaineesta”.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivaatio",
+          "body": "Lyhyt keskustelu tekoälyn kanssa siitä, miksi ainetta kannattaa opiskella.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Pikanäppäimet",
+        "search": "Avaa haku",
+        "escape": "Sulje avoinna oleva ikkuna, valikko tai paneeli",
+        "zoom": "Lähennä ja loitonna",
+        "fit": "Näytä koko puu ja palaa takaisin"
+      }
+    },
+    "safety": {
+      "label": "Turvallisuus",
+      "heading": "Turvallisuus",
+      "lead": "Taitopuun tekee opettaja, mutta kuka tahansa voi tehdä tiedoston, joka näyttää taitopuulta. Lue tämä ennen kuin käytät puuta, jonka joku on lähettänyt sinulle.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Taitopuu ei koskaan pyydä henkilötietoja",
+          "body": "Puussa ei ole kirjautumista, eikä se tarvitse sinusta mitään tietoja. Se ei koskaan pyydä nimeäsi, salasanaa, koulun tunnuksiasi, henkilötunnusta, osoitettasi, puhelinnumeroasi tai tietoa siitä, missä koulussa käyt. Edistymisesi tallentuu vain tämän laitteen selaimeen. Jos taitopuulta näyttävä sivu pyytää jotain näistä, se ei ole aito. Sulje se ja kerro opettajallesi."
+        },
+        {
+          "id": "sender",
+          "heading": "Kuka lähetti sinulle puun?",
+          "body": "Tärkein kysymys on, mistä puu on peräisin. Puuhun, joka on osoitteessa aiskilltrees.com, tai puuhun, jonka opettajasi on julkaissut siellä, mistä saatte yleensä kurssimateriaalit, voit luottaa yhtä paljon kuin luotat opettajaasi. Jos sait tiedoston sähköpostilla, chatissa tai somessa joltakulta, jota et tunne, tai se tuli odottamatta, suhtaudu siihen epäillen, vaikka se näyttäisi oikealta."
+        },
+        {
+          "id": "html",
+          "heading": "HTML-tiedosto on verkkosivu, ei asiakirja",
+          "body": "Kun joku jakaa puun .html-tiedostona, et saa asiakirjaa kuten PDF- tai Word-tiedostoa. Saat kokonaisen verkkosivun, jossa on koodia, joka käynnistyy, kun avaat sen. Selain estää sitä lukemasta tiedostojasi tai asentamasta mitään tietokoneelle, mutta se voi näyttää mitä tahansa: väärennetyn kirjautumissivun, painikkeen, joka lataa jotain, tai linkkejä muille sivustoille. Tiedoston tekijä päättää, mitä se tekee. Vaikka tiedosto näyttää taitopuulta, se ei välttämättä ole taitopuu. Älä koskaan kirjaudu sisään tai lataa mitään sivulta, jonka avasit tiedostosta."
+        },
+        {
+          "id": "links",
+          "heading": "Tarkista linkit ennen kuin klikkaat",
+          "body": "Puun materiaalit voivat linkittää videoihin, tehtäviin ja oppikirjoihin. Vie hiiri linkin päälle tai paina sitä pitkään ja katso, minne se vie, ennen kuin klikkaat. Jos et tunnista sivustoa tai osoite näyttää oudolta, jätä se väliin."
+        },
+        {
+          "id": "injection",
+          "heading": "Ohjeita voi peukaloida",
+          "body": "Kopioimasi tekoälyohje on puun tekijän kirjoittamaa tekstiä, ja liität sen suoraan tekoälychattiin. Puun tekijä voi kirjoittaa siihen mitä tahansa, myös käskyjä, jotka saavat chatin toimimaan eri tavalla kuin odotat: antamaan vääriä vastauksia, ohjaamaan sinut toiselle sivustolle tai kyselemään asioita, jotka eivät sille kuulu. Tätä kutsutaan kehoteinjektioksi (prompt injection). Voit silmäillä tekstin ennen kuin liität sen, äläkä luota chattiin sokeasti."
+        },
+        {
+          "id": "chat",
+          "heading": "Sinä päätät, mitä kerrot chatille",
+          "body": "Jotkin ohjeet pyytävät chattia tutustumaan sinuun, esimerkiksi siihen, mitä ajattelet aineesta ja missä olet hyvä. Voit vastata niin paljon tai vähän kuin haluat. Mikään ohje ei kuitenkaan tarvitse nimeäsi, yhteystietojasi tai salasanojasi. Jos chatti kysyy jotain sellaista, älä vastaa, ja kerro opettajallesi. Muista myös, että chatin ylläpitäjä tallentaa sen, mitä kirjoitat tekoälychattiin. Koulullasi on usein käytössä tekoälypalvelu, jossa yksityisyytesi on suojattu. Kysy opettajaltasi ja käytä sitä, jos teillä on sellainen."
+        },
+        {
+          "id": "teachers",
+          "heading": "Opettajille: puu kollegalta",
+          "body": "Jos sait puun joltakulta muulta, voit varmuuden vuoksi avata sen rakentajassa osoitteessa aiskilltrees.com/make-your-own/ ennen kuin jaat sen oppilaillesi. Rakentaja ottaa tiedostosta vain taulukon ja tekee siitä uuden, puhtaan tiedoston, ja siellä voit lukea jokaisen ohjeen, jota puu käyttää."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Oppimistavoitteet",
+      "title": "Näytä järjestelmällinen luettelo kaikista oppimistavoitteista aihealueittain",
+      "heading": "Oppimistavoitteet",
+      "copyAll": "Kopioi kaikki",
+      "intro": "Luettelossa ovat kaikki oppiaineen oppimistavoitteet aihealueittain ja kunkin tila. Merkitse tavoite osatuksi rastilla — sama rasti kuin kartan solmussa — niin voit käydä luettelon läpi järjestyksessä ja merkitä, minkä olet jo käynyt läpi.",
+      "markAria": "Merkitse tavoite ”{name}” osatuksi",
+      "markAllButton": "Merkitse kaikki osatuiksi",
+      "clearAllButton": "Poista kaikki osattu-merkinnät",
+      "clearAllConfirm": "Poistetaanko osattu-merkintä puun kaikista oppimistavoitteista?",
+      "openNode": "Siirry tähän solmuun kartalla"
+    },
+    "lessonPlanner": {
+      "button": "Tuntisuunnitelmat",
+      "title": "Valitse oppimistavoitteet ja kopioi tekoälyohje tuntisuunnitelmaa, minipuuta tai simulaatiota varten",
+      "selectAll": "Valitse kaikki",
+      "deselectAll": "Poista valinnat",
+      "selectTopic": "Valitse kaikki aihealueen ”{topic}” oppimistavoitteet",
+      "deselectTopic": "Poista valinta aihealueen ”{topic}” kaikista oppimistavoitteista",
+      "heading": "Tuntisuunnitelmat",
+      "intro": "Rastita oppimistavoitteet, joista haluat tehdä jotain, ja paina alareunan ”Tee materiaali”. Siellä valitset, mitä siitä tulee: tuntisuunnitelma, minipuu tai simulaatio. Nämä rastit ovat vain tätä varten: ne eivät merkitse mitään osatuksi, ja ne katoavat, kun lataat sivun uudelleen."
+    },
+    "search": {
+      "button": "Haku",
+      "title": "Hae oppimistavoitteita nimen ja kuvauksen perusteella",
+      "heading": "Haku",
+      "placeholder": "Hae oppimistavoitteista …",
+      "hint": "Kirjoita sana. Haku etsii jokaisen oppimistavoitteen nimestä, kuvauksesta ja aihealueesta, ja voit siirtyä suoraan kartan solmuun klikkaamalla.",
+      "noResults": "Hakusanalla ”{query}” ei löytynyt oppimistavoitteita.",
+      "countOne": "1 oppimistavoite",
+      "countMany": "{n} oppimistavoitetta",
+      "openNode": "Siirry tähän solmuun kartalla"
+    },
+    "resourceList": {
+      "button": "Tehtävät ja lähteet",
+      "title": "Näytä puun kaikki materiaalit ja oppimistavoitteet, joihin ne kuuluvat",
+      "heading": "Tehtävät ja lähteet",
+      "placeholder": "Suodata tehtäviä ja lähteitä …",
+      "intro": "Tehtäviä ja lähteitä: {n}",
+      "countFiltered": "{n}/{total}",
+      "noResults": "Hakusanalla ”{query}” ei löytynyt materiaaleja.",
+      "openNode": "Siirry tähän solmuun kartalla",
+      "help": "Puuhun kuuluvat tehtävät ja lähteet, kuten koetehtävät, linkit ja videot. Kunkin alla ovat oppimistavoitteet, joihin se kuuluu; paina tavoitetta, niin siirryt siihen kartalla. Suodata kirjoittamalla kenttään."
+    },
+    "motivation": {
+      "button": "Motivaatio",
+      "title": "Kopioi tekoälyohje keskusteluun siitä, miksi ainetta kannattaa opiskella",
+      "heading": "Motivaatio",
+      "desc": "Lyhyt keskustelu tekoälyn kanssa siitä, miksi ainetta kannattaa opiskella. Tekoäly kysyy ja kuuntelee, ja löydätte vastauksen yhdessä.",
+      "help": "Paina ”Kopioi ohje” ja liitä se tekoälychattiin. Keskustelu alkaa siitä, missä sanot olevasi, ja tekoäly kysyy yhden kysymyksen kerrallaan. Mitään kirjoittamaasi ei tallenneta tänne.",
+      "startLabel": "Miltä aine sinusta tuntuu?",
+      "start": {
+        "unknown": "En tiedä",
+        "hard": "Se on vaikeaa",
+        "bored": "Se on tylsää",
+        "use": "Mihin tarvitsen tätä?"
+      },
+      "lengthLabel": "Pituus",
+      "length": {
+        "short": "Lyhyt",
+        "normal": "Tavallinen",
+        "long": "Pitkä"
+      }
+    },
+    "lesson": {
+      "button": "Tee tuntisuunnitelma (opettajille)",
+      "title": "Kopioi tekoälyohje kokonaiseen oppituntiin rastittamistasi tavoitteista",
+      "typeLabel": "Tunnin tyyppi",
+      "typeAria": "Millainen oppitunti on kyseessä",
+      "types": {
+        "intro": "Johdanto",
+        "practice": "Harjoittelu",
+        "review": "Kertaus",
+        "other": "Muu"
+      },
+      "minutesLabel": "Pituus",
+      "minutesAria": "Oppitunnin pituus minuutteina",
+      "includeAria": "Ota tavoite ”{name}” mukaan tuntisuunnitelmaan",
+      "selectedNone": "Ei valittuja oppimistavoitteita",
+      "selectedOne": "1 oppimistavoite valittu",
+      "selectedMany": "{n} oppimistavoitetta valittu"
+    },
+    "make": {
+      "button": "Tee materiaali →",
+      "buttonTitle": "Valitse, mitä teet rastittamillesi oppimistavoitteille",
+      "heading": "Mitä haluat tehdä?",
+      "back": "← Oppimistavoitteet",
+      "forOne": "1 oppimistavoitteelle:",
+      "forMany": "{n} oppimistavoitteelle:",
+      "copy": "Kopioi ohje",
+      "htmlBadge": "HTML-tiedosto",
+      "htmlAfter": "Liitä se tekoälychattiin. Vastaus on HTML-tiedosto, jonka tallennat ja avaat selaimessa ja voit jakaa oppilaillesi.",
+      "lesson": {
+        "title": "Tuntisuunnitelma",
+        "desc": "Valmis suunnitelma yhdelle oppitunnille: minuuttiaikataulu, taululle tulevat asiat ja vastaukset kaikkiin tehtäviin.",
+        "minutes": "min",
+        "shorter": "Lyhyempi",
+        "longer": "Pidempi",
+        "after": "Liitä se tekoälychattiin. Vastaus on suunnitelma, jota voit seurata opettaessasi.",
+        "typeHints": {
+          "intro": "Uudet oppimistavoitteet: aloitustehtävä, malliesimerkit kierroksittain, diagnostinen kysymys jokaisesta tavoitteesta ja lopuksi mieleen palauttaminen.",
+          "practice": "Äskettäin opitut tavoitteet: lyhyt muistutus ja sitten tehtäväsarjoja, joissa on pieniä muunnelmia ja yhä vähemmän tukea.",
+          "review": "Aiemmin opitut tavoitteet: mieleen palauttaminen ilman muistiinpanoja, tarkistus siitä, mikä on jäänyt mieleen, uusi opetus tarvittaessa ja sekoitettua harjoittelua.",
+          "other": "Jotain muuta: kuvaa oppitunti itse, tai tekoäly kysyy sinulta ensin."
+        }
+      },
+      "miniTree": {
+        "title": "Minipuu",
+        "desc": "Taitopuu, jossa oppilaat harjoittelevat itsenäisesti ennen koetta: valitut tavoitteet koottuina muutamaksi teemaksi, joissa on tasoja, malliesimerkki ennen jokaista tehtäväkierrosta, vastaus ja selitys jälkeenpäin sekä osaaminen, joka avaa seuraavan tason.",
+        "levelsLabel": "Tasoja teemaa kohden",
+        "levels1": "Yksi taso",
+        "levels3": "Kolme tasoa",
+        "streakLabel": "Oikein peräkkäin tason läpäisyyn",
+        "supportLabel": "Mukautus",
+        "easyRead": "Selkoteksti (Comic Sans, vähän tekstiä)",
+        "readAloud": "Ääneen luku",
+        "game": "Tähdet ja avautuvat tasot",
+        "mixedTest": "Sekoitettu koeharjoitus",
+        "credit": "Perustuu erityisopettaja Nina Haugerudin periaatteisiin."
+      },
+      "simulation": {
+        "title": "Simulaatio",
+        "desc": "Interaktiivinen simulaatio, jota oppilaat voivat tutkia. Siinä on aineen mukainen malli, jota ei ole keksitty tyhjästä, ja paneeli, joka kertoo, mihin malli pystyy ja mihin ei.",
+        "workflowLabel": "Työtapa",
+        "design": "Ensin suunnittelukeskustelu",
+        "build": "Prototyyppi heti",
+        "screenLabel": "Näyttö",
+        "laptop": "Kannettava",
+        "tablet": "Tabletti",
+        "projector": "Projektori",
+        "extrasLabel": "Mukaan",
+        "tasks": "Oppilastehtävät",
+        "critique": "Mallin arviointi",
+        "export": "Datan vienti (CSV)",
+        "credit": "Henning Vinjusveen Myhrehagenin ohjeen pohjalta (skolesim.no)."
+      },
+      "less": "Vähemmän",
+      "more": "Enemmän",
+      "help": "Jokainen materiaali on tekoälyohje. Valitse, mitä haluat, paina ”Kopioi ohje” ja liitä se tekoälychattiin, kuten ChatGPT:hen tai Claudeen. Tuntisuunnitelmasta tulee suunnitelma, jota voit seurata opettaessasi. Minipuusta ja simulaatiosta tulee HTML-tiedosto, jonka tallennat, avaat selaimessa ja voit jakaa oppilaillesi. Valintoja ei tallenneta.",
+      "forLabel": "Tavoitteet:"
+    },
+    "exam": {
+      "button": "Koe",
+      "title": "Tee tekoälyohje kokeeseen siitä, minkä olet merkinnyt osatuksi",
+      "none": "Ei vielä osattuja oppimistavoitteita",
+      "countLabel": "Tehtävien määrä",
+      "countAria": "Kokeen tehtävien määrä",
+      "heading": "Koe",
+      "desc": "Kirjallinen koe siitä, minkä olet merkinnyt osatuksi, ja vastaukset, kun pyydät niitä.",
+      "help": "Koe perustuu oppimistavoitteisiin, jotka olet merkinnyt puussa osatuiksi. Valitse vaikeustaso, tehtävien määrä ja muoto, paina ”Kopioi ohje” ja liitä se tekoälychattiin. Tekoäly näyttää ensin vain tehtävät ja antaa vastaukset ja arvion, kun pyydät.",
+      "covers": "Koe kattaa {n} osattua oppimistavoitetta:",
+      "coversOne": "Koe kattaa 1 osatun oppimistavoitteen:",
+      "noneHint": "Et ole vielä merkinnyt yhtään oppimistavoitetta osatuksi. Rastita puussa se, minkä osaat, niin voit tehdä kokeen.",
+      "showAll": "Näytä kaikki oppimistavoitteet",
+      "showSelected": "Näytä vain valitut oppimistavoitteet",
+      "difficultyLabel": "Vaikeustaso",
+      "difficulty": {
+        "easy": "Helppo",
+        "medium": "Keskitaso",
+        "hard": "Vaikea"
+      },
+      "difficultyHints": {
+        "easy": "Yksi oppimistavoite tehtävää kohden, tavallisimmat tapaukset eikä ansoja.",
+        "medium": "Kuin tavallinen koe: osa tehtävistä suoraviivaisia, osa yhdistää useita tavoitteita.",
+        "hard": "Useimmat tehtävät yhdistävät tavoitteita, käyttävät uusia tilanteita tai pyytävät sinua selittämään tai etsimään virheen."
+      },
+      "formatLabel": "Tehtävien muoto",
+      "format": {
+        "closed": "Suljetut",
+        "open": "Avoimet",
+        "mixed": "Sekoitettu"
+      },
+      "formatHints": {
+        "closed": "Monivalintoja tai lyhyitä vastauksia, jotka voi tarkistaa mallivastauksista.",
+        "open": "Näytät välivaiheet tai selität omin sanoin.",
+        "mixed": "Suunnilleen puolet kumpaakin."
+      },
+      "coversLabel": "Koe kattaa:"
+    },
+    "node": {
+      "markMastered": "Merkitse osatuksi"
+    },
+    "column": {
+      "markAll": "Merkitse aihealueen ”{topic}” kaikki oppimistavoitteet osatuiksi",
+      "clearAll": "Poista osattu-merkintä aihealueen ”{topic}” kaikista oppimistavoitteista"
+    },
+    "detail": {
+      "show": "Näytä ohje",
+      "hide": "Piilota ohje",
+      "copy": "Kopioi ohje",
+      "prereqs": "Esitiedot",
+      "resources": "Materiaalit",
+      "mastered": "✓ Osattu",
+      "available": "Avoinna — esitiedot ovat kunnossa",
+      "locked": "Lukittu — esitietoja puuttuu",
+      "empty": "Napsauta kartan solmua, niin näet tiedot."
+    },
+    "loadError": "Vakava virhe latauksessa: {message} (käytätkö sivua paikallisen palvelimen kautta? Monissa selaimissa datatiedostojen fetch() epäonnistuu, jos index.html avataan suoraan levyltä.)",
+    "defaultTopic": "Muut",
+    "aids": {
+      "heading": "Apuvälineet",
+      "tagTitle": "Katso, mitä saat käyttää tällä tasolla",
+      "multipleNote": "Tämä oppimistavoite kuuluu useampaan tasoon. Sinun pitäisi osata se niistä tiukimmalla — eli vähimmillä apuvälineillä.",
+      "multipleNoteGeneral": "Oppimistavoite voi kuulua useampaan tasoon. Silloin sen merkintä on jaettu useaan väriin, ja sinun pitäisi osata tavoite tasoista tiukimmalla — eli vähimmillä apuvälineillä."
+    },
+    "menu": {
+      "label": "Valikko",
+      "groups": {
+        "practice": "Harjoittele",
+        "plan": "Suunnittele",
+        "about": "Tietoa"
+      }
+    },
+    "download": {
+      "button": "Lataa puu",
+      "title": "Lataa puu kahdessa muodossa: muokattava taulukko ja yksi tiedosto, joka toimii ilman verkkoyhteyttä",
+      "working": "Kootaan tiedostoa …",
+      "failed": "Tiedoston kokoaminen epäonnistui",
+      "edit": "Muokkaa puuta",
+      "editTitle": "Avaa puu muokkaimessa, jossa voit muuttaa sitä ja ladata sen taulukkona tai yhtenä tiedostona, joka toimii ilman verkkoyhteyttä"
+    },
+    "courseInfo": {
+      "button": "Tietoa oppiaineesta",
+      "heading": "Tietoa oppiaineesta",
+      "division": "Vuosiluokka tai tiedekunta",
+      "curriculum": "Opetussuunnitelma",
+      "institution": "Oppilaitos",
+      "country": "Maa",
+      "language": "Kieli",
+      "size": "Laajuus",
+      "decompositionVersion": "Jäsennysmalli",
+      "credits": "Tekijät",
+      "author": "Tekijä",
+      "updated": "Päivitetty viimeksi",
+      "license": "Lisenssi",
+      "basedOn": "Pohjana",
+      "skills": "{n} taitoa",
+      "concepts": "{n} käsitettä",
+      "facts": "{n} faktalistaa",
+      "nodes": "{n} solmua"
+    },
+    "helpToggle": "Selitys",
+    "print": {
+      "button": "Tulosta",
+      "title": "Lataa koko puu tulostusvalmiina PDF-tiedostona",
+      "working": "Tehdään PDF:ää …",
+      "failed": "PDF:n tekeminen epäonnistui",
+      "heading": "Tulosta",
+      "help": "Lataa koko puu yhtenä tulostusvalmiina PDF-sivuna. Esikatselu näyttää arkin sellaisena kuin se tulostuu. Otsikko ja aiskilltrees.com näkyvät aina arkilla.",
+      "paperLabel": "Paperikoko",
+      "orientationLabel": "Suunta",
+      "orientation": {
+        "auto": "Automaattinen",
+        "landscape": "Vaaka",
+        "portrait": "Pysty"
+      },
+      "colorLabel": "Värit",
+      "color": {
+        "color": "Värillinen",
+        "gray": "Mustavalkoinen"
+      },
+      "rings": "Rastitettavat renkaat",
+      "legend": "Selite",
+      "download": "Lataa PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Takaisin aiempaan näkymään"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, same role as languages/nb.json → prompt. Only what is PARTICULAR TO FINNISH belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json → writingStyleGeneral. `conversationLanguage` is the nominative ”suomi”, because Finnish would otherwise need a different case in every sentence (suomeksi, suomen kielellä) and the English prompts insert the same value too (»Comment the code in suomi«); `outputLanguage` is therefore written around a copula (”Tämän keskustelun kieli on suomi”), so that a config row `languageName` also slots in. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. That the student may ask for another language, and what then happens, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "suomi",
+    "outputLanguage": "Tämän keskustelun kieli on {conversationLanguage}: käy koko keskustelu sillä kielellä. Kaikki, mitä alla olevasta taitopuusta lainataan — solmujen nimet, kuvaukset, esitiedot — on kirjoitettu sillä kielellä, ja sillä kielellä käyttäjä odottaa sinun puhuvan hänelle. Osa ohjeesta, jota nyt luet, on englanniksi; se ei ole kehotus vastata englanniksi. Älä vaihda kieltä omasta aloitteestasi, äläkä kommentoi, millä kielellä ohje on kirjoitettu. Puhuttele käyttäjää sinä-muodossa. Jos oppijaan pitää viitata, sana on ”{learnerDefinite}” – ei mikään muu sana samalle asialle.",
+    "writingStyle": "Suomenkielisiä esimerkkejä kahdesta yllä olevasta neuvosta:\n- Aktiivi: kirjoita ”voit kirjoittaa luvun muodossa …”, älä ”luku voidaan kirjoittaa muodossa …”; kirjoita ”teet tämän niin, että …” tai ”lasket tämän näin: …”, älä ”tämä tehdään niin, että …”. Vältä muotoja ”tehdään” ja ”voidaan tehdä”, kun voit sanoa, kuka tekee. Vältä myös raskasta nominaalityyliä: ”laske”, ei ”suorita laskutoimitus”.\n- Sanat, jotka ovat tavallisia kirjoitetussa suomessa mutta harvinaisia puheessa, kirjakielisiä tai vähän liian aikuismaisia, vaihda yksinkertaisempaan sanaan: ”kyseinen”, ”täten”, ”mikäli”, ”hyödyntää” (sano mieluummin ”tämä”, ”siksi”, ”jos”, ”käyttää”). Kaveritesti: sanoisitko sanan oikeasti ääneen kaverille?",
+    "overrides": {}
+  }
+}

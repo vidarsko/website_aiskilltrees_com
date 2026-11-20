@@ -14,11 +14,14 @@
   <link rel="stylesheet" href="/css/editor.css">
 
   <script src="/js/analytics.js"></script>
+  <meta name="i18n-page" content="make-your-own">
+  <meta name="i18n-available" content="en az be bg bs cnr cs da de el es et fi fr hr hu hy is it ka kk ky lt lv mk mt nb nl pl pt ro ru sk sl sq sr sv tg tr uk uz">
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
   <!-- Samme lokale kopi av PapaParse som ferdighetstrærne bruker - ingen CDN. -->
   <script src="/assets/engine/vendor/papaparse.min.js" defer></script>
   <script src="/js/standalone.js" defer></script>
+  <script src="/js/facet-dropdown.js" defer></script>
   <script src="/js/tree-picker.js" defer></script>
   <script src="/js/editor.js" defer></script>
 
@@ -35,1910 +38,1108 @@
   <script type="application/json" id="i18n-dict">
   {
       "doc-title": {
-          "en": "Make your own | AI Skill Trees",
-          "nb": "Lag ditt eget | AI Skill Trees",
-          "sv": "Gör ditt eget | AI Skill Trees"
+          "en": "Make your own | AI Skill Trees"
       },
       "meta-description": {
-          "en": "Build a skill tree for your own subject. Your spreadsheet stays on your machine; you get back one HTML file that works offline.",
-          "nb": "Bygg et ferdighetstre for ditt eget fag. Regnearket ditt blir på din egen maskin, og du får tilbake én HTML-fil som virker uten nett.",
-          "sv": "Bygg ett färdighetsträd för ditt eget ämne. Ditt kalkylark stannar på din egen dator, och du får tillbaka en HTML-fil som fungerar utan nät."
+          "en": "Build a skill tree for your own subject. Your spreadsheet stays on your machine; you get back one HTML file that works offline."
       },
       "page-eyebrow": {
-          "en": "For teachers",
-          "nb": "For lærere",
-          "sv": "För lärare"
+          "en": "For teachers"
       },
       "page-heading": {
-          "en": "Make your own",
-          "nb": "Lag ditt eget",
-          "sv": "Gör ditt eget"
+          "en": "Make your own"
       },
       "page-lede": {
-          "en": "A skill tree is one spreadsheet. Make it with an AI chat, open it here, change anything you disagree with on screen, and download it as one HTML file for your students. No account, no installation, no cost.",
-          "nb": "Et ferdighetstre er ett regneark. Lag det med en KI-chat, åpne det her, endre det du er uenig i på skjermen, og last det ned som én HTML-fil til elevene. Ingen konto, ingen installasjon, ingen kostnad.",
-          "sv": "Ett färdighetsträd är ett kalkylark. Gör det med en AI-chatt, öppna det här, ändra det du inte håller med om på skärmen, och ladda ner det som en HTML-fil till eleverna. Inget konto, ingen installation, ingen kostnad."
+          "en": "A skill tree is one spreadsheet. Make it with an AI chat, open it here, change anything you disagree with on screen, and download it as one HTML file for your students. No account, no installation, no cost."
       },
       "start-drop": {
-          "en": "Drop tree.csv or a downloaded tree (.html) here, or click to choose",
-          "nb": "Slipp tree.csv eller et nedlastet tre (.html) her, eller klikk for å velge",
-          "sv": "Släpp tree.csv eller ett nedladdat träd (.html) här, eller klicka för att välja"
+          "en": "Drop tree.csv or a downloaded tree (.html) here, or click to choose"
       },
       "start-example": {
-          "en": "Open the example tree",
-          "nb": "Åpne eksempeltreet",
-          "sv": "Öppna exempelträdet"
+          "en": "Open the example tree"
       },
       "start-blank": {
-          "en": "Start from scratch",
-          "nb": "Start helt fra bunnen",
-          "sv": "Börja från början"
+          "en": "Start from scratch"
       },
       "start-catalogue": {
-          "en": "Find a tree in the catalogue",
-          "nb": "Finn et tre i katalogen",
-          "sv": "Hitta ett träd i katalogen"
+          "en": "Find a tree in the catalogue"
       },
       "picker-heading": {
-          "en": "Start from a tree in the catalogue",
-          "nb": "Start fra et tre i katalogen",
-          "sv": "Börja från ett träd i katalogen"
+          "en": "Start from a tree in the catalogue"
       },
       "picker-close": {
-          "en": "Back",
-          "nb": "Tilbake",
-          "sv": "Tillbaka"
+          "en": "Back"
       },
       "picker-open": {
-          "en": "Open a copy →",
-          "nb": "Åpne en kopi →",
-          "sv": "Öppna en kopia →"
+          "en": "Open a copy →"
       },
       "picker-load-error": {
-          "en": "Could not load the catalogue. Try again, or start another way.",
-          "nb": "Klarte ikke å laste katalogen. Prøv igjen, eller start på en annen måte.",
-          "sv": "Kunde inte ladda katalogen. Försök igen, eller börja på ett annat sätt."
+          "en": "Could not load the catalogue. Try again, or start another way."
       },
       "search-label": {
-          "en": "Search",
-          "nb": "Søk",
-          "sv": "Sök"
+          "en": "Search"
       },
       "search-placeholder": {
-          "en": "Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”",
-          "nb": "Fag, trinn, emne eller stikkord — f.eks. «2P», «statistikk», «vekstfaktor»",
-          "sv": "Ämne, nivå, område eller nyckelord — t.ex. ”2P”, ”statistik”, ”förändringsfaktor”"
+          "en": "Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”"
       },
       "filters-heading": {
-          "en": "Filters",
-          "nb": "Filtre",
-          "sv": "Filter"
+          "en": "Filters"
       },
       "reset-all": {
-          "en": "Clear all filters",
-          "nb": "Nullstill alle filtre",
-          "sv": "Rensa alla filter"
+          "en": "Clear all filters"
       },
       "loading": {
-          "en": "Loading skill trees …",
-          "nb": "Laster ferdighetstrær …",
-          "sv": "Laddar färdighetsträd …"
+          "en": "Loading skill trees …"
       },
       "facet-country": {
-          "en": "Country",
-          "nb": "Land",
-          "sv": "Land"
+          "en": "Country"
       },
       "facet-subjectArea": {
-          "en": "Subject area",
-          "nb": "Fagområde",
-          "sv": "Ämnesområde"
+          "en": "Subject area"
       },
       "facet-subjectFamily": {
-          "en": "Subject family",
-          "nb": "Fagfamilie",
-          "sv": "Ämnesfamilj"
+          "en": "Subject family"
       },
       "facet-institution": {
-          "en": "Institution",
-          "nb": "Institusjon",
-          "sv": "Institution"
+          "en": "Institution"
       },
       "facet-division": {
-          "en": "Year or faculty",
-          "nb": "Trinn eller fakultet",
-          "sv": "Årskurs eller fakultet"
+          "en": "Year or faculty"
       },
       "facet-language": {
-          "en": "Language",
-          "nb": "Språk",
-          "sv": "Språk"
+          "en": "Language"
       },
       "results-one": {
-          "en": "{n} skill tree",
-          "nb": "{n} ferdighetstre",
-          "sv": "{n} färdighetsträd"
+          "en": "{n} skill tree"
       },
       "results-many": {
-          "en": "{n} skill trees",
-          "nb": "{n} ferdighetstrær",
-          "sv": "{n} färdighetsträd"
+          "en": "{n} skill trees"
       },
       "results-of": {
-          "en": " of {total}",
-          "nb": " av {total}",
-          "sv": " av {total}"
+          "en": " of {total}"
       },
       "empty-title": {
-          "en": "No skill trees match",
-          "nb": "Ingen ferdighetstrær passer",
-          "sv": "Inga färdighetsträd matchar"
+          "en": "No skill trees match"
       },
       "empty-body": {
-          "en": "Try fewer filters or a broader search.",
-          "nb": "Prøv færre filtre eller et bredere søk.",
-          "sv": "Prova färre filter eller en bredare sökning."
+          "en": "Try fewer filters or a broader search."
       },
       "empty-reset": {
-          "en": "Clear everything",
-          "nb": "Nullstill alt",
-          "sv": "Rensa allt"
+          "en": "Clear everything"
       },
       "card-skills": {
-          "en": "{n} skills",
-          "nb": "{n} ferdigheter",
-          "sv": "{n} färdigheter"
+          "en": "{n} skills"
       },
       "card-concepts": {
-          "en": "{n} concepts",
-          "nb": "{n} begreper",
-          "sv": "{n} begrepp"
+          "en": "{n} concepts"
       },
       "card-facts": {
-          "en": "{n} fact lists",
-          "nb": "{n} faktalister",
-          "sv": "{n} faktalistor"
+          "en": "{n} fact lists"
       },
       "card-nodes": {
-          "en": "{n} nodes",
-          "nb": "{n} noder",
-          "sv": "{n} noder"
+          "en": "{n} nodes"
       },
       "chip-remove-aria": {
-          "en": "Remove the filter {facet}: {value}",
-          "nb": "Fjern filteret {facet}: {value}",
-          "sv": "Ta bort filtret {facet}: {value}"
+          "en": "Remove the filter {facet}: {value}"
       },
       "start-catalogue-hint": {
-          "en": "You get your own copy to change. The published tree is not affected.",
-          "nb": "Du får din egen kopi å endre. Det publiserte treet blir ikke berørt.",
-          "sv": "Du får en egen kopia att ändra. Det publicerade trädet påverkas inte."
+          "en": "You get your own copy to change. The published tree is not affected."
       },
       "start-no-tree": {
-          "en": "That was not a tree. Choose a tree.csv, or an .html file downloaded from this site.",
-          "nb": "Det var ikke et tre. Velg en tree.csv, eller en .html-fil lastet ned fra denne siden.",
-          "sv": "Det var inget träd. Välj en tree.csv, eller en .html-fil nedladdad från den här sidan."
+          "en": "That was not a tree. Choose a tree.csv, or an .html file downloaded from this site."
       },
       "paste-cta": {
-          "en": "Paste from the AI chat",
-          "nb": "Lim inn fra KI-chatten",
-          "sv": "Klistra in från AI-chatten"
+          "en": "Paste from the AI chat"
       },
       "paste-placeholder": {
-          "en": "Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)",
-          "nb": "Lim inn regnearket chatten ga deg her (Ctrl+V eller ⌘V)",
-          "sv": "Klistra in kalkylarket chatten gav dig här (Ctrl+V eller ⌘V)"
+          "en": "Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)"
       },
       "paste-open": {
-          "en": "Open",
-          "nb": "Åpne",
-          "sv": "Öppna"
+          "en": "Open"
       },
       "paste-not-tree": {
-          "en": "That does not look like a skill tree. Copy the whole spreadsheet from the chat, from the line that starts with id,type,topic down to the last row.",
-          "nb": "Det ser ikke ut som et ferdighetstre. Kopier hele regnearket fra chatten, fra linja som begynner med id,type,topic til og med siste rad.",
-          "sv": "Det ser inte ut som ett färdighetsträd. Kopiera hela kalkylarket från chatten, från raden som börjar med id,type,topic till och med sista raden."
+          "en": "That does not look like a skill tree. Copy the whole spreadsheet from the chat, from the line that starts with id,type,topic down to the last row."
       },
       "start-html-bad": {
-          "en": "{name} does not contain a skill tree. Only files downloaded from this site can be opened here.",
-          "nb": "{name} inneholder ikke et ferdighetstre. Bare filer lastet ned fra denne siden kan åpnes her.",
-          "sv": "{name} innehåller inget färdighetsträd. Bara filer nedladdade från den här sidan kan öppnas här."
+          "en": "{name} does not contain a skill tree. Only files downloaded from this site can be opened here."
       },
       "start-fetch-failed": {
-          "en": "The tree could not be fetched. Check your connection and try again.",
-          "nb": "Treet kunne ikke hentes. Sjekk nettforbindelsen og prøv igjen.",
-          "sv": "Trädet kunde inte hämtas. Kontrollera anslutningen och försök igen."
+          "en": "The tree could not be fetched. Check your connection and try again."
       },
       "mode-label": {
-          "en": "Mode",
-          "nb": "Modus",
-          "sv": "Läge"
+          "en": "Mode"
       },
       "mode-edit": {
-          "en": "Edit",
-          "nb": "Rediger",
-          "sv": "Redigera"
+          "en": "Edit"
       },
       "mode-view": {
-          "en": "View",
-          "nb": "Vis",
-          "sv": "Visa"
+          "en": "View"
       },
       "undo": {
-          "en": "Undo",
-          "nb": "Angre",
-          "sv": "Ångra"
+          "en": "Undo"
       },
       "redo": {
-          "en": "Redo",
-          "nb": "Gjør om",
-          "sv": "Gör om"
+          "en": "Redo"
       },
       "open-other": {
-          "en": "Open another",
-          "nb": "Åpne et annet",
-          "sv": "Öppna ett annat"
+          "en": "Open another"
       },
       "tab-tree": {
-          "en": "Tree",
-          "nb": "Treet",
-          "sv": "Trädet"
+          "en": "Tree"
       },
       "tab-node": {
-          "en": "Node",
-          "nb": "Node",
-          "sv": "Nod"
+          "en": "Node"
       },
       "tab-instructions": {
-          "en": "Instructions",
-          "nb": "Instrukser",
-          "sv": "Instruktioner"
+          "en": "Instructions"
       },
       "tab-nodes": {
-          "en": "Nodes",
-          "nb": "Nodene",
-          "sv": "Noderna"
+          "en": "Nodes"
       },
       "tab-look": {
-          "en": "Look",
-          "nb": "Utseende",
-          "sv": "Utseende"
+          "en": "Look"
       },
       "split-label": {
-          "en": "Panel width. Drag, or use the arrow keys",
-          "nb": "Panelbredde. Dra, eller bruk piltastene",
-          "sv": "Panelbredd. Dra, eller använd piltangenterna"
+          "en": "Panel width. Drag, or use the arrow keys"
       },
       "preview-label": {
-          "en": "Preview of the tree",
-          "nb": "Forhåndsvisning av treet",
-          "sv": "Förhandsvisning av trädet"
+          "en": "Preview of the tree"
       },
       "status-building": {
-          "en": "Building…",
-          "nb": "Bygger …",
-          "sv": "Bygger …"
+          "en": "Building…"
       },
       "status-ok": {
-          "en": "No problems found",
-          "nb": "Ingen problemer funnet",
-          "sv": "Inga problem hittade"
+          "en": "No problems found"
       },
       "status-error-one": {
-          "en": "1 problem",
-          "nb": "1 problem",
-          "sv": "1 problem"
+          "en": "1 problem"
       },
       "status-errors": {
-          "en": "{n} problems",
-          "nb": "{n} problemer",
-          "sv": "{n} problem"
+          "en": "{n} problems"
       },
       "copy-errors": {
-          "en": "Copy the list for your AI chat",
-          "nb": "Kopier lista til KI-chatten",
-          "sv": "Kopiera listan till AI-chatten"
+          "en": "Copy the list for your AI chat"
       },
       "copied": {
-          "en": "Copied",
-          "nb": "Kopiert",
-          "sv": "Kopierat"
+          "en": "Copied"
       },
       "copy-preamble": {
-          "en": "The skill tree builder found these problems in the tree.csv you made for me. Please fix them and give me the whole corrected file back.",
-          "nb": "Ferdighetstre-byggeren fant disse problemene i tree.csv-fila du laget for meg. Rett dem, og gi meg hele den rettede fila tilbake.",
-          "sv": "Färdighetsträdsbyggaren hittade de här problemen i tree.csv-filen du gjorde åt mig. Rätta dem och ge mig hela den rättade filen tillbaka."
+          "en": "The skill tree builder found these problems in the tree.csv you made for me. Please fix them and give me the whole corrected file back."
       },
       "download-csv": {
-          "en": "Download spreadsheet",
-          "nb": "Last ned regnearket",
-          "sv": "Ladda ner kalkylarket"
+          "en": "Download spreadsheet"
       },
       "node-resources": {
-          "en": "Resources",
-          "nb": "Ressurser",
-          "sv": "Resurser"
+          "en": "Resources"
       },
       "node-resources-none": {
-          "en": "None yet.",
-          "nb": "Ingen ennå.",
-          "sv": "Inga ännu."
+          "en": "None yet."
       },
       "node-resources-hint": {
-          "en": "Exam tasks, textbook sections, videos. The student sees them under the node, and in “Resources” in the tree's menu. Click one to change it.",
-          "nb": "Eksamensoppgaver, kapitler i læreboka, videoer. Eleven ser dem under noden, og i «Ressurser» i treets meny. Klikk på en for å endre den.",
-          "sv": "Provuppgifter, avsnitt i läroboken, videor. Eleven ser dem under noden, och i »Resurser« i trädets meny. Klicka på en för att ändra den."
+          "en": "Exam tasks, textbook sections, videos. The student sees them under the node, and in “Resources” in the tree's menu. Click one to change it."
       },
       "node-resource-add": {
-          "en": "Add resource",
-          "nb": "Legg til ressurs",
-          "sv": "Lägg till resurs"
+          "en": "Add resource"
       },
       "res-title-add": {
-          "en": "Add a resource to “{name}”",
-          "nb": "Legg til en ressurs på «{name}»",
-          "sv": "Lägg till en resurs på »{name}«"
+          "en": "Add a resource to “{name}”"
       },
       "res-title-new": {
-          "en": "New resource",
-          "nb": "Ny ressurs",
-          "sv": "Ny resurs"
+          "en": "New resource"
       },
       "res-title-edit": {
-          "en": "Change the resource",
-          "nb": "Endre ressursen",
-          "sv": "Ändra resursen"
+          "en": "Change the resource"
       },
       "res-search": {
-          "en": "Search the tree's resources …",
-          "nb": "Søk i treets ressurser …",
-          "sv": "Sök i trädets resurser …"
+          "en": "Search the tree's resources …"
       },
       "res-new": {
-          "en": "New resource",
-          "nb": "Ny ressurs",
-          "sv": "Ny resurs"
+          "en": "New resource"
       },
       "res-count": {
-          "en": "{n} of the tree's {total} resources. Click one to add it to this node.",
-          "nb": "{n} av treets {total} ressurser. Klikk på en for å legge den til denne noden.",
-          "sv": "{n} av trädets {total} resurser. Klicka på en för att lägga till den på den här noden."
+          "en": "{n} of the tree's {total} resources. Click one to add it to this node."
       },
       "res-none-in-tree": {
-          "en": "The tree has no resources yet. Make the first one with “New resource”.",
-          "nb": "Treet har ingen ressurser ennå. Lag den første med «Ny ressurs».",
-          "sv": "Trädet har inga resurser ännu. Skapa den första med »Ny resurs«."
+          "en": "The tree has no resources yet. Make the first one with “New resource”."
       },
       "res-no-match": {
-          "en": "No resource matches. Make it with “New resource”.",
-          "nb": "Ingen ressurs passer. Lag den med «Ny ressurs».",
-          "sv": "Ingen resurs matchar. Skapa den med »Ny resurs«."
+          "en": "No resource matches. Make it with “New resource”."
       },
       "res-all-attached": {
-          "en": "The node already has every resource in the tree.",
-          "nb": "Noden har alt alle ressursene i treet.",
-          "sv": "Noden har redan alla resurser i trädet."
+          "en": "The node already has every resource in the tree."
       },
       "res-no-group": {
-          "en": "No group",
-          "nb": "Uten gruppe",
-          "sv": "Utan grupp"
+          "en": "No group"
       },
       "res-used-by": {
-          "en": "Used by: {names}",
-          "nb": "Brukes av: {names}",
-          "sv": "Används av: {names}"
+          "en": "Used by: {names}"
       },
       "res-used-by-none": {
-          "en": "Used by no node",
-          "nb": "Brukes ikke av noen node",
-          "sv": "Används inte av någon nod"
+          "en": "Used by no node"
       },
       "res-shared": {
-          "en": "also on {n} other node(s)",
-          "nb": "også på {n} andre node(r)",
-          "sv": "också på {n} andra nod(er)"
+          "en": "also on {n} other node(s)"
       },
       "res-group": {
-          "en": "Group",
-          "nb": "Gruppe",
-          "sv": "Grupp"
+          "en": "Group"
       },
       "res-group-hint": {
-          "en": "The heading it is listed under, e.g. “Exam” or “Textbook”. Pick one the tree already uses, or write a new one.",
-          "nb": "Overskriften den står under, f.eks. «Eksamen» eller «Lærebok». Velg en treet alt bruker, eller skriv en ny.",
-          "sv": "Rubriken den står under, t.ex. »Prov« eller »Lärobok«. Välj en som trädet redan använder, eller skriv en ny."
+          "en": "The heading it is listed under, e.g. “Exam” or “Textbook”. Pick one the tree already uses, or write a new one."
       },
       "res-label": {
-          "en": "Title",
-          "nb": "Tittel",
-          "sv": "Titel"
+          "en": "Title"
       },
       "res-url": {
-          "en": "Link",
-          "nb": "Lenke",
-          "sv": "Länk"
+          "en": "Link"
       },
       "res-url-hint": {
-          "en": "Optional. Without a link, the title is shown as text, e.g. “2026 Spring, Part 1, task 3”.",
-          "nb": "Valgfri. Uten lenke vises tittelen som tekst, f.eks. «2026 Vår, Del 1, oppgave 3».",
-          "sv": "Valfri. Utan länk visas titeln som text, t.ex. »2026 Vår, Del 1, uppgift 3«."
+          "en": "Optional. Without a link, the title is shown as text, e.g. “2026 Spring, Part 1, task 3”."
       },
       "res-edit-shared": {
-          "en": "This resource belongs to {n} nodes ({names}). A change here changes it on all of them.",
-          "nb": "Denne ressursen hører til {n} noder ({names}). En endring her endrer den på alle.",
-          "sv": "Den här resursen hör till {n} noder ({names}). En ändring här ändrar den på alla."
+          "en": "This resource belongs to {n} nodes ({names}). A change here changes it on all of them."
       },
       "res-save": {
-          "en": "Save",
-          "nb": "Lagre",
-          "sv": "Spara"
+          "en": "Save"
       },
       "res-back": {
-          "en": "Back to the list",
-          "nb": "Tilbake til lista",
-          "sv": "Tillbaka till listan"
+          "en": "Back to the list"
       },
       "res-cancel": {
-          "en": "Cancel",
-          "nb": "Avbryt",
-          "sv": "Avbryt"
+          "en": "Cancel"
       },
       "res-close": {
-          "en": "Close",
-          "nb": "Lukk",
-          "sv": "Stäng"
+          "en": "Close"
       },
       "res-need-label": {
-          "en": "Write a title or a link.",
-          "nb": "Skriv en tittel eller en lenke.",
-          "sv": "Skriv en titel eller en länk."
+          "en": "Write a title or a link."
       },
       "res-duplicate": {
-          "en": "Another resource has the same title and link. Add that one to the nodes instead.",
-          "nb": "En annen ressurs har samme tittel og lenke. Legg heller den til nodene.",
-          "sv": "En annan resurs har samma titel och länk. Lägg hellre till den på noderna."
+          "en": "Another resource has the same title and link. Add that one to the nodes instead."
       },
       "res-edit": {
-          "en": "Change this resource",
-          "nb": "Endre denne ressursen",
-          "sv": "Ändra den här resursen"
+          "en": "Change this resource"
       },
       "res-detach": {
-          "en": "Remove from this node",
-          "nb": "Fjern fra denne noden",
-          "sv": "Ta bort från den här noden"
+          "en": "Remove from this node"
       },
       "res-confirm-delete": {
-          "en": "“{name}” belongs to no other node. Delete the resource from the tree?",
-          "nb": "«{name}» hører ikke til noen annen node. Slette ressursen fra treet?",
-          "sv": "»{name}« hör inte till någon annan nod. Ta bort resursen från trädet?"
+          "en": "“{name}” belongs to no other node. Delete the resource from the tree?"
       },
       "res-untitled": {
-          "en": "(untitled)",
-          "nb": "(uten tittel)",
-          "sv": "(utan titel)"
+          "en": "(untitled)"
       },
       "download-html": {
-          "en": "Download the tree",
-          "nb": "Last ned treet",
-          "sv": "Ladda ner trädet"
+          "en": "Download the tree"
       },
       "download-note": {
-          "en": "The spreadsheet is what you keep and edit. The tree is one HTML file for your students: it opens by double-clicking and works offline.",
-          "nb": "Regnearket er det du tar vare på og endrer. Treet er én HTML-fil til elevene: den åpnes ved dobbeltklikk og virker uten nett.",
-          "sv": "Kalkylarket är det du sparar och ändrar. Trädet är en HTML-fil till eleverna: den öppnas med dubbelklick och fungerar utan nät."
+          "en": "The spreadsheet is what you keep and edit. The tree is one HTML file for your students: it opens by double-clicking and works offline."
       },
       "err-render": {
-          "en": "The tree could not be drawn: {message}",
-          "nb": "Treet kunne ikke tegnes: {message}",
-          "sv": "Trädet kunde inte ritas: {message}"
+          "en": "The tree could not be drawn: {message}"
       },
       "err-timeout": {
-          "en": "The tree did not finish drawing. That usually means the file is not a skill tree spreadsheet at all.",
-          "nb": "Treet ble aldri ferdig tegnet. Det betyr som regel at fila ikke er et ferdighetstre-regneark i det hele tatt.",
-          "sv": "Trädet ritades aldrig färdigt. Det betyder oftast att filen inte är ett färdighetsträdskalkylark alls."
+          "en": "The tree did not finish drawing. That usually means the file is not a skill tree spreadsheet at all."
       },
       "confirm-discard": {
-          "en": "You have changes that are not downloaded. Open another tree anyway?",
-          "nb": "Du har endringer som ikke er lastet ned. Åpne et annet tre likevel?",
-          "sv": "Du har ändringar som inte är nedladdade. Öppna ett annat träd ändå?"
+          "en": "You have changes that are not downloaded. Open another tree anyway?"
       },
       "blank-title": {
-          "en": "My skill tree",
-          "nb": "Mitt ferdighetstre",
-          "sv": "Mitt färdighetsträd"
+          "en": "My skill tree"
       },
       "blank-topic": {
-          "en": "First topic",
-          "nb": "Første tema",
-          "sv": "Första temat"
+          "en": "First topic"
       },
       "blank-node": {
-          "en": "First node",
-          "nb": "Første node",
-          "sv": "Första noden"
+          "en": "First node"
       },
       "blank-node-description": {
-          "en": "Term: what it means, in one sentence.",
-          "nb": "Begrep: hva det betyr, i én setning.",
-          "sv": "Begrepp: vad det betyder, i en mening."
+          "en": "Term: what it means, in one sentence."
       },
       "view-intro": {
-          "en": "This is the tree as your students will see it. Click a node to see the instruction it gives them.",
-          "nb": "Slik vil elevene se treet. Klikk på en node for å se instruksen den gir dem.",
-          "sv": "Så här kommer eleverna att se trädet. Klicka på en nod för att se instruktionen den ger dem."
+          "en": "This is the tree as your students will see it. Click a node to see the instruction it gives them."
       },
       "view-to-edit": {
-          "en": "Back to editing",
-          "nb": "Tilbake til redigering",
-          "sv": "Tillbaka till redigering"
+          "en": "Back to editing"
       },
       "stat-nodes": {
-          "en": "nodes",
-          "nb": "noder",
-          "sv": "noder"
+          "en": "nodes"
       },
       "stat-skills": {
-          "en": "skills / concepts",
-          "nb": "ferdigheter / begreper",
-          "sv": "färdigheter / begrepp"
+          "en": "skills / concepts"
       },
       "stat-skills-facts": {
-          "en": "skills / concepts / facts",
-          "nb": "ferdigheter / begreper / fakta",
-          "sv": "färdigheter / begrepp / fakta"
+          "en": "skills / concepts / facts"
       },
       "stat-topics": {
-          "en": "topics",
-          "nb": "temaer",
-          "sv": "teman"
+          "en": "topics"
       },
       "stat-depth": {
-          "en": "levels deep",
-          "nb": "nivåer dypt",
-          "sv": "nivåer djupt"
+          "en": "levels deep"
       },
       "stat-roots": {
-          "en": "with no prerequisites",
-          "nb": "uten forutsetninger",
-          "sv": "utan förkunskaper"
+          "en": "with no prerequisites"
       },
       "tree-intro": {
-          "en": "Click a node in the tree, or in the list, to edit it.",
-          "nb": "Klikk på en node i treet, eller i lista, for å redigere den.",
-          "sv": "Klicka på en nod i trädet, eller i listan, för att redigera den."
+          "en": "Click a node in the tree, or in the list, to edit it."
       },
       "tree-search": {
-          "en": "Find a node",
-          "nb": "Finn en node",
-          "sv": "Hitta en nod"
+          "en": "Find a node"
       },
       "tree-no-topic": {
-          "en": "(no topic)",
-          "nb": "(uten tema)",
-          "sv": "(utan tema)"
+          "en": "(no topic)"
       },
       "tree-add-node": {
-          "en": "+ Add a node here",
-          "nb": "+ Legg til en node her",
-          "sv": "+ Lägg till en nod här"
+          "en": "+ Add a node here"
       },
       "tree-new-topic": {
-          "en": "+ New topic",
-          "nb": "+ Nytt tema",
-          "sv": "+ Nytt tema"
+          "en": "+ New topic"
       },
       "tree-new-topic-prompt": {
-          "en": "Name of the new topic:",
-          "nb": "Navn på det nye temaet:",
-          "sv": "Namn på det nya temat:"
+          "en": "Name of the new topic:"
       },
       "tree-auto-order": {
-          "en": "Order topics automatically",
-          "nb": "Ordne temaene automatisk",
-          "sv": "Ordna temana automatiskt"
+          "en": "Order topics automatically"
       },
       "topic-up": {
-          "en": "Move topic left",
-          "nb": "Flytt temaet til venstre",
-          "sv": "Flytta temat åt vänster"
+          "en": "Move topic left"
       },
       "topic-down": {
-          "en": "Move topic right",
-          "nb": "Flytt temaet til høyre",
-          "sv": "Flytta temat åt höger"
+          "en": "Move topic right"
       },
       "topic-rename": {
-          "en": "Rename topic",
-          "nb": "Gi temaet nytt navn",
-          "sv": "Byt namn på temat"
+          "en": "Rename topic"
       },
       "topic-rename-prompt": {
-          "en": "New name for the topic:",
-          "nb": "Nytt navn på temaet:",
-          "sv": "Nytt namn på temat:"
+          "en": "New name for the topic:"
       },
       "type-skill": {
-          "en": "Skill",
-          "nb": "Ferdighet",
-          "sv": "Färdighet"
+          "en": "Skill"
       },
       "type-concept": {
-          "en": "Concept",
-          "nb": "Begrep",
-          "sv": "Begrepp"
+          "en": "Concept"
       },
       "type-fact": {
-          "en": "Facts",
-          "nb": "Fakta",
-          "sv": "Fakta"
+          "en": "Facts"
       },
       "new-node-name": {
-          "en": "New node",
-          "nb": "Ny node",
-          "sv": "Ny nod"
+          "en": "New node"
       },
       "node-none": {
-          "en": "Click a node in the tree to edit it.",
-          "nb": "Klikk på en node i treet for å redigere den.",
-          "sv": "Klicka på en nod i trädet för att redigera den."
+          "en": "Click a node in the tree to edit it."
       },
       "node-back": {
-          "en": "All nodes",
-          "nb": "Alle noder",
-          "sv": "Alla noder"
+          "en": "All nodes"
       },
       "node-delete": {
-          "en": "Delete node",
-          "nb": "Slett noden",
-          "sv": "Radera noden"
+          "en": "Delete node"
       },
       "node-delete-named": {
-          "en": "Delete “{name}”",
-          "nb": "Slett «{name}»",
-          "sv": "Radera ”{name}”"
+          "en": "Delete “{name}”"
       },
       "topic-delete": {
-          "en": "Delete the topic and all its nodes",
-          "nb": "Slett temaet og alle nodene i det",
-          "sv": "Radera temat och alla noder i det"
+          "en": "Delete the topic and all its nodes"
       },
       "confirm-delete-topic": {
-          "en": "Delete the topic “{topic}” and all {n} nodes in it? You can undo it with Undo.",
-          "nb": "Slette temaet «{topic}» og alle de {n} nodene i det? Du kan ta det tilbake med Angre.",
-          "sv": "Radera temat ”{topic}” och alla {n} noder i det? Du kan ta tillbaka det med Ångra."
+          "en": "Delete the topic “{topic}” and all {n} nodes in it? You can undo it with Undo."
       },
       "node-name": {
-          "en": "Name",
-          "nb": "Navn",
-          "sv": "Namn"
+          "en": "Name"
       },
       "node-type": {
-          "en": "Type",
-          "nb": "Type",
-          "sv": "Typ"
+          "en": "Type"
       },
       "node-type-hint": {
-          "en": "A skill is something the student does. A concept is something the student has to understand and explain. Facts are a list the student has to know by heart.",
-          "nb": "En ferdighet er noe eleven gjør. Et begrep er noe eleven må forstå og kunne forklare. Fakta er en liste eleven må kunne utenat.",
-          "sv": "En färdighet är något eleven gör. Ett begrepp är något eleven måste förstå och kunna förklara. Fakta är en lista eleven måste kunna utantill."
+          "en": "A skill is something the student does. A concept is something the student has to understand and explain. Facts are a list the student has to know by heart."
       },
       "node-topic": {
-          "en": "Topic",
-          "nb": "Tema",
-          "sv": "Tema"
+          "en": "Topic"
       },
       "node-description": {
-          "en": "Learning outcome",
-          "nb": "Læringsmål",
-          "sv": "Lärandemål"
+          "en": "Learning outcome"
       },
       "node-description-skill": {
-          "en": "What the student can do, finishing the sentence “The student can …”.",
-          "nb": "Det eleven kan gjøre, som fortsettelsen av «Eleven kan …».",
-          "sv": "Det eleven kan göra, som fortsättningen på ”Eleven kan …”."
+          "en": "What the student can do, finishing the sentence “The student can …”."
       },
       "node-description-concept": {
-          "en": "The term and its definition, as “Term: definition”. One per line if the node holds several.",
-          "nb": "Begrepet og definisjonen, som «Begrep: definisjon». Én per linje hvis noden har flere.",
-          "sv": "Begreppet och definitionen, som ”Begrepp: definition”. En per rad om noden har flera."
+          "en": "The term and its definition, as “Term: definition”. One per line if the node holds several."
       },
       "node-description-fact": {
-          "en": "What the student can recall, one item per line as “cue: answer” (“the year Norway joined NATO: 1949”, “perro: dog”). A line with no colon is a rule the items are made from.",
-          "nb": "Det eleven kan gjengi, ett element per linje som «stikkord: svar» («året Norge ble med i NATO: 1949», «perro: hund»). En linje uten kolon er en regel elementene lages fra.",
-          "sv": "Det eleven kan återge, ett element per rad som ”stödord: svar” (”året Sverige gick med i EU: 1995”, ”perro: hund”). En rad utan kolon är en regel som elementen skapas från."
+          "en": "What the student can recall, one item per line as “cue: answer” (“the year Norway joined NATO: 1949”, “perro: dog”). A line with no colon is a rule the items are made from."
       },
       "node-prereqs": {
-          "en": "Builds on",
-          "nb": "Bygger på",
-          "sv": "Bygger på"
+          "en": "Builds on"
       },
       "node-prereqs-none": {
-          "en": "Nothing: the student can start here.",
-          "nb": "Ingenting: eleven kan begynne her.",
-          "sv": "Ingenting: eleven kan börja här."
+          "en": "Nothing: the student can start here."
       },
       "node-prereqs-hint": {
-          "en": "Only the nearest prerequisites. The tutor finds the rest by following the arrows.",
-          "nb": "Bare de nærmeste forutsetningene. Veilederen finner resten ved å følge pilene.",
-          "sv": "Bara de närmaste förkunskaperna. Handledaren hittar resten genom att följa pilarna."
+          "en": "Only the nearest prerequisites. The tutor finds the rest by following the arrows."
       },
       "node-prereq-add": {
-          "en": "Add a prerequisite…",
-          "nb": "Legg til en forutsetning …",
-          "sv": "Lägg till en förkunskap …"
+          "en": "Add a prerequisite…"
       },
       "node-prereq-remove": {
-          "en": "Remove this prerequisite",
-          "nb": "Fjern denne forutsetningen",
-          "sv": "Ta bort denna förkunskap"
+          "en": "Remove this prerequisite"
       },
       "node-prereq-unknown": {
-          "en": "No node has this id",
-          "nb": "Ingen node har denne id-en",
-          "sv": "Ingen nod har detta id"
+          "en": "No node has this id"
       },
       "node-prereq-would-cycle": {
-          "en": "would make a circle",
-          "nb": "ville gitt en sirkel",
-          "sv": "skulle ge en cirkel"
+          "en": "would make a circle"
       },
       "node-go-to": {
-          "en": "Go to this node",
-          "nb": "Gå til denne noden",
-          "sv": "Gå till denna nod"
+          "en": "Go to this node"
       },
       "node-pick": {
-          "en": "Pick in the tree",
-          "nb": "Velg i treet",
-          "sv": "Välj i trädet"
+          "en": "Pick in the tree"
       },
       "node-pick-stop": {
-          "en": "Done picking",
-          "nb": "Ferdig med å velge",
-          "sv": "Klar med att välja"
+          "en": "Done picking"
       },
       "node-pick-hint": {
-          "en": "Click nodes in the tree to add or remove them as prerequisites. Dashed outline: this node builds on it.",
-          "nb": "Klikk på noder i treet for å legge dem til eller fjerne dem som forutsetninger. Stiplet ramme: denne noden bygger på den.",
-          "sv": "Klicka på noder i trädet för att lägga till eller ta bort dem som förkunskaper. Streckad ram: denna nod bygger på den."
+          "en": "Click nodes in the tree to add or remove them as prerequisites. Dashed outline: this node builds on it."
       },
       "node-cycle": {
-          "en": "“{dep}” already builds on “{node}”, so it cannot also be a prerequisite for it. That would be a circle.",
-          "nb": "«{dep}» bygger allerede på «{node}», så den kan ikke også være en forutsetning for den. Det ville vært en sirkel.",
-          "sv": "”{dep}” bygger redan på ”{node}”, så den kan inte också vara en förkunskap för den. Det skulle bli en cirkel."
+          "en": "“{dep}” already builds on “{node}”, so it cannot also be a prerequisite for it. That would be a circle."
       },
       "node-needed-by": {
-          "en": "Needed by",
-          "nb": "Trengs for",
-          "sv": "Behövs för"
+          "en": "Needed by"
       },
       "node-aids": {
-          "en": "Aids",
-          "nb": "Hjelpemidler",
-          "sv": "Hjälpmedel"
+          "en": "Aids"
       },
       "node-aids-hint": {
-          "en": "Which of the tree’s aid levels this node is examined under. Set the levels under Tree.",
-          "nb": "Hvilke av treets hjelpemiddelnivåer noden prøves under. Nivåene settes under Treet.",
-          "sv": "Vilka av trädets hjälpmedelsnivåer noden prövas under. Nivåerna ställs in under Trädet."
+          "en": "Which of the tree’s aid levels this node is examined under. Set the levels under Tree."
       },
       "node-instruction": {
-          "en": "Extra instruction for this node",
-          "nb": "Ekstra instruks for denne noden",
-          "sv": "Extra instruktion för denna nod"
+          "en": "Extra instruction for this node"
       },
       "node-instruction-hint": {
-          "en": "Added to the tutor’s instruction for this node only. Leave empty if the general instruction is enough.",
-          "nb": "Legges til veilederens instruks bare for denne noden. La stå tomt hvis den generelle instruksen holder.",
-          "sv": "Läggs till handledarens instruktion bara för denna nod. Lämna tomt om den allmänna instruktionen räcker."
+          "en": "Added to the tutor’s instruction for this node only. Leave empty if the general instruction is enough."
       },
       "node-id": {
-          "en": "Id",
-          "nb": "Id",
-          "sv": "Id"
+          "en": "Id"
       },
       "node-id-hint": {
-          "en": "The node’s key in the spreadsheet. Changing it updates every arrow, but students who already have the file lose their tick on this node.",
-          "nb": "Nodens nøkkel i regnearket. Endrer du den, oppdateres alle pilene, men elever som alt har fila, mister avhukingen sin på denne noden.",
-          "sv": "Nodens nyckel i kalkylarket. Ändrar du den uppdateras alla pilar, men elever som redan har filen förlorar sin bock på denna nod."
+          "en": "The node’s key in the spreadsheet. Changing it updates every arrow, but students who already have the file lose their tick on this node."
       },
       "node-id-taken": {
-          "en": "Another node already has the id “{id}”.",
-          "nb": "En annen node har allerede id-en «{id}».",
-          "sv": "En annan nod har redan id:t ”{id}”."
+          "en": "Another node already has the id “{id}”."
       },
       "aids-level": {
-          "en": "Level",
-          "nb": "Nivå",
-          "sv": "Nivå"
+          "en": "Level"
       },
       "instr-loading": {
-          "en": "The instructions appear when the tree has been built.",
-          "nb": "Instruksene vises når treet er bygget.",
-          "sv": "Instruktionerna visas när trädet är byggt."
+          "en": "The instructions appear when the tree has been built."
       },
       "instr-intro": {
-          "en": "These are the instructions your students paste into their AI chat. Each one is in a few parts; open a part with Edit to see all its text and change it for this tree only. The rest stays as published, and your version is saved as a row in the spreadsheet. Every instruction ends with Extra, for anything you want to add. Words in {braces} are filled in by the tree.",
-          "nb": "Dette er instruksene elevene limer inn i KI-chatten. Hver av dem har noen få deler; åpne en del med Rediger for å se all teksten i den og endre den bare i dette treet. Resten står som publisert, og din versjon lagres som en rad i regnearket. Hver instruks slutter med Extra, for det du vil legge til. Ord i {klammer} fylles inn av treet.",
-          "sv": "Det här är instruktionerna eleverna klistrar in i AI-chatten. Var och en har några få delar; öppna en del med Redigera för att se all text i den och ändra den bara i detta träd. Resten står som publicerat, och din version sparas som en rad i kalkylarket. Varje instruktion slutar med Extra, för det du vill lägga till. Ord inom {klamrar} fylls i av trädet."
+          "en": "These are the instructions your students paste into their AI chat. Each one is in a few parts; open a part with Edit to see all its text and change it for this tree only. The rest stays as published, and your version is saved as a row in the spreadsheet. Every instruction ends with Extra, for anything you want to add. Words in {braces} are filled in by the tree."
       },
       "instr-version": {
-          "en": "Instruction “{id}”, version {version}",
-          "nb": "Instruksen «{id}», versjon {version}",
-          "sv": "Instruktionen ”{id}”, version {version}"
+          "en": "Instruction “{id}”, version {version}"
       },
       "instr-name-node": {
-          "en": "Practice tutor",
-          "nb": "Øvingsveileder",
-          "sv": "Övningshandledare"
+          "en": "Practice tutor"
       },
       "instr-name-exam": {
-          "en": "Test generator",
-          "nb": "Prøvegenerator",
-          "sv": "Provgenerator"
+          "en": "Test generator"
       },
       "instr-name-motivation": {
-          "en": "Motivation",
-          "nb": "Motivasjon",
-          "sv": "Motivation"
+          "en": "Motivation"
       },
       "instr-name-miniTree": {
-          "en": "Mini tree",
-          "nb": "Minitre",
-          "sv": "Miniträd"
+          "en": "Mini tree"
       },
       "instr-name-simulation": {
-          "en": "Simulation",
-          "nb": "Simulering",
-          "sv": "Simulering"
+          "en": "Simulation"
       },
       "instr-name-lessonPlan": {
-          "en": "Lesson plan",
-          "nb": "Undervisningsopplegg",
-          "sv": "Lektionsplan"
+          "en": "Lesson plan"
       },
       "sec-changed": {
-          "en": "Changed in this tree",
-          "nb": "Endret i dette treet",
-          "sv": "Ändrat i detta träd"
+          "en": "Changed in this tree"
       },
       "sec-changed-all": {
-          "en": "Changed for all instructions",
-          "nb": "Endret for alle instruksene",
-          "sv": "Ändrat för alla instruktioner"
+          "en": "Changed for all instructions"
       },
       "sec-runtime": {
-          "en": "Filled from the tree",
-          "nb": "Fylles fra treet",
-          "sv": "Fylls från trädet"
+          "en": "Filled from the tree"
       },
       "sec-conditional": {
-          "en": "Only sometimes",
-          "nb": "Bare noen ganger",
-          "sv": "Bara ibland"
+          "en": "Only sometimes"
       },
       "sec-from-language": {
-          "en": "From the language",
-          "nb": "Fra språket",
-          "sv": "Från språket"
+          "en": "From the language"
       },
       "sec-from-family": {
-          "en": "From the subject family",
-          "nb": "Fra fagfamilien",
-          "sv": "Från ämnesfamiljen"
+          "en": "From the subject family"
       },
       "sec-from-family-named": {
-          "en": "From the {family} family",
-          "nb": "Fra fagfamilien {family}",
-          "sv": "Från ämnesfamiljen {family}"
+          "en": "From the {family} family"
       },
       "cond-hasPrerequisites": {
-          "en": "With prerequisites",
-          "nb": "Med forutsetninger",
-          "sv": "Med förkunskaper"
+          "en": "With prerequisites"
       },
       "cond-noPrerequisites": {
-          "en": "Without prerequisites",
-          "nb": "Uten forutsetninger",
-          "sv": "Utan förkunskaper"
+          "en": "Without prerequisites"
       },
       "cond-skillNode": {
-          "en": "Skill nodes",
-          "nb": "Ferdighetsnoder",
-          "sv": "Färdighetsnoder"
+          "en": "Skill nodes"
       },
       "cond-conceptNode": {
-          "en": "Concept nodes",
-          "nb": "Begrepsnoder",
-          "sv": "Begreppsnoder"
+          "en": "Concept nodes"
       },
       "cond-severalConcepts": {
-          "en": "Concept nodes with several terms",
-          "nb": "Begrepsnoder med flere begreper",
-          "sv": "Begreppsnoder med flera begrepp"
+          "en": "Concept nodes with several terms"
       },
       "cond-factNode": {
-          "en": "Fact nodes",
-          "nb": "Faktanoder",
-          "sv": "Faktanoder"
+          "en": "Fact nodes"
       },
       "cond-nodeInstruction": {
-          "en": "Nodes with an extra instruction",
-          "nb": "Noder med ekstra instruks",
-          "sv": "Noder med extra instruktion"
+          "en": "Nodes with an extra instruction"
       },
       "cond-aids": {
-          "en": "When aid levels are set",
-          "nb": "Når hjelpemiddelnivå er satt",
-          "sv": "När hjälpmedelsnivå är satt"
+          "en": "When aid levels are set"
       },
       "cond-severalAids": {
-          "en": "Several aid levels",
-          "nb": "Flere hjelpemiddelnivåer",
-          "sv": "Flera hjälpmedelsnivåer"
+          "en": "Several aid levels"
       },
       "cond-expressionFocus": {
-          "en": "When the tree sets expressionFocus",
-          "nb": "Når treet setter expressionFocus",
-          "sv": "När trädet sätter expressionFocus"
+          "en": "When the tree sets expressionFocus"
       },
       "cond-courseSpecifics": {
-          "en": "When the tree has a course text",
-          "nb": "Når treet har en kurstekst",
-          "sv": "När trädet har en kurstext"
+          "en": "When the tree has a course text"
       },
       "cond-hasConcepts": {
-          "en": "When concepts are included",
-          "nb": "Når begreper er med",
-          "sv": "När begrepp ingår"
+          "en": "When concepts are included"
       },
       "cond-allConcepts": {
-          "en": "Only concepts",
-          "nb": "Bare begreper",
-          "sv": "Bara begrepp"
+          "en": "Only concepts"
       },
       "cond-someConcepts": {
-          "en": "Concepts and skills mixed",
-          "nb": "Begreper og ferdigheter blandet",
-          "sv": "Begrepp och färdigheter blandat"
+          "en": "Concepts and skills mixed"
       },
       "examEasy": {
-          "en": "When the test is easy",
-          "nb": "Når prøven er lett",
-          "sv": "När provet är lätt"
+          "en": "When the test is easy"
       },
       "examMedium": {
-          "en": "When the test is medium",
-          "nb": "Når prøven er middels",
-          "sv": "När provet är medel"
+          "en": "When the test is medium"
       },
       "examHard": {
-          "en": "When the test is hard",
-          "nb": "Når prøven er vanskelig",
-          "sv": "När provet är svårt"
+          "en": "When the test is hard"
       },
       "examClosed": {
-          "en": "When the tasks are closed",
-          "nb": "Når oppgavene er lukkede",
-          "sv": "När uppgifterna är slutna"
+          "en": "When the tasks are closed"
       },
       "examOpen": {
-          "en": "When the tasks are open",
-          "nb": "Når oppgavene er åpne",
-          "sv": "När uppgifterna är öppna"
+          "en": "When the tasks are open"
       },
       "examMixed": {
-          "en": "When the tasks are mixed",
-          "nb": "Når oppgavene er blandet",
-          "sv": "När uppgifterna är blandade"
+          "en": "When the tasks are mixed"
       },
       "motNoStart": {
-          "en": "When the student has not said where they are",
-          "nb": "Når eleven ikke har sagt hvor hen står",
-          "sv": "När eleven inte har sagt var hen står"
+          "en": "When the student has not said where they are"
       },
       "motStartHard": {
-          "en": "When the student finds it hard",
-          "nb": "Når eleven synes det er vanskelig",
-          "sv": "När eleven tycker att det är svårt"
+          "en": "When the student finds it hard"
       },
       "motStartBored": {
-          "en": "When the student finds it boring",
-          "nb": "Når eleven synes det er kjedelig",
-          "sv": "När eleven tycker att det är tråkigt"
+          "en": "When the student finds it boring"
       },
       "motStartUse": {
-          "en": "When the student asks what it is for",
-          "nb": "Når eleven spør hva hen skal med det",
-          "sv": "När eleven frågar vad hen ska ha det till"
+          "en": "When the student asks what it is for"
       },
       "motShort": {
-          "en": "When the conversation is short",
-          "nb": "Når samtalen er kort",
-          "sv": "När samtalet är kort"
+          "en": "When the conversation is short"
       },
       "motLong": {
-          "en": "When the conversation is long",
-          "nb": "Når samtalen er lang",
-          "sv": "När samtalet är långt"
+          "en": "When the conversation is long"
       },
       "miniThreeLevels": {
-          "en": "When each goal has three levels",
-          "nb": "Når hvert mål har tre nivåer",
-          "sv": "När varje mål har tre nivåer"
+          "en": "When each goal has three levels"
       },
       "miniOneLevel": {
-          "en": "When each goal has one level",
-          "nb": "Når hvert mål har ett nivå",
-          "sv": "När varje mål har en nivå"
+          "en": "When each goal has one level"
       },
       "miniMixedTest": {
-          "en": "When the file ends with a mixed test",
-          "nb": "Når fila slutter med en blandet prøve",
-          "sv": "När filen slutar med ett blandat prov"
+          "en": "When the file ends with a mixed test"
       },
       "miniGame": {
-          "en": "When the file has game elements",
-          "nb": "Når fila har spillelementer",
-          "sv": "När filen har spelmoment"
+          "en": "When the file has game elements"
       },
       "miniEasyRead": {
-          "en": "When the text is easy to read",
-          "nb": "Når teksten er lettlest",
-          "sv": "När texten är lättläst"
+          "en": "When the text is easy to read"
       },
       "miniPlainRead": {
-          "en": "When the text is ordinary",
-          "nb": "Når teksten er vanlig",
-          "sv": "När texten är vanlig"
+          "en": "When the text is ordinary"
       },
       "miniReadAloud": {
-          "en": "When the text can be read aloud",
-          "nb": "Når teksten kan leses høyt",
-          "sv": "När texten kan läsas upp"
+          "en": "When the text can be read aloud"
       },
       "simDesignFirst": {
-          "en": "When the design is agreed first",
-          "nb": "Når designet avtales først",
-          "sv": "När designen bestäms först"
+          "en": "When the design is agreed first"
       },
       "simBuildNow": {
-          "en": "When the simulation is built straight away",
-          "nb": "Når simuleringen lages med en gang",
-          "sv": "När simuleringen byggs direkt"
+          "en": "When the simulation is built straight away"
       },
       "simScreenLaptop": {
-          "en": "For a laptop screen",
-          "nb": "For skjermen på en bærbar PC",
-          "sv": "För skärmen på en bärbar dator"
+          "en": "For a laptop screen"
       },
       "simScreenTablet": {
-          "en": "For a tablet",
-          "nb": "For nettbrett",
-          "sv": "För surfplatta"
+          "en": "For a tablet"
       },
       "simScreenProjector": {
-          "en": "For a projector",
-          "nb": "For prosjektor",
-          "sv": "För projektor"
+          "en": "For a projector"
       },
       "simTasks": {
-          "en": "When the simulation comes with tasks",
-          "nb": "Når simuleringen har oppgaver",
-          "sv": "När simuleringen har uppgifter"
+          "en": "When the simulation comes with tasks"
       },
       "simCritique": {
-          "en": "When the students criticise the model",
-          "nb": "Når elevene skal kritisere modellen",
-          "sv": "När eleverna ska granska modellen"
+          "en": "When the students criticise the model"
       },
       "simExport": {
-          "en": "When results can be exported",
-          "nb": "Når resultatene kan eksporteres",
-          "sv": "När resultaten kan exporteras"
+          "en": "When results can be exported"
       },
       "cond-lessonIntro": {
-          "en": "When the lesson type is Introduction",
-          "nb": "Når typen time er Introduksjon",
-          "sv": "När typen av lektion är Introduktion"
+          "en": "When the lesson type is Introduction"
       },
       "cond-lessonPractice": {
-          "en": "When the lesson type is Practice",
-          "nb": "Når typen time er Øving",
-          "sv": "När typen av lektion är Övning"
+          "en": "When the lesson type is Practice"
       },
       "cond-lessonReview": {
-          "en": "When the lesson type is Review",
-          "nb": "Når typen time er Repetisjon",
-          "sv": "När typen av lektion är Repetition"
+          "en": "When the lesson type is Review"
       },
       "cond-lessonOther": {
-          "en": "When the lesson type is Other",
-          "nb": "Når typen time er Annet",
-          "sv": "När typen av lektion är Annat"
+          "en": "When the lesson type is Other"
       },
       "cond-hasSkills": {
-          "en": "When skills are included",
-          "nb": "Når ferdigheter er med",
-          "sv": "När färdigheter ingår"
+          "en": "When skills are included"
       },
       "cond-hasFacts": {
-          "en": "When facts are included",
-          "nb": "Når fakta er med",
-          "sv": "När fakta ingår"
+          "en": "When facts are included"
       },
       "grp-changed-one": {
-          "en": "1 changed",
-          "nb": "1 endret",
-          "sv": "1 ändrad"
+          "en": "1 changed"
       },
       "grp-changed-many": {
-          "en": "{n} changed",
-          "nb": "{n} endret",
-          "sv": "{n} ändrade"
+          "en": "{n} changed"
       },
       "grp-sections": {
-          "en": "Sections in this part",
-          "nb": "Seksjonene i denne delen",
-          "sv": "Avsnitten i denna del"
+          "en": "Sections in this part"
       },
       "grp-edit-aria": {
-          "en": "Edit “{group}”",
-          "nb": "Rediger «{group}»",
-          "sv": "Redigera ”{group}”"
+          "en": "Edit “{group}”"
       },
       "grp-how": {
-          "en": "Change any text and press Save. A row you have changed is marked green; “Use the published text” takes it back. Empty a row to leave that section out of this tree’s instruction.",
-          "nb": "Endre en tekst og trykk Lagre. En rad du har endret, er merket grønt; «Bruk den publiserte teksten» tar den tilbake. Tøm en rad for å ta den seksjonen ut av instruksen i dette treet.",
-          "sv": "Ändra en text och tryck Spara. En rad du har ändrat är markerad grön; ”Använd den publicerade texten” tar tillbaka den. Töm en rad för att ta bort det avsnittet ur instruktionen i detta träd."
+          "en": "Change any text and press Save. A row you have changed is marked green; “Use the published text” takes it back. Empty a row to leave that section out of this tree’s instruction."
       },
       "grp-col-name": {
-          "en": "Section",
-          "nb": "Seksjon",
-          "sv": "Avsnitt"
+          "en": "Section"
       },
       "grp-col-text": {
-          "en": "What it says",
-          "nb": "Hva den sier",
-          "sv": "Vad det säger"
+          "en": "What it says"
       },
       "grp-discard": {
-          "en": "Close without saving your changes?",
-          "nb": "Lukke uten å lagre endringene?",
-          "sv": "Stänga utan att spara ändringarna?"
+          "en": "Close without saving your changes?"
       },
       "sec-extra-placeholder": {
-          "en": "Anything else you want the AI to know or do. Left empty, nothing is added.",
-          "nb": "Alt annet du vil at KI-en skal vite eller gjøre. Står feltet tomt, legges ingenting til.",
-          "sv": "Allt annat du vill att AI:n ska veta eller göra. Lämnas fältet tomt läggs inget till."
+          "en": "Anything else you want the AI to know or do. Left empty, nothing is added."
       },
       "sec-empty-placeholder": {
-          "en": "(empty: this section is left out)",
-          "nb": "(tom: seksjonen er tatt ut)",
-          "sv": "(tomt: avsnittet är borttaget)"
-      },
-      "grp-node-role-and-style": {
-          "nb": "Hvem KI-en er, hvordan den åpner samtalen, tonen, hvor lange meldingene er, og hvilket språk den skriver på.",
-          "sv": "Vem AI:n är, hur den öppnar samtalet, tonen, hur långa meddelandena är och vilket språk den skriver på."
-      },
-      "grp-node-how-to-teach": {
-          "nb": "Hvordan KI-en leder inn i temaet, bruker eksempler og analogier, og justerer vanskelighetsgraden.",
-          "sv": "Hur AI:n leder in i ämnet, använder exempel och analogier och justerar svårighetsgraden."
-      },
-      "grp-node-the-goal": {
-          "nb": "Hva eleven skal mestre på denne noden, for ferdigheter, begreper og fakta, og når det regnes som mestret.",
-          "sv": "Vad eleven ska behärska på denna nod, för färdigheter, begrepp och fakta, och när det räknas som behärskat."
-      },
-      "grp-node-context": {
-          "nb": "Hva eleven kan fra før, hvilke hjelpemidler som er lov, det som er spesielt for kurset, og at KI-en ikke husker noe mellom samtaler.",
-          "sv": "Vad eleven redan kan, vilka hjälpmedel som är tillåtna, det som är speciellt för kursen, och att AI:n inte minns något mellan samtal."
-      },
-      "grp-node-extra": {
-          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
-          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
-      },
-      "grp-exam-role-and-style": {
-          "nb": "Hvem KI-en er og hvilket språk den skriver på.",
-          "sv": "Vem AI:n är och vilket språk den skriver på."
-      },
-      "grp-exam-the-test": {
-          "nb": "Hvilke mål prøven dekker, hvordan oppgavene ser ut, og at svarene holdes tilbake til eleven har prøvd.",
-          "sv": "Vilka mål provet täcker, hur uppgifterna ser ut, och att svaren hålls tillbaka tills eleven har försökt."
-      },
-      "grp-exam-skills-concepts-and-facts": {
-          "nb": "Hvordan oppgavene blandes når prøven dekker begreper og fakta i tillegg til ferdigheter.",
-          "sv": "Hur uppgifterna blandas när provet täcker begrepp och fakta utöver färdigheter."
-      },
-      "grp-exam-context": {
-          "nb": "Hjelpemidlene som er lov, det som er spesielt for kurset, og at KI-en ikke husker noe mellom samtaler.",
-          "sv": "Hjälpmedlen som är tillåtna, det som är speciellt för kursen, och att AI:n inte minns något mellan samtal."
-      },
-      "grp-exam-extra": {
-          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
-          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
-      },
-      "grp-motivation-role-and-style": {
-          "nb": "Hvem KI-en er, varmen, ett spørsmål om gangen, hvordan den åpner, og hvilket språk den skriver på.",
-          "sv": "Vem AI:n är, värmen, en fråga i taget, hur den öppnar och vilket språk den skriver på."
-      },
-      "grp-motivation-the-conversation": {
-          "nb": "Kjernebudskapet, å bli kjent med eleven, elevens styrker, og hvor samtalen skal.",
-          "sv": "Kärnbudskapet, att lära känna eleven, elevens styrkor och vart samtalet ska."
-      },
-      "grp-motivation-arguments": {
-          "nb": "Argumentene for å øve nå og på lang sikt.",
-          "sv": "Argumenten för att öva nu och på lång sikt."
-      },
-      "grp-motivation-context": {
-          "nb": "Det som er spesielt for kurset, og at KI-en ikke husker noe mellom samtaler.",
-          "sv": "Det som är speciellt för kursen, och att AI:n inte minns något mellan samtal."
-      },
-      "grp-motivation-extra": {
-          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
-          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
-      },
-      "grp-lessonPlan-role-and-style": {
-          "nb": "Hvem KI-en er, hvordan svaret er satt opp, og hvilket språk det skrives på.",
-          "sv": "Vem AI:n är, hur svaret är upplagt och vilket språk det skrivs på."
-      },
-      "grp-lessonPlan-the-lesson": {
-          "nb": "Læringsmålene og planen for timen, én for hver type time læreren kan velge: introduksjon, øving, repetisjon eller annet. Pluss hvordan ferdighets-, begreps- og faktamål undervises.",
-          "sv": "Lärandemålen och planen för lektionen, en för varje typ av lektion läraren kan välja: introduktion, övning, repetition eller annat. Plus hur färdighets-, begrepps- och faktamål undervisas."
-      },
-      "grp-lessonPlan-context": {
-          "nb": "Hva elevene kan fra før, hjelpemidlene de kan bruke, og det som er spesielt for kurset.",
-          "sv": "Vad eleverna redan kan, hjälpmedlen de får använda och det som är speciellt för kursen."
-      },
-      "grp-lessonPlan-extra": {
-          "nb": "Dine egne tillegg. Tom med mindre du skriver noe her.",
-          "sv": "Dina egna tillägg. Tomt om du inte skriver något här."
+          "en": "(empty: this section is left out)"
       },
       "sec-empty": {
-          "en": "(empty unless the tree fills it)",
-          "nb": "(tom med mindre treet fyller den)",
-          "sv": "(tom om inte trädet fyller den)"
+          "en": "(empty unless the tree fills it)"
       },
       "sec-more": {
-          "en": "Show all",
-          "nb": "Vis alt",
-          "sv": "Visa allt"
+          "en": "Show all"
       },
       "sec-less": {
-          "en": "Show less",
-          "nb": "Vis mindre",
-          "sv": "Visa mindre"
+          "en": "Show less"
       },
       "sec-edit": {
-          "en": "Edit",
-          "nb": "Rediger",
-          "sv": "Redigera"
+          "en": "Edit"
       },
       "sec-edit-again": {
-          "en": "Edit your version",
-          "nb": "Rediger din versjon",
-          "sv": "Redigera din version"
+          "en": "Edit your version"
       },
       "sec-reset": {
-          "en": "Use the published text",
-          "nb": "Bruk den publiserte teksten",
-          "sv": "Använd den publicerade texten"
+          "en": "Use the published text"
       },
       "sec-reset-all": {
-          "en": "Use the published text everywhere",
-          "nb": "Bruk den publiserte teksten overalt",
-          "sv": "Använd den publicerade texten överallt"
+          "en": "Use the published text everywhere"
       },
       "sec-published": {
-          "en": "The published text",
-          "nb": "Den publiserte teksten",
-          "sv": "Den publicerade texten"
+          "en": "The published text"
       },
       "sec-save": {
-          "en": "Save",
-          "nb": "Lagre",
-          "sv": "Spara"
+          "en": "Save"
       },
       "sec-cancel": {
-          "en": "Cancel",
-          "nb": "Avbryt",
-          "sv": "Avbryt"
+          "en": "Cancel"
       },
       "sec-apply-all": {
-          "en": "Use this text in every instruction that has this section ({list})",
-          "nb": "Bruk denne teksten i alle instruksene som har denne seksjonen ({list})",
-          "sv": "Använd denna text i alla instruktioner som har detta avsnitt ({list})"
+          "en": "Use this text in every instruction that has this section ({list})"
       },
       "sec-runtime-node": {
-          "en": "Written on each node, under “Extra instruction for this node”.",
-          "nb": "Skrives på hver node, under «Ekstra instruks for denne noden».",
-          "sv": "Skrivs på varje nod, under ”Extra instruktion för denna nod”."
+          "en": "Written on each node, under “Extra instruction for this node”."
       },
       "sec-runtime-aids": {
-          "en": "Written from the aid levels under Tree.",
-          "nb": "Skrives ut fra hjelpemiddelnivåene under Treet.",
-          "sv": "Skrivs utifrån hjälpmedelsnivåerna under Trädet."
+          "en": "Written from the aid levels under Tree."
       },
       "set-group-about": {
-          "en": "Basics",
-          "nb": "Grunnleggende",
-          "sv": "Grundläggande"
+          "en": "Basics"
       },
       "set-title": {
-          "en": "Title",
-          "nb": "Tittel",
-          "sv": "Titel"
+          "en": "Title"
       },
       "set-description": {
-          "en": "Short description",
-          "nb": "Kort beskrivelse",
-          "sv": "Kort beskrivning"
+          "en": "Short description"
       },
       "set-language": {
-          "en": "Language",
-          "nb": "Språk",
-          "sv": "Språk"
+          "en": "Language"
       },
       "set-learner": {
-          "en": "The learner is called",
-          "nb": "Den som lærer heter",
-          "sv": "Den som lär sig heter"
+          "en": "The learner is called"
       },
       "set-learner-hint": {
-          "en": "In the definite form, as the instructions say it: “the student”, “the participant”. Empty gives the language’s default.",
-          "nb": "I bestemt form, slik instruksene sier det: «eleven», «studenten», «kursdeltakeren». Tomt gir språkets standard.",
-          "sv": "I bestämd form, så som instruktionerna säger det: ”eleven”, ”studenten”, ”deltagaren”. Tomt ger språkets standard."
+          "en": "In the definite form, as the instructions say it: “the student”, “the participant”. Empty gives the language’s default."
       },
       "set-family": {
-          "en": "Subject family",
-          "nb": "Fagfamilie",
-          "sv": "Ämnesfamilj"
+          "en": "Subject family"
       },
       "set-family-hint": {
-          "en": "Adds what the instructions should know about this kind of subject.",
-          "nb": "Legger til det instruksene bør vite om denne typen fag.",
-          "sv": "Lägger till det instruktionerna bör veta om den här typen av ämne."
+          "en": "Adds what the instructions should know about this kind of subject."
       },
       "set-family-none": {
-          "en": "None",
-          "nb": "Ingen",
-          "sv": "Ingen"
+          "en": "None"
       },
       "set-decomposition": {
-          "en": "Decomposition prompt version",
-          "nb": "Versjon av dekomponeringsprompten",
-          "sv": "Version av nedbrytningsprompten"
+          "en": "Decomposition prompt version"
       },
       "set-decomposition-hint": {
-          "en": "Which version of the method the tree was built with, so you can tell later.",
-          "nb": "Hvilken versjon av metoden treet ble laget etter, så du kan se det senere.",
-          "sv": "Vilken version av metoden trädet byggdes efter, så att du kan se det senare."
+          "en": "Which version of the method the tree was built with, so you can tell later."
       },
       "set-group-course": {
-          "en": "About the course",
-          "nb": "Om kurset",
-          "sv": "Om kursen"
+          "en": "About the course"
       },
       "set-group-course-note": {
-          "en": "Shown to students under “About the subject”.",
-          "nb": "Vises for elevene under «Om faget».",
-          "sv": "Visas för eleverna under ”Om ämnet”."
+          "en": "Shown to students under “About the subject”."
       },
       "set-subtitle": {
-          "en": "Subtitle",
-          "nb": "Undertittel",
-          "sv": "Underrubrik"
+          "en": "Subtitle"
       },
       "set-subtitle-hint": {
-          "en": "One line under the title on the tree’s card, e.g. “Programme subject, Year 12”.",
-          "nb": "Én linje under tittelen på treets kort, f.eks. «Programfag realfag, Vg2».",
-          "sv": "En rad under titeln på trädets kort, t.ex. ”Yrkesprogram, Gy25”."
+          "en": "One line under the title on the tree’s card, e.g. “Programme subject, Year 12”."
       },
       "set-course-code": {
-          "en": "Course code",
-          "nb": "Fagkode",
-          "sv": "Kurskod"
+          "en": "Course code"
       },
       "set-updated": {
-          "en": "Last updated",
-          "nb": "Sist oppdatert",
-          "sv": "Senast uppdaterad"
+          "en": "Last updated"
       },
       "set-updated-hint": {
-          "en": "As YYYY-MM-DD.",
-          "nb": "Som ÅÅÅÅ-MM-DD.",
-          "sv": "Som ÅÅÅÅ-MM-DD."
+          "en": "As YYYY-MM-DD."
       },
       "set-group-catalogue": {
-          "en": "In the catalogue",
-          "nb": "I katalogen",
-          "sv": "I katalogen"
+          "en": "In the catalogue"
       },
       "set-group-catalogue-note": {
-          "en": "What the filters on aiskilltrees.com/trees/ sort by. Also shown under “About the subject”.",
-          "nb": "Det filtrene på aiskilltrees.com/trees/ sorterer etter. Vises også under «Om faget».",
-          "sv": "Det filtren på aiskilltrees.com/trees/ sorterar efter. Visas också under ”Om ämnet”."
+          "en": "What the filters on aiskilltrees.com/trees/ sort by. Also shown under “About the subject”."
       },
       "set-country": {
-          "en": "Country",
-          "nb": "Land",
-          "sv": "Land"
+          "en": "Country"
       },
       "set-institution": {
-          "en": "Institution",
-          "nb": "Institusjon",
-          "sv": "Institution"
+          "en": "Institution"
       },
       "set-division": {
-          "en": "Year or faculty",
-          "nb": "Trinn eller fakultet",
-          "sv": "Årskurs eller fakultet"
+          "en": "Year or faculty"
       },
       "set-subject-area": {
-          "en": "Subject area",
-          "nb": "Fagområde",
-          "sv": "Ämnesområde"
+          "en": "Subject area"
       },
       "set-keywords": {
-          "en": "Keywords",
-          "nb": "Søkeord",
-          "sv": "Sökord"
+          "en": "Keywords"
       },
       "set-keywords-hint": {
-          "en": "Extra words the catalogue search should find the tree by, separated by semicolons.",
-          "nb": "Ekstra ord katalogsøket skal finne treet på, skilt med semikolon.",
-          "sv": "Extra ord katalogsökningen ska hitta trädet på, åtskilda med semikolon."
+          "en": "Extra words the catalogue search should find the tree by, separated by semicolons."
       },
       "set-curriculum": {
-          "en": "Curriculum",
-          "nb": "Læreplan",
-          "sv": "Läroplan"
+          "en": "Curriculum"
       },
       "set-author": {
-          "en": "Author",
-          "nb": "Forfatter",
-          "sv": "Författare"
+          "en": "Author"
       },
       "set-author-url": {
-          "en": "Author’s web page",
-          "nb": "Forfatterens nettside",
-          "sv": "Författarens webbsida"
+          "en": "Author’s web page"
       },
       "set-license": {
-          "en": "Licence",
-          "nb": "Lisens",
-          "sv": "Licens"
+          "en": "Licence"
       },
       "set-author-yours": {
-          "en": "Your name",
-          "nb": "Navnet ditt",
-          "sv": "Ditt namn"
+          "en": "Your name"
       },
       "set-author-inherited": {
-          "en": "This tree was made by {author}. If you are adapting it, write your own name here: {author} is then listed under “Based on”, as the CC BY licence requires. Leave the field empty if you are {author}.",
-          "nb": "Dette treet er laget av {author}. Bearbeider du det, skriver du navnet ditt her: {author} føres da opp under «Bygger på», slik CC BY-lisensen krever. La feltet stå tomt hvis du er {author}.",
-          "sv": "Det här trädet är gjort av {author}. Bearbetar du det, skriver du ditt namn här: {author} förs då upp under ”Bygger på”, som CC BY-licensen kräver. Lämna fältet tomt om du är {author}."
+          "en": "This tree was made by {author}. If you are adapting it, write your own name here: {author} is then listed under “Based on”, as the CC BY licence requires. Leave the field empty if you are {author}."
       },
       "set-based-on": {
-          "en": "Based on",
-          "nb": "Bygger på",
-          "sv": "Bygger på"
+          "en": "Based on"
       },
       "set-based-on-hint": {
-          "en": "The trees this one was made from, nearest first. Shown to students under “About the subject”, and kept in the file when it is downloaded.",
-          "nb": "Trærne dette er laget fra, det nærmeste først. Vises for elevene under «Om faget», og følger med fila når den lastes ned.",
-          "sv": "Träden det här är gjort av, det närmaste först. Visas för eleverna under ”Om ämnet”, och följer med filen när den laddas ner."
+          "en": "The trees this one was made from, nearest first. Shown to students under “About the subject”, and kept in the file when it is downloaded."
       },
       "set-group-buttons": {
-          "en": "Buttons",
-          "nb": "Knapper",
-          "sv": "Knappar"
+          "en": "Buttons"
       },
       "set-motivation": {
-          "en": "Motivation button",
-          "nb": "Motivasjonsknapp",
-          "sv": "Motivationsknapp"
+          "en": "Motivation button"
       },
       "set-motivation-hint": {
-          "en": "A button that starts a conversation about why the subject is worth learning.",
-          "nb": "En knapp som starter en samtale om hvorfor faget er verdt å lære.",
-          "sv": "En knapp som startar ett samtal om varför ämnet är värt att lära sig."
+          "en": "A button that starts a conversation about why the subject is worth learning."
       },
       "set-group-slots": {
-          "en": "Words the instructions use",
-          "nb": "Ord instruksene bruker",
-          "sv": "Ord instruktionerna använder"
+          "en": "Words the instructions use"
       },
       "set-group-slots-note": {
-          "en": "Filled into the instructions wherever they refer to the course.",
-          "nb": "Fylles inn i instruksene der de viser til kurset.",
-          "sv": "Fylls i instruktionerna där de hänvisar till kursen."
+          "en": "Filled into the instructions wherever they refer to the course."
       },
       "set-slot-course": {
-          "en": "Course name, as the instructions say it",
-          "nb": "Kursnavnet, slik instruksene sier det",
-          "sv": "Kursnamnet, så som instruktionerna säger det"
+          "en": "Course name, as the instructions say it"
       },
       "set-slot-motivation": {
-          "en": "The subject, in the motivation dialogue",
-          "nb": "Faget, i motivasjonssamtalen",
-          "sv": "Ämnet, i motivationssamtalet"
+          "en": "The subject, in the motivation dialogue"
       },
       "set-slot-expression": {
-          "en": "What students often get wrong in writing",
-          "nb": "Hva elevene ofte skriver feil",
-          "sv": "Vad eleverna ofta skriver fel"
+          "en": "What students often get wrong in writing"
       },
       "set-slot-expression-hint": {
-          "en": "The tutor watches for this in every answer.",
-          "nb": "Veilederen ser etter dette i hvert svar.",
-          "sv": "Handledaren ser efter detta i varje svar."
+          "en": "The tutor watches for this in every answer."
       },
       "set-slot-specifics": {
-          "en": "About this course",
-          "nb": "Om dette kurset",
-          "sv": "Om den här kursen"
+          "en": "About this course"
       },
       "set-slot-specifics-hint": {
-          "en": "Anything every instruction should know: the level, the textbook, what the students have done before.",
-          "nb": "Alt instruksene bør vite: nivået, læreboka, hva elevene har gjort før.",
-          "sv": "Allt instruktionerna bör veta: nivån, läroboken, vad eleverna har gjort förut."
+          "en": "Anything every instruction should know: the level, the textbook, what the students have done before."
       },
       "set-group-aids": {
-          "en": "Aid levels",
-          "nb": "Hjelpemiddelnivåer",
-          "sv": "Hjälpmedelsnivåer"
+          "en": "Aid levels"
       },
       "set-group-aids-note": {
-          "en": "For subjects that are examined with and without aids. Leave empty if yours is not.",
-          "nb": "For fag som prøves med og uten hjelpemidler. La stå tomt hvis ditt ikke gjør det.",
-          "sv": "För ämnen som prövas med och utan hjälpmedel. Lämna tomt om ditt inte gör det."
+          "en": "For subjects that are examined with and without aids. Leave empty if yours is not."
       },
       "set-aids-label": {
-          "en": "Name of a level",
-          "nb": "Navn på et nivå",
-          "sv": "Namn på en nivå"
+          "en": "Name of a level"
       },
       "set-aids-label-hint": {
-          "en": "For example “Part”, so the tags read “Part 1” and “Part 2”.",
-          "nb": "For eksempel «Del», så merkene blir «Del 1» og «Del 2».",
-          "sv": "Till exempel ”Del”, så att märkena blir ”Del 1” och ”Del 2”."
+          "en": "For example “Part”, so the tags read “Part 1” and “Part 2”."
       },
       "set-aids-name": {
-          "en": "Own name for this level (optional)",
-          "nb": "Eget navn på dette nivået (valgfritt)",
-          "sv": "Eget namn på denna nivå (valfritt)"
+          "en": "Own name for this level (optional)"
       },
       "set-aids-student": {
-          "en": "What the student is told",
-          "nb": "Hva eleven får vite",
-          "sv": "Vad eleven får veta"
+          "en": "What the student is told"
       },
       "set-aids-model": {
-          "en": "What the AI is told",
-          "nb": "Hva KI-en får vite",
-          "sv": "Vad AI:n får veta"
+          "en": "What the AI is told"
       },
       "set-aids-add": {
-          "en": "+ Add a level",
-          "nb": "+ Legg til et nivå",
-          "sv": "+ Lägg till en nivå"
+          "en": "+ Add a level"
       },
       "set-aids-remove": {
-          "en": "Remove level",
-          "nb": "Fjern nivået",
-          "sv": "Ta bort nivån"
+          "en": "Remove level"
       },
       "set-aids-new-student": {
-          "en": "Describe the aids the student may use.",
-          "nb": "Beskriv hjelpemidlene eleven kan bruke.",
-          "sv": "Beskriv hjälpmedlen eleven får använda."
+          "en": "Describe the aids the student may use."
       },
       "set-aids-new-model": {
-          "en": "Describe the aids the student may use, so the AI can set tasks that fit.",
-          "nb": "Beskriv hjelpemidlene eleven kan bruke, så KI-en kan lage oppgaver som passer.",
-          "sv": "Beskriv hjälpmedlen eleven får använda, så att AI:n kan göra uppgifter som passar."
+          "en": "Describe the aids the student may use, so the AI can set tasks that fit."
       },
       "set-group-other": {
-          "en": "Other settings in the file",
-          "nb": "Andre innstillinger i fila",
-          "sv": "Andra inställningar i filen"
+          "en": "Other settings in the file"
       },
       "set-group-other-note": {
-          "en": "Settings this page has no field for, shown as they stand in the spreadsheet.",
-          "nb": "Innstillinger denne siden ikke har eget felt for, vist slik de står i regnearket.",
-          "sv": "Inställningar den här sidan inte har eget fält för, visade så som de står i kalkylarket."
+          "en": "Settings this page has no field for, shown as they stand in the spreadsheet."
       },
       "set-remove": {
-          "en": "Remove setting",
-          "nb": "Fjern innstillingen",
-          "sv": "Ta bort inställningen"
+          "en": "Remove setting"
       },
       "set-add": {
-          "en": "+ Add a setting",
-          "nb": "+ Legg til en innstilling",
-          "sv": "+ Lägg till en inställning"
+          "en": "+ Add a setting"
       },
       "set-add-prompt": {
-          "en": "Name of the setting (as in the name column):",
-          "nb": "Navnet på innstillingen (som i name-kolonnen):",
-          "sv": "Namnet på inställningen (som i name-kolumnen):"
+          "en": "Name of the setting (as in the name column):"
       },
       "set-add-value": {
-          "en": "Value for {key}:",
-          "nb": "Verdi for {key}:",
-          "sv": "Värde för {key}:"
+          "en": "Value for {key}:"
       },
       "lang-en": {
-          "en": "English",
-          "nb": "Engelsk",
-          "sv": "Engelska"
+          "en": "English"
       },
       "lang-nb": {
-          "en": "Norwegian (bokmål)",
-          "nb": "Norsk (bokmål)",
-          "sv": "Norska (bokmål)"
+          "en": "Norwegian (bokmål)"
       },
       "lang-sv": {
-          "en": "Swedish",
-          "nb": "Svensk",
-          "sv": "Svenska"
+          "en": "Swedish"
       },
       "look-intro": {
-          "en": "The colour of each type of node, and the font. The type is always written on the node too, so the colour never has to carry the meaning alone.",
-          "nb": "Fargen på hver type node, og skrifta. Typen står alltid som ord på noden også, så fargen aldri må bære betydningen alene.",
-          "sv": "Färgen på varje typ av nod, och typsnittet. Typen står alltid som ord på noden också, så att färgen aldrig ensam behöver bära betydelsen."
+          "en": "The colour of each type of node, and the font. The type is always written on the node too, so the colour never has to carry the meaning alone."
       },
       "look-concept": {
-          "en": "Concept colour",
-          "nb": "Farge på begreper",
-          "sv": "Färg på begrepp"
+          "en": "Concept colour"
       },
       "look-skill": {
-          "en": "Skill colour",
-          "nb": "Farge på ferdigheter",
-          "sv": "Färg på färdigheter"
+          "en": "Skill colour"
       },
       "look-fact": {
-          "en": "Fact colour",
-          "nb": "Farge på fakta",
-          "sv": "Färg på fakta"
+          "en": "Fact colour"
       },
       "look-default": {
-          "en": "Use the default",
-          "nb": "Bruk standard",
-          "sv": "Använd standard"
+          "en": "Use the default"
       },
       "look-contrast": {
-          "en": "The node names will be hard to read on this colour (contrast {ratio}:1, 4.5:1 is the minimum). Try a lighter or less saturated colour.",
-          "nb": "Nodenavnene blir vanskelige å lese på denne fargen (kontrast {ratio}:1, minst 4,5:1). Prøv en lysere eller mindre mettet farge.",
-          "sv": "Nodnamnen blir svåra att läsa på denna färg (kontrast {ratio}:1, minst 4,5:1). Prova en ljusare eller mindre mättad färg."
+          "en": "The node names will be hard to read on this colour (contrast {ratio}:1, 4.5:1 is the minimum). Try a lighter or less saturated colour."
       },
       "look-font": {
-          "en": "Font",
-          "nb": "Skrift",
-          "sv": "Typsnitt"
+          "en": "Font"
       },
       "look-font-hint": {
-          "en": "These fonts are on every computer already, so the downloaded tree looks the same without a network.",
-          "nb": "Disse skriftene finnes allerede på alle maskiner, så det nedlastede treet ser likt ut uten nett.",
-          "sv": "Dessa typsnitt finns redan på alla datorer, så det nedladdade trädet ser likadant ut utan nät."
+          "en": "These fonts are on every computer already, so the downloaded tree looks the same without a network."
       },
       "look-font-sample": {
-          "en": "Add fractions",
-          "nb": "Legg sammen brøker",
-          "sv": "Addera bråk"
+          "en": "Add fractions"
       },
       "look-font-system": {
-          "en": "Standard",
-          "nb": "Standard",
-          "sv": "Standard"
+          "en": "Standard"
       },
       "look-font-humanist": {
-          "en": "Humanist",
-          "nb": "Humanistisk",
-          "sv": "Humanistisk"
+          "en": "Humanist"
       },
       "look-font-rounded": {
-          "en": "Rounded",
-          "nb": "Avrundet",
-          "sv": "Rundad"
+          "en": "Rounded"
       },
       "look-font-serif": {
-          "en": "Serif",
-          "nb": "Seriff",
-          "sv": "Serif"
+          "en": "Serif"
       },
       "look-font-mono": {
-          "en": "Typewriter",
-          "nb": "Skrivemaskin",
-          "sv": "Skrivmaskin"
+          "en": "Typewriter"
       },
       "footer-privacy": {
-          "en": "Privacy",
-          "nb": "Personvern",
-          "sv": "Integritet"
+          "en": "Privacy"
       },
       "l0-title": {
-          "en": "You have nothing yet",
-          "nb": "Du har ingenting ennå",
-          "sv": "Du har ingenting ännu"
+          "en": "You have nothing yet"
       },
       "l0-body": {
-          "en": "Copy the instruction below into whichever AI chat you already use. It asks about your subject, your level and your curriculum, takes you through the decomposition, and hands you a spreadsheet at the end. Nothing to install.",
-          "nb": "Kopier instruksen under inn i den KI-chatten du allerede bruker. Den spør om faget ditt, nivået og læreplanen, tar deg gjennom dekomponeringen, og gir deg et regneark til slutt. Ingenting å installere.",
-          "sv": "Kopiera instruktionen nedan till den AI-chatt du redan använder. Den frågar om ditt ämne, din nivå och din läroplan, tar dig genom nedbrytningen och ger dig ett kalkylark till slut. Inget att installera."
+          "en": "Copy the instruction below into whichever AI chat you already use. It asks about your subject, your level and your curriculum, takes you through the decomposition, and hands you a spreadsheet at the end. Nothing to install."
       },
       "l0-cta": {
-          "en": "Copy the prompt",
-          "nb": "Kopier ledeteksten",
-          "sv": "Kopiera instruktionen"
+          "en": "Copy the prompt"
       },
       "l0-placeholder": {
-          "en": "[ Loading the prompt… ]",
-          "nb": "[ Henter ledeteksten … ]",
-          "sv": "[ Hämtar instruktionen … ]"
+          "en": "[ Loading the prompt… ]"
       },
       "l1-title": {
-          "en": "You have a spreadsheet",
-          "nb": "Du har et regneark",
-          "sv": "Du har ett kalkylark"
+          "en": "You have a spreadsheet"
       },
       "l1-cta": {
-          "en": "Download an example spreadsheet",
-          "nb": "Last ned et eksempelregneark",
-          "sv": "Ladda ner ett exempelkalkylark"
+          "en": "Download an example spreadsheet"
       },
       "l1-cta-note": {
-          "en": "Nine nodes, two resources, and every setting a tree can have. It is also the best thing to hand the AI as a format example.",
-          "nb": "Ni noder, to ressurser, og alle innstillingene et tre kan ha. Den er også det beste å gi KI-en som formateksempel.",
-          "sv": "Nio noder, två resurser, och alla inställningar ett träd kan ha. Den är också det bästa att ge AI:n som formatexempel."
+          "en": "Nine nodes, two resources, and every setting a tree can have. It is also the best thing to hand the AI as a format example."
       },
       "l2-title": {
-          "en": "You are going to live with this",
-          "nb": "Du skal leve med dette",
-          "sv": "Du ska leva med det här"
+          "en": "You are going to live with this"
       },
       "l2-body": {
-          "en": "If you will maintain a tree over several years, or build them for a whole department, it is worth working in an editor with an AI agent that can read the specification, run the checks and keep your versions. The method repository has the decomposition model, the default instructions and the file format.",
-          "nb": "Skal du vedlikeholde et tre over flere år, eller bygge dem for en hel seksjon, er det verdt å jobbe i en editor med en KI-agent som kan lese spesifikasjonen, kjøre sjekkene og holde styr på versjonene dine. Metode-repoet har dekomponeringsmodellen, standardinstruksene og filformatet.",
-          "sv": "Ska du underhålla ett träd över flera år, eller bygga dem för en hel sektion, är det värt att arbeta i en editor med en AI-agent som kan läsa specifikationen, köra kontrollerna och hålla reda på dina versioner. Metodrepot har nedbrytningsmodellen, standardinstruktionerna och filformatet."
+          "en": "If you will maintain a tree over several years, or build them for a whole department, it is worth working in an editor with an AI agent that can read the specification, run the checks and keep your versions. The method repository has the decomposition model, the default instructions and the file format."
       },
       "l2-cta": {
-          "en": "Open the method repository",
-          "nb": "Åpne metode-repoet",
-          "sv": "Öppna metodrepot"
+          "en": "Open the method repository"
       },
       "contribute-body": {
-          "en": "Made a tree you want other teachers to use? You can submit it to the catalogue on this site.",
-          "nb": "Har du laget et tre du vil at andre lærere skal kunne bruke? Du kan sende det inn til katalogen på denne siden.",
-          "sv": "Har du gjort ett träd som du vill att andra lärare ska kunna använda? Du kan skicka in det till katalogen på den här sidan."
+          "en": "Made a tree you want other teachers to use? You can submit it to the catalogue on this site."
       },
       "contribute-cta": {
-          "en": "Submit your tree",
-          "nb": "Send inn treet ditt",
-          "sv": "Skicka in ditt träd"
+          "en": "Submit your tree"
       },
       "stat-roots-flat": {
-          "en": "That is a lot. A tree where most nodes start from nothing is usually one where the prerequisites were never worked out — worth sending back to the AI.",
-          "nb": "Det er mange. Et tre der de fleste nodene starter fra ingenting, er som regel et tre der forutsetningene aldri ble gjort — verdt å sende tilbake til KI-en.",
-          "sv": "Det är många. Ett träd där de flesta noder börjar från ingenting är oftast ett träd där förkunskaperna aldrig gjordes — värt att skicka tillbaka till AI:n."
+          "en": "That is a lot. A tree where most nodes start from nothing is usually one where the prerequisites were never worked out — worth sending back to the AI."
       },
       "set-derived": {
-          "en": "(worked out for you)",
-          "nb": "(utledet for deg)",
-          "sv": "(uträknat åt dig)"
+          "en": "(worked out for you)"
       },
       "set-decomposition-missing": {
-          "en": "not given — add a decompositionVersion row, so you can tell later which version of the method the tree was built with",
-          "nb": "ikke oppgitt — legg til en decompositionVersion-rad, så du senere kan se hvilken versjon av metoden treet ble laget etter",
-          "sv": "inte angiven — lägg till en decompositionVersion-rad, så att du senare kan se vilken version av metoden trädet byggdes efter"
+          "en": "not given — add a decompositionVersion row, so you can tell later which version of the method the tree was built with"
       },
       "l1-body": {
-          "en": "Drop it here, or paste it if you copied it from the chat. A tree you downloaded from this site earlier works too. It opens in the editor, where you can change it and download it again.",
-          "nb": "Slipp det her, eller lim det inn hvis du kopierte det fra chatten. Et tre du har lastet ned fra denne siden før, går også. Det åpnes i redigeringen, der du kan endre det og laste det ned igjen.",
-          "sv": "Släpp det här, eller klistra in det om du kopierade det från chatten. Ett träd du har laddat ner från den här sidan tidigare går också. Det öppnas i redigeringen, där du kan ändra det och ladda ner det igen."
+          "en": "Drop it here, or paste it if you copied it from the chat. A tree you downloaded from this site earlier works too. It opens in the editor, where you can change it and download it again."
       },
       "l0-show": {
-          "en": "Show the prompt",
-          "nb": "Vis ledeteksten",
-          "sv": "Visa instruktionen"
+          "en": "Show the prompt"
       },
       "l0-hide": {
-          "en": "Hide the prompt",
-          "nb": "Skjul ledeteksten",
-          "sv": "Dölj instruktionen"
+          "en": "Hide the prompt"
       },
       "l0-next": {
-          "en": "Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one, or copy it and paste it there.",
-          "nb": "Kopiert. Lim den inn i KI-chatten. Når chatten gir deg regnearket, slipper du det i boksen ved siden av, eller kopierer det og limer det inn der.",
-          "sv": "Kopierat. Klistra in den i AI-chatten. När chatten ger dig kalkylarket släpper du det i rutan bredvid, eller kopierar det och klistrar in det där."
+          "en": "Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one, or copy it and paste it there."
       },
       "l3-title": {
-          "en": "You want to start from something",
-          "nb": "Du vil starte fra noe",
-          "sv": "Du vill börja från något"
+          "en": "You want to start from something"
       },
       "ov-close": {
-          "en": "Close and look at the example",
-          "nb": "Lukk og se på eksempelet",
-          "sv": "Stäng och titta på exemplet"
+          "en": "Close and look at the example"
       },
       "ov-foot-l2": {
-          "en": "Maintaining trees for years, or for a whole department? Work in an editor with an AI agent instead:",
-          "nb": "Skal du vedlikeholde trær over år, eller for en hel seksjon? Jobb heller i en editor med en KI-agent:",
-          "sv": "Ska du underhålla träd i flera år, eller för en hel sektion? Arbeta hellre i en editor med en AI-agent:"
+          "en": "Maintaining trees for years, or for a whole department? Work in an editor with an AI agent instead:"
       },
       "ov-foot-contribute": {
-          "en": "Made a tree other teachers could use?",
-          "nb": "Har du laget et tre andre lærere kan bruke?",
-          "sv": "Har du gjort ett träd andra lärare kan använda?"
+          "en": "Made a tree other teachers could use?"
       },
       "rep-settings": {
-          "en": "How your settings were read",
-          "nb": "Slik ble innstillingene dine lest",
-          "sv": "Så lästes dina inställningar"
+          "en": "How your settings were read"
       },
       "rep-settings-note": {
-          "en": "Some of these you wrote, and some were worked out from your file. A tree that looks wrong is usually one of these.",
-          "nb": "Noe av dette skrev du, og noe ble regnet ut fra fila di. Et tre som ser galt ut, er som regel en av dem.",
-          "sv": "En del av detta skrev du, en del räknades ut från din fil. Ett träd som ser fel ut är oftast en av dem."
+          "en": "Some of these you wrote, and some were worked out from your file. A tree that looks wrong is usually one of these."
       },
       "rep-title": {
-          "en": "Title",
-          "nb": "Tittel",
-          "sv": "Titel"
+          "en": "Title"
       },
       "rep-language": {
-          "en": "Language",
-          "nb": "Språk",
-          "sv": "Språk"
+          "en": "Language"
       },
       "rep-family": {
-          "en": "Subject family",
-          "nb": "Fagfamilie",
-          "sv": "Ämnesfamilj"
+          "en": "Subject family"
       },
       "rep-decomposition": {
-          "en": "Decomposition prompt",
-          "nb": "Dekomponeringsprompt",
-          "sv": "Nedbrytningsprompt"
+          "en": "Decomposition prompt"
       },
       "rep-learner": {
-          "en": "The learner is called",
-          "nb": "Den som lærer heter",
-          "sv": "Den som lär sig heter"
+          "en": "The learner is called"
       },
       "rep-storage": {
-          "en": "Storage key",
-          "nb": "Lagringsnøkkel",
-          "sv": "Lagringsnyckel"
+          "en": "Storage key"
       },
       "rep-topicorder": {
-          "en": "Topic order",
-          "nb": "Temarekkefølge",
-          "sv": "Temaordning"
+          "en": "Topic order"
       },
       "rep-prompts": {
-          "en": "Instruction overrides",
-          "nb": "Overstyrte instrukser",
-          "sv": "Överstyrda instruktioner"
+          "en": "Instruction overrides"
       },
       "privacy-note": {
-          "en": "Nothing is uploaded, and nothing is saved in your browser. Your tree exists only on this page until you download it.",
-          "nb": "Ingenting lastes opp, og ingenting lagres i nettleseren. Treet ditt finnes bare på denne siden til du laster det ned.",
-          "sv": "Ingenting laddas upp, och ingenting sparas i webbläsaren. Ditt träd finns bara på den här sidan tills du laddar ner det."
+          "en": "Nothing is uploaded, and nothing is saved in your browser. Your tree exists only on this page until you download it."
       },
       "footer-affiliation": {
-          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.",
-          "nb": "Del av et forskningsprosjekt ved <a href=\"https://www.mn.uio.no/kurt/index.html\">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.",
-          "sv": "Del av ett forskningsprojekt vid <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo."
+          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo."
       },
       "status-flat": {
-          "en": "No errors, but most nodes have no prerequisites. See View.",
-          "nb": "Ingen feil, men de fleste nodene står uten forutsetninger. Se Vis.",
-          "sv": "Inga fel, men de flesta noder saknar förkunskaper. Se Visa."
+          "en": "No errors, but most nodes have no prerequisites. See View."
+      },
+      "facet-all": {
+          "en": "All"
+      },
+      "facet-find": {
+          "en": "Find…"
       }
   }
   </script>

@@ -1,0 +1,15 @@
+{
+  "doc-title": "Submit your tree | AI Skill Trees",
+  "meta-description": "How to submit a skill tree you have made to the catalogue on this site.",
+  "page-eyebrow": "For teachers",
+  "page-heading": "Submit your tree",
+  "page-lede": "If you have made a skill tree for your subject, you can send it in to have it added to the catalogue on this site.",
+  "how-body": "For now, email your tree.csv to me:",
+  "terms-eyebrow": "Before you send it",
+  "terms-1": "I read every tree before it is published.",
+  "terms-2": "A tree is published under the name of the person who made it. If it is adapted from another tree, it keeps the “Based on” rows the builder writes into the file, so the earlier authors stay credited.",
+  "terms-3": "The trees and the instructions on this site are licensed CC BY 4.0: anyone may use and adapt them, as long as they credit the author. A tree you submit is published under that licence.",
+  "terms-4": "Contributions through pull requests on GitHub are not open.",
+  "own-body": "You do not need to submit anything to use the method. The builder gives you your own file, to use and share as you like.",
+  "own-cta": "Make your own"
+}

@@ -175,6 +175,65 @@
 .lang-select__option[aria-selected="true"] { color: var(--ink); background: var(--primary-tint); }
 .lang-select__tick { width: 1em; color: var(--primary); }
 
+/* ---- The header's language menu with many languages (2026-11-19) -------
+   A filter field, then the languages this page is in, then the rest greyed
+   out and disabled under their own heading. The list scrolls inside the
+   menu; the filter stays put above it. Greyed is opacity AND the heading
+   AND `disabled`, never colour alone. */
+.siteheader .lang-select__menu { min-width: 16rem; }
+.siteheader .lang-select__menu.is-open { display: flex; flex-direction: column; }
+.lang-select__filter {
+  flex: 0 0 auto;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+}
+.lang-select__filter:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.lang-select__list {
+  margin: 0;
+  padding: 0 0 var(--space-1);
+  list-style: none;
+  max-height: min(60vh, 28rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.lang-select__group {
+  padding: var(--space-2) var(--space-2) 0.25rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+.lang-select__group--off { border-top: 1px solid var(--rule); margin-top: var(--space-1); }
+.lang-select__name { flex: 1 1 auto; }
+.lang-select__short { font-size: var(--step-xs); color: var(--ink-3); letter-spacing: 0.04em; }
+.lang-select__option.is-unavailable {
+  min-height: 36px;
+  color: var(--ink-3);
+  opacity: 0.6;
+  cursor: not-allowed;
+  font-weight: 400;
+}
+.lang-select__option.is-unavailable:hover { background: transparent; color: var(--ink-3); }
+.lang-select__none {
+  padding: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-3);
+}
+
+/* Until the chosen language has arrived, the English text is not shown
+   (js/i18n.js removes the class, or a timeout does after 1.5 s). */
+.i18n-pending body { visibility: hidden; }
+
 /* ---- Burger + drawer ------------------------------------------------------ */
 
 .navtoggle {

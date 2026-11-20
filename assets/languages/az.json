@@ -1,0 +1,458 @@
+{
+  "code": "az",
+  "htmlLang": "az-Latn",
+  "name": "Azərbaycanca",
+  "endonym": "Azərbaycanca",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Azerbaijani in the Latin alphabet (ə, ğ, ı, İ, ö, ş, ü, ç), written as Azerbaijani, not Turkish: sən, edir, bilər, deyil, yoxdur, keçid, sətir, düyün, «» quotes. Kept distinct from tr.json on purpose; the two languages are close and models drift between them. Case endings follow vowel harmony, so no ending is ever glued to a {placeholder}: the placeholder stands next to a noun that takes the ending instead («{id}» düyünü, {row} nömrəli sətir). After a number the noun stays singular (5 təlim məqsədi).",
+  "learner": {
+    "_comment": "What the learner is CALLED. Azerbaijani has no articles, so the 'definite' form is the bare noun in the nominative: “şagird”, “tələbə”. `participant` is “kurs iştirakçısı” rather than bare “iştirakçı”: the engine capitalises the first letter with JavaScript's toUpperCase, which turns i into I, not İ, so a learner word must not start with i. The lead-ins end in a verb (bacarır, izah edə bilir, bilir), so a bare infinitive phrase (“kəsrləri toplamaq”) or a `Term: definition` line reads naturally after the colon.",
+    "default": "şagird",
+    "legacy": {
+      "pupil": "şagird",
+      "student": "tələbə",
+      "participant": "kurs iştirakçısı"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} bacarır:",
+      "concept": "{LearnerDefinite} izah edə bilir:",
+      "fact": "{LearnerDefinite} bilir:"
+    }
+  },
+  "ui": {
+    "backLink": "← Bütün ağaclar",
+    "pageTitle": "Bacarıq ağacı: {title}",
+    "tagline": "Təlim məqsədlərinin bir-birinə necə söykəndiyini göstərən xəritə — mənimsədiklərini işarələ və növbəti addımı məşq etmək üçün Sİ təlimatını kopyala.",
+    "makeYourOwn": "{subject}. Öz ağacını yarat:",
+    "progressLabel": "{total} təlim məqsədindən {done} tamamlanıb",
+    "zoomIn": "Yaxınlaşdır",
+    "zoomOut": "Uzaqlaşdır",
+    "fitToView": "Bütün ağacı göstər",
+    "fitToViewTitle": "Bütün ağacı göstər (miqyası dəyişmək üçün Ctrl+təkər)",
+    "close": "✕ Bağla",
+    "closeLower": "✕ Bağla",
+    "copied": "Kopyalandı!",
+    "copyFallback": "Avtomatik kopyalamaq alınmadı — aşağıdakı mətni əllə kopyala:",
+    "errorBanner": "⚠ Məlumat fayllarında {n} problem tapıldı (təfərrüatlar üçün konsola bax):",
+    "errorCsv": "Cədvəlin {row} nömrəli sətrini oxumaq mümkün olmadı: {message}",
+    "errorCsvHeader": "{file} faylının birinci sətrində sütunların adları olmalıdır. Çatışmır: {missing}. Birinci sətirdə yazılıb: {found}. Fayl, yəqin ki, birinci sətri olmadan və ya başqa formatda saxlanılıb; onu yenidən sadə CSV kimi saxla.",
+    "errorUnknownDep": "«{id}» düyünü «{dep}» düyününü ilkin şərt kimi göstərir, amma bu identifikatorla düyün yoxdur.",
+    "errorNoTopic": "«{id}» düyününün mövzusu yoxdur, ona görə də o, ümumi «{topic}» sütununa düşür.",
+    "errorUnknownResourceNode": "tree.csv, {row} nömrəli sətir: resurs depends_on sahəsində «{id}» düyününü göstərir, amma belə düyün yoxdur.",
+    "errorExamsRenamed": "tree.csv, {row} nömrəli sətir: «features.exams» parametri 0.22.0 versiyasından əvvəlki dövrə aiddir. Resurslar indi tree.csv faylında «resource» tipli sətirlərdir: topic = qrup, name = başlıq, description = keçid, depends_on = düyünlər. Sətri sil, köhnə exams.csv faylını çevirmək üçün isə ağacı konstruktorda aç. Heç nə tətbiq olunmadı.",
+    "errorResourceEmpty": "tree.csv, {row} nömrəli sətir: resursun nə başlığı (name), nə də keçidi (description) var.",
+    "errorResourceNoNode": "tree.csv, {row} nömrəli sətir: «{label}» resursu heç bir düyünə aid deyil. depends_on sahəsinə bir və ya bir neçə düyün identifikatoru yaz, ya da sətri sil.",
+    "errorResourceDuplicate": "tree.csv, {row} nömrəli sətir: «{label}» resursu {first} nömrəli sətirdəki ilə eynidir. Onu bütün düyünləri depends_on sahəsində olan bir sətir et.",
+    "errorResourceUrl": "tree.csv, {row} nömrəli sətir: «{label}» resursunun keçidi https:// və ya mailto: ilə başlamalıdır. Ona görə də o, keçidsiz, sadə mətn kimi göstərilir.",
+    "errorCycle": "Bu düyünlər dairə üzrə bir-birinin ilkin şərtidir: {cycle}. Bu əlaqələrdən birini silmək lazımdır.",
+    "errorUnknownConfig": "tree.csv, {row} nömrəli sətir: naməlum parametr «{key}». Heç nə tətbiq olunmadı.",
+    "errorUnknownNodeType": "«{id}» düyününün tipi «{type}» göstərilib, amma belə tip yoxdur. Mövcud tiplər: {valid}.",
+    "errorUnknownPromptSection": "tree.csv, {row} nömrəli sətir: prompt sətrində naməlum bölmə «{section}». Heç nə tətbiq olunmadı.",
+    "errorUnknownPromptTarget": "tree.csv, {row} nömrəli sətir: prompt sətri «{name}» təlimatına yönəlib, amma bu ağac belə təlimat hazırlamır. Heç nə tətbiq olunmadı.",
+    "errorDidYouMean": "Bəlkə «{key}» nəzərdə tutmusan?",
+    "errorMissingConfig": "tree.csv faylında məcburi «{key}» parametri üçün config sətri yoxdur.",
+    "errorStyleColor": "tree.csv, {row} nömrəli sətir: «{key}» parametri #1F6F4A kimi hex kodla yazılmış rəng olmalıdır. «{value}» rəng deyil, ona görə də standart rəng saxlanıldı.",
+    "errorLinkUrl": "tree.csv, {row} nömrəli sətir: «{key}» parametri https:// və ya mailto: ilə başlayan keçid olmalıdır. «{value}» belə deyil, ona görə də sadə mətn kimi göstərilir.",
+    "errorStyleFont": "tree.csv, {row} nömrəli sətir: naməlum şrift «{value}». Ağacın istifadə edə biləcəyi şriftlər: {valid}. Standart şrift saxlanıldı.",
+    "nodeType": {
+      "skill": "bacarıq",
+      "concept": "anlayış",
+      "fact": "faktlar"
+    },
+    "badges": {
+      "del1": "Hissə 1",
+      "del2": "Hissə 2",
+      "begge": "Hissə 1+2"
+    },
+    "status": {
+      "mastered": "Mənimsənilib",
+      "ready": "Öyrənməyə hazırdır",
+      "notMastered": "Hələ mənimsənilməyib",
+      "blocked": "Əvvəlcə lazımdır: {codes}"
+    },
+    "help": {
+      "label": "Kömək",
+      "heading": "Kömək",
+      "sections": [
+        {
+          "heading": "Menyu",
+          "body": "Qalan hər şey sol aşağı küncdəki ☰ düyməsinin arxasındadır: təlim məqsədləri, axtarış, test, çap və s. Hər pəncərədə onu izah edən «?» var.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Xəritə",
+          "body": "Hər qutu bir təlim məqsədidir, oxlar isə əvvəlcə bilməli olduğun şeydən çıxır. Forma tipi göstərir: faktlar kvadrat, anlayışların küncləri azca yumru, bacarıqlar dəyirmidir. Xəritəni sürüşdürmək üçün dart, + və − ilə miqyası dəyiş.",
+          "figure": "map"
+        },
+        {
+          "heading": "Mənimsənilib",
+          "body": "Təlim məqsədini bildikdə qutudakı halqaya bas, o, yaşıl işarəyə çevriləcək. Bu, yalnız sənin brauzerində saxlanılır.",
+          "figure": "check"
+        },
+        {
+          "heading": "Bir qutu",
+          "body": "Qutuya bas və təlim məqsədinin nə tələb etdiyini, nəyə əsaslandığını və məşq üçün Sİ çatına yapışdıra biləcəyin təlimatı gör. Bağlamaq üçün yenidən bas.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Çoxunu işarələ",
+          "body": "Siyahı ikonları mövzudakı bütün məqsədləri bir dəfəyə işarələyir və ya işarələri silir. A və B ilə bütün ağaca aid olur.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Axtarış",
+          "body": "Təlim məqsədini adındakı və ya təsvirindəki bir sözlə tap.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Seçdiyin məqsədlər üzrə test üçün Sİ təlimatı. Çətinliyi, tapşırıqların sayını və növünü sən seçirsən.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Dərs planları (müəllimlər üçün)",
+          "body": "Təlim məqsədlərini seç və dərs planı, mini ağac və ya simulyasiya üçün «Resurs yarat» düyməsini bas.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Çap",
+          "body": "Bütün ağacı şagirdlərin qələmlə işarələyə biləcəyi halqalarla PDF kimi yüklə.",
+          "figure": "print"
+        },
+        {
+          "heading": "Vəsait nişanı",
+          "body": "Paneldəki «Hissə 1» və ya «Hissə 2» məqsədin hansı vəsait səviyyəsinə aid olduğunu göstərir. «Kurs haqqında» bölməsində ətraflı oxumaq üçün nişana bas.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivasiya",
+          "body": "Fənnin nə üçün öyrənməyə dəyər olduğu barədə Sİ ilə qısa söhbət.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Klaviatura qısayolları",
+        "search": "Axtarışı aç",
+        "escape": "Açıq pəncərəni, menyunu və ya paneli bağla",
+        "zoom": "Yaxınlaşdır və uzaqlaşdır",
+        "fit": "Bütün ağacı göstər və geri qayıt"
+      }
+    },
+    "safety": {
+      "label": "Təhlükəsizlik",
+      "heading": "Təhlükəsizlik",
+      "lead": "Bacarıq ağacını müəllim hazırlayır, amma hər kəs ona oxşayan fayl düzəldə bilər. Kiminsə sənə göndərdiyi ağacdan istifadə etməzdən əvvəl bunu oxu.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Bacarıq ağacı heç vaxt şəxsi məlumat istəmir",
+          "body": "Ağaca giriş tələb olunmur və ağacın sənin haqqında heç nəyə ehtiyacı yoxdur. O, heç vaxt adını, parolu, məktəb hesabının giriş məlumatlarını, şəxsiyyət vəsiqəsinin nömrəsini, ünvanını, telefon nömrəni və ya hansı məktəbdə oxuduğunu soruşmur. İrəliləyişin yalnız bu cihazdakı brauzerdə saxlanılır. Bacarıq ağacına oxşayan səhifə bunlardan hər hansı birini istəsə, o, saxtadır. Onu bağla və müəlliminə de."
+        },
+        {
+          "id": "sender",
+          "heading": "Ağacı sənə kim göndərib?",
+          "body": "Ən vacib sual ağacın haradan gəldiyidir. aiskilltrees.com saytındakı ağaca və ya müəllimin adətən dərs materiallarını yerləşdirdiyi yerə qoyduğu ağaca müəlliminə inandığın qədər inana bilərsən. Faylı tanımadığın birindən e-poçtla, çatda və ya sosial şəbəkədə almısansa, ya da o, gözlənilmədən gəlibsə, düzgün görünsə belə, ehtiyatlı ol."
+        },
+        {
+          "id": "html",
+          "heading": "HTML faylı sənəd deyil, veb-səhifədir",
+          "body": "Ağac .html faylı kimi paylaşılanda sən PDF və ya Word faylı kimi sənəd almırsan. Sən açanda işə düşən kodu olan bütöv bir veb-səhifə alırsan. Brauzer onun sənin fayllarını oxumasına və ya kompüterə nəsə quraşdırmasına imkan vermir, amma səhifə istənilən şeyi göstərə bilər: saxta giriş səhifəsi, nəsə yükləyən düymə və ya başqa saytlara keçidlər. Faylın nə edəcəyinə onu hazırlayan qərar verir. Bacarıq ağacına oxşaması onu bacarıq ağacı etmir. Fayldan açdığın səhifədə heç vaxt hesabına daxil olma və heç nə yükləmə."
+        },
+        {
+          "id": "links",
+          "heading": "Klikləməzdən əvvəl keçidləri yoxla",
+          "body": "Ağacdakı resurslar videolara, tapşırıqlara və dərsliklərə keçid verə bilər. Klikləməzdən əvvəl kursoru keçidin üzərinə gətir və ya keçidi basıb saxla, hara apardığına bax. Saytı tanımırsansa və ya ünvan qəribə görünürsə, keçmə."
+        },
+        {
+          "id": "injection",
+          "heading": "Təlimatlar dəyişdirilmiş ola bilər",
+          "body": "Kopyaladığın Sİ təlimatı ağacı hazırlayanın yazdığı mətndir və sən onu birbaşa Sİ çatına yapışdırırsan. Ağacı hazırlayan ora istənilən şeyi yaza bilər, o cümlədən çatın gözlədiyindən fərqli davranmasına səbəb olan əmrlər: sənə yanlış cavablar vermək, səni başqa sayta göndərmək və ya onu maraqlandırmayan şeylər barədə soruşmaq. Buna prompt injection (təlimat inyeksiyası) deyirlər. Yapışdırmazdan əvvəl mətni gözdən keçirə bilərsən, çata isə kor-koranə inanma."
+        },
+        {
+          "id": "chat",
+          "heading": "Çata nə deyəcəyinə sən qərar verirsən",
+          "body": "Bəzi təlimatlar çatdan səni tanımağı xahiş edir, məsələn, fənnə necə yanaşdığını və nədə güclü olduğunu. İstədiyin qədər az və ya çox cavab verə bilərsən. Amma heç bir təlimata adın, əlaqə məlumatların və ya parolların lazım deyil. Çat belə bir şey soruşsa, cavab vermə və müəlliminə de. Onu da unutma ki, Sİ çatına yazdıqlarını çatı idarə edən şirkət saxlayır. Məktəbinin çox vaxt məxfiliyin qorunduğu Sİ xidmətinə çıxışı olur. Müəllimindən soruş və belə xidmət varsa, ondan istifadə et."
+        },
+        {
+          "id": "teachers",
+          "heading": "Müəllimlər üçün: həmkarından gələn ağac",
+          "body": "Ağacı başqasından almısansa, əmin olmaq üçün onu şagirdlərinlə paylaşmazdan əvvəl aiskilltrees.com/make-your-own/ ünvanındakı konstruktorda aça bilərsən. Konstruktor fayldan yalnız cədvəli götürür və ondan yeni, təmiz fayl düzəldir; orada ağacın istifadə etdiyi hər təlimatı oxuya bilərsən."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Təlim məqsədləri",
+      "title": "Bütün təlim məqsədlərinin mövzulara görə sıralanmış siyahısını göstər",
+      "heading": "Təlim məqsədləri",
+      "copyAll": "Hamısını kopyala",
+      "intro": "Siyahı kursdakı bütün təlim məqsədlərini mövzulara görə sıralanmış şəkildə, hər birinin vəziyyəti ilə göstərir. Məqsədi mənimsənilmiş kimi işarələmək üçün onu qeyd et — xəritədəki düyündə olan eyni işarə — beləcə siyahı ilə ardıcıl gedib keçdiklərini işarələyə bilərsən.",
+      "markAria": "«{name}» məqsədini mənimsənilmiş kimi işarələ",
+      "markAllButton": "Hamısını mənimsənilmiş kimi işarələ",
+      "clearAllButton": "Bütün mənimsəmə işarələrini sil",
+      "clearAllConfirm": "Ağacdakı bütün təlim məqsədlərindən mənimsəmə işarəsi silinsin?",
+      "openNode": "Xəritədə bu düyünə keç"
+    },
+    "lessonPlanner": {
+      "button": "Dərs planları",
+      "title": "Təlim məqsədlərini seç və dərs planı, mini ağac və ya simulyasiya üçün Sİ təlimatını kopyala",
+      "selectAll": "Hamısını seç",
+      "deselectAll": "Seçimi ləğv et",
+      "selectTopic": "«{topic}» mövzusundakı bütün təlim məqsədlərini seç",
+      "deselectTopic": "«{topic}» mövzusundakı bütün təlim məqsədlərinin seçimini ləğv et",
+      "heading": "Dərs planları",
+      "intro": "Nəsə hazırlamaq istədiyin təlim məqsədlərini qeyd et və aşağıdakı «Resurs yarat» düyməsini bas. Orada nə olacağını seçirsən: dərs planı, mini ağac və ya simulyasiya. Buradakı qeydlər yalnız bunun üçündür: heç nəyi mənimsənilmiş kimi işarələmir və səhifəni yenilədikdə itir."
+    },
+    "search": {
+      "button": "Axtar",
+      "title": "Təlim məqsədlərini ada və təsvirə görə axtar",
+      "heading": "Axtarış",
+      "placeholder": "Təlim məqsədlərində axtar …",
+      "hint": "Bir söz yaz. Axtarış hər təlim məqsədinin adına, təsvirinə və mövzusuna baxır, nəticədən birbaşa xəritədəki düyünə keçə bilərsən.",
+      "noResults": "«{query}» olan təlim məqsədi yoxdur.",
+      "countOne": "1 təlim məqsədi",
+      "countMany": "{n} təlim məqsədi",
+      "openNode": "Xəritədə bu düyünə keç"
+    },
+    "resourceList": {
+      "button": "Tapşırıqlar və mənbələr",
+      "title": "Ağacdakı bütün resursları və aid olduqları təlim məqsədlərini göstər",
+      "heading": "Tapşırıqlar və mənbələr",
+      "placeholder": "Tapşırıqları və mənbələri süz …",
+      "intro": "{n} tapşırıq və mənbə",
+      "countFiltered": "{n} / {total}",
+      "noResults": "«{query}» ilə uyğun gələn resurs yoxdur.",
+      "openNode": "Xəritədə bu düyünə keç",
+      "help": "Ağaca aid tapşırıqlar və mənbələr: imtahan sualları, keçidlər və videolar kimi. Hər birinin altında aid olduğu təlim məqsədləri var; xəritədə ona keçmək üçün birinə bas. Süzmək üçün sahəyə yaz."
+    },
+    "motivation": {
+      "button": "Motivasiya",
+      "title": "Fənnin nə üçün öyrənməyə dəyər olduğu barədə söhbət üçün Sİ təlimatını kopyala",
+      "heading": "Motivasiya",
+      "desc": "Fənnin nə üçün öyrənməyə dəyər olduğu barədə Sİ ilə qısa söhbət. Sİ soruşur və dinləyir, cavabı isə onunla birlikdə tapırsan.",
+      "help": "«Təlimatı kopyala» düyməsini bas və Sİ çatına yapışdır. Söhbət sənin özün haqqında dediyin yerdən başlayır və Sİ hər dəfə bir sual verir. Yazdığın heç nə burada saxlanılmır.",
+      "startLabel": "Fənn barədə nə düşünürsən?",
+      "start": {
+        "unknown": "Bilmirəm",
+        "hard": "Çətindir",
+        "bored": "Darıxdırıcıdır",
+        "use": "Bu mənə nəyə lazımdır?"
+      },
+      "lengthLabel": "Uzunluq",
+      "length": {
+        "short": "Qısa",
+        "normal": "Normal",
+        "long": "Uzun"
+      }
+    },
+    "lesson": {
+      "button": "Dərs planı qur (müəllimlər üçün)",
+      "title": "Qeyd etdiyin məqsədləri əhatə edən tam dərs üçün Sİ təlimatını kopyala",
+      "typeLabel": "Dərsin növü",
+      "typeAria": "Bu dərsin növü",
+      "types": {
+        "intro": "Giriş",
+        "practice": "Məşq",
+        "review": "Təkrar",
+        "other": "Digər"
+      },
+      "minutesLabel": "Müddət",
+      "minutesAria": "Dərsin dəqiqə ilə müddəti",
+      "includeAria": "«{name}» məqsədini dərs planına daxil et",
+      "selectedNone": "Təlim məqsədi seçilməyib",
+      "selectedOne": "1 təlim məqsədi seçilib",
+      "selectedMany": "{n} təlim məqsədi seçilib"
+    },
+    "make": {
+      "button": "Resurs yarat →",
+      "buttonTitle": "Qeyd etdiyin təlim məqsədləri üçün nə hazırlayacağını seç",
+      "heading": "Nə hazırlamaq istəyirsən?",
+      "back": "← Təlim məqsədləri",
+      "forOne": "1 təlim məqsədi üçün:",
+      "forMany": "{n} təlim məqsədi üçün:",
+      "copy": "Təlimatı kopyala",
+      "htmlBadge": "HTML faylı",
+      "htmlAfter": "Onu Sİ çatına yapışdır. Cavab yadda saxlayıb brauzerdə açacağın və şagirdlərinlə paylaşa biləcəyin HTML faylı olacaq.",
+      "lesson": {
+        "title": "Dərs planı",
+        "desc": "Bir dərs üçün tam plan: dəqiqələrlə bölgü, lövhəyə yazılacaqlar və bütün tapşırıqların cavabları.",
+        "minutes": "dəq",
+        "shorter": "Daha qısa",
+        "longer": "Daha uzun",
+        "after": "Onu Sİ çatına yapışdır. Cavab dərs keçərkən baxa biləcəyin plan olacaq.",
+        "typeHints": {
+          "intro": "Yeni təlim məqsədləri: başlanğıc tapşırığı, mərhələlərlə həll edilmiş nümunələr, hər məqsəd üçün diaqnostik sual və sonda yada salma.",
+          "practice": "Şagirdlərin bu yaxınlarda öyrəndiyi məqsədlər: qısa xatırlatma, sonra kiçik dəyişikliklərlə və getdikcə daha az dəstəklə tapşırıq seriyaları.",
+          "review": "Xeyli əvvəl keçilmiş məqsədlər: qeydlərə baxmadan yada salma, nəyin yadda qaldığını yoxlamaq, lazım olan yerdə yenidən izah və qarışıq məşq.",
+          "other": "Başqa bir şey: dərsi özün təsvir et, yoxsa Sİ əvvəlcə səndən soruşacaq."
+        }
+      },
+      "miniTree": {
+        "title": "Mini ağac",
+        "desc": "Şagirdlərin testdən əvvəl müstəqil məşq etdiyi bacarıq ağacı: seçilmiş məqsədlər səviyyələri olan bir neçə mövzuda toplanır, hər tapşırıq turundan əvvəl həll edilmiş nümunə, sonra cavab və izah gəlir; mənimsəmə növbəti səviyyəni açır.",
+        "levelsLabel": "Hər mövzuda səviyyə",
+        "levels1": "Bir səviyyə",
+        "levels3": "Üç səviyyə",
+        "streakLabel": "Mənimsəmək üçün ardıcıl düzgün cavab",
+        "supportLabel": "Uyğunlaşdırma",
+        "easyRead": "Asan oxu (Comic Sans, az mətn)",
+        "readAloud": "Səsli oxu",
+        "game": "Ulduzlar və kilidin açılması",
+        "mixedTest": "Qarışıq sınaq testi",
+        "credit": "Xüsusi təhsil müəllimi Nina Haugerudun prinsipləri əsasında."
+      },
+      "simulation": {
+        "title": "Simulyasiya",
+        "desc": "Şagirdlərin araşdıra biləcəyi interaktiv simulyasiya: uydurma olmayan fənn modeli və modelin nəyi bacarıb nəyi bacarmadığını izah edən panel ilə.",
+        "workflowLabel": "İş üsulu",
+        "design": "Əvvəlcə dizayn söhbəti",
+        "build": "Dərhal prototip",
+        "screenLabel": "Ekran",
+        "laptop": "Noutbuk",
+        "tablet": "Planşet",
+        "projector": "Proyektor",
+        "extrasLabel": "Daxil et",
+        "tasks": "Şagird tapşırıqları",
+        "critique": "Modelin tənqidi",
+        "export": "Məlumat ixracı (CSV)",
+        "credit": "Henning Vinjusveen Myhrehagenin skolesim.no saytındakı promptu əsasında."
+      },
+      "less": "Az",
+      "more": "Çox",
+      "help": "Hər resurs bir Sİ təlimatıdır. İstədiyini seç, «Təlimatı kopyala» düyməsini bas və ChatGPT və ya Claude kimi Sİ çatına yapışdır. Dərs planı dərs keçərkən baxa biləcəyin plana çevrilir. Mini ağac və simulyasiya isə yadda saxlayıb brauzerdə açacağın və şagirdlərinlə paylaşa biləcəyin HTML faylına çevrilir. Seçimlər yadda saxlanılmır.",
+      "forLabel": "Məqsədlər:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Mənimsənilmiş kimi işarələdiklərin üzrə test üçün Sİ təlimatı hazırla",
+      "none": "Hələ mənimsənilmiş təlim məqsədi yoxdur",
+      "countLabel": "Tapşırıqların sayı",
+      "countAria": "Testdəki tapşırıqların sayı",
+      "heading": "Test",
+      "desc": "Mənimsənilmiş kimi işarələdiklərin üzrə yazılı test; cavabları istədikdə alırsan.",
+      "help": "Test ağacda mənimsənilmiş kimi işarələdiyin təlim məqsədlərindən qurulur. Çətinliyi, tapşırıqların sayını və formasını seç, «Təlimatı kopyala» düyməsini bas və Sİ çatına yapışdır. Sİ əvvəlcə yalnız tapşırıqları göstərir, cavabları və qiymətləndirməni isə sən istədikdə verir.",
+      "covers": "Test {n} mənimsənilmiş təlim məqsədini əhatə edir:",
+      "coversOne": "Test 1 mənimsənilmiş təlim məqsədini əhatə edir:",
+      "noneHint": "Hələ heç bir təlim məqsədini mənimsənilmiş kimi işarələməmisən. Ağacda bacardıqlarını qeyd et, sonra test hazırlaya bilərsən.",
+      "showAll": "Bütün təlim məqsədlərini göstər",
+      "showSelected": "Yalnız seçilmiş təlim məqsədlərini göstər",
+      "difficultyLabel": "Çətinlik",
+      "difficulty": {
+        "easy": "Asan",
+        "medium": "Orta",
+        "hard": "Çətin"
+      },
+      "difficultyHints": {
+        "easy": "Hər tapşırıqda bir təlim məqsədi, ən adi hallar, tələ yoxdur.",
+        "medium": "Adi test kimi: bəzi tapşırıqlar sadədir, bəziləri bir neçə məqsədi birləşdirir.",
+        "hard": "Tapşırıqların çoxu məqsədləri birləşdirir, yeni kontekstlərdən istifadə edir və ya izah etməyi, ya da səhvi tapmağı tələb edir."
+      },
+      "formatLabel": "Tapşırıqların forması",
+      "format": {
+        "closed": "Qapalı",
+        "open": "Açıq",
+        "mixed": "Qarışıq"
+      },
+      "formatHints": {
+        "closed": "Cavab açarı ilə yoxlanıla bilən çoxseçimli və ya qısa cavablı tapşırıqlar.",
+        "open": "Həll yolunu göstərirsən və ya öz sözlərinlə izah edirsən.",
+        "mixed": "Təxminən yarı-yarıya."
+      },
+      "coversLabel": "Testin əhatə etdiyi:"
+    },
+    "node": {
+      "markMastered": "Mənimsənilmiş kimi işarələ"
+    },
+    "column": {
+      "markAll": "«{topic}» mövzusundakı bütün təlim məqsədlərini mənimsənilmiş kimi işarələ",
+      "clearAll": "«{topic}» mövzusundakı bütün təlim məqsədlərindən mənimsəmə işarəsini sil"
+    },
+    "detail": {
+      "show": "Təlimatı göstər",
+      "hide": "Təlimatı gizlət",
+      "copy": "Təlimatı kopyala",
+      "prereqs": "İlkin şərtlər",
+      "resources": "Resurslar",
+      "mastered": "✓ Mənimsənilib",
+      "available": "Açıqdır — ilkin şərtlər ödənilib",
+      "locked": "Bağlıdır — ilkin şərtlər çatışmır",
+      "empty": "Təfərrüatları görmək üçün xəritədə bir düyünə klik et."
+    },
+    "loadError": "Yükləmə zamanı kritik xəta: {message} (səhifəni lokal server vasitəsilə açırsanmı? index.html birbaşa diskdən açılanda bir çox brauzerdə məlumat fayllarını fetch() ilə almaq mümkün olmur.)",
+    "defaultTopic": "Digər",
+    "aids": {
+      "heading": "Vəsaitlər",
+      "tagTitle": "Bu səviyyədə nədən istifadə edə biləcəyinə bax",
+      "multipleNote": "Bu təlim məqsədi bir neçə səviyyəyə aiddir. Onun öhdəsindən bu səviyyələrin ən sərtində, yəni ən az vəsaitlə gələ bilməlisən.",
+      "multipleNoteGeneral": "Təlim məqsədi bir neçə səviyyəyə aid ola bilər. O zaman onun nişanı bir neçə rəngə bölünür və sən onun öhdəsindən bu səviyyələrin ən sərtində, yəni ən az vəsaitlə gələ bilməlisən."
+    },
+    "menu": {
+      "label": "Menyu",
+      "groups": {
+        "practice": "Məşq et",
+        "plan": "Planlaşdır",
+        "about": "Haqqında"
+      }
+    },
+    "download": {
+      "button": "Ağacı yüklə",
+      "title": "Ağacı iki formada yüklə: redaktə edə biləcəyin cədvəl və oflayn işləyən tək fayl",
+      "working": "Tək fayl hazırlanır…",
+      "failed": "Tək faylı hazırlamaq alınmadı",
+      "edit": "Ağacı redaktə et",
+      "editTitle": "Ağacı redaktorda aç: orada onu dəyişib cədvəl və ya oflayn işləyən tək fayl kimi yükləyə bilərsən"
+    },
+    "courseInfo": {
+      "button": "Kurs haqqında",
+      "heading": "Kurs haqqında",
+      "division": "Sinif və ya fakültə",
+      "curriculum": "Kurikulum",
+      "institution": "Təhsil müəssisəsi",
+      "country": "Ölkə",
+      "language": "Dil",
+      "size": "Həcm",
+      "decompositionVersion": "Bölmə modeli",
+      "credits": "Hazırlayan",
+      "author": "Müəllif",
+      "updated": "Son yenilənmə",
+      "license": "Lisenziya",
+      "basedOn": "Əsaslandığı mənbə",
+      "skills": "{n} bacarıq",
+      "concepts": "{n} anlayış",
+      "facts": "{n} fakt siyahısı",
+      "nodes": "{n} düyün"
+    },
+    "helpToggle": "İzah",
+    "print": {
+      "button": "Çap et",
+      "title": "Bütün ağacı çapa hazır PDF kimi yüklə",
+      "working": "PDF hazırlanır …",
+      "failed": "PDF-i hazırlamaq alınmadı",
+      "heading": "Çap",
+      "help": "Bütün ağacı çapa hazır bir səhifəlik PDF kimi yüklə. Önizləmə vərəqin necə görünəcəyini göstərir. Başlıq və aiskilltrees.com həmişə vərəqdə olur.",
+      "paperLabel": "Kağız ölçüsü",
+      "orientationLabel": "İstiqamət",
+      "orientation": {
+        "auto": "Avtomatik",
+        "landscape": "Albom",
+        "portrait": "Portret"
+      },
+      "colorLabel": "Rənglər",
+      "color": {
+        "color": "Rəngli",
+        "gray": "Ağ-qara"
+      },
+      "rings": "İşarələmə halqaları",
+      "legend": "Şərti işarələr",
+      "download": "PDF yüklə",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Əvvəlki görünüşə qayıt"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Azerbaijani, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO AZERBAIJANI belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is “Azərbaycan dili”, which the `outputLanguage` sentence places after a colon, in the nominative, so no case ending is needed and a tree's own `languageName` row also reads grammatically there. The extra sentence about Turkish is not a switching rule: it keeps the model from mixing Turkish (Türkiye) words and endings into Azerbaijani, a drift these two close languages are prone to. Azerbaijani marks no grammatical gender, so no gender note is needed; the address form is the informal “sən”, as teachers use with pupils. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "Azərbaycan dili",
+    "outputLanguage": "Bütün söhbəti bu dildə apar: {conversationLanguage}. Aşağıda bacarıq ağacından götürülmüş hər şey — düyünlərin adları, təsvirlər, ilkin şərtlər — bu dildə yazılıb və istifadəçi ona məhz bu dildə müraciət olunmasını gözləyir. Azərbaycan ədəbi dilində, latın əlifbası ilə yaz və Türkiyə türkcəsinin sözlərini, şəkilçilərini qarışdırma. İndi oxuduğun təlimatın bir hissəsi ingilis dilindədir; bu, ingiliscə cavab vermək üçün çağırış deyil. Öz təşəbbüsünlə dili dəyişmə və təlimatın hansı dildə yazıldığını şərh etmə. İstifadəçiyə müəllimin şagirdə müraciət etdiyi kimi «sən» deyə müraciət et, «siz» deyə yox. Öyrənən şəxsin adını çəkmək lazım gələndə işlədəcəyin söz budur: «{learnerDefinite}» — eyni şey üçün başqa söz yox.",
+    "writingStyle": "Yuxarıdakı iki məsləhətin Azərbaycan dilində nümunələri:\n- Məlum növ: «ədəd … kimi yazıla bilər» yox, «ədədi … kimi yaza bilərik» yaz; «bu, … etməklə tapılır» yox, «bunu … etməklə tapırıq» və ya «bunu … etməklə tapırsan» yaz. Kimin etdiyini deyə bildiyin yerdə «edilir», «hesablanır» və «yerinə yetirilir» kimi məchul formalardan çəkin.\n- Yazıda adi, amma danışıqda nadir olan, kitab dilinə aid və ya həddən artıq rəsmi sözləri sadə sözlə əvəz et: «həyata keçirmək» (→ «etmək»), «müvafiq» (→ «uyğun»), «vasitəsilə» (→ «ilə»), «habelə» (→ «həm də»), «lakin» (→ «amma»). Dost testi: bu sözü dostuna doğrudan da ucadan deyərdinmi?",
+    "overrides": {}
+  }
+}

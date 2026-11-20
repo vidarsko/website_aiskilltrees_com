@@ -1,0 +1,458 @@
+{
+  "code": "uz",
+  "htmlLang": "uz-Latn",
+  "name": "Oʻzbek tili",
+  "endonym": "Oʻzbekcha",
+  "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use: \"the pupil\", \"the student\", \"the participant\" or anything else. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. A skill is a verb phrase (\"The student can: add ...\"), a concept a definition, and they need different lead-ins.",
+    "default": "oʻquvchi",
+    "legacy": {
+      "pupil": "oʻquvchi",
+      "student": "talaba",
+      "participant": "ishtirokchi"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} quyidagilarni qila oladi:",
+      "concept": "{LearnerDefinite} tushuntira oladi:",
+      "fact": "{LearnerDefinite} biladi:"
+    }
+  },
+  "ui": {
+    "backLink": "← Barcha daraxtlar",
+    "pageTitle": "Koʻnikmalar daraxti: {title}",
+    "tagline": "Oʻquv maqsadlari bir-biriga qanday tayanishini koʻrsatuvchi xarita — oʻzlashtirganingni belgila va keyingi qadamni mashq qilish uchun SI koʻrsatmasidan nusxa ol.",
+    "makeYourOwn": "{subject}. Oʻz daraxtingni yarat:",
+    "progressLabel": "{total} ta oʻquv maqsadidan {done} tasi bajarildi",
+    "zoomIn": "Kattalashtirish",
+    "zoomOut": "Kichraytirish",
+    "fitToView": "Butun daraxtni koʻrsatish",
+    "fitToViewTitle": "Butun daraxtni koʻrsatish (masshtab uchun Ctrl+gʻildirak)",
+    "close": "✕ Yopish",
+    "closeLower": "✕ Yopish",
+    "copied": "Nusxa olindi!",
+    "copyFallback": "Avtomatik nusxa olib boʻlmadi — quyidagi matndan qoʻlda nusxa ol:",
+    "errorBanner": "⚠ Maʼlumot fayllarida topilgan muammolar: {n} ta (batafsil maʼlumot konsolda):",
+    "errorCsv": "Jadvalning {row}-qatorini oʻqib boʻlmadi: {message}",
+    "errorCsvHeader": "«{file}» faylining birinchi qatorida ustunlar nomlari boʻlishi kerak. Yetishmayotganlari: {missing}. Birinchi qatorda yozilgani: {found}. Fayl, ehtimol, birinchi qatorisiz yoki boshqa formatda saqlangan; uni oddiy CSV sifatida qayta saqla.",
+    "errorUnknownDep": "«{id}» tuguni «{dep}» tugunini dastlabki shart sifatida koʻrsatadi, lekin bunday id ga ega tugun yoʻq.",
+    "errorNoTopic": "«{id}» tugunining mavzusi yoʻq, shuning uchun u «{topic}» degan umumiy ustunga tushadi.",
+    "errorUnknownResourceNode": "tree.csv, {row}-qator: resursning depends_on ustunida koʻrsatilgan «{id}» tuguni mavjud emas.",
+    "errorExamsRenamed": "tree.csv, {row}-qator: «features.exams» sozlamasi 0.22.0 versiyasidan oldingi. Endi resurslar — tree.csv ichidagi «resource» turidagi qatorlar: topic = guruh, name = sarlavha, description = havola, depends_on = tugunlar. Bu qatorni oʻchir, eski exams.csv faylini yangi koʻrinishga oʻtkazish uchun esa daraxtni konstruktorda och. Hech narsa qoʻllanmadi.",
+    "errorResourceEmpty": "tree.csv, {row}-qator: resursning na sarlavhasi (name), na havolasi (description) bor.",
+    "errorResourceNoNode": "tree.csv, {row}-qator: «{label}» resursi hech bir tugunga tegishli emas. depends_on ustuniga bir yoki bir nechta tugunning id sini yoz yoki qatorni oʻchir.",
+    "errorResourceDuplicate": "tree.csv, {row}-qator: «{label}» resursi {first}-qatordagi resurs bilan bir xil. Ularni bitta qatorga birlashtir va barcha tugunlarni depends_on ustuniga yoz.",
+    "errorResourceUrl": "tree.csv, {row}-qator: «{label}» resursining havolasi https:// yoki mailto: bilan boshlanishi kerak. Shuning uchun u havolasiz, oddiy matn sifatida koʻrsatiladi.",
+    "errorCycle": "Bu tugunlar aylana hosil qilib, bir-biri uchun dastlabki shart boʻlib turibdi: {cycle}. Bu bogʻlanishlardan bittasini olib tashlash kerak.",
+    "errorUnknownConfig": "tree.csv, {row}-qator: «{key}» degan nomaʼlum sozlama. Hech narsa qoʻllanmadi.",
+    "errorUnknownNodeType": "«{id}» tugunining turi — «{type}», lekin bunday tur yoʻq. Mavjud turlar: {valid}.",
+    "errorUnknownPromptSection": "tree.csv, {row}-qator: prompt qatorida «{section}» degan nomaʼlum boʻlim bor. Hech narsa qoʻllanmadi.",
+    "errorUnknownPromptTarget": "tree.csv, {row}-qator: prompt qatori «{name}» koʻrsatmasiga moʻljallangan, lekin bu daraxt bunday koʻrsatma tuzmaydi. Hech narsa qoʻllanmadi.",
+    "errorDidYouMean": "«{key}» demoqchimiding?",
+    "errorMissingConfig": "tree.csv faylida «{key}» sozlamasi uchun config qatori yoʻq, u esa majburiy.",
+    "errorStyleColor": "tree.csv, {row}-qator: «{key}» sozlamasi #1F6F4A kabi hex-kod bilan yozilgan rang boʻlishi kerak. «{value}» bunday emas, shuning uchun standart rang qoldirildi.",
+    "errorLinkUrl": "tree.csv, {row}-qator: «{key}» sozlamasi https:// yoki mailto: bilan boshlanadigan havola boʻlishi kerak. «{value}» bunday emas, shuning uchun u oddiy matn sifatida koʻrsatiladi.",
+    "errorStyleFont": "tree.csv, {row}-qator: «{value}» degan nomaʼlum shrift. Daraxtda ishlatish mumkin boʻlgan shriftlar: {valid}. Standart shrift qoldirildi.",
+    "nodeType": {
+      "skill": "koʻnikma",
+      "concept": "tushuncha",
+      "fact": "faktlar"
+    },
+    "badges": {
+      "del1": "1-qism",
+      "del2": "2-qism",
+      "begge": "1+2-qism"
+    },
+    "status": {
+      "mastered": "Oʻzlashtirildi",
+      "ready": "Oʻrganishga tayyor",
+      "notMastered": "Hali oʻzlashtirilmagan",
+      "blocked": "Avval kerak: {codes}"
+    },
+    "help": {
+      "label": "Yordam",
+      "heading": "Yordam",
+      "sections": [
+        {
+          "heading": "Menyu",
+          "body": "Qolgan hamma narsa chap pastdagi ☰ ortida: oʻquv maqsadlari, qidiruv, test, chop etish va boshqalar. Har bir oynada uni tushuntirib beradigan «?» bor.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Xarita",
+          "body": "Har bir quti — bitta oʻquv maqsadi, strelkalar esa avval bilish kerak boʻlgan narsadan chiqadi. Shakl turni koʻrsatadi: faktlar — toʻrtburchak, tushunchalar — burchaklari biroz yumaloq, koʻnikmalar — dumaloq. Xaritani surish uchun uni tort, + va − bilan kattalashtir yoki kichraytir.",
+          "figure": "map"
+        },
+        {
+          "heading": "Oʻzlashtirildi",
+          "body": "Oʻquv maqsadini bilsang, qutidagi halqani bos — u yashil belgiga aylanadi. Bu faqat sening brauzeringda saqlanadi.",
+          "figure": "check"
+        },
+        {
+          "heading": "Bitta quti",
+          "body": "Oʻquv maqsadi nimani talab qilishini, nimaga tayanishini va mashq qilish uchun SI chatiga joylash mumkin boʻlgan SI koʻrsatmasini koʻrish uchun qutini bos. Yopish uchun yana bos.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Koʻpini belgilash",
+          "body": "Roʻyxat belgilari bir mavzudagi barcha maqsadlarni birdaniga belgilaydi yoki belgilarni olib tashlaydi. A va B bilan ular butun daraxtga taʼsir qiladi.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Qidiruv",
+          "body": "Oʻquv maqsadini nomi yoki tavsifidagi soʻz orqali top.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Sen tanlagan maqsadlar boʻyicha test uchun SI koʻrsatmasi. Qiyinlik darajasini, topshiriqlar soni va turini oʻzing belgilaysan.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Dars rejalari (oʻqituvchilar uchun)",
+          "body": "Oʻquv maqsadlarini tanla va dars rejasi, mini daraxt yoki simulyatsiya uchun «Resurs yaratish» tugmasini bos.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Chop etish",
+          "body": "Butun daraxtni oʻquvchilar ruchka bilan belgilashi mumkin boʻlgan halqalar bilan PDF sifatida yuklab ol.",
+          "figure": "print"
+        },
+        {
+          "heading": "Vositalar belgisi",
+          "body": "Paneldagi «1-qism» yoki «2-qism» maqsad yordamchi vositalarning qaysi darajasiga tegishli ekanini koʻrsatadi. «Kurs haqida» boʻlimida batafsil oʻqish uchun belgini bos.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivatsiya",
+          "body": "Fan nima uchun oʻrganishga arziydi — shu haqida SI bilan qisqa suhbat.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Tezkor tugmalar",
+        "search": "Qidiruvni ochish",
+        "escape": "Ochiq oyna, menyu yoki panelni yopish",
+        "zoom": "Kattalashtirish va kichraytirish",
+        "fit": "Butun daraxtni koʻrsatish va qaytish"
+      }
+    },
+    "safety": {
+      "label": "Xavfsizlik",
+      "heading": "Xavfsizlik",
+      "lead": "Koʻnikmalar daraxtini oʻqituvchi tuzadi, lekin unga oʻxshagan faylni istalgan odam yasashi mumkin. Kimdir yuborgan daraxtdan foydalanishdan oldin buni oʻqi.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Koʻnikmalar daraxti hech qachon shaxsiy maʼlumot soʻramaydi",
+          "body": "Daraxtda tizimga kirish (login) yoʻq va unga sen haqingda hech qanday maʼlumot kerak emas. U hech qachon ismingni, parolingni, maktab akkauntingni, shaxsiy raqamingni, manzilingni, telefon raqamingni yoki qaysi maktabda oʻqishingni soʻramaydi. Natijalaring faqat shu qurilmadagi brauzerda saqlanadi. Agar koʻnikmalar daraxtiga oʻxshagan sahifa shulardan birortasini soʻrasa, u haqiqiy emas. Uni yop va oʻqituvchingga ayt."
+        },
+        {
+          "id": "sender",
+          "heading": "Daraxtni senga kim yubordi?",
+          "body": "Eng muhim savol — daraxt qayerdan kelgani. aiskilltrees.com saytidagi daraxtga yoki oʻqituvching odatda oʻquv materiallarini joylaydigan joyga qoʻygan daraxtga oʻqituvchingga qanchalik ishonsang, shunchalik ishonishing mumkin. Agar faylni notanish odamdan elektron pochta, chat yoki ijtimoiy tarmoq orqali olgan boʻlsang yoki u kutilmaganda kelgan boʻlsa, toʻgʻri koʻrinsa ham, unga shubha bilan qara."
+        },
+        {
+          "id": "html",
+          "heading": "HTML fayl — hujjat emas, veb-sahifa",
+          "body": "Daraxt .html fayl sifatida yuborilganda, sen PDF yoki Word fayl kabi hujjat olmaysan. Sen ochganingda ishga tushadigan kodi bor butun bir veb-sahifani olasan. Brauzer unga fayllaringni oʻqish yoki kompyuterga biror narsa oʻrnatishga yoʻl qoʻymaydi, lekin u istalgan narsani koʻrsatishi mumkin: soxta kirish sahifasini, nimanidir yuklab oladigan tugmani yoki boshqa saytlarga havolalarni. Fayl nima qilishini uni yasagan odam hal qiladi. Koʻnikmalar daraxtiga oʻxshagani bilan u daraxt boʻlib qolmaydi. Fayldan ochilgan sahifada hech qachon tizimga kirma va hech narsa yuklab olma."
+        },
+        {
+          "id": "links",
+          "heading": "Bosishdan oldin havolalarni tekshir",
+          "body": "Daraxtdagi resurslar videolar, mashqlar va darsliklarga olib borishi mumkin. Sichqonchani havola ustiga olib bor yoki havolani bosib tur va bosishdan oldin u qayerga olib borishini koʻr. Saytni tanimasang yoki manzil gʻalati koʻrinsa, uni ochma."
+        },
+        {
+          "id": "injection",
+          "heading": "Koʻrsatmaga yashirin buyruq qoʻshish mumkin",
+          "body": "Sen nusxa oladigan SI koʻrsatmasi — daraxtni tuzgan odam yozgan matn, sen esa uni toʻgʻridan-toʻgʻri SI chatiga joylaysan. Daraxt muallifi unga istalgan narsani yozishi mumkin, jumladan chatni sen kutganingdan boshqacha ishlashga majbur qiladigan buyruqlarni ham: notoʻgʻri javob berish, seni boshqa saytga yuborish yoki uning ishi boʻlmagan narsalarni soʻrash. Bu prompt injection deb ataladi. Joylashdan oldin matnni koʻzdan kechirib chiqqan maʼqul, chatga esa koʻr-koʻrona ishonma."
+        },
+        {
+          "id": "chat",
+          "heading": "Chatga nimani aytishni oʻzing hal qilasan",
+          "body": "Baʼzi koʻrsatmalar chatdan sen bilan tanishishni soʻraydi, masalan, fanga munosabating va nimada kuchli ekaningni bilishni. Xohlaganingcha koʻp yoki oz javob berishing mumkin. Lekin hech bir koʻrsatmaga isming, aloqa maʼlumotlaring yoki parollaring kerak emas. Agar chat shunday narsani soʻrasa, javob berma va oʻqituvchingga ayt. Shuni ham yodda tut: SI chatiga yozganlaring chatni yuritadigan kompaniyada saqlanadi. Koʻpincha maktabingda shaxsiy maʼlumotlaring himoyalangan SI xizmati boʻladi. Oʻqituvchingdan soʻra va agar bor boʻlsa, undan foydalan."
+        },
+        {
+          "id": "teachers",
+          "heading": "Oʻqituvchilar uchun: hamkasbdan kelgan daraxt",
+          "body": "Agar daraxtni boshqa birovdan olgan boʻlsang, ishonch hosil qilish uchun uni oʻquvchilaringga ulashishdan oldin aiskilltrees.com/make-your-own/ sahifasidagi konstruktorda ochishing mumkin. Konstruktor fayldan faqat jadvalni oladi va undan yangi, toza fayl yasaydi; u yerda daraxt foydalanadigan har bir koʻrsatmani oʻqib chiqishing mumkin."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Oʻquv maqsadlari",
+      "title": "Barcha oʻquv maqsadlarining mavzular boʻyicha tartiblangan roʻyxatini koʻrsatish",
+      "heading": "Oʻquv maqsadlari",
+      "copyAll": "Hammasidan nusxa olish",
+      "intro": "Roʻyxatda kursning barcha oʻquv maqsadlari mavzular boʻyicha, har birining holati bilan koʻrsatilgan. Maqsadni oʻzlashtirilgan deb belgilash uchun uni belgila — bu xaritadagi tugundagi belgining aynan oʻzi — shunda roʻyxat boʻylab tartib bilan borib, oʻtganlaringni belgilab chiqishing mumkin.",
+      "markAria": "«{name}» maqsadini oʻzlashtirildi deb belgilash",
+      "markAllButton": "Hammasini oʻzlashtirildi deb belgilash",
+      "clearAllButton": "Barcha oʻzlashtirildi belgilarini olib tashlash",
+      "clearAllConfirm": "Daraxtdagi barcha oʻquv maqsadlaridan oʻzlashtirildi belgisi olib tashlansinmi?",
+      "openNode": "Xaritada shu tugunga oʻtish"
+    },
+    "lessonPlanner": {
+      "button": "Dars rejalari",
+      "title": "Oʻquv maqsadlarini tanlab, dars rejasi, mini daraxt yoki simulyatsiya uchun SI koʻrsatmasidan nusxa olish",
+      "selectAll": "Hammasini belgilash",
+      "deselectAll": "Barcha belgilarni olib tashlash",
+      "selectTopic": "«{topic}» mavzusidagi barcha oʻquv maqsadlarini belgilash",
+      "deselectTopic": "«{topic}» mavzusidagi barcha oʻquv maqsadlaridan belgini olib tashlash",
+      "heading": "Dars rejalari",
+      "intro": "Biror narsa tayyorlamoqchi boʻlgan oʻquv maqsadlaringni belgila va pastdagi «Resurs yaratish» tugmasini bos. U yerda nima boʻlishini tanlaysan: dars rejasi, mini daraxt yoki simulyatsiya. Bu yerdagi belgilar faqat shu ish uchun: ular hech narsani oʻzlashtirilgan deb belgilamaydi va sahifani qayta yuklaganingda yoʻqoladi."
+    },
+    "search": {
+      "button": "Qidiruv",
+      "title": "Oʻquv maqsadlarini nomi va tavsifi boʻyicha qidirish",
+      "heading": "Qidiruv",
+      "placeholder": "Oʻquv maqsadlarini qidirish …",
+      "hint": "Soʻz yoz. Qidiruv har bir oʻquv maqsadining nomi, tavsifi va mavzusidan izlaydi, natijadan esa toʻgʻridan-toʻgʻri xaritadagi tugunga oʻtishing mumkin.",
+      "noResults": "«{query}» soʻzi bor oʻquv maqsadi topilmadi.",
+      "countOne": "1 ta oʻquv maqsadi",
+      "countMany": "{n} ta oʻquv maqsadi",
+      "openNode": "Xaritada shu tugunga oʻtish"
+    },
+    "resourceList": {
+      "button": "Topshiriqlar va manbalar",
+      "title": "Daraxtdagi barcha resurslarni va ular tegishli oʻquv maqsadlarini koʻrsatish",
+      "heading": "Topshiriqlar va manbalar",
+      "placeholder": "Topshiriq va manbalarni filtrlash …",
+      "intro": "{n} ta topshiriq va manba",
+      "countFiltered": "{total} tadan {n} tasi",
+      "noResults": "«{query}» soʻroviga mos resurs yoʻq.",
+      "openNode": "Xaritada shu tugunga oʻtish",
+      "help": "Daraxtga tegishli topshiriqlar va manbalar: imtihon savollari, havolalar, videolar va boshqalar. Har birining ostida u tegishli oʻquv maqsadlari bor; xaritada unga oʻtish uchun ulardan birini bos. Filtrlash uchun maydonga yoz."
+    },
+    "motivation": {
+      "button": "Motivatsiya",
+      "title": "Fan nima uchun oʻrganishga arziydi — shu haqidagi suhbat uchun SI koʻrsatmasidan nusxa olish",
+      "heading": "Motivatsiya",
+      "desc": "Fan nima uchun oʻrganishga arziydi — shu haqida SI bilan qisqa suhbat. SI savol beradi va tinglaydi, javobni esa birgalikda topasan.",
+      "help": "«Koʻrsatmadan nusxa olish» tugmasini bos va uni SI chatiga joyla. Suhbat sen tanlagan javobdan boshlanadi, SI esa har safar bittadan savol beradi. Bu yerda yozganlaring saqlanmaydi.",
+      "startLabel": "Fanga munosabating qanday?",
+      "start": {
+        "unknown": "Bilmayman",
+        "hard": "Qiyin",
+        "bored": "Zerikarli",
+        "use": "Bu menga nimaga kerak?"
+      },
+      "lengthLabel": "Uzunligi",
+      "length": {
+        "short": "Qisqa",
+        "normal": "Oʻrtacha",
+        "long": "Uzun"
+      }
+    },
+    "lesson": {
+      "button": "Dars rejasini tuzish (oʻqituvchilar uchun)",
+      "title": "Belgilagan maqsadlaringni qamrab oluvchi toʻliq dars uchun SI koʻrsatmasidan nusxa olish",
+      "typeLabel": "Dars turi",
+      "typeAria": "Bu qanday dars",
+      "types": {
+        "intro": "Yangi mavzu",
+        "practice": "Mashq",
+        "review": "Takrorlash",
+        "other": "Boshqa"
+      },
+      "minutesLabel": "Davomiyligi",
+      "minutesAria": "Darsning davomiyligi daqiqalarda",
+      "includeAria": "«{name}» maqsadini dars rejasiga qoʻshish",
+      "selectedNone": "Oʻquv maqsadi tanlanmagan",
+      "selectedOne": "1 ta oʻquv maqsadi tanlandi",
+      "selectedMany": "{n} ta oʻquv maqsadi tanlandi"
+    },
+    "make": {
+      "button": "Resurs yaratish →",
+      "buttonTitle": "Belgilagan oʻquv maqsadlaring uchun nima yaratishni tanla",
+      "heading": "Nima yaratmoqchisan?",
+      "back": "← Oʻquv maqsadlari",
+      "forOne": "1 ta oʻquv maqsadi uchun:",
+      "forMany": "{n} ta oʻquv maqsadi uchun:",
+      "copy": "Koʻrsatmadan nusxa olish",
+      "htmlBadge": "HTML fayl",
+      "htmlAfter": "Uni SI chatiga joyla. Javob HTML fayl boʻladi: uni saqlaysan, brauzerda ochasan va oʻquvchilaringga ulashishing mumkin.",
+      "lesson": {
+        "title": "Dars rejasi",
+        "desc": "Bitta dars uchun toʻliq reja: daqiqalar boʻyicha taqsimot, doskaga nima yozish kerakligi va har bir masalaning javobi.",
+        "minutes": "daq.",
+        "shorter": "Qisqaroq",
+        "longer": "Uzunroq",
+        "after": "Uni SI chatiga joyla. Javob — dars paytida qarab turishing mumkin boʻlgan reja.",
+        "typeHints": {
+          "intro": "Yangi oʻquv maqsadlari: boshlangʻich topshiriq, bosqichma-bosqich yechilgan misollar, har bir maqsad uchun diagnostik savol va oxirida yodga olish.",
+          "practice": "Oʻquvchilar yaqinda oʻrgangan maqsadlar: qisqa eslatma, soʻng kichik oʻzgarishlari bor va yordam tobora kamayib boradigan masalalar toʻplamlari.",
+          "review": "Ancha oldin oʻtilgan maqsadlar: daftarga qaramay yodga olish, nima esda qolganini tekshirish, kerak joyda qayta tushuntirish va aralash mashq.",
+          "other": "Boshqa narsa: darsni oʻzing tasvirlab ber, aks holda SI avval sendan soʻraydi."
+        }
+      },
+      "miniTree": {
+        "title": "Mini daraxt",
+        "desc": "Oʻquvchilar test oldidan mustaqil mashq qiladigan koʻnikmalar daraxti: tanlangan maqsadlar darajalarga ega bir nechta mavzuga jamlangan, har bir masalalar turkumidan oldin yechilgan misol, keyin javob va tushuntirish, oʻzlashtirish esa keyingi darajani ochadi.",
+        "levelsLabel": "Har bir mavzudagi darajalar",
+        "levels1": "Bitta daraja",
+        "levels3": "Uchta daraja",
+        "streakLabel": "Oʻzlashtirish uchun ketma-ket toʻgʻri javoblar",
+        "supportLabel": "Moslashtirish",
+        "easyRead": "Oson oʻqish (Comic Sans, kam matn)",
+        "readAloud": "Ovoz chiqarib oʻqish",
+        "game": "Yulduzchalar va darajalarni ochish",
+        "mixedTest": "Aralash mashq testi",
+        "credit": "Maxsus pedagog Nina Haugerudning tamoyillari asosida."
+      },
+      "simulation": {
+        "title": "Simulyatsiya",
+        "desc": "Oʻquvchilar oʻzlari tadqiq qila oladigan interaktiv simulyatsiya: toʻqib chiqarilmagan fan modeli va model nimani koʻrsata olishi va nimani koʻrsata olmasligini tushuntiruvchi panel bilan.",
+        "workflowLabel": "Ish usuli",
+        "design": "Avval dizayn haqida suhbat",
+        "build": "Darhol prototip",
+        "screenLabel": "Ekran",
+        "laptop": "Noutbuk",
+        "tablet": "Planshet",
+        "projector": "Proyektor",
+        "extrasLabel": "Qoʻshish",
+        "tasks": "Oʻquvchilar uchun topshiriqlar",
+        "critique": "Modelni tanqidiy baholash",
+        "export": "Maʼlumotlarni eksport qilish (CSV)",
+        "credit": "Henning Vinjusveen Myhrehagenning skolesim.no saytidagi koʻrsatmasi asosida."
+      },
+      "less": "Kamroq",
+      "more": "Koʻproq",
+      "help": "Har bir resurs — bu SI koʻrsatmasi. Keraklisini tanla, «Koʻrsatmadan nusxa olish» tugmasini bos va uni ChatGPT yoki Claude kabi SI chatiga joyla. Dars rejasi dars paytida qarab turadigan rejaga aylanadi. Mini daraxt va simulyatsiya HTML faylga aylanadi: uni saqlaysan, brauzerda ochasan va oʻquvchilaringga ulashishing mumkin. Tanlovlar saqlanmaydi.",
+      "forLabel": "Maqsadlar:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Oʻzlashtirilgan deb belgilaganlaring boʻyicha test uchun SI koʻrsatmasini tuzish",
+      "none": "Hali oʻzlashtirilgan oʻquv maqsadlari yoʻq",
+      "countLabel": "Topshiriqlar soni",
+      "countAria": "Testdagi topshiriqlar soni",
+      "heading": "Test",
+      "desc": "Oʻzlashtirilgan deb belgilaganlaring boʻyicha yozma test; javoblari soʻraganingda beriladi.",
+      "help": "Test daraxtda oʻzlashtirilgan deb belgilagan oʻquv maqsadlaringdan tuziladi. Qiyinlik darajasini, topshiriqlar soni va shaklini tanla, «Koʻrsatmadan nusxa olish» tugmasini bos va uni SI chatiga joyla. SI avval faqat topshiriqlarni koʻrsatadi, javoblar va baholashni esa sen soʻraganingda beradi.",
+      "covers": "Test oʻzlashtirilgan {n} ta oʻquv maqsadini qamrab oladi:",
+      "coversOne": "Test oʻzlashtirilgan 1 ta oʻquv maqsadini qamrab oladi:",
+      "noneHint": "Sen hali birorta oʻquv maqsadini oʻzlashtirilgan deb belgilamagansan. Daraxtda qila oladiganlaringni belgila, shundan keyin test tuzishing mumkin.",
+      "showAll": "Barcha oʻquv maqsadlarini koʻrsatish",
+      "showSelected": "Faqat tanlangan oʻquv maqsadlarini koʻrsatish",
+      "difficultyLabel": "Qiyinlik darajasi",
+      "difficulty": {
+        "easy": "Oson",
+        "medium": "Oʻrtacha",
+        "hard": "Qiyin"
+      },
+      "difficultyHints": {
+        "easy": "Har bir topshiriqda bitta oʻquv maqsadi, eng koʻp uchraydigan holatlar va hech qanday tuzoqsiz.",
+        "medium": "Oddiy nazorat ishiga oʻxshaydi: baʼzi topshiriqlar oddiy, baʼzilari bir nechta maqsadni birlashtiradi.",
+        "hard": "Koʻpchilik topshiriqlar maqsadlarni birlashtiradi, yangi vaziyatlarda beriladi yoki tushuntirishni yoxud xatoni topishni talab qiladi."
+      },
+      "formatLabel": "Topshiriqlar shakli",
+      "format": {
+        "closed": "Yopiq",
+        "open": "Ochiq",
+        "mixed": "Aralash"
+      },
+      "formatHints": {
+        "closed": "Javob variantlari berilgan savollar yoki kalit bilan tekshirsa boʻladigan qisqa javoblar.",
+        "open": "Yechimingni koʻrsatasan yoki oʻz soʻzlaring bilan tushuntirasan.",
+        "mixed": "Har biridan taxminan yarmi."
+      },
+      "coversLabel": "Test qamrab oladi:"
+    },
+    "node": {
+      "markMastered": "Oʻzlashtirildi deb belgilash"
+    },
+    "column": {
+      "markAll": "«{topic}» mavzusidagi barcha oʻquv maqsadlarini oʻzlashtirildi deb belgilash",
+      "clearAll": "«{topic}» mavzusidagi barcha oʻquv maqsadlaridan oʻzlashtirildi belgisini olib tashlash"
+    },
+    "detail": {
+      "show": "Koʻrsatmani koʻrsatish",
+      "hide": "Koʻrsatmani yashirish",
+      "copy": "Koʻrsatmadan nusxa olish",
+      "prereqs": "Dastlabki shartlar",
+      "resources": "Resurslar",
+      "mastered": "✓ Oʻzlashtirildi",
+      "available": "Ochiq — dastlabki shartlar bajarilgan",
+      "locked": "Yopiq — dastlabki shartlar yetishmaydi",
+      "empty": "Tafsilotlarni koʻrish uchun xaritadagi tugunni bos."
+    },
+    "loadError": "Yuklashda jiddiy xato: {message} (sahifani mahalliy server orqali ochyapsanmi? Koʻp brauzerlarda index.html toʻgʻridan-toʻgʻri diskdan ochilsa, maʼlumot fayllarini fetch() bilan olib boʻlmaydi.)",
+    "defaultTopic": "Boshqa",
+    "aids": {
+      "heading": "Yordamchi vositalar",
+      "tagTitle": "Bu darajada nimadan foydalanish mumkinligini koʻr",
+      "multipleNote": "Bu oʻquv maqsadi bir nechta darajaga tegishli. Sen uni ularning eng qatʼiysida — yaʼni eng kam yordamchi vositalar bilan — uddalay olishing kerak.",
+      "multipleNoteGeneral": "Oʻquv maqsadi bir nechta darajaga tegishli boʻlishi mumkin. Unda uning belgisi bir nechta rangga boʻlinadi, sen esa bu oʻquv maqsadini oʻsha darajalarning eng qatʼiysida — yaʼni eng kam yordamchi vositalar bilan — uddalay olishing kerak."
+    },
+    "menu": {
+      "label": "Menyu",
+      "groups": {
+        "practice": "Mashq qilish",
+        "plan": "Rejalash",
+        "about": "Maʼlumot"
+      }
+    },
+    "download": {
+      "button": "Daraxtni yuklab olish",
+      "title": "Daraxtni ikki shaklda yuklab olish: tahrirlash mumkin boʻlgan jadval va internetsiz ishlaydigan yagona fayl",
+      "working": "Yagona fayl tayyorlanmoqda…",
+      "failed": "Yagona faylni tayyorlab boʻlmadi",
+      "edit": "Daraxtni tahrirlash",
+      "editTitle": "Daraxtni muharrirda ochish: u yerda uni oʻzgartirib, jadval yoki internetsiz ishlaydigan yagona fayl sifatida yuklab olishing mumkin"
+    },
+    "courseInfo": {
+      "button": "Kurs haqida",
+      "heading": "Kurs haqida",
+      "division": "Sinf yoki fakultet",
+      "curriculum": "Oʻquv dasturi",
+      "institution": "Taʼlim muassasasi",
+      "country": "Mamlakat",
+      "language": "Til",
+      "size": "Hajmi",
+      "decompositionVersion": "Dekompozitsiya modeli",
+      "credits": "Tayyorlaganlar",
+      "author": "Muallif",
+      "updated": "Oxirgi yangilanish",
+      "license": "Litsenziya",
+      "basedOn": "Asos",
+      "skills": "{n} ta koʻnikma",
+      "concepts": "{n} ta tushuncha",
+      "facts": "{n} ta faktlar roʻyxati",
+      "nodes": "{n} ta tugun"
+    },
+    "helpToggle": "Tushuntirish",
+    "print": {
+      "button": "Chop etish",
+      "title": "Butun daraxtni chop etishga tayyor PDF sifatida yuklab olish",
+      "working": "PDF tayyorlanmoqda …",
+      "failed": "PDF tayyorlab boʻlmadi",
+      "heading": "Chop etish",
+      "help": "Butun daraxtni chop etishga tayyor bitta PDF sahifa sifatida yuklab ol. Oldindan koʻrishda varaq qanday chiqishi koʻrinadi. Sarlavha va aiskilltrees.com har doim varaqda boʻladi.",
+      "paperLabel": "Qogʻoz oʻlchami",
+      "orientationLabel": "Joylashuv",
+      "orientation": {
+        "auto": "Avtomatik",
+        "landscape": "Albom",
+        "portrait": "Kitob"
+      },
+      "colorLabel": "Ranglar",
+      "color": {
+        "color": "Rangli",
+        "gray": "Oq-qora"
+      },
+      "rings": "Belgilash halqalari",
+      "legend": "Shartli belgilar",
+      "download": "PDF yuklab olish",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Oldingi koʻrinishga qaytish"
+  },
+  "prompt": {
+    "_comment": "The fallback language layer. A tree whose language has no languages/<code>.json yet falls back to this file for the UI, but NOT for outputLanguage — the engine generates that from the tree's own `language` field, so a German tree converses in German on day one with no translation work. `writingStyle` holds one English example of the active-voice advice (Vidar, 2026-10-03: it should not be empty). Because this file also serves every language that has no file of its own, the example says to apply the same idea in the conversation language. The language-independent half of that advice is NOT missing — it lives in prompts/shared.json → writingStyleGeneral and applies to every tree regardless. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. The student's right to ask for a different language, and what happens when they do, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "oʻzbek tili",
+    "outputLanguage": "Bu suhbatning tili boshidan oxirigacha — {conversationLanguage}. Quyida koʻnikmalar daraxtidan keltirilgan hamma narsa — tugun nomlari, tavsiflar, dastlabki shartlar — shu tilda yozilgan va foydalanuvchi u bilan shu tilda gaplashishingni kutadi. Hozir oʻqiyotgan koʻrsatmangning baʼzi qismlari ingliz tilida; bu inglizcha javob berish kerak degani emas. Tilni oʻz tashabbusing bilan almashtirma va koʻrsatma qaysi tilda yozilgani haqida hech narsa dema. Oʻzbek tilining lotin yozuvida yoz (oʻ, gʻ harflari bilan), kirill yozuvida emas. Foydalanuvchiga oʻqituvchi oʻquvchiga qanday murojaat qilsa, shunday — «sen» deb murojaat qil, «siz» deb emas. Oʻrganayotgan odamni nomlash kerak boʻlsa, «{learnerDefinite}» soʻzini ishlat, xuddi shu maʼnodagi boshqa soʻzni emas.",
+    "writingStyle": "Yuqoridagi ikki maslahatga oʻzbekcha misollar:\n- Aniq nisbat: «sonni … koʻrinishida yozishimiz mumkin» deb yoz, «son … koʻrinishida yoziladi» deb emas; «buni … orqali qilamiz» yoki «buni … orqali qilasan» deb yoz, «bu … orqali amalga oshiriladi» deb emas. Kim bajarishini aytish mumkin boʻlgan joyda «qilinadi», «bajariladi», «topiladi» kabi majhul nisbatni ishlatma.\n- Toʻgʻri, lekin ogʻzaki nutqda kam uchraydigan, kitobiy yoki juda kattalarcha eshitiladigan soʻzlarni oddiyroq soʻz bilan almashtir: «amalga oshirmoq» (→ «qilmoq»), «taʼminlamoq» (→ «bermoq»), «mazkur» (→ «shu»), «shuningdek» (→ «yana»), «muayyan» (→ «biror»). Doʻst sinovi: bu soʻzni doʻstingga rostdan ham ovoz chiqarib aytarmiding?",
+    "overrides": {}
+  }
+}

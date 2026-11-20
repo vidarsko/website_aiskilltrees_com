@@ -11,9 +11,10 @@
     ULISTET SIDE, på samme måte som /gy25/: ikke i navigasjonen, ikke lenket
     fra andre sider, og noindex. Se lk20_private/.
 
-    Bare på norsk, med vilje. Derfor lastes ikke js/i18n.js; skriptet under
-    gir sidehodet norske etiketter, og et annet språkvalg sender den
-    besøkende til forsiden på det språket.
+    Bare på norsk, med vilje. <meta name="i18n-available" content="nb">
+    sier det til js/i18n.js, og språkmenyen viser de andre språkene grået
+    ut (fra 2026-11-19; før det sendte et annet språkvalg den besøkende til
+    forsiden).
 
     Fagslisten er HÅNDSKREVET (i motsetning til /gy25/), sjekket mot
     fagkodene i Udirs Grep-API 2026-10-05. Et nytt tre: gjør den grå
@@ -28,12 +29,8 @@
   <link rel="stylesheet" href="/css/curriculum.css">
 
   <script src="/js/analytics.js"></script>
-  <script>
-    window.i18n = {
-      lang: 'nb',
-      setLang: function (lang) { if (lang !== 'nb') location.href = '/?lang=' + lang; }
-    };
-  </script>
+  <meta name="i18n-available" content="nb">
+  <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/footer.js" defer></script>
   <script src="/js/mail-link.js" defer></script>

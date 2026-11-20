@@ -1,0 +1,13 @@
+{
+  "doc-title": "Cercetare | AI Skill Trees",
+  "meta-description": "Lecturi de fundal despre concepție și articolul care descrie metoda.",
+  "page-heading": "Cercetare",
+  "page-lede": "Versiunea publicată a metodei și cum o citezi.",
+  "cite-eyebrow": "Software și citare",
+  "cite-heading": "Versiunea 0.33.0",
+  "cite-body-1": "Motorul, instrucțiunile, fișierele de limbă și arborele de pornire sunt într-un depozit public pe GitHub, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Acest site publică versiunea <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> a acestuia.",
+  "cite-body-2": "Fiecare versiune este arhivată la Zenodo cu propriul DOI. Versiunea 0.33.0 are DOI-ul <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI-ul <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> trimite mereu la cea mai nouă versiune.",
+  "cite-body-3": "Dacă folosești metoda sau materialul, te rog să citezi versiunea pe care ai folosit-o, nu ramura principală:",
+  "cite-cta-github": "Versiunea pe GitHub",
+  "cite-cta-zenodo": "Arhiva la Zenodo"
+}

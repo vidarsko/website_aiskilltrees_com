@@ -1,0 +1,15 @@
+{
+  "doc-title": "Iesniedz savu koku | AI Skill Trees",
+  "meta-description": "Kā iesniegt paša izveidotu prasmju koku šīs vietnes katalogā.",
+  "page-eyebrow": "Skolotājiem",
+  "page-heading": "Iesniedz savu koku",
+  "page-lede": "Ja izveidoji prasmju koku savam priekšmetam, vari to atsūtīt, un tas tiks iekļauts šīs vietnes katalogā.",
+  "how-body": "Pagaidām atsūti man savu tree.csv pa e-pastu:",
+  "terms-eyebrow": "Pirms sūtīšanas",
+  "terms-1": "Es izlasu katru koku, pirms to publicēju.",
+  "terms-2": "Koks tiek publicēts ar tā cilvēka vārdu, kurš to izveidoja. Ja tas pielāgots no cita koka, tajā paliek rindas „Balstīts uz”, ko veidotājs ieraksta failā, tāpēc iepriekšējie autori joprojām ir norādīti.",
+  "terms-3": "Šīs vietnes kokiem un instrukcijām ir CC BY 4.0 licence: ikviens var tos izmantot un pielāgot, ja norāda autoru. Koks, ko iesniedz, tiek publicēts ar šo licenci.",
+  "terms-4": "Ieguldījumi ar pull request GitHub vietnē netiek pieņemti.",
+  "own-body": "Lai izmantotu metodi, nekas nav jāiesniedz. Veidotājs tev dod tavu paša failu, ko izmantot un kopīgot, kā vēlies.",
+  "own-cta": "Izveido savu"
+}

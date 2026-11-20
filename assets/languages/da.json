@@ -1,0 +1,458 @@
+{
+  "code": "da",
+  "htmlLang": "da",
+  "name": "Dansk",
+  "endonym": "Dansk",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, the prompts and the tree folders stay untouched. See AGENTS.md, «Ferdighetstrærne».",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use: »eleven«, »den studerende«, »deltageren« or anything else. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `student` becomes »den studerende«, not »studenten«: in Danish a »student« is someone who has passed upper-secondary school. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. A skill is a verb phrase (»Eleven kan: lægge brøker sammen«), a concept a definition, and they need different lead-ins.",
+    "default": "eleven",
+    "legacy": {
+      "pupil": "eleven",
+      "student": "den studerende",
+      "participant": "deltageren"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} kan:",
+      "concept": "{LearnerDefinite} kan forklare:",
+      "fact": "{LearnerDefinite} kan huske:"
+    }
+  },
+  "ui": {
+    "backLink": "← Alle træer",
+    "pageTitle": "Færdighedstræ for {title}",
+    "tagline": "Et kort over, hvordan læringsmålene bygger på hinanden — sæt flueben ved det, du kan, og kopiér en AI-instruks for at øve dig videre.",
+    "makeYourOwn": "{subject}. Lav dit eget træ:",
+    "progressLabel": "{done} af {total} læringsmål mestret",
+    "zoomIn": "Zoom ind",
+    "zoomOut": "Zoom ud",
+    "fitToView": "Vis hele træet",
+    "fitToViewTitle": "Vis hele træet (Ctrl+scroll for at zoome)",
+    "close": "✕ Luk",
+    "closeLower": "✕ Luk",
+    "copied": "Kopieret!",
+    "copyFallback": "Kunne ikke kopiere automatisk — kopiér teksten nedenfor manuelt:",
+    "errorBanner": "⚠ {n} problem(er) fundet i datafilerne (se konsollen for detaljer):",
+    "errorCsv": "Regnearket kunne ikke læses i række {row}: {message}",
+    "errorCsvHeader": "Den første række i {file} skal navngive kolonnerne. Mangler: {missing}. Den første række lyder: {found}. Filen er sandsynligvis gemt uden sin første række eller i et andet format; gem den igen som almindelig CSV.",
+    "errorUnknownDep": "Knuden »{id}« angiver »{dep}« som forudsætning, men ingen knude har det id.",
+    "errorNoTopic": "Knuden »{id}« har intet emne og havner i opsamlingskolonnen »{topic}«.",
+    "errorUnknownResourceNode": "Række {row} i tree.csv: ressourcen henviser til knude-id'et »{id}« i depends_on, som ikke findes.",
+    "errorExamsRenamed": "Række {row} i tree.csv: indstillingen »features.exams« er fra før version 0.22.0. Ressourcer er nu rækker i tree.csv med typen »resource«: topic = gruppe, name = titel, description = link, depends_on = knuderne. Slet rækken, og åbn træet i byggeren for at konvertere en gammel exams.csv. Intet blev anvendt.",
+    "errorResourceEmpty": "Række {row} i tree.csv: ressourcen har hverken en titel (name) eller et link (description).",
+    "errorResourceNoNode": "Række {row} i tree.csv: ressourcen »{label}« hører ikke til nogen knude. Skriv et eller flere knude-id'er i depends_on, eller slet rækken.",
+    "errorResourceDuplicate": "Række {row} i tree.csv: ressourcen »{label}« er den samme som i række {first}. Gør dem til én række med alle knuderne i depends_on.",
+    "errorResourceUrl": "Række {row} i tree.csv: linket til ressourcen »{label}« skal begynde med https:// eller mailto:. Det vises derfor som almindelig tekst uden link.",
+    "errorCycle": "Disse knuder er forudsætninger for hinanden i en ring: {cycle}. En af forbindelserne skal fjernes.",
+    "errorUnknownConfig": "Ukendt indstilling »{key}« i række {row} i tree.csv. Intet blev anvendt.",
+    "errorUnknownNodeType": "Knuden »{id}« har typen »{type}«, som ikke findes. Typerne er: {valid}.",
+    "errorUnknownPromptSection": "Ukendt afsnit »{section}« i prompt-rækken i række {row} i tree.csv. Intet blev anvendt.",
+    "errorUnknownPromptTarget": "Prompt-rækken i række {row} i tree.csv peger på »{name}«, som ikke er en instruks, dette træ sammensætter. Intet blev anvendt.",
+    "errorDidYouMean": "Mente du »{key}«?",
+    "errorMissingConfig": "tree.csv har ingen config-række for »{key}«, som er påkrævet.",
+    "errorStyleColor": "Indstillingen »{key}« i række {row} i tree.csv skal være en farve skrevet som hexkode, fx #1F6F4A. »{value}« er ikke en, så standardfarven blev beholdt.",
+    "errorLinkUrl": "Indstillingen »{key}« i række {row} i tree.csv skal være et link, der begynder med https:// eller mailto:. »{value}« er ikke et, så det vises som almindelig tekst.",
+    "errorStyleFont": "Ukendt skrifttype »{value}« i række {row} i tree.csv. De skrifttyper, et træ kan bruge: {valid}. Standardskrifttypen blev beholdt.",
+    "nodeType": {
+      "skill": "færdighed",
+      "concept": "begreb",
+      "fact": "fakta"
+    },
+    "badges": {
+      "del1": "Del 1",
+      "del2": "Del 2",
+      "begge": "Del 1+2"
+    },
+    "status": {
+      "mastered": "Mestret",
+      "ready": "Klar til at lære",
+      "notMastered": "Ikke mestret endnu",
+      "blocked": "Mangler først: {codes}"
+    },
+    "help": {
+      "label": "Hjælp",
+      "heading": "Hjælp",
+      "sections": [
+        {
+          "heading": "Menuen",
+          "body": "Alt andet ligger bag ☰ nederst til venstre: læringsmålene, søgning, prøve, udskrift og resten. Hvert vindue har et »?«, der forklarer det.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Kortet",
+          "body": "Hver boks er et læringsmål, og pilene går fra det, du skal kunne først. Formen viser typen: fakta er firkantede, begreber lidt afrundede og færdigheder runde. Træk for at flytte kortet, og zoom med + og −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Mestret",
+          "body": "Tryk på ringen i en boks, når du kan læringsmålet, så bliver den til et grønt flueben. Det gemmes kun i din browser.",
+          "figure": "check"
+        },
+        {
+          "heading": "Én boks",
+          "body": "Tryk på en boks for at se, hvad læringsmålet kræver, hvad det bygger på, og en AI-instruks, du kan sætte ind i en AI-chat og øve dig med. Tryk igen for at lukke.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Markér mange",
+          "body": "Liste-ikonerne markerer alle mål i et emne på én gang eller fjerner markeringerne. Med A og B gælder det hele træet.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Søg",
+          "body": "Find et læringsmål ud fra et ord i navnet eller beskrivelsen.",
+          "figure": "search"
+        },
+        {
+          "heading": "Prøve",
+          "body": "En AI-instruks til en prøve i de mål, du vælger. Du bestemmer sværhedsgraden, antallet og typen af opgaver.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Lektionsplaner (for lærere)",
+          "body": "Vælg læringsmål, og tryk på »Lav en ressource« for at få en lektionsplan, et minitræ eller en simulering.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Udskriv",
+          "body": "Download hele træet som PDF med ringe, eleverne kan krydse af med en blyant.",
+          "figure": "print"
+        },
+        {
+          "heading": "Hjælpemiddelmærket",
+          "body": "»Del 1« eller »Del 2« i panelet viser, hvilket niveau af hjælpemidler målet hører til. Tryk på mærket for at læse mere under »Om faget«.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivation",
+          "body": "En kort samtale med en AI om, hvorfor faget er værd at lære.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Tastaturgenveje",
+        "search": "Åbn søgningen",
+        "escape": "Luk det åbne vindue, menuen eller panelet",
+        "zoom": "Zoom ind og ud",
+        "fit": "Vis hele træet og tilbage igen"
+      }
+    },
+    "safety": {
+      "label": "Sikkerhed",
+      "heading": "Sikkerhed",
+      "lead": "Et færdighedstræ er lavet af en lærer, men alle kan lave en fil, der ligner et. Læs dette, før du bruger et træ, som nogen har sendt til dig.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Et færdighedstræ beder aldrig om personlige oplysninger",
+          "body": "Træet har intet login og behøver intet om dig. Det beder aldrig om dit navn, en adgangskode, dit skolelogin, dit CPR-nummer, din adresse, dit telefonnummer eller hvilken skole du går på. Dine fremskridt gemmes kun i browseren på denne enhed. Hvis en side, der ligner et færdighedstræ, beder om noget af dette, er den ikke ægte. Luk den, og sig det til din lærer."
+        },
+        {
+          "id": "sender",
+          "heading": "Hvem har sendt dig træet?",
+          "body": "Det vigtigste spørgsmål er, hvor træet kommer fra. Et træ på aiskilltrees.com, eller et som din lærer har lagt op dér, hvor I plejer at få undervisningsmateriale, kan du stole lige så meget på, som du stoler på din lærer. Har du fået en fil på mail, i en chat eller på sociale medier fra en, du ikke kender, eller kom den uventet, så vær skeptisk, også selvom den ser rigtig ud."
+        },
+        {
+          "id": "html",
+          "heading": "En HTML-fil er en webside, ikke et dokument",
+          "body": "Når et træ deles som en .html-fil, får du ikke et dokument som en PDF eller en Word-fil. Du får en hel webside med kode, der kører, når du åbner den. Browseren forhindrer den i at læse dine filer eller installere noget på computeren, men den kan vise hvad som helst: en falsk login-side, en knap, der downloader noget, eller links videre til andre websteder. Den, der har lavet filen, bestemmer, hvad den gør. At den ligner et færdighedstræ, gør den ikke til et. Log aldrig ind, og download aldrig noget fra en side, du har åbnet fra en fil."
+        },
+        {
+          "id": "links",
+          "heading": "Tjek links, før du klikker",
+          "body": "Ressourcerne i træet kan linke til videoer, opgaver og lærebøger. Hold musen over et link, eller tryk og hold på det, og se, hvor det fører hen, før du klikker. Hvis du ikke kender webstedet, eller adressen ser mærkelig ud, så lad være."
+        },
+        {
+          "id": "injection",
+          "heading": "Instrukser kan være manipuleret",
+          "body": "AI-instruksen, du kopierer, er tekst skrevet af den, der har lavet træet, og du sætter den direkte ind i en AI-chat. Den, der laver et træ, kan skrive hvad som helst i den, også ordrer, der får chatten til at opføre sig anderledes, end du forventer: give dig forkerte svar, sende dig videre til et andet websted eller spørge om ting, der ikke vedkommer den. Det kaldes prompt injection. Skim gerne teksten, før du sætter den ind, og stol ikke blindt på chatten."
+        },
+        {
+          "id": "chat",
+          "heading": "Du bestemmer, hvad du fortæller chatten",
+          "body": "Nogle instrukser beder chatten om at lære dig at kende, fx hvad du synes om faget, og hvad du er god til. Det kan du svare så meget eller så lidt på, som du vil. Men ingen instruks har brug for dit navn, dine kontaktoplysninger eller adgangskoder. Hvis chatten beder om noget i den stil, så svar ikke, og sig det til din lærer. Husk også, at det, du skriver i en AI-chat, bliver gemt hos firmaet, der driver chatten. Din skole har ofte adgang til en AI-tjeneste, hvor dit privatliv er beskyttet. Spørg din lærer, og brug den, hvis I har en."
+        },
+        {
+          "id": "teachers",
+          "heading": "Til lærere: et træ fra en kollega",
+          "body": "Har du fået et træ fra en anden, kan du åbne det i byggeren på aiskilltrees.com/make-your-own/, før du deler det med dine elever, for at være sikker. Byggeren tager kun regnearket ud af filen og laver en ny, ren fil ud fra det, og dér kan du læse hver eneste instruks, træet bruger."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Læringsmål",
+      "title": "Vis en systematisk liste over alle læringsmål, sorteret efter emne",
+      "heading": "Læringsmål",
+      "copyAll": "Kopiér alle",
+      "intro": "Listen viser alle læringsmål i faget, sorteret efter emne, med status for hvert enkelt. Sæt flueben ved et mål for at markere det som mestret — det samme flueben som på knuden på kortet — så du kan gå listen igennem i rækkefølge og markere det, du har været igennem.",
+      "markAria": "Markér »{name}« som mestret",
+      "markAllButton": "Markér alle som mestret",
+      "clearAllButton": "Fjern alle mestret-markeringer",
+      "clearAllConfirm": "Fjern mestret-markeringen fra alle læringsmål i træet?",
+      "openNode": "Gå til denne knude på kortet"
+    },
+    "lessonPlanner": {
+      "button": "Lektionsplaner",
+      "title": "Vælg læringsmål, og kopiér en AI-instruks til en lektionsplan, et minitræ eller en simulering",
+      "selectAll": "Markér alle",
+      "deselectAll": "Fjern alle markeringer",
+      "selectTopic": "Markér alle læringsmål i »{topic}«",
+      "deselectTopic": "Fjern markeringen fra alle læringsmål i »{topic}«",
+      "heading": "Lektionsplaner",
+      "intro": "Sæt flueben ved de læringsmål, du vil lave noget til, og tryk på »Lav en ressource« nederst. Dér vælger du, hvad det skal være: en lektionsplan, et minitræ eller en simulering. Fluebenene her gælder kun til dette: De markerer ikke noget som mestret, og de forsvinder, når du genindlæser siden."
+    },
+    "search": {
+      "button": "Søg",
+      "title": "Søg i læringsmålene efter navn og beskrivelse",
+      "heading": "Søg",
+      "placeholder": "Søg i læringsmålene …",
+      "hint": "Skriv et ord. Søgningen leder i navnet, beskrivelsen og emnet for hvert læringsmål, og du kan klikke dig direkte videre til knuden på kortet.",
+      "noResults": "Intet læringsmål indeholder »{query}«.",
+      "countOne": "1 læringsmål",
+      "countMany": "{n} læringsmål",
+      "openNode": "Gå til denne knude på kortet"
+    },
+    "resourceList": {
+      "button": "Opgaver og kilder",
+      "title": "Vis alle ressourcer i træet og de læringsmål, de hører til",
+      "heading": "Opgaver og kilder",
+      "placeholder": "Filtrér opgaver og kilder …",
+      "intro": "{n} opgaver og kilder",
+      "countFiltered": "{n} af {total}",
+      "noResults": "Ingen ressource matcher »{query}«.",
+      "openNode": "Gå til denne knude på kortet",
+      "help": "Opgaver og kilder, der hører til træet, fx prøveopgaver, links og videoer. Under hver enkelt står de læringsmål, den hører til; tryk på et for at gå til det på kortet. Skriv i feltet for at filtrere."
+    },
+    "motivation": {
+      "button": "Motivation",
+      "title": "Kopiér en AI-instruks til en samtale om, hvorfor faget er værd at lære",
+      "heading": "Motivation",
+      "desc": "En kort samtale med en AI om, hvorfor faget er værd at lære. AI'en spørger og lytter, og I finder frem til svaret sammen.",
+      "help": "Tryk på »Kopiér instruksen«, og sæt den ind i en AI-chat. Samtalen starter dér, hvor du siger, du er, og AI'en stiller ét spørgsmål ad gangen. Intet af det, du skriver, gemmes her.",
+      "startLabel": "Hvordan har du det med faget?",
+      "start": {
+        "unknown": "Ved ikke",
+        "hard": "Det er svært",
+        "bored": "Det er kedeligt",
+        "use": "Hvad skal jeg bruge det til?"
+      },
+      "lengthLabel": "Længde",
+      "length": {
+        "short": "Kort",
+        "normal": "Normal",
+        "long": "Lang"
+      }
+    },
+    "lesson": {
+      "button": "Lav en lektionsplan (for lærere)",
+      "title": "Kopiér en AI-instruks til en færdig lektion om de læringsmål, du har markeret",
+      "typeLabel": "Lektionstype",
+      "typeAria": "Hvilken slags lektion det er",
+      "types": {
+        "intro": "Introduktion",
+        "practice": "Øvelse",
+        "review": "Repetition",
+        "other": "Andet"
+      },
+      "minutesLabel": "Længde",
+      "minutesAria": "Lektionens længde i minutter",
+      "includeAria": "Tag »{name}« med i lektionsplanen",
+      "selectedNone": "Ingen læringsmål valgt",
+      "selectedOne": "1 læringsmål valgt",
+      "selectedMany": "{n} læringsmål valgt"
+    },
+    "make": {
+      "button": "Lav en ressource →",
+      "buttonTitle": "Vælg, hvad du vil lave til de læringsmål, du har markeret",
+      "heading": "Hvad vil du lave?",
+      "back": "← Læringsmålene",
+      "forOne": "Til 1 læringsmål:",
+      "forMany": "Til {n} læringsmål:",
+      "copy": "Kopiér instruksen",
+      "htmlBadge": "HTML-fil",
+      "htmlAfter": "Sæt den ind i en AI-chat. Svaret er en HTML-fil, som du gemmer og åbner i en browser og kan dele med dine elever.",
+      "lesson": {
+        "title": "Lektionsplan",
+        "desc": "En færdig plan for én lektion med minuttider, hvad der skal stå på tavlen, og facit til alle opgaver.",
+        "minutes": "min.",
+        "shorter": "Kortere",
+        "longer": "Længere",
+        "after": "Sæt den ind i en AI-chat. Svaret er en plan, du kan følge, mens du underviser.",
+        "typeHints": {
+          "intro": "Nye læringsmål: en startopgave, gennemregnede eksempler i runder, et diagnostisk spørgsmål pr. mål og genkaldelse til sidst.",
+          "practice": "Mål, eleverne lige har lært: en kort genopfriskning og derefter opgavesæt med små variationer og mindre og mindre støtte.",
+          "review": "Mål fra et stykke tid siden: genkaldelse uden noter, tjek af hvad der sidder fast, ny gennemgang, hvor det er nødvendigt, og blandet øvelse.",
+          "other": "Noget andet: Beskriv selv lektionen, ellers spørger AI'en dig først."
+        }
+      },
+      "miniTree": {
+        "title": "Minitræ",
+        "desc": "Et færdighedstræ, eleverne øver sig i på egen hånd før en prøve: de valgte mål samlet i nogle få temaer med niveauer, et gennemregnet eksempel før hver runde opgaver, facit og en forklaring bagefter, og mestring, der låser op for næste niveau.",
+        "levelsLabel": "Niveauer pr. tema",
+        "levels1": "Ét niveau",
+        "levels3": "Tre niveauer",
+        "streakLabel": "Rigtige i træk for at mestre",
+        "supportLabel": "Tilpasning",
+        "easyRead": "Let at læse (Comic Sans, lidt tekst)",
+        "readAloud": "Oplæsning",
+        "game": "Stjerner og oplåsning",
+        "mixedTest": "Blandet prøvetræning",
+        "credit": "Bygger på specialpædagogen Nina Haugeruds principper."
+      },
+      "simulation": {
+        "title": "Simulering",
+        "desc": "En interaktiv simulering, eleverne kan udforske, med en faglig model, der ikke er opdigtet, og et panel, der forklarer, hvad modellen kan og ikke kan.",
+        "workflowLabel": "Arbejdsform",
+        "design": "Designsamtale først",
+        "build": "Prototype med det samme",
+        "screenLabel": "Skærm",
+        "laptop": "Bærbar",
+        "tablet": "Tablet",
+        "projector": "Projektor",
+        "extrasLabel": "Tag med",
+        "tasks": "Elevopgaver",
+        "critique": "Modelkritik",
+        "export": "Dataeksport (CSV)",
+        "credit": "Efter instruksen af Henning Vinjusveen Myhrehagen på skolesim.no."
+      },
+      "less": "Mindre",
+      "more": "Mere",
+      "help": "Hver ressource er en AI-instruks. Vælg, hvad du vil have, tryk på »Kopiér instruksen«, og sæt den ind i en AI-chat som ChatGPT eller Claude. Lektionsplanen bliver en plan, du kan følge, mens du underviser. Minitræet og simuleringen bliver en HTML-fil, som du gemmer, åbner i en browser og kan dele med dine elever. Valgene gemmes ikke.",
+      "forLabel": "Til:"
+    },
+    "exam": {
+      "button": "Prøve",
+      "title": "Lav en AI-instruks til en prøve i det, du har markeret som mestret",
+      "none": "Ingen mestrede læringsmål endnu",
+      "countLabel": "Antal opgaver",
+      "countAria": "Antal opgaver i prøven",
+      "heading": "Prøve",
+      "desc": "En skriftlig prøve i det, du har markeret som mestret, med facit, når du beder om det.",
+      "help": "Prøven bygger på de læringsmål, du har markeret som mestret i træet. Vælg sværhedsgrad, antal opgaver og opgavetype, tryk på »Kopiér instruksen«, og sæt den ind i en AI-chat. AI'en viser først kun opgaverne og giver facit og en vurdering, når du beder om det.",
+      "covers": "Prøven dækker {n} mestrede læringsmål:",
+      "coversOne": "Prøven dækker 1 mestret læringsmål:",
+      "noneHint": "Du har ikke markeret nogen læringsmål som mestret endnu. Sæt flueben ved det, du kan, i træet, så kan du lave en prøve.",
+      "showAll": "Vis alle læringsmål",
+      "showSelected": "Vis kun de valgte læringsmål",
+      "difficultyLabel": "Sværhedsgrad",
+      "difficulty": {
+        "easy": "Let",
+        "medium": "Mellem",
+        "hard": "Svær"
+      },
+      "difficultyHints": {
+        "easy": "Ét læringsmål pr. opgave, de mest almindelige tilfælde og ingen fælder.",
+        "medium": "Som en almindelig prøve: nogle ligetil opgaver og nogle, der kombinerer flere mål.",
+        "hard": "De fleste opgaver kombinerer mål, bruger nye sammenhænge eller beder dig forklare eller finde en fejl."
+      },
+      "formatLabel": "Opgavetype",
+      "format": {
+        "closed": "Lukkede",
+        "open": "Åbne",
+        "mixed": "Blandet"
+      },
+      "formatHints": {
+        "closed": "Multiple choice eller korte svar, der kan tjekkes mod et facit.",
+        "open": "Du viser dine mellemregninger eller forklarer med dine egne ord.",
+        "mixed": "Cirka halvdelen af hver."
+      },
+      "coversLabel": "Prøven dækker:"
+    },
+    "node": {
+      "markMastered": "Markér som mestret"
+    },
+    "column": {
+      "markAll": "Markér alle læringsmål i »{topic}« som mestret",
+      "clearAll": "Fjern mestret-markeringen fra alle læringsmål i »{topic}«"
+    },
+    "detail": {
+      "show": "Vis instruksen",
+      "hide": "Skjul instruksen",
+      "copy": "Kopiér instruksen",
+      "prereqs": "Forudsætninger",
+      "resources": "Ressourcer",
+      "mastered": "✓ Mestret",
+      "available": "Tilgængelig — forudsætningerne er opfyldt",
+      "locked": "Låst — forudsætninger mangler",
+      "empty": "Klik på en knude på kortet for at se detaljer."
+    },
+    "loadError": "Kritisk fejl under indlæsning: {message} (kører du siden via en lokal server? fetch() af datafilerne mislykkes i mange browsere, når index.html åbnes direkte fra disken.)",
+    "defaultTopic": "Andet",
+    "aids": {
+      "heading": "Hjælpemidler",
+      "tagTitle": "Se, hvad du må bruge på dette niveau",
+      "multipleNote": "Dette læringsmål hører til flere niveauer. Du bør kunne klare det under det strengeste af dem — altså med færrest hjælpemidler.",
+      "multipleNoteGeneral": "Et læringsmål kan høre til flere niveauer. Mærket er så delt i flere farver, og du bør kunne klare læringsmålet under det strengeste af niveauerne — altså med færrest hjælpemidler."
+    },
+    "menu": {
+      "label": "Menu",
+      "groups": {
+        "practice": "Øv",
+        "plan": "Planlæg",
+        "about": "Om"
+      }
+    },
+    "download": {
+      "button": "Download træet",
+      "title": "Download træet i to udgaver: regnearket, du kan redigere, og én fil, der virker uden internet",
+      "working": "Bygger den samlede fil …",
+      "failed": "Den samlede fil kunne ikke bygges",
+      "edit": "Redigér træet",
+      "editTitle": "Åbn træet i redigeringsværktøjet, hvor du kan ændre det og downloade det som regneark eller som én fil, der virker uden internet"
+    },
+    "courseInfo": {
+      "button": "Om faget",
+      "heading": "Om faget",
+      "division": "Klassetrin eller fakultet",
+      "curriculum": "Læreplan",
+      "institution": "Institution",
+      "country": "Land",
+      "language": "Sprog",
+      "size": "Omfang",
+      "decompositionVersion": "Nedbrydningsmodel",
+      "credits": "Lavet af",
+      "author": "Forfatter",
+      "updated": "Senest opdateret",
+      "license": "Licens",
+      "basedOn": "Bygger på",
+      "skills": "{n} færdigheder",
+      "concepts": "{n} begreber",
+      "facts": "{n} faktalister",
+      "nodes": "{n} knuder"
+    },
+    "helpToggle": "Forklaring",
+    "print": {
+      "button": "Udskriv",
+      "title": "Download hele træet som PDF, klar til udskrift",
+      "working": "Laver PDF …",
+      "failed": "PDF'en kunne ikke laves",
+      "heading": "Udskriv",
+      "help": "Download hele træet som én PDF-side, klar til udskrift. Forhåndsvisningen viser arket, som det bliver. Titlen og aiskilltrees.com står altid på arket.",
+      "paperLabel": "Papirstørrelse",
+      "orientationLabel": "Retning",
+      "orientation": {
+        "auto": "Automatisk",
+        "landscape": "Liggende",
+        "portrait": "Stående"
+      },
+      "colorLabel": "Farver",
+      "color": {
+        "color": "Farve",
+        "gray": "Sort-hvid"
+      },
+      "rings": "Ringe til afkrydsning",
+      "legend": "Signaturforklaring",
+      "download": "Download PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Tilbage til den visning, du havde"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, same role as languages/nb.json → prompt. Only what is PARTICULAR TO DANISH belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json → writingStyleGeneral. `conversationLanguage` is »dansk« as it reads inside a sentence (»på dansk«), and the English prompts also insert it (»Comment the code in dansk«). NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. That the student may ask for another language, and what then happens, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "dansk",
+    "outputLanguage": "Før hele denne samtale på {conversationLanguage}. Alt, hvad der er citeret fra færdighedstræet nedenfor — knudenavne, beskrivelser, forudsætninger — er skrevet på {conversationLanguage}, og det er det sprog, brugeren forventer at blive talt til på. Dele af den instruks, du læser nu, er på engelsk; det er ikke en opfordring til at svare på engelsk. Skift ikke sprog på eget initiativ, og kommentér ikke, hvilket sprog instruksen er skrevet på. Tiltal brugeren med »du«. Skal den, der lærer, nævnes, er ordet »{learnerDefinite}« – ikke et andet ord for det samme.",
+    "writingStyle": "Danske eksempler på de to råd ovenfor:\n- Aktiv form: skriv »vi kan skrive tallet som …«, ikke »tallet kan kun skrives som …«; skriv »vi gør det ved at …« eller »du gør det ved at …«, ikke »det gøres ved at …«. Undgå »bliver gjort« og »kan gøres«, hvor du kan sige, hvem der gør det.\n- Ord, der er almindelige på skrift, men sjældne i talesprog, bogsproglige eller lidt for voksne, skal du bytte ud med et enklere ord: »endvidere«, »såfremt«, »benytte«, »fundament« (sig hellere »også«, »hvis«, »bruge«, »grundlag«). Vennetesten: Ville du faktisk sige ordet højt til en ven?",
+    "overrides": {}
+  }
+}

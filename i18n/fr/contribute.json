@@ -1,0 +1,15 @@
+{
+  "doc-title": "Proposer ton arbre | AI Skill Trees",
+  "meta-description": "Comment proposer un arbre de compétences que tu as créé pour le catalogue de ce site.",
+  "page-eyebrow": "Pour les enseignants",
+  "page-heading": "Proposer ton arbre",
+  "page-lede": "Si tu as créé un arbre de compétences pour ta matière, tu peux l'envoyer pour qu'il rejoigne le catalogue de ce site.",
+  "how-body": "Pour l'instant, envoie-moi ton tree.csv par e-mail :",
+  "terms-eyebrow": "Avant de l'envoyer",
+  "terms-1": "Je lis chaque arbre avant de le publier.",
+  "terms-2": "Un arbre est publié sous le nom de la personne qui l'a créé. S'il est adapté d'un autre arbre, il garde les lignes « D'après » que l'éditeur écrit dans le fichier, pour que les auteurs précédents restent crédités.",
+  "terms-3": "Les arbres et les instructions de ce site sont sous licence CC BY 4.0 : chacun peut les utiliser et les adapter, à condition de citer l'auteur. Un arbre que tu proposes est publié sous cette licence.",
+  "terms-4": "Les contributions par pull request sur GitHub ne sont pas ouvertes.",
+  "own-body": "Tu n'as rien à proposer pour utiliser la méthode. L'éditeur te donne ton propre fichier, à utiliser et à partager comme tu le veux.",
+  "own-cta": "Créer un arbre"
+}

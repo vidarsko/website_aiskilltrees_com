@@ -1,0 +1,13 @@
+{
+  "doc-title": "Kërkimi | AI Skill Trees",
+  "meta-description": "Lexime për sfondin e projektimit dhe artikulli që e përshkruan metodën.",
+  "page-heading": "Kërkimi",
+  "page-lede": "Versioni i publikuar i metodës dhe si ta citosh.",
+  "cite-eyebrow": "Softueri dhe citimi",
+  "cite-heading": "Versioni 0.33.0",
+  "cite-body-1": "Motori, udhëzimet, skedarët e gjuhëve dhe pema fillestare janë në një depo publike në GitHub, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Kjo faqe publikon prej saj versionin <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Çdo version arkivohet në Zenodo me DOI-n e vet. Versioni 0.33.0 është <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI-ja <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> tregon gjithmonë versionin më të ri.",
+  "cite-body-3": "Nëse përdor metodën ose materialin, të lutem cito versionin që ke përdorur, jo degën kryesore:",
+  "cite-cta-github": "Versioni në GitHub",
+  "cite-cta-zenodo": "Arkivi në Zenodo"
+}

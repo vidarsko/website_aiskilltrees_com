@@ -1,0 +1,582 @@
+{
+ "AL": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "al-arsimi-baze-matematike-9",
+    "title": "Matematikë, klasa e nëntë",
+    "subtitle": "Arsimi bazë, klasa IX",
+    "language": "sq",
+    "curriculum": "Kurrikula e bazuar në kompetenca, Matematikë, klasa IX (IZHA 2017)",
+    "issuer": "ASCAP / Ministria e Arsimit",
+    "url": "https://www.ascap.edu.al/dlp_document-klasa-viti/klasa-ix/"
+   }
+  ]
+ },
+ "AM": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "am-himnakan-matematika-7-9",
+    "title": "Հանրահաշիվ և երկրաչափություն, 7–9-րդ դասարաններ",
+    "subtitle": "Հիմնական դպրոց, 7–9-րդ դասարաններ",
+    "language": "hy",
+    "curriculum": "«Մաթեմատիկա» առարկայի առարկայական չափորոշիչ (Order 41-Ն, 2023, as rewritten by Order 54-Ն of 28.07.2026)",
+    "issuer": "ԿԳՄՍ նախարարություն",
+    "url": "https://www.arlis.am/hy/acts/229330"
+   }
+  ]
+ },
+ "AZ": {
+  "status": "planned",
+  "trees": []
+ },
+ "BA": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "ba-osnovna-matematika-9",
+    "title": "Matematika, 9. razred",
+    "subtitle": "Devetogodišnja osnovna škola, 9. razred",
+    "language": "bs",
+    "curriculum": "Zajednička jezgra NPP za matematičko područje definisana na ishodima učenja (Službeni glasnik BiH 77/15)",
+    "issuer": "APOSO",
+    "url": "https://aposo.gov.ba/sadrzaj/uploads/ZJ-definisana-na-ishodima-u%C4%8Denja-u-BiH.pdf"
+   }
+  ]
+ },
+ "BE": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "be-fwb-secondaire-mathematiques",
+    "title": "Mathématiques – 2e secondaire",
+    "subtitle": "Premier degré du secondaire, 2e année commune",
+    "language": "fr",
+    "curriculum": "Socles de compétences – Formation mathématique (Annexe II, décret du 19 juillet 2001)",
+    "issuer": "Fédération Wallonie-Bruxelles",
+    "url": "https://gallilex.cfwb.be/sites/default/files/imports/26011_000.pdf"
+   },
+   {
+    "slug": "be-vl-eerste-graad-wiskunde",
+    "title": "Wiskunde eerste graad A-stroom",
+    "subtitle": "Secundair onderwijs, eerste graad A-stroom (1e en 2e jaar)",
+    "language": "nl",
+    "curriculum": "Onderwijsdoelen voor de eerste graad A-stroom (decreet over de onderwijsdoelen eerste graad, 2024), wiskunde 06.01–06.23",
+    "issuer": "Vlaams Parlement / Vlaamse Regering",
+    "url": "https://themis.vlaanderen.be/files/bd21e2a0-12e5-11ef-b2af-d9e67d160d68/download"
+   }
+  ]
+ },
+ "BG": {
+  "status": "planned",
+  "trees": []
+ },
+ "BY": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "by-bazavaja-matematyka-9",
+    "title": "Матэматыка (алгебра і геаметрыя), IX клас",
+    "subtitle": "Агульная сярэдняя адукацыя, II ступень, IX клас",
+    "language": "be",
+    "curriculum": "Вучэбная праграма «Матэматыка» VI–IX (пастанова № 132 ад 29.07.2025)",
+    "issuer": "Міністэрства адукацыі / НІА",
+    "url": "https://adu.by/images/2026/08/up-matematika-6-9kl-bel.pdf"
+   }
+  ]
+ },
+ "CH": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "ch-ti-scuola-media-matematica",
+    "title": "Matematica, scuola media ticinese (III e IV media)",
+    "subtitle": "Scuola media ticinese, III e IV media (terzo ciclo)",
+    "language": "it",
+    "curriculum": "Piano di studio della scuola dell'obbligo ticinese, Matematica (revisione 2021)",
+    "issuer": "DECS, Cantone Ticino",
+    "url": "https://pianodistudio.edu.ti.ch/wp-content/uploads/2023/07/MAT-PdS-con-tabelle-I-II-ciclo-e-anni-SM.pdf"
+   }
+  ]
+ },
+ "CY": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "cy-gymnasio-mathimatika-g",
+    "title": "Μαθηματικά Γ΄ Γυμνασίου",
+    "subtitle": "Γυμνάσιο, Γ΄ τάξη",
+    "language": "el",
+    "curriculum": "Αναλυτικό Πρόγραμμα Μαθηματικών Γ΄ Γυμνασίου, με Δείκτες Επιτυχίας και Επάρκειας",
+    "issuer": "Υπουργείο Παιδείας, Αθλητισμού και Νεολαίας",
+    "url": "https://mathm.schools.ac.cy/index.php/el/mathimatika/analytiko-programma"
+   }
+  ]
+ },
+ "CZ": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "cz-zakladni-matematika-2-stupen",
+    "title": "Matematika – 2. stupeň ZŠ",
+    "subtitle": "Základní škola, 2. stupeň (6.–9. ročník)",
+    "language": "cs",
+    "curriculum": "Rámcový vzdělávací program pro základní vzdělávání (RVP ZV), 2023, 5.2.1 Matematika a její aplikace",
+    "issuer": "MŠMT",
+    "url": "https://edu.gov.cz/wp-content/uploads/2023/07/RVP_ZV_2023_cista_verze.pdf"
+   }
+  ]
+ },
+ "DE": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "de-sek-i-mathematik-msa",
+    "title": "Mathematik bis zum Mittleren Schulabschluss",
+    "subtitle": "Sekundarstufe I, Klasse 10 – Mittlerer Schulabschluss",
+    "language": "de",
+    "curriculum": "Bildungsstandards für das Fach Mathematik – Erster Schulabschluss (ESA) und Mittlerer Schulabschluss (MSA), Fassung vom 23.06.2022",
+    "issuer": "Kultusministerkonferenz (KMK)",
+    "url": "https://www.kmk.org/fileadmin/Dateien/veroeffentlichungen_beschluesse/2022/2022_06_23-Bista-ESA-MSA-Mathe.pdf"
+   }
+  ]
+ },
+ "DK": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "dk-folkeskole-matematik-7-9",
+    "title": "Matematik 7.–9. klasse",
+    "subtitle": "Folkeskolen, 7.–9. klasse",
+    "language": "da",
+    "curriculum": "Fælles Mål for matematik (Bekendtgørelse nr. 1715 af 30.12.2024, bilag 11)",
+    "issuer": "Børne- og Undervisningsministeriet",
+    "url": "https://www.retsinformation.dk/eli/lta/2024/1715/pdf"
+   }
+  ]
+ },
+ "EE": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "ee-pohikool-matemaatika-7-9",
+    "title": "Matemaatika 7.–9. klass",
+    "subtitle": "Põhikool, III kooliaste (7.–9. klass)",
+    "language": "et",
+    "curriculum": "Põhikooli riiklik õppekava, Lisa 5 Matemaatika (VV 2011 määrus nr 1, sõnastus 13.06.2025)",
+    "issuer": "Vabariigi Valitsus",
+    "url": "https://www.riigiteataja.ee/aktilisa/1250/6202/5011/VV2011_m1_lisa5_2025.pdf"
+   }
+  ]
+ },
+ "ES": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "es-eso-matematicas-4",
+    "title": "Matemáticas B, 4.º de ESO",
+    "subtitle": "Educación Secundaria Obligatoria, 4.º curso, opción B",
+    "language": "es",
+    "curriculum": "Real Decreto 217/2022, anexo II, Matemáticas (LOMLOE)",
+    "issuer": "Ministerio de Educación",
+    "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975"
+   }
+  ]
+ },
+ "FI": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "fi-perusopetus-matematiikka-7-9",
+    "title": "Matematiikka, vuosiluokat 7–9",
+    "subtitle": "Perusopetus, yläkoulu (vuosiluokat 7–9)",
+    "language": "fi",
+    "curriculum": "Perusopetuksen opetussuunnitelman perusteet 2014 (matematiikka 7–9)",
+    "issuer": "Opetushallitus",
+    "url": "https://eperusteet.opintopolku.fi/eperusteet-service/api/perusteet/419550/perusopetus/oppiaineet/466344"
+   }
+  ]
+ },
+ "FR": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "fr-college-mathematiques-cycle-4",
+    "title": "Mathématiques, cycle 4 (5e, 4e, 3e)",
+    "subtitle": "Collège, cycle 4 : 5e, 4e et 3e",
+    "language": "fr",
+    "curriculum": "Programme du cycle 4, Mathématiques (arrêté du 17 juillet 2020, BO n° 31 du 30 juillet 2020)",
+    "issuer": "Ministère de l'Éducation nationale",
+    "url": "https://cache.media.education.gouv.fr/file/31/89/1/ensel714_annexe3_1312891.pdf"
+   }
+  ]
+ },
+ "GB": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "gb-eng-ks3-mathematics",
+    "title": "Mathematics, key stage 3",
+    "subtitle": "Secondary school, key stage 3 (Years 7–9), England",
+    "language": "en",
+    "curriculum": "Mathematics programmes of study: key stage 3. National curriculum in England (DFE-00179-2013)",
+    "issuer": "Department for Education",
+    "url": "https://assets.publishing.service.gov.uk/media/5a7c1408e5274a1f5cc75a68/SECONDARY_national_curriculum_-_Mathematics.pdf"
+   },
+   {
+    "slug": "gb-sct-cfe-mathematics",
+    "title": "Mathematics S1–S3",
+    "subtitle": "Secondary school, S1–S3, third and fourth levels",
+    "language": "en",
+    "curriculum": "Curriculum for Excellence: Numeracy and mathematics, Experiences and outcomes; Benchmarks: Numeracy and Mathematics (2017), third and fourth levels",
+    "issuer": "Education Scotland",
+    "url": "https://education.gov.scot/media/sz2lnh1g/numeracy-maths-eo.pdf"
+   }
+  ]
+ },
+ "GE": {
+  "status": "planned",
+  "trees": []
+ },
+ "GR": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "gr-gymnasio-mathimatika-g",
+    "title": "Μαθηματικά Γ΄ Γυμνασίου",
+    "subtitle": "Γυμνάσιο, Γ΄ τάξη",
+    "language": "el",
+    "curriculum": "Πρόγραμμα Σπουδών Μαθηματικών Γυμνασίου (ΥΑ 4362/Δ2/2023, ΦΕΚ Β΄ 235/20.01.2023), Γ΄ τάξη, και εγκύκλιος 111798/Δ2/2026",
+    "issuer": "Υπουργείο Παιδείας",
+    "url": "https://www.et.gr/"
+   }
+  ]
+ },
+ "HR": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "hr-osnovna-matematika-8",
+    "title": "Matematika, 8. razred",
+    "subtitle": "Osnovna škola, 8. razred",
+    "language": "hr",
+    "curriculum": "Kurikulum nastavnoga predmeta Matematika (NN 7/2019)",
+    "issuer": "Ministarstvo znanosti, obrazovanja i mladih",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2019_01_7_146.html"
+   }
+  ]
+ },
+ "HU": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "hu-altalanos-matematika-7-8",
+    "title": "Matematika 7–8. évfolyam",
+    "subtitle": "Általános iskola, 7–8. évfolyam (központi írásbeli felvételi)",
+    "language": "hu",
+    "curriculum": "Nemzeti alaptanterv (NAT 2020) és Kerettanterv az általános iskola 5–8. évfolyama számára – Matematika",
+    "issuer": "Oktatási Hivatal",
+    "url": "https://www.oktatas.hu/kozneveles/kerettantervek/2020_nat/kerettanterv_alt_isk_5_8"
+   }
+  ]
+ },
+ "IE": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "ie-junior-cycle-mathematics",
+    "title": "Junior Cycle Mathematics",
+    "subtitle": "Junior cycle, first to third year, Higher Level",
+    "language": "en",
+    "curriculum": "Junior Cycle Mathematics specification (2018)",
+    "issuer": "NCCA",
+    "url": "https://www.curriculumonline.ie/getmedia/6a7f1ff5-9b9e-4d71-8e1f-6d4f932191db/JC_Mathematics_Specification.pdf"
+   }
+  ]
+ },
+ "IL": {
+  "status": "later",
+  "trees": []
+ },
+ "IS": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "is-grunnskoli-staerdfraedi-8-10",
+    "title": "Stærðfræði í 8.–10. bekk",
+    "subtitle": "Grunnskóli, unglingastig (8.–10. bekkur)",
+    "language": "is",
+    "curriculum": "Aðalnámskrá grunnskóla, greinasvið 2024: stærðfræði",
+    "issuer": "Mennta- og barnamálaráðuneytið",
+    "url": "https://adalnamskra.is/grunnskoli/kafli-25-staerdfraedi-2024"
+   }
+  ]
+ },
+ "IT": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "it-secondaria-primo-grado-matematica",
+    "title": "Matematica, scuola secondaria di primo grado",
+    "subtitle": "Scuola media, classi prima, seconda e terza",
+    "language": "it",
+    "curriculum": "Nuove Indicazioni nazionali per il curricolo (D.M. 9 dicembre 2025, n. 221)",
+    "issuer": "Ministero dell'Istruzione e del Merito",
+    "url": "https://laricerca.loescher.it/wp-content/uploads/2025/12/DECRETO-9-dicembre-2025-n.-221.pdf"
+   }
+  ]
+ },
+ "KG": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "kg-negizgi-matematika-9",
+    "title": "Математика, 9-класс: алгебра жана геометрия",
+    "subtitle": "Негизги жалпы билим берүү, 9-класс",
+    "language": "ky",
+    "curriculum": "Математика. Жалпы билим берүүчү уюмдар үчүн программа, V–XI класстар (2023)",
+    "issuer": "Кыргыз билим берүү академиясы / Билим берүү министрлиги",
+    "url": "http://kao.kg/wp-content/uploads/2023/10/18-Программа-математика-5-11-кл.кырг.pdf"
+   }
+  ]
+ },
+ "KZ": {
+  "status": "planned",
+  "trees": []
+ },
+ "LT": {
+  "status": "missing-curriculum",
+  "trees": []
+ },
+ "LU": {
+  "status": "planned",
+  "trees": []
+ },
+ "LV": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "lv-pamatizglitiba-matematika-7-9",
+    "title": "Matemātika 7.–9. klasei",
+    "subtitle": "Pamatizglītība, 7.–9. klase",
+    "language": "lv",
+    "curriculum": "Noteikumi par valsts pamatizglītības standartu (MK noteikumi Nr. 747, 2018), 6. pielikums",
+    "issuer": "Ministru kabinets",
+    "url": "https://likumi.lv/ta/id/303768"
+   }
+  ]
+ },
+ "MD": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "md-gimnaziu-matematica-9",
+    "title": "Matematica, clasa a IX-a",
+    "subtitle": "Gimnaziu, clasa a IX-a",
+    "language": "ro",
+    "curriculum": "Curriculum național, Matematica, clasele V–IX (ordinul nr. 906/2019)",
+    "issuer": "Ministerul Educației și Cercetării",
+    "url": "https://mecc.gov.md/sites/default/files/curriculum_matematica_gimnaziu_9.pdf"
+   }
+  ]
+ },
+ "ME": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "me-osnovna-matematika-9",
+    "title": "Matematika, IX razred",
+    "subtitle": "Osnovna škola, III ciklus, IX razred",
+    "language": "cnr",
+    "curriculum": "Predmetni program Matematika I–IX razred (2017)",
+    "issuer": "Zavod za školstvo Crne Gore",
+    "url": "https://www.gov.me/clanak/programi"
+   }
+  ]
+ },
+ "MK": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "mk-osnovno-matematika-9",
+    "title": "Математика за IX одделение",
+    "subtitle": "Деветгодишно основно образование, IX одделение",
+    "language": "mk",
+    "curriculum": "Наставна програма Математика за IX одделение (БРО, 2016)",
+    "issuer": "Биро за развој на образованието",
+    "url": "https://bro.gov.mk/wp-content/uploads/2018/02/Nastavna_programa-Matematika-IX_odd-mkd.pdf"
+   }
+  ]
+ },
+ "MT": {
+  "status": "planned",
+  "trees": []
+ },
+ "NL": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "nl-vo-wiskunde-onderbouw",
+    "title": "Wiskunde onderbouw (leerjaar 1–3)",
+    "subtitle": "Voortgezet onderwijs, leerjaar 1–3, havo/vwo-niveau",
+    "language": "nl",
+    "curriculum": "Besluit vernieuwde kerndoelen Nederlands en rekenen en wiskunde (Stb. 2026, 198)",
+    "issuer": "Ministerie van OCW",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2026-198.html"
+   }
+  ]
+ },
+ "NO": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "no-grunnskole-matte-10",
+    "title": "Matematikk 10. trinn",
+    "subtitle": "Ungdomsskole, 10. trinn",
+    "language": "nb",
+    "curriculum": "Læreplan i matematikk 1.–10. trinn (MAT01-05), LK20",
+    "issuer": "Utdanningsdirektoratet",
+    "url": "https://www.udir.no/lk20/mat01-05"
+   }
+  ]
+ },
+ "PL": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "pl-szkola-podstawowa-matematyka-7-8",
+    "title": "Matematyka – klasy VII–VIII",
+    "subtitle": "Szkoła podstawowa, klasy VII–VIII (egzamin ósmoklasisty)",
+    "language": "pl",
+    "curriculum": "Podstawa programowa kształcenia ogólnego, matematyka klasy IV–VIII (Dz.U. 2024 poz. 996)",
+    "issuer": "Ministerstwo Edukacji",
+    "url": "https://eli.gov.pl/api/acts/DU/2024/996/text.pdf"
+   }
+  ]
+ },
+ "PT": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "pt-basico-matematica-9",
+    "title": "Matemática 9.º ano",
+    "subtitle": "Ensino básico, 3.º ciclo, 9.º ano",
+    "language": "pt",
+    "curriculum": "Aprendizagens Essenciais de Matemática, 9.º ano (2021)",
+    "issuer": "Direção-Geral da Educação",
+    "url": "https://dge.mec.pt/sites/default/files/Curriculo/Aprendizagens_Essenciais/3_ciclo/ae_mat_9.o_ano.pdf"
+   }
+  ]
+ },
+ "RO": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "ro-gimnaziu-matematica-8",
+    "title": "Matematică, clasa a VIII-a",
+    "subtitle": "Gimnaziu, clasa a VIII-a",
+    "language": "ro",
+    "curriculum": "Programa școlară pentru disciplina Matematică, clasele a V-a – a VIII-a (OMEN nr. 3393/2017)",
+    "issuer": "Ministerul Educației",
+    "url": "https://edu.ro/Ordin_ministru_3393_2017"
+   }
+  ]
+ },
+ "RS": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "rs-osnovna-matematika-8",
+    "title": "Математика, 8. разред",
+    "subtitle": "Основна школа, 8. разред",
+    "language": "sr",
+    "curriculum": "Правилник о програму наставе и учења за осми разред основног образовања и васпитања (Просветни гласник 11/2019)",
+    "issuer": "Министарство просвете",
+    "url": "https://pravno-informacioni-sistem.rs/viewAct/49e05696-b6d9-49a6-a53b-f11cafc11b47"
+   }
+  ]
+ },
+ "SE": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "se-grundskola-matte-7-9",
+    "title": "Matematik årskurs 7–9",
+    "subtitle": "Grundskolan, årskurs 7–9 (Lgr22)",
+    "language": "sv",
+    "curriculum": "Läroplan för grundskolan (Lgr22), kursplan i matematik",
+    "issuer": "Skolverket",
+    "url": "https://api.skolverket.se/syllabus/v1/subjects/GRGRMAT01"
+   }
+  ]
+ },
+ "SI": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "si-osnovna-matematika-9",
+    "title": "Matematika – 9. razred osnovne šole",
+    "subtitle": "Osnovna šola, 9. razred (3. VIO)",
+    "language": "sl",
+    "curriculum": "Učni načrt, Program osnovna šola, Matematika (2011)",
+    "issuer": "Ministrstvo za vzgojo in izobraževanje / ZRSŠ",
+    "url": "https://www.gov.si/assets/ministrstva/MVI/Dokumenti/Osnovna-sola/Ucni-nacrti/obvezni/UN_matematika.pdf"
+   }
+  ]
+ },
+ "SK": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "sk-zakladna-matematika-9",
+    "title": "Matematika – 2. stupeň ZŠ",
+    "subtitle": "Základná škola, 2. stupeň (5.–9. ročník)",
+    "language": "sk",
+    "curriculum": "Inovovaný ŠVP pre nižšie stredné vzdelávanie (2015), vzdelávací štandard Matematika",
+    "issuer": "Štátny pedagogický ústav / MŠVVaM SR",
+    "url": "https://www.statpedu.sk/files/articles/dokumenty/inovovany-statny-vzdelavaci-program/matematika_nsv_2014.pdf"
+   }
+  ]
+ },
+ "TJ": {
+  "status": "planned",
+  "trees": []
+ },
+ "TR": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "tr-ortaokul-matematik-8",
+    "title": "Matematik 8. Sınıf",
+    "subtitle": "Ortaokul, 8. sınıf (LGS)",
+    "language": "tr",
+    "curriculum": "Matematik Dersi Öğretim Programı (İlkokul ve Ortaokul 1–8. sınıflar), 2018",
+    "issuer": "Millî Eğitim Bakanlığı (TTKB)",
+    "url": "https://mufredat.meb.gov.tr/ProgramDetay.aspx?PID=329"
+   }
+  ]
+ },
+ "UA": {
+  "status": "ready",
+  "trees": [
+   {
+    "slug": "ua-bazova-matematyka-7-9",
+    "title": "Алгебра і геометрія, 7–9 класи",
+    "subtitle": "Базова середня освіта, 7–9 класи (Нова українська школа)",
+    "language": "uk",
+    "curriculum": "Державний стандарт базової середньої освіти (постанова КМУ № 898, 2020); модельні програми «Алгебра. 7–9» і «Геометрія. 7–9»",
+    "issuer": "Кабінет Міністрів України / МОН",
+    "url": "https://www.kmu.gov.ua/npas/pro-deyaki-pitannya-derzhavnih-standartiv-povnoyi-zagalnoyi-serednoyi-osviti-i300920-898"
+   }
+  ]
+ },
+ "UZ": {
+  "status": "planned",
+  "trees": []
+ },
+ "XK": {
+  "status": "planned",
+  "trees": []
+ }
+}

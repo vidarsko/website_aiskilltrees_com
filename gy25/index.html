@@ -12,10 +12,10 @@
     länkad från någon annan sida, och noindex. Den finns för att visas upp
     direkt, med länk — i första hand för Skolverket. Se gy25_private/.
 
-    Bara på svenska, med flit: sidan är skriven för en svensk läsare. Därför
-    laddas inte js/i18n.js. Skriptet nedan ger sidhuvudet svenska etiketter,
-    och ett annat språkval skickar besökaren till förstasidan på det språket,
-    eftersom den här sidan inte finns på något annat.
+    Bara på svenska, med flit: sidan är skriven för en svensk läsare.
+    <meta name="i18n-available" content="sv"> säger det till js/i18n.js, och
+    språkmenyn visar de andra språken utgråade (från 2026-11-19; innan dess
+    skickade ett annat språkval besökaren till förstasidan).
 
     Ämneslistan är GENERERAD från Skolverkets Syllabus API av
     tools/build-gy25-page.ps1. Redigera den inte för hand; ett nytt träd är en
@@ -29,12 +29,8 @@
   <link rel="stylesheet" href="/css/curriculum.css">
 
   <script src="/js/analytics.js"></script>
-  <script>
-    window.i18n = {
-      lang: 'sv',
-      setLang: function (lang) { if (lang !== 'sv') location.href = '/?lang=' + lang; }
-    };
-  </script>
+  <meta name="i18n-available" content="sv">
+  <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/footer.js" defer></script>
   <script src="/js/mail-link.js" defer></script>

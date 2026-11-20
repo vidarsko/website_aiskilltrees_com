@@ -1,0 +1,15 @@
+{
+  "doc-title": "Skicka in ditt träd | AI Skill Trees",
+  "meta-description": "Så skickar du in ett färdighetsträd du har gjort till katalogen på den här sidan.",
+  "page-eyebrow": "För lärare",
+  "page-heading": "Skicka in ditt träd",
+  "page-lede": "Har du gjort ett färdighetsträd för ditt ämne kan du skicka in det och få det tillagt i katalogen på den här sidan.",
+  "how-body": "Tills vidare mejlar du din tree.csv-fil till mig:",
+  "terms-eyebrow": "Innan du skickar",
+  "terms-1": "Jag läser varje träd innan det publiceras.",
+  "terms-2": "Ett träd publiceras under namnet på den som har gjort det. Är det bearbetat från ett annat träd, behåller det ”Bygger på”-raderna som byggaren skriver in i filen, så att de tidigare författarna fortfarande är krediterade.",
+  "terms-3": "Träden och instruktionerna på den här sidan är licensierade CC BY 4.0: vem som helst får använda och bearbeta dem, så länge de anger vem som har gjort dem. Ett träd du skickar in publiceras under den licensen.",
+  "terms-4": "Bidrag via pull requests på GitHub är inte öppnade.",
+  "own-body": "Du behöver inte skicka in något för att använda metoden. Byggaren ger dig din egen fil, som du kan använda och dela som du vill.",
+  "own-cta": "Gör ditt eget"
+}

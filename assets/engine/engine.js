@@ -197,7 +197,19 @@ function resolveLearner() {
 function learnerLeadIn(type) {
   const lead = (LANG && LANG.learner && LANG.learner.leadIn) || {};
   const tmpl = lead[type] || lead.skill || '{LearnerDefinite}:';
-  return tmpl.replace('{LearnerDefinite}', LEARNER.charAt(0).toUpperCase() + LEARNER.slice(1));
+  return tmpl.replace('{LearnerDefinite}', capitaliseFirst(LEARNER));
+}
+
+/* Stor forbokstav, men ikke i georgisk: Mkhedruli har ikke store bokstaver,
+   og toUpperCase() gjør førstebokstaven om til Mtavruli, som er feil i løpende
+   tekst (2026-11-19). */
+function capitaliseFirst(s) {
+  const first = s.charAt(0);
+  if (/[ა-ჿ]/.test(first)) return s;
+  /* Språkets egne regler: tyrkisk og aserbajdsjansk i -> İ, ikke I. */
+  let up;
+  try { up = first.toLocaleUpperCase((LANG && (LANG.htmlLang || LANG.code)) || undefined); } catch (e) { up = first.toUpperCase(); }
+  return up + s.slice(1);
 }
 
 /* Ordet for den som lærer, som {learnerDefinite}. Det kan bare brukes i

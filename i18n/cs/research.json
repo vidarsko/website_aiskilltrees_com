@@ -1,0 +1,13 @@
+{
+  "doc-title": "Výzkum | AI Skill Trees",
+  "meta-description": "Podklady k návrhu a odborný článek, který metodu popisuje.",
+  "page-heading": "Výzkum",
+  "page-lede": "Vydaná verze metody a jak ji citovat.",
+  "cite-eyebrow": "Software a citace",
+  "cite-heading": "Verze 0.33.0",
+  "cite-body-1": "Engine, instrukce, jazykové soubory a výchozí strom jsou ve veřejném repozitáři na GitHubu, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Tento web zveřejňuje jeho vydání <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Každé vydání je archivované v Zenodu s vlastním DOI. Vydání 0.33.0 má DOI <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> vždy odkazuje na nejnovější vydání.",
+  "cite-body-3": "Pokud metodu nebo materiály použiješ, cituj prosím vydání, které jsi použil(a), a ne hlavní větev (main):",
+  "cite-cta-github": "Vydání na GitHubu",
+  "cite-cta-zenodo": "Archiv v Zenodu"
+}

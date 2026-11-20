@@ -1,0 +1,13 @@
+{
+  "doc-title": "Истражување | AI Skill Trees",
+  "meta-description": "Литература за идеите зад дизајнот и научниот труд што го опишува методот.",
+  "page-heading": "Истражување",
+  "page-lede": "Објавената верзија на методот и како да ја цитираш.",
+  "cite-eyebrow": "Софтвер и цитирање",
+  "cite-heading": "Верзија 0.33.0",
+  "cite-body-1": "Моторот, упатствата, јазичните датотеки и почетното дрво се во јавно складиште на GitHub, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Овој сајт го објавува неговото издание <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Секое издание е архивирано на Zenodo со сопствен DOI. Изданието 0.33.0 е <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> секогаш упатува на најновото издание.",
+  "cite-body-3": "Ако го користиш методот или материјалите, те молам цитирај го изданието што го користеше, а не главната гранка:",
+  "cite-cta-github": "Изданието на GitHub",
+  "cite-cta-zenodo": "Архивата на Zenodo"
+}

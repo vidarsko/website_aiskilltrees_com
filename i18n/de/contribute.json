@@ -1,0 +1,15 @@
+{
+  "doc-title": "Baum einreichen | AI Skill Trees",
+  "meta-description": "Wie du einen selbst erstellten Kompetenzbaum für den Katalog dieser Website einreichst.",
+  "page-eyebrow": "Für Lehrkräfte",
+  "page-heading": "Baum einreichen",
+  "page-lede": "Wenn du einen Kompetenzbaum für dein Fach erstellt hast, kannst du ihn einreichen, damit er in den Katalog dieser Website aufgenommen wird.",
+  "how-body": "Schick mir deine tree.csv vorerst per E-Mail:",
+  "terms-eyebrow": "Bevor du ihn schickst",
+  "terms-1": "Ich lese jeden Baum, bevor er veröffentlicht wird.",
+  "terms-2": "Ein Baum wird unter dem Namen der Person veröffentlicht, die ihn erstellt hat. Ist er aus einem anderen Baum entstanden, behält er die Zeilen „Beruht auf“, die der Editor in die Datei schreibt, damit die früheren Urheberinnen und Urheber genannt bleiben.",
+  "terms-3": "Die Bäume und die Anweisungen auf dieser Website stehen unter CC BY 4.0: Alle dürfen sie nutzen und bearbeiten, solange sie die Urheberin oder den Urheber nennen. Ein eingereichter Baum wird unter dieser Lizenz veröffentlicht.",
+  "terms-4": "Beiträge über Pull Requests auf GitHub sind nicht möglich.",
+  "own-body": "Um die Methode zu nutzen, musst du nichts einreichen. Der Editor gibt dir deine eigene Datei, die du nutzen und weitergeben kannst, wie du möchtest.",
+  "own-cta": "Baum erstellen"
+}

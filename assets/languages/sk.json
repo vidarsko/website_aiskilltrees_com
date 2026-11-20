@@ -1,0 +1,458 @@
+{
+  "code": "sk",
+  "htmlLang": "sk",
+  "name": "Slovenčina",
+  "endonym": "Slovenčina",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Slovak, not Czech: cs.json is the separate Czech file, and the two are written independently (žiak/žák, vie/umí, ťukni/klepni, zručnosť/dovednost, cieľ/cíl). Second-person past tense and many adjectives are gendered in Slovak (urobil/urobila, pripravený/pripravená), so the strings addressed to the user avoid them: present tense, imperatives, and adjectives that agree with a goal rather than with the user. Counts use the form \"Label: {n}\", because a noun after a bare number changes with the number (1 cieľ, 3 ciele, 5 cieľov). A {placeholder} that is a name stands in quotation marks after a head noun that carries the case (v téme „{topic}“), or after a colon. AI is \"AI\", as it is commonly written in Slovak schools.",
+  "learner": {
+    "_comment": "What the learner is CALLED. Slovak has no articles, so the 'definite' form is the bare noun in the nominative: \"žiak\", \"študent\", \"účastník\" (the ŠVP says \"žiak\"). The lead-ins use present-tense verbs (vie, si pamätá), which do not change with gender, so they also fit \"žiačka\" or \"študentka\" if a tree sets those. A skill description is a bare infinitive phrase (\"Žiak vie: sčítať zlomky\"), a concept a definition.",
+    "default": "žiak",
+    "legacy": {
+      "pupil": "žiak",
+      "student": "študent",
+      "participant": "účastník"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} vie:",
+      "concept": "{LearnerDefinite} vie vysvetliť:",
+      "fact": "{LearnerDefinite} si pamätá:"
+    }
+  },
+  "ui": {
+    "backLink": "← Všetky stromy",
+    "pageTitle": "Strom zručností: {title}",
+    "tagline": "Mapa toho, ako na seba vzdelávacie ciele nadväzujú — označ, čo už vieš, a skopíruj si inštrukciu pre AI, s ktorou si precvičíš, čo príde ďalej.",
+    "makeYourOwn": "{subject}. Vytvor si vlastný strom:",
+    "progressLabel": "Zvládnuté ciele: {done} z {total}",
+    "zoomIn": "Priblížiť",
+    "zoomOut": "Oddialiť",
+    "fitToView": "Zobraziť celý strom",
+    "fitToViewTitle": "Zobraziť celý strom (Ctrl + koliesko myši približuje)",
+    "close": "✕ Zavrieť",
+    "closeLower": "✕ Zavrieť",
+    "copied": "Skopírované!",
+    "copyFallback": "Automaticky skopírovať sa nepodarilo — skopíruj text nižšie ručne:",
+    "errorBanner": "⚠ Problémy v dátových súboroch: {n} (podrobnosti v konzole):",
+    "errorCsv": "Tabuľku sa nepodarilo prečítať v riadku {row}: {message}",
+    "errorCsvHeader": "Prvý riadok súboru {file} musí obsahovať názvy stĺpcov. Chýba: {missing}. Prvý riadok znie: {found}. Súbor je asi uložený bez prvého riadku alebo v inom formáte; ulož ho znova ako obyčajné CSV.",
+    "errorUnknownDep": "Uzol „{id}“ uvádza „{dep}“ ako predpoklad, ale žiadny uzol také id nemá.",
+    "errorNoTopic": "Uzol „{id}“ nemá tému, a preto skončí v zbernom stĺpci „{topic}“.",
+    "errorUnknownResourceNode": "Riadok {row} v tree.csv: zdroj odkazuje v depends_on na id uzla „{id}“, ktoré neexistuje.",
+    "errorExamsRenamed": "Riadok {row} v tree.csv: nastavenie „features.exams“ pochádza z obdobia pred verziou 0.22.0. Zdroje sú teraz riadky v tree.csv s typom „resource“: topic = skupina, name = názov, description = odkaz, depends_on = uzly. Vymaž tento riadok a otvor strom v editore, ktorý starý súbor exams.csv prevedie. Nič sa nepoužilo.",
+    "errorResourceEmpty": "Riadok {row} v tree.csv: zdroj nemá ani názov (name), ani odkaz (description).",
+    "errorResourceNoNode": "Riadok {row} v tree.csv: zdroj „{label}“ nepatrí k žiadnemu uzlu. Napíš do depends_on jedno alebo viac id uzlov, alebo riadok vymaž.",
+    "errorResourceDuplicate": "Riadok {row} v tree.csv: zdroj „{label}“ je rovnaký ako v riadku {first}. Spoj ich do jedného riadku so všetkými uzlami v depends_on.",
+    "errorResourceUrl": "Riadok {row} v tree.csv: odkaz zdroja „{label}“ musí začínať https:// alebo mailto:. Preto sa zobrazuje ako obyčajný text, bez odkazu.",
+    "errorCycle": "Tieto uzly sú navzájom svojimi predpokladmi, dookola: {cycle}. Jedno z týchto prepojení treba odstrániť.",
+    "errorUnknownConfig": "Neznáme nastavenie „{key}“ v riadku {row} v tree.csv. Nič sa nepoužilo.",
+    "errorUnknownNodeType": "Uzol „{id}“ má typ „{type}“, ktorý neexistuje. Možné typy: {valid}.",
+    "errorUnknownPromptSection": "Neznáma sekcia „{section}“ v riadku prompt (riadok {row} v tree.csv). Nič sa nepoužilo.",
+    "errorUnknownPromptTarget": "Riadok prompt (riadok {row} v tree.csv) mieri na „{name}“, čo nie je inštrukcia, ktorú tento strom skladá. Nič sa nepoužilo.",
+    "errorDidYouMean": "Myslíš „{key}“?",
+    "errorMissingConfig": "V tree.csv chýba povinný riadok config pre „{key}“.",
+    "errorStyleColor": "Nastavenie „{key}“ v riadku {row} v tree.csv musí byť farba zapísaná ako hex kód, napr. #1F6F4A. „{value}“ taký kód nie je, takže ostáva predvolená farba.",
+    "errorLinkUrl": "Nastavenie „{key}“ v riadku {row} v tree.csv musí byť odkaz, ktorý začína https:// alebo mailto:. „{value}“ taký odkaz nie je, takže sa zobrazuje ako obyčajný text.",
+    "errorStyleFont": "Neznáme písmo „{value}“ v riadku {row} v tree.csv. Písma, ktoré môže strom použiť: {valid}. Ostáva predvolené písmo.",
+    "nodeType": {
+      "skill": "zručnosť",
+      "concept": "pojem",
+      "fact": "fakty"
+    },
+    "badges": {
+      "del1": "Časť 1",
+      "del2": "Časť 2",
+      "begge": "Časť 1+2"
+    },
+    "status": {
+      "mastered": "Zvládnuté",
+      "ready": "Pripravené na učenie",
+      "notMastered": "Ešte nezvládnuté",
+      "blocked": "Najprv chýba: {codes}"
+    },
+    "help": {
+      "label": "Pomoc",
+      "heading": "Pomoc",
+      "sections": [
+        {
+          "heading": "Ponuka",
+          "body": "Všetko ostatné nájdeš pod ☰ vľavo dole: vzdelávacie ciele, hľadanie, test, tlač a ďalšie. Každé okno má „?“, ktorý ho vysvetľuje.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Mapa",
+          "body": "Každé políčko je jeden vzdelávací cieľ a šípky vedú od toho, čo treba vedieť skôr. Tvar ukazuje typ: fakty sú hranaté, pojmy mierne zaoblené a zručnosti okrúhle. Ťahaním mapu posunieš, tlačidlami + a − ju priblížiš a oddiališ.",
+          "figure": "map"
+        },
+        {
+          "heading": "Zvládnuté",
+          "body": "Keď cieľ vieš, ťukni na krúžok v políčku a zmení sa na zelenú fajku. Ukladá sa to len v tvojom prehliadači.",
+          "figure": "check"
+        },
+        {
+          "heading": "Jedno políčko",
+          "body": "Ťukni na políčko a uvidíš, čo cieľ vyžaduje, na čom stavia, a inštrukciu pre AI, ktorú môžeš vložiť do chatu s AI a precvičovať. Ďalším ťuknutím ho zavrieš.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Označiť viac naraz",
+          "body": "Ikony zoznamu označia naraz všetky ciele v téme, alebo označenie odstránia. Pri A a B platia pre celý strom.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Hľadať",
+          "body": "Nájdi vzdelávací cieľ podľa slova z jeho názvu alebo opisu.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Inštrukcia pre AI na test z cieľov, ktoré si vyberieš. Ty rozhoduješ o náročnosti, počte a type úloh.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Prípravy na hodinu (pre učiteľov)",
+          "body": "Vyber vzdelávacie ciele a ťukni na „Vytvoriť materiál“ — dostaneš prípravu na hodinu, ministrom alebo simuláciu.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Tlač",
+          "body": "Stiahni si celý strom ako PDF s krúžkami, ktoré si žiaci môžu odfajknúť perom.",
+          "figure": "print"
+        },
+        {
+          "heading": "Štítok s pomôckami",
+          "body": "„Časť 1“ alebo „Časť 2“ v paneli ukazuje, do ktorej úrovne povolených pomôcok cieľ patrí. Ťuknutím na štítok si prečítaš viac v časti „O predmete“.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivácia",
+          "body": "Krátky rozhovor s AI o tom, prečo sa oplatí učiť sa tento predmet.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Klávesové skratky",
+        "search": "Otvoriť hľadanie",
+        "escape": "Zavrieť otvorené okno, ponuku alebo panel",
+        "zoom": "Priblížiť a oddialiť",
+        "fit": "Zobraziť celý strom a zase späť"
+      }
+    },
+    "safety": {
+      "label": "Bezpečnosť",
+      "heading": "Bezpečnosť",
+      "lead": "Strom zručností vytvára učiteľ, ale súbor, ktorý vyzerá ako strom, môže urobiť ktokoľvek. Prečítaj si toto, skôr než použiješ strom, ktorý ti niekto poslal.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Strom zručností nikdy nežiada osobné údaje",
+          "body": "Strom nemá žiadne prihlasovanie a nepotrebuje o tebe nič vedieť. Nikdy nežiada tvoje meno, heslo, školské prihlasovacie údaje, rodné číslo, adresu, telefónne číslo ani to, na akú školu chodíš. Tvoj pokrok sa ukladá len v prehliadači na tomto zariadení. Ak stránka, ktorá vyzerá ako strom zručností, žiada niečo z toho, nie je pravá. Zatvor ju a povedz to učiteľovi."
+        },
+        {
+          "id": "sender",
+          "heading": "Kto ti poslal strom?",
+          "body": "Najdôležitejšia otázka je, odkiaľ strom pochádza. Stromu na aiskilltrees.com alebo stromu, ktorý učiteľ zverejnil tam, kde zvyčajne dostávaš učebné materiály, môžeš veriť rovnako ako svojmu učiteľovi. Ak ti súbor prišiel e-mailom, v chate alebo na sociálnych sieťach od niekoho, koho nepoznáš, alebo úplne nečakane, daj si pozor, aj keď vyzerá v poriadku."
+        },
+        {
+          "id": "html",
+          "heading": "Súbor HTML je webová stránka, nie dokument",
+          "body": "Keď niekto zdieľa strom ako súbor .html, nedostávaš dokument ako PDF alebo súbor Wordu. Dostávaš celú webovú stránku s kódom, ktorý sa spustí, keď ju otvoríš. Prehliadač jej nedovolí čítať tvoje súbory ani nič inštalovať do počítača, ale môže ukázať čokoľvek: falošnú prihlasovaciu stránku, tlačidlo, ktoré niečo stiahne, alebo odkazy na ďalšie weby. Čo súbor robí, rozhoduje ten, kto ho vytvoril. To, že vyzerá ako strom zručností, ešte neznamená, že ním je. Na stránke otvorenej zo súboru sa nikdy neprihlasuj a nič z nej nesťahuj."
+        },
+        {
+          "id": "links",
+          "heading": "Skôr než klikneš, skontroluj odkaz",
+          "body": "Zdroje v strome môžu odkazovať na videá, cvičenia a učebnice. Prejdi myšou nad odkaz alebo naň podrž prst a pozri sa, kam vedie, skôr než klikneš. Ak web nepoznáš alebo adresa vyzerá čudne, nechaj to tak."
+        },
+        {
+          "id": "injection",
+          "heading": "S inštrukciou môže niekto manipulovať",
+          "body": "Inštrukcia pre AI, ktorú kopíruješ, je text od autora stromu a ty ho vkladáš rovno do chatu s AI. Kto vytvára strom, môže do nej napísať čokoľvek, aj príkazy, kvôli ktorým sa chat bude správať inak, ako čakáš: dá ti zlé odpovede, pošle ťa na iný web alebo sa bude pýtať na veci, do ktorých mu nič nie je. Hovorí sa tomu prompt injection. Je dobré text pred vložením aspoň prebehnúť očami a chatu slepo neveriť."
+        },
+        {
+          "id": "chat",
+          "heading": "Ty rozhoduješ, čo chatu povieš",
+          "body": "Niektoré inštrukcie chcú, aby ťa chat spoznal, napríklad čo si myslíš o predmete a čo ti ide. Odpovedať môžeš toľko, koľko chceš. Žiadna inštrukcia však nepotrebuje tvoje meno, kontakt ani heslá. Ak chat o niečo také požiada, neodpovedaj a povedz to učiteľovi. Pamätaj tiež, že to, čo napíšeš do chatu s AI, ukladá firma, ktorá chat prevádzkuje. Tvoja škola má často prístup k službe AI, kde je tvoje súkromie chránené. Opýtaj sa učiteľa a používaj ju, ak ju máte."
+        },
+        {
+          "id": "teachers",
+          "heading": "Pre učiteľov: strom od kolegu",
+          "body": "Ak máš strom od niekoho iného, môžeš ho pre istotu otvoriť v editore na aiskilltrees.com/make-your-own/, skôr než ho budeš zdieľať so žiakmi. Editor zo súboru vytiahne len tabuľku a urobí z nej nový, čistý súbor, a tam si môžeš prečítať každú inštrukciu, ktorú strom používa."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Vzdelávacie ciele",
+      "title": "Zobraziť prehľadný zoznam všetkých vzdelávacích cieľov zoradený podľa tém",
+      "heading": "Vzdelávacie ciele",
+      "copyAll": "Kopírovať všetko",
+      "intro": "Zoznam ukazuje všetky vzdelávacie ciele predmetu zoradené podľa tém a pri každom jeho stav. Zaškrtnutím označíš cieľ ako zvládnutý — je to tá istá fajka ako pri uzle v mape — takže môžeš postupne prejsť zoznamom a odfajkávať, čo už máš za sebou.",
+      "markAria": "Označiť cieľ „{name}“ ako zvládnutý",
+      "markAllButton": "Označiť všetko ako zvládnuté",
+      "clearAllButton": "Odstrániť všetky označenia",
+      "clearAllConfirm": "Odstrániť označenie „zvládnuté“ zo všetkých cieľov v strome?",
+      "openNode": "Prejsť na tento uzol v mape"
+    },
+    "lessonPlanner": {
+      "button": "Prípravy na hodinu",
+      "title": "Vyber vzdelávacie ciele a skopíruj inštrukciu pre AI na prípravu na hodinu, ministrom alebo simuláciu",
+      "selectAll": "Zaškrtnúť všetko",
+      "deselectAll": "Zrušiť všetko",
+      "selectTopic": "Zaškrtnúť všetky ciele v téme „{topic}“",
+      "deselectTopic": "Zrušiť zaškrtnutie všetkých cieľov v téme „{topic}“",
+      "heading": "Prípravy na hodinu",
+      "intro": "Zaškrtni vzdelávacie ciele, ku ktorým chceš niečo pripraviť, a dole ťukni na „Vytvoriť materiál“. Tam si vyberieš, čo to má byť: príprava na hodinu, ministrom alebo simulácia. Tieto zaškrtnutia slúžia len na to: nič neoznačujú ako zvládnuté a po obnovení stránky zmiznú."
+    },
+    "search": {
+      "button": "Hľadať",
+      "title": "Hľadať vo vzdelávacích cieľoch podľa názvu a opisu",
+      "heading": "Hľadať",
+      "placeholder": "Hľadať vo vzdelávacích cieľoch …",
+      "hint": "Napíš slovo. Hľadanie prejde názov, opis a tému každého vzdelávacieho cieľa a z výsledku sa preklikneš rovno na uzol v mape.",
+      "noResults": "Žiadny vzdelávací cieľ neobsahuje „{query}“.",
+      "countOne": "1 vzdelávací cieľ",
+      "countMany": "Nájdené ciele: {n}",
+      "openNode": "Prejsť na tento uzol v mape"
+    },
+    "resourceList": {
+      "button": "Úlohy a zdroje",
+      "title": "Zobraziť všetky zdroje v strome a vzdelávacie ciele, ku ktorým patria",
+      "heading": "Úlohy a zdroje",
+      "placeholder": "Filtrovať úlohy a zdroje …",
+      "intro": "Úlohy a zdroje: {n}",
+      "countFiltered": "{n} z {total}",
+      "noResults": "Žiadny zdroj nezodpovedá „{query}“.",
+      "openNode": "Prejsť na tento uzol v mape",
+      "help": "Úlohy a zdroje, ktoré patria k stromu, napríklad testové úlohy, odkazy a videá. Pod každým sú vzdelávacie ciele, ku ktorým patrí; ťuknutím na cieľ naň prejdeš v mape. Písaním do poľa zoznam filtruješ."
+    },
+    "motivation": {
+      "button": "Motivácia",
+      "title": "Skopírovať inštrukciu pre AI na rozhovor o tom, prečo sa oplatí učiť sa predmet",
+      "heading": "Motivácia",
+      "desc": "Krátky rozhovor s AI o tom, prečo sa oplatí učiť sa tento predmet. AI sa pýta a počúva a odpoveď hľadáte spolu.",
+      "help": "Ťukni na „Skopírovať inštrukciu“ a vlož ju do chatu s AI. Rozhovor začne tam, kde podľa seba si, a AI kladie vždy len jednu otázku. Nič z toho, čo napíšeš, sa tu neukladá.",
+      "startLabel": "Ako to máš s týmto predmetom?",
+      "start": {
+        "unknown": "Neviem",
+        "hard": "Je to ťažké",
+        "bored": "Je to nuda",
+        "use": "Na čo mi to bude?"
+      },
+      "lengthLabel": "Dĺžka",
+      "length": {
+        "short": "Krátky",
+        "normal": "Bežný",
+        "long": "Dlhý"
+      }
+    },
+    "lesson": {
+      "button": "Vytvoriť prípravu na hodinu (pre učiteľov)",
+      "title": "Skopírovať inštrukciu pre AI na celú vyučovaciu hodinu o zaškrtnutých cieľoch",
+      "typeLabel": "Typ hodiny",
+      "typeAria": "Aký typ hodiny to je",
+      "types": {
+        "intro": "Nové učivo",
+        "practice": "Precvičovanie",
+        "review": "Opakovanie",
+        "other": "Iné"
+      },
+      "minutesLabel": "Dĺžka",
+      "minutesAria": "Dĺžka hodiny v minútach",
+      "includeAria": "Zahrnúť „{name}“ do prípravy na hodinu",
+      "selectedNone": "Nie je vybraný žiadny cieľ",
+      "selectedOne": "1 vybraný vzdelávací cieľ",
+      "selectedMany": "Vybrané ciele: {n}"
+    },
+    "make": {
+      "button": "Vytvoriť materiál →",
+      "buttonTitle": "Vyber, čo vytvoriť k zaškrtnutým vzdelávacím cieľom",
+      "heading": "Čo chceš vytvoriť?",
+      "back": "← Vzdelávacie ciele",
+      "forOne": "Pre 1 vzdelávací cieľ:",
+      "forMany": "Pre vybrané ciele ({n}):",
+      "copy": "Skopírovať inštrukciu",
+      "htmlBadge": "Súbor HTML",
+      "htmlAfter": "Vlož ju do chatu s AI. Odpoveďou bude súbor HTML, ktorý si uložíš, otvoríš v prehliadači a môžeš ho zdieľať so žiakmi.",
+      "lesson": {
+        "title": "Príprava na hodinu",
+        "desc": "Hotový plán jednej hodiny s rozpisom po minútach, tým, čo bude na tabuli, a riešeniami všetkých úloh.",
+        "minutes": "min",
+        "shorter": "Kratšia",
+        "longer": "Dlhšia",
+        "after": "Vlož ju do chatu s AI. Odpoveďou bude plán, podľa ktorého môžeš učiť.",
+        "typeHints": {
+          "intro": "Nové ciele: úvodná úloha, riešené príklady v kolách, diagnostická otázka ku každému cieľu a vybavovanie si z pamäti na konci.",
+          "practice": "Ciele, ktoré žiaci nedávno prebrali: krátke pripomenutie, potom sady úloh s malými obmenami a čoraz menšou podporou.",
+          "review": "Ciele prebraté pred nejakým časom: vybavovanie si bez poznámok, kontrola, čo ostalo v hlave, nové vysvetlenie tam, kde treba, a zmiešané precvičovanie.",
+          "other": "Niečo iné: opíš hodinu vlastnými slovami, inak sa ťa AI najprv opýta."
+        }
+      },
+      "miniTree": {
+        "title": "Ministrom",
+        "desc": "Strom zručností, v ktorom žiaci samostatne precvičujú pred písomkou: vybrané ciele zoskupené do niekoľkých tém s úrovňami, riešený príklad pred každým kolom úloh, potom riešenie a vysvetlenie, a zvládnutie, ktoré odomkne ďalšiu úroveň.",
+        "levelsLabel": "Úrovne v téme",
+        "levels1": "Jedna úroveň",
+        "levels3": "Tri úrovne",
+        "streakLabel": "Správne za sebou na zvládnutie",
+        "supportLabel": "Prispôsobenie",
+        "easyRead": "Ľahké čítanie (Comic Sans, málo textu)",
+        "readAloud": "Čítanie nahlas",
+        "game": "Hviezdičky a odomykanie",
+        "mixedTest": "Zmiešaný cvičný test",
+        "credit": "Podľa princípov špeciálnej pedagogičky Niny Haugerud."
+      },
+      "simulation": {
+        "title": "Simulácia",
+        "desc": "Interaktívna simulácia, ktorú môžu žiaci skúmať, s odborným modelom, ktorý nie je vymyslený, a panelom, ktorý vysvetľuje, čo model dokáže a čo nie.",
+        "workflowLabel": "Spôsob práce",
+        "design": "Najprv rozhovor o návrhu",
+        "build": "Rovno prototyp",
+        "screenLabel": "Obrazovka",
+        "laptop": "Notebook",
+        "tablet": "Tablet",
+        "projector": "Projektor",
+        "extrasLabel": "Zahrnúť",
+        "tasks": "Úlohy pre žiakov",
+        "critique": "Kritika modelu",
+        "export": "Export dát (CSV)",
+        "credit": "Podľa promptu Henninga Vinjusveena Myhrehagena zo skolesim.no."
+      },
+      "less": "Menej",
+      "more": "Viac",
+      "help": "Každý materiál je inštrukcia pre AI. Vyber, čo chceš, ťukni na „Skopírovať inštrukciu“ a vlož ju do chatu s AI, napríklad ChatGPT alebo Claude. Z prípravy na hodinu bude plán, podľa ktorého môžeš učiť. Z ministromu a simulácie bude súbor HTML, ktorý si uložíš, otvoríš v prehliadači a môžeš ho zdieľať so žiakmi. Voľby sa neukladajú.",
+      "forLabel": "Pre:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Vytvoriť inštrukciu pre AI na test z toho, čo máš označené ako zvládnuté",
+      "none": "Zatiaľ žiadne zvládnuté ciele",
+      "countLabel": "Počet úloh",
+      "countAria": "Počet úloh v teste",
+      "heading": "Test",
+      "desc": "Písomný test z toho, čo máš označené ako zvládnuté, s riešeniami, keď si o ne povieš.",
+      "help": "Test vychádza zo vzdelávacích cieľov, ktoré máš v strome označené ako zvládnuté. Vyber náročnosť, počet úloh a ich typ, ťukni na „Skopírovať inštrukciu“ a vlož ju do chatu s AI. AI najprv ukáže len úlohy a riešenia s hodnotením pridá, až keď si o ne povieš.",
+      "covers": "Zvládnuté ciele v teste ({n}):",
+      "coversOne": "Test pokrýva 1 zvládnutý cieľ:",
+      "noneHint": "Zatiaľ nemáš žiadny cieľ označený ako zvládnutý. V strome označ, čo vieš, a potom môžeš vytvoriť test.",
+      "showAll": "Zobraziť všetky ciele",
+      "showSelected": "Zobraziť len vybrané ciele",
+      "difficultyLabel": "Náročnosť",
+      "difficulty": {
+        "easy": "Ľahký",
+        "medium": "Stredný",
+        "hard": "Ťažký"
+      },
+      "difficultyHints": {
+        "easy": "Jeden cieľ na úlohu, najbežnejšie prípady a žiadne chytáky.",
+        "medium": "Ako bežná písomka: niekoľko priamočiarych úloh a niekoľko, ktoré spájajú viac cieľov.",
+        "hard": "Väčšina úloh spája ciele, zasadzuje ich do nových situácií alebo od teba chce vysvetlenie či hľadanie chyby."
+      },
+      "formatLabel": "Typ úloh",
+      "format": {
+        "closed": "Uzavreté",
+        "open": "Otvorené",
+        "mixed": "Zmiešané"
+      },
+      "formatHints": {
+        "closed": "Výber z možností alebo krátke odpovede, ktoré sa dajú skontrolovať podľa kľúča.",
+        "open": "Ukazuješ postup alebo vysvetľuješ vlastnými slovami.",
+        "mixed": "Zhruba pol na pol."
+      },
+      "coversLabel": "Test pokrýva:"
+    },
+    "node": {
+      "markMastered": "Označiť ako zvládnuté"
+    },
+    "column": {
+      "markAll": "Označiť všetky ciele v téme „{topic}“ ako zvládnuté",
+      "clearAll": "Odstrániť označenie „zvládnuté“ zo všetkých cieľov v téme „{topic}“"
+    },
+    "detail": {
+      "show": "Zobraziť inštrukciu",
+      "hide": "Skryť inštrukciu",
+      "copy": "Skopírovať inštrukciu",
+      "prereqs": "Predpoklady",
+      "resources": "Zdroje",
+      "mastered": "✓ Zvládnuté",
+      "available": "Dostupné — predpoklady sú splnené",
+      "locked": "Zamknuté — chýbajú predpoklady",
+      "empty": "Klikni na uzol v mape a uvidíš podrobnosti."
+    },
+    "loadError": "Kritická chyba pri načítaní: {message} (beží stránka cez lokálny server? V mnohých prehliadačoch fetch() dátových súborov zlyhá, keď sa index.html otvorí priamo z disku.)",
+    "defaultTopic": "Ostatné",
+    "aids": {
+      "heading": "Povolené pomôcky",
+      "tagTitle": "Pozri sa, čo smieš na tejto úrovni používať",
+      "multipleNote": "Tento cieľ patrí do viacerých úrovní. Treba ho zvládnuť na tej najprísnejšej z nich — teda s najmenším počtom pomôcok.",
+      "multipleNoteGeneral": "Vzdelávací cieľ môže patriť do viacerých úrovní. Jeho štítok je potom rozdelený do viacerých farieb a cieľ treba zvládnuť na tej najprísnejšej z týchto úrovní — teda s najmenším počtom pomôcok."
+    },
+    "menu": {
+      "label": "Ponuka",
+      "groups": {
+        "practice": "Precvičovať",
+        "plan": "Plánovať",
+        "about": "Informácie"
+      }
+    },
+    "download": {
+      "button": "Stiahnuť strom",
+      "title": "Stiahnuť strom v dvoch podobách: tabuľku, ktorú môžeš upravovať, a jeden súbor, ktorý funguje offline",
+      "working": "Vytvára sa jeden súbor…",
+      "failed": "Jeden súbor sa nepodarilo vytvoriť",
+      "edit": "Upraviť strom",
+      "editTitle": "Otvoriť strom v editore, kde ho môžeš zmeniť a stiahnuť ako tabuľku alebo ako jeden súbor, ktorý funguje offline"
+    },
+    "courseInfo": {
+      "button": "O predmete",
+      "heading": "O predmete",
+      "division": "Ročník alebo fakulta",
+      "curriculum": "Vzdelávací program",
+      "institution": "Inštitúcia",
+      "country": "Krajina",
+      "language": "Jazyk",
+      "size": "Rozsah",
+      "decompositionVersion": "Model rozkladu",
+      "credits": "Autori",
+      "author": "Autor",
+      "updated": "Naposledy aktualizované",
+      "license": "Licencia",
+      "basedOn": "Vychádza z",
+      "skills": "zručnosti: {n}",
+      "concepts": "pojmy: {n}",
+      "facts": "zoznamy faktov: {n}",
+      "nodes": "uzly: {n}"
+    },
+    "helpToggle": "Vysvetlenie",
+    "print": {
+      "button": "Tlač",
+      "title": "Stiahnuť celý strom ako PDF pripravené na tlač",
+      "working": "Vytvára sa PDF …",
+      "failed": "PDF sa nepodarilo vytvoriť",
+      "heading": "Tlač",
+      "help": "Stiahni si celý strom ako jednu stranu PDF pripravenú na tlač. Náhľad ukazuje hárok presne tak, ako bude vyzerať. Názov a aiskilltrees.com sú na hárku vždy.",
+      "paperLabel": "Veľkosť papiera",
+      "orientationLabel": "Orientácia",
+      "orientation": {
+        "auto": "Automaticky",
+        "landscape": "Na šírku",
+        "portrait": "Na výšku"
+      },
+      "colorLabel": "Farby",
+      "color": {
+        "color": "Farebne",
+        "gray": "Čiernobielo"
+      },
+      "rings": "Krúžky na odfajknutie",
+      "legend": "Legenda",
+      "download": "Stiahnuť PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Späť na predchádzajúce zobrazenie"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Slovak, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO SLOVAK belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is the nominative \"slovenčina\", because `outputLanguage` puts it in the nominative (\"Jazykom celého tohto rozhovoru je …\") and refers back to it as \"v tomto jazyku\" rather than inflecting it, so a tree's own `languageName` row also reads grammatically there. The gender note is the Slovak counterpart of the Swedish \"hen\": second-person past tense and adjectives are gendered. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "slovenčina",
+    "outputLanguage": "Jazykom celého tohto rozhovoru je {conversationLanguage}. Všetko, čo je nižšie prevzaté zo stromu zručností — názvy uzlov, opisy, predpoklady — je napísané v tomto jazyku, a práve v ňom používateľ očakáva, že sa s ním budeš rozprávať. Časť inštrukcie, ktorú teraz čítaš, je v angličtine; to nie je pokyn odpovedať po anglicky. Nemeň jazyk z vlastnej iniciatívy a nekomentuj, v akom jazyku je inštrukcia napísaná. Tykaj používateľovi, ako učiteľ tyká žiakovi. Kým nevieš, či píšeš chlapcovi, alebo dievčaťu, vyhýbaj sa tvarom, ktoré prezrádzajú rod (píš napríklad „to sa ti podarilo“, nie „urobil si to správne“). Ak treba pomenovať toho, kto sa učí, použi slovo „{learnerDefinite}“ — nie iné slovo pre to isté.",
+    "writingStyle": "Slovenské príklady dvoch rád vyššie:\n- Činný rod: píš „číslo môžeme zapísať ako …“, nie „číslo môže byť zapísané ako …“; píš „robíme to tak, že …“ alebo „robíš to tak, že …“, nie „to sa vykonáva tak, že …“ ani „je to vykonané …“. Vyhýbaj sa trpnému „je vypočítané“ a zvratnému „vypočíta sa“ tam, kde môžeš povedať, kto to robí.\n- Slová, ktoré sú správne, ale v hovorenej reči zriedkavé, knižné alebo príliš dospelé, nahrádzaj jednoduchšími: „vykonať“ (→ „urobiť“), „disponovať“ (→ „mať“), „za účelom“ (→ „aby“), „avšak“ (→ „ale“), „taktiež“ (→ „aj“), „nakoľko“ (→ „lebo“). Test kamaráta: zaznelo by to slovo naozaj v rozhovore s kamarátom?",
+    "overrides": {}
+  }
+}

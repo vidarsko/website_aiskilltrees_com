@@ -1,0 +1,15 @@
+{
+  "doc-title": "Ağacını gönder | AI Skill Trees",
+  "meta-description": "Yaptığın bir beceri ağacını bu sitedeki kataloğa nasıl gönderebileceğin.",
+  "page-eyebrow": "Öğretmenler için",
+  "page-heading": "Ağacını gönder",
+  "page-lede": "Dersin için bir beceri ağacı yaptıysan, bu sitedeki kataloğa eklenmesi için gönderebilirsin.",
+  "how-body": "Şimdilik tree.csv dosyanı bana e-postayla gönder:",
+  "terms-eyebrow": "Göndermeden önce",
+  "terms-1": "Yayımlanmadan önce her ağacı okurum.",
+  "terms-2": "Bir ağaç, onu yapan kişinin adıyla yayımlanır. Başka bir ağaçtan uyarlanmışsa, düzenleyicinin dosyaya yazdığı “Dayandığı kaynak” satırlarını korur; böylece önceki yazarların emeği belirtilmiş olur.",
+  "terms-3": "Bu sitedeki ağaçlar ve talimatlar CC BY 4.0 lisanslıdır: yazar belirtildiği sürece herkes onları kullanabilir ve uyarlayabilir. Gönderdiğin ağaç da bu lisansla yayımlanır.",
+  "terms-4": "GitHub üzerinden pull request ile katkı kabul edilmiyor.",
+  "own-body": "Yöntemi kullanmak için bir şey göndermen gerekmiyor. Düzenleyici sana kendi dosyanı verir; dilediğin gibi kullan ve paylaş.",
+  "own-cta": "Kendi ağacını yap"
+}

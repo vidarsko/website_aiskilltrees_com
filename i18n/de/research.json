@@ -1,0 +1,13 @@
+{
+  "doc-title": "Forschung | AI Skill Trees",
+  "meta-description": "Hintergrundliteratur zum Design und der Artikel, der die Methode beschreibt.",
+  "page-heading": "Forschung",
+  "page-lede": "Die veröffentlichte Version der Methode und wie man sie zitiert.",
+  "cite-eyebrow": "Software und Zitation",
+  "cite-heading": "Version 0.33.0",
+  "cite-body-1": "Die Software, die Anweisungen, die Sprachdateien und der Startbaum liegen in einem öffentlichen GitHub-Repository, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Diese Website veröffentlicht daraus das Release <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Jedes Release wird bei Zenodo mit eigenem DOI archiviert. Release 0.33.0 hat den DOI <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. Der DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> verweist immer auf das neueste Release.",
+  "cite-body-3": "Wenn du die Methode oder das Material verwendest, zitier bitte das Release, das du genutzt hast, und nicht den Hauptzweig:",
+  "cite-cta-github": "Release auf GitHub",
+  "cite-cta-zenodo": "Archiv bei Zenodo"
+}

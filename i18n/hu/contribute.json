@@ -1,0 +1,15 @@
+{
+  "doc-title": "Küldd be a fádat | AI Skill Trees",
+  "meta-description": "Hogyan küldheted be az általad készített készségfát az oldal katalógusába.",
+  "page-eyebrow": "Tanároknak",
+  "page-heading": "Küldd be a fádat",
+  "page-lede": "Ha készítettél készségfát a tantárgyadhoz, beküldheted, és felkerül az oldal katalógusába.",
+  "how-body": "Egyelőre e-mailben küldd el nekem a tree.csv fájlodat:",
+  "terms-eyebrow": "Mielőtt elküldöd",
+  "terms-1": "Minden fát elolvasok, mielőtt közzéteszem.",
+  "terms-2": "A fa annak a nevén jelenik meg, aki készítette. Ha egy másik fából dolgoztad át, megmaradnak benne az „Alapja” sorok, amelyeket a szerkesztő ír a fájlba, így a korábbi szerzők is fel vannak tüntetve.",
+  "terms-3": "Az oldalon található fák és utasítások CC BY 4.0 licenc alatt állnak: bárki használhatja és átdolgozhatja őket, ha feltünteti a szerzőt. A beküldött fád is ezzel a licenccel jelenik meg.",
+  "terms-4": "A GitHubon pull requesttel nem lehet hozzájárulni.",
+  "own-body": "A módszer használatához semmit sem kell beküldened. A szerkesztőben saját fájlt kapsz, amelyet úgy használsz és osztasz meg, ahogy akarsz.",
+  "own-cta": "Készíts sajátot"
+}

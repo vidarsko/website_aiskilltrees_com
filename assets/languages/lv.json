@@ -1,0 +1,458 @@
+{
+  "code": "lv",
+  "htmlLang": "lv",
+  "name": "Latviešu",
+  "endonym": "Latviešu",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. AI is \"MI\" (mākslīgais intelekts), as in Latvian schools. Latvian has no articles, but it inflects nouns in seven cases and marks gender on past participles and adjectives, so the strings addressed to the user avoid gendered forms (\"Apgūts\" describes the goal, not the user; \"atzīmēji\" rather than \"esi atzīmējis/atzīmējusi\"). Placeholders sit where their case does not matter: in quotation marks after a head noun that carries the case (tēmas „{topic}” mācību mērķi), after a colon, or in the form \"Label: {n}\", because a noun after a number changes with the number (1 mērķis, 21 mērķis, 5 mērķi).",
+  "learner": {
+    "_comment": "What the learner is CALLED. Latvian has no articles, so the 'definite' form is the bare nominative: \"skolēns\", \"students\", \"dalībnieks\". A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. The lead-ins use present-tense verbs (prot, zina), which do not change with gender, so they also fit \"skolniece\" if a tree sets it. A skill description is a bare infinitive phrase (\"Skolēns prot: saskaitīt daļskaitļus\"), a concept a definition (\"Termins: definīcija\").",
+    "default": "skolēns",
+    "legacy": {
+      "pupil": "skolēns",
+      "student": "students",
+      "participant": "dalībnieks"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} prot:",
+      "concept": "{LearnerDefinite} prot izskaidrot:",
+      "fact": "{LearnerDefinite} zina:"
+    }
+  },
+  "ui": {
+    "backLink": "← Visi koki",
+    "pageTitle": "Prasmju koks: {title}",
+    "tagline": "Karte, kas rāda, kā mācību mērķi balstās cits uz cita — atzīmē, ko jau proti, un nokopē MI instrukciju, lai vingrinātos tālāk.",
+    "makeYourOwn": "{subject}. Izveido savu koku:",
+    "progressLabel": "Apgūti mācību mērķi: {done} no {total}",
+    "zoomIn": "Pietuvināt",
+    "zoomOut": "Attālināt",
+    "fitToView": "Rādīt visu koku",
+    "fitToViewTitle": "Rādīt visu koku (Ctrl + ritināšana, lai tālummainītu)",
+    "close": "✕ Aizvērt",
+    "closeLower": "✕ Aizvērt",
+    "copied": "Nokopēts!",
+    "copyFallback": "Automātiski nokopēt neizdevās — nokopē zemāk esošo tekstu manuāli:",
+    "errorBanner": "⚠ Datu failos atrastas problēmas: {n} (sīkāk — konsolē):",
+    "errorCsv": "Neizdevās nolasīt izklājlapu, rinda {row}: {message}",
+    "errorCsvHeader": "Faila {file} pirmajā rindā jābūt kolonnu nosaukumiem. Trūkst: {missing}. Pirmā rinda tagad ir: {found}. Visticamāk, fails saglabāts bez pirmās rindas vai citā formātā; saglabā to vēlreiz kā vienkāršu CSV.",
+    "errorUnknownDep": "Mezgla „{id}” priekšnosacījumos norādīts „{dep}”, bet nevienam mezglam nav tāda id.",
+    "errorNoTopic": "Mezglam „{id}” nav tēmas, tāpēc tas nonāk kopējā kolonnā „{topic}”.",
+    "errorUnknownResourceNode": "tree.csv, rinda {row}: materiāls depends_on atsaucas uz mezgla id „{id}”, kas neeksistē.",
+    "errorExamsRenamed": "tree.csv, rinda {row}: iestatījums „features.exams” ir no laika pirms versijas 0.22.0. Materiāli tagad ir tree.csv rindas ar tipu „resource”: topic = grupa, name = nosaukums, description = saite, depends_on = mezgli. Izdzēs rindu un atver koku veidotājā, lai pārveidotu veco exams.csv. Nekas netika piemērots.",
+    "errorResourceEmpty": "tree.csv, rinda {row}: materiālam nav ne nosaukuma (name), ne saites (description).",
+    "errorResourceNoNode": "tree.csv, rinda {row}: materiāls „{label}” nepieder nevienam mezglam. Ieraksti depends_on viena vai vairāku mezglu id vai izdzēs rindu.",
+    "errorResourceDuplicate": "tree.csv, rinda {row}: materiāls „{label}” ir tāds pats kā rindā {first}. Apvieno tos vienā rindā un visus mezglus ieraksti depends_on.",
+    "errorResourceUrl": "tree.csv, rinda {row}: materiāla „{label}” saitei jāsākas ar https:// vai mailto:. Tāpēc tā tiek rādīta kā vienkāršs teksts, bez saites.",
+    "errorCycle": "Šie mezgli pa apli ir priekšnosacījumi cits citam: {cycle}. Viena no šīm saitēm ir jānoņem.",
+    "errorUnknownConfig": "Nezināms iestatījums „{key}” (tree.csv, rinda {row}). Nekas netika piemērots.",
+    "errorUnknownNodeType": "Mezgla „{id}” tips ir „{type}”, bet tāda tipa nav. Iespējamie tipi: {valid}.",
+    "errorUnknownPromptSection": "Nezināma sadaļa „{section}” prompt rindā (tree.csv, rinda {row}). Nekas netika piemērots.",
+    "errorUnknownPromptTarget": "Prompt rinda (tree.csv, rinda {row}) ir paredzēta instrukcijai „{name}”, bet šis koks tādu instrukciju neveido. Nekas netika piemērots.",
+    "errorDidYouMean": "Varbūt domāji „{key}”?",
+    "errorMissingConfig": "tree.csv trūkst obligātās config rindas „{key}”.",
+    "errorStyleColor": "Iestatījumam „{key}” (tree.csv, rinda {row}) jābūt krāsai, kas uzrakstīta kā heksadecimāls kods, piemēram, #1F6F4A. „{value}” tāds nav, tāpēc paturēta noklusējuma krāsa.",
+    "errorLinkUrl": "Iestatījumam „{key}” (tree.csv, rinda {row}) jābūt saitei, kas sākas ar https:// vai mailto:. „{value}” tāda nav, tāpēc tā tiek rādīta kā vienkāršs teksts.",
+    "errorStyleFont": "Nezināms fonts „{value}” (tree.csv, rinda {row}). Fonti, ko koks var izmantot: {valid}. Paturēts noklusējuma fonts.",
+    "nodeType": {
+      "skill": "prasme",
+      "concept": "jēdziens",
+      "fact": "fakti"
+    },
+    "badges": {
+      "del1": "1. daļa",
+      "del2": "2. daļa",
+      "begge": "1.+2. daļa"
+    },
+    "status": {
+      "mastered": "Apgūts",
+      "ready": "Var sākt mācīties",
+      "notMastered": "Vēl nav apgūts",
+      "blocked": "Vispirms trūkst: {codes}"
+    },
+    "help": {
+      "label": "Palīdzība",
+      "heading": "Palīdzība",
+      "sections": [
+        {
+          "heading": "Izvēlne",
+          "body": "Viss pārējais ir zem ☰ apakšējā kreisajā stūrī: mācību mērķi, meklēšana, tests, drukāšana un pārējais. Katrā logā ir „?”, kas to izskaidro.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Karte",
+          "body": "Katrs lodziņš ir viens mācību mērķis, un bultas iet no tā, kas jāzina vispirms. Forma rāda tipu: fakti ir kvadrātveida, jēdzieni nedaudz noapaļoti un prasmes apaļas. Velc, lai pārvietotu karti, un tuvini vai attālini ar + un −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Apgūts",
+          "body": "Nospied lodziņā esošo apli, kad mācību mērķi proti, un tas kļūst par zaļu ķeksīti. Tas saglabājas tikai tavā pārlūkā.",
+          "figure": "check"
+        },
+        {
+          "heading": "Viens lodziņš",
+          "body": "Nospied lodziņu, lai redzētu, ko mācību mērķis prasa, uz ko tas balstās, un MI instrukciju, ko vari ielīmēt MI tērzēšanā, lai vingrinātos. Nospied vēlreiz, lai aizvērtu.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Atzīmēt vairākus",
+          "body": "Saraksta ikonas uzreiz atzīmē visus tēmas mērķus vai noņem atzīmes. Ar A un B tās attiecas uz visu koku.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Meklēšana",
+          "body": "Atrodi mācību mērķi pēc vārda no tā nosaukuma vai apraksta.",
+          "figure": "search"
+        },
+        {
+          "heading": "Tests",
+          "body": "MI instrukcija testam par mērķiem, ko izvēlies. Tu izlem grūtību, uzdevumu skaitu un veidu.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Stundu plāni (skolotājiem)",
+          "body": "Izvēlies mācību mērķus un nospied „Izveidot materiālu”, lai iegūtu stundas plānu, mini koku vai simulāciju.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Drukāšana",
+          "body": "Lejupielādē visu koku kā PDF ar apļiem, ko skolēni var atzīmēt ar pildspalvu.",
+          "figure": "print"
+        },
+        {
+          "heading": "Palīglīdzekļu birka",
+          "body": "„1. daļa” vai „2. daļa” panelī rāda, kuram palīglīdzekļu līmenim mērķis pieder. Nospied birku, lai lasītu vairāk sadaļā „Par kursu”.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivācija",
+          "body": "Īsa saruna ar MI par to, kāpēc šo priekšmetu ir vērts mācīties.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Īsinājumtaustiņi",
+        "search": "Atvērt meklēšanu",
+        "escape": "Aizvērt atvērto logu, izvēlni vai paneli",
+        "zoom": "Tuvināt un attālināt",
+        "fit": "Rādīt visu koku un atpakaļ"
+      }
+    },
+    "safety": {
+      "label": "Drošība",
+      "heading": "Drošība",
+      "lead": "Prasmju koku veido skolotājs, bet ikviens var izveidot failu, kas izskatās pēc prasmju koka. Izlasi šo, pirms izmanto koku, ko kāds tev atsūtījis.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Prasmju koks nekad neprasa personas datus",
+          "body": "Kokam nav pieteikšanās, un tam par tevi nekas nav vajadzīgs. Tas nekad neprasa tavu vārdu, paroli, skolas lietotājvārdu, personas kodu, adresi, tālruņa numuru vai to, kurā skolā tu mācies. Tavs progress saglabājas tikai šīs ierīces pārlūkā. Ja lapa, kas izskatās pēc prasmju koka, prasa kaut ko no tā, tā nav īsta. Aizver to un pastāsti skolotājam."
+        },
+        {
+          "id": "sender",
+          "heading": "Kas tev atsūtīja koku?",
+          "body": "Svarīgākais jautājums ir, no kurienes koks nācis. Kokam vietnē aiskilltrees.com vai kokam, ko tavs skolotājs ielicis tur, kur tu parasti saņem mācību materiālus, vari uzticēties tikpat, cik uzticies savam skolotājam. Ja fails atnāca e-pastā, tērzēšanā vai sociālajos tīklos no kāda, ko nepazīsti, vai pienāca negaidīti, izturies pret to piesardzīgi, pat ja tas izskatās pareizs."
+        },
+        {
+          "id": "html",
+          "heading": "HTML fails ir tīmekļa lapa, nevis dokuments",
+          "body": "Kad koku kopīgo kā .html failu, tu nesaņem dokumentu kā PDF vai Word failu. Tu saņem veselu tīmekļa lapu ar kodu, kas darbojas, kad to atver. Pārlūks neļauj tai lasīt tavus failus vai kaut ko instalēt datorā, bet tā var parādīt jebko: viltotu pieteikšanās lapu, pogu, kas kaut ko lejupielādē, vai saites uz citām vietnēm. Faila veidotājs izlemj, ko tā dara. Tas, ka lapa izskatās pēc prasmju koka, nenozīmē, ka tā tāda ir. Nekad nepiesakies un neko nelejupielādē lapā, ko atvēri no faila."
+        },
+        {
+          "id": "links",
+          "heading": "Pārbaudi saites, pirms klikšķini",
+          "body": "Koka materiāli var vest uz video, uzdevumiem un mācību grāmatām. Novieto kursoru uz saites vai nospied un turi to un paskaties, kurp tā ved, pirms klikšķini. Ja vietni neatpazīsti vai adrese izskatās dīvaina, neej uz turieni."
+        },
+        {
+          "id": "injection",
+          "heading": "Instrukcijas var būt viltotas",
+          "body": "MI instrukcija, ko kopē, ir teksts, ko uzrakstījis koka veidotājs, un tu to ielīmē tieši MI tērzēšanā. Koka veidotājs tajā var ierakstīt jebko, arī pavēles, kas liek tērzēšanai uzvesties citādi, nekā tu gaidi: dot nepareizas atbildes, sūtīt tevi uz citu vietni vai jautāt par lietām, kas uz to neattiecas. To sauc par uzvednes injekciju (prompt injection). Vari tekstu ātri pārlasīt, pirms ielīmē, un neuzticies tērzēšanai akli."
+        },
+        {
+          "id": "chat",
+          "heading": "Tu izlem, ko pastāstīt tērzēšanai",
+          "body": "Dažas instrukcijas lūdz tērzēšanu tevi iepazīt, piemēram, kā tu jūties par priekšmetu un kas tev padodas. Vari atbildēt tik daudz vai maz, cik gribi. Bet nevienai instrukcijai nav vajadzīgs tavs vārds, kontaktinformācija vai paroles. Ja tērzēšana jautā ko tādu, neatbildi un pastāsti skolotājam. Atceries arī, ka to, ko raksti MI tērzēšanā, glabā uzņēmums, kas to nodrošina. Tavai skolai bieži ir pieeja MI pakalpojumam, kur tavs privātums ir aizsargāts. Pajautā skolotājam un izmanto to, ja tāds ir."
+        },
+        {
+          "id": "teachers",
+          "heading": "Skolotājiem: koks no kolēģa",
+          "body": "Ja koku saņēmi no kāda cita, vari to drošības labad atvērt veidotājā vietnē aiskilltrees.com/make-your-own/, pirms kopīgo ar skolēniem. Veidotājs no faila paņem tikai izklājlapu un izveido no tās jaunu, tīru failu, un tur vari izlasīt katru instrukciju, ko koks izmanto."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Mācību mērķi",
+      "title": "Rādīt sistemātisku visu mācību mērķu sarakstu, sakārtotu pa tēmām",
+      "heading": "Mācību mērķi",
+      "copyAll": "Kopēt visu",
+      "intro": "Sarakstā ir visi kursa mācību mērķi, sakārtoti pa tēmām, ar katra statusu. Atzīmē mērķi kā apgūtu — tas pats ķeksītis kā mezglam kartē —, lai varētu iet pa sarakstu secīgi un atzīmēt, ko jau proti.",
+      "markAria": "Atzīmēt „{name}” kā apgūtu",
+      "markAllButton": "Atzīmēt visus kā apgūtus",
+      "clearAllButton": "Noņemt visas apguves atzīmes",
+      "clearAllConfirm": "Noņemt apguves atzīmi visiem koka mācību mērķiem?",
+      "openNode": "Doties uz šo mezglu kartē"
+    },
+    "lessonPlanner": {
+      "button": "Stundu plāni",
+      "title": "Izvēlies mācību mērķus un nokopē MI instrukciju stundas plānam, mini kokam vai simulācijai",
+      "selectAll": "Atzīmēt visus",
+      "deselectAll": "Noņemt visas atzīmes",
+      "selectTopic": "Atzīmēt visus tēmas „{topic}” mācību mērķus",
+      "deselectTopic": "Noņemt atzīmes visiem tēmas „{topic}” mācību mērķiem",
+      "heading": "Stundu plāni",
+      "intro": "Atzīmē mācību mērķus, kam gribi kaut ko izveidot, un apakšā nospied „Izveidot materiālu”. Tur izvēlies, kas tas būs: stundas plāns, mini koks vai simulācija. Šīs atzīmes ir tikai šim nolūkam: tās neko neatzīmē kā apgūtu un pazūd, kad lapu pārlādē."
+    },
+    "search": {
+      "button": "Meklēt",
+      "title": "Meklēt mācību mērķus pēc nosaukuma un apraksta",
+      "heading": "Meklēšana",
+      "placeholder": "Meklēt mācību mērķus …",
+      "hint": "Ieraksti vārdu. Meklēšana skatās katra mācību mērķa nosaukumā, aprakstā un tēmā, un no rezultātiem vari uzreiz pāriet uz mezglu kartē.",
+      "noResults": "Neviens mācību mērķis nesatur „{query}”.",
+      "countOne": "1 mācību mērķis",
+      "countMany": "Mācību mērķi: {n}",
+      "openNode": "Doties uz šo mezglu kartē"
+    },
+    "resourceList": {
+      "button": "Uzdevumi un avoti",
+      "title": "Rādīt visus koka materiālus un mācību mērķus, kuriem tie pieder",
+      "heading": "Uzdevumi un avoti",
+      "placeholder": "Filtrēt uzdevumus un avotus …",
+      "intro": "Uzdevumi un avoti: {n}",
+      "countFiltered": "{n} no {total}",
+      "noResults": "Neviens materiāls neatbilst „{query}”.",
+      "openNode": "Doties uz šo mezglu kartē",
+      "help": "Uzdevumi un avoti, kas pieder kokam, piemēram, eksāmenu uzdevumi, saites un video. Zem katra ir mācību mērķi, kuriem tas pieder; nospied kādu, lai pārietu uz to kartē. Raksti laukā, lai filtrētu."
+    },
+    "motivation": {
+      "button": "Motivācija",
+      "title": "Nokopēt MI instrukciju sarunai par to, kāpēc priekšmetu ir vērts mācīties",
+      "heading": "Motivācija",
+      "desc": "Īsa saruna ar MI par to, kāpēc šo priekšmetu ir vērts mācīties. MI jautā un klausās, un jūs kopā atrodat atbildi.",
+      "help": "Nospied „Kopēt instrukciju” un ielīmē to MI tērzēšanā. Saruna sākas tur, kur tu saki, ka esi, un MI uzdod vienu jautājumu vienlaikus. Nekas, ko raksti, šeit nesaglabājas.",
+      "startLabel": "Kā tu jūties par šo priekšmetu?",
+      "start": {
+        "unknown": "Nezinu",
+        "hard": "Tas ir grūti",
+        "bored": "Tas ir garlaicīgi",
+        "use": "Kam man to vajadzēs?"
+      },
+      "lengthLabel": "Garums",
+      "length": {
+        "short": "Īsa",
+        "normal": "Parasta",
+        "long": "Gara"
+      }
+    },
+    "lesson": {
+      "button": "Veidot stundas plānu (skolotājiem)",
+      "title": "Nokopēt MI instrukciju pilnai stundai par atzīmētajiem mācību mērķiem",
+      "typeLabel": "Stundas veids",
+      "typeAria": "Kāda veida stunda tā ir",
+      "types": {
+        "intro": "Ievads",
+        "practice": "Vingrināšanās",
+        "review": "Atkārtošana",
+        "other": "Cits"
+      },
+      "minutesLabel": "Garums",
+      "minutesAria": "Stundas garums minūtēs",
+      "includeAria": "Iekļaut „{name}” stundas plānā",
+      "selectedNone": "Nav izvēlētu mācību mērķu",
+      "selectedOne": "Izvēlēts 1 mācību mērķis",
+      "selectedMany": "Izvēlēti mācību mērķi: {n}"
+    },
+    "make": {
+      "button": "Izveidot materiālu →",
+      "buttonTitle": "Izvēlies, ko izveidot atzīmētajiem mācību mērķiem",
+      "heading": "Ko tu gribi izveidot?",
+      "back": "← Mācību mērķi",
+      "forOne": "1 mācību mērķim:",
+      "forMany": "Mācību mērķiem ({n}):",
+      "copy": "Kopēt instrukciju",
+      "htmlBadge": "HTML fails",
+      "htmlAfter": "Ielīmē to MI tērzēšanā. Atbilde būs HTML fails, ko saglabā, atver pārlūkā un vari kopīgot ar skolēniem.",
+      "lesson": {
+        "title": "Stundas plāns",
+        "desc": "Pilns vienas stundas plāns ar laiku minūtēs, to, kas jāraksta uz tāfeles, un atbildēm uz visiem uzdevumiem.",
+        "minutes": "min",
+        "shorter": "Īsāk",
+        "longer": "Garāk",
+        "after": "Ielīmē to MI tērzēšanā. Atbilde būs plāns, pēc kura vari vadīt stundu.",
+        "typeHints": {
+          "intro": "Jauni mācību mērķi: ievaduzdevums, atrisināti piemēri vairākās kārtās, diagnostisks jautājums katram mērķim un atcerēšanās beigās.",
+          "practice": "Nesen apgūti mērķi: īss atgādinājums, tad uzdevumu sērijas ar nelielām izmaiņām un arvien mazāku atbalstu.",
+          "review": "Sen mācīti mērķi: atcerēšanās bez pierakstiem, pārbaude, kas palicis atmiņā, atkārtota mācīšana, kur vajag, un jaukti uzdevumi.",
+          "other": "Kas cits: apraksti stundu savos vārdos, vai arī MI vispirms tev pajautās."
+        }
+      },
+      "miniTree": {
+        "title": "Mini koks",
+        "desc": "Prasmju koks, kurā skolēni patstāvīgi vingrinās pirms pārbaudes darba: izvēlētie mērķi apvienoti dažās tēmās ar līmeņiem, atrisināts piemērs pirms katras uzdevumu kārtas, pēc tam atbilde un skaidrojums, un apguve, kas atver nākamo līmeni.",
+        "levelsLabel": "Līmeņi katrā tēmā",
+        "levels1": "Viens līmenis",
+        "levels3": "Trīs līmeņi",
+        "streakLabel": "Pareizas atbildes pēc kārtas apguvei",
+        "supportLabel": "Pielāgošana",
+        "easyRead": "Viegli lasāms (Comic Sans, maz teksta)",
+        "readAloud": "Nolasīšana skaļi",
+        "game": "Zvaigznes un atbloķēšana",
+        "mixedTest": "Jaukts izmēģinājuma tests",
+        "credit": "Balstīts uz speciālās pedagoģijas skolotājas Nina Haugerud principiem."
+      },
+      "simulation": {
+        "title": "Simulācija",
+        "desc": "Interaktīva simulācija, ko skolēni var pētīt, ar priekšmeta modeli, kas nav izdomāts, un paneli, kas izskaidro, ko modelis var un ko nevar.",
+        "workflowLabel": "Darba gaita",
+        "design": "Vispirms saruna par dizainu",
+        "build": "Uzreiz prototips",
+        "screenLabel": "Ekrāns",
+        "laptop": "Klēpjdators",
+        "tablet": "Planšetdators",
+        "projector": "Projektors",
+        "extrasLabel": "Iekļaut",
+        "tasks": "Uzdevumi skolēniem",
+        "critique": "Modeļa kritika",
+        "export": "Datu eksports (CSV)",
+        "credit": "Pēc Henning Vinjusveen Myhrehagen uzvednes vietnē skolesim.no."
+      },
+      "less": "Mazāk",
+      "more": "Vairāk",
+      "help": "Katrs materiāls ir MI instrukcija. Izvēlies, ko gribi, nospied „Kopēt instrukciju” un ielīmē to MI tērzēšanā, piemēram, ChatGPT vai Claude. No stundas plāna sanāk plāns, pēc kura vari vadīt stundu. No mini koka un simulācijas sanāk HTML fails, ko saglabā, atver pārlūkā un vari kopīgot ar skolēniem. Izvēles nesaglabājas.",
+      "forLabel": "Mērķi:"
+    },
+    "exam": {
+      "button": "Tests",
+      "title": "Izveidot MI instrukciju testam par apgūtajiem mācību mērķiem",
+      "none": "Vēl nav apgūtu mācību mērķu",
+      "countLabel": "Uzdevumu skaits",
+      "countAria": "Uzdevumu skaits testā",
+      "heading": "Tests",
+      "desc": "Rakstisks tests par to, ko atzīmēji kā apgūtu, ar atbildēm, kad tās palūgsi.",
+      "help": "Tests veidojas no mācību mērķiem, ko kokā atzīmēji kā apgūtus. Izvēlies grūtību, uzdevumu skaitu un veidu, nospied „Kopēt instrukciju” un ielīmē to MI tērzēšanā. MI sākumā rāda tikai uzdevumus un dod atbildes un vērtējumu, kad tos palūgsi.",
+      "covers": "Tests aptver apgūtos mācību mērķus ({n}):",
+      "coversOne": "Tests aptver 1 apgūtu mācību mērķi:",
+      "noneHint": "Kokā vēl nav neviena apgūta mācību mērķa. Atzīmē kokā, ko proti, un tad varēsi izveidot testu.",
+      "showAll": "Rādīt visus mācību mērķus",
+      "showSelected": "Rādīt tikai izvēlētos mācību mērķus",
+      "difficultyLabel": "Grūtība",
+      "difficulty": {
+        "easy": "Viegls",
+        "medium": "Vidējs",
+        "hard": "Grūts"
+      },
+      "difficultyHints": {
+        "easy": "Viens mērķis katrā uzdevumā, biežākie gadījumi un bez slazdiem.",
+        "medium": "Kā parasts pārbaudes darbs: daži vienkārši uzdevumi, daži, kas apvieno vairākus mērķus.",
+        "hard": "Lielākā daļa uzdevumu apvieno mērķus, izmanto jaunus kontekstus vai liek izskaidrot vai atrast kļūdu."
+      },
+      "formatLabel": "Uzdevumu veids",
+      "format": {
+        "closed": "Slēgti",
+        "open": "Atvērti",
+        "mixed": "Jaukti"
+      },
+      "formatHints": {
+        "closed": "Atbilžu varianti vai īsas atbildes, ko var pārbaudīt pēc atslēgas.",
+        "open": "Tu parādi risinājuma gaitu vai paskaidro savos vārdos.",
+        "mixed": "Aptuveni puse no katra."
+      },
+      "coversLabel": "Tests aptver:"
+    },
+    "node": {
+      "markMastered": "Atzīmēt kā apgūtu"
+    },
+    "column": {
+      "markAll": "Atzīmēt visus tēmas „{topic}” mācību mērķus kā apgūtus",
+      "clearAll": "Noņemt apguves atzīmi visiem tēmas „{topic}” mācību mērķiem"
+    },
+    "detail": {
+      "show": "Rādīt instrukciju",
+      "hide": "Paslēpt instrukciju",
+      "copy": "Kopēt instrukciju",
+      "prereqs": "Priekšnosacījumi",
+      "resources": "Materiāli",
+      "mastered": "✓ Apgūts",
+      "available": "Pieejams — priekšnosacījumi izpildīti",
+      "locked": "Slēgts — trūkst priekšnosacījumu",
+      "empty": "Noklikšķini uz mezgla kartē, lai redzētu sīkāk."
+    },
+    "loadError": "Kritiska kļūda ielādē: {message} (vai lapu atver caur lokālu serveri? Daudzos pārlūkos datu failu fetch() neizdodas, ja index.html atver tieši no diska.)",
+    "defaultTopic": "Cits",
+    "aids": {
+      "heading": "Palīglīdzekļi",
+      "tagTitle": "Skaties, ko šajā līmenī drīkst izmantot",
+      "multipleNote": "Šis mācību mērķis pieder vairākiem līmeņiem. Tev ar to jātiek galā stingrākajā no tiem — tas ir, ar vismazāk palīglīdzekļiem.",
+      "multipleNoteGeneral": "Mācību mērķis var piederēt vairākiem līmeņiem. Tad tā birka ir sadalīta vairākās krāsās, un tev ar mērķi jātiek galā stingrākajā no šiem līmeņiem — tas ir, ar vismazāk palīglīdzekļiem."
+    },
+    "menu": {
+      "label": "Izvēlne",
+      "groups": {
+        "practice": "Vingrināties",
+        "plan": "Plānot",
+        "about": "Par"
+      }
+    },
+    "download": {
+      "button": "Lejupielādēt koku",
+      "title": "Lejupielādē koku divos veidos: izklājlapu, ko vari rediģēt, un vienu failu, kas darbojas bez interneta",
+      "working": "Veido vienu failu…",
+      "failed": "Vienu failu neizdevās izveidot",
+      "edit": "Rediģēt koku",
+      "editTitle": "Atvērt koku redaktorā, kur vari to mainīt un lejupielādēt kā izklājlapu vai kā vienu failu, kas darbojas bez interneta"
+    },
+    "courseInfo": {
+      "button": "Par kursu",
+      "heading": "Par kursu",
+      "division": "Klase vai fakultāte",
+      "curriculum": "Mācību programma",
+      "institution": "Iestāde",
+      "country": "Valsts",
+      "language": "Valoda",
+      "size": "Apjoms",
+      "decompositionVersion": "Sadalīšanas modelis",
+      "credits": "Veidoja",
+      "author": "Autors",
+      "updated": "Pēdējoreiz atjaunināts",
+      "license": "Licence",
+      "basedOn": "Balstīts uz",
+      "skills": "prasmes: {n}",
+      "concepts": "jēdzieni: {n}",
+      "facts": "faktu saraksti: {n}",
+      "nodes": "mezgli: {n}"
+    },
+    "helpToggle": "Skaidrojums",
+    "print": {
+      "button": "Drukāt",
+      "title": "Lejupielādē visu koku kā PDF, gatavu drukāšanai",
+      "working": "Veido PDF …",
+      "failed": "PDF neizdevās izveidot",
+      "heading": "Drukāšana",
+      "help": "Lejupielādē visu koku kā vienu PDF lapu, gatavu drukāšanai. Priekšskatījumā lapa redzama tāda, kāda tā būs. Nosaukums un aiskilltrees.com vienmēr ir uz lapas.",
+      "paperLabel": "Papīra izmērs",
+      "orientationLabel": "Orientācija",
+      "orientation": {
+        "auto": "Automātiska",
+        "landscape": "Ainava",
+        "portrait": "Portrets"
+      },
+      "colorLabel": "Krāsas",
+      "color": {
+        "color": "Krāsains",
+        "gray": "Melnbalts"
+      },
+      "rings": "Apļi atzīmēšanai",
+      "legend": "Leģenda",
+      "download": "Lejupielādēt PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Atpakaļ uz iepriekšējo skatu"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Latvian, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO LATVIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is the nominative \"latviešu valoda\", and `outputLanguage` is written around a copula (\"Šīs sarunas valoda ir …\"), so neither the English prompts nor a config row `languageName` need an inflected form; the rest refers back to it as \"šajā valodā\". The gender note is the Latvian counterpart of the Swedish \"hen\": past participles and adjectives are gendered. Latvian teachers address pupils as \"tu\", not \"jūs\". NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "latviešu valoda",
+    "outputLanguage": "Šīs sarunas valoda ir {conversationLanguage}: visu sarunu ved šajā valodā. Viss, kas tālāk citēts no prasmju koka — mezglu nosaukumi, apraksti, priekšnosacījumi —, ir uzrakstīts šajā valodā, un tieši šajā valodā lietotājs gaida, ka tu ar viņu runāsi. Daļa instrukcijas, ko tu tagad lasi, ir angļu valodā; tas nav aicinājums atbildēt angliski. Nemaini valodu pēc savas iniciatīvas un nekomentē, kādā valodā instrukcija uzrakstīta. Uzrunā lietotāju ar „tu”, kā skolotājs uzrunā skolēnu, nevis ar „jūs”. Kamēr nezini, vai runā ar zēnu vai meiteni, izvairies no formām, kas rāda dzimti (piemēram, raksti „tev izdevās”, nevis „tu esi pareizi atrisinājis”). Ja jānosauc tas, kurš mācās, vārds ir „{learnerDefinite}” — nevis kāds cits vārds tam pašam.",
+    "writingStyle": "Latviski piemēri abiem iepriekšējiem padomiem:\n- Darāmā kārta: raksti „skaitli varam uzrakstīt kā …”, nevis „skaitlis var tikt uzrakstīts kā …”; raksti „to darām tā: …” vai „to dari tā: …”, nevis „tas tiek darīts tā: …”. Izvairies no „tiek aprēķināts” un „tiek veikts”, ja vari pateikt, kas to dara.\n- Vārdus, kas ir pareizi, bet sarunvalodā reti, grāmatnieciski vai pārāk pieaugušiem domāti, aizstāj ar vienkāršākiem: „veikt” (→ „darīt” vai „izdarīt”), „nodrošināt” (→ „dot” vai „gādāt”), „ar mērķi” (→ „lai”), „kā arī” (→ „un”), „līdz ar to” (→ „tāpēc”). Drauga tests: vai tu šo vārdu tiešām pateiktu skaļi draugam?",
+    "overrides": {}
+  }
+}

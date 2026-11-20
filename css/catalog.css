@@ -165,6 +165,61 @@
 .facet__row.is-empty { color: var(--ink-3); cursor: not-allowed; opacity: 0.55; }
 .facet__row.is-empty input { cursor: not-allowed; }
 
+/* A long facet (country, language) as a dropdown — js/facet-dropdown.js.
+   The button says what is chosen; the panel opens in the flow below it with
+   a find field and the checkbox list, which scrolls on its own. Square like
+   every control on a content page. */
+.facet__dropdown { margin: 0; }
+.facet__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  color: var(--ink-2);
+  cursor: pointer;
+  list-style: none;
+}
+.facet__summary::-webkit-details-marker { display: none; }
+.facet__summary:hover { color: var(--ink); border-color: var(--ink-3); }
+.facet__summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.facet__summary-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.facet__caret { flex: none; font-size: 0.8em; color: var(--ink-3); transition: transform 150ms ease; }
+.facet__dropdown[open] .facet__caret { transform: rotate(180deg); }
+/* Something chosen: the button says so in weight and a primary edge, not colour alone. */
+.facet__dropdown.has-choice .facet__summary { color: var(--ink); font-weight: 600; border-left: 4px solid var(--primary); }
+.facet__panel {
+  border: 1px solid var(--rule-strong);
+  border-top: 0;
+  background: var(--surface);
+}
+.facet__find {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--paper);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  color: var(--ink);
+}
+.facet__find:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.facet__panel .facet__list {
+  max-height: 18rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.25rem var(--space-2);
+}
+
 /* --------------------------------------------------------------------------
    Results.
    -------------------------------------------------------------------------- */

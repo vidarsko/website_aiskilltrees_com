@@ -22,16 +22,14 @@
 (function () {
   'use strict';
 
-  var NAME = { en: 'Explain', nb: 'Forklar', sv: 'Förklara' };
-
-  function lang() {
-    var l = (window.i18n && window.i18n.lang) || document.documentElement.lang || 'en';
-    return /^(nb|no|nn)/.test(l) ? 'nb' : (/^sv/.test(l) ? 'sv' : 'en');
+  /* English fallback; every language is helptip-name in /i18n/<lang>/_site.json. */
+  function label() {
+    return (window.i18n && window.i18n.s) ? window.i18n.s('helptip-name', 'Explain') : 'Explain';
   }
 
   function name() {
     document.querySelectorAll('.helptip__btn').forEach(function (b) {
-      if (!b.hasAttribute('data-own-label')) b.setAttribute('aria-label', NAME[lang()]);
+      if (!b.hasAttribute('data-own-label')) b.setAttribute('aria-label', label());
     });
   }
 

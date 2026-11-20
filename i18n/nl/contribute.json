@@ -1,0 +1,15 @@
+{
+  "doc-title": "Stuur je boom in | AI Skill Trees",
+  "meta-description": "Hoe je een vaardighedenboom die je hebt gemaakt, instuurt voor de catalogus op deze site.",
+  "page-eyebrow": "Voor docenten",
+  "page-heading": "Stuur je boom in",
+  "page-lede": "Heb je een vaardighedenboom voor je vak gemaakt, dan kun je hem insturen om hem aan de catalogus op deze site toe te voegen.",
+  "how-body": "Mail voorlopig je tree.csv naar mij:",
+  "terms-eyebrow": "Voordat je hem stuurt",
+  "terms-1": "Ik lees elke boom voordat hij wordt gepubliceerd.",
+  "terms-2": "Een boom wordt gepubliceerd onder de naam van wie hem heeft gemaakt. Is hij gebaseerd op een andere boom, dan houdt hij de rijen “Gebaseerd op” die de bouwer in het bestand zet, zodat de eerdere auteurs genoemd blijven.",
+  "terms-3": "De bomen en de instructies op deze site vallen onder CC BY 4.0: iedereen mag ze gebruiken en aanpassen, zolang de auteur wordt vermeld. Een boom die je instuurt, wordt onder die licentie gepubliceerd.",
+  "terms-4": "Bijdragen via pull requests op GitHub zijn niet mogelijk.",
+  "own-body": "Je hoeft niets in te sturen om de methode te gebruiken. De bouwer geeft je je eigen bestand, dat je kunt gebruiken en delen zoals je wilt.",
+  "own-cta": "Zelf maken"
+}

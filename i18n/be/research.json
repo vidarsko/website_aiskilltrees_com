@@ -1,0 +1,13 @@
+{
+  "doc-title": "Даследаванне | AI Skill Trees",
+  "meta-description": "Дадатковае чытанне пра задуму і артыкул, які апісвае метад.",
+  "page-heading": "Даследаванне",
+  "page-lede": "Апублікаваная версія метаду і тое, як на яе спасылацца.",
+  "cite-eyebrow": "Праграмнае забеспячэнне і цытаванне",
+  "cite-heading": "Версія 0.33.0",
+  "cite-body-1": "Рухавік, інструкцыі, моўныя файлы і пачатковае дрэва ляжаць у адкрытым рэпазітарыі на GitHub, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Гэты сайт выкарыстоўвае яго выпуск <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Кожны выпуск архіваваны ў Zenodo з уласным DOI. Выпуск 0.33.0 мае DOI <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> заўсёды ўказвае на найноўшы выпуск.",
+  "cite-body-3": "Калі ты выкарыстоўваеш метад або матэрыялы, спасылайся, калі ласка, на той выпуск, якім карыстаешся, а не на галоўную галіну:",
+  "cite-cta-github": "Выпуск на GitHub",
+  "cite-cta-zenodo": "Архіў у Zenodo"
+}

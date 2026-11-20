@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="/css/components.css?v=2026-10-04b">
 
   <script src="/js/analytics.js"></script>
+  <meta name="i18n-page" content="prompts">
+  <meta name="i18n-available" content="en az be bg bs cnr cs da de el es et fi fr hr hu hy is it ka kk ky lt lv mk mt nb nl pl pt ro ru sk sl sq sr sv tg tr uk uz">
   <script src="/js/i18n.js" defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/footer.js" defer></script>
@@ -40,809 +42,487 @@
   <script type="application/json" id="i18n-dict">
   {
       "doc-title": {
-          "en": "The prompts | AI Skill Trees",
-          "nb": "Instruksene | AI Skill Trees",
-          "sv": "Instruktionerna | AI Skill Trees"
+          "en": "The prompts | AI Skill Trees"
       },
       "meta-description": {
-          "en": "Every instruction the method gives an AI, in full, as it is actually written.",
-          "nb": "Hver eneste instruks metoden gir en KI, i sin helhet, slik den faktisk er skrevet.",
-          "sv": "Varenda instruktion metoden ger en AI, i sin helhet, så som den faktiskt är skriven."
+          "en": "Every instruction the method gives an AI, in full, as it is actually written."
       },
       "page-eyebrow": {
-          "en": "The prompts",
-          "nb": "Instruksene",
-          "sv": "Instruktionerna"
+          "en": "The prompts"
       },
       "page-heading": {
-          "en": "Everything the AI is told",
-          "nb": "Alt KI-en blir bedt om",
-          "sv": "Allt AI:n blir ombedd"
+          "en": "Everything the AI is told"
       },
       "page-lede": {
-          "en": "These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full.",
-          "nb": "Dette er instruksene selv, lest rett fra metode-repoet — ikke et sammendrag av dem. Hver av dem sier hvor den brukes; åpne den for å lese den i sin helhet.",
-          "sv": "Det här är instruktionerna själva, lästa direkt från metodrepot — inte en sammanfattning av dem. Var och en säger var den används; öppna den för att läsa den i sin helhet."
+          "en": "These are the instructions themselves, read straight from the method repository — not a summary of them. Each one says where it is used; open it to read it in full."
       },
       "layers-note": {
-          "en": "The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked.",
-          "nb": "Instruksene er skrevet på engelsk og sier hva modellen skal gjøre, aldri på hvilket språk eller i hvilket fag. Tre andre lag fyller hullene de lar stå åpne: språklaget, fagfamilien, og treets egen fil. Seksjoner som kommer fra et lag framfor fra instruksen selv, er merket.",
-          "sv": "Instruktionerna är skrivna på engelska och säger vad modellen ska göra, aldrig på vilket språk eller i vilket ämne. Tre andra lager fyller hålen de lämnar öppna: språklagret, ämnesfamiljen och trädets egen fil. Avsnitt som kommer från ett lager i stället för från instruktionen själv är märkta."
+          "en": "The instructions are written in English and say what the model should do, never in which language or subject. Three other layers fill the holes they leave open: the language layer, the subject family, and the tree's own file. Sections that come from a layer rather than from the instruction itself are marked."
       },
       "pickers-note": {
-          "en": "The language layer and the subject family each have a card of their own further down, with a picker in it. Both choices also decide which marked sections stand inside the instructions above them.",
-          "nb": "Språklaget og fagfamilien har hvert sitt kort lenger nede, med en velger i seg. Begge valgene bestemmer samtidig hvilke merkede seksjoner som står inne i instruksene over dem.",
-          "sv": "Språklagret och ämnesfamiljen har var sitt kort längre ner, med en väljare i sig. Båda valen avgör samtidigt vilka märkta avsnitt som står inne i instruktionerna ovanför dem."
+          "en": "The language layer and the subject family each have a card of their own further down, with a picker in it. Both choices also decide which marked sections stand inside the instructions above them."
       },
       "lang-label": {
-          "en": "Show the language layer for",
-          "nb": "Vis språklaget for",
-          "sv": "Visa språklagret för"
+          "en": "Show the language layer for"
       },
       "lang-choose": {
-          "en": "Choose a language layer",
-          "nb": "Velg et språklag",
-          "sv": "Välj ett språklager"
+          "en": "Choose a language layer"
       },
       "family-label": {
-          "en": "Show the additions for",
-          "nb": "Vis tilleggene for",
-          "sv": "Visa tilläggen för"
+          "en": "Show the additions for"
       },
       "family-choose": {
-          "en": "Choose a subject family",
-          "nb": "Velg en fagfamilie",
-          "sv": "Välj en ämnesfamilj"
+          "en": "Choose a subject family"
       },
       "audience-student": {
-          "en": "used by a student",
-          "nb": "brukes av en elev",
-          "sv": "används av en elev"
+          "en": "used by a student"
       },
       "audience-teacher": {
-          "en": "used by a teacher building a tree",
-          "nb": "brukes av en lærer som bygger et tre",
-          "sv": "används av en lärare som bygger ett träd"
+          "en": "used by a teacher building a tree"
       },
       "keywords-title": {
-          "en": "Keywords in the instructions",
-          "nb": "Nøkkelord i instruksene",
-          "sv": "Nyckelord i instruktionerna"
+          "en": "Keywords in the instructions"
       },
       "about-keywords": {
-          "en": "Words in {braces} are filled in when an instruction is composed for one tree. Some come from the tree's own settings, some from the language layer, where a tree can override the default, and the rest from the tree's nodes.",
-          "nb": "Ord i {klammer} fylles inn når en instruks settes sammen for ett tre. Noen kommer fra treets egne innstillinger, noen fra språklaget, der treet kan overstyre standardverdien, og resten fra treets noder.",
-          "sv": "Ord inom {klammer} fylls i när en instruktion sätts ihop för ett träd. Vissa kommer från trädets egna inställningar, vissa från språklagret, där trädet kan ersätta standardvärdet, och resten från trädets noder."
+          "en": "Words in {braces} are filled in when an instruction is composed for one tree. Some come from the tree's own settings, some from the language layer, where a tree can override the default, and the rest from the tree's nodes."
       },
       "kw-group-tree": {
-          "en": "Set by the tree",
-          "nb": "Settes av treet",
-          "sv": "Sätts av trädet"
+          "en": "Set by the tree"
       },
       "kw-group-language": {
-          "en": "From the language layer, unless the tree sets it",
-          "nb": "Fra språklaget, med mindre treet setter det",
-          "sv": "Från språklagret, om inte trädet sätter det"
+          "en": "From the language layer, unless the tree sets it"
       },
       "kw-group-engine": {
-          "en": "Filled in from the tree's nodes and choices",
-          "nb": "Fylles inn fra treets noder og valg",
-          "sv": "Fylls i från trädets noder och val"
+          "en": "Filled in from the tree's nodes and choices"
       },
       "kw-courseName": {
-          "en": "The course's name as it reads in a sentence. Setting slots.courseName. No default: without it the braces stay in the text.",
-          "nb": "Kursets navn slik det leses i en setning. Innstillingen slots.courseName. Ingen standard: uten den blir klammene stående i teksten.",
-          "sv": "Kursens namn så som det läses i en mening. Inställningen slots.courseName. Inget standardvärde: utan den blir klamrarna kvar i texten."
+          "en": "The course's name as it reads in a sentence. Setting slots.courseName. No default: without it the braces stay in the text."
       },
       "kw-motivationSubject": {
-          "en": "What the motivation dialogue is about, e.g. “maths”. Setting slots.motivationSubject.",
-          "nb": "Hva motivasjonssamtalen handler om, f.eks. «matte». Innstillingen slots.motivationSubject.",
-          "sv": "Vad motivationssamtalet handlar om, t.ex. ”matte”. Inställningen slots.motivationSubject."
+          "en": "What the motivation dialogue is about, e.g. “maths”. Setting slots.motivationSubject."
       },
       "kw-expressionFocus": {
-          "en": "What students in this course get sloppy about when they write. Setting slots.expressionFocus; without it, the section expression is left out.",
-          "nb": "Hva elevene i faget slurver med når de skriver. Innstillingen slots.expressionFocus; uten den utelates seksjonen expression.",
-          "sv": "Vad eleverna i ämnet slarvar med när de skriver. Inställningen slots.expressionFocus; utan den utelämnas avsnittet expression."
+          "en": "What students in this course get sloppy about when they write. Setting slots.expressionFocus; without it, the section expression is left out."
       },
       "kw-courseSpecifics": {
-          "en": "The teacher's own text about the whole course. Setting slots.courseSpecifics; without it, the section courseSpecifics is left out.",
-          "nb": "Lærerens egen tekst om hele kurset. Innstillingen slots.courseSpecifics; uten den utelates seksjonen courseSpecifics.",
-          "sv": "Lärarens egen text om hela kursen. Inställningen slots.courseSpecifics; utan den utelämnas avsnittet courseSpecifics."
+          "en": "The teacher's own text about the whole course. Setting slots.courseSpecifics; without it, the section courseSpecifics is left out."
       },
       "kw-conversationLanguage": {
-          "en": "The language the conversation is held in. A tree can set it with languageName.",
-          "nb": "Språket samtalen føres på. Et tre kan sette det med languageName.",
-          "sv": "Språket samtalet förs på. Ett träd kan sätta det med languageName."
+          "en": "The language the conversation is held in. A tree can set it with languageName."
       },
       "kw-learnerDefinite": {
-          "en": "What the learner is called. A tree chooses with learner (pupil, student or participant), and the language layer gives the word.",
-          "nb": "Hva den som lærer kalles. Et tre velger med learner (pupil, student eller participant), og språklaget gir ordet.",
-          "sv": "Vad den som lär sig kallas. Ett träd väljer med learner (pupil, student eller participant), och språklagret ger ordet."
+          "en": "What the learner is called. A tree chooses with learner (pupil, student or participant), and the language layer gives the word."
       },
       "kw-examButtonLabel": {
-          "en": "The label on the tree's test button, so the instruction can point to it.",
-          "nb": "Teksten på treets prøveknapp, så instruksen kan vise til den.",
-          "sv": "Texten på trädets provknapp, så att instruktionen kan hänvisa till den."
+          "en": "The label on the tree's test button, so the instruction can point to it."
       },
       "kw-nodeName": {
-          "en": "The name of the node the student picked.",
-          "nb": "Navnet på noden eleven valgte.",
-          "sv": "Namnet på noden eleven valde."
+          "en": "The name of the node the student picked."
       },
       "kw-nodeDescription": {
-          "en": "The node's description: what mastering it means.",
-          "nb": "Nodens beskrivelse: hva det vil si å mestre den.",
-          "sv": "Nodens beskrivning: vad det innebär att behärska den."
+          "en": "The node's description: what mastering it means."
       },
       "kw-prerequisiteList": {
-          "en": "Every node the node or lesson depends on, directly or through others.",
-          "nb": "Alle nodene noden eller timen bygger på, direkte eller via andre.",
-          "sv": "Alla noder som noden eller lektionen bygger på, direkt eller via andra."
+          "en": "Every node the node or lesson depends on, directly or through others."
       },
       "kw-aidsText": {
-          "en": "The tree's text for each aid level that applies, from the settings aids.<n>.*.",
-          "nb": "Treets tekst for hvert hjelpemiddelnivå som gjelder, fra innstillingene aids.<n>.*.",
-          "sv": "Trädets text för varje hjälpmedelsnivå som gäller, från inställningarna aids.<n>.*."
+          "en": "The tree's text for each aid level that applies, from the settings aids.<n>.*."
       },
       "kw-nodeCount": {
-          "en": "How many nodes the test covers.",
-          "nb": "Hvor mange noder prøven dekker.",
-          "sv": "Hur många noder provet täcker."
+          "en": "How many nodes the test covers."
       },
       "kw-nodeList": {
-          "en": "The nodes the student has ticked off, one line each, marked [skill], [concept] or [fact].",
-          "nb": "Nodene eleven har krysset av, én linje hver, merket [skill], [concept] eller [fact].",
-          "sv": "Noderna eleven har bockat av, en rad var, märkta [skill], [concept] eller [fact]."
+          "en": "The nodes the student has ticked off, one line each, marked [skill], [concept] or [fact]."
       },
       "kw-taskCount": {
-          "en": "How many tasks the student asked for.",
-          "nb": "Hvor mange oppgaver eleven ba om.",
-          "sv": "Hur många uppgifter eleven bad om."
+          "en": "How many tasks the student asked for."
       },
       "kw-goalList": {
-          "en": "The learning goals, in order.",
-          "nb": "Læringsmålene, i rekkefølge.",
-          "sv": "Lärandemålen, i ordning."
+          "en": "The learning goals, in order."
       },
       "kw-totalMinutes": {
-          "en": "The length of the lesson in minutes, chosen by the teacher. How the time is divided is in the section plan, which each subject family writes.",
-          "nb": "Timens lengde i minutter, valgt av læreren. Hvordan tiden deles opp, står i seksjonen plan, som hver fagfamilie skriver.",
-          "sv": "Lektionens längd i minuter, vald av läraren. Hur tiden delas upp står i avsnittet plan, som varje ämnesfamilj skriver."
+          "en": "The length of the lesson in minutes, chosen by the teacher. How the time is divided is in the section plan, which each subject family writes."
       },
       "desc-outputLanguage": {
-          "en": "Specifies the language the conversation is held in, and how to address the student",
-          "nb": "Angir hvilket språk samtalen føres på, og hvordan eleven tiltales",
-          "sv": "Anger vilket språk samtalet förs på, och hur eleven tilltalas"
+          "en": "Specifies the language the conversation is held in, and how to address the student"
       },
       "desc-writingStyle": {
-          "en": "Examples of the writing advice above in the conversation language",
-          "nb": "Eksempler på skriverådene over på samtalespråket",
-          "sv": "Exempel på skrivråden ovan på samtalsspråket"
+          "en": "Examples of the writing advice above in the conversation language"
       },
       "desc-nodeInstruction": {
-          "en": "The teacher's extra instruction for this node, if the tree has one",
-          "nb": "Lærerens ekstra instruks for denne noden, om treet har en",
-          "sv": "Lärarens extra instruktion för denna nod, om trädet har en"
+          "en": "The teacher's extra instruction for this node, if the tree has one"
       },
       "taken-from": {
-          "en": ", taken from the {link}.",
-          "nb": ", hentet fra {link}.",
-          "sv": ", hämtad från {link}."
+          "en": ", taken from the {link}."
       },
       "language-layer-link": {
-          "en": "language layer",
-          "nb": "språklaget",
-          "sv": "språklagret"
+          "en": "language layer"
       },
       "filled-from-tree": {
-          "en": ", filled in from the tree.",
-          "nb": ", fylt inn fra treet.",
-          "sv": ", ifylld från trädet."
+          "en": ", filled in from the tree."
       },
       "note-from": {
-          "en": "from:",
-          "nb": "fra:",
-          "sv": "från:"
+          "en": "from:"
       },
       "show-keywords": {
-          "en": "Show the keywords",
-          "nb": "Vis nøkkelordene",
-          "sv": "Visa nyckelorden"
+          "en": "Show the keywords"
       },
       "hide-keywords": {
-          "en": "Hide the keywords",
-          "nb": "Skjul nøkkelordene",
-          "sv": "Dölj nyckelorden"
+          "en": "Hide the keywords"
       },
       "keyword-count": {
-          "en": "{n} keywords",
-          "nb": "{n} nøkkelord",
-          "sv": "{n} nyckelord"
+          "en": "{n} keywords"
       },
       "subject-family-link": {
-          "en": "subject family",
-          "nb": "fagfamilien",
-          "sv": "ämnesfamiljen"
+          "en": "subject family"
       },
       "fdesc-vocabulary": {
-          "en": "How to pitch the language and explain new words",
-          "nb": "Hvordan språket legges på riktig nivå og nye ord forklares",
-          "sv": "Hur språket läggs på rätt nivå och nya ord förklaras"
+          "en": "How to pitch the language and explain new words"
       },
       "fdesc-leadIn": {
-          "en": "How to begin an explanation",
-          "nb": "Hvordan en forklaring begynner",
-          "sv": "Hur en förklaring börjar"
+          "en": "How to begin an explanation"
       },
       "fdesc-skillGuidance": {
-          "en": "How to practise a skill node",
-          "nb": "Hvordan en ferdighetsnode øves",
-          "sv": "Hur en färdighetsnod övas"
+          "en": "How to practise a skill node"
       },
       "fdesc-conceptGuidance": {
-          "en": "How to test a concept node",
-          "nb": "Hvordan en begrepsnode testes",
-          "sv": "Hur en begreppsnod testas"
+          "en": "How to test a concept node"
       },
       "fdesc-factGuidance": {
-          "en": "How to learn and drill a fact node",
-          "nb": "Hvordan en faktanode læres og drilles",
-          "sv": "Hur en faktanod lärs in och drillas"
+          "en": "How to learn and drill a fact node"
       },
       "fdesc-task": {
-          "en": "How many tasks to make, and what they look like",
-          "nb": "Hvor mange oppgaver som lages, og hvordan de ser ut",
-          "sv": "Hur många uppgifter som görs, och hur de ser ut"
+          "en": "How many tasks to make, and what they look like"
       },
       "fdesc-conceptMix": {
-          "en": "How concept points are tested",
-          "nb": "Hvordan begrepspunkter testes",
-          "sv": "Hur begreppspunkter testas"
+          "en": "How concept points are tested"
       },
       "fdesc-plan": {
-          "en": "The whole lesson, part by part: starter, each learning goal, diagnostic question and retrieval",
-          "nb": "Hele økta, del for del: oppstart, hvert læringsmål, diagnostisk spørsmål og gjenhenting",
-          "sv": "Hela lektionen, del för del: start, varje lärandemål, diagnostisk fråga och återhämtning"
+          "en": "The whole lesson, part by part: starter, each learning goal, diagnostic question and retrieval"
       },
       "desc-extra": {
-          "en": "The teacher's own additions to this instruction, empty by default",
-          "nb": "Lærerens egne tillegg til denne instruksen, tom som standard",
-          "sv": "Lärarens egna tillägg till denna instruktion, tomt som standard"
+          "en": "The teacher's own additions to this instruction, empty by default"
       },
       "fdesc-structure": {
-          "en": "The structure of the lesson",
-          "nb": "Øktas struktur",
-          "sv": "Lektionens struktur"
+          "en": "The structure of the lesson"
       },
       "fdesc-starter": {
-          "en": "The task the lesson begins with",
-          "nb": "Oppgaven økta begynner med",
-          "sv": "Uppgiften lektionen börjar med"
+          "en": "The task the lesson begins with"
       },
       "fdesc-examplePair": {
-          "en": "How each learning goal is taught, round by round",
-          "nb": "Hvordan hvert læringsmål undervises, runde for runde",
-          "sv": "Hur varje lärandemål undervisas, omgång för omgång"
+          "en": "How each learning goal is taught, round by round"
       },
       "fdesc-conceptAdaptation": {
-          "en": "How concept goals are taught",
-          "nb": "Hvordan begrepsmål undervises",
-          "sv": "Hur begreppsmål undervisas"
+          "en": "How concept goals are taught"
       },
       "fdesc-argumentsPractice": {
-          "en": "Arguments for why practice pays off",
-          "nb": "Argumenter for at øving lønner seg",
-          "sv": "Argument för att övning lönar sig"
+          "en": "Arguments for why practice pays off"
       },
       "fdesc-argumentsLongTerm": {
-          "en": "Arguments for why the subject matters later, used only if the student asks",
-          "nb": "Argumenter for hvorfor faget betyr noe senere, brukt bare hvis eleven spør",
-          "sv": "Argument för varför ämnet spelar roll senare, används bara om eleven frågar"
+          "en": "Arguments for why the subject matters later, used only if the student asks"
       },
       "used-in": {
-          "en": "used in:",
-          "nb": "brukes i:",
-          "sv": "används i:"
+          "en": "used in:"
       },
       "family-group-authoring": {
-          "en": "When a tree is written",
-          "nb": "Når et tre skrives",
-          "sv": "När ett träd skrivs"
+          "en": "When a tree is written"
       },
       "family-none": {
-          "en": "No subject family",
-          "nb": "Ingen fagfamilie",
-          "sv": "Ingen ämnesfamilj"
+          "en": "No subject family"
       },
       "family-only": {
-          "en": "No default in this release: only the subject families wrote this section. Choose a family above to read one.",
-          "nb": "Ingen standardtekst i denne utgivelsen: bare fagfamiliene skrev denne seksjonen. Velg en familie over for å lese en.",
-          "sv": "Ingen standardtext i denna utgåva: bara ämnesfamiljerna skrev detta avsnitt. Välj en familj ovan för att läsa en."
+          "en": "No default in this release: only the subject families wrote this section. Choose a family above to read one."
       },
       "family-none-status": {
-          "en": "A tree without a subject family gets these default texts. A tree in a subject family gets that family's own version of each.",
-          "nb": "Et tre uten fagfamilie får disse standardtekstene. Et tre i en fagfamilie får familiens egen versjon av hver av dem.",
-          "sv": "Ett träd utan ämnesfamilj får dessa standardtexter. Ett träd i en ämnesfamilj får familjens egen version av var och en."
+          "en": "A tree without a subject family gets these default texts. A tree in a subject family gets that family's own version of each."
       },
       "cond-hasPrerequisites": {
-          "en": "With prerequisites",
-          "nb": "Med forutsetninger",
-          "sv": "Med förkunskaper"
+          "en": "With prerequisites"
       },
       "cond-noPrerequisites": {
-          "en": "Without prerequisites",
-          "nb": "Uten forutsetninger",
-          "sv": "Utan förkunskaper"
+          "en": "Without prerequisites"
       },
       "cond-skillNode": {
-          "en": "Skill nodes",
-          "nb": "Ferdighetsnoder",
-          "sv": "Färdighetsnoder"
+          "en": "Skill nodes"
       },
       "cond-conceptNode": {
-          "en": "Concept nodes",
-          "nb": "Begrepsnoder",
-          "sv": "Begreppsnoder"
+          "en": "Concept nodes"
       },
       "cond-severalConcepts": {
-          "en": "Concept nodes with several terms",
-          "nb": "Begrepsnoder med flere begreper",
-          "sv": "Begreppsnoder med flera begrepp"
+          "en": "Concept nodes with several terms"
       },
       "cond-factNode": {
-          "en": "Fact nodes",
-          "nb": "Faktanoder",
-          "sv": "Faktanoder"
+          "en": "Fact nodes"
       },
       "cond-nodeInstruction": {
-          "en": "Nodes with an extra instruction",
-          "nb": "Noder med ekstra instruks",
-          "sv": "Noder med extra instruktion"
+          "en": "Nodes with an extra instruction"
       },
       "cond-aids": {
-          "en": "When aid levels are set",
-          "nb": "Når hjelpemiddelnivå er satt",
-          "sv": "När hjälpmedelsnivå är satt"
+          "en": "When aid levels are set"
       },
       "cond-severalAids": {
-          "en": "Several aid levels",
-          "nb": "Flere hjelpemiddelnivåer",
-          "sv": "Flera hjälpmedelsnivåer"
+          "en": "Several aid levels"
       },
       "cond-expressionFocus": {
-          "en": "When the tree sets expressionFocus",
-          "nb": "Når treet setter expressionFocus",
-          "sv": "När trädet sätter expressionFocus"
+          "en": "When the tree sets expressionFocus"
       },
       "cond-courseSpecifics": {
-          "en": "When the tree has a course text",
-          "nb": "Når treet har en kurstekst",
-          "sv": "När trädet har en kurstext"
+          "en": "When the tree has a course text"
       },
       "cond-hasConcepts": {
-          "en": "When concepts are included",
-          "nb": "Når begreper er med",
-          "sv": "När begrepp ingår"
+          "en": "When concepts are included"
       },
       "cond-allConcepts": {
-          "en": "Only concepts",
-          "nb": "Bare begreper",
-          "sv": "Bara begrepp"
+          "en": "Only concepts"
       },
       "cond-someConcepts": {
-          "en": "Concepts and skills mixed",
-          "nb": "Begreper og ferdigheter blandet",
-          "sv": "Begrepp och färdigheter blandat"
+          "en": "Concepts and skills mixed"
       },
       "examEasy": {
-          "en": "When the test is easy",
-          "nb": "Når prøven er lett",
-          "sv": "När provet är lätt"
+          "en": "When the test is easy"
       },
       "examMedium": {
-          "en": "When the test is medium",
-          "nb": "Når prøven er middels",
-          "sv": "När provet är medel"
+          "en": "When the test is medium"
       },
       "examHard": {
-          "en": "When the test is hard",
-          "nb": "Når prøven er vanskelig",
-          "sv": "När provet är svårt"
+          "en": "When the test is hard"
       },
       "examClosed": {
-          "en": "When the tasks are closed",
-          "nb": "Når oppgavene er lukkede",
-          "sv": "När uppgifterna är slutna"
+          "en": "When the tasks are closed"
       },
       "examOpen": {
-          "en": "When the tasks are open",
-          "nb": "Når oppgavene er åpne",
-          "sv": "När uppgifterna är öppna"
+          "en": "When the tasks are open"
       },
       "examMixed": {
-          "en": "When the tasks are mixed",
-          "nb": "Når oppgavene er blandet",
-          "sv": "När uppgifterna är blandade"
+          "en": "When the tasks are mixed"
       },
       "motNoStart": {
-          "en": "When the student has not said where they are",
-          "nb": "Når eleven ikke har sagt hvor hen står",
-          "sv": "När eleven inte har sagt var hen står"
+          "en": "When the student has not said where they are"
       },
       "motStartHard": {
-          "en": "When the student finds it hard",
-          "nb": "Når eleven synes det er vanskelig",
-          "sv": "När eleven tycker att det är svårt"
+          "en": "When the student finds it hard"
       },
       "motStartBored": {
-          "en": "When the student finds it boring",
-          "nb": "Når eleven synes det er kjedelig",
-          "sv": "När eleven tycker att det är tråkigt"
+          "en": "When the student finds it boring"
       },
       "motStartUse": {
-          "en": "When the student asks what it is for",
-          "nb": "Når eleven spør hva hen skal med det",
-          "sv": "När eleven frågar vad hen ska ha det till"
+          "en": "When the student asks what it is for"
       },
       "motShort": {
-          "en": "When the conversation is short",
-          "nb": "Når samtalen er kort",
-          "sv": "När samtalet är kort"
+          "en": "When the conversation is short"
       },
       "motLong": {
-          "en": "When the conversation is long",
-          "nb": "Når samtalen er lang",
-          "sv": "När samtalet är långt"
+          "en": "When the conversation is long"
       },
       "miniThreeLevels": {
-          "en": "When each goal has three levels",
-          "nb": "Når hvert mål har tre nivåer",
-          "sv": "När varje mål har tre nivåer"
+          "en": "When each goal has three levels"
       },
       "miniOneLevel": {
-          "en": "When each goal has one level",
-          "nb": "Når hvert mål har ett nivå",
-          "sv": "När varje mål har en nivå"
+          "en": "When each goal has one level"
       },
       "miniMixedTest": {
-          "en": "When the file ends with a mixed test",
-          "nb": "Når fila slutter med en blandet prøve",
-          "sv": "När filen slutar med ett blandat prov"
+          "en": "When the file ends with a mixed test"
       },
       "miniGame": {
-          "en": "When the file has game elements",
-          "nb": "Når fila har spillelementer",
-          "sv": "När filen har spelmoment"
+          "en": "When the file has game elements"
       },
       "miniEasyRead": {
-          "en": "When the text is easy to read",
-          "nb": "Når teksten er lettlest",
-          "sv": "När texten är lättläst"
+          "en": "When the text is easy to read"
       },
       "miniPlainRead": {
-          "en": "When the text is ordinary",
-          "nb": "Når teksten er vanlig",
-          "sv": "När texten är vanlig"
+          "en": "When the text is ordinary"
       },
       "miniReadAloud": {
-          "en": "When the text can be read aloud",
-          "nb": "Når teksten kan leses høyt",
-          "sv": "När texten kan läsas upp"
+          "en": "When the text can be read aloud"
       },
       "simDesignFirst": {
-          "en": "When the design is agreed first",
-          "nb": "Når designet avtales først",
-          "sv": "När designen bestäms först"
+          "en": "When the design is agreed first"
       },
       "simBuildNow": {
-          "en": "When the simulation is built straight away",
-          "nb": "Når simuleringen lages med en gang",
-          "sv": "När simuleringen byggs direkt"
+          "en": "When the simulation is built straight away"
       },
       "simScreenLaptop": {
-          "en": "For a laptop screen",
-          "nb": "For skjermen på en bærbar PC",
-          "sv": "För skärmen på en bärbar dator"
+          "en": "For a laptop screen"
       },
       "simScreenTablet": {
-          "en": "For a tablet",
-          "nb": "For nettbrett",
-          "sv": "För surfplatta"
+          "en": "For a tablet"
       },
       "simScreenProjector": {
-          "en": "For a projector",
-          "nb": "For prosjektor",
-          "sv": "För projektor"
+          "en": "For a projector"
       },
       "simTasks": {
-          "en": "When the simulation comes with tasks",
-          "nb": "Når simuleringen har oppgaver",
-          "sv": "När simuleringen har uppgifter"
+          "en": "When the simulation comes with tasks"
       },
       "simCritique": {
-          "en": "When the students criticise the model",
-          "nb": "Når elevene skal kritisere modellen",
-          "sv": "När eleverna ska granska modellen"
+          "en": "When the students criticise the model"
       },
       "simExport": {
-          "en": "When results can be exported",
-          "nb": "Når resultatene kan eksporteres",
-          "sv": "När resultaten kan exporteras"
+          "en": "When results can be exported"
       },
       "cond-lessonIntro": {
-          "en": "When the lesson type is Introduction",
-          "nb": "Når typen time er Introduksjon",
-          "sv": "När typen av lektion är Introduktion"
+          "en": "When the lesson type is Introduction"
       },
       "cond-lessonPractice": {
-          "en": "When the lesson type is Practice",
-          "nb": "Når typen time er Øving",
-          "sv": "När typen av lektion är Övning"
+          "en": "When the lesson type is Practice"
       },
       "cond-lessonReview": {
-          "en": "When the lesson type is Review",
-          "nb": "Når typen time er Repetisjon",
-          "sv": "När typen av lektion är Repetition"
+          "en": "When the lesson type is Review"
       },
       "cond-lessonOther": {
-          "en": "When the lesson type is Other",
-          "nb": "Når typen time er Annet",
-          "sv": "När typen av lektion är Annat"
+          "en": "When the lesson type is Other"
       },
       "cond-hasSkills": {
-          "en": "When skills are included",
-          "nb": "Når ferdigheter er med",
-          "sv": "När färdigheter ingår"
+          "en": "When skills are included"
       },
       "cond-hasFacts": {
-          "en": "When facts are included",
-          "nb": "Når fakta er med",
-          "sv": "När fakta ingår"
+          "en": "When facts are included"
       },
       "language-override-in": {
-          "en": "replaces a section in:",
-          "nb": "erstatter en seksjon i:",
-          "sv": "ersätter ett avsnitt i:"
+          "en": "replaces a section in:"
       },
       "family-add-in": {
-          "en": "adds a section",
-          "nb": "legger til en seksjon",
-          "sv": "lägger till ett avsnitt"
+          "en": "adds a section"
       },
       "fdesc-practiceLanguage": {
-          "en": "Which language the student practises in",
-          "nb": "Hvilket språk eleven øver på",
-          "sv": "Vilket språk eleven övar på"
+          "en": "Which language the student practises in"
       },
       "family-only-in": {
-          "en": "only in:",
-          "nb": "bare i:",
-          "sv": "bara i:"
+          "en": "only in:"
       },
       "kw-defaults": {
-          "en": "Default from each language layer:",
-          "nb": "Standard fra hvert språklag:",
-          "sv": "Standard från varje språklager:"
+          "en": "Default from each language layer:"
       },
       "family-title": {
-          "en": "The subject family",
-          "nb": "Fagfamilien",
-          "sv": "Ämnesfamiljen"
+          "en": "The subject family"
       },
       "language-title": {
-          "en": "The language layer",
-          "nb": "Språklaget",
-          "sv": "Språklagret"
+          "en": "The language layer"
       },
       "shared-title": {
-          "en": "Shared sections",
-          "nb": "Delte seksjoner",
-          "sv": "Delade avsnitt"
+          "en": "Shared sections"
       },
       "load-failed": {
-          "en": "The instructions could not be loaded:",
-          "nb": "Instruksene kunne ikke lastes:",
-          "sv": "Instruktionerna kunde inte laddas:"
+          "en": "The instructions could not be loaded:"
       },
       "show-prompt": {
-          "en": "Show the instruction",
-          "nb": "Vis instruksen",
-          "sv": "Visa instruktionen"
+          "en": "Show the instruction"
       },
       "hide-prompt": {
-          "en": "Hide the instruction",
-          "nb": "Skjul instruksen",
-          "sv": "Dölj instruktionen"
+          "en": "Hide the instruction"
       },
       "section-count": {
-          "en": "{n} sections",
-          "nb": "{n} seksjoner",
-          "sv": "{n} avsnitt"
+          "en": "{n} sections"
       },
       "section-count-one": {
-          "en": "one section",
-          "nb": "én seksjon",
-          "sv": "ett avsnitt"
+          "en": "one section"
       },
       "about-decomposition": {
-          "en": "Appended to the authoring prompt below, so that a teacher building a tree hands the model the whole method — the three node types, the data model and the prerequisite rules — before it writes a single row of the file. It is never sent to a student.",
-          "nb": "Legges ved forfatterinstruksen under, slik at en lærer som bygger et tre gir modellen hele metoden — de tre nodetypene, datamodellen og reglene for forutsetninger — før den skriver en eneste rad i fila. Den sendes aldri til en elev.",
-          "sv": "Läggs till författarinstruktionen nedan, så att en lärare som bygger ett träd ger modellen hela metoden — de tre nodtyperna, datamodellen och reglerna för förkunskaper — innan den skriver en enda rad i filen. Den skickas aldrig till en elev."
+          "en": "Appended to the authoring prompt below, so that a teacher building a tree hands the model the whole method — the three node types, the data model and the prerequisite rules — before it writes a single row of the file. It is never sent to a student."
       },
       "about-node": {
-          "en": "Added to the node a student picks in the tree, and pasted into an AI chat, so that the conversation trains that one skill and nothing else. This is the action the whole tool exists for. It has the model ask questions rather than hand over answers, and say clearly when the skill looks mastered.",
-          "nb": "Legges sammen med noden eleven velger i treet, og limes inn i en KI-chat, slik at samtalen øver akkurat den ene ferdigheten og ingenting annet. Dette er handlingen hele verktøyet finnes for. Den får modellen til å stille spørsmål framfor å gi svar, og si tydelig fra når ferdigheten ser ut til å sitte.",
-          "sv": "Läggs ihop med noden eleven väljer i trädet och klistras in i en AI-chatt, så att samtalet övar just den färdigheten och inget annat. Det här är handlingen hela verktyget finns för. Den får modellen att ställa frågor i stället för att ge svar, och säga tydligt till när färdigheten verkar sitta."
+          "en": "Added to the node a student picks in the tree, and pasted into an AI chat, so that the conversation trains that one skill and nothing else. This is the action the whole tool exists for. It has the model ask questions rather than hand over answers, and say clearly when the skill looks mastered."
       },
       "about-exam": {
-          "en": "Added to everything the student has ticked off, from the button at the bottom of a tree, so that the written test spans weeks of work rather than a single node. Spacing and retrieval follow from the design instead of being something the student has to remember to do. It withholds the answers until they have tried.",
-          "nb": "Legges sammen med alt eleven har huket av, fra knappen nederst i et tre, slik at den skriftlige prøven spenner over ukers arbeid framfor én enkelt node. Spacing og gjenhenting følger dermed av designet framfor å være noe eleven må huske å gjøre. Den holder tilbake fasiten til eleven har prøvd.",
-          "sv": "Läggs ihop med allt eleven kryssat i, från knappen längst ner i ett träd, så att det skriftliga provet spänner över veckors arbete i stället för en enda nod. Spacing och återhämtning följer därmed av designen i stället för att vara något eleven måste komma ihåg att göra. Det håller tillbaka facit tills eleven har försökt."
+          "en": "Added to everything the student has ticked off, from the button at the bottom of a tree, so that the written test spans weeks of work rather than a single node. Spacing and retrieval follow from the design instead of being something the student has to remember to do. It withholds the answers until they have tried."
       },
       "about-motivation": {
-          "en": "Added to the subject as a whole, from an optional button a tree can offer, for the student who cannot see why it is worth learning at all. It is a conversation that leads the student to state the value themselves, not a lecture that states it for them — and the tree decides whether to show it.",
-          "nb": "Legges sammen med faget som helhet, fra en valgfri knapp et tre kan tilby, for eleven som ikke ser hvorfor faget er verdt å lære i det hele tatt. Det er en samtale som leder eleven til å formulere verdien selv, ikke en formaning som gjør det for hen — og treet bestemmer selv om den vises.",
-          "sv": "Läggs ihop med ämnet som helhet, från en valfri knapp ett träd kan erbjuda, för eleven som inte ser varför ämnet är värt att lära sig alls. Det är ett samtal som leder eleven till att formulera värdet själv, inte en föreläsning som gör det åt hen — och trädet avgör själv om det visas."
+          "en": "Added to the subject as a whole, from an optional button a tree can offer, for the student who cannot see why it is worth learning at all. It is a conversation that leads the student to state the value themselves, not a lecture that states it for them — and the tree decides whether to show it."
       },
       "about-lessonPlan": {
-          "en": "Added to the part of the tree a teacher selects, so that the lesson plan builds on what the class is assumed to know already. The teacher presses the button on the tree page and takes the result to an AI chat; this is the one instruction here whose reader is a teacher rather than a student.",
-          "nb": "Legges sammen med den delen av treet læreren velger, slik at undervisningsopplegget bygger på det klassen antas å kunne fra før. Læreren trykker på knappen på tresida og tar resultatet med i en KI-chat; dette er den ene instruksen her som leses av en lærer framfor av en elev.",
-          "sv": "Läggs ihop med den del av trädet läraren väljer, så att lektionsupplägget bygger på det klassen antas kunna sedan tidigare. Läraren trycker på knappen på trädsidan och tar med resultatet till en AI-chatt; det här är den enda instruktionen här som läses av en lärare i stället för av en elev."
+          "en": "Added to the part of the tree a teacher selects, so that the lesson plan builds on what the class is assumed to know already. The teacher presses the button on the tree page and takes the result to an AI chat; this is the one instruction here whose reader is a teacher rather than a student."
       },
       "about-miniTree": {
-          "en": "Added to the goals a teacher selects, so that a chat model returns one HTML file in which students practise those goals on their own before a test. Laid out like the files of special-education teacher Nina Haugerud: the goals gathered into a few themes with levels, little to read, a worked example before each round, the answer and an explanation after, and mastery that unlocks the next level. The tree decides which goals share a theme and which come first.",
-          "nb": "Legges sammen med målene en lærer velger, slik at en KI-chat gir tilbake én HTML-fil der elevene øver på de målene på egen hånd før en prøve. Bygget opp som filene til spesialpedagog Nina Haugerud: målene samlet i noen få temaer med nivåer, lite å lese, et løst eksempel før hver runde, fasit og forklaring etterpå, og mestring som åpner neste nivå. Treet bestemmer hvilke mål som hører sammen, og hva som kommer først.",
-          "sv": "Läggs ihop med de mål en lärare väljer, så att en AI-chatt lämnar tillbaka en HTML-fil där eleverna övar på de målen på egen hand inför ett prov. Uppbyggd som specialpedagogen Nina Haugeruds filer: målen samlade i några få teman med nivåer, lite att läsa, ett löst exempel före varje omgång, facit och förklaring efteråt, och behärskning som låser upp nästa nivå. Trädet avgör vilka mål som hör ihop och vad som kommer först."
+          "en": "Added to the goals a teacher selects, so that a chat model returns one HTML file in which students practise those goals on their own before a test. Laid out like the files of special-education teacher Nina Haugerud: the goals gathered into a few themes with levels, little to read, a worked example before each round, the answer and an explanation after, and mastery that unlocks the next level. The tree decides which goals share a theme and which come first."
       },
       "about-simulation": {
-          "en": "Added to the goals a teacher selects, so that a chat model develops a simple interactive simulation of them as one HTML file. After the prompt by Henning Vinjusveen Myhrehagen on skolesim.no: the design is agreed before any code, the subject model governs the simulation, and an \"About the model\" panel says what it leaves out.",
-          "nb": "Legges sammen med målene en lærer velger, slik at en KI-chat utvikler en enkel, interaktiv simulering av dem som én HTML-fil. Etter ledeteksten til Henning Vinjusveen Myhrehagen på skolesim.no: designet avtales før koden, fagmodellen styrer simuleringen, og et «Om modellen»-panel sier hva den utelater.",
-          "sv": "Läggs ihop med de mål en lärare väljer, så att en AI-chatt utvecklar en enkel, interaktiv simulering av dem som en HTML-fil. Efter instruktionen av Henning Vinjusveen Myhrehagen på skolesim.no: designen bestäms före koden, ämnesmodellen styr simuleringen, och en panel ”Om modellen” säger vad den utelämnar."
+          "en": "Added to the goals a teacher selects, so that a chat model develops a simple interactive simulation of them as one HTML file. After the prompt by Henning Vinjusveen Myhrehagen on skolesim.no: the design is agreed before any code, the subject model governs the simulation, and an \"About the model\" panel says what it leaves out."
       },
       "about-authoring": {
-          "en": "Pasted into an AI chat by a teacher who wants a tree of their own, so that the model asks for the subject, the level and the curriculum and hands back a file this site can read. It wraps the decomposition model above with what the model cannot guess: what the site does with the file, what may be changed, and what each error message means.",
-          "nb": "Limes inn i en KI-chat av en lærer som vil ha sitt eget tre, slik at modellen spør om fag, nivå og læreplan og gir tilbake en fil denne siden kan lese. Den pakker inn dekomponeringsmodellen over med det modellen ikke kan gjette: hva siden gjør med fila, hva som kan endres, og hva hver feilmelding betyr.",
-          "sv": "Klistras in i en AI-chatt av en lärare som vill ha ett eget träd, så att modellen frågar efter ämne, nivå och läroplan och lämnar tillbaka en fil den här sidan kan läsa. Den ramar in nedbrytningsmodellen ovan med det modellen inte kan gissa: vad sidan gör med filen, vad som kan ändras, och vad varje felmeddelande betyder."
+          "en": "Pasted into an AI chat by a teacher who wants a tree of their own, so that the model asks for the subject, the level and the curriculum and hands back a file this site can read. It wraps the decomposition model above with what the model cannot guess: what the site does with the file, what may be changed, and what each error message means."
       },
       "about-language": {
-          "en": "Added to every instruction the engine composes, so that a Norwegian tree is discussed in Norwegian and a Swedish one in Swedish. One file per language holds what the instructions deliberately leave open: which language the conversation is held in, and what good prose looks like in it. The same sections stand marked inside the instructions above, where they land.",
-          "nb": "Legges til i hver eneste instruks motoren setter sammen, slik at et norsk tre snakkes om på norsk og et svensk på svensk. Én fil per språk holder det instruksene bevisst lar stå åpent: hvilket språk samtalen føres på, og hva god prosa er på det språket. De samme seksjonene står merket inne i instruksene over, der de lander.",
-          "sv": "Läggs till i varenda instruktion motorn sätter samman, så att ett norskt träd talas om på norska och ett svenskt på svenska. En fil per språk håller det instruktionerna medvetet lämnar öppet: vilket språk samtalet förs på, och vad god prosa är på det språket. Samma avsnitt står märkta inne i instruktionerna ovan, där de landar."
+          "en": "Added to every instruction the engine composes, so that a Norwegian tree is discussed in Norwegian and a Swedish one in Swedish. One file per language holds what the instructions deliberately leave open: which language the conversation is held in, and what good prose looks like in it. The same sections stand marked inside the instructions above, where they land."
       },
       "about-family": {
-          "en": "Some sections need different text for different subjects: how to lead in to a topic in mathematics is not how to do it in history. The instructions above refer to this card for those sections. Every subject family has its own version of each of them, copying the default where it has nothing of its own, so two subjects can be compared section by section; “No subject family” shows the defaults, which a tree without a family gets. The same file holds the decomposition rules a teacher or an agent reads before writing a single row of the tree. A tree names its family in its own file.",
-          "nb": "Noen seksjoner trenger ulik tekst for ulike fag: å lede inn til et tema i matematikk gjøres ikke som i historie. Instruksene over viser hit for de seksjonene. Hver fagfamilie har sin egen versjon av hver av dem, med en kopi av standardteksten der den ikke har noe eget, så to fag kan sammenliknes seksjon for seksjon; «Ingen fagfamilie» viser standardtekstene, som et tre uten familie får. Den samme fila har dekomponeringsreglene en lærer eller en agent leser før den skriver en eneste rad i treet. Et tre oppgir familien sin i sin egen fil.",
-          "sv": "Vissa avsnitt behöver olika text för olika ämnen: att leda in i ett område i matematik görs inte som i historia. Instruktionerna ovan hänvisar hit för de avsnitten. Varje ämnesfamilj har sin egen version av vart och ett, med en kopia av standardtexten där den inte har något eget, så två ämnen kan jämföras avsnitt för avsnitt; ”Ingen ämnesfamilj” visar standardtexterna, som ett träd utan familj får. Samma fil har nedbrytningsreglerna en lärare eller en agent läser innan den skriver en enda rad i trädet. Ett träd anger sin familj i sin egen fil."
+          "en": "Some sections need different text for different subjects: how to lead in to a topic in mathematics is not how to do it in history. The instructions above refer to this card for those sections. Every subject family has its own version of each of them, copying the default where it has nothing of its own, so two subjects can be compared section by section; “No subject family” shows the defaults, which a tree without a family gets. The same file holds the decomposition rules a teacher or an agent reads before writing a single row of the tree. A tree names its family in its own file."
       },
       "about-shared": {
-          "en": "Added to each instruction that names one of these sections, so that text which must read the same everywhere is written once. Kept in one place so the copies cannot drift apart.",
-          "nb": "Legges inn i hver instruks som navngir en av disse seksjonene, slik at tekst som skal være lik overalt er skrevet én gang. Holdt ett sted så kopiene ikke kan komme fra hverandre.",
-          "sv": "Läggs in i varje instruktion som namnger ett av dessa avsnitt, så att text som ska vara lika överallt är skriven en gång. Hålls på ett ställe så att kopiorna inte kan glida isär."
+          "en": "Added to each instruction that names one of these sections, so that text which must read the same everywhere is written once. Kept in one place so the copies cannot drift apart."
       },
       "versions-note": {
-          "en": "Every release of the method is here, back to the first. Choosing a version of one instruction moves the whole page to a release that had that version, so the page only shows instructions that were released together. Compare shows each instruction as one table, section by section, with the newer release in the middle column and the older on the right: what was added is green, what was removed is struck through in red.",
-          "nb": "Hver utgivelse av metoden ligger her, helt tilbake til den første. Velger du en versjon av én instruks, flyttes hele sida til en utgivelse som hadde den versjonen, så sida viser bare instrukser som ble utgitt sammen. Sammenlikning viser hver instruks som én tabell, seksjon for seksjon, med den nyere utgivelsen i midten og den eldre til høyre: det som er lagt til, er grønt, og det som er fjernet, er strøket i rødt.",
-          "sv": "Varje utgåva av metoden finns här, ända tillbaka till den första. Väljer du en version av en instruktion flyttas hela sidan till en utgåva som hade den versionen, så sidan visar bara instruktioner som gavs ut tillsammans. Jämförelse visar varje instruktion som en tabell, avsnitt för avsnitt, med den nyare utgåvan i mitten och den äldre till höger: det som lagts till är grönt, och det som tagits bort är struket i rött."
+          "en": "Every release of the method is here, back to the first. Choosing a version of one instruction moves the whole page to a release that had that version, so the page only shows instructions that were released together. Compare shows each instruction as one table, section by section, with the newer release in the middle column and the older on the right: what was added is green, what was removed is struck through in red."
       },
       "release-label": {
-          "en": "Release",
-          "nb": "Utgivelse",
-          "sv": "Utgåva"
+          "en": "Release"
       },
       "release-current": {
-          "en": "published now",
-          "nb": "publisert nå",
-          "sv": "publicerad nu"
+          "en": "published now"
       },
       "older-label": {
-          "en": "Older release",
-          "nb": "Eldre utgivelse",
-          "sv": "Äldre utgåva"
+          "en": "Older release"
       },
       "newer-label": {
-          "en": "Newer release",
-          "nb": "Nyere utgivelse",
-          "sv": "Nyare utgåva"
+          "en": "Newer release"
       },
       "compare-on": {
-          "en": "Compare with an earlier release",
-          "nb": "Sammenlikn med en tidligere utgivelse",
-          "sv": "Jämför med en tidigare utgåva"
+          "en": "Compare with an earlier release"
       },
       "compare-off": {
-          "en": "Stop comparing",
-          "nb": "Slutt å sammenlikne",
-          "sv": "Sluta jämföra"
+          "en": "Stop comparing"
       },
       "col-older": {
-          "en": "{tag} (older)",
-          "nb": "{tag} (eldre)",
-          "sv": "{tag} (äldre)"
+          "en": "{tag} (older)"
       },
       "col-newer": {
-          "en": "{tag} (newer)",
-          "nb": "{tag} (nyere)",
-          "sv": "{tag} (nyare)"
+          "en": "{tag} (newer)"
       },
       "no-change": {
-          "en": "No change ({v} in both).",
-          "nb": "Ingen endring ({v} i begge).",
-          "sv": "Ingen ändring ({v} i båda)."
+          "en": "No change ({v} in both)."
       },
       "no-change-plain": {
-          "en": "No change.",
-          "nb": "Ingen endring.",
-          "sv": "Ingen ändring."
+          "en": "No change."
       },
       "moved-into": {
-          "en": "Moved into {section} in {tag}.",
-          "nb": "Flyttet inn i {section} i {tag}.",
-          "sv": "Flyttat in i {section} i {tag}."
+          "en": "Moved into {section} in {tag}."
       },
       "moved-from": {
-          "en": "Not in {tag}: there the text was split over {sections}.",
-          "nb": "Finnes ikke i {tag}: der var teksten delt på {sections}.",
-          "sv": "Finns inte i {tag}: där var texten uppdelad på {sections}."
+          "en": "Not in {tag}: there the text was split over {sections}."
       },
       "not-in": {
-          "en": "Not in {tag}.",
-          "nb": "Finnes ikke i {tag}.",
-          "sv": "Finns inte i {tag}."
+          "en": "Not in {tag}."
       },
       "version-of": {
-          "en": "Version of {x}",
-          "nb": "Versjon av {x}",
-          "sv": "Version av {x}"
+          "en": "Version of {x}"
       },
       "format-changed": {
-          "en": "The format changed between these releases, from Markdown to JSON, so the sections do not line up and the two texts are shown whole, unmarked.",
-          "nb": "Formatet ble endret mellom disse utgivelsene, fra Markdown til JSON, så seksjonene svarer ikke til hverandre, og de to tekstene vises hele, umerket.",
-          "sv": "Formatet ändrades mellan dessa utgåvor, från Markdown till JSON, så avsnitten motsvarar inte varandra, och de två texterna visas hela, omarkerade."
+          "en": "The format changed between these releases, from Markdown to JSON, so the sections do not line up and the two texts are shown whole, unmarked."
       },
       "legend-before": {
-          "en": "In each table,",
-          "nb": "I hver tabell er",
-          "sv": "I varje tabell är"
+          "en": "In each table,"
       },
       "legend-after": {
-          "en": ".",
-          "nb": ".",
-          "sv": "."
+          "en": "."
       },
       "version-option": {
-          "en": "{v} (release {r})",
-          "nb": "{v} (utgivelse {r})",
-          "sv": "{v} (utgåva {r})"
+          "en": "{v} (release {r})"
       },
       "release-range": {
-          "en": "release {r}",
-          "nb": "utgivelse {r}",
-          "sv": "utgåva {r}"
+          "en": "release {r}"
       },
       "not-present": {
-          "en": "not present",
-          "nb": "finnes ikke",
-          "sv": "finns inte"
+          "en": "not present"
       },
       "legend-added": {
-          "en": "text added in the newer release is green",
-          "nb": "tekst som er lagt til i den nyere utgivelsen, grønn",
-          "sv": "text som lagts till i den nyare utgåvan grön"
+          "en": "text added in the newer release is green"
       },
       "legend-middle": {
-          "en": ", and",
-          "nb": ", og",
-          "sv": ", och"
+          "en": ", and"
       },
       "legend-removed": {
-          "en": "text removed from the older release is struck through in red",
-          "nb": "tekst som er fjernet fra den eldre, strøket i rødt",
-          "sv": "text som tagits bort från den äldre struken i rött"
+          "en": "text removed from the older release is struck through in red"
       },
       "whole-text": {
-          "en": "whole text",
-          "nb": "hele teksten",
-          "sv": "hela texten"
+          "en": "whole text"
       }
   }
   </script>

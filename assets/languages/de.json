@@ -1,0 +1,458 @@
+{
+  "code": "de",
+  "htmlLang": "de",
+  "name": "Deutsch",
+  "endonym": "Deutsch",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json, plus prompt.conversationLanguage, like nb.json and sv.json. Standard German as used in schools in Germany, in the standard spelling with ß, and kept neutral enough for Austrian and Swiss trees: regional words (Matura, Schularbeit, Lernende) belong in a tree's own slots.courseSpecifics, not here. Pupils are addressed with «du», as German teachers do in lower secondary. Teachers are «Lehrkräfte», a gender-neutral word German schools use; pupils are «Schülerinnen und Schüler».",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use: «die Schülerin oder der Schüler», «die oder der Studierende», «die Teilnehmerin oder der Teilnehmer» or anything else. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. The lead-ins use a SINGULAR verb (kann, weiß), so a tree's own `learner` must be singular too: «die Schülerin oder der Schüler», not «die Schülerinnen und Schüler». A skill description is a bare infinitive phrase with the verb last («Die Schülerin oder der Schüler kann: Brüche addieren und subtrahieren»), a concept a definition, a fact list items to know.",
+    "default": "die Schülerin oder der Schüler",
+    "legacy": {
+      "pupil": "die Schülerin oder der Schüler",
+      "student": "die oder der Studierende",
+      "participant": "die Teilnehmerin oder der Teilnehmer"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} kann:",
+      "concept": "{LearnerDefinite} kann erklären:",
+      "fact": "{LearnerDefinite} weiß:"
+    }
+  },
+  "ui": {
+    "backLink": "← Alle Bäume",
+    "pageTitle": "Kompetenzbaum: {title}",
+    "tagline": "Eine Karte, die zeigt, wie Lernziele aufeinander aufbauen — hak ab, was du kannst, und kopier eine KI-Anweisung, um das Nächste zu üben.",
+    "makeYourOwn": "{subject}. Erstell deinen eigenen Baum:",
+    "progressLabel": "{done} von {total} Lernzielen erreicht",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "fitToView": "Ganzen Baum zeigen",
+    "fitToViewTitle": "Ganzen Baum zeigen (Strg + Mausrad zum Zoomen)",
+    "close": "✕ Schließen",
+    "closeLower": "✕ Schließen",
+    "copied": "Kopiert!",
+    "copyFallback": "Automatisches Kopieren hat nicht geklappt — kopier den Text unten von Hand:",
+    "errorBanner": "⚠ Probleme in den Datendateien: {n} (Details in der Konsole):",
+    "errorCsv": "Die Tabelle konnte in Zeile {row} nicht gelesen werden: {message}",
+    "errorCsvHeader": "Die erste Zeile von {file} muss die Spalten benennen. Es fehlt: {missing}. In der ersten Zeile steht: {found}. Die Datei wurde wahrscheinlich ohne ihre erste Zeile oder in einem anderen Format gespeichert; speichere sie noch einmal als einfache CSV-Datei.",
+    "errorUnknownDep": "Der Knoten „{id}“ nennt „{dep}“ als Voraussetzung, aber kein Knoten hat diese ID.",
+    "errorNoTopic": "Der Knoten „{id}“ hat kein Thema und landet in der Sammelspalte „{topic}“.",
+    "errorUnknownResourceNode": "Zeile {row} von tree.csv: Die Ressource verweist in depends_on auf die Knoten-ID „{id}“, die es nicht gibt.",
+    "errorExamsRenamed": "Zeile {row} von tree.csv: Die Einstellung „features.exams“ stammt aus der Zeit vor Version 0.22.0. Ressourcen sind jetzt Zeilen in tree.csv mit dem Typ „resource“: topic = Gruppe, name = Titel, description = Link, depends_on = die Knoten. Lösche die Zeile und öffne den Baum im Editor, um eine alte exams.csv umzuwandeln. Nichts wurde übernommen.",
+    "errorResourceEmpty": "Zeile {row} von tree.csv: Die Ressource hat weder einen Titel (name) noch einen Link (description).",
+    "errorResourceNoNode": "Zeile {row} von tree.csv: Die Ressource „{label}“ gehört zu keinem Knoten. Trag eine oder mehrere Knoten-IDs in depends_on ein, oder lösche die Zeile.",
+    "errorResourceDuplicate": "Zeile {row} von tree.csv: Die Ressource „{label}“ ist dieselbe wie in Zeile {first}. Mach eine Zeile daraus, mit allen Knoten in depends_on.",
+    "errorResourceUrl": "Zeile {row} von tree.csv: Der Link der Ressource „{label}“ muss mit https:// oder mailto: beginnen. Sie wird deshalb als einfacher Text ohne Link angezeigt.",
+    "errorCycle": "Diese Knoten sind im Kreis gegenseitig Voraussetzung füreinander: {cycle}. Eine dieser Verbindungen muss weg.",
+    "errorUnknownConfig": "Unbekannte Einstellung „{key}“ in Zeile {row} von tree.csv. Nichts wurde übernommen.",
+    "errorUnknownNodeType": "Der Knoten „{id}“ hat den Typ „{type}“, den es nicht gibt. Die Typen sind: {valid}.",
+    "errorUnknownPromptSection": "Unbekannter Abschnitt „{section}“ in der prompt-Zeile, Zeile {row} von tree.csv. Nichts wurde übernommen.",
+    "errorUnknownPromptTarget": "Die prompt-Zeile in Zeile {row} von tree.csv zielt auf „{name}“, und das ist keine Anweisung, die dieser Baum zusammensetzt. Nichts wurde übernommen.",
+    "errorDidYouMean": "Meintest du „{key}“?",
+    "errorMissingConfig": "In tree.csv fehlt die config-Zeile für „{key}“, die Pflicht ist.",
+    "errorStyleColor": "Die Einstellung „{key}“ in Zeile {row} von tree.csv muss eine Farbe als Hex-Code sein, zum Beispiel #1F6F4A. „{value}“ ist keiner, deshalb bleibt die Standardfarbe.",
+    "errorLinkUrl": "Die Einstellung „{key}“ in Zeile {row} von tree.csv muss ein Link sein, der mit https:// oder mailto: beginnt. „{value}“ ist keiner, deshalb wird er als einfacher Text angezeigt.",
+    "errorStyleFont": "Unbekannte Schriftart „{value}“ in Zeile {row} von tree.csv. Diese Schriftarten kann ein Baum verwenden: {valid}. Die Standardschrift bleibt.",
+    "nodeType": {
+      "skill": "Fertigkeit",
+      "concept": "Begriff",
+      "fact": "Fakten"
+    },
+    "badges": {
+      "del1": "Teil 1",
+      "del2": "Teil 2",
+      "begge": "Teil 1+2"
+    },
+    "status": {
+      "mastered": "Kann ich",
+      "ready": "Bereit zum Lernen",
+      "notMastered": "Kann ich noch nicht",
+      "blocked": "Zuerst fehlt: {codes}"
+    },
+    "help": {
+      "label": "Hilfe",
+      "heading": "Hilfe",
+      "sections": [
+        {
+          "heading": "Das Menü",
+          "body": "Alles andere findest du unter ☰ unten links: die Lernziele, die Suche, den Test, das Drucken und den Rest. Jedes Fenster hat ein „?“, das es erklärt.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Die Karte",
+          "body": "Jedes Kästchen ist ein Lernziel, und die Pfeile führen von dem weg, was du zuerst können musst. Die Form zeigt den Typ: Fakten sind eckig, Begriffe leicht abgerundet und Fertigkeiten rund. Zieh die Karte, um sie zu verschieben, und zoome mit + und −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Kann ich",
+          "body": "Tipp auf den Kreis in einem Kästchen, wenn du das Lernziel kannst, dann wird er zu einem grünen Häkchen. Das wird nur in deinem Browser gespeichert.",
+          "figure": "check"
+        },
+        {
+          "heading": "Ein Kästchen",
+          "body": "Tipp auf ein Kästchen, um zu sehen, was das Lernziel verlangt, worauf es aufbaut, und eine KI-Anweisung, die du zum Üben in einen KI-Chat einfügen kannst. Tipp noch einmal, um es zu schließen.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Viele abhaken",
+          "body": "Die Listen-Symbole haken alle Ziele eines Themas auf einmal ab oder entfernen die Häkchen. Mit A und B gelten sie für den ganzen Baum.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Suchen",
+          "body": "Finde ein Lernziel über ein Wort aus seinem Namen oder seiner Beschreibung.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Eine KI-Anweisung für einen Test zu den Zielen, die du auswählst. Du bestimmst den Schwierigkeitsgrad, die Anzahl und die Art der Aufgaben.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Stundenplanung (für Lehrkräfte)",
+          "body": "Wähl Lernziele aus und tipp auf „Material erstellen“ für eine Stundenplanung, einen Mini-Baum oder eine Simulation.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Drucken",
+          "body": "Lade den ganzen Baum als PDF herunter, mit Kreisen, die die Schülerinnen und Schüler mit dem Stift abhaken können.",
+          "figure": "print"
+        },
+        {
+          "heading": "Das Hilfsmittel-Etikett",
+          "body": "„Teil 1“ oder „Teil 2“ im Seitenfenster zeigt, zu welcher Hilfsmittelstufe das Ziel gehört. Tipp auf das Etikett, um mehr unter „Über den Kurs“ zu lesen.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivation",
+          "body": "Ein kurzes Gespräch mit einer KI darüber, warum es sich lohnt, das Fach zu lernen.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Tastenkürzel",
+        "search": "Suche öffnen",
+        "escape": "Offenes Fenster, Menü oder Seitenfenster schließen",
+        "zoom": "Vergrößern und verkleinern",
+        "fit": "Ganzen Baum zeigen und wieder zurück"
+      }
+    },
+    "safety": {
+      "label": "Sicherheit",
+      "heading": "Sicherheit",
+      "lead": "Ein Kompetenzbaum wird von einer Lehrkraft erstellt, aber jede und jeder kann eine Datei machen, die so aussieht. Lies das, bevor du einen Baum benutzt, den dir jemand geschickt hat.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Ein Kompetenzbaum fragt nie nach persönlichen Daten",
+          "body": "Der Baum hat keine Anmeldung und braucht nichts über dich. Er fragt nie nach deinem Namen, einem Passwort, deinem Schul-Login, einer Ausweisnummer, deiner Adresse, deiner Telefonnummer oder danach, auf welche Schule du gehst. Dein Fortschritt wird nur im Browser auf diesem Gerät gespeichert. Wenn eine Seite, die wie ein Kompetenzbaum aussieht, nach so etwas fragt, ist sie nicht echt. Schließ sie und sag deiner Lehrkraft Bescheid."
+        },
+        {
+          "id": "sender",
+          "heading": "Wer hat dir den Baum geschickt?",
+          "body": "Die wichtigste Frage ist, woher der Baum kommt. Einem Baum auf aiskilltrees.com, oder einem, den deine Lehrkraft dort eingestellt hat, wo du sonst dein Unterrichtsmaterial bekommst, kannst du so weit vertrauen wie deiner Lehrkraft. Wenn du eine Datei per E-Mail, in einem Chat oder in sozialen Medien von jemandem bekommen hast, den du nicht kennst, oder ganz unerwartet, sei skeptisch, auch wenn sie richtig aussieht."
+        },
+        {
+          "id": "html",
+          "heading": "Eine HTML-Datei ist eine Webseite, kein Dokument",
+          "body": "Wenn ein Baum als .html-Datei geteilt wird, bekommst du kein Dokument wie ein PDF oder eine Word-Datei. Du bekommst eine ganze Webseite mit Code, der läuft, wenn du sie öffnest. Der Browser verhindert, dass sie deine Dateien liest oder etwas auf dem Computer installiert, aber sie kann alles Mögliche anzeigen: eine gefälschte Anmeldeseite, einen Knopf, der etwas herunterlädt, oder Links zu anderen Websites. Was die Datei tut, bestimmt, wer sie gemacht hat. Dass sie wie ein Kompetenzbaum aussieht, heißt nicht, dass sie einer ist. Melde dich nie an und lade nie etwas herunter auf einer Seite, die du aus einer Datei geöffnet hast."
+        },
+        {
+          "id": "links",
+          "heading": "Prüf Links, bevor du klickst",
+          "body": "Die Ressourcen im Baum können auf Videos, Übungen und Schulbücher verlinken. Fahr mit der Maus über einen Link, oder halt ihn gedrückt, und schau, wohin er führt, bevor du klickst. Wenn du die Website nicht kennst oder die Adresse komisch aussieht, lass es."
+        },
+        {
+          "id": "injection",
+          "heading": "Anweisungen können manipuliert sein",
+          "body": "Die KI-Anweisung, die du kopierst, ist ein Text von der Person, die den Baum gemacht hat, und du fügst ihn direkt in einen KI-Chat ein. Wer einen Baum macht, kann alles hineinschreiben, auch Befehle, die den Chat anders reagieren lassen, als du erwartest: dir falsche Antworten geben, dich auf eine andere Website schicken oder nach Dingen fragen, die ihn nichts angehen. Das nennt man Prompt-Injection. Es kann sinnvoll sein, den Text vor dem Einfügen zu überfliegen, und du solltest dem Chat nicht blind vertrauen."
+        },
+        {
+          "id": "chat",
+          "heading": "Du entscheidest, was du dem Chat erzählst",
+          "body": "Manche Anweisungen bitten den Chat, dich kennenzulernen, zum Beispiel wie du das Fach findest und was du gut kannst. Du kannst so viel oder so wenig antworten, wie du willst. Aber keine Anweisung braucht deinen Namen, deine Kontaktdaten oder Passwörter. Wenn der Chat nach so etwas fragt, antworte nicht und sag deiner Lehrkraft Bescheid. Denk auch daran, dass das, was du in einen KI-Chat schreibst, von der Firma gespeichert wird, die den Chat betreibt. Deine Schule hat oft Zugang zu einem KI-Dienst, bei dem deine Daten geschützt sind. Frag deine Lehrkraft, und nutz ihn, wenn es einen gibt."
+        },
+        {
+          "id": "teachers",
+          "heading": "Für Lehrkräfte: ein Baum von Kolleginnen oder Kollegen",
+          "body": "Wenn du einen Baum von jemand anderem bekommen hast, kannst du ihn zur Sicherheit im Editor auf aiskilltrees.com/make-your-own/ öffnen, bevor du ihn mit deiner Klasse teilst. Der Editor nimmt nur die Tabelle aus der Datei und macht daraus eine neue, saubere Datei, und dort kannst du jede Anweisung lesen, die der Baum verwendet."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Lernziele",
+      "title": "Eine geordnete Liste aller Lernziele zeigen, nach Themen sortiert",
+      "heading": "Lernziele",
+      "copyAll": "Alles kopieren",
+      "intro": "Die Liste zeigt alle Lernziele des Kurses, nach Themen sortiert, jeweils mit ihrem Stand. Hak ein Ziel ab, um es als gekonnt zu markieren — dasselbe Häkchen wie am Knoten auf der Karte —, so kannst du die Liste der Reihe nach durchgehen und markieren, was du schon durchgearbeitet hast.",
+      "markAria": "„{name}“ als gekonnt markieren",
+      "markAllButton": "Alle als gekonnt markieren",
+      "clearAllButton": "Alle Markierungen entfernen",
+      "clearAllConfirm": "Die Markierung „gekonnt“ bei allen Lernzielen im Baum entfernen?",
+      "openNode": "Zu diesem Knoten auf der Karte"
+    },
+    "lessonPlanner": {
+      "button": "Stundenplanung",
+      "title": "Lernziele auswählen und eine KI-Anweisung für eine Stundenplanung, einen Mini-Baum oder eine Simulation kopieren",
+      "selectAll": "Alle auswählen",
+      "deselectAll": "Auswahl aufheben",
+      "selectTopic": "Alle Lernziele im Thema „{topic}“ auswählen",
+      "deselectTopic": "Auswahl im Thema „{topic}“ aufheben",
+      "heading": "Stundenplanung",
+      "intro": "Hak die Lernziele an, für die du etwas erstellen willst, und tipp unten auf „Material erstellen“. Dort wählst du, was es werden soll: eine Stundenplanung, ein Mini-Baum oder eine Simulation. Die Häkchen hier sind nur dafür da: Sie markieren nichts als gekonnt und verschwinden, wenn du die Seite neu lädst."
+    },
+    "search": {
+      "button": "Suchen",
+      "title": "Die Lernziele nach Name und Beschreibung durchsuchen",
+      "heading": "Suchen",
+      "placeholder": "Lernziele durchsuchen …",
+      "hint": "Gib ein Wort ein. Die Suche durchsucht Name, Beschreibung und Thema jedes Lernziels, und du kannst direkt zum Knoten auf der Karte springen.",
+      "noResults": "Kein Lernziel enthält „{query}“.",
+      "countOne": "1 Lernziel",
+      "countMany": "{n} Lernziele",
+      "openNode": "Zu diesem Knoten auf der Karte"
+    },
+    "resourceList": {
+      "button": "Aufgaben und Quellen",
+      "title": "Alle Ressourcen im Baum zeigen und die Lernziele, zu denen sie gehören",
+      "heading": "Aufgaben und Quellen",
+      "placeholder": "Aufgaben und Quellen filtern …",
+      "intro": "Aufgaben und Quellen: {n}",
+      "countFiltered": "{n} von {total}",
+      "noResults": "Keine Ressource passt zu „{query}“.",
+      "openNode": "Zu diesem Knoten auf der Karte",
+      "help": "Aufgaben und Quellen, die zum Baum gehören, zum Beispiel Prüfungsaufgaben, Links und Videos. Unter jeder stehen die Lernziele, zu denen sie gehört; tipp auf eines, um es auf der Karte zu finden. Tipp etwas ins Feld, um zu filtern."
+    },
+    "motivation": {
+      "button": "Motivation",
+      "title": "Eine KI-Anweisung für ein Gespräch darüber kopieren, warum es sich lohnt, das Fach zu lernen",
+      "heading": "Motivation",
+      "desc": "Ein kurzes Gespräch mit einer KI darüber, warum es sich lohnt, das Fach zu lernen. Die KI fragt und hört zu, und ihr findet die Antwort gemeinsam.",
+      "help": "Tipp auf „Anweisung kopieren“ und füg sie in einen KI-Chat ein. Das Gespräch beginnt da, wo du gerade stehst, und die KI stellt eine Frage nach der anderen. Nichts, was du schreibst, wird hier gespeichert.",
+      "startLabel": "Wie geht es dir mit dem Fach?",
+      "start": {
+        "unknown": "Weiß nicht",
+        "hard": "Es ist schwer",
+        "bored": "Es ist langweilig",
+        "use": "Wofür brauche ich das?"
+      },
+      "lengthLabel": "Länge",
+      "length": {
+        "short": "Kurz",
+        "normal": "Normal",
+        "long": "Lang"
+      }
+    },
+    "lesson": {
+      "button": "Stunde planen (für Lehrkräfte)",
+      "title": "Eine KI-Anweisung für eine vollständige Stunde zu den angehakten Zielen kopieren",
+      "typeLabel": "Art der Stunde",
+      "typeAria": "Welche Art von Stunde das ist",
+      "types": {
+        "intro": "Einführung",
+        "practice": "Übung",
+        "review": "Wiederholung",
+        "other": "Andere"
+      },
+      "minutesLabel": "Dauer",
+      "minutesAria": "Dauer der Stunde in Minuten",
+      "includeAria": "„{name}“ in die Stundenplanung aufnehmen",
+      "selectedNone": "Keine Lernziele ausgewählt",
+      "selectedOne": "1 Lernziel ausgewählt",
+      "selectedMany": "{n} Lernziele ausgewählt"
+    },
+    "make": {
+      "button": "Material erstellen →",
+      "buttonTitle": "Auswählen, was du für die angehakten Lernziele erstellen willst",
+      "heading": "Was möchtest du erstellen?",
+      "back": "← Die Lernziele",
+      "forOne": "Für 1 Lernziel:",
+      "forMany": "Für {n} Lernziele:",
+      "copy": "Anweisung kopieren",
+      "htmlBadge": "HTML-Datei",
+      "htmlAfter": "Füg sie in einen KI-Chat ein. Die Antwort ist eine HTML-Datei, die du speicherst, im Browser öffnest und mit deiner Klasse teilen kannst.",
+      "lesson": {
+        "title": "Stundenplanung",
+        "desc": "Ein vollständiger Plan für eine Stunde, mit Zeitangaben in Minuten, dem Tafelbild und Lösungen zu allen Aufgaben.",
+        "minutes": "Min.",
+        "shorter": "Kürzer",
+        "longer": "Länger",
+        "after": "Füg sie in einen KI-Chat ein. Die Antwort ist ein Plan, an dem du dich beim Unterrichten entlanghangeln kannst.",
+        "typeHints": {
+          "intro": "Neue Lernziele: ein Einstieg, Musterbeispiele in Runden, eine diagnostische Frage pro Ziel und Abrufen aus dem Gedächtnis am Ende.",
+          "practice": "Ziele, die die Klasse vor Kurzem gelernt hat: eine kurze Erinnerung, dann Aufgabenserien mit kleinen Abwandlungen und immer weniger Hilfe.",
+          "review": "Ziele von vor einer Weile: Abrufen ohne Notizen, ein Check, was hängen geblieben ist, erneutes Erklären, wo nötig, und gemischtes Üben.",
+          "other": "Etwas anderes: Beschreib die Stunde selbst, sonst fragt die KI dich zuerst."
+        }
+      },
+      "miniTree": {
+        "title": "Mini-Baum",
+        "desc": "Ein Kompetenzbaum, in dem die Schülerinnen und Schüler vor einem Test selbstständig üben: die ausgewählten Ziele in wenigen Themen mit Stufen, ein Musterbeispiel vor jeder Aufgabenrunde, danach die Lösung mit Erklärung, und wer eine Stufe beherrscht, schaltet die nächste frei.",
+        "levelsLabel": "Stufen pro Thema",
+        "levels1": "Eine Stufe",
+        "levels3": "Drei Stufen",
+        "streakLabel": "Richtige in Folge zum Bestehen",
+        "supportLabel": "Anpassung",
+        "easyRead": "Leicht lesbar (Comic Sans, wenig Text)",
+        "readAloud": "Vorlesen",
+        "game": "Sterne und Freischalten",
+        "mixedTest": "Gemischter Übungstest",
+        "credit": "Nach den Grundsätzen der Sonderpädagogin Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulation",
+        "desc": "Eine interaktive Simulation, die die Schülerinnen und Schüler erkunden können, mit einem fachlichen Modell, das nicht erfunden ist, und einem Feld, das erklärt, was das Modell kann und was nicht.",
+        "workflowLabel": "Arbeitsweise",
+        "design": "Erst ein Planungsgespräch",
+        "build": "Gleich ein Prototyp",
+        "screenLabel": "Bildschirm",
+        "laptop": "Laptop",
+        "tablet": "Tablet",
+        "projector": "Beamer",
+        "extrasLabel": "Mit dabei",
+        "tasks": "Aufgaben für die Klasse",
+        "critique": "Modellkritik",
+        "export": "Datenexport (CSV)",
+        "credit": "Nach dem Prompt von Henning Vinjusveen Myhrehagen auf skolesim.no."
+      },
+      "less": "Weniger",
+      "more": "Mehr",
+      "help": "Jedes Material ist eine KI-Anweisung. Wähl aus, was du willst, tipp auf „Anweisung kopieren“ und füg sie in einen KI-Chat wie ChatGPT oder Claude ein. Die Stundenplanung wird ein Plan, an dem du dich beim Unterrichten entlanghangeln kannst. Der Mini-Baum und die Simulation werden eine HTML-Datei, die du speicherst, im Browser öffnest und mit deiner Klasse teilen kannst. Die Auswahl wird nicht gespeichert.",
+      "forLabel": "Für:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Eine KI-Anweisung für einen Test zu dem erstellen, was du als gekonnt markiert hast",
+      "none": "Noch keine Lernziele als gekonnt markiert",
+      "countLabel": "Anzahl der Aufgaben",
+      "countAria": "Anzahl der Aufgaben im Test",
+      "heading": "Test",
+      "desc": "Ein schriftlicher Test zu dem, was du als gekonnt markiert hast, mit Lösungen, wenn du danach fragst.",
+      "help": "Der Test entsteht aus den Lernzielen, die du im Baum als gekonnt markiert hast. Wähl den Schwierigkeitsgrad, die Anzahl der Aufgaben und ihre Form, tipp auf „Anweisung kopieren“ und füg sie in einen KI-Chat ein. Die KI zeigt zuerst nur die Aufgaben und gibt Lösungen und eine Bewertung, wenn du danach fragst.",
+      "covers": "Der Test umfasst {n} gekonnte Lernziele:",
+      "coversOne": "Der Test umfasst 1 gekonntes Lernziel:",
+      "noneHint": "Du hast noch keine Lernziele als gekonnt markiert. Hak im Baum ab, was du kannst, dann kannst du einen Test erstellen.",
+      "showAll": "Alle Lernziele zeigen",
+      "showSelected": "Nur die ausgewählten Lernziele zeigen",
+      "difficultyLabel": "Schwierigkeit",
+      "difficulty": {
+        "easy": "Leicht",
+        "medium": "Mittel",
+        "hard": "Schwer"
+      },
+      "difficultyHints": {
+        "easy": "Ein Lernziel pro Aufgabe, die häufigsten Fälle und keine Fallen.",
+        "medium": "Wie ein normaler Test: einige direkte Aufgaben, einige, die mehrere Ziele verbinden.",
+        "hard": "Die meisten Aufgaben verbinden Ziele, nutzen neue Zusammenhänge oder verlangen, dass du etwas erklärst oder einen Fehler findest."
+      },
+      "formatLabel": "Form der Aufgaben",
+      "format": {
+        "closed": "Geschlossen",
+        "open": "Offen",
+        "mixed": "Gemischt"
+      },
+      "formatHints": {
+        "closed": "Multiple Choice oder kurze Antworten, die sich mit einem Lösungsschlüssel prüfen lassen.",
+        "open": "Du zeigst deinen Rechenweg oder erklärst mit eigenen Worten.",
+        "mixed": "Ungefähr halb und halb."
+      },
+      "coversLabel": "Der Test umfasst:"
+    },
+    "node": {
+      "markMastered": "Als gekonnt markieren"
+    },
+    "column": {
+      "markAll": "Alle Lernziele im Thema „{topic}“ als gekonnt markieren",
+      "clearAll": "Die Markierung „gekonnt“ bei allen Lernzielen im Thema „{topic}“ entfernen"
+    },
+    "detail": {
+      "show": "Anweisung zeigen",
+      "hide": "Anweisung ausblenden",
+      "copy": "Anweisung kopieren",
+      "prereqs": "Voraussetzungen",
+      "resources": "Ressourcen",
+      "mastered": "✓ Kann ich",
+      "available": "Verfügbar — Voraussetzungen erfüllt",
+      "locked": "Gesperrt — Voraussetzungen fehlen",
+      "empty": "Klick auf einen Knoten in der Karte, um Details zu sehen."
+    },
+    "loadError": "Kritischer Fehler beim Laden: {message} (Wird die Seite über einen lokalen Server ausgeliefert? In vielen Browsern scheitert fetch() der Datendateien, wenn index.html direkt von der Festplatte geöffnet wird.)",
+    "defaultTopic": "Sonstiges",
+    "aids": {
+      "heading": "Hilfsmittel",
+      "tagTitle": "Sehen, was du auf dieser Stufe benutzen darfst",
+      "multipleNote": "Dieses Lernziel gehört zu mehreren Stufen. Du solltest es auf der strengsten davon schaffen — also mit den wenigsten Hilfsmitteln.",
+      "multipleNoteGeneral": "Ein Lernziel kann zu mehreren Stufen gehören. Sein Etikett ist dann in mehrere Farben geteilt, und du solltest das Lernziel auf der strengsten dieser Stufen schaffen — also mit den wenigsten Hilfsmitteln."
+    },
+    "menu": {
+      "label": "Menü",
+      "groups": {
+        "practice": "Üben",
+        "plan": "Planen",
+        "about": "Info"
+      }
+    },
+    "download": {
+      "button": "Baum herunterladen",
+      "title": "Den Baum doppelt herunterladen: die Tabelle zum Bearbeiten und eine einzelne Datei, die offline funktioniert",
+      "working": "Einzeldatei wird erstellt…",
+      "failed": "Die Einzeldatei konnte nicht erstellt werden",
+      "edit": "Baum bearbeiten",
+      "editTitle": "Den Baum im Editor öffnen, wo du ihn ändern und als Tabelle oder als einzelne Datei herunterladen kannst, die offline funktioniert"
+    },
+    "courseInfo": {
+      "button": "Über den Kurs",
+      "heading": "Über den Kurs",
+      "division": "Jahrgangsstufe oder Fakultät",
+      "curriculum": "Lehrplan",
+      "institution": "Bildungseinrichtung",
+      "country": "Land",
+      "language": "Sprache",
+      "size": "Umfang",
+      "decompositionVersion": "Zerlegungsmodell",
+      "credits": "Erstellt von",
+      "author": "Autor/in",
+      "updated": "Zuletzt aktualisiert",
+      "license": "Lizenz",
+      "basedOn": "Beruht auf",
+      "skills": "{n} Fertigkeiten",
+      "concepts": "{n} Begriffe",
+      "facts": "{n} Faktenlisten",
+      "nodes": "{n} Knoten"
+    },
+    "helpToggle": "Erklärung",
+    "print": {
+      "button": "Drucken",
+      "title": "Den ganzen Baum als druckfertiges PDF herunterladen",
+      "working": "PDF wird erstellt …",
+      "failed": "Das PDF konnte nicht erstellt werden",
+      "heading": "Drucken",
+      "help": "Lade den ganzen Baum als eine PDF-Seite herunter, fertig zum Drucken. Die Vorschau zeigt das Blatt so, wie es wird. Der Titel und aiskilltrees.com stehen immer auf dem Blatt.",
+      "paperLabel": "Papierformat",
+      "orientationLabel": "Ausrichtung",
+      "orientation": {
+        "auto": "Automatisch",
+        "landscape": "Querformat",
+        "portrait": "Hochformat"
+      },
+      "colorLabel": "Farben",
+      "color": {
+        "color": "Farbe",
+        "gray": "Schwarz-Weiß"
+      },
+      "rings": "Kreise zum Abhaken",
+      "legend": "Legende",
+      "download": "PDF herunterladen",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Zurück zur vorigen Ansicht"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, for German. Same role as languages/nb.json → prompt. Only what is SPECIFIC TO GERMAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json → writingStyleGeneral. The text is in German, as in nb.json and sv.json: advice on writing good German makes little sense phrased in English. `conversationLanguage` is «Deutsch», which reads right inside «auf Deutsch» and also inside the English prompts («Comment the code in Deutsch»). Nothing here is Germany-only, so Austrian and Swiss trees can add their own usage (Swiss «ss» for «ß», Austrian school words) in slots.courseSpecifics. The gender note is the German counterpart of the Swedish «hen»: German second person is not gendered, but nouns and praise about the person often are («ein guter Schüler»). NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another. The right to ask for another language is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "Deutsch",
+    "outputLanguage": "Führe dieses ganze Gespräch auf {conversationLanguage}. Alles, was unten aus dem Kompetenzbaum zitiert wird — Namen der Knoten, Beschreibungen, Voraussetzungen —, ist auf {conversationLanguage} geschrieben, und das ist die Sprache, in der die Person, mit der du sprichst, angesprochen werden möchte. Teile der Anweisung, die du gerade liest, sind auf Englisch; das ist keine Aufforderung, auf Englisch zu antworten. Wechsle die Sprache nicht von dir aus, und kommentiere nicht, in welcher Sprache die Anweisung geschrieben ist. Duze die Person, so wie Lehrkräfte ihre Schülerinnen und Schüler duzen. Solange du nicht weißt, ob du mit einem Jungen oder einem Mädchen sprichst, vermeide Wörter, die ein Geschlecht festlegen (schreib z. B. „Das hast du gut gemacht“, nicht „Du bist ein guter Schüler“). Muss die lernende Person benannt werden, heißt das Wort „{learnerDefinite}“ – kein anderes Wort für dasselbe.",
+    "writingStyle": "Deutsche Beispiele für die beiden Ratschläge oben:\n- Aktiv statt Passiv: Schreib „wir können die Zahl als … schreiben“, nicht „die Zahl kann als … geschrieben werden“; schreib „wir multiplizieren beide Seiten mit 3“ oder „du multiplizierst beide Seiten mit 3“, nicht „beide Seiten werden mit 3 multipliziert“ und nicht „man multipliziert beide Seiten mit 3“. Vermeide „wird gemacht“, „kann durchgeführt werden“ und das unpersönliche „man“, wenn du sagen kannst, wer es tut.\n- Wörter, die geschrieben üblich, aber gesprochen selten, papierdeutsch oder etwas zu erwachsen sind, ersetzt du durch einfachere: „durchführen“ (→ „machen“), „mithilfe von“ (→ „mit“), „somit“ (→ „also“), „jedoch“ (→ „aber“), „erfolgen“ (→ sag, wer was tut). Der Freundestest: Würdest du das Wort wirklich laut zu einer Freundin oder einem Freund sagen?",
+    "overrides": {}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "doc-title": "Trimite-ți arborele | AI Skill Trees",
+  "meta-description": "Cum trimiți un arbore de abilități pe care l-ai făcut, ca să fie inclus în catalogul acestui site.",
+  "page-eyebrow": "Pentru profesori",
+  "page-heading": "Trimite-ți arborele",
+  "page-lede": "Dacă ai făcut un arbore de abilități pentru materia ta, îl poți trimite ca să fie adăugat în catalogul acestui site.",
+  "how-body": "Deocamdată, trimite-mi fișierul tree.csv pe e-mail:",
+  "terms-eyebrow": "Înainte să-l trimiți",
+  "terms-1": "Citesc fiecare arbore înainte să fie publicat.",
+  "terms-2": "Un arbore este publicat sub numele persoanei care l-a făcut. Dacă e adaptat după alt arbore, păstrează rândurile „Bazat pe” pe care editorul le scrie în fișier, ca autorii anteriori să rămână menționați.",
+  "terms-3": "Arborii și instrucțiunile de pe acest site au licență CC BY 4.0: oricine le poate folosi și adapta, cu condiția să menționeze autorul. Un arbore pe care îl trimiți este publicat sub această licență.",
+  "terms-4": "Contribuțiile prin pull request pe GitHub nu sunt deschise.",
+  "own-body": "Nu trebuie să trimiți nimic ca să folosești metoda. Editorul îți dă propriul fișier, pe care îl folosești și îl împarți cum vrei.",
+  "own-cta": "Fă-ți propriul arbore"
+}

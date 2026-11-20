@@ -1,0 +1,458 @@
+{
+  "code": "sl",
+  "htmlLang": "sl",
+  "name": "Slovenščina",
+  "endonym": "Slovenščina",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. AI is \"UI\" (umetna inteligenca), as in Slovenian schools, and a chatbot is \"klepet z UI\". Second-person past tense and adjectives are gendered in Slovenian (naredil/naredila, pripravljen/pripravljena), so the strings addressed to the user avoid them: present tense, imperatives, and adjectives that agree with a goal rather than with the user. Counts use the form \"Label: {n}\", because a noun after a bare number changes with the number, dual included (1 cilj, 2 cilja, 3 cilji, 5 ciljev). A {placeholder} that is a name stands in quotation marks after a head noun that carries the case (v sklopu »{topic}«), or after a colon. Quotation marks are »…«, as in Slovenian print.",
+  "learner": {
+    "_comment": "What the learner is CALLED. Slovenian has no articles, so the 'definite' form is the bare noun in the nominative: \"učenec\", \"študent\", \"udeleženec\" (the učni načrti say \"učenec\"). The lead-ins use present-tense verbs (zna, ve), which do not change with gender, so they also fit \"učenka\" or \"študentka\" if a tree sets those. A skill description is a bare infinitive phrase (\"Učenec zna: seštevati ulomke\"), a concept a definition.",
+    "default": "učenec",
+    "legacy": {
+      "pupil": "učenec",
+      "student": "študent",
+      "participant": "udeleženec"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} zna:",
+      "concept": "{LearnerDefinite} zna razložiti:",
+      "fact": "{LearnerDefinite} ve:"
+    }
+  },
+  "ui": {
+    "backLink": "← Vsa drevesa",
+    "pageTitle": "Drevo veščin: {title}",
+    "tagline": "Zemljevid tega, kako učni cilji gradijo drug na drugem — označi, kar že znaš, in kopiraj navodilo za UI, s katerim vadiš naprej.",
+    "makeYourOwn": "{subject}. Naredi svoje drevo:",
+    "progressLabel": "Obvladani cilji: {done} od {total}",
+    "zoomIn": "Povečaj",
+    "zoomOut": "Pomanjšaj",
+    "fitToView": "Pokaži celo drevo",
+    "fitToViewTitle": "Pokaži celo drevo (Ctrl + kolešček miške povečuje)",
+    "close": "✕ Zapri",
+    "closeLower": "✕ Zapri",
+    "copied": "Kopirano!",
+    "copyFallback": "Samodejno kopiranje ni uspelo — spodnje besedilo kopiraj ročno:",
+    "errorBanner": "⚠ Težave v podatkovnih datotekah: {n} (podrobnosti v konzoli):",
+    "errorCsv": "Preglednice ni bilo mogoče prebrati v vrstici {row}: {message}",
+    "errorCsvHeader": "Prva vrstica datoteke {file} mora vsebovati imena stolpcev. Manjka: {missing}. Prva vrstica se glasi: {found}. Datoteka je verjetno shranjena brez prve vrstice ali v drugi obliki; shrani jo znova kot navaden CSV.",
+    "errorUnknownDep": "Vozlišče »{id}« navaja »{dep}« kot predznanje, vendar nobeno vozlišče nima tega id-ja.",
+    "errorNoTopic": "Vozlišče »{id}« nima sklopa, zato pristane v zbirnem stolpcu »{topic}«.",
+    "errorUnknownResourceNode": "Vrstica {row} v tree.csv: vir se v depends_on sklicuje na id vozlišča »{id}«, ki ne obstaja.",
+    "errorExamsRenamed": "Vrstica {row} v tree.csv: nastavitev »features.exams« je iz časa pred različico 0.22.0. Viri so zdaj vrstice v tree.csv s tipom »resource«: topic = skupina, name = naslov, description = povezava, depends_on = vozlišča. Izbriši vrstico in odpri drevo v urejevalniku, ki staro datoteko exams.csv pretvori. Nič ni bilo uporabljeno.",
+    "errorResourceEmpty": "Vrstica {row} v tree.csv: vir nima ne naslova (name) ne povezave (description).",
+    "errorResourceNoNode": "Vrstica {row} v tree.csv: vir »{label}« ne spada k nobenemu vozlišču. V depends_on vpiši enega ali več id-jev vozlišč ali pa vrstico izbriši.",
+    "errorResourceDuplicate": "Vrstica {row} v tree.csv: vir »{label}« je enak kot v vrstici {first}. Združi ju v eno vrstico z vsemi vozlišči v depends_on.",
+    "errorResourceUrl": "Vrstica {row} v tree.csv: povezava vira »{label}« se mora začeti s https:// ali mailto:. Zato je prikazana kot navadno besedilo, brez povezave.",
+    "errorCycle": "Ta vozlišča so drugo drugemu predznanje, v krogu: {cycle}. Eno od teh povezav je treba odstraniti.",
+    "errorUnknownConfig": "Neznana nastavitev »{key}« v vrstici {row} v tree.csv. Nič ni bilo uporabljeno.",
+    "errorUnknownNodeType": "Vozlišče »{id}« ima tip »{type}«, ki ne obstaja. Možni tipi: {valid}.",
+    "errorUnknownPromptSection": "Neznan razdelek »{section}« v vrstici prompt (vrstica {row} v tree.csv). Nič ni bilo uporabljeno.",
+    "errorUnknownPromptTarget": "Vrstica prompt (vrstica {row} v tree.csv) cilja na »{name}«, ki ni navodilo, ki ga sestavlja to drevo. Nič ni bilo uporabljeno.",
+    "errorDidYouMean": "Misliš »{key}«?",
+    "errorMissingConfig": "V tree.csv manjka obvezna vrstica config za »{key}«.",
+    "errorStyleColor": "Nastavitev »{key}« v vrstici {row} v tree.csv mora biti barva, zapisana kot šestnajstiška koda, npr. #1F6F4A. »{value}« ni taka koda, zato ostane privzeta barva.",
+    "errorLinkUrl": "Nastavitev »{key}« v vrstici {row} v tree.csv mora biti povezava, ki se začne s https:// ali mailto:. »{value}« ni taka povezava, zato je prikazana kot navadno besedilo.",
+    "errorStyleFont": "Neznana pisava »{value}« v vrstici {row} v tree.csv. Pisave, ki jih drevo lahko uporablja: {valid}. Ostane privzeta pisava.",
+    "nodeType": {
+      "skill": "veščina",
+      "concept": "pojem",
+      "fact": "dejstva"
+    },
+    "badges": {
+      "del1": "Del 1",
+      "del2": "Del 2",
+      "begge": "Del 1+2"
+    },
+    "status": {
+      "mastered": "Obvladano",
+      "ready": "Pripravljeno za učenje",
+      "notMastered": "Še ni obvladano",
+      "blocked": "Najprej manjka: {codes}"
+    },
+    "help": {
+      "label": "Pomoč",
+      "heading": "Pomoč",
+      "sections": [
+        {
+          "heading": "Meni",
+          "body": "Vse drugo je pod ☰ spodaj levo: učni cilji, iskanje, preizkus, tiskanje in ostalo. Vsako okno ima »?«, ki ga razloži.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Zemljevid",
+          "body": "Vsako polje je en učni cilj, puščice pa vodijo od tega, kar moraš znati najprej. Oblika pokaže tip: dejstva so oglata, pojmi rahlo zaobljeni, veščine pa okrogle. Zemljevid premakneš tako, da ga povlečeš, s + in − pa ga povečaš in pomanjšaš.",
+          "figure": "map"
+        },
+        {
+          "heading": "Obvladano",
+          "body": "Ko cilj znaš, pritisni krogec v polju in spremeni se v zeleno kljukico. To se shrani samo v tvojem brskalniku.",
+          "figure": "check"
+        },
+        {
+          "heading": "Eno polje",
+          "body": "Pritisni polje in prikaže se, kaj cilj zahteva, na čem gradi, in navodilo za UI, ki ga lahko prilepiš v klepet z UI in vadiš. Pritisni še enkrat, da ga zapreš.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Označi več hkrati",
+          "body": "Ikone seznama hkrati označijo vse cilje v sklopu ali pa oznake odstranijo. Pri A in B veljajo za celo drevo.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Iskanje",
+          "body": "Poišči učni cilj po besedi iz njegovega imena ali opisa.",
+          "figure": "search"
+        },
+        {
+          "heading": "Preizkus",
+          "body": "Navodilo za UI za preizkus iz ciljev, ki jih izbereš. Ti odločaš o težavnosti, številu in vrsti nalog.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Učne priprave (za učitelje)",
+          "body": "Izberi učne cilje in pritisni »Ustvari gradivo« za učno pripravo, mini drevo ali simulacijo.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Tiskanje",
+          "body": "Prenesi celo drevo kot PDF s krogci, ki jih učenci lahko odkljukajo s pisalom.",
+          "figure": "print"
+        },
+        {
+          "heading": "Oznaka pripomočkov",
+          "body": "»Del 1« ali »Del 2« na plošči pokaže, h kateri ravni dovoljenih pripomočkov spada cilj. Pritisni oznako in več preberi v razdelku »O predmetu«.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivacija",
+          "body": "Kratek pogovor z UI o tem, zakaj se predmet splača učiti.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Bližnjice na tipkovnici",
+        "search": "Odpri iskanje",
+        "escape": "Zapri odprto okno, meni ali ploščo",
+        "zoom": "Povečaj in pomanjšaj",
+        "fit": "Pokaži celo drevo in nazaj"
+      }
+    },
+    "safety": {
+      "label": "Varnost",
+      "heading": "Varnost",
+      "lead": "Drevo veščin pripravi učitelj, vendar lahko kdorkoli naredi datoteko, ki je videti kot drevo. To preberi, preden uporabiš drevo, ki ti ga je nekdo poslal.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Drevo veščin nikoli ne zahteva osebnih podatkov",
+          "body": "Drevo nima prijave in o tebi ne potrebuje ničesar. Nikoli ne zahteva tvojega imena, gesla, šolske prijave (npr. Arnes AAI), številke EMŠO, naslova, telefonske številke ali tega, na katero šolo hodiš. Tvoj napredek se shrani samo v brskalniku na tej napravi. Če stran, ki je videti kot drevo veščin, zahteva kaj od tega, ni prava. Zapri jo in povej učitelju."
+        },
+        {
+          "id": "sender",
+          "heading": "Kdo ti je poslal drevo?",
+          "body": "Najpomembnejše vprašanje je, od kod drevo prihaja. Drevesu na aiskilltrees.com ali drevesu, ki ga je učitelj objavil tam, kjer običajno dobivaš učna gradiva, lahko zaupaš toliko kot svojemu učitelju. Če ti je datoteka prišla po e-pošti, v klepetu ali na družbenih omrežjih od nekoga, ki ga ne poznaš, ali povsem nepričakovano, pazi, tudi če je videti v redu."
+        },
+        {
+          "id": "html",
+          "heading": "Datoteka HTML je spletna stran, ne dokument",
+          "body": "Ko nekdo deli drevo kot datoteko .html, ne dobiš dokumenta, kot je PDF ali datoteka Word. Dobiš celo spletno stran s kodo, ki se zažene, ko jo odpreš. Brskalnik ji ne dovoli brati tvojih datotek ali česa nameščati v računalnik, lahko pa prikaže karkoli: lažno stran za prijavo, gumb, ki nekaj prenese, ali povezave na druga spletna mesta. Kaj datoteka počne, odloča tisti, ki jo je naredil. To, da je videti kot drevo veščin, še ne pomeni, da to tudi je. Na strani, ki jo odpreš iz datoteke, se nikoli ne prijavljaj in z nje ničesar ne prenašaj."
+        },
+        {
+          "id": "links",
+          "heading": "Preden klikneš, preveri povezavo",
+          "body": "Viri v drevesu lahko vodijo do videov, vaj in učbenikov. Z miško pojdi nad povezavo ali nanjo pridrži prst in poglej, kam vodi, preden klikneš. Če spletnega mesta ne poznaš ali je naslov videti čuden, ga pusti pri miru."
+        },
+        {
+          "id": "injection",
+          "heading": "Navodilo je lahko prirejeno",
+          "body": "Navodilo za UI, ki ga kopiraš, je besedilo, ki ga je napisal avtor drevesa, ti pa ga prilepiš naravnost v klepet z UI. Kdor naredi drevo, lahko vanj napiše karkoli, tudi ukaze, zaradi katerih se klepet obnaša drugače, kot pričakuješ: ti da napačne odgovore, te pošlje na drugo spletno stran ali sprašuje o stvareh, ki ga ne zadevajo. Temu se reče prompt injection (vrivanje ukazov). Besedilo je dobro pred lepljenjem vsaj preleteti, klepetu pa ne zaupaj slepo."
+        },
+        {
+          "id": "chat",
+          "heading": "Ti odločaš, kaj poveš klepetu",
+          "body": "Nekatera navodila prosijo klepet, naj te spozna, na primer kaj si misliš o predmetu in kaj ti gre dobro. Odgovoriš lahko toliko, kolikor želiš. Nobeno navodilo pa ne potrebuje tvojega imena, kontaktnih podatkov ali gesel. Če klepet prosi za kaj takega, ne odgovori in povej učitelju. Zapomni si tudi, da to, kar napišeš v klepet z UI, shrani podjetje, ki klepet upravlja. Tvoja šola ima pogosto dostop do storitve UI, kjer je tvoja zasebnost zaščitena. Vprašaj učitelja in jo uporabljaj, če jo imaš."
+        },
+        {
+          "id": "teachers",
+          "heading": "Za učitelje: drevo od kolega",
+          "body": "Če je drevo prišlo od nekoga drugega, ga lahko za vsak primer odpreš v urejevalniku na aiskilltrees.com/make-your-own/, preden ga deliš z učenci. Urejevalnik iz datoteke vzame samo preglednico in iz nje naredi novo, čisto datoteko, tam pa lahko prebereš vsako navodilo, ki ga drevo uporablja."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Učni cilji",
+      "title": "Pokaži pregleden seznam vseh učnih ciljev, razvrščen po sklopih",
+      "heading": "Učni cilji",
+      "copyAll": "Kopiraj vse",
+      "intro": "Seznam pokaže vse učne cilje predmeta, razvrščene po sklopih, in stanje vsakega. Ko cilj odkljukaš, ga označiš kot obvladan — to je ista kljukica kot pri vozlišču na zemljevidu — tako da lahko greš po seznamu po vrsti in odkljukaš, kar imaš že za sabo.",
+      "markAria": "Označi cilj »{name}« kot obvladan",
+      "markAllButton": "Označi vse kot obvladano",
+      "clearAllButton": "Odstrani vse oznake",
+      "clearAllConfirm": "Odstranim oznako »obvladano« z vseh ciljev v drevesu?",
+      "openNode": "Pojdi na to vozlišče na zemljevidu"
+    },
+    "lessonPlanner": {
+      "button": "Učne priprave",
+      "title": "Izberi učne cilje in kopiraj navodilo za UI za učno pripravo, mini drevo ali simulacijo",
+      "selectAll": "Označi vse",
+      "deselectAll": "Odznači vse",
+      "selectTopic": "Označi vse cilje v sklopu »{topic}«",
+      "deselectTopic": "Odznači vse cilje v sklopu »{topic}«",
+      "heading": "Učne priprave",
+      "intro": "Odkljukaj učne cilje, za katere želiš nekaj pripraviti, in spodaj pritisni »Ustvari gradivo«. Tam izbereš, kaj naj bo: učna priprava, mini drevo ali simulacija. Te kljukice služijo samo temu: ničesar ne označijo kot obvladano in izginejo, ko stran znova naložiš."
+    },
+    "search": {
+      "button": "Iskanje",
+      "title": "Išči med učnimi cilji po imenu in opisu",
+      "heading": "Iskanje",
+      "placeholder": "Išči med učnimi cilji …",
+      "hint": "Vpiši besedo. Iskanje pregleda ime, opis in sklop vsakega učnega cilja, iz zadetka pa lahko skočiš naravnost na vozlišče na zemljevidu.",
+      "noResults": "Noben učni cilj ne vsebuje »{query}«.",
+      "countOne": "1 učni cilj",
+      "countMany": "Najdeni cilji: {n}",
+      "openNode": "Pojdi na to vozlišče na zemljevidu"
+    },
+    "resourceList": {
+      "button": "Naloge in viri",
+      "title": "Pokaži vse vire v drevesu in učne cilje, h katerim spadajo",
+      "heading": "Naloge in viri",
+      "placeholder": "Filtriraj naloge in vire …",
+      "intro": "Naloge in viri: {n}",
+      "countFiltered": "{n} od {total}",
+      "noResults": "Noben vir se ne ujema z »{query}«.",
+      "openNode": "Pojdi na to vozlišče na zemljevidu",
+      "help": "Naloge in viri, ki spadajo k drevesu, na primer izpitne naloge, povezave in videi. Pod vsakim so učni cilji, h katerim spada; pritisni cilj, da skočiš nanj na zemljevidu. Piši v polje, da seznam filtriraš."
+    },
+    "motivation": {
+      "button": "Motivacija",
+      "title": "Kopiraj navodilo za UI za pogovor o tem, zakaj se predmet splača učiti",
+      "heading": "Motivacija",
+      "desc": "Kratek pogovor z UI o tem, zakaj se predmet splača učiti. UI sprašuje in posluša, odgovor pa poiščeta skupaj.",
+      "help": "Pritisni »Kopiraj navodilo« in ga prilepi v klepet z UI. Pogovor se začne tam, kjer praviš, da si, UI pa postavi eno vprašanje naenkrat. Nič, kar napišeš, se tukaj ne shrani.",
+      "startLabel": "Kako ti gre pri tem predmetu?",
+      "start": {
+        "unknown": "Ne vem",
+        "hard": "Težko je",
+        "bored": "Dolgočasno je",
+        "use": "Čemu mi bo to?"
+      },
+      "lengthLabel": "Dolžina",
+      "length": {
+        "short": "Kratek",
+        "normal": "Običajen",
+        "long": "Dolg"
+      }
+    },
+    "lesson": {
+      "button": "Ustvari učno pripravo (za učitelje)",
+      "title": "Kopiraj navodilo za UI za celo učno uro o odkljukanih ciljih",
+      "typeLabel": "Vrsta ure",
+      "typeAria": "Kakšna ura je to",
+      "types": {
+        "intro": "Nova snov",
+        "practice": "Utrjevanje",
+        "review": "Ponavljanje",
+        "other": "Drugo"
+      },
+      "minutesLabel": "Dolžina",
+      "minutesAria": "Dolžina ure v minutah",
+      "includeAria": "Vključi »{name}« v učno pripravo",
+      "selectedNone": "Izbran ni noben cilj",
+      "selectedOne": "1 izbran učni cilj",
+      "selectedMany": "Izbrani cilji: {n}"
+    },
+    "make": {
+      "button": "Ustvari gradivo →",
+      "buttonTitle": "Izberi, kaj ustvariti za odkljukane učne cilje",
+      "heading": "Kaj želiš ustvariti?",
+      "back": "← Učni cilji",
+      "forOne": "Za 1 učni cilj:",
+      "forMany": "Za izbrane cilje ({n}):",
+      "copy": "Kopiraj navodilo",
+      "htmlBadge": "Datoteka HTML",
+      "htmlAfter": "Prilepi ga v klepet z UI. Odgovor bo datoteka HTML, ki jo shraniš, odpreš v brskalniku in lahko deliš z učenci.",
+      "lesson": {
+        "title": "Učna priprava",
+        "desc": "Celoten načrt ene ure z razporedom po minutah, tem, kar bo na tabli, in rešitvami vseh nalog.",
+        "minutes": "min",
+        "shorter": "Krajša",
+        "longer": "Daljša",
+        "after": "Prilepi ga v klepet z UI. Odgovor bo načrt, po katerem lahko poučuješ.",
+        "typeHints": {
+          "intro": "Novi cilji: uvodna naloga, rešeni primeri v krogih, diagnostično vprašanje za vsak cilj in priklic iz spomina na koncu.",
+          "practice": "Cilji, ki so jih učenci pred kratkim obravnavali: kratka osvežitev, nato nizi nalog z majhnimi spremembami in vse manj pomoči.",
+          "review": "Cilji izpred nekaj časa: priklic brez zapiskov, preverjanje, kaj je ostalo v glavi, ponovna razlaga, kjer je treba, in mešane vaje.",
+          "other": "Nekaj drugega: uro opiši s svojimi besedami, sicer te bo UI najprej vprašala."
+        }
+      },
+      "miniTree": {
+        "title": "Mini drevo",
+        "desc": "Drevo veščin, v katerem učenci pred preizkusom samostojno vadijo: izbrani cilji, združeni v nekaj tem z ravnmi, rešen primer pred vsakim krogom nalog, za njim rešitev in razlaga, obvladana raven pa odklene naslednjo.",
+        "levelsLabel": "Ravni na temo",
+        "levels1": "Ena raven",
+        "levels3": "Tri ravni",
+        "streakLabel": "Pravilno zapored za obvladanje",
+        "supportLabel": "Prilagoditev",
+        "easyRead": "Lahko branje (Comic Sans, malo besedila)",
+        "readAloud": "Branje na glas",
+        "game": "Zvezdice in odklepanje",
+        "mixedTest": "Mešan poskusni preizkus",
+        "credit": "Po načelih specialne pedagoginje Nine Haugerud."
+      },
+      "simulation": {
+        "title": "Simulacija",
+        "desc": "Interaktivna simulacija, ki jo učenci lahko raziskujejo, s strokovnim modelom, ki ni izmišljen, in ploščo, ki pojasni, kaj model zmore in česa ne.",
+        "workflowLabel": "Način dela",
+        "design": "Najprej pogovor o zasnovi",
+        "build": "Takoj prototip",
+        "screenLabel": "Zaslon",
+        "laptop": "Prenosnik",
+        "tablet": "Tablica",
+        "projector": "Projektor",
+        "extrasLabel": "Vključi",
+        "tasks": "Naloge za učence",
+        "critique": "Kritika modela",
+        "export": "Izvoz podatkov (CSV)",
+        "credit": "Po pozivu Henninga Vinjusveena Myhrehagena na skolesim.no."
+      },
+      "less": "Manj",
+      "more": "Več",
+      "help": "Vsako gradivo je navodilo za UI. Izberi, kar želiš, pritisni »Kopiraj navodilo« in ga prilepi v klepet z UI, na primer ChatGPT ali Claude. Iz učne priprave nastane načrt, po katerem lahko poučuješ. Iz mini drevesa in simulacije nastane datoteka HTML, ki jo shraniš, odpreš v brskalniku in lahko deliš z učenci. Izbire se ne shranijo.",
+      "forLabel": "Za:"
+    },
+    "exam": {
+      "button": "Preizkus",
+      "title": "Ustvari navodilo za UI za preizkus iz tega, kar imaš označeno kot obvladano",
+      "none": "Še ni obvladanih ciljev",
+      "countLabel": "Število nalog",
+      "countAria": "Število nalog v preizkusu",
+      "heading": "Preizkus",
+      "desc": "Pisni preizkus iz tega, kar imaš označeno kot obvladano, z rešitvami, ko jih zahtevaš.",
+      "help": "Preizkus temelji na učnih ciljih, ki jih imaš v drevesu označene kot obvladane. Izberi težavnost, število nalog in njihovo vrsto, pritisni »Kopiraj navodilo« in ga prilepi v klepet z UI. UI najprej pokaže samo naloge, rešitve in oceno pa doda, ko jih zahtevaš.",
+      "covers": "Obvladani cilji v preizkusu ({n}):",
+      "coversOne": "Preizkus zajema 1 obvladan cilj:",
+      "noneHint": "Še nimaš nobenega cilja, označenega kot obvladanega. V drevesu označi, kar znaš, in nato lahko ustvariš preizkus.",
+      "showAll": "Pokaži vse cilje",
+      "showSelected": "Pokaži samo izbrane cilje",
+      "difficultyLabel": "Težavnost",
+      "difficulty": {
+        "easy": "Lahek",
+        "medium": "Srednji",
+        "hard": "Težek"
+      },
+      "difficultyHints": {
+        "easy": "En cilj na nalogo, najpogostejši primeri in brez pasti.",
+        "medium": "Kot običajen preizkus: nekaj preprostih nalog in nekaj takih, ki povezujejo več ciljev.",
+        "hard": "Večina nalog povezuje cilje, jih postavi v nove okoliščine ali od tebe zahteva razlago ali iskanje napake."
+      },
+      "formatLabel": "Vrsta nalog",
+      "format": {
+        "closed": "Zaprte",
+        "open": "Odprte",
+        "mixed": "Mešane"
+      },
+      "formatHints": {
+        "closed": "Izbirne naloge ali kratki odgovori, ki jih lahko preveriš po ključu.",
+        "open": "Pokažeš postopek ali razložiš s svojimi besedami.",
+        "mixed": "Približno pol pol."
+      },
+      "coversLabel": "Preizkus zajema:"
+    },
+    "node": {
+      "markMastered": "Označi kot obvladano"
+    },
+    "column": {
+      "markAll": "Označi vse cilje v sklopu »{topic}« kot obvladane",
+      "clearAll": "Odstrani oznako »obvladano« z vseh ciljev v sklopu »{topic}«"
+    },
+    "detail": {
+      "show": "Pokaži navodilo",
+      "hide": "Skrij navodilo",
+      "copy": "Kopiraj navodilo",
+      "prereqs": "Predznanje",
+      "resources": "Viri",
+      "mastered": "✓ Obvladano",
+      "available": "Na voljo — predznanje je izpolnjeno",
+      "locked": "Zaklenjeno — manjka predznanje",
+      "empty": "Klikni vozlišče na zemljevidu, da vidiš podrobnosti."
+    },
+    "loadError": "Kritična napaka pri nalaganju: {message} (ali stran teče prek lokalnega strežnika? V mnogih brskalnikih fetch() podatkovnih datotek ne uspe, če index.html odpreš neposredno z diska.)",
+    "defaultTopic": "Drugo",
+    "aids": {
+      "heading": "Dovoljeni pripomočki",
+      "tagTitle": "Poglej, kaj lahko uporabljaš na tej ravni",
+      "multipleNote": "Ta cilj spada v več ravni. Obvladati ga je treba na najstrožji med njimi — torej z najmanj pripomočki.",
+      "multipleNoteGeneral": "Učni cilj lahko spada v več ravni. Njegova oznaka je takrat razdeljena na več barv, cilj pa je treba obvladati na najstrožji od teh ravni — torej z najmanj pripomočki."
+    },
+    "menu": {
+      "label": "Meni",
+      "groups": {
+        "practice": "Vadi",
+        "plan": "Načrtuj",
+        "about": "Informacije"
+      }
+    },
+    "download": {
+      "button": "Prenesi drevo",
+      "title": "Prenesi drevo v dveh oblikah: preglednico, ki jo lahko urejaš, in eno datoteko, ki deluje brez povezave",
+      "working": "Ustvarjanje ene datoteke …",
+      "failed": "Ene datoteke ni bilo mogoče ustvariti",
+      "edit": "Uredi drevo",
+      "editTitle": "Odpri drevo v urejevalniku, kjer ga lahko spremeniš in preneseš kot preglednico ali kot eno datoteko, ki deluje brez povezave"
+    },
+    "courseInfo": {
+      "button": "O predmetu",
+      "heading": "O predmetu",
+      "division": "Razred ali fakulteta",
+      "curriculum": "Učni načrt",
+      "institution": "Ustanova",
+      "country": "Država",
+      "language": "Jezik",
+      "size": "Obseg",
+      "decompositionVersion": "Model razčlenitve",
+      "credits": "Avtorji",
+      "author": "Avtor",
+      "updated": "Zadnja posodobitev",
+      "license": "Licenca",
+      "basedOn": "Temelji na",
+      "skills": "veščine: {n}",
+      "concepts": "pojmi: {n}",
+      "facts": "seznami dejstev: {n}",
+      "nodes": "vozlišča: {n}"
+    },
+    "helpToggle": "Razlaga",
+    "print": {
+      "button": "Natisni",
+      "title": "Prenesi celo drevo kot PDF, pripravljen za tisk",
+      "working": "Ustvarjanje PDF …",
+      "failed": "PDF-ja ni bilo mogoče ustvariti",
+      "heading": "Tiskanje",
+      "help": "Prenesi celo drevo kot eno stran PDF, pripravljeno za tisk. Predogled pokaže list točno takšen, kakršen bo. Naslov in aiskilltrees.com sta vedno na listu.",
+      "paperLabel": "Velikost papirja",
+      "orientationLabel": "Usmerjenost",
+      "orientation": {
+        "auto": "Samodejno",
+        "landscape": "Ležeče",
+        "portrait": "Pokončno"
+      },
+      "colorLabel": "Barve",
+      "color": {
+        "color": "Barvno",
+        "gray": "Črno-belo"
+      },
+      "rings": "Krogci za kljukice",
+      "legend": "Legenda",
+      "download": "Prenesi PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Nazaj na prejšnji pogled"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Slovenian, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO SLOVENIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is the nominative \"slovenščina\", because `outputLanguage` puts it in the nominative (\"Jezik celotnega tega pogovora je …\") and refers back to it as \"v tem jeziku\" rather than inflecting it, so a tree's own `languageName` row also reads grammatically there. The gender note is the Slovenian counterpart of the Swedish \"hen\": second-person past tense and adjectives are gendered. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "slovenščina",
+    "outputLanguage": "Jezik celotnega tega pogovora je {conversationLanguage}. Vse, kar je spodaj vzeto iz drevesa veščin — imena vozlišč, opisi, predznanje — je napisano v tem jeziku, in prav v tem jeziku uporabnik pričakuje pogovor. Del navodil, ki jih zdaj bereš, je v angleščini; to ni poziv, da odgovarjaš v angleščini. Jezika ne menjaj na lastno pobudo in ne komentiraj, v katerem jeziku so navodila napisana. Uporabnika tikaj, kot učitelj tika učenca. Dokler ne veš, ali pišeš fantu ali dekletu, se izogibaj oblikam, ki izdajo spol (piši na primer »to ti je uspelo«, ne »to si naredil prav«). Če moraš poimenovati tistega, ki se uči, uporabi besedo »{learnerDefinite}« — ne druge besede za isto.",
+    "writingStyle": "Slovenski primeri za oba zgornja nasveta:\n- Tvornik: piši »število lahko zapišemo kot …«, ne »število je lahko zapisano kot …«; piši »to naredimo tako, da …« ali »to narediš tako, da …«, ne »to se naredi tako, da …« ali »to je izvedeno …«. Izogibaj se trpniku »je izračunano« in brezosebnemu »se izračuna«, kadar lahko poveš, kdo to dela.\n- Besede, ki so pravilne, a v govoru redke, knjižne ali preveč odrasle, zamenjaj s preprostejšimi: »izvesti« (→ »narediti«), »posedovati« (→ »imeti«), »z namenom« (→ »da«), »ter« (→ »in«), »slednji« (→ »ta«), »zatorej« (→ »zato«). Test prijatelja: bi ta beseda res padla v pogovoru s prijateljem?",
+    "overrides": {}
+  }
+}

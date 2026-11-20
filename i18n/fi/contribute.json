@@ -1,0 +1,15 @@
+{
+  "doc-title": "Lähetä puusi | AI Skill Trees",
+  "meta-description": "Näin lähetät tekemäsi taitopuun tämän sivuston luetteloon.",
+  "page-eyebrow": "Opettajille",
+  "page-heading": "Lähetä puusi",
+  "page-lede": "Jos olet tehnyt taitopuun omaan oppiaineeseesi, voit lähettää sen, niin se lisätään tämän sivuston luetteloon.",
+  "how-body": "Toistaiseksi lähetä tree.csv-tiedostosi minulle sähköpostilla:",
+  "terms-eyebrow": "Ennen kuin lähetät",
+  "terms-1": "Luen jokaisen puun ennen sen julkaisemista.",
+  "terms-2": "Puu julkaistaan sen tekijän nimellä. Jos se on muokattu toisesta puusta, siinä säilyvät ne ”Pohjana”-rivit, jotka rakentaja kirjoittaa tiedostoon, joten aiemmat tekijät mainitaan edelleen.",
+  "terms-3": "Tämän sivuston puilla ja ohjeilla on CC BY 4.0 -lisenssi: kuka tahansa saa käyttää ja muokata niitä, kunhan tekijä mainitaan. Lähettämäsi puu julkaistaan samalla lisenssillä.",
+  "terms-4": "Pull requestit GitHubissa eivät ole avoinna.",
+  "own-body": "Menetelmän käyttäminen ei edellytä, että lähetät mitään. Rakentaja antaa sinulle oman tiedoston, jota voit käyttää ja jakaa haluamallasi tavalla.",
+  "own-cta": "Tee oma"
+}

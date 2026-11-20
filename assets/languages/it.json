@@ -1,0 +1,458 @@
+{
+  "code": "it",
+  "htmlLang": "it",
+  "name": "Italiano",
+  "endonym": "Italiano",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Italian as used in Italian schools («verifica» for a written test, «obiettivo acquisito» for mastered), with pupils addressed as «tu». Same key set as en.json, plus prompt.conversationLanguage, like nb.json and sv.json.",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use: «l'alunno», «lo studente», «il partecipante» or anything else. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. A skill description is an infinitive phrase («L'alunno sa: ridurre una frazione …»), a concept a definition, a fact list items to know by heart.",
+    "default": "l'alunno",
+    "legacy": {
+      "pupil": "l'alunno",
+      "student": "lo studente",
+      "participant": "il partecipante"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} sa:",
+      "concept": "{LearnerDefinite} sa spiegare:",
+      "fact": "{LearnerDefinite} sa a memoria:"
+    }
+  },
+  "ui": {
+    "backLink": "← Tutti gli alberi",
+    "pageTitle": "Albero delle abilità: {title}",
+    "tagline": "Una mappa di come gli obiettivi di apprendimento si basano l'uno sull'altro: spunta quello che sai già fare e copia un'istruzione per l'IA per esercitarti su quello che viene dopo.",
+    "makeYourOwn": "{subject}. Crea il tuo albero:",
+    "progressLabel": "{done} obiettivi su {total} raggiunti",
+    "zoomIn": "Ingrandisci",
+    "zoomOut": "Riduci",
+    "fitToView": "Mostra tutto l'albero",
+    "fitToViewTitle": "Mostra tutto l'albero (Ctrl+rotella per lo zoom)",
+    "close": "✕ Chiudi",
+    "closeLower": "✕ Chiudi",
+    "copied": "Copiato!",
+    "copyFallback": "Non è stato possibile copiare in automatico: copia a mano il testo qui sotto:",
+    "errorBanner": "⚠ {n} problema/i nei file di dati (guarda la console per i dettagli):",
+    "errorCsv": "Impossibile leggere il foglio di calcolo alla riga {row}: {message}",
+    "errorCsvHeader": "La prima riga di {file} deve dare il nome alle colonne. Mancano: {missing}. La prima riga dice: {found}. Probabilmente il file è stato salvato senza la prima riga, o in un altro formato; salvalo di nuovo come CSV semplice.",
+    "errorUnknownDep": "Il nodo «{id}» indica «{dep}» come prerequisito, ma nessun nodo ha questo id.",
+    "errorNoTopic": "Il nodo «{id}» non ha un tema e finisce nella colonna generica «{topic}».",
+    "errorUnknownResourceNode": "Riga {row} di tree.csv: in depends_on la risorsa rimanda all'id di nodo «{id}», che non esiste.",
+    "errorExamsRenamed": "Riga {row} di tree.csv: l'impostazione «features.exams» è precedente alla versione 0.22.0. Ora le risorse sono righe di tree.csv con il tipo «resource»: topic = gruppo, name = titolo, description = link, depends_on = i nodi. Cancella la riga e apri l'albero nel costruttore per convertire un vecchio exams.csv. Non è stato applicato nulla.",
+    "errorResourceEmpty": "Riga {row} di tree.csv: la risorsa non ha né un titolo (name) né un link (description).",
+    "errorResourceNoNode": "Riga {row} di tree.csv: la risorsa «{label}» non appartiene a nessun nodo. Metti uno o più id di nodo in depends_on, oppure cancella la riga.",
+    "errorResourceDuplicate": "Riga {row} di tree.csv: la risorsa «{label}» è uguale a quella della riga {first}. Uniscile in una sola riga, con tutti i nodi in depends_on.",
+    "errorResourceUrl": "Riga {row} di tree.csv: il link della risorsa «{label}» deve iniziare con https:// o mailto:. Per questo compare come testo semplice, senza link.",
+    "errorCycle": "Questi nodi sono prerequisiti l'uno dell'altro, in cerchio: {cycle}. Uno di questi collegamenti va tolto.",
+    "errorUnknownConfig": "Impostazione sconosciuta «{key}» alla riga {row} di tree.csv. Non è stato applicato nulla.",
+    "errorUnknownNodeType": "Il nodo «{id}» ha il tipo «{type}», che non esiste. I tipi sono: {valid}.",
+    "errorUnknownPromptSection": "Sezione sconosciuta «{section}» nella riga di prompt, riga {row} di tree.csv. Non è stato applicato nulla.",
+    "errorUnknownPromptTarget": "La riga di prompt alla riga {row} di tree.csv punta a «{name}», che non è un'istruzione composta da questo albero. Non è stato applicato nulla.",
+    "errorDidYouMean": "Forse intendevi «{key}»?",
+    "errorMissingConfig": "In tree.csv manca una riga config per «{key}», che è obbligatoria.",
+    "errorStyleColor": "L'impostazione «{key}» alla riga {row} di tree.csv deve essere un colore scritto come codice esadecimale, per esempio #1F6F4A. «{value}» non lo è, quindi è rimasto il colore predefinito.",
+    "errorLinkUrl": "L'impostazione «{key}» alla riga {row} di tree.csv deve essere un link che inizia con https:// o mailto:. «{value}» non lo è, quindi compare come testo semplice.",
+    "errorStyleFont": "Carattere sconosciuto «{value}» alla riga {row} di tree.csv. I caratteri che un albero può usare: {valid}. È rimasto il carattere predefinito.",
+    "nodeType": {
+      "skill": "abilità",
+      "concept": "concetto",
+      "fact": "fatti"
+    },
+    "badges": {
+      "del1": "Parte 1",
+      "del2": "Parte 2",
+      "begge": "Parte 1+2"
+    },
+    "status": {
+      "mastered": "Acquisito",
+      "ready": "Pronto da imparare",
+      "notMastered": "Non ancora acquisito",
+      "blocked": "Prima serve: {codes}"
+    },
+    "help": {
+      "label": "Aiuto",
+      "heading": "Aiuto",
+      "sections": [
+        {
+          "heading": "Il menu",
+          "body": "Tutto il resto è dietro ☰, in basso a sinistra: gli obiettivi di apprendimento, la ricerca, la verifica, la stampa e il resto. Ogni finestra ha un «?» che la spiega.",
+          "figure": "menu"
+        },
+        {
+          "heading": "La mappa",
+          "body": "Ogni riquadro è un obiettivo di apprendimento, e le frecce partono da quello che devi sapere prima. La forma indica il tipo: i fatti sono quadrati, i concetti leggermente arrotondati e le abilità rotonde. Trascina per spostare la mappa e usa + e − per lo zoom.",
+          "figure": "map"
+        },
+        {
+          "heading": "Acquisito",
+          "body": "Premi il cerchio in un riquadro quando hai acquisito l'obiettivo, e diventa una spunta verde. Resta salvato solo nel tuo browser.",
+          "figure": "check"
+        },
+        {
+          "heading": "Un riquadro",
+          "body": "Premi un riquadro per vedere che cosa richiede l'obiettivo, su che cosa si basa e un'istruzione che puoi incollare in una chat con l'IA per esercitarti. Premi di nuovo per chiudere.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Segnarne tanti",
+          "body": "Le icone a elenco segnano in un colpo tutti gli obiettivi di un tema, o tolgono i segni. Con A e B valgono per tutto l'albero.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Cerca",
+          "body": "Trova un obiettivo di apprendimento con una parola del nome o della descrizione.",
+          "figure": "search"
+        },
+        {
+          "heading": "Verifica",
+          "body": "Un'istruzione per l'IA per una verifica sugli obiettivi che scegli. Decidi tu la difficoltà, il numero e il tipo di esercizi.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Piani di lezione (per insegnanti)",
+          "body": "Scegli gli obiettivi di apprendimento e premi «Crea una risorsa» per avere un piano di lezione, un mini-albero o una simulazione.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Stampa",
+          "body": "Scarica tutto l'albero in PDF, con cerchi che gli alunni possono spuntare a penna.",
+          "figure": "print"
+        },
+        {
+          "heading": "L'etichetta degli strumenti",
+          "body": "«Parte 1» o «Parte 2» nel pannello indica a quale livello di strumenti consentiti appartiene l'obiettivo. Premi l'etichetta per saperne di più in «Info sulla materia».",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivazione",
+          "body": "Una breve conversazione con un'IA sul perché vale la pena imparare la materia.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Scorciatoie da tastiera",
+        "search": "Apri la ricerca",
+        "escape": "Chiudi la finestra, il menu o il pannello aperto",
+        "zoom": "Ingrandisci e riduci",
+        "fit": "Mostra tutto l'albero, e torna indietro"
+      }
+    },
+    "safety": {
+      "label": "Sicurezza",
+      "heading": "Sicurezza",
+      "lead": "Un albero delle abilità lo fa un insegnante, ma chiunque può fare un file che gli somiglia. Leggi qui prima di usare un albero che qualcuno ti ha mandato.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Un albero delle abilità non chiede mai dati personali",
+          "body": "L'albero non ha un accesso con account e non ha bisogno di niente su di te. Non ti chiede mai il nome, una password, le credenziali della scuola, il codice fiscale, l'indirizzo, il numero di cellulare o che scuola frequenti. I tuoi progressi restano salvati solo nel browser di questo dispositivo. Se una pagina che sembra un albero delle abilità ti chiede una di queste cose, non è autentica. Chiudila e avvisa il tuo insegnante."
+        },
+        {
+          "id": "sender",
+          "heading": "Chi ti ha mandato l'albero?",
+          "body": "La domanda più importante è da dove viene l'albero. Di un albero su aiskilltrees.com, o di uno che il tuo insegnante ha pubblicato dove di solito trovate il materiale del corso, puoi fidarti quanto ti fidi del tuo insegnante. Se hai ricevuto un file per e-mail, in una chat o sui social da qualcuno che non conosci, o se è arrivato quando non te lo aspettavi, diffida, anche se sembra a posto."
+        },
+        {
+          "id": "html",
+          "heading": "Un file HTML è una pagina web, non un documento",
+          "body": "Quando qualcuno condivide un albero come file .html, non ricevi un documento come un PDF o un file Word. Ricevi un'intera pagina web, con del codice che parte quando la apri. Il browser le impedisce di leggere i tuoi file o di installare qualcosa sul computer, ma la pagina può mostrare qualsiasi cosa: una finta pagina di accesso, un pulsante che scarica qualcosa o link verso altri siti. Chi ha fatto il file decide che cosa fa. Sembrare un albero delle abilità non basta a esserlo. Non accedere mai e non scaricare mai niente da una pagina che hai aperto da un file."
+        },
+        {
+          "id": "links",
+          "heading": "Controlla i link prima di cliccare",
+          "body": "Le risorse dell'albero possono rimandare a video, esercizi e libri di testo. Passa il mouse sopra un link, o tienici il dito premuto, e guarda dove porta prima di cliccare. Se non riconosci il sito, o l'indirizzo sembra strano, lascia perdere."
+        },
+        {
+          "id": "injection",
+          "heading": "Le istruzioni possono essere manomesse",
+          "body": "L'istruzione per l'IA che copi è un testo scritto da chi ha fatto l'albero, e tu la incolli direttamente in una chat con l'IA. Chi fa un albero può scriverci quello che vuole, anche ordini che fanno comportare la chat in modo diverso da come ti aspetti: darti risposte sbagliate, mandarti su un altro sito o chiederti cose che non la riguardano. Si chiama prompt injection. Conviene dare un'occhiata al testo prima di incollarlo, e non fidarti ciecamente della chat."
+        },
+        {
+          "id": "chat",
+          "heading": "Decidi tu che cosa raccontare alla chat",
+          "body": "Alcune istruzioni chiedono alla chat di conoscerti, per esempio che cosa pensi della materia e in che cosa sei bravo. Puoi rispondere quanto vuoi, tanto o poco. Ma nessuna istruzione ha bisogno del tuo nome, dei tuoi contatti o di password. Se la chat ti chiede cose del genere, non rispondere e avvisa il tuo insegnante. Ricorda anche che quello che scrivi in una chat con l'IA lo conserva l'azienda che la gestisce. Spesso la tua scuola ha accesso a un servizio di IA che protegge la tua privacy. Chiedi al tuo insegnante e usalo, se c'è."
+        },
+        {
+          "id": "teachers",
+          "heading": "Per insegnanti: un albero da un collega",
+          "body": "Se hai ricevuto un albero da qualcun altro, puoi aprirlo nel costruttore su aiskilltrees.com/make-your-own/ prima di condividerlo con i tuoi alunni, per andare sul sicuro. Il costruttore prende dal file solo il foglio di calcolo e ne fa un file nuovo e pulito, e lì puoi leggere tutte le istruzioni che l'albero usa."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Obiettivi",
+      "title": "Mostra un elenco sistematico di tutti gli obiettivi di apprendimento, ordinato per tema",
+      "heading": "Obiettivi di apprendimento",
+      "copyAll": "Copia tutti",
+      "intro": "L'elenco mostra tutti gli obiettivi di apprendimento della materia, ordinati per tema, con lo stato di ciascuno. Spunta un obiettivo per segnarlo come acquisito (è la stessa spunta del nodo nella mappa): così puoi scorrere l'elenco in ordine e segnare quello che hai già fatto.",
+      "markAria": "Segna «{name}» come acquisito",
+      "markAllButton": "Segna tutti come acquisiti",
+      "clearAllButton": "Togli tutti i segni di acquisito",
+      "clearAllConfirm": "Togliere il segno di acquisito da tutti gli obiettivi dell'albero?",
+      "openNode": "Vai a questo nodo nella mappa"
+    },
+    "lessonPlanner": {
+      "button": "Piani di lezione",
+      "title": "Scegli gli obiettivi e copia un'istruzione per l'IA per un piano di lezione, un mini-albero o una simulazione",
+      "selectAll": "Seleziona tutti",
+      "deselectAll": "Deseleziona tutti",
+      "selectTopic": "Seleziona tutti gli obiettivi di «{topic}»",
+      "deselectTopic": "Deseleziona tutti gli obiettivi di «{topic}»",
+      "heading": "Piani di lezione",
+      "intro": "Spunta gli obiettivi per cui vuoi preparare qualcosa e premi «Crea una risorsa» in fondo. Lì scegli che cosa deve essere: un piano di lezione, un mini-albero o una simulazione. Queste spunte servono solo a questo: non segnano niente come acquisito e spariscono quando ricarichi la pagina."
+    },
+    "search": {
+      "button": "Cerca",
+      "title": "Cerca gli obiettivi per nome e descrizione",
+      "heading": "Cerca",
+      "placeholder": "Cerca negli obiettivi …",
+      "hint": "Scrivi una parola. La ricerca guarda nel nome, nella descrizione e nel tema di ogni obiettivo, e puoi cliccare per andare direttamente al nodo nella mappa.",
+      "noResults": "Nessun obiettivo contiene «{query}».",
+      "countOne": "1 obiettivo",
+      "countMany": "{n} obiettivi",
+      "openNode": "Vai a questo nodo nella mappa"
+    },
+    "resourceList": {
+      "button": "Esercizi e fonti",
+      "title": "Mostra tutte le risorse dell'albero e gli obiettivi a cui appartengono",
+      "heading": "Esercizi e fonti",
+      "placeholder": "Filtra esercizi e fonti …",
+      "intro": "{n} esercizi e fonti",
+      "countFiltered": "{n} di {total}",
+      "noResults": "Nessuna risorsa corrisponde a «{query}».",
+      "openNode": "Vai a questo nodo nella mappa",
+      "help": "Esercizi e fonti che fanno parte dell'albero, come domande d'esame, link e video. Sotto ognuno ci sono gli obiettivi a cui appartiene; premine uno per andarci nella mappa. Scrivi nel campo per filtrare."
+    },
+    "motivation": {
+      "button": "Motivazione",
+      "title": "Copia un'istruzione per l'IA per una conversazione sul perché vale la pena imparare la materia",
+      "heading": "Motivazione",
+      "desc": "Una breve conversazione con un'IA sul perché vale la pena imparare la materia. L'IA fa domande e ascolta, e arrivate insieme alla risposta.",
+      "help": "Premi «Copia l'istruzione» e incollala in una chat con l'IA. La conversazione parte da dove dici di essere, e l'IA fa una domanda alla volta. Niente di quello che scrivi viene salvato qui.",
+      "startLabel": "Come ti senti con la materia?",
+      "start": {
+        "unknown": "Non lo so",
+        "hard": "È difficile",
+        "bored": "È noiosa",
+        "use": "A che mi serve?"
+      },
+      "lengthLabel": "Durata",
+      "length": {
+        "short": "Breve",
+        "normal": "Normale",
+        "long": "Lunga"
+      }
+    },
+    "lesson": {
+      "button": "Crea un piano di lezione (per insegnanti)",
+      "title": "Copia un'istruzione per l'IA per una lezione completa sugli obiettivi che hai spuntato",
+      "typeLabel": "Tipo di lezione",
+      "typeAria": "Che tipo di lezione è",
+      "types": {
+        "intro": "Introduzione",
+        "practice": "Esercitazione",
+        "review": "Ripasso",
+        "other": "Altro"
+      },
+      "minutesLabel": "Durata",
+      "minutesAria": "Durata della lezione in minuti",
+      "includeAria": "Includi «{name}» nel piano di lezione",
+      "selectedNone": "Nessun obiettivo selezionato",
+      "selectedOne": "1 obiettivo selezionato",
+      "selectedMany": "{n} obiettivi selezionati"
+    },
+    "make": {
+      "button": "Crea una risorsa →",
+      "buttonTitle": "Scegli che cosa creare per gli obiettivi che hai spuntato",
+      "heading": "Che cosa vuoi creare?",
+      "back": "← Gli obiettivi",
+      "forOne": "Per 1 obiettivo:",
+      "forMany": "Per {n} obiettivi:",
+      "copy": "Copia l'istruzione",
+      "htmlBadge": "File HTML",
+      "htmlAfter": "Incollala in una chat con l'IA. La risposta è un file HTML che salvi e apri nel browser, e che puoi condividere con i tuoi alunni.",
+      "lesson": {
+        "title": "Piano di lezione",
+        "desc": "Un piano completo per una lezione, con i minuti segnati, quello che va alla lavagna e le soluzioni di tutti gli esercizi.",
+        "minutes": "min",
+        "shorter": "Più breve",
+        "longer": "Più lunga",
+        "after": "Incollala in una chat con l'IA. La risposta è un piano che puoi leggere mentre fai lezione.",
+        "typeHints": {
+          "intro": "Obiettivi nuovi: un'attività di avvio, esempi svolti a più riprese, una domanda diagnostica per obiettivo e un momento di richiamo alla fine.",
+          "practice": "Obiettivi che gli alunni hanno imparato da poco: un breve promemoria, poi serie di esercizi con piccole variazioni e sempre meno aiuto.",
+          "review": "Obiettivi di qualche tempo fa: richiamo senza appunti, una verifica di quello che è rimasto, una nuova spiegazione dove serve ed esercizi misti.",
+          "other": "Altro: descrivi tu la lezione, oppure l'IA ti farà prima qualche domanda."
+        }
+      },
+      "miniTree": {
+        "title": "Mini-albero",
+        "desc": "Un albero delle abilità in cui gli alunni si esercitano da soli prima di una verifica: gli obiettivi scelti raccolti in pochi temi con livelli, un esempio svolto prima di ogni giro di esercizi, la soluzione e una spiegazione dopo, e ogni livello superato sblocca il successivo.",
+        "levelsLabel": "Livelli per tema",
+        "levels1": "Un livello",
+        "levels3": "Tre livelli",
+        "streakLabel": "Giuste di fila per superarlo",
+        "supportLabel": "Adattamento",
+        "easyRead": "Lettura facile (Comic Sans, poco testo)",
+        "readAloud": "Lettura ad alta voce",
+        "game": "Stelle e sblocchi",
+        "mixedTest": "Verifica di prova mista",
+        "credit": "Basato sui principi dell'insegnante di sostegno Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulazione",
+        "desc": "Una simulazione interattiva che gli alunni possono esplorare, con un modello della disciplina che non è inventato e un pannello che spiega che cosa il modello sa fare e che cosa no.",
+        "workflowLabel": "Modo di lavorare",
+        "design": "Prima un dialogo sul design",
+        "build": "Subito un prototipo",
+        "screenLabel": "Schermo",
+        "laptop": "Portatile",
+        "tablet": "Tablet",
+        "projector": "Proiettore",
+        "extrasLabel": "Includi",
+        "tasks": "Attività per gli alunni",
+        "critique": "Critica del modello",
+        "export": "Esporta dati (CSV)",
+        "credit": "Dall'istruzione di Henning Vinjusveen Myhrehagen su skolesim.no."
+      },
+      "less": "Meno",
+      "more": "Più",
+      "help": "Ogni risorsa è un'istruzione per l'IA. Scegli quello che vuoi, premi «Copia l'istruzione» e incollala in una chat con l'IA, come ChatGPT o Claude. Il piano di lezione diventa un piano che puoi leggere mentre fai lezione. Il mini-albero e la simulazione diventano un file HTML che salvi, apri nel browser e puoi condividere con i tuoi alunni. Le scelte non vengono salvate.",
+      "forLabel": "Per:"
+    },
+    "exam": {
+      "button": "Verifica",
+      "title": "Crea un'istruzione per l'IA per una verifica su quello che hai segnato come acquisito",
+      "none": "Ancora nessun obiettivo acquisito",
+      "countLabel": "Numero di esercizi",
+      "countAria": "Numero di esercizi nella verifica",
+      "heading": "Verifica",
+      "desc": "Una verifica scritta su quello che hai segnato come acquisito, con le soluzioni quando le chiedi.",
+      "help": "La verifica parte dagli obiettivi che hai segnato come acquisiti nell'albero. Scegli la difficoltà, il numero di esercizi e il tipo di esercizi, premi «Copia l'istruzione» e incollala in una chat con l'IA. All'inizio l'IA mostra solo gli esercizi, e ti dà le soluzioni e una valutazione quando le chiedi.",
+      "covers": "La verifica copre {n} obiettivi acquisiti:",
+      "coversOne": "La verifica copre 1 obiettivo acquisito:",
+      "noneHint": "Non hai ancora segnato nessun obiettivo come acquisito. Spunta nell'albero quello che sai fare, e poi potrai creare una verifica.",
+      "showAll": "Mostra tutti gli obiettivi",
+      "showSelected": "Mostra solo gli obiettivi scelti",
+      "difficultyLabel": "Difficoltà",
+      "difficulty": {
+        "easy": "Facile",
+        "medium": "Media",
+        "hard": "Difficile"
+      },
+      "difficultyHints": {
+        "easy": "Un obiettivo per esercizio, i casi più comuni e nessun tranello.",
+        "medium": "Come una verifica normale: alcuni esercizi diretti, altri che mettono insieme più obiettivi.",
+        "hard": "Quasi tutti gli esercizi mettono insieme più obiettivi, usano contesti nuovi o ti chiedono di spiegare o di trovare un errore."
+      },
+      "formatLabel": "Tipo di esercizi",
+      "format": {
+        "closed": "Chiusi",
+        "open": "Aperti",
+        "mixed": "Misti"
+      },
+      "formatHints": {
+        "closed": "Scelta multipla o risposte brevi da controllare con le soluzioni.",
+        "open": "Mostri i calcoli o spieghi con parole tue.",
+        "mixed": "Più o meno metà e metà."
+      },
+      "coversLabel": "La verifica copre:"
+    },
+    "node": {
+      "markMastered": "Segna come acquisito"
+    },
+    "column": {
+      "markAll": "Segna come acquisiti tutti gli obiettivi di «{topic}»",
+      "clearAll": "Togli il segno di acquisito da tutti gli obiettivi di «{topic}»"
+    },
+    "detail": {
+      "show": "Mostra l'istruzione",
+      "hide": "Nascondi l'istruzione",
+      "copy": "Copia l'istruzione",
+      "prereqs": "Prerequisiti",
+      "resources": "Risorse",
+      "mastered": "✓ Acquisito",
+      "available": "Disponibile: hai i prerequisiti",
+      "locked": "Bloccato: mancano dei prerequisiti",
+      "empty": "Clicca su un nodo della mappa per vedere i dettagli."
+    },
+    "loadError": "Errore critico durante il caricamento: {message} (stai servendo la pagina da un server locale? In molti browser il fetch() dei file di dati non funziona se apri index.html direttamente dal disco.)",
+    "defaultTopic": "Altro",
+    "aids": {
+      "heading": "Strumenti consentiti",
+      "tagTitle": "Guarda che cosa puoi usare a questo livello",
+      "multipleNote": "Questo obiettivo appartiene a più livelli. Dovresti saperlo affrontare nel più rigido di questi, cioè con meno strumenti.",
+      "multipleNoteGeneral": "Un obiettivo può appartenere a più livelli. In quel caso la sua etichetta è divisa in più colori, e dovresti saper affrontare l'obiettivo nel più rigido di quei livelli, cioè con meno strumenti."
+    },
+    "menu": {
+      "label": "Menu",
+      "groups": {
+        "practice": "Esercitarsi",
+        "plan": "Progettare",
+        "about": "Info"
+      }
+    },
+    "download": {
+      "button": "Scarica l'albero",
+      "title": "Scarica l'albero in due forme: il foglio di calcolo che puoi modificare e un unico file che funziona offline",
+      "working": "Creazione del file unico…",
+      "failed": "Non è stato possibile creare il file unico",
+      "edit": "Modifica l'albero",
+      "editTitle": "Apri l'albero nell'editor, dove puoi cambiarlo e scaricarlo come foglio di calcolo o come un unico file che funziona offline"
+    },
+    "courseInfo": {
+      "button": "Info sulla materia",
+      "heading": "Info sulla materia",
+      "division": "Classe o facoltà",
+      "curriculum": "Curricolo",
+      "institution": "Istituto",
+      "country": "Paese",
+      "language": "Lingua",
+      "size": "Ampiezza",
+      "decompositionVersion": "Modello di scomposizione",
+      "credits": "Realizzato da",
+      "author": "Autore",
+      "updated": "Ultimo aggiornamento",
+      "license": "Licenza",
+      "basedOn": "Basato su",
+      "skills": "{n} abilità",
+      "concepts": "{n} concetti",
+      "facts": "{n} elenchi di fatti",
+      "nodes": "{n} nodi"
+    },
+    "helpToggle": "Spiegazione",
+    "print": {
+      "button": "Stampa",
+      "title": "Scarica tutto l'albero in PDF, pronto da stampare",
+      "working": "Creazione del PDF …",
+      "failed": "Non è stato possibile creare il PDF",
+      "heading": "Stampa",
+      "help": "Scarica tutto l'albero come una sola pagina PDF, pronta da stampare. L'anteprima mostra il foglio come verrà. Il titolo e aiskilltrees.com ci sono sempre sul foglio.",
+      "paperLabel": "Formato carta",
+      "orientationLabel": "Orientamento",
+      "orientation": {
+        "auto": "Automatico",
+        "landscape": "Orizzontale",
+        "portrait": "Verticale"
+      },
+      "colorLabel": "Colori",
+      "color": {
+        "color": "A colori",
+        "gray": "Bianco e nero"
+      },
+      "rings": "Cerchi da spuntare",
+      "legend": "Legenda",
+      "download": "Scarica PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Torna alla vista di prima"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, for Italian. Same role as languages/nb.json → prompt. Only what is SPECIFIC TO ITALIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json → writingStyleGeneral. The text is in Italian, as in nb.json and sv.json: advice on writing good Italian makes little sense phrased in English. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another. The right to ask for another language is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "italiano",
+    "outputLanguage": "Conduci tutta questa conversazione in {conversationLanguage}. Tutto ciò che è citato dall'albero delle abilità qui sotto — nomi dei nodi, descrizioni, prerequisiti — è scritto in {conversationLanguage}, ed è la lingua in cui l'utente si aspetta che tu gli parli. Parti dell'istruzione che stai leggendo sono in inglese; non è un invito a rispondere in inglese. Non cambiare lingua di tua iniziativa e non commentare la lingua in cui è scritta l'istruzione. Dai del «tu» all'utente, come fanno gli insegnanti con gli alunni. Se devi nominare chi impara, la parola è «{learnerDefinite}», non un'altra parola per la stessa cosa.",
+    "writingStyle": "Esempi in italiano dei due consigli qui sopra:\n- Forma attiva: scrivi «possiamo scrivere il numero come …», non «il numero può essere scritto come …»; scrivi «moltiplichiamo tutti e due i membri per 3» o «moltiplichi tutti e due i membri per 3», non «tutti e due i membri vengono moltiplicati per 3» né «si moltiplicano tutti e due i membri per 3». Evita «viene fatto», «può essere fatto» e il «si» impersonale quando puoi dire chi lo fa.\n- Parole comuni nell'italiano scritto, ma rare nel parlato, libresche o un po' troppo da adulti: sostituiscile con una parola più semplice, per esempio «effettuare», «procedere a», «pertanto», «mediante». La prova dell'amico: diresti davvero questa parola ad alta voce a un amico?",
+    "overrides": {}
+  }
+}

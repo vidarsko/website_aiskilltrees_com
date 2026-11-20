@@ -263,6 +263,8 @@
       ]);
       fieldset.dataset.facet = facet.key;
       el.facets.appendChild(fieldset);
+      /* Mange verdier (land, språk): en nedtrekksmeny, se js/facet-dropdown.js. */
+      if (window.facetDropdown) window.facetDropdown.enhance(fieldset);
     });
   }
 
@@ -282,6 +284,7 @@
         input.disabled = dead;
       });
     });
+    if (window.facetDropdown) window.facetDropdown.refresh(el.facets);
   }
 
   function renderChips() {

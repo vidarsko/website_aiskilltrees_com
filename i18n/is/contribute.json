@@ -1,0 +1,15 @@
+{
+  "doc-title": "Sendu inn tréð þitt | AI Skill Trees",
+  "meta-description": "Hvernig þú sendir færnitré sem þú hefur búið til í safnið á þessari síðu.",
+  "page-eyebrow": "Fyrir kennara",
+  "page-heading": "Sendu inn tréð þitt",
+  "page-lede": "Ef þú hefur búið til færnitré fyrir námsgreinina þína geturðu sent það inn og fengið það sett í safnið á þessari síðu.",
+  "how-body": "Í bili sendirðu mér tree.csv-skrána þína í tölvupósti:",
+  "terms-eyebrow": "Áður en þú sendir",
+  "terms-1": "Ég les hvert tré áður en það er birt.",
+  "terms-2": "Tré er birt undir nafni þess sem bjó það til. Ef það er aðlagað úr öðru tré heldur það „Byggt á“-línunum sem ritillinn skrifar í skrána, svo fyrri höfunda er áfram getið.",
+  "terms-3": "Trén og fyrirmælin á þessari síðu eru með CC BY 4.0-leyfi: hver sem er má nota þau og aðlaga, svo lengi sem höfundar er getið. Tré sem þú sendir inn er birt með því leyfi.",
+  "terms-4": "Ekki er tekið við framlögum með pull requests á GitHub.",
+  "own-body": "Þú þarft ekki að senda neitt inn til að nota aðferðina. Ritillinn gefur þér þína eigin skrá, sem þú mátt nota og deila eins og þú vilt.",
+  "own-cta": "Búðu til þitt eigið"
+}

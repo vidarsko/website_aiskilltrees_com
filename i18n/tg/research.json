@@ -1,0 +1,13 @@
+{
+  "doc-title": "Тадқиқот | AI Skill Trees",
+  "meta-description": "Маводи иловагӣ дар бораи тарҳ ва мақолае, ки усулро тавсиф мекунад.",
+  "page-heading": "Тадқиқот",
+  "page-lede": "Версияи нашршудаи усул ва тарзи иқтибос овардан аз он.",
+  "cite-eyebrow": "Нармафзор ва иқтибос",
+  "cite-heading": "Версияи 0.33.0",
+  "cite-body-1": "Муҳаррик, дастурҳо, файлҳои забонӣ ва дарахти намунавӣ дар анбори ҷамъиятии GitHub <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a> ҷойгиранд. Ин сомона нашри <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>-и онро истифода мебарад.",
+  "cite-body-2": "Ҳар як нашр дар Zenodo бо DOI-и худ бойгонӣ мешавад. DOI-и нашри 0.33.0 <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a> аст. DOI-и <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> ҳамеша ба нашри навтарин ишора мекунад.",
+  "cite-body-3": "Агар усул ё маводро истифода барӣ, лутфан на ба шохаи асосӣ, балки ба ҳамон нашре, ки истифода бурдӣ, иқтибос овар:",
+  "cite-cta-github": "Нашр дар GitHub",
+  "cite-cta-zenodo": "Бойгонӣ дар Zenodo"
+}

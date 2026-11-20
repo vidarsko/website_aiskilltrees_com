@@ -1,0 +1,13 @@
+{
+  "doc-title": "Riċerka | AI Skill Trees",
+  "meta-description": "Qari ta' sfond dwar id-disinn, u l-artiklu li jiddeskrivi l-metodu.",
+  "page-heading": "Riċerka",
+  "page-lede": "Il-verżjoni maħruġa tal-metodu, u kif tiċċitaha.",
+  "cite-eyebrow": "Software u ċitazzjoni",
+  "cite-heading": "Verżjoni 0.33.0",
+  "cite-body-1": "Il-magna, l-istruzzjonijiet, il-fajls tal-lingwi u s-siġra tal-bidu jinsabu f'repożitorju pubbliku fuq GitHub, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Dan is-sit juża l-ħarġa <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> tiegħu.",
+  "cite-body-2": "Kull ħarġa hija arkivjata f'Zenodo b'DOI tagħha. Il-ħarġa 0.33.0 hija <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. Id-DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> dejjem jipponta lejn l-aħħar ħarġa.",
+  "cite-body-3": "Jekk tuża l-metodu jew il-materjal, jekk jogħġbok iċċita l-ħarġa li użajt, u mhux il-fergħa prinċipali (main):",
+  "cite-cta-github": "Il-ħarġa fuq GitHub",
+  "cite-cta-zenodo": "L-arkivju f'Zenodo"
+}

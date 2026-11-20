@@ -1,0 +1,15 @@
+{
+  "doc-title": "Pošli svoj strom | AI Skill Trees",
+  "meta-description": "Ako poslať strom zručností, ktorý si vytvoril(a), do katalógu na tejto stránke.",
+  "page-eyebrow": "Pre učiteľov",
+  "page-heading": "Pošli svoj strom",
+  "page-lede": "Ak si vytvoril(a) strom zručností pre svoj predmet, môžeš mi ho poslať a pridám ho do katalógu na tejto stránke.",
+  "how-body": "Zatiaľ mi svoj súbor tree.csv pošli e-mailom:",
+  "terms-eyebrow": "Skôr než ho pošleš",
+  "terms-1": "Každý strom si pred zverejnením prečítam.",
+  "terms-2": "Strom sa zverejňuje pod menom toho, kto ho vytvoril. Ak vychádza z iného stromu, ponechá si riadky „Vychádza z“, ktoré do súboru zapíše editor, aby pôvodní autori zostali uvedení.",
+  "terms-3": "Stromy a inštrukcie na tejto stránke sú pod licenciou CC BY 4.0: ktokoľvek ich môže používať a upravovať, ak uvedie autora. Strom, ktorý pošleš, sa zverejní pod touto licenciou.",
+  "terms-4": "Príspevky cez pull requesty na GitHube sa neprijímajú.",
+  "own-body": "Na používanie metódy nemusíš nič posielať. Editor ti dá vlastný súbor, ktorý môžeš používať a zdieľať, ako chceš.",
+  "own-cta": "Vytvor si vlastný strom"
+}

@@ -1,0 +1,15 @@
+{
+  "doc-title": "Pošlji svoje drevo | AI Skill Trees",
+  "meta-description": "Kako v katalog na tej strani pošlješ drevo veščin, ki si ga naredil(a).",
+  "page-eyebrow": "Za učitelje",
+  "page-heading": "Pošlji svoje drevo",
+  "page-lede": "Če si naredil(a) drevo veščin za svoj predmet, mi ga lahko pošlješ in dodal ga bom v katalog na tej strani.",
+  "how-body": "Zaenkrat mi datoteko tree.csv pošlji po e-pošti:",
+  "terms-eyebrow": "Preden ga pošlješ",
+  "terms-1": "Vsako drevo preberem, preden ga objavim.",
+  "terms-2": "Drevo je objavljeno pod imenom osebe, ki ga je naredila. Če je priredba drugega drevesa, obdrži vrstice »Temelji na«, ki jih urejevalnik zapiše v datoteko, tako da so prejšnji avtorji še vedno navedeni.",
+  "terms-3": "Drevesa in navodila na tej strani so pod licenco CC BY 4.0: vsakdo jih lahko uporablja in prireja, če navede avtorja. Drevo, ki ga pošlješ, bo objavljeno pod to licenco.",
+  "terms-4": "Prispevkov prek zahtevkov za združitev (pull request) na GitHubu ne sprejemam.",
+  "own-body": "Za uporabo metode ti ni treba ničesar pošiljati. Urejevalnik ti da lastno datoteko, ki jo lahko uporabljaš in deliš, kakor želiš.",
+  "own-cta": "Naredi svoje drevo"
+}

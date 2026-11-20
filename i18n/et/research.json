@@ -1,0 +1,13 @@
+{
+  "doc-title": "Uurimus | AI Skill Trees",
+  "meta-description": "Taustalugemist ülesehituse kohta ja meetodit kirjeldav artikkel.",
+  "page-heading": "Uurimus",
+  "page-lede": "Meetodi avaldatud versioon ja kuidas sellele viidata.",
+  "cite-eyebrow": "Tarkvara ja viitamine",
+  "cite-heading": "Versioon 0.33.0",
+  "cite-body-1": "Mootor, juhised, keelefailid ja algpuu on avalikus GitHubi repositooriumis <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. See sait kasutab selle väljalaset <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Iga väljalase on arhiveeritud Zenodos oma DOI-ga. Väljalaske 0.33.0 DOI on <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> viitab alati uusimale väljalaskele.",
+  "cite-body-3": "Kui kasutad meetodit või materjali, viita palun sellele väljalaskele, mida kasutasid, mitte põhiharule:",
+  "cite-cta-github": "Väljalase GitHubis",
+  "cite-cta-zenodo": "Arhiiv Zenodos"
+}

@@ -1,56 +1,65 @@
 /* ==========================================================================
    header.js — the site header bar, rendered for every page.
 
-   WHY THIS IS JAVASCRIPT AND NOT MARKUP IN EACH PAGE. The bar now carries a
-   wordmark, three nav links, a language dropdown and a drawer for narrow
-   screens. Copied into four pages that would be four places to fix a typo,
-   four places to add a page, and four chances for the nav to drift out of
-   sync — which is exactly the failure this repo just spent a refactor
-   removing from the skill-tree engine. One file owns it instead.
+   WHY THIS IS JAVASCRIPT AND NOT MARKUP IN EACH PAGE. The bar carries a
+   wordmark, the nav links, a language menu and a drawer for narrow screens.
+   One file owns it, so the nav cannot drift between pages.
 
-   Its labels live HERE, not in each page's #i18n-dict, for the same reason:
-   the header is site chrome, not page content, and duplicating "Trees" into
-   every page's dictionary is the same bug one level down.
+   Its labels are site chrome, not page content: English is the fallback
+   here, and every language (English included) is in /i18n/<lang>/_site.json,
+   read through window.i18n.s(). The language list itself is in js/i18n.js.
+
+   THE LANGUAGE MENU (2026-11-19, when the site went from three languages to
+   about forty). Vidar: pages that exist in only some languages must show it
+   clearly. So the menu has two groups: the languages THIS page is in, on
+   top, and below them every other language, greyed out and not clickable.
+   A filter field on top finds a language by its own name, its English name
+   or its code. A page in every language shows one plain list.
 
    Load order on every page:  i18n.js (defer) → header.js (defer)
-   i18n.js owns the language STATE; this file owns the visible control and
-   calls window.i18n.setLang(). A page needs only an empty
-   <header class="siteheader" data-site-header></header> in its markup.
    ========================================================================== */
 (function () {
   'use strict';
 
-  /* The site's pages. Adding one is a line here — nothing else. */
+  /* The site's pages. Adding one is a line here, and a key in _site.json. */
   var NAV = [
-    { href: '/how-to-use/',    label: { en: 'How to use',    nb: 'Slik bruker du', sv: 'Så använder du' } },
-    { href: '/trees/',         label: { en: 'Trees',         nb: 'Ferdighetstrær', sv: 'Färdighetsträd' } },
-    { href: '/make-your-own/', label: { en: 'Make your own', nb: 'Lag ditt eget',  sv: 'Gör ditt eget' } },
-    { href: '/prompts/',       label: { en: 'The prompts',   nb: 'Instruksene',    sv: 'Instruktionerna' } },
-    { href: '/about/',         label: { en: 'About',         nb: 'Om',             sv: 'Om' } },
-    { href: '/research/',      label: { en: 'Research',      nb: 'Forskning',      sv: 'Forskning' } }
-  ];
-
-  /* Endonyms: a language is named in its own language, so this list reads
-     the same whichever language is active and needs no translating. */
-  /* `code` is the BCP 47 tag ('nb' = bokmål, leaving room for 'nn'); `short`
-     is only what the button shows, and NO reads better than NB to a
-     Norwegian. The two deliberately differ. */
-  var LANGS = [
-    { code: 'en', short: 'EN', name: 'English' },
-    { code: 'nb', short: 'NO', name: 'Norsk' },
-    { code: 'sv', short: 'SV', name: 'Svenska' }
+    { href: '/how-to-use/',    key: 'nav-how-to-use',    en: 'How to use' },
+    { href: '/trees/',         key: 'nav-trees',         en: 'Trees' },
+    { href: '/make-your-own/', key: 'nav-make-your-own', en: 'Make your own' },
+    { href: '/prompts/',       key: 'nav-prompts',       en: 'The prompts' },
+    { href: '/about/',         key: 'nav-about',         en: 'About' },
+    { href: '/research/',      key: 'nav-research',      en: 'Research' }
   ];
 
   var UI = {
-    menu:     { en: 'Menu',            nb: 'Meny',        sv: 'Meny' },
-    language: { en: 'Language',        nb: 'Språk',       sv: 'Språk' },
-    chooseLanguage: { en: 'Choose language', nb: 'Velg språk', sv: 'Välj språk' },
-    main:     { en: 'Main',            nb: 'Hovedmeny',   sv: 'Huvudmeny' }
+    menu:           'Menu',
+    language:       'Language',
+    chooseLanguage: 'Choose language',
+    main:           'Main',
+    availableHere:  'This page is in',
+    notHere:        'Not on this page',
+    search:         'Find a language',
+    noMatch:        'No language matches'
+  };
+  var UI_KEYS = {
+    menu: 'ui-menu', language: 'ui-language', chooseLanguage: 'ui-choose-language', main: 'ui-main',
+    availableHere: 'ui-available-here', notHere: 'ui-not-here', search: 'ui-search-language',
+    noMatch: 'ui-no-language-match'
   };
 
-  /* Icons are drawn here as SVG, never emoji (ux-design rule 11). The mark
-     is the same drawing as /favicon.svg: a fact and a concept leading into a
-     skill that is also a robot head. Keep the two in step. */
+  /* English names, only so the filter finds "German" as well as "Deutsch". */
+  var ENGLISH = {
+    en: 'English', sq: 'Albanian', az: 'Azerbaijani', bs: 'Bosnian', cnr: 'Montenegrin', cs: 'Czech',
+    da: 'Danish', de: 'German', et: 'Estonian', es: 'Spanish', fr: 'French', hr: 'Croatian',
+    is: 'Icelandic', it: 'Italian', lv: 'Latvian', lt: 'Lithuanian', hu: 'Hungarian', mt: 'Maltese',
+    nl: 'Dutch', nb: 'Norwegian', uz: 'Uzbek', pl: 'Polish', pt: 'Portuguese', ro: 'Romanian',
+    sk: 'Slovak', sl: 'Slovenian', fi: 'Finnish', sv: 'Swedish', tr: 'Turkish', el: 'Greek',
+    be: 'Belarusian', bg: 'Bulgarian', kk: 'Kazakh', ky: 'Kyrgyz', mk: 'Macedonian', ru: 'Russian',
+    sr: 'Serbian', tg: 'Tajik', uk: 'Ukrainian', ka: 'Georgian', hy: 'Armenian'
+  };
+
+  /* Icons are drawn as SVG, never emoji (ux-design rule 11). The mark is the
+     same drawing as /favicon.svg. Keep the two in step. */
   var ICON = {
     mark: '<svg viewBox="0 0 32 32" width="22" height="22" focusable="false">' +
           '<path d="M7 9 L11.5 16 M25 9 L20.5 16" fill="none" stroke="var(--amber)" stroke-width="2.4" stroke-linecap="round"/>' +
@@ -67,27 +76,31 @@
   var host = document.querySelector('[data-site-header]');
   if (!host) return;
 
-  function lang() {
-    return (window.i18n && window.i18n.lang) || 'en';
+  function I() { return window.i18n || {}; }
+  function lang() { return I().lang || document.documentElement.lang || 'en'; }
+  function s(key, fallback) { return I().s ? I().s(key, fallback) : fallback; }
+  function ui(name) { return s(UI_KEYS[name], UI[name]); }
+  function languages() {
+    return I().languages || [{ code: 'en', short: 'EN', name: 'English' }];
   }
-  function txt(entry) {
-    return entry[lang()] || entry.en;
+  function available() {
+    return I().available || [lang()];
   }
 
-  /* A nav link is current when the path starts with its href. '/trees/'
-     therefore stays lit inside '/trees/no-vgs-matte-2p/' — but tree pages do not
-     load this header at all (they are single-language, see js/engine.js). */
   function isCurrent(href) {
     var p = location.pathname;
     return p === href || p.indexOf(href) === 0;
   }
 
+  function byName(a, b) { return a.name.localeCompare(b.name); }
+
   function render() {
     var L = lang();
-    var current = LANGS.filter(function (x) { return x.code === L; })[0] || LANGS[0];
+    var langs = languages();
+    var avail = available();
+    var current = langs.filter(function (x) { return x.code === L; })[0] || langs[0];
 
     host.innerHTML = '';
-
     var inner = el('div', 'siteheader__inner');
 
     var mark = el('a', 'wordmark');
@@ -95,27 +108,23 @@
     mark.innerHTML = '<span class="wordmark__mark" aria-hidden="true">' + ICON.mark + '</span>AI Skill Trees';
     inner.appendChild(mark);
 
-    /* Burger. Hidden above 768px in CSS; it is not removed from the DOM,
-       so a resize needs no re-render. */
     var toggle = el('button', 'navtoggle');
     toggle.type = 'button';
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-controls', 'sitenav-panel');
-    toggle.setAttribute('aria-label', txt(UI.menu));
+    toggle.setAttribute('aria-label', ui('menu'));
     toggle.innerHTML = '<span class="navtoggle__bars" aria-hidden="true"></span>';
     inner.appendChild(toggle);
 
-    /* One panel holding nav + language. Inline row on desktop, drawer below
-       the bar on narrow screens — a CSS switch, not two markup variants. */
     var panel = el('div', 'sitenav-panel');
     panel.id = 'sitenav-panel';
 
     var nav = el('nav', 'sitenav');
-    nav.setAttribute('aria-label', txt(UI.main));
+    nav.setAttribute('aria-label', ui('main'));
     NAV.forEach(function (item) {
       var a = el('a');
       a.href = item.href;
-      a.textContent = txt(item.label);
+      a.textContent = s(item.key, item.en);
       if (isCurrent(item.href)) {
         a.classList.add('is-current');
         a.setAttribute('aria-current', 'page');
@@ -124,50 +133,94 @@
     });
     panel.appendChild(nav);
 
-    /* Language dropdown. A button + listbox rather than three buttons side
-       by side: three fit, but a fourth language would not, and the bar has
-       nav links to make room for now. */
+    /* ---- Language menu ---- */
     var select = el('div', 'lang-select');
 
     var btn = el('button', 'lang-select__button');
     btn.type = 'button';
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-label', txt(UI.language) + ': ' + current.name);
+    btn.setAttribute('aria-label', ui('language') + ': ' + current.name);
     btn.innerHTML = '<span class="lang-select__globe" aria-hidden="true">' + ICON.globe + '</span>' +
                     '<span class="lang-select__code">' + current.short + '</span>' +
                     '<span class="lang-select__caret" aria-hidden="true">&#9662;</span>';
     select.appendChild(btn);
 
-    var menu = el('ul', 'lang-select__menu');
-    menu.setAttribute('role', 'listbox');
-    menu.setAttribute('aria-label', txt(UI.chooseLanguage));
-    LANGS.forEach(function (item) {
+    var menu = el('div', 'lang-select__menu');
+
+    var filter = null;
+    if (langs.length > 8) {
+      filter = el('input', 'lang-select__filter');
+      filter.type = 'search';
+      filter.placeholder = ui('search');
+      filter.setAttribute('aria-label', ui('search'));
+      filter.autocomplete = 'off';
+      menu.appendChild(filter);
+    }
+
+    var here = langs.filter(function (x) { return avail.indexOf(x.code) !== -1; }).sort(byName);
+    var elsewhere = langs.filter(function (x) { return avail.indexOf(x.code) === -1; }).sort(byName);
+    var split = elsewhere.length > 0;
+
+    var list = el('ul', 'lang-select__list');
+    list.setAttribute('role', 'listbox');
+    list.setAttribute('aria-label', ui('chooseLanguage'));
+
+    function group(label) {
+      var li = el('li', 'lang-select__group');
+      li.setAttribute('role', 'presentation');
+      li.textContent = label;
+      list.appendChild(li);
+      return li;
+    }
+    function option(item, enabled) {
       var li = el('li');
-      var opt = el('button', 'lang-select__option');
+      li.setAttribute('role', 'presentation');
+      li.setAttribute('data-search', (item.name + ' ' + (ENGLISH[item.code] || '') + ' ' + item.code).toLowerCase());
+      var opt = el('button', 'lang-select__option' + (enabled ? '' : ' is-unavailable'));
       opt.type = 'button';
       opt.setAttribute('role', 'option');
       opt.setAttribute('data-lang', item.code);
+      opt.setAttribute('lang', item.code);
       opt.setAttribute('aria-selected', item.code === L ? 'true' : 'false');
+      if (!enabled) {
+        opt.disabled = true;
+        opt.setAttribute('aria-disabled', 'true');
+      }
       /* The tick marks the active language as well as the fill does —
          never colour alone. */
       opt.innerHTML = '<span class="lang-select__tick" aria-hidden="true">' +
                       (item.code === L ? '&#10003;' : '') + '</span>' +
-                      '<span>' + item.name + '</span>';
+                      '<span class="lang-select__name"></span>' +
+                      '<span class="lang-select__short" aria-hidden="true">' + item.short + '</span>';
+      opt.querySelector('.lang-select__name').textContent = item.name;
       li.appendChild(opt);
-      menu.appendChild(li);
-    });
+      list.appendChild(li);
+    }
+
+    if (split) group(ui('availableHere'));
+    here.forEach(function (x) { option(x, true); });
+    if (split) {
+      group(ui('notHere')).classList.add('lang-select__group--off');
+      elsewhere.forEach(function (x) { option(x, false); });
+    }
+    var none = el('li', 'lang-select__none');
+    none.setAttribute('role', 'presentation');
+    none.textContent = ui('noMatch');
+    none.hidden = true;
+    list.appendChild(none);
+
+    menu.appendChild(list);
     select.appendChild(menu);
     panel.appendChild(select);
 
     inner.appendChild(panel);
     host.appendChild(inner);
 
-    wire(toggle, btn, menu);
+    wire(toggle, btn, menu, list, filter, none);
   }
 
-  function wire(toggle, btn, menu) {
-    /* --- drawer --- */
+  function wire(toggle, btn, menu, list, filter, none) {
     function setDrawer(open) {
       host.setAttribute('data-open', open ? 'true' : 'false');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -177,42 +230,81 @@
       setDrawer(host.getAttribute('data-open') !== 'true');
     });
 
-    /* --- language dropdown --- */
+    function enabledOptions() {
+      return [].slice.call(list.querySelectorAll('.lang-select__option:not([disabled])'))
+        .filter(function (o) { return !o.parentNode.hidden; });
+    }
+
     function setMenu(open) {
       menu.classList.toggle('is-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && filter) { filter.value = ''; runFilter(); }
     }
+
+    function runFilter() {
+      var q = filter ? filter.value.trim().toLowerCase() : '';
+      var shown = 0;
+      [].slice.call(list.children).forEach(function (li) {
+        var key = li.getAttribute('data-search');
+        if (key == null) return;
+        var hit = !q || key.indexOf(q) !== -1;
+        li.hidden = !hit;
+        if (hit) shown++;
+      });
+      /* A group label hides when nothing under it is left. */
+      [].slice.call(list.querySelectorAll('.lang-select__group')).forEach(function (g) {
+        var n = g.nextElementSibling, any = false;
+        while (n && !n.classList.contains('lang-select__group')) {
+          if (n.getAttribute('data-search') != null && !n.hidden) any = true;
+          n = n.nextElementSibling;
+        }
+        g.hidden = !any;
+      });
+      none.hidden = shown > 0;
+    }
+
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
-      setMenu(!menu.classList.contains('is-open'));
+      var open = !menu.classList.contains('is-open');
+      setMenu(open);
+      if (open && filter && window.matchMedia('(pointer: fine)').matches) filter.focus();
     });
 
-    menu.addEventListener('click', function (e) {
+    if (filter) {
+      filter.addEventListener('input', runFilter);
+      filter.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'Enter') {
+          var first = enabledOptions()[0];
+          if (!first) return;
+          e.preventDefault();
+          if (e.key === 'Enter') first.click(); else first.focus();
+        }
+      });
+    }
+
+    list.addEventListener('click', function (e) {
       var opt = e.target.closest('.lang-select__option');
-      if (!opt) return;
+      if (!opt || opt.disabled) return;
       setMenu(false);
       setDrawer(false);
-      if (window.i18n) window.i18n.setLang(opt.getAttribute('data-lang'));
+      if (window.i18n && window.i18n.setLang) window.i18n.setLang(opt.getAttribute('data-lang'));
     });
 
-    /* Arrow keys inside the open list, Escape out of either layer. */
-    menu.addEventListener('keydown', function (e) {
-      var opts = [].slice.call(menu.querySelectorAll('.lang-select__option'));
+    list.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+      var opts = enabledOptions();
       var i = opts.indexOf(document.activeElement);
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        var next = e.key === 'ArrowDown' ? i + 1 : i - 1;
-        if (next < 0) next = opts.length - 1;
-        if (next >= opts.length) next = 0;
-        opts[next].focus();
-      }
+      e.preventDefault();
+      var next = e.key === 'ArrowDown' ? i + 1 : i - 1;
+      if (next < 0) { if (filter) { filter.focus(); return; } next = opts.length - 1; }
+      if (next >= opts.length) next = 0;
+      opts[next].focus();
     });
     btn.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         setMenu(true);
-        var first = menu.querySelector('.lang-select__option');
-        if (first) first.focus();
+        (filter || enabledOptions()[0]).focus();
       }
     });
     document.addEventListener('keydown', function (e) {
@@ -232,7 +324,5 @@
   }
 
   render();
-  /* The dropdown's own labels are endonyms and never change, but the nav
-     links and aria-labels do. */
   if (window.i18n && window.i18n.onChange) window.i18n.onChange(render);
 })();

@@ -1,0 +1,15 @@
+{
+  "doc-title": "Prześlij swoje drzewo | AI Skill Trees",
+  "meta-description": "Jak przesłać zrobione przez siebie drzewo umiejętności do katalogu na tej stronie.",
+  "page-eyebrow": "Dla nauczycieli",
+  "page-heading": "Prześlij swoje drzewo",
+  "page-lede": "Jeśli masz gotowe drzewo umiejętności dla swojego przedmiotu, możesz je przesłać, żeby trafiło do katalogu na tej stronie.",
+  "how-body": "Na razie wyślij mi swój plik tree.csv e-mailem:",
+  "terms-eyebrow": "Zanim wyślesz",
+  "terms-1": "Czytam każde drzewo przed publikacją.",
+  "terms-2": "Drzewo jest publikowane pod nazwiskiem osoby, która je zrobiła. Jeśli powstało na podstawie innego drzewa, zachowuje wiersze „Na podstawie”, które kreator zapisuje w pliku, więc wcześniejsi autorzy pozostają wymienieni.",
+  "terms-3": "Drzewa i instrukcje na tej stronie są na licencji CC BY 4.0: każdy może z nich korzystać i je zmieniać, pod warunkiem że poda autora. Przesłane drzewo jest publikowane na tej licencji.",
+  "terms-4": "Nie przyjmujemy zgłoszeń przez pull requesty na GitHubie.",
+  "own-body": "Żeby korzystać z metody, nie musisz niczego przesyłać. Kreator daje ci własny plik, którego możesz używać i który możesz udostępniać, jak chcesz.",
+  "own-cta": "Zrób własne"
+}

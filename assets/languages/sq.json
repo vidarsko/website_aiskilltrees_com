@@ -1,0 +1,458 @@
+{
+  "code": "sq",
+  "htmlLang": "sq",
+  "name": "Shqip",
+  "endonym": "Shqip",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Standard Albanian, for Albania and Kosovo alike. AI is \"IA\" (inteligjenca artificiale). Adjectives and participles are gendered in Albanian and carry a linking article (i sigurt / e sigurt), so the strings addressed to the user avoid them: imperatives and present-tense verbs, which do not mark gender. The status labels (\"I zotëruar\") describe the learning goal (objektivi, masculine), not the user. Placeholders sit where their case does not matter: after a colon, or in quotation marks after a noun (\"tema „{topic}“\"). Counts use the form \"Label: {n}\" where a noun after a bare number would need a different form for 1.",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use. Albanian attaches the definite article to the noun: \"nxënësi\", \"studenti\", \"pjesëmarrësi\". A tree sets it with the config row `learner`, as free text (\"nxënësja\" ...); left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. Albanian has no infinitive: a skill description is a \"të\" clause (\"Nxënësi di: të mbledhë thyesat\"), and \"di\" (knows how) takes it as \"di të notojë\" does; a concept is a definition. The lead-ins use present-tense verbs, which do not change with gender, so they also fit \"nxënësja\".",
+    "default": "nxënësi",
+    "legacy": {
+      "pupil": "nxënësi",
+      "student": "studenti",
+      "participant": "pjesëmarrësi"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} di:",
+      "concept": "{LearnerDefinite} di të shpjegojë:",
+      "fact": "{LearnerDefinite} mban mend:"
+    }
+  },
+  "ui": {
+    "backLink": "← Të gjitha pemët",
+    "pageTitle": "Pema e aftësive: {title}",
+    "tagline": "Një hartë se si objektivat mësimore mbështeten te njëri-tjetri — shëno atë që e zotëron tashmë dhe kopjo një udhëzim për IA që të ushtrosh atë që vjen më pas.",
+    "makeYourOwn": "{subject}. Bëj pemën tënde:",
+    "progressLabel": "Objektiva të zotëruara: {done} nga {total}",
+    "zoomIn": "Zmadho",
+    "zoomOut": "Zvogëlo",
+    "fitToView": "Gjithë pema",
+    "fitToViewTitle": "Shfaq gjithë pemën (Ctrl + rrota e mausit për zmadhim)",
+    "close": "✕ Mbyll",
+    "closeLower": "✕ Mbyll",
+    "copied": "U kopjua!",
+    "copyFallback": "Kopjimi automatik nuk funksionoi — kopjoje vetë tekstin më poshtë:",
+    "errorBanner": "⚠ Probleme në skedarët e të dhënave: {n} (hollësitë në konsolë):",
+    "errorCsv": "Tabela nuk u lexua dot në rreshtin {row}: {message}",
+    "errorCsvHeader": "Rreshti i parë i skedarit {file} duhet të ketë emrat e kolonave. Mungojnë: {missing}. Rreshti i parë është: {found}. Ka gjasa që skedari të jetë ruajtur pa rreshtin e parë ose në një format tjetër; ruaje përsëri si CSV të thjeshtë.",
+    "errorUnknownDep": "Nyja „{id}“ ka si parakusht „{dep}“, por asnjë nyje nuk e ka këtë id.",
+    "errorNoTopic": "Nyja „{id}“ nuk ka temë dhe përfundon te kolona e përgjithshme „{topic}“.",
+    "errorUnknownResourceNode": "Rreshti {row} i tree.csv: burimi i referohet te depends_on id-së së nyjes „{id}“, e cila nuk ekziston.",
+    "errorExamsRenamed": "Rreshti {row} i tree.csv: cilësimi „features.exams“ është nga para versionit 0.22.0. Burimet tani janë rreshta në tree.csv me llojin „resource“: topic = grupi, name = titulli, description = lidhja, depends_on = nyjet. Fshije rreshtin dhe hape pemën te redaktori për ta kthyer skedarin e vjetër exams.csv. Nuk u zbatua asgjë.",
+    "errorResourceEmpty": "Rreshti {row} i tree.csv: burimi nuk ka as titull (name), as lidhje (description).",
+    "errorResourceNoNode": "Rreshti {row} i tree.csv: burimi „{label}“ nuk i përket asnjë nyjeje. Shkruaj një ose më shumë id nyjesh te depends_on, ose fshije rreshtin.",
+    "errorResourceDuplicate": "Rreshti {row} i tree.csv: burimi „{label}“ është i njëjtë me atë në rreshtin {first}. Bëji një rresht të vetëm, me të gjitha nyjet te depends_on.",
+    "errorResourceUrl": "Rreshti {row} i tree.csv: lidhja e burimit „{label}“ duhet të fillojë me https:// ose mailto:. Prandaj shfaqet si tekst i thjeshtë, pa lidhje.",
+    "errorCycle": "Këto nyje janë parakushte për njëra-tjetrën, në rreth: {cycle}. Njëra nga këto lidhje duhet hequr.",
+    "errorUnknownConfig": "Cilësim i panjohur „{key}“ në rreshtin {row} të tree.csv. Nuk u zbatua asgjë.",
+    "errorUnknownNodeType": "Nyja „{id}“ ka llojin „{type}“, i cili nuk ekziston. Llojet janë: {valid}.",
+    "errorUnknownPromptSection": "Seksion i panjohur „{section}“ te rreshti prompt (rreshti {row} i tree.csv). Nuk u zbatua asgjë.",
+    "errorUnknownPromptTarget": "Rreshti prompt (rreshti {row} i tree.csv) synon „{name}“, që nuk është një udhëzim që kjo pemë harton. Nuk u zbatua asgjë.",
+    "errorDidYouMean": "Mos doje të thoshe „{key}“?",
+    "errorMissingConfig": "Te tree.csv mungon rreshti i detyrueshëm config për „{key}“.",
+    "errorStyleColor": "Cilësimi „{key}“ në rreshtin {row} të tree.csv duhet të jetë një ngjyrë e shkruar me kod heksadecimal, p.sh. #1F6F4A. „{value}“ nuk është e tillë, prandaj mbeti ngjyra e paracaktuar.",
+    "errorLinkUrl": "Cilësimi „{key}“ në rreshtin {row} të tree.csv duhet të jetë një lidhje që fillon me https:// ose mailto:. „{value}“ nuk është e tillë, prandaj shfaqet si tekst i thjeshtë.",
+    "errorStyleFont": "Font i panjohur „{value}“ në rreshtin {row} të tree.csv. Fontet që mund të përdorë një pemë: {valid}. Mbeti fonti i paracaktuar.",
+    "nodeType": {
+      "skill": "aftësi",
+      "concept": "koncept",
+      "fact": "fakte"
+    },
+    "badges": {
+      "del1": "Pjesa 1",
+      "del2": "Pjesa 2",
+      "begge": "Pjesa 1+2"
+    },
+    "status": {
+      "mastered": "I zotëruar",
+      "ready": "Gati për t'u mësuar",
+      "notMastered": "Ende i pazotëruar",
+      "blocked": "Së pari duhen: {codes}"
+    },
+    "help": {
+      "label": "Ndihmë",
+      "heading": "Ndihmë",
+      "sections": [
+        {
+          "heading": "Menyja",
+          "body": "Gjithçka tjetër është pas ☰ poshtë majtas: objektivat mësimore, kërkimi, testi, printimi dhe të tjerat. Çdo dritare ka një „?“ që e shpjegon.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Harta",
+          "body": "Çdo kuti është një objektiv mësimor, dhe shigjetat nisen nga ajo që duhet ta dish më parë. Forma tregon llojin: faktet janë katrore, konceptet pak të rrumbullakosura dhe aftësitë të rrumbullakëta. Tërhiq për ta lëvizur hartën dhe përdor + dhe − për zmadhim.",
+          "figure": "map"
+        },
+        {
+          "heading": "I zotëruar",
+          "body": "Shtyp rrethin në një kuti kur e di objektivin, dhe ai bëhet një shenjë e gjelbër. Ruhet vetëm në shfletuesin tënd.",
+          "figure": "check"
+        },
+        {
+          "heading": "Një kuti",
+          "body": "Shtyp një kuti për të parë çfarë kërkon objektivi, mbi çfarë mbështetet, dhe një udhëzim që mund ta ngjitësh në një chat me IA për të ushtruar. Shtyp përsëri për ta mbyllur.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Shëno shumë",
+          "body": "Ikonat e listës shënojnë njëherësh të gjitha objektivat e një teme, ose i heqin shenjat. Me A dhe B vlejnë për gjithë pemën.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Kërkim",
+          "body": "Gjej një objektiv mësimor me një fjalë nga emri ose përshkrimi i tij.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Një udhëzim për IA për një test mbi objektivat që zgjedh. Ti vendos vështirësinë, numrin dhe llojin e ushtrimeve.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Plane mësimi (për mësuesit)",
+          "body": "Zgjidh objektiva mësimore dhe shtyp „Krijo një material“ për një plan mësimi, një mini-pemë ose një simulim.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Printim",
+          "body": "Shkarko gjithë pemën si PDF, me rrathë që nxënësit mund t'i shënojnë me stilolaps.",
+          "figure": "print"
+        },
+        {
+          "heading": "Etiketa e mjeteve të lejuara",
+          "body": "„Pjesa 1“ ose „Pjesa 2“ në panel tregon në cilin nivel të mjeteve të lejuara bën pjesë objektivi. Shtyp etiketën për të lexuar më shumë te „Rreth kursit“.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivimi",
+          "body": "Një bisedë e shkurtër me IA-në se pse ia vlen ta mësosh lëndën.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Shkurtore të tastierës",
+        "search": "Hap kërkimin",
+        "escape": "Mbyll dritaren, menynë ose panelin e hapur",
+        "zoom": "Zmadho dhe zvogëlo",
+        "fit": "Shfaq gjithë pemën, dhe kthehu prapa"
+      }
+    },
+    "safety": {
+      "label": "Siguria",
+      "heading": "Siguria",
+      "lead": "Një pemë aftësish bëhet nga një mësues, por kushdo mund të bëjë një skedar që duket si e tillë. Lexoje këtë para se të përdorësh një pemë që ta ka dërguar dikush.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Një pemë aftësish nuk kërkon kurrë të dhëna personale",
+          "body": "Pema nuk ka hyrje me llogari dhe nuk ka nevojë për asgjë rreth teje. Nuk të kërkon kurrë emrin, një fjalëkalim, llogarinë e shkollës, numrin personal, adresën, numrin e telefonit apo në cilën shkollë shkon. Përparimi yt ruhet vetëm në shfletuesin e kësaj pajisjeje. Nëse një faqe që duket si pemë aftësish të kërkon diçka nga këto, nuk është e vërtetë. Mbylle dhe tregoji mësuesit."
+        },
+        {
+          "id": "sender",
+          "heading": "Kush ta dërgoi pemën?",
+          "body": "Pyetja më e rëndësishme është nga vjen pema. Një peme në aiskilltrees.com, ose një peme që mësuesi yt e ka vendosur atje ku zakonisht merr materialet e lëndës, mund t'i besosh aq sa i beson mësuesit. Nëse ke marrë një skedar me email, në chat ose në rrjetet sociale nga dikush që nuk e njeh, ose të ka ardhur papritur, mos i beso lehtë, edhe nëse duket në rregull."
+        },
+        {
+          "id": "html",
+          "heading": "Një skedar HTML është faqe interneti, jo dokument",
+          "body": "Kur një pemë ndahet si skedar .html, nuk merr një dokument si PDF ose skedar Word. Merr një faqe të tërë interneti me kod që ekzekutohet kur e hap. Shfletuesi nuk e lë të lexojë skedarët e tu ose të instalojë diçka në kompjuter, por ajo mund të shfaqë çfarëdo: një faqe të rreme hyrjeje, një buton që shkarkon diçka, ose lidhje drejt faqeve të tjera. Ai që e bëri skedarin vendos se çfarë bën. Që duket si pemë aftësish nuk do të thotë se është e tillë. Mos hyr kurrë në llogari dhe mos shkarko asgjë nga një faqe që e hape nga një skedar."
+        },
+        {
+          "id": "links",
+          "heading": "Kontrollo lidhjet para se të klikosh",
+          "body": "Burimet në pemë mund të çojnë te video, ushtrime dhe tekste mësimore. Mbaj mausin mbi lidhje, ose shtype dhe mbaje, dhe shiko ku të çon para se të klikosh. Nëse nuk e njeh faqen, ose adresa duket e çuditshme, lëre."
+        },
+        {
+          "id": "injection",
+          "heading": "Udhëzimet mund të manipulohen",
+          "body": "Udhëzimi për IA që kopjon është tekst i shkruar nga ai që bëri pemën, dhe ti e ngjit drejtpërdrejt në një chat me IA. Ai që bën një pemë mund të shkruajë çfarëdo në të, edhe urdhra që e bëjnë chatin të sillet ndryshe nga ç'pret: të të japë përgjigje të gabuara, të të dërgojë në një faqe tjetër ose të të pyesë për gjëra që s'janë punë e tij. Kjo quhet prompt injection. Mirë është ta shikosh shpejt tekstin para se ta ngjitësh, dhe mos i beso verbërisht chatit."
+        },
+        {
+          "id": "chat",
+          "heading": "Ti vendos çfarë i thua chatit",
+          "body": "Disa udhëzime i kërkojnë chatit të të njohë, për shembull si ndihesh për lëndën dhe çfarë të del mirë. Mund të përgjigjesh sa të duash. Por asnjë udhëzim nuk ka nevojë për emrin tënd, të dhënat e kontaktit ose fjalëkalimet. Nëse chati të kërkon diçka të tillë, mos u përgjigj dhe tregoji mësuesit. Mos harro gjithashtu se ç'shkruan në një chat me IA ruhet nga kompania që e drejton chatin. Shkolla jote shpesh ka qasje në një shërbim IA ku privatësia jote mbrohet. Pyet mësuesin, dhe përdore nëse e ke."
+        },
+        {
+          "id": "teachers",
+          "heading": "Për mësuesit: një pemë nga një koleg",
+          "body": "Nëse ke marrë një pemë nga dikush tjetër, mund ta hapësh te redaktori në aiskilltrees.com/make-your-own/ para se t'ua japësh nxënësve, që të mos kesh asnjë dyshim. Redaktori merr nga skedari vetëm tabelën dhe bën prej saj një skedar të ri e të pastër, dhe aty mund të lexosh çdo udhëzim që përdor pema."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Objektivat mësimore",
+      "title": "Shfaq një listë të rregullt të të gjitha objektivave mësimore, sipas temave",
+      "heading": "Objektivat mësimore",
+      "copyAll": "Kopjo të gjitha",
+      "intro": "Lista tregon të gjitha objektivat mësimore të kursit, sipas temave, secilin me gjendjen e vet. Shëno një objektiv për ta shënuar si të zotëruar — e njëjta shenjë si te nyja në hartë — që të mund ta ndjekësh listën me radhë dhe të shënosh atë që ke kaluar.",
+      "markAria": "Shëno „{name}“ si të zotëruar",
+      "markAllButton": "Shëno të gjitha si të zotëruara",
+      "clearAllButton": "Hiq të gjitha shenjat",
+      "clearAllConfirm": "Të hiqet shenja „i zotëruar“ nga të gjitha objektivat mësimore të pemës?",
+      "openNode": "Shko te kjo nyje në hartë"
+    },
+    "lessonPlanner": {
+      "button": "Plane mësimi",
+      "title": "Zgjidh objektiva mësimore dhe kopjo një udhëzim për IA për një plan mësimi, një mini-pemë ose një simulim",
+      "selectAll": "Zgjidh të gjitha",
+      "deselectAll": "Hiq të gjitha",
+      "selectTopic": "Zgjidh të gjitha objektivat e temës „{topic}“",
+      "deselectTopic": "Hiq zgjedhjen nga të gjitha objektivat e temës „{topic}“",
+      "heading": "Plane mësimi",
+      "intro": "Shëno objektivat mësimore për të cilat do të bësh diçka, dhe shtyp „Krijo një material“ poshtë. Aty zgjedh çfarë të jetë: një plan mësimi, një mini-pemë ose një simulim. Shenjat këtu janë vetëm për këtë: nuk shënojnë asgjë si të zotëruar, dhe zhduken kur e ringarkon faqen."
+    },
+    "search": {
+      "button": "Kërkim",
+      "title": "Kërko te objektivat mësimore sipas emrit dhe përshkrimit",
+      "heading": "Kërkim",
+      "placeholder": "Kërko te objektivat mësimore …",
+      "hint": "Shkruaj një fjalë. Kërkimi shikon emrin, përshkrimin dhe temën e çdo objektivi mësimor, dhe mund të klikosh drejt e te nyja në hartë.",
+      "noResults": "Asnjë objektiv mësimor nuk përmban „{query}“.",
+      "countOne": "1 objektiv mësimor",
+      "countMany": "{n} objektiva mësimore",
+      "openNode": "Shko te kjo nyje në hartë"
+    },
+    "resourceList": {
+      "button": "Ushtrime dhe burime",
+      "title": "Shfaq të gjitha burimet e pemës dhe objektivat mësimore të cilave u përkasin",
+      "heading": "Ushtrime dhe burime",
+      "placeholder": "Filtro ushtrimet dhe burimet …",
+      "intro": "Ushtrime dhe burime: {n}",
+      "countFiltered": "{n} nga {total}",
+      "noResults": "Asnjë burim nuk përputhet me „{query}“.",
+      "openNode": "Shko te kjo nyje në hartë",
+      "help": "Ushtrime dhe burime që i përkasin pemës, si pyetje provimi, lidhje dhe video. Poshtë secilit janë objektivat mësimore të cilave u përket; shtyp njërin për të shkuar te ai në hartë. Shkruaj në fushë për të filtruar."
+    },
+    "motivation": {
+      "button": "Motivimi",
+      "title": "Kopjo një udhëzim për IA për një bisedë se pse ia vlen ta mësosh lëndën",
+      "heading": "Motivimi",
+      "desc": "Një bisedë e shkurtër me IA-në se pse ia vlen ta mësosh lëndën. IA pyet dhe dëgjon, dhe përgjigjen e gjeni bashkë.",
+      "help": "Shtyp „Kopjo udhëzimin“ dhe ngjite në një chat me IA. Biseda nis aty ku thua se je, dhe IA bën një pyetje në një kohë. Asgjë nga ç'shkruan nuk ruhet këtu.",
+      "startLabel": "Si ndihesh për lëndën?",
+      "start": {
+        "unknown": "Nuk e di",
+        "hard": "Është e vështirë",
+        "bored": "Është e mërzitshme",
+        "use": "Për çfarë do më duhet?"
+      },
+      "lengthLabel": "Gjatësia",
+      "length": {
+        "short": "E shkurtër",
+        "normal": "Normale",
+        "long": "E gjatë"
+      }
+    },
+    "lesson": {
+      "button": "Bëj një plan mësimi (për mësuesit)",
+      "title": "Kopjo një udhëzim për IA për një orë të plotë mësimi mbi objektivat e shënuara",
+      "typeLabel": "Lloji i orës",
+      "typeAria": "Çfarë lloj ore mësimi është",
+      "types": {
+        "intro": "Hyrje",
+        "practice": "Ushtrim",
+        "review": "Përsëritje",
+        "other": "Tjetër"
+      },
+      "minutesLabel": "Gjatësia",
+      "minutesAria": "Gjatësia e orës në minuta",
+      "includeAria": "Përfshi „{name}“ në planin e mësimit",
+      "selectedNone": "Asnjë objektiv mësimor i zgjedhur",
+      "selectedOne": "1 objektiv mësimor i zgjedhur",
+      "selectedMany": "Objektiva të zgjedhura: {n}"
+    },
+    "make": {
+      "button": "Krijo një material →",
+      "buttonTitle": "Zgjidh çfarë do të bësh për objektivat mësimore të shënuara",
+      "heading": "Çfarë do të bësh?",
+      "back": "← Objektivat mësimore",
+      "forOne": "Për 1 objektiv mësimor:",
+      "forMany": "Për {n} objektiva mësimore:",
+      "copy": "Kopjo udhëzimin",
+      "htmlBadge": "Skedar HTML",
+      "htmlAfter": "Ngjite në një chat me IA. Përgjigjja është një skedar HTML që e ruan, e hap në shfletues dhe mund ta ndash me nxënësit.",
+      "lesson": {
+        "title": "Plan mësimi",
+        "desc": "Një plan i plotë për një orë mësimi, me ndarje në minuta, çfarë shkruhet në tabelë dhe përgjigje për çdo ushtrim.",
+        "minutes": "min",
+        "shorter": "Më e shkurtër",
+        "longer": "Më e gjatë",
+        "after": "Ngjite në një chat me IA. Përgjigjja është një plan nga i cili mund të lexosh ndërsa jep mësim.",
+        "typeHints": {
+          "intro": "Objektiva të reja: një detyrë hyrëse, shembuj të zgjidhur në raunde, një pyetje diagnostikuese për çdo objektiv dhe rikujtim në fund.",
+          "practice": "Objektiva të mësuara së fundi: një kujtesë e shkurtër, pastaj grupe ushtrimesh me ndryshime të vogla dhe gjithnjë e më pak ndihmë.",
+          "review": "Objektiva të mësuara para ca kohësh: rikujtim pa shënime, kontroll i asaj që ka mbetur, mësim sërish ku duhet, dhe ushtrim i përzier.",
+          "other": "Diçka tjetër: përshkruaje vetë orën, ose IA do të të pyesë më parë."
+        }
+      },
+      "miniTree": {
+        "title": "Mini-pemë",
+        "desc": "Një pemë aftësish ku nxënësit ushtrohen vetë para një testi: objektivat e zgjedhura të mbledhura në pak tema me nivele, një shembull i zgjidhur para çdo raundi ushtrimesh, përgjigjja dhe një shpjegim pas tij, dhe zotërimi që hap nivelin tjetër.",
+        "levelsLabel": "Nivele për temë",
+        "levels1": "Një nivel",
+        "levels3": "Tre nivele",
+        "streakLabel": "Përgjigje të sakta me radhë për zotërim",
+        "supportLabel": "Përshtatja",
+        "easyRead": "Lexim i lehtë (Comic Sans, pak tekst)",
+        "readAloud": "Lexim me zë",
+        "game": "Yje dhe zhbllokim",
+        "mixedTest": "Test ushtrimor i përzier",
+        "credit": "Mbështetur në parimet e mësueses së edukimit special Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulim",
+        "desc": "Një simulim ndërveprues që nxënësit mund ta eksplorojnë, me një model shkencor që nuk është i sajuar dhe një panel që shpjegon çfarë mund dhe çfarë nuk mund të bëjë modeli.",
+        "workflowLabel": "Mënyra e punës",
+        "design": "Fillimisht bisedë për projektimin",
+        "build": "Prototip menjëherë",
+        "screenLabel": "Ekrani",
+        "laptop": "Laptop",
+        "tablet": "Tablet",
+        "projector": "Projektor",
+        "extrasLabel": "Përfshi",
+        "tasks": "Detyra për nxënësit",
+        "critique": "Kritika e modelit",
+        "export": "Eksport i të dhënave (CSV)",
+        "credit": "Sipas promptit të Henning Vinjusveen Myhrehagen në skolesim.no."
+      },
+      "less": "Më pak",
+      "more": "Më shumë",
+      "help": "Çdo material është një udhëzim për IA. Zgjidh çfarë do, shtyp „Kopjo udhëzimin“ dhe ngjite në një chat me IA si ChatGPT ose Claude. Plani i mësimit bëhet një plan nga i cili mund të lexosh ndërsa jep mësim. Mini-pema dhe simulimi bëhen një skedar HTML që e ruan, e hap në shfletues dhe mund ta ndash me nxënësit. Zgjedhjet nuk ruhen.",
+      "forLabel": "Për:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Bëj një udhëzim për IA për një test mbi atë që ke shënuar si të zotëruar",
+      "none": "Ende asnjë objektiv i zotëruar",
+      "countLabel": "Numri i ushtrimeve",
+      "countAria": "Numri i ushtrimeve në test",
+      "heading": "Test",
+      "desc": "Një test me shkrim mbi atë që ke shënuar si të zotëruar, me përgjigje kur i kërkon.",
+      "help": "Testi ndërtohet nga objektivat mësimore që ke shënuar si të zotëruara në pemë. Zgjidh vështirësinë, numrin e ushtrimeve dhe formën e tyre, shtyp „Kopjo udhëzimin“ dhe ngjite në një chat me IA. IA tregon fillimisht vetëm ushtrimet, dhe jep përgjigjet dhe një vlerësim kur i kërkon.",
+      "covers": "Testi mbulon {n} objektiva mësimore të zotëruara:",
+      "coversOne": "Testi mbulon 1 objektiv mësimor të zotëruar:",
+      "noneHint": "Ende nuk ke shënuar asnjë objektiv mësimor si të zotëruar. Shëno në pemë atë që di të bësh, dhe pastaj mund të bësh një test.",
+      "showAll": "Shfaq të gjitha objektivat mësimore",
+      "showSelected": "Shfaq vetëm objektivat e zgjedhura",
+      "difficultyLabel": "Vështirësia",
+      "difficulty": {
+        "easy": "E lehtë",
+        "medium": "Mesatare",
+        "hard": "E vështirë"
+      },
+      "difficultyHints": {
+        "easy": "Një objektiv për ushtrim, rastet më të zakonshme dhe pa kurthe.",
+        "medium": "Si një test i zakonshëm: disa ushtrime të drejtpërdrejta, disa që bashkojnë disa objektiva.",
+        "hard": "Shumica e ushtrimeve bashkojnë objektiva, përdorin kontekste të reja ose të kërkojnë të shpjegosh apo të gjesh një gabim."
+      },
+      "formatLabel": "Forma e ushtrimeve",
+      "format": {
+        "closed": "Të mbyllura",
+        "open": "Të hapura",
+        "mixed": "Të përziera"
+      },
+      "formatHints": {
+        "closed": "Me zgjedhje të shumëfishtë ose përgjigje të shkurtra që kontrollohen me çelës.",
+        "open": "Tregon zgjidhjen hap pas hapi ose shpjegon me fjalët e tua.",
+        "mixed": "Afërsisht gjysma nga secila."
+      },
+      "coversLabel": "Testi mbulon:"
+    },
+    "node": {
+      "markMastered": "Shëno si të zotëruar"
+    },
+    "column": {
+      "markAll": "Shëno si të zotëruara të gjitha objektivat e temës „{topic}“",
+      "clearAll": "Hiq shenjën „i zotëruar“ nga të gjitha objektivat e temës „{topic}“"
+    },
+    "detail": {
+      "show": "Shfaq udhëzimin",
+      "hide": "Fshih udhëzimin",
+      "copy": "Kopjo udhëzimin",
+      "prereqs": "Parakushtet",
+      "resources": "Burimet",
+      "mastered": "✓ I zotëruar",
+      "available": "I arritshëm — parakushtet janë plotësuar",
+      "locked": "I kyçur — mungojnë parakushte",
+      "empty": "Kliko një nyje në hartë për të parë hollësitë."
+    },
+    "loadError": "Gabim kritik gjatë ngarkimit: {message} (a e hap faqen përmes një serveri lokal? Në shumë shfletues, fetch() i skedarëve të të dhënave dështon kur index.html hapet drejtpërdrejt nga disku.)",
+    "defaultTopic": "Të tjera",
+    "aids": {
+      "heading": "Mjetet e lejuara",
+      "tagTitle": "Shiko çfarë mund të përdorësh në këtë nivel",
+      "multipleNote": "Ky objektiv mësimor bën pjesë në disa nivele. Duhet ta përballosh në nivelin më të rreptë prej tyre — pra me sa më pak mjete.",
+      "multipleNoteGeneral": "Një objektiv mësimor mund të bëjë pjesë në disa nivele. Atëherë etiketa e tij ndahet në disa ngjyra, dhe duhet ta përballosh në nivelin më të rreptë prej tyre — pra me sa më pak mjete."
+    },
+    "menu": {
+      "label": "Menyja",
+      "groups": {
+        "practice": "Ushtrohu",
+        "plan": "Planifiko",
+        "about": "Rreth"
+      }
+    },
+    "download": {
+      "button": "Shkarko pemën",
+      "title": "Shkarko pemën në dy mënyra: tabelën që mund ta ndryshosh, dhe një skedar të vetëm që punon pa internet",
+      "working": "Po bëhet skedari i vetëm…",
+      "failed": "Skedari i vetëm nuk u bë dot",
+      "edit": "Ndrysho pemën",
+      "editTitle": "Hap pemën te redaktori, ku mund ta ndryshosh dhe ta shkarkosh si tabelë ose si një skedar të vetëm që punon pa internet"
+    },
+    "courseInfo": {
+      "button": "Rreth kursit",
+      "heading": "Rreth kursit",
+      "division": "Klasa ose fakulteti",
+      "curriculum": "Kurrikula",
+      "institution": "Institucioni",
+      "country": "Shteti",
+      "language": "Gjuha",
+      "size": "Madhësia",
+      "decompositionVersion": "Modeli i zbërthimit",
+      "credits": "Bërë nga",
+      "author": "Autori",
+      "updated": "Përditësuar së fundi",
+      "license": "Licenca",
+      "basedOn": "Bazuar në",
+      "skills": "aftësi: {n}",
+      "concepts": "koncepte: {n}",
+      "facts": "lista faktesh: {n}",
+      "nodes": "nyje: {n}"
+    },
+    "helpToggle": "Shpjegim",
+    "print": {
+      "button": "Printo",
+      "title": "Shkarko gjithë pemën si PDF, gati për printim",
+      "working": "Po bëhet PDF-ja …",
+      "failed": "PDF-ja nuk u bë dot",
+      "heading": "Printo",
+      "help": "Shkarko gjithë pemën si një faqe të vetme PDF, gati për printim. Paraparja e tregon fletën ashtu siç do të dalë. Titulli dhe aiskilltrees.com janë gjithmonë në fletë.",
+      "paperLabel": "Madhësia e letrës",
+      "orientationLabel": "Orientimi",
+      "orientation": {
+        "auto": "Automatik",
+        "landscape": "Horizontal",
+        "portrait": "Vertikal"
+      },
+      "colorLabel": "Ngjyrat",
+      "color": {
+        "color": "Me ngjyra",
+        "gray": "Bardh e zi"
+      },
+      "rings": "Rrathë për t'u shënuar",
+      "legend": "Legjenda",
+      "download": "Shkarko PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Kthehu te pamja e mëparshme"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Albanian, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO ALBANIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is \"shqip\", the adverbial form that follows \"në\" (\"në shqip\") and also reads acceptably in the English core (\"Comment the code in shqip\"); the rest of `outputLanguage` refers back to it as \"këtë gjuhë\" rather than inflecting it. Standard Albanian, for Albania and Kosovo alike. Address is informal (\"ti\"), as teachers address pupils. The gender note is the Albanian counterpart of the Swedish \"hen\": adjectives and participles are gendered (i sigurt / e sigurt). NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "shqip",
+    "outputLanguage": "Zhvilloje gjithë këtë bisedë në {conversationLanguage}. Gjithçka që citohet më poshtë nga pema e aftësive — emrat e nyjeve, përshkrimet, parakushtet — është shkruar në këtë gjuhë, dhe përdoruesi pret që t'i flasësh në këtë gjuhë. Një pjesë e udhëzimit që po lexon tani është në anglisht; kjo nuk do të thotë që duhet të përgjigjesh në anglisht. Mos e ndërro gjuhën me nismën tënde dhe mos komento se në çfarë gjuhe është shkruar udhëzimi. Drejtoju përdoruesit me „ti“, ashtu si mësuesi i drejtohet nxënësit. Për sa kohë nuk e di nëse po i shkruan një djali apo një vajze, shmang format që tregojnë gjininë (shkruaj p.sh. „ia dole“ ose „je gati“, jo „je i sigurt“ apo „je e gatshme“). Nëse duhet emërtuar ai që mëson, fjala është „{learnerDefinite}“ — jo një fjalë tjetër për të njëjtën gjë.",
+    "writingStyle": "Shembuj në shqip për dy këshillat e mësipërme:\n- Forma veprore: shkruaj „mund ta shkruajmë numrin si …“, jo „numri mund të shkruhet si …“; shkruaj „këtë e bëjmë duke …“ ose „këtë e bën duke …“, jo „kjo bëhet duke …“ ose „kjo kryhet nga …“. Shmang „llogaritet“, „kryhet“ dhe „është bërë“ kur mund të thuash kush e bën.\n- Fjalët e sakta, por të rralla në të folur, librore ose shumë „për të rritur“, zëvendësoji me fjalë më të thjeshta: „kryej“ (→ „bëj“), „disponoj“ (→ „kam“), „me qëllim që“ (→ „që“), „gjithashtu“ (→ „edhe“), „megjithatë“ (→ „por“). Testi i shokut: a do ta thoshe vërtet këtë fjalë me zë të lartë një shoku?",
+    "overrides": {}
+  }
+}

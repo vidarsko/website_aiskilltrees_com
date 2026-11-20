@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Skill Trees at ETUCE | AI Skill Trees</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="A maths skill tree from each ETUCE member country, in the language of its own curriculum. Made for the ETUCE conference Balancing AI in Education, Lisbon, 25 November 2026." data-i18n-attr="content:meta-description">
+
+  <!--
+    ULISTET SIDE, som /gy25/ og /lk20/: ikke i navigasjonen, ikke lenket fra
+    andre sider, og noindex. Adressen står på siste lysbilde i Vidars
+    presentasjon på ETUCE-konferansen i Lisboa 2026-11-25. Se etuce_private/.
+
+    Kartet (etuce/map.svg) lages av tools/build-etuce-map.py fra Natural
+    Earth, og dataene (etuce/countries.json) av tools/build-etuce-data.py fra
+    etuce_private/curricula.csv og hvert tres tree.csv. Rediger ikke de to
+    filene for hånd. Landnavnene kommer fra nettleseren (Intl.DisplayNames),
+    på sidens språk. Siden finnes på engelsk, fransk, spansk, portugisisk,
+    russisk og tysk (Vidar, 2026-11-19).
+  -->
+  <meta name="robots" content="noindex">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/etuce.css">
+
+  <script src="/js/analytics.js"></script>
+  <meta name="i18n-page" content="etuce">
+  <meta name="i18n-available" content="en de es fr pt ru">
+  <script type="application/json" id="i18n-dict">
+  {
+    "doc-title": { "en": "AI Skill Trees at ETUCE | AI Skill Trees" },
+    "meta-description": { "en": "A maths skill tree from each ETUCE member country, in the language of its own curriculum. Made for the ETUCE conference Balancing AI in Education, Lisbon, 25 November 2026." },
+    "eyebrow": { "en": "ETUCE · Balancing AI in Education · Lisbon, 25 November 2026" },
+    "heading": { "en": "Try a skill tree from your own country" },
+    "lede": { "en": "Click your country. Each tree maps the national maths curriculum for lower secondary school into the facts, concepts and skills a student needs, in the language of the curriculum." },
+    "map-label": { "en": "Map of the ETUCE member countries. Choose a country to see its tree." },
+    "zoom-in": { "en": "Zoom in" },
+    "zoom-out": { "en": "Zoom out" },
+    "zoom-reset": { "en": "Show all of Europe" },
+    "legend-ready": { "en": "Tree ready" },
+    "legend-coming": { "en": "Tree coming" },
+    "legend-other": { "en": "Not an ETUCE member" },
+    "list-heading": { "en": "All member countries" },
+    "panel-close": { "en": "Close" },
+    "tree-open": { "en": "Open the tree" },
+    "tree-curriculum": { "en": "Curriculum" },
+    "tree-language": { "en": "Language" },
+    "status-building": { "en": "A tree for this country is being made right now." },
+    "status-planned": { "en": "A tree for this country is planned." },
+    "status-missing-curriculum": { "en": "We have not been able to get the official curriculum yet. Do you know where to find it? Please write to us." },
+    "status-later": { "en": "Coming later: the trees need a right-to-left layout first." },
+    "count-ready": { "en": "{n} countries have a tree so far." },
+    "how-heading": { "en": "How to try it" },
+    "step1-title": { "en": "Pick a learning goal" },
+    "step1-body": { "en": "Tap any box in the tree. You see what it means, and what it builds on." },
+    "step2-title": { "en": "Copy the instruction" },
+    "step2-body": { "en": "The page writes an instruction for that goal, from the teacher's text and the shared teaching method. No AI is involved in writing it." },
+    "step3-title": { "en": "Paste it into any AI chat" },
+    "step3-body": { "en": "ChatGPT, Copilot, Gemini, Claude, or whatever your school already has. The AI then practises that one goal with you, in your language." },
+    "drafts": { "en": "These trees are first drafts. An AI broke each national curriculum down with <a href=\"/prompts/\">our open decomposition prompt</a>, and no teacher in your country has checked them yet. That is the point of the method: a teacher reads the tree, fixes what is wrong, and shares it with colleagues." },
+    "translated": { "en": "This website is translated by AI as well. A method like this should not stop at a language border." },
+    "more-heading": { "en": "Your subject is missing?" },
+    "more-body": { "en": "Make a tree for your own subject, browse all the trees, or write to Vidar Skogvoll at KURT, University of Oslo:" },
+    "make-cta": { "en": "Make your own tree" },
+    "catalogue-cta": { "en": "Browse all trees" }
+  }
+  </script>
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="/js/mail-link.js" defer></script>
+  <script src="/etuce/etuce.js" defer></script>
+</head>
+<body>
+
+  <header class="siteheader" data-site-header></header>
+
+  <main>
+
+    <section class="band etuce-intro" aria-labelledby="etuce-title">
+      <div class="band__inner">
+        <p class="eyebrow" data-i18n="eyebrow">ETUCE · Balancing AI in Education · Lisbon, 25 November 2026</p>
+        <h1 id="etuce-title" data-i18n="heading">Try a skill tree from your own country</h1>
+        <div class="prose">
+          <p class="lede-p" data-i18n="lede">Click your country. Each tree maps the national maths curriculum for lower secondary school into the facts, concepts and skills a student needs, in the language of the curriculum.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--flush etuce-mapband" aria-label="Map" data-i18n-attr="aria-label:map-label">
+      <div class="etuce-map" data-etuce-map>
+        <div class="etuce-map__canvas" data-map-canvas></div>
+        <div class="etuce-map__controls">
+          <button type="button" class="etuce-map__btn" data-zoom="in" aria-label="Zoom in" data-i18n-attr="aria-label:zoom-in,title:zoom-in" title="Zoom in">+</button>
+          <button type="button" class="etuce-map__btn" data-zoom="out" aria-label="Zoom out" data-i18n-attr="aria-label:zoom-out,title:zoom-out" title="Zoom out">&minus;</button>
+          <button type="button" class="etuce-map__btn" data-zoom="reset" aria-label="Show all of Europe" data-i18n-attr="aria-label:zoom-reset,title:zoom-reset" title="Show all of Europe">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4"/></svg>
+          </button>
+        </div>
+        <ul class="etuce-legend">
+          <li><span class="etuce-legend__swatch etuce-legend__swatch--ready" aria-hidden="true"></span><span data-i18n="legend-ready">Tree ready</span></li>
+          <li><span class="etuce-legend__swatch etuce-legend__swatch--coming" aria-hidden="true"></span><span data-i18n="legend-coming">Tree coming</span></li>
+          <li><span class="etuce-legend__swatch etuce-legend__swatch--other" aria-hidden="true"></span><span data-i18n="legend-other">Not an ETUCE member</span></li>
+        </ul>
+        <aside class="etuce-panel" data-panel hidden aria-live="polite">
+          <button type="button" class="etuce-panel__close" data-panel-close data-i18n="panel-close">Close</button>
+          <h2 class="etuce-panel__title" data-panel-title></h2>
+          <p class="etuce-panel__endonym" data-panel-endonym></p>
+          <div data-panel-body></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="etuce-list">
+      <div class="band__inner">
+        <h2 id="etuce-list" data-i18n="list-heading">All member countries</h2>
+        <p class="subjects-count" data-count></p>
+        <ul class="etuce-list" data-list></ul>
+      </div>
+    </section>
+
+    <section class="band band--alt" aria-labelledby="etuce-how">
+      <div class="band__inner">
+        <h2 id="etuce-how" data-i18n="how-heading">How to try it</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__index" aria-hidden="true">01</span>
+            <h3 class="step__title" data-i18n="step1-title">Pick a learning goal</h3>
+            <p class="step__body" data-i18n="step1-body">Tap any box in the tree. You see what it means, and what it builds on.</p>
+          </li>
+          <li class="step">
+            <span class="step__index" aria-hidden="true">02</span>
+            <h3 class="step__title" data-i18n="step2-title">Copy the instruction</h3>
+            <p class="step__body" data-i18n="step2-body">The page writes an instruction for that goal, from the teacher's text and the shared teaching method. No AI is involved in writing it.</p>
+          </li>
+          <li class="step">
+            <span class="step__index" aria-hidden="true">03</span>
+            <h3 class="step__title" data-i18n="step3-title">Paste it into any AI chat</h3>
+            <p class="step__body" data-i18n="step3-body">ChatGPT, Copilot, Gemini, Claude, or whatever your school already has. The AI then practises that one goal with you, in your language.</p>
+          </li>
+        </ol>
+        <div class="prose etuce-note">
+          <p data-i18n-html="drafts">These trees are first drafts. An AI broke each national curriculum down with <a href="/prompts/">our open decomposition prompt</a>, and no teacher in your country has checked them yet. That is the point of the method: a teacher reads the tree, fixes what is wrong, and shares it with colleagues.</p>
+          <p data-i18n="translated">This website is translated by AI as well. A method like this should not stop at a language border.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--primary" aria-labelledby="etuce-more">
+      <div class="band__inner">
+        <h2 id="etuce-more" data-i18n="more-heading">Your subject is missing?</h2>
+        <div class="prose">
+          <p data-i18n="more-body">Make a tree for your own subject, browse all the trees, or write to Vidar Skogvoll at KURT, University of Oslo:</p>
+          <p class="lede-p"><a data-mail-user="vidarsko" data-mail-domain="uio.no" hidden></a></p>
+          <noscript><p class="lede-p">vidarsko [at] uio [dot] no</p></noscript>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/make-your-own/" data-track-cta="etuce-make" data-i18n="make-cta">Make your own tree</a>
+          <a class="btn btn--ghost" href="/trees/" data-track-cta="etuce-catalogue" data-i18n="catalogue-cta">Browse all trees</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="band band--dark sitefooter" data-site-footer></footer>
+
+</body>
+</html>

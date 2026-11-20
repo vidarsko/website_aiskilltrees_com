@@ -1,0 +1,15 @@
+{
+  "doc-title": "Dërgo pemën tënde | AI Skill Trees",
+  "meta-description": "Si ta dërgosh në katalogun e kësaj faqeje një pemë aftësish që ke bërë.",
+  "page-eyebrow": "Për mësuesit",
+  "page-heading": "Dërgo pemën tënde",
+  "page-lede": "Nëse ke bërë një pemë aftësish për lëndën tënde, mund ta dërgosh që të shtohet në katalogun e kësaj faqeje.",
+  "how-body": "Për momentin, ma dërgo tree.csv me email:",
+  "terms-eyebrow": "Para se ta dërgosh",
+  "terms-1": "Unë e lexoj çdo pemë para se të publikohet.",
+  "terms-2": "Një pemë publikohet me emrin e personit që e bëri. Nëse është përshtatur nga një pemë tjetër, i mban rreshtat „Bazuar në“ që redaktori i shkruan në skedar, kështu që autorët e mëparshëm mbeten të përmendur.",
+  "terms-3": "Pemët dhe udhëzimet në këtë faqe kanë licencën CC BY 4.0: kushdo mund t'i përdorë dhe t'i përshtatë, me kusht që të përmendë autorin. Një pemë që dërgon publikohet me këtë licencë.",
+  "terms-4": "Kontributet përmes pull request-eve në GitHub nuk janë të hapura.",
+  "own-body": "Nuk ke nevojë të dërgosh asgjë për ta përdorur metodën. Redaktori të jep skedarin tënd, për ta përdorur dhe ndarë si të duash.",
+  "own-cta": "Bëj pemën tënde"
+}

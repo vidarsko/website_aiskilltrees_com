@@ -1,0 +1,13 @@
+{
+  "doc-title": "კვლევა | AI Skill Trees",
+  "meta-description": "საფონო საკითხავი დიზაინის შესახებ და სტატია, რომელიც მეთოდს აღწერს.",
+  "page-heading": "კვლევა",
+  "page-lede": "მეთოდის გამოქვეყნებული ვერსია და მისი ციტირების წესი.",
+  "cite-eyebrow": "პროგრამა და ციტირება",
+  "cite-heading": "ვერსია 0.33.0",
+  "cite-body-1": "ძრავა, ინსტრუქციები, ენის ფაილები და საწყისი ხე საჯარო GitHub-რეპოზიტორშია: <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. ეს საიტი მის <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> რელიზს აქვეყნებს.",
+  "cite-body-2": "ყოველი რელიზი Zenodo-ში ინახება საკუთარი DOI-ით. რელიზი 0.33.0-ის DOI არის <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> ყოველთვის უახლეს რელიზზე მიუთითებს.",
+  "cite-body-3": "თუ მეთოდს ან მასალას იყენებ, გთხოვ, მთავარი შტოს ნაცვლად ციტირება გაუკეთო იმ რელიზს, რომელიც გამოიყენე:",
+  "cite-cta-github": "რელიზი GitHub-ზე",
+  "cite-cta-zenodo": "არქივი Zenodo-ში"
+}

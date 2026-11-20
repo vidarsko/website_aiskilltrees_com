@@ -1,0 +1,458 @@
+{
+  "code": "cnr",
+  "htmlLang": "cnr",
+  "name": "Crnogorski",
+  "endonym": "Crnogorski",
+  "_comment": "Alt som varierer med SPRÅK, i én fil. Legger du til et språk, er dette den ene fila som må skrives - engine.js, prompts/core.json og tre-mappene rører du ikke. Se AGENTS.md, «Ferdighetstrærne».",
+  "learner": {
+    "_comment": "What the learner is CALLED, in Montenegrin (Latin, ijekavian). Montenegrin has no articles, so the 'definite' form is the bare noun in the nominative: \"učenik\", \"student\", \"učesnik\". The lead-ins use present-tense verbs (može, zna), which do not change with gender, so they also fit \"učenica\" or \"studentkinja\" if a tree sets those. A skill description is a bare infinitive phrase (\"Učenik može: sabrati razlomke\"), a concept a definition. The UI otherwise leans on \"da\" + present (\"možeš da uradiš\") and the joined future (\"uradiću\"), as Montenegrin usage does.",
+    "default": "učenik",
+    "legacy": {
+      "pupil": "učenik",
+      "student": "student",
+      "participant": "učesnik"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} može:",
+      "concept": "{LearnerDefinite} može da objasni:",
+      "fact": "{LearnerDefinite} zna:"
+    }
+  },
+  "ui": {
+    "backLink": "← Sva stabla",
+    "pageTitle": "Stablo vještina: {title}",
+    "tagline": "Mapa koja pokazuje kako se ishodi učenja oslanjaju jedni na druge — štikliraj ono što već znaš i kopiraj uputstvo za AI da nastaviš da vježbaš.",
+    "makeYourOwn": "{subject}. Napravi svoje stablo:",
+    "progressLabel": "Savladano: {done} od {total} ishoda učenja",
+    "zoomIn": "Uvećaj",
+    "zoomOut": "Umanji",
+    "fitToView": "Prikaži čitavo stablo",
+    "fitToViewTitle": "Prikaži čitavo stablo (Ctrl + točkić miša za zumiranje)",
+    "close": "✕ Zatvori",
+    "closeLower": "✕ Zatvori",
+    "copied": "Kopirano!",
+    "copyFallback": "Automatsko kopiranje nije uspjelo — kopiraj ručno tekst ispod:",
+    "errorBanner": "⚠ Broj problema pronađenih u fajlovima s podacima: {n} (detalji su u konzoli):",
+    "errorCsv": "Tabela ne može da se pročita u redu {row}: {message}",
+    "errorCsvHeader": "Prvi red fajla {file} mora da sadrži nazive kolona. Nedostaje: {missing}. Prvi red glasi: {found}. Fajl je vjerovatno sačuvan bez prvog reda ili u drugom formatu; sačuvaj ga ponovo kao običan CSV.",
+    "errorUnknownDep": "Čvor „{id}“ navodi „{dep}“ kao preduslov, ali nijedan čvor nema tu oznaku.",
+    "errorNoTopic": "Čvor „{id}“ nema temu, pa završava u zajedničkoj koloni „{topic}“.",
+    "errorUnknownResourceNode": "Red {row} u tree.csv: materijal se u depends_on poziva na oznaku čvora „{id}“, koja ne postoji.",
+    "errorExamsRenamed": "Red {row} u tree.csv: podešavanje „features.exams“ potiče iz vremena prije verzije 0.22.0. Materijali su sada redovi u tree.csv s tipom „resource“: topic = grupa, name = naslov, description = link, depends_on = čvorovi. Obriši red, a stari exams.csv pretvori tako što otvoriš stablo u alatu za izradu. Ništa nije primijenjeno.",
+    "errorResourceEmpty": "Red {row} u tree.csv: materijal nema ni naslov (name) ni link (description).",
+    "errorResourceNoNode": "Red {row} u tree.csv: materijal „{label}“ ne pripada nijednom čvoru. Upiši jednu ili više oznaka čvorova u depends_on ili obriši red.",
+    "errorResourceDuplicate": "Red {row} u tree.csv: materijal „{label}“ isti je kao u redu {first}. Spoji ih u jedan red, sa svim čvorovima u depends_on.",
+    "errorResourceUrl": "Red {row} u tree.csv: link materijala „{label}“ mora da počinje sa https:// ili mailto:. Zato se prikazuje kao običan tekst, bez linka.",
+    "errorCycle": "Ovi čvorovi su preduslovi jedni drugima, ukrug: {cycle}. Jednu od tih veza treba ukloniti.",
+    "errorUnknownConfig": "Nepoznato podešavanje „{key}“ u redu {row} u tree.csv. Ništa nije primijenjeno.",
+    "errorUnknownNodeType": "Čvor „{id}“ ima tip „{type}“, koji ne postoji. Postojeći tipovi: {valid}.",
+    "errorUnknownPromptSection": "Nepoznat odjeljak „{section}“ u redu prompt (red {row} u tree.csv). Ništa nije primijenjeno.",
+    "errorUnknownPromptTarget": "Red prompt (red {row} u tree.csv) usmjeren je na „{name}“, a to nije uputstvo koje ovo stablo sastavlja. Ništa nije primijenjeno.",
+    "errorDidYouMean": "Da nije „{key}“?",
+    "errorMissingConfig": "U tree.csv nema reda config za „{key}“, a on je obavezan.",
+    "errorStyleColor": "Podešavanje „{key}“ u redu {row} u tree.csv mora da bude boja zapisana heksadecimalnim kodom, npr. #1F6F4A. „{value}“ nije takav kod, pa je zadržana podrazumijevana boja.",
+    "errorLinkUrl": "Podešavanje „{key}“ u redu {row} u tree.csv mora da bude link koji počinje sa https:// ili mailto:. „{value}“ to nije, pa se prikazuje kao običan tekst.",
+    "errorStyleFont": "Nepoznat font „{value}“ u redu {row} u tree.csv. Fontovi koje stablo može da koristi: {valid}. Zadržan je podrazumijevani font.",
+    "nodeType": {
+      "skill": "vještina",
+      "concept": "pojam",
+      "fact": "činjenice"
+    },
+    "badges": {
+      "del1": "1. dio",
+      "del2": "2. dio",
+      "begge": "1. i 2. dio"
+    },
+    "status": {
+      "mastered": "Savladano",
+      "ready": "Spremno za učenje",
+      "notMastered": "Još nije savladano",
+      "blocked": "Prvo nedostaje: {codes}"
+    },
+    "help": {
+      "label": "Pomoć",
+      "heading": "Pomoć",
+      "sections": [
+        {
+          "heading": "Meni",
+          "body": "Sve ostalo je iza ☰ dolje lijevo: ishodi učenja, pretraga, test, štampa i ostalo. Svaki prozor ima „?“ koji ga objašnjava.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Mapa",
+          "body": "Svaka kućica je jedan ishod učenja, a strelice vode od onoga što prvo treba da znaš. Oblik pokazuje tip: činjenice su četvrtaste, pojmovi blago zaobljeni, a vještine okrugle. Prevuci da pomjeriš mapu, a zumiraj sa + i −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Savladano",
+          "body": "Pritisni kružić u kućici kad znaš ishod učenja i on će se pretvoriti u zelenu kvačicu. To se čuva samo u tvom pretraživaču.",
+          "figure": "check"
+        },
+        {
+          "heading": "Jedna kućica",
+          "body": "Pritisni kućicu da vidiš šta ishod učenja zahtijeva, na čemu se zasniva i uputstvo za AI koje možeš da zalijepiš u AI čet i da s njim vježbaš. Pritisni ponovo da zatvoriš.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Označi više odjednom",
+          "body": "Ikonice liste označavaju sve ishode u jednoj temi odjednom ili uklanjaju oznake. Uz A i B važe za čitavo stablo.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Pretraga",
+          "body": "Nađi ishod učenja po riječi iz naziva ili opisa.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Uputstvo za AI za test iz ishoda koje izabereš. Ti biraš težinu, broj i tip zadataka.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Pripreme za čas (za nastavnike)",
+          "body": "Izaberi ishode učenja i pritisni „Napravi materijal“ za pripremu za čas, mini stablo ili simulaciju.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Štampa",
+          "body": "Preuzmi čitavo stablo kao PDF, s kružićima koje učenici mogu da označe olovkom.",
+          "figure": "print"
+        },
+        {
+          "heading": "Oznaka pomoćnih sredstava",
+          "body": "„1. dio“ ili „2. dio“ u panelu pokazuje kojem nivou pomoćnih sredstava ishod pripada. Pritisni oznaku da pročitaš više u dijelu „O predmetu“.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivacija",
+          "body": "Kratak razgovor s AI-jem o tome zašto vrijedi učiti taj predmet.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Prečice na tastaturi",
+        "search": "Otvori pretragu",
+        "escape": "Zatvori otvoreni prozor, meni ili panel",
+        "zoom": "Uvećaj i umanji",
+        "fit": "Prikaži čitavo stablo i vrati se nazad"
+      }
+    },
+    "safety": {
+      "label": "Bezbjednost",
+      "heading": "Bezbjednost",
+      "lead": "Stablo vještina pravi nastavnik, ali svako može da napravi fajl koji izgleda kao stablo. Pročitaj ovo prije nego što upotrijebiš stablo koje ti je neko poslao.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Stablo vještina nikad ne traži lične podatke",
+          "body": "Stablo nema prijavljivanje i ne treba mu ništa o tebi. Nikad ne traži tvoje ime, lozinku, školski nalog, JMB, adresu, broj telefona ni koju školu pohađaš. Tvoj napredak se čuva samo u pretraživaču na ovom uređaju. Ako stranica koja izgleda kao stablo vještina traži bilo šta od toga, nije prava. Zatvori je i reci nastavniku."
+        },
+        {
+          "id": "sender",
+          "heading": "Ko ti je poslao stablo?",
+          "body": "Najvažnije pitanje je odakle stablo dolazi. Stablu na aiskilltrees.com, ili stablu koje je tvoj nastavnik postavio na mjesto na kojem inače dobijaš materijale za nastavu, možeš da vjeruješ onoliko koliko vjeruješ svom nastavniku. Ako je fajl stigao mejlom, u četu ili na društvenim mrežama od nekoga koga ne poznaješ, ili je stigao neočekivano, budi na oprezu, čak i ako izgleda ispravno."
+        },
+        {
+          "id": "html",
+          "heading": "HTML fajl je veb-stranica, a ne dokument",
+          "body": "Kad se stablo dijeli kao .html fajl, ne dobijaš dokument kao što je PDF ili Word fajl. Dobijaš čitavu veb-stranicu s kodom koji se pokreće kad je otvoriš. Pretraživač mu ne dozvoljava da čita tvoje fajlove ili da instalira bilo šta na računar, ali on može da prikaže bilo šta: lažnu stranicu za prijavljivanje, dugme koje nešto preuzima ili linkove ka drugim sajtovima. Šta fajl radi, odlučuje onaj ko ga je napravio. To što izgleda kao stablo vještina ne znači da to i jeste. Nikad se ne prijavljuj i ništa ne preuzimaj sa stranice otvorene iz fajla."
+        },
+        {
+          "id": "links",
+          "heading": "Provjeri linkove prije nego što klikneš",
+          "body": "Materijali u stablu mogu da vode na video-snimke, vježbe i udžbenike. Pređi mišem preko linka, ili ga pritisni i zadrži, pa pogledaj kuda vodi prije nego što klikneš. Ako ne prepoznaješ sajt ili adresa izgleda čudno, nemoj da ga otvaraš."
+        },
+        {
+          "id": "injection",
+          "heading": "Uputstva mogu da budu podmetnuta",
+          "body": "Uputstvo za AI koje kopiraš napisao je onaj ko je napravio stablo, a ti ga lijepiš pravo u AI čet. Ko pravi stablo, može u njega da upiše bilo šta, pa i naredbe zbog kojih se čet ponaša drugačije nego što očekuješ: daje ti pogrešne odgovore, šalje te na drugi sajt ili pita stvari koje ga se ne tiču. To se zove ubacivanje uputstava (engl. prompt injection). Dobro je da preletiš tekst prije nego što ga zalijepiš, a četu ne treba slijepo vjerovati."
+        },
+        {
+          "id": "chat",
+          "heading": "Ti odlučuješ šta ćeš da kažeš četu",
+          "body": "Neka uputstva traže od četa da te upozna, na primjer kako se osjećaš u vezi s predmetom i šta ti dobro ide. Možeš da odgovoriš koliko hoćeš, malo ili mnogo. Ali nijednom uputstvu ne treba tvoje ime, kontakt podaci ni lozinke. Ako čet pita za nešto takvo, nemoj da odgovaraš i reci nastavniku. Zapamti i da sve što napišeš u AI četu čuva kompanija koja vodi taj čet. Tvoja škola često ima pristup AI usluzi koja štiti tvoju privatnost. Pitaj nastavnika i koristi je ako je imate."
+        },
+        {
+          "id": "teachers",
+          "heading": "Za nastavnike: stablo od kolege",
+          "body": "Ako je stablo stiglo od nekog drugog, za svaki slučaj možeš da ga otvoriš u alatu za izradu na aiskilltrees.com/make-your-own/ prije nego što ga podijeliš s učenicima. Alat iz fajla izvlači samo tabelu i od nje pravi nov, čist fajl, a tu možeš da pročitaš svako uputstvo koje stablo koristi."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Ishodi učenja",
+      "title": "Prikaži preglednu listu svih ishoda učenja, poređanih po temama",
+      "heading": "Ishodi učenja",
+      "copyAll": "Kopiraj sve",
+      "intro": "Lista prikazuje sve ishode učenja u predmetu, poređane po temama, sa statusom svakog od njih. Štikliraj ishod da ga označiš kao savladan — ista kvačica kao na čvoru na mapi — pa možeš redom da ideš niz listu i da označavaš ono što je već pređeno.",
+      "markAria": "Označi „{name}“ kao savladano",
+      "markAllButton": "Označi sve kao savladano",
+      "clearAllButton": "Ukloni sve oznake „savladano“",
+      "clearAllConfirm": "Da uklonim oznaku „savladano“ sa svih ishoda učenja u stablu?",
+      "openNode": "Idi na ovaj čvor na mapi"
+    },
+    "lessonPlanner": {
+      "button": "Pripreme za čas",
+      "title": "Izaberi ishode učenja i kopiraj uputstvo za AI za pripremu za čas, mini stablo ili simulaciju",
+      "selectAll": "Označi sve",
+      "deselectAll": "Poništi sve",
+      "selectTopic": "Označi sve ishode učenja u temi „{topic}“",
+      "deselectTopic": "Poništi oznake za sve ishode učenja u temi „{topic}“",
+      "heading": "Pripreme za čas",
+      "intro": "Štikliraj ishode učenja za koje želiš nešto da napraviš i pritisni „Napravi materijal“ na dnu. Tamo biraš šta će to biti: priprema za čas, mini stablo ili simulacija. Oznake ovdje služe samo za to: ništa ne označavaju kao savladano i nestaju kad ponovo učitaš stranicu."
+    },
+    "search": {
+      "button": "Pretraga",
+      "title": "Pretraži ishode učenja po nazivu i opisu",
+      "heading": "Pretraga",
+      "placeholder": "Pretraži ishode učenja …",
+      "hint": "Ukucaj riječ. Pretraga gleda naziv, opis i temu svakog ishoda učenja, a na čvor na mapi možeš direktno da klikneš.",
+      "noResults": "Nijedan ishod učenja ne sadrži „{query}“.",
+      "countOne": "1 ishod učenja",
+      "countMany": "Ishodi učenja: {n}",
+      "openNode": "Idi na ovaj čvor na mapi"
+    },
+    "resourceList": {
+      "button": "Zadaci i izvori",
+      "title": "Prikaži sve materijale u stablu i ishode učenja kojima pripadaju",
+      "heading": "Zadaci i izvori",
+      "placeholder": "Filtriraj zadatke i izvore …",
+      "intro": "Zadaci i izvori: {n}",
+      "countFiltered": "{n} od {total}",
+      "noResults": "Nijedan materijal ne odgovara upitu „{query}“.",
+      "openNode": "Idi na ovaj čvor na mapi",
+      "help": "Zadaci i izvori koji pripadaju stablu, na primjer ispitni zadaci, linkovi i video-snimci. Ispod svakog su ishodi učenja kojima pripada; pritisni neki da ga nađeš na mapi. Ukucaj nešto u polje da filtriraš."
+    },
+    "motivation": {
+      "button": "Motivacija",
+      "title": "Kopiraj uputstvo za AI za razgovor o tome zašto vrijedi učiti predmet",
+      "heading": "Motivacija",
+      "desc": "Kratak razgovor s AI-jem o tome zašto vrijedi učiti taj predmet. AI pita i sluša, a odgovor nalazite zajedno.",
+      "help": "Pritisni „Kopiraj uputstvo“ i zalijepi ga u AI čet. Razgovor kreće od onoga što kažeš o sebi, a AI postavlja jedno po jedno pitanje. Ništa što napišeš ne čuva se ovdje.",
+      "startLabel": "Kakav ti je odnos prema predmetu?",
+      "start": {
+        "unknown": "Ne znam",
+        "hard": "Teško mi je",
+        "bored": "Dosadno mi je",
+        "use": "Šta će mi to?"
+      },
+      "lengthLabel": "Dužina",
+      "length": {
+        "short": "Kratko",
+        "normal": "Uobičajeno",
+        "long": "Dugo"
+      }
+    },
+    "lesson": {
+      "button": "Napravi pripremu za čas (za nastavnike)",
+      "title": "Kopiraj uputstvo za AI za čitav čas s označenim ishodima učenja",
+      "typeLabel": "Tip časa",
+      "typeAria": "Kakav je ovo čas",
+      "types": {
+        "intro": "Obrada",
+        "practice": "Vježbanje",
+        "review": "Ponavljanje",
+        "other": "Drugo"
+      },
+      "minutesLabel": "Trajanje",
+      "minutesAria": "Trajanje časa u minutima",
+      "includeAria": "Uključi „{name}“ u pripremu za čas",
+      "selectedNone": "Nije izabran nijedan ishod učenja",
+      "selectedOne": "Izabran je 1 ishod učenja",
+      "selectedMany": "Izabrano ishoda učenja: {n}"
+    },
+    "make": {
+      "button": "Napravi materijal →",
+      "buttonTitle": "Izaberi šta ćeš da napraviš za označene ishode učenja",
+      "heading": "Šta želiš da napraviš?",
+      "back": "← Ishodi učenja",
+      "forOne": "Za 1 ishod učenja:",
+      "forMany": "Za ishode učenja ({n}):",
+      "copy": "Kopiraj uputstvo",
+      "htmlBadge": "HTML fajl",
+      "htmlAfter": "Zalijepi ga u AI čet. Odgovor je HTML fajl koji sačuvaš i otvoriš u pretraživaču, a možeš i da ga podijeliš s učenicima.",
+      "lesson": {
+        "title": "Priprema za čas",
+        "desc": "Kompletna priprema za jedan čas, s rasporedom po minutima, onim što ide na tablu i rješenjima svih zadataka.",
+        "minutes": "min",
+        "shorter": "Kraće",
+        "longer": "Duže",
+        "after": "Zalijepi ga u AI čet. Odgovor je priprema iz koje možeš da čitaš dok predaješ.",
+        "typeHints": {
+          "intro": "Novi ishodi učenja: uvodni zadatak, urađeni primjeri u krugovima, dijagnostičko pitanje za svaki ishod i prisjećanje na kraju.",
+          "practice": "Ishodi koje su učenici skoro učili: kratak podsjetnik, pa nizovi zadataka s malim varijacijama i sve manje pomoći.",
+          "review": "Ishodi od prije nekog vremena: prisjećanje bez bilježaka, provjera šta je ostalo, ponovno objašnjavanje kad treba i miješano vježbanje.",
+          "other": "Nešto drugo: opiši čas svojim riječima ili će te AI prvo pitati."
+        }
+      },
+      "miniTree": {
+        "title": "Mini stablo",
+        "desc": "Stablo vještina u kojem učenici sami vježbaju pred test: izabrani ishodi grupisani u nekoliko tema s nivoima, urađen primjer prije svakog kruga zadataka, rješenje i objašnjenje poslije njega i savladavanje koje otključava sljedeći nivo.",
+        "levelsLabel": "Nivoi po temi",
+        "levels1": "Jedan nivo",
+        "levels3": "Tri nivoa",
+        "streakLabel": "Tačnih zaredom za savladavanje",
+        "supportLabel": "Prilagođavanje",
+        "easyRead": "Lako čitanje (Comic Sans, malo teksta)",
+        "readAloud": "Čitanje naglas",
+        "game": "Zvjezdice i otključavanje",
+        "mixedTest": "Mješoviti probni test",
+        "credit": "Po principima koje je postavila defektološkinja Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulacija",
+        "desc": "Interaktivna simulacija koju učenici mogu da istražuju, sa stručno zasnovanim modelom (ne izmišljenim) i panelom koji objašnjava šta model može, a šta ne može.",
+        "workflowLabel": "Način rada",
+        "design": "Prvo razgovor o dizajnu",
+        "build": "Odmah prototip",
+        "screenLabel": "Ekran",
+        "laptop": "Laptop",
+        "tablet": "Tablet",
+        "projector": "Projektor",
+        "extrasLabel": "Uključi",
+        "tasks": "Zadaci za učenike",
+        "critique": "Kritika modela",
+        "export": "Izvoz podataka (CSV)",
+        "credit": "Prema promptu koji je Henning Vinjusveen Myhrehagen objavio na skolesim.no."
+      },
+      "less": "Manje",
+      "more": "Više",
+      "help": "Svaki materijal je uputstvo za AI. Izaberi šta želiš, pritisni „Kopiraj uputstvo“ i zalijepi ga u AI čet, npr. ChatGPT ili Claude. Priprema za čas postaje plan iz kojeg možeš da čitaš dok predaješ. Mini stablo i simulacija postaju HTML fajl koji sačuvaš, otvoriš u pretraživaču i možeš da podijeliš s učenicima. Izbori se ne čuvaju.",
+      "forLabel": "Za:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Napravi uputstvo za AI za test iz ishoda označenih kao savladani",
+      "none": "Još nema savladanih ishoda učenja",
+      "countLabel": "Broj zadataka",
+      "countAria": "Broj zadataka u testu",
+      "heading": "Test",
+      "desc": "Pismeni test iz onoga što je označeno kao savladano, s rješenjima kad ih zatražiš.",
+      "help": "Test obuhvata ishode učenja koji su u stablu označeni kao savladani. Izaberi težinu, broj zadataka i tip zadataka, pritisni „Kopiraj uputstvo“ i zalijepi ga u AI čet. AI prvo prikazuje samo zadatke, a rješenja i ocjenu daje kad ih zatražiš.",
+      "covers": "Test obuhvata savladane ishode učenja ({n}):",
+      "coversOne": "Test obuhvata 1 savladan ishod učenja:",
+      "noneHint": "Još nijedan ishod učenja nije označen kao savladan. Štikliraj u stablu ono što znaš, pa onda možeš da napraviš test.",
+      "showAll": "Prikaži sve ishode učenja",
+      "showSelected": "Prikaži samo izabrane ishode učenja",
+      "difficultyLabel": "Težina",
+      "difficulty": {
+        "easy": "Lako",
+        "medium": "Srednje",
+        "hard": "Teško"
+      },
+      "difficultyHints": {
+        "easy": "Jedan ishod učenja po zadatku, najčešći slučajevi i bez zamki.",
+        "medium": "Kao običan test: neki jednostavni zadaci, neki koji povezuju više ishoda.",
+        "hard": "Većina zadataka povezuje ishode, koristi nove kontekste ili traži da objasniš ili da nađeš grešku."
+      },
+      "formatLabel": "Tip zadataka",
+      "format": {
+        "closed": "Zatvoreni",
+        "open": "Otvoreni",
+        "mixed": "Kombinovani"
+      },
+      "formatHints": {
+        "closed": "Višestruki izbor ili kratki odgovori koji mogu da se provjere prema ključu.",
+        "open": "Pokazuješ postupak ili objašnjavaš svojim riječima.",
+        "mixed": "Otprilike pola-pola."
+      },
+      "coversLabel": "Test obuhvata:"
+    },
+    "node": {
+      "markMastered": "Označi kao savladano"
+    },
+    "column": {
+      "markAll": "Označi sve ishode učenja u temi „{topic}“ kao savladane",
+      "clearAll": "Ukloni oznaku „savladano“ sa svih ishoda učenja u temi „{topic}“"
+    },
+    "detail": {
+      "show": "Prikaži uputstvo",
+      "hide": "Sakrij uputstvo",
+      "copy": "Kopiraj uputstvo",
+      "prereqs": "Preduslovi",
+      "resources": "Materijali",
+      "mastered": "✓ Savladano",
+      "available": "Dostupno — preduslovi su ispunjeni",
+      "locked": "Zaključano — nedostaju preduslovi",
+      "empty": "Klikni na čvor na mapi da vidiš detalje."
+    },
+    "loadError": "Kritična greška pri učitavanju: {message} (da li pokrećeš stranicu preko lokalnog servera? U mnogim pretraživačima fetch() fajlova s podacima ne uspijeva kad se index.html otvori direktno s diska.)",
+    "defaultTopic": "Ostalo",
+    "aids": {
+      "heading": "Dozvoljena sredstva",
+      "tagTitle": "Pogledaj šta smiješ da koristiš na ovom nivou",
+      "multipleNote": "Ovaj ishod učenja nalazi se na više nivoa. Treba da ga znaš i na najstrožem od njih — to jest s najmanje pomoćnih sredstava.",
+      "multipleNoteGeneral": "Ishod učenja može da se nalazi na više nivoa. Njegova oznaka je tada podijeljena na više boja, a ishod treba da znaš i na najstrožem od tih nivoa — to jest s najmanje pomoćnih sredstava."
+    },
+    "menu": {
+      "label": "Meni",
+      "groups": {
+        "practice": "Vježbanje",
+        "plan": "Planiranje",
+        "about": "O stablu"
+      }
+    },
+    "download": {
+      "button": "Preuzmi stablo",
+      "title": "Preuzmi stablo u dva oblika: tabelu koju možeš da mijenjaš i jedan fajl koji radi bez interneta",
+      "working": "Pravim jedan fajl…",
+      "failed": "Pravljenje jednog fajla nije uspjelo",
+      "edit": "Uredi stablo",
+      "editTitle": "Otvori stablo u editoru, u kojem možeš da ga mijenjaš i da ga preuzmeš kao tabelu ili kao jedan fajl koji radi bez interneta"
+    },
+    "courseInfo": {
+      "button": "O predmetu",
+      "heading": "O predmetu",
+      "division": "Razred ili fakultet",
+      "curriculum": "Predmetni program",
+      "institution": "Ustanova",
+      "country": "Država",
+      "language": "Jezik",
+      "size": "Obim",
+      "decompositionVersion": "Model razlaganja",
+      "credits": "Izradili",
+      "author": "Autor",
+      "updated": "Posljednje ažuriranje",
+      "license": "Licenca",
+      "basedOn": "Zasnovano na",
+      "skills": "Vještine: {n}",
+      "concepts": "Pojmovi: {n}",
+      "facts": "Liste činjenica: {n}",
+      "nodes": "Čvorovi: {n}"
+    },
+    "helpToggle": "Objašnjenje",
+    "print": {
+      "button": "Štampa",
+      "title": "Preuzmi čitavo stablo kao PDF spreman za štampu",
+      "working": "Pravim PDF …",
+      "failed": "Pravljenje PDF-a nije uspjelo",
+      "heading": "Štampa",
+      "help": "Preuzmi čitavo stablo kao jednu PDF stranicu spremnu za štampu. Pregled pokazuje list tačno onakav kakav će biti. Naslov i aiskilltrees.com su uvijek na listu.",
+      "paperLabel": "Veličina papira",
+      "orientationLabel": "Orijentacija",
+      "orientation": {
+        "auto": "Automatski",
+        "landscape": "Horizontalno",
+        "portrait": "Vertikalno"
+      },
+      "colorLabel": "Boje",
+      "color": {
+        "color": "U boji",
+        "gray": "Crno-bijelo"
+      },
+      "rings": "Kružići za štikliranje",
+      "legend": "Legenda",
+      "download": "Preuzmi PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Nazad na prethodni prikaz"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Montenegrin (Latin, ijekavian), same role as languages/nb.json -> prompt. Only what is SPECIFIC TO MONTENEGRIN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is in the nominative (\"crnogorski\") because the sentence in `outputLanguage` puts it in the nominative (\"Jezik čitavog ovog razgovora je …\"), so a tree's own `languageName` row also reads grammatically there. Montenegrin is close to Serbian, Bosnian and Croatian, and models drift to ekavian Serbian or to Croatian, so the text asks for Latin script and ijekavian, and names forms typical of Montenegrin usage (joined future \"uradiću\", \"da\" + present). The jotated letters ś and ź and forms such as \"đe\" are deliberately not asked for: they are optional in the standard and models handle them badly. AI is \"AI\"; teachers are \"nastavnici\". The gender note is the Montenegrin counterpart of the Swedish \"hen\": past tense and adjectives are gendered. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "crnogorski",
+    "outputLanguage": "Jezik čitavog ovog razgovora je {conversationLanguage}. Sve što je ispod preuzeto iz stabla vještina — nazivi čvorova, opisi, preduslovi — napisano je na tom jeziku i na njemu korisnik očekuje da mu se obraćaš. Piši latinicom i drži se crnogorskog standarda i ijekavskog izgovora („vrijeme“, „dijete“, „tačno“, „hiljada“, „uradiću“, „treba da uradiš“), a ne srpskih ekavskih, hrvatskih ili bosanskih oblika. Dio uputstva koje sada čitaš napisan je na engleskom; to nije poziv da odgovaraš na engleskom. Ne mijenjaj jezik samoinicijativno i ne komentariši na kojem je jeziku napisano uputstvo. Obraćaj se korisniku sa „ti“, kao nastavnik učeniku, a ne sa „Vi“. Dok ne znaš da li pišeš osobi muškog ili ženskog pola, izbjegavaj oblike koji otkrivaju rod (piši npr. „uspjelo ti je“, a ne „uspio si“, i „to ti dobro ide“, a ne „dobar si u tome“). Ako treba da imenuješ onoga ko uči, riječ je „{learnerDefinite}“ — a ne neka druga riječ za isto.",
+    "writingStyle": "Crnogorski primjeri dva savjeta iznad:\n- Aktiv: piši „broj možemo da zapišemo kao …“, a ne „broj može biti zapisan kao …“; piši „to radimo tako što …“ ili „to radiš tako što …“, a ne „to se radi tako što …“. Izbjegavaj „biva izračunato“, „vrši se“ i bezlično „računa se“ kad možeš da kažeš ko to radi.\n- Riječi koje su ispravne, ali rijetke u govoru, knjiške ili previše odrasle zamijeni jednostavnijim: „izvršiti“ (→ „uraditi“), „posjedovati“ (→ „imati“), „ukoliko“ (→ „ako“), „s obzirom na to da“ (→ „pošto“), „isti“ umjesto zamjenice („isti je tačan“ → „on je tačan“), „predmetni“ u značenju „taj“ („predmetni zadatak“ → „taj zadatak“). Test druga: da li bi se ta riječ zaista čula u razgovoru s drugom?",
+    "overrides": {}
+  }
+}

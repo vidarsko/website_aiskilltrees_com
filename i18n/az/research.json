@@ -1,0 +1,13 @@
+{
+  "doc-title": "Tədqiqat | AI Skill Trees",
+  "meta-description": "Dizayn barədə əlavə oxu materialları və metodu təsvir edən məqalə.",
+  "page-heading": "Tədqiqat",
+  "page-lede": "Metodun buraxılmış versiyası və ona necə istinad etmək lazım olduğu.",
+  "cite-eyebrow": "Proqram təminatı və istinad",
+  "cite-heading": "Versiya 0.33.0",
+  "cite-body-1": "Mühərrik, təlimatlar, dil faylları və başlanğıc ağac açıq GitHub repozitoriyasındadır: <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Bu sayt onun <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> buraxılışını dərc edir.",
+  "cite-body-2": "Hər buraxılış Zenodo-da öz DOI-si ilə arxivləşdirilir. 0.33.0 buraxılışının DOI-si: <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> DOI-si isə həmişə ən yeni buraxılışa yönəlir.",
+  "cite-body-3": "Metoddan və ya materialdan istifadə edirsənsə, əsas budağa deyil, istifadə etdiyin buraxılışa istinad et:",
+  "cite-cta-github": "GitHub-da buraxılış",
+  "cite-cta-zenodo": "Zenodo-da arxiv"
+}

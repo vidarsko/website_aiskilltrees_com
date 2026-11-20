@@ -1,0 +1,458 @@
+{
+  "code": "et",
+  "htmlLang": "et",
+  "name": "Eesti",
+  "endonym": "Eesti",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. AI is \"TI\" (tehisintellekt), as in Estonian schools (TI-Hüpe). Estonian has no articles and no grammatical gender, but it inflects nouns in fourteen cases, so a {placeholder} that is a name is never inflected: it stands in quotation marks after a head noun that carries the case (teema „{topic}“ õpieesmärgid), after a colon, or in the form \"Label: {n}\". After a number other than one the noun is in the partitive singular (1 õpieesmärk, 5 õpieesmärki), so countOne and countMany differ.",
+  "learner": {
+    "_comment": "What the learner is CALLED. Estonian has no articles, so the 'definite' form is the plain nominative: \"õpilane\", \"üliõpilane\", \"osaleja\". A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. \"oskab\" takes the da-infinitive, so a skill description is a da-infinitive phrase (\"Õpilane oskab: liita murde\"), a concept a definition (\"Termin: definitsioon\").",
+    "default": "õpilane",
+    "legacy": {
+      "pupil": "õpilane",
+      "student": "üliõpilane",
+      "participant": "osaleja"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} oskab:",
+      "concept": "{LearnerDefinite} oskab selgitada:",
+      "fact": "{LearnerDefinite} teab:"
+    }
+  },
+  "ui": {
+    "backLink": "← Kõik puud",
+    "pageTitle": "Oskuste puu: {title}",
+    "tagline": "Kaart sellest, kuidas õpieesmärgid üksteisele toetuvad — märgi ära, mida juba oskad, ja kopeeri TI-juhis, et harjutada järgmist sammu.",
+    "makeYourOwn": "{subject}. Tee oma puu:",
+    "progressLabel": "Omandatud õpieesmärke: {done} / {total}",
+    "zoomIn": "Suurenda",
+    "zoomOut": "Vähenda",
+    "fitToView": "Näita kogu puud",
+    "fitToViewTitle": "Näita kogu puud (Ctrl + kerimine suumib)",
+    "close": "✕ Sulge",
+    "closeLower": "✕ Sulge",
+    "copied": "Kopeeritud!",
+    "copyFallback": "Automaatne kopeerimine ei õnnestunud — kopeeri allolev tekst käsitsi:",
+    "errorBanner": "⚠ Andmefailidest leiti probleeme: {n} (üksikasjad on konsoolis):",
+    "errorCsv": "Tabelit ei õnnestunud lugeda, rida {row}: {message}",
+    "errorCsvHeader": "Faili {file} esimene rida peab sisaldama veergude nimesid. Puudu: {missing}. Esimene rida on praegu: {found}. Fail salvestati tõenäoliselt ilma esimese reata või mõnes muus vormingus; salvesta see uuesti lihtsa CSV-failina.",
+    "errorUnknownDep": "Sõlm „{id}“ nimetab eeldusena „{dep}“, aga sellise id-ga sõlme pole.",
+    "errorNoTopic": "Sõlmel „{id}“ pole teemat, nii et see satub üldveergu „{topic}“.",
+    "errorUnknownResourceNode": "tree.csv, rida {row}: materjal viitab depends_on-is sõlme id-le „{id}“, mida pole olemas.",
+    "errorExamsRenamed": "tree.csv, rida {row}: seade „features.exams“ on pärit ajast enne versiooni 0.22.0. Materjalid on nüüd tree.csv read tüübiga „resource“: topic = rühm, name = pealkiri, description = link, depends_on = sõlmed. Kustuta rida ja ava puu koostajas, et teisendada vana exams.csv. Midagi ei rakendatud.",
+    "errorResourceEmpty": "tree.csv, rida {row}: materjalil pole ei pealkirja (name) ega linki (description).",
+    "errorResourceNoNode": "tree.csv, rida {row}: materjal „{label}“ ei kuulu ühegi sõlme juurde. Kirjuta depends_on-isse ühe või mitme sõlme id või kustuta rida.",
+    "errorResourceDuplicate": "tree.csv, rida {row}: materjal „{label}“ on sama mis real {first}. Tee neist üks rida ja pane kõik sõlmed depends_on-isse.",
+    "errorResourceUrl": "tree.csv, rida {row}: materjali „{label}“ link peab algama märkidega https:// või mailto:. Seepärast näidatakse seda lihtsa tekstina, ilma lingita.",
+    "errorCycle": "Need sõlmed on ringiratast üksteise eeldused: {cycle}. Üks neist seostest tuleb eemaldada.",
+    "errorUnknownConfig": "Tundmatu seade „{key}“ (tree.csv, rida {row}). Midagi ei rakendatud.",
+    "errorUnknownNodeType": "Sõlme „{id}“ tüüp on „{type}“, aga sellist tüüpi pole. Võimalikud tüübid: {valid}.",
+    "errorUnknownPromptSection": "Tundmatu jaotis „{section}“ prompt-reas (tree.csv, rida {row}). Midagi ei rakendatud.",
+    "errorUnknownPromptTarget": "Prompt-rida (tree.csv, rida {row}) on suunatud juhisele „{name}“, mida see puu ei koosta. Midagi ei rakendatud.",
+    "errorDidYouMean": "Kas mõtlesid „{key}“?",
+    "errorMissingConfig": "tree.csv-st puudub kohustuslik config-rida „{key}“.",
+    "errorStyleColor": "Seade „{key}“ (tree.csv, rida {row}) peab olema värv kuueteistkümnendkoodina, näiteks #1F6F4A. „{value}“ ei ole selline, nii et jäi alles vaikevärv.",
+    "errorLinkUrl": "Seade „{key}“ (tree.csv, rida {row}) peab olema link, mis algab märkidega https:// või mailto:. „{value}“ ei ole selline, nii et seda näidatakse lihtsa tekstina.",
+    "errorStyleFont": "Tundmatu font „{value}“ (tree.csv, rida {row}). Fondid, mida puu saab kasutada: {valid}. Jäi alles vaikefont.",
+    "nodeType": {
+      "skill": "oskus",
+      "concept": "mõiste",
+      "fact": "faktid"
+    },
+    "badges": {
+      "del1": "1. osa",
+      "del2": "2. osa",
+      "begge": "1.+2. osa"
+    },
+    "status": {
+      "mastered": "Omandatud",
+      "ready": "Valmis õppimiseks",
+      "notMastered": "Veel omandamata",
+      "blocked": "Enne on puudu: {codes}"
+    },
+    "help": {
+      "label": "Abi",
+      "heading": "Abi",
+      "sections": [
+        {
+          "heading": "Menüü",
+          "body": "Kõik muu on ☰ all vasakus alanurgas: õpieesmärgid, otsing, test, printimine ja muu. Igal aknal on „?“, mis seda selgitab.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Kaart",
+          "body": "Iga kast on üks õpieesmärk ja nooled lähevad sellelt, mida pead enne teadma. Kuju näitab tüüpi: faktid on kandilised, mõisted veidi ümarad ja oskused ümmargused. Lohista kaarti, et seda liigutada, ja suumi nuppudega + ja −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Omandatud",
+          "body": "Vajuta kastis olevale rõngale, kui oskad õpieesmärki, ja see muutub roheliseks linnukeseks. See salvestub ainult sinu brauserisse.",
+          "figure": "check"
+        },
+        {
+          "heading": "Üks kast",
+          "body": "Vajuta kastile, et näha, mida õpieesmärk nõuab, millele see toetub, ja TI-juhist, mille saad kleepida TI-vestlusesse, et harjutada. Vajuta uuesti, et sulgeda.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Märgi korraga",
+          "body": "Nimekirja ikoonid märgivad korraga kõik teema õpieesmärgid või eemaldavad märgid. A ja B puhul kehtivad need kogu puu kohta.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Otsing",
+          "body": "Leia õpieesmärk sõna järgi selle nimest või kirjeldusest.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "TI-juhis testiks õpieesmärkide kohta, mille valid. Sina otsustad raskusastme, ülesannete arvu ja tüübi.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Tunnikavad (õpetajale)",
+          "body": "Vali õpieesmärgid ja vajuta „Tee materjal“, et saada tunnikava, minipuu või simulatsioon.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Printimine",
+          "body": "Laadi kogu puu alla PDF-ina, rõngastega, mida õpilased saavad pliiatsiga märkida.",
+          "figure": "print"
+        },
+        {
+          "heading": "Abivahendite silt",
+          "body": "„1. osa“ või „2. osa“ paneelis näitab, millisele abivahendite tasemele õpieesmärk kuulub. Vajuta sildile, et lugeda lähemalt jaotisest „Kursusest“.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivatsioon",
+          "body": "Lühike vestlus TI-ga sellest, miks seda ainet tasub õppida.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Kiirklahvid",
+        "search": "Ava otsing",
+        "escape": "Sulge avatud aken, menüü või paneel",
+        "zoom": "Suumi sisse ja välja",
+        "fit": "Näita kogu puud ja tagasi"
+      }
+    },
+    "safety": {
+      "label": "Turvalisus",
+      "heading": "Turvalisus",
+      "lead": "Oskuste puu teeb õpetaja, aga igaüks võib teha faili, mis näeb välja nagu oskuste puu. Loe seda enne, kui kasutad puud, mille keegi sulle saatis.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Oskuste puu ei küsi kunagi isikuandmeid",
+          "body": "Puul pole sisselogimist ja see ei vaja sinu kohta midagi. See ei küsi kunagi sinu nime, parooli, kooli kasutajakontot, isikukoodi, aadressi, telefoninumbrit ega seda, millises koolis sa käid. Sinu edusammud salvestuvad ainult selle seadme brauserisse. Kui leht, mis näeb välja nagu oskuste puu, küsib midagi sellist, pole see ehtne. Sulge see ja räägi oma õpetajale."
+        },
+        {
+          "id": "sender",
+          "heading": "Kes sulle puu saatis?",
+          "body": "Kõige tähtsam küsimus on, kust puu tuli. Puud aadressil aiskilltrees.com või puud, mille su õpetaja on pannud sinna, kust sa tavaliselt õppematerjale saad, võid usaldada sama palju kui oma õpetajat. Kui said faili e-kirjaga, vestluses või sotsiaalmeedias kelleltki, keda sa ei tunne, või see tuli ootamatult, ole ettevaatlik, isegi kui see näeb õige välja."
+        },
+        {
+          "id": "html",
+          "heading": "HTML-fail on veebileht, mitte dokument",
+          "body": "Kui puud jagatakse .html-failina, ei saa sa dokumenti nagu PDF- või Wordi fail. Sa saad terve veebilehe koodiga, mis käivitub, kui selle avad. Brauser ei lase sel lugeda sinu faile ega arvutisse midagi installida, aga see võib näidata ükskõik mida: võltsitud sisselogimislehte, nuppu, mis laadib midagi alla, või linke teistele veebilehtedele. Faili tegija otsustab, mida see teeb. Kui see näeb välja nagu oskuste puu, ei tähenda see veel, et see on oskuste puu. Ära kunagi logi sisse ega laadi midagi alla lehelt, mille avasid failist."
+        },
+        {
+          "id": "links",
+          "heading": "Kontrolli linke enne klõpsamist",
+          "body": "Puu materjalid võivad viia videote, ülesannete ja õpikute juurde. Hoia kursorit lingi kohal või vajuta lingile ja hoia sõrme peal ning vaata enne klõpsamist, kuhu see viib. Kui sa veebilehte ei tunne või aadress tundub kummaline, jäta see vahele."
+        },
+        {
+          "id": "injection",
+          "heading": "Juhiseid saab võltsida",
+          "body": "TI-juhis, mida kopeerid, on tekst, mille kirjutas puu tegija, ja sa kleebid selle otse TI-vestlusesse. Puu tegija võib sinna kirjutada mida tahes, ka käske, mis panevad vestluse käituma teisiti, kui ootad: andma valesid vastuseid, saatma sind teisele veebilehele või küsima asju, mis teda ei puuduta. Seda nimetatakse viibasüstiks (inglise keeles prompt injection). Võid teksti enne kleepimist kiiresti üle lugeda, ja ära usalda vestlust pimesi."
+        },
+        {
+          "id": "chat",
+          "heading": "Sina otsustad, mida vestlusele räägid",
+          "body": "Mõni juhis palub vestlusel sind tundma õppida, näiteks kuidas sa ainesse suhtud ja milles oled hea. Võid vastata nii palju või vähe, kui tahad. Aga ükski juhis ei vaja sinu nime, kontaktandmeid ega paroole. Kui vestlus küsib midagi sellist, ära vasta ja räägi oma õpetajale. Pea ka meeles, et seda, mida TI-vestlusesse kirjutad, hoiab alles ettevõte, mis vestlust pakub. Sinu koolil on sageli ligipääs TI-teenusele, kus su privaatsus on kaitstud. Küsi õpetajalt ja kasuta seda, kui see on olemas."
+        },
+        {
+          "id": "teachers",
+          "heading": "Õpetajale: puu kolleegilt",
+          "body": "Kui said puu kelleltki teiselt, võid selle enne õpilastega jagamist kindluse mõttes avada koostajas aadressil aiskilltrees.com/make-your-own/. Koostaja võtab failist ainult tabeli ja teeb sellest uue, puhta faili, ning seal saad lugeda iga juhist, mida puu kasutab."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Õpieesmärgid",
+      "title": "Näita kõigi õpieesmärkide süstemaatilist nimekirja teemade kaupa",
+      "heading": "Õpieesmärgid",
+      "copyAll": "Kopeeri kõik",
+      "intro": "Nimekirjas on kõik kursuse õpieesmärgid teemade kaupa, igaühe juures selle olek. Märgi õpieesmärk omandatuks — sama linnuke mis kaardil sõlmel —, et saaksid nimekirjas järjest edasi minna ja märkida, mille oled läbi teinud.",
+      "markAria": "Märgi „{name}“ omandatuks",
+      "markAllButton": "Märgi kõik omandatuks",
+      "clearAllButton": "Eemalda kõik omandatud-märgid",
+      "clearAllConfirm": "Kas eemaldada omandatud-märge puu kõigilt õpieesmärkidelt?",
+      "openNode": "Mine kaardil selle sõlme juurde"
+    },
+    "lessonPlanner": {
+      "button": "Tunnikavad",
+      "title": "Vali õpieesmärgid ja kopeeri TI-juhis tunnikava, minipuu või simulatsiooni jaoks",
+      "selectAll": "Märgi kõik",
+      "deselectAll": "Tühista kõik",
+      "selectTopic": "Märgi kõik teema „{topic}“ õpieesmärgid",
+      "deselectTopic": "Tühista kõik teema „{topic}“ õpieesmärgid",
+      "heading": "Tunnikavad",
+      "intro": "Märgi õpieesmärgid, mille jaoks tahad midagi teha, ja vajuta all „Tee materjal“. Seal valid, mis see olgu: tunnikava, minipuu või simulatsioon. Siinsed linnukesed on ainult selleks: need ei märgi midagi omandatuks ja kaovad, kui lehe uuesti laadid."
+    },
+    "search": {
+      "button": "Otsi",
+      "title": "Otsi õpieesmärke nime ja kirjelduse järgi",
+      "heading": "Otsing",
+      "placeholder": "Otsi õpieesmärke …",
+      "hint": "Kirjuta sõna. Otsing vaatab iga õpieesmärgi nime, kirjeldust ja teemat ning saad klõpsata otse kaardil oleva sõlme juurde.",
+      "noResults": "Ühegi õpieesmärgi tekstis pole „{query}“.",
+      "countOne": "1 õpieesmärk",
+      "countMany": "{n} õpieesmärki",
+      "openNode": "Mine kaardil selle sõlme juurde"
+    },
+    "resourceList": {
+      "button": "Ülesanded ja allikad",
+      "title": "Näita kõiki puu materjale ja õpieesmärke, mille juurde need kuuluvad",
+      "heading": "Ülesanded ja allikad",
+      "placeholder": "Filtreeri ülesandeid ja allikaid …",
+      "intro": "Ülesandeid ja allikaid: {n}",
+      "countFiltered": "{n} / {total}",
+      "noResults": "Ükski materjal ei vasta otsingule „{query}“.",
+      "openNode": "Mine kaardil selle sõlme juurde",
+      "help": "Puu juurde kuuluvad ülesanded ja allikad, näiteks eksamiülesanded, lingid ja videod. Igaühe all on õpieesmärgid, mille juurde see kuulub; vajuta ühele, et minna kaardil selle juurde. Kirjuta väljale, et filtreerida."
+    },
+    "motivation": {
+      "button": "Motivatsioon",
+      "title": "Kopeeri TI-juhis vestluseks sellest, miks seda ainet tasub õppida",
+      "heading": "Motivatsioon",
+      "desc": "Lühike vestlus TI-ga sellest, miks seda ainet tasub õppida. TI küsib ja kuulab ning te leiate vastuse koos.",
+      "help": "Vajuta „Kopeeri juhis“ ja kleebi see TI-vestlusesse. Vestlus algab sealt, kus sa ütled end olevat, ja TI küsib korraga ühe küsimuse. Siia ei salvestu midagi, mida kirjutad.",
+      "startLabel": "Kuidas sa ainesse suhtud?",
+      "start": {
+        "unknown": "Ei tea",
+        "hard": "See on raske",
+        "bored": "See on igav",
+        "use": "Milleks mul seda vaja on?"
+      },
+      "lengthLabel": "Pikkus",
+      "length": {
+        "short": "Lühike",
+        "normal": "Tavaline",
+        "long": "Pikk"
+      }
+    },
+    "lesson": {
+      "button": "Koosta tunnikava (õpetajale)",
+      "title": "Kopeeri TI-juhis terve tunni jaoks, mis katab märgitud õpieesmärgid",
+      "typeLabel": "Tunni tüüp",
+      "typeAria": "Mis tüüpi tund see on",
+      "types": {
+        "intro": "Uus teema",
+        "practice": "Harjutamine",
+        "review": "Kordamine",
+        "other": "Muu"
+      },
+      "minutesLabel": "Pikkus",
+      "minutesAria": "Tunni pikkus minutites",
+      "includeAria": "Lisa „{name}“ tunnikavasse",
+      "selectedNone": "Õpieesmärke pole valitud",
+      "selectedOne": "1 õpieesmärk valitud",
+      "selectedMany": "{n} õpieesmärki valitud"
+    },
+    "make": {
+      "button": "Tee materjal →",
+      "buttonTitle": "Vali, mida märgitud õpieesmärkide jaoks teha",
+      "heading": "Mida tahad teha?",
+      "back": "← Õpieesmärgid",
+      "forOne": "1 õpieesmärgi jaoks:",
+      "forMany": "{n} õpieesmärgi jaoks:",
+      "copy": "Kopeeri juhis",
+      "htmlBadge": "HTML-fail",
+      "htmlAfter": "Kleebi see TI-vestlusesse. Vastuseks saad HTML-faili, mille salvestad, avad brauseris ja saad õpilastega jagada.",
+      "lesson": {
+        "title": "Tunnikava",
+        "desc": "Terve tunni plaan minutite kaupa: mis läheb tahvlile ja kõigi ülesannete vastused.",
+        "minutes": "min",
+        "shorter": "Lühem",
+        "longer": "Pikem",
+        "after": "Kleebi see TI-vestlusesse. Vastuseks saad plaani, mille järgi saad tundi andes lugeda.",
+        "typeHints": {
+          "intro": "Uued õpieesmärgid: sissejuhatav ülesanne, lahendatud näited voorudena, diagnostiline küsimus iga õpieesmärgi kohta ja meenutamine lõpus.",
+          "practice": "Hiljuti õpitud õpieesmärgid: lühike meeldetuletus, siis ülesandeseeriad väikeste muudatustega ja üha väiksema toega.",
+          "review": "Mõni aeg tagasi õpitud õpieesmärgid: meenutamine ilma märkmeteta, kontroll, mis meelde jäi, vajaduse korral uuesti õpetamine ja segaülesanded.",
+          "other": "Midagi muud: kirjelda tundi ise või TI küsib sinult kõigepealt."
+        }
+      },
+      "miniTree": {
+        "title": "Minipuu",
+        "desc": "Oskuste puu, milles õpilased harjutavad enne kontrolltööd iseseisvalt: valitud õpieesmärgid koondatud mõneks tasemetega teemaks, lahendatud näide enne iga ülesannetevooru, pärast vastus ja selgitus ning omandamine, mis avab järgmise taseme.",
+        "levelsLabel": "Tasemeid teema kohta",
+        "levels1": "Üks tase",
+        "levels3": "Kolm taset",
+        "streakLabel": "Õigeid järjest omandamiseks",
+        "supportLabel": "Kohandamine",
+        "easyRead": "Lihtne lugeda (Comic Sans, vähe teksti)",
+        "readAloud": "Ettelugemine",
+        "game": "Tähed ja avamine",
+        "mixedTest": "Segaülesannetega proovitest",
+        "credit": "Põhineb eripedagoog Nina Haugerudi põhimõtetel."
+      },
+      "simulation": {
+        "title": "Simulatsioon",
+        "desc": "Interaktiivne simulatsioon, mida õpilased saavad uurida, ainealase mudeliga, mis pole välja mõeldud, ja paneeliga, mis selgitab, mida mudel suudab ja mida mitte.",
+        "workflowLabel": "Töökäik",
+        "design": "Kõigepealt kavandamisvestlus",
+        "build": "Kohe prototüüp",
+        "screenLabel": "Ekraan",
+        "laptop": "Sülearvuti",
+        "tablet": "Tahvelarvuti",
+        "projector": "Projektor",
+        "extrasLabel": "Lisa",
+        "tasks": "Ülesanded õpilastele",
+        "critique": "Mudeli kriitika",
+        "export": "Andmete eksport (CSV)",
+        "credit": "Henning Vinjusveen Myhrehageni prompti põhjal saidilt skolesim.no."
+      },
+      "less": "Vähem",
+      "more": "Rohkem",
+      "help": "Iga materjal on TI-juhis. Vali, mida tahad, vajuta „Kopeeri juhis“ ja kleebi see TI-vestlusesse, näiteks ChatGPT-sse või Claude'i. Tunnikavast saab plaan, mille järgi saad tundi andes lugeda. Minipuust ja simulatsioonist saab HTML-fail, mille salvestad, avad brauseris ja saad õpilastega jagada. Valikud ei salvestu.",
+      "forLabel": "Õpieesmärgid:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Tee TI-juhis testiks selle kohta, mille oled märkinud omandatuks",
+      "none": "Omandatud õpieesmärke veel pole",
+      "countLabel": "Ülesannete arv",
+      "countAria": "Ülesannete arv testis",
+      "heading": "Test",
+      "desc": "Kirjalik test selle kohta, mille oled märkinud omandatuks, vastustega siis, kui neid küsid.",
+      "help": "Test tuleb õpieesmärkidest, mille oled puus omandatuks märkinud. Vali raskusaste, ülesannete arv ja vorm, vajuta „Kopeeri juhis“ ja kleebi see TI-vestlusesse. TI näitab alguses ainult ülesandeid ning annab vastused ja hinnangu, kui neid küsid.",
+      "covers": "Test hõlmab {n} omandatud õpieesmärki:",
+      "coversOne": "Test hõlmab 1 omandatud õpieesmärki:",
+      "noneHint": "Sa pole veel ühtegi õpieesmärki omandatuks märkinud. Märgi puus ära, mida oskad, ja siis saad teha testi.",
+      "showAll": "Näita kõiki õpieesmärke",
+      "showSelected": "Näita ainult valitud õpieesmärke",
+      "difficultyLabel": "Raskusaste",
+      "difficulty": {
+        "easy": "Lihtne",
+        "medium": "Keskmine",
+        "hard": "Raske"
+      },
+      "difficultyHints": {
+        "easy": "Üks õpieesmärk ülesande kohta, kõige tavalisemad juhud ja ilma lõksudeta.",
+        "medium": "Nagu tavaline kontrolltöö: mõned otsekohesed ülesanded, mõned, mis ühendavad mitut õpieesmärki.",
+        "hard": "Enamik ülesandeid ühendab õpieesmärke, kasutab uusi olukordi või palub selgitada või viga leida."
+      },
+      "formatLabel": "Ülesannete vorm",
+      "format": {
+        "closed": "Kinnised",
+        "open": "Avatud",
+        "mixed": "Segamini"
+      },
+      "formatHints": {
+        "closed": "Valikvastused või lühivastused, mida saab võtme järgi kontrollida.",
+        "open": "Näitad oma lahenduskäiku või selgitad oma sõnadega.",
+        "mixed": "Umbes pooleks mõlemat."
+      },
+      "coversLabel": "Test hõlmab:"
+    },
+    "node": {
+      "markMastered": "Märgi omandatuks"
+    },
+    "column": {
+      "markAll": "Märgi kõik teema „{topic}“ õpieesmärgid omandatuks",
+      "clearAll": "Eemalda omandatud-märge teema „{topic}“ kõigilt õpieesmärkidelt"
+    },
+    "detail": {
+      "show": "Näita juhist",
+      "hide": "Peida juhis",
+      "copy": "Kopeeri juhis",
+      "prereqs": "Eeldused",
+      "resources": "Materjalid",
+      "mastered": "✓ Omandatud",
+      "available": "Saadaval — eeldused on täidetud",
+      "locked": "Lukus — eeldused on puudu",
+      "empty": "Klõpsa kaardil sõlmel, et näha üksikasju."
+    },
+    "loadError": "Kriitiline viga laadimisel: {message} (kas avad lehe kohaliku serveri kaudu? Paljudes brauserites ei õnnestu andmefailide fetch(), kui index.html avatakse otse kettalt.)",
+    "defaultTopic": "Muu",
+    "aids": {
+      "heading": "Abivahendid",
+      "tagTitle": "Vaata, mida sellel tasemel tohib kasutada",
+      "multipleNote": "See õpieesmärk kuulub mitmele tasemele. Sa peaksid sellega hakkama saama neist kõige rangemal — see tähendab kõige vähemate abivahenditega.",
+      "multipleNoteGeneral": "Õpieesmärk võib kuuluda mitmele tasemele. Siis on selle silt jagatud mitmeks värviks ja sa peaksid õpieesmärgiga hakkama saama neist tasemetest kõige rangemal — see tähendab kõige vähemate abivahenditega."
+    },
+    "menu": {
+      "label": "Menüü",
+      "groups": {
+        "practice": "Harjuta",
+        "plan": "Planeeri",
+        "about": "Teave"
+      }
+    },
+    "download": {
+      "button": "Laadi puu alla",
+      "title": "Laadi puu alla kahel kujul: tabelina, mida saad muuta, ja ühe failina, mis töötab ka ilma internetita",
+      "working": "Teen ühte faili…",
+      "failed": "Ühte faili ei õnnestunud teha",
+      "edit": "Muuda puud",
+      "editTitle": "Ava puu redaktoris, kus saad seda muuta ja alla laadida tabelina või ühe failina, mis töötab ilma internetita"
+    },
+    "courseInfo": {
+      "button": "Kursusest",
+      "heading": "Kursusest",
+      "division": "Klass või teaduskond",
+      "curriculum": "Õppekava",
+      "institution": "Õppeasutus",
+      "country": "Riik",
+      "language": "Keel",
+      "size": "Maht",
+      "decompositionVersion": "Jaotusmudel",
+      "credits": "Koostajad",
+      "author": "Autor",
+      "updated": "Viimati uuendatud",
+      "license": "Litsents",
+      "basedOn": "Põhineb",
+      "skills": "oskusi: {n}",
+      "concepts": "mõisteid: {n}",
+      "facts": "faktiloendeid: {n}",
+      "nodes": "sõlmi: {n}"
+    },
+    "helpToggle": "Selgitus",
+    "print": {
+      "button": "Prindi",
+      "title": "Laadi kogu puu alla printimiseks valmis PDF-ina",
+      "working": "Teen PDF-i …",
+      "failed": "PDF-i ei õnnestunud teha",
+      "heading": "Printimine",
+      "help": "Laadi kogu puu alla ühe PDF-lehena, printimiseks valmis. Eelvaade näitab lehte sellisena, nagu see tuleb. Pealkiri ja aiskilltrees.com on lehel alati.",
+      "paperLabel": "Paberi suurus",
+      "orientationLabel": "Paigutus",
+      "orientation": {
+        "auto": "Automaatne",
+        "landscape": "Rõhtpaigutus",
+        "portrait": "Püstpaigutus"
+      },
+      "colorLabel": "Värvid",
+      "color": {
+        "color": "Värviline",
+        "gray": "Mustvalge"
+      },
+      "rings": "Märkimisrõngad",
+      "legend": "Legend",
+      "download": "Laadi PDF alla",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Tagasi eelmise vaate juurde"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Estonian, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO ESTONIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is the nominative \"eesti keel\", and `outputLanguage` is written around a copula (\"Selle vestluse keel on …\"), so neither the English prompts nor a config row `languageName` need an inflected form; the rest refers back to it as \"selles keeles\". Estonian has no grammatical gender (\"ta\" is he and she), so no gender note is needed. Estonian teachers address pupils as \"sina\", not \"teie\". NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "eesti keel",
+    "outputLanguage": "Selle vestluse keel on {conversationLanguage}: pea kogu vestlus selles keeles. Kõik, mis on allpool tsiteeritud oskuste puust — sõlmede nimed, kirjeldused, eeldused —, on kirjutatud selles keeles, ja selles keeles ootab kasutaja, et sa temaga räägiksid. Osa juhisest, mida praegu loed, on inglise keeles; see ei ole palve vastata inglise keeles. Ära vaheta keelt omal algatusel ja ära kommenteeri, mis keeles juhis on kirjutatud. Pöördu kasutaja poole sinatades, nagu õpetaja pöördub õpilase poole, mitte teietades. Kui õppijat on vaja nimetada, on sõna „{learnerDefinite}“ — mitte mõni muu sõna sama asja kohta.",
+    "writingStyle": "Eestikeelsed näited kahe ülaltoodud nõuande kohta:\n- Isikuline tegumood: kirjuta „me saame arvu kirjutada kujul …“, mitte „arvu saab kirjutada kujul …“ ega „arv kirjutatakse kujul …“; kirjuta „teeme seda nii, et …“ või „teed seda nii, et …“, mitte „seda tehakse nii, et …“. Väldi umbisikulisi vorme nagu „tehakse“ ja „arvutatakse“, kui saad öelda, kes seda teeb. Väldi ka raskepärast nimisõnastiili: „arvuta“, mitte „teosta arvutus“.\n- Sõnad, mis on kirjakeeles tavalised, aga kõnes harvad, raamatulikud või liiga täiskasvanulikud, vaheta lihtsama vastu: „antud“ (→ „see“), „seega“ (→ „nii et“), „juhul kui“ (→ „kui“), „teostama“ (→ „tegema“), „omama“ (→ „olema“). Sõbratest: kas sa ütleksid seda sõna päriselt sõbrale valjusti?",
+    "overrides": {}
+  }
+}

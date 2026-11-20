@@ -1,0 +1,15 @@
+{
+  "doc-title": "Saada oma puu | AI Skill Trees",
+  "meta-description": "Kuidas saata enda tehtud oskuste puu selle saidi kataloogi.",
+  "page-eyebrow": "Õpetajatele",
+  "page-heading": "Saada oma puu",
+  "page-lede": "Kui oled teinud oma ainele oskuste puu, võid selle saata ja see lisatakse selle saidi kataloogi.",
+  "how-body": "Praegu saada oma tree.csv mulle e-postiga:",
+  "terms-eyebrow": "Enne saatmist",
+  "terms-1": "Loen iga puu enne avaldamist läbi.",
+  "terms-2": "Puu avaldatakse selle tegija nime all. Kui see on kohandatud teisest puust, jäävad alles read „Põhineb“, mille redaktor faili kirjutab, nii et ka varasemad autorid on nimetatud.",
+  "terms-3": "Selle saidi puud ja juhised on litsentsiga CC BY 4.0: igaüks võib neid kasutada ja kohandada, kui ta nimetab autori. Puu, mille saadad, avaldatakse sama litsentsiga.",
+  "terms-4": "Pull request’id GitHubis kaastööks avatud ei ole.",
+  "own-body": "Meetodi kasutamiseks ei pea sa midagi saatma. Redaktor annab sulle sinu enda faili, mida võid kasutada ja jagada nii, nagu soovid.",
+  "own-cta": "Tee oma puu"
+}

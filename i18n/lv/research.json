@@ -1,0 +1,13 @@
+{
+  "doc-title": "Pētniecība | AI Skill Trees",
+  "meta-description": "Fona materiāli par metodes dizainu un raksts, kurā metode aprakstīta.",
+  "page-heading": "Pētniecība",
+  "page-lede": "Metodes publicētā versija un kā to citēt.",
+  "cite-eyebrow": "Programmatūra un citēšana",
+  "cite-heading": "Versija 0.33.0",
+  "cite-body-1": "Dzinējs, instrukcijas, valodu faili un sākuma koks ir publiskā GitHub repozitorijā <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Šī vietne publicē tā laidienu <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Katrs laidiens tiek arhivēts Zenodo ar savu DOI. Laidiena 0.33.0 DOI ir <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> vienmēr norāda uz jaunāko laidienu.",
+  "cite-body-3": "Ja izmanto metodi vai materiālu, lūdzu, citē laidienu, ko izmantoji, nevis galveno zaru:",
+  "cite-cta-github": "Laidiens GitHub",
+  "cite-cta-zenodo": "Arhīvs Zenodo"
+}

@@ -1,0 +1,15 @@
+{
+  "doc-title": "Invia il tuo albero | AI Skill Trees",
+  "meta-description": "Come inviare un albero delle abilità che hai creato al catalogo di questo sito.",
+  "page-eyebrow": "Per gli insegnanti",
+  "page-heading": "Invia il tuo albero",
+  "page-lede": "Se hai creato un albero delle abilità per la tua materia, puoi inviarlo per farlo aggiungere al catalogo di questo sito.",
+  "how-body": "Per ora, mandami il tuo tree.csv per email:",
+  "terms-eyebrow": "Prima di inviarlo",
+  "terms-1": "Leggo ogni albero prima di pubblicarlo.",
+  "terms-2": "Un albero viene pubblicato con il nome di chi l'ha creato. Se è adattato da un altro albero, mantiene le righe «Basato su» che l'editor scrive nel file, così gli autori precedenti restano citati.",
+  "terms-3": "Gli alberi e le istruzioni di questo sito sono sotto licenza CC BY 4.0: chiunque può usarli e adattarli, purché citi l'autore. Anche l'albero che invii viene pubblicato con questa licenza.",
+  "terms-4": "Non si accettano contributi tramite pull request su GitHub.",
+  "own-body": "Per usare il metodo non devi inviare niente. L'editor ti dà il tuo file, da usare e condividere come preferisci.",
+  "own-cta": "Crea il tuo"
+}

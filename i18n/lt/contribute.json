@@ -1,0 +1,15 @@
+{
+  "doc-title": "Pateik savo medį | AI Skill Trees",
+  "meta-description": "Kaip pateikti savo sukurtą įgūdžių medį į šios svetainės katalogą.",
+  "page-eyebrow": "Mokytojams",
+  "page-heading": "Pateik savo medį",
+  "page-lede": "Jei sukūrei įgūdžių medį savo dalykui, gali jį atsiųsti, ir jis bus įtrauktas į šios svetainės katalogą.",
+  "how-body": "Kol kas atsiųsk man savo tree.csv el. paštu:",
+  "terms-eyebrow": "Prieš siunčiant",
+  "terms-1": "Kiekvieną medį perskaitau prieš jį paskelbdamas.",
+  "terms-2": "Medis skelbiamas jį sukūrusio žmogaus vardu. Jei jis pritaikytas iš kito medžio, jame lieka eilutės „Remiantis“, kurias kūrimo įrankis įrašo į failą, todėl ankstesni autoriai ir toliau nurodomi.",
+  "terms-3": "Šios svetainės medžiai ir instrukcijos platinami pagal CC BY 4.0 licenciją: kiekvienas gali juos naudoti ir pritaikyti, jei nurodo autorių. Tavo pateiktas medis skelbiamas pagal šią licenciją.",
+  "terms-4": "Indėliai per GitHub pull request kol kas nepriimami.",
+  "own-body": "Kad naudotumeisi metodu, nieko pateikti nereikia. Kūrimo įrankis tau duoda tavo paties failą – naudok jį ir dalinkis juo, kaip nori.",
+  "own-cta": "Susikurk savo"
+}

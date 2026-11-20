@@ -1,0 +1,13 @@
+{
+  "doc-title": "Tyrimai | AI Skill Trees",
+  "meta-description": "Foninė medžiaga apie metodo dizainą ir straipsnis, kuriame aprašomas metodas.",
+  "page-heading": "Tyrimai",
+  "page-lede": "Išleista metodo versija ir kaip ją cituoti.",
+  "cite-eyebrow": "Programinė įranga ir citavimas",
+  "cite-heading": "Versija 0.33.0",
+  "cite-body-1": "Variklis, instrukcijos, kalbų failai ir pradinis medis yra viešoje GitHub saugykloje <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Ši svetainė skelbia jos laidą <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a>.",
+  "cite-body-2": "Kiekviena laida archyvuojama Zenodo su savo DOI. Laidos 0.33.0 DOI yra <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> visada nurodo naujausią laidą.",
+  "cite-body-3": "Jei naudoji metodą ar medžiagą, cituok tą laidą, kurią naudojai, o ne pagrindinę šaką:",
+  "cite-cta-github": "Laida GitHub",
+  "cite-cta-zenodo": "Archyvas Zenodo"
+}

@@ -1,0 +1,458 @@
+{
+  "code": "is",
+  "htmlLang": "is",
+  "name": "Íslenska",
+  "endonym": "Íslenska",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, the prompts and the tree folders stay untouched. See AGENTS.md, «Ferdighetstrærne». Icelandic inflects nouns, so a {placeholder} that is a name is never inflected: it stands in quotation marks after a head noun that carries the case (»í efnisþættinum „{topic}“«), or after a colon. A count that would need a participle to agree with the number is written »Valin hæfniviðmið: {n}«.",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite nominative the instructions and the panel use: „nemandinn“, „neminn“, „þátttakandinn“ or anything else. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. A skill is a verb phrase in the supine, as in the hæfniviðmið of the Aðalnámskrá („Nemandinn getur: lagt saman brot“), a concept a definition, and they need different lead-ins. The tree authors write their skill descriptions to fit exactly these lead-ins.",
+    "default": "nemandinn",
+    "legacy": {
+      "pupil": "nemandinn",
+      "student": "neminn",
+      "participant": "þátttakandinn"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} getur:",
+      "concept": "{LearnerDefinite} getur útskýrt:",
+      "fact": "{LearnerDefinite} getur rifjað upp:"
+    }
+  },
+  "ui": {
+    "backLink": "← Öll tré",
+    "pageTitle": "Færnitré: {title}",
+    "tagline": "Kort sem sýnir hvernig hæfniviðmiðin byggja hvert á öðru — merktu við það sem þú kannt og afritaðu fyrirmæli fyrir gervigreind til að æfa það sem kemur næst.",
+    "makeYourOwn": "{subject}. Búðu til þitt eigið tré:",
+    "progressLabel": "{done} af {total} hæfniviðmiðum lokið",
+    "zoomIn": "Þysja inn",
+    "zoomOut": "Þysja út",
+    "fitToView": "Sýna allt tréð",
+    "fitToViewTitle": "Sýna allt tréð (Ctrl+skrun til að þysja)",
+    "close": "✕ Loka",
+    "closeLower": "✕ Loka",
+    "copied": "Afritað!",
+    "copyFallback": "Ekki tókst að afrita sjálfkrafa — afritaðu textann hér fyrir neðan handvirkt:",
+    "errorBanner": "⚠ Vandamál fundust í gagnaskránum: {n} (nánar í console vafrans):",
+    "errorCsv": "Ekki tókst að lesa töflureikninn, lína {row}: {message}",
+    "errorCsvHeader": "Fyrsta línan í {file} á að gefa dálkunum heiti. Það vantar: {missing}. Fyrsta línan er: {found}. Skráin var líklega vistuð án fyrstu línunnar eða á öðru sniði; vistaðu hana aftur sem venjulega CSV-skrá.",
+    "errorUnknownDep": "Hnúturinn „{id}“ tilgreinir „{dep}“ sem forkröfu, en enginn hnútur hefur það auðkenni.",
+    "errorNoTopic": "Hnúturinn „{id}“ hefur engan efnisþátt og lendir í safndálkinum „{topic}“.",
+    "errorUnknownResourceNode": "tree.csv, lína {row}: ítarefnið vísar í hnútaauðkennið „{id}“ í depends_on, en það er ekki til.",
+    "errorExamsRenamed": "tree.csv, lína {row}: stillingin „features.exams“ er frá því fyrir útgáfu 0.22.0. Ítarefni eru nú línur í tree.csv af gerðinni „resource“: topic = hópur, name = titill, description = tengill, depends_on = hnútarnir. Eyddu línunni og opnaðu tréð í smiðnum til að breyta gamalli exams.csv. Ekkert tók gildi.",
+    "errorResourceEmpty": "tree.csv, lína {row}: ítarefnið hefur hvorki titil (name) né tengil (description).",
+    "errorResourceNoNode": "tree.csv, lína {row}: ítarefnið „{label}“ tilheyrir engum hnúti. Skrifaðu eitt eða fleiri hnútaauðkenni í depends_on, eða eyddu línunni.",
+    "errorResourceDuplicate": "tree.csv, lína {row}: ítarefnið „{label}“ er það sama og í línu {first}. Sameinaðu þau í eina línu með öllum hnútunum í depends_on.",
+    "errorResourceUrl": "tree.csv, lína {row}: tengill ítarefnisins „{label}“ verður að byrja á https:// eða mailto:. Hann birtist því sem venjulegur texti, án tengils.",
+    "errorCycle": "Þessir hnútar eru forkröfur hver fyrir annan, í hring: {cycle}. Ein af tengingunum verður að fara.",
+    "errorUnknownConfig": "Óþekkt stilling „{key}“ (tree.csv, lína {row}). Ekkert tók gildi.",
+    "errorUnknownNodeType": "Hnúturinn „{id}“ er af gerðinni „{type}“, sem er ekki til. Gerðirnar eru: {valid}.",
+    "errorUnknownPromptSection": "Óþekktur hluti „{section}“ í prompt-línunni (tree.csv, lína {row}). Ekkert tók gildi.",
+    "errorUnknownPromptTarget": "Prompt-línan (tree.csv, lína {row}) beinist að „{name}“, en það eru ekki fyrirmæli sem þetta tré setur saman. Ekkert tók gildi.",
+    "errorDidYouMean": "Áttirðu við „{key}“?",
+    "errorMissingConfig": "Í tree.csv vantar config-línuna „{key}“, sem er nauðsynleg.",
+    "errorStyleColor": "Stillingin „{key}“ (tree.csv, lína {row}) verður að vera litur skrifaður sem hex-kóði, til dæmis #1F6F4A. „{value}“ er það ekki, svo sjálfgefna litnum var haldið.",
+    "errorLinkUrl": "Stillingin „{key}“ (tree.csv, lína {row}) verður að vera tengill sem byrjar á https:// eða mailto:. „{value}“ er það ekki, svo það birtist sem venjulegur texti.",
+    "errorStyleFont": "Óþekkt letur „{value}“ (tree.csv, lína {row}). Letrin sem tré getur notað: {valid}. Sjálfgefna letrinu var haldið.",
+    "nodeType": {
+      "skill": "færni",
+      "concept": "hugtak",
+      "fact": "staðreyndir"
+    },
+    "badges": {
+      "del1": "Hluti 1",
+      "del2": "Hluti 2",
+      "begge": "Hluti 1+2"
+    },
+    "status": {
+      "mastered": "Lokið",
+      "ready": "Tilbúið til náms",
+      "notMastered": "Ekki lokið enn",
+      "blocked": "Vantar fyrst: {codes}"
+    },
+    "help": {
+      "label": "Hjálp",
+      "heading": "Hjálp",
+      "sections": [
+        {
+          "heading": "Valmyndin",
+          "body": "Allt annað er á bak við ☰ neðst til vinstri: hæfniviðmiðin, leit, próf, prentun og hitt. Í hverjum glugga er „?“ sem útskýrir hann.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Kortið",
+          "body": "Hver kassi er hæfniviðmið, og örvarnar liggja frá því sem þú þarft að kunna fyrst. Lögunin sýnir gerðina: staðreyndir eru ferhyrndar, hugtök örlítið ávöl og færni kringlótt. Dragðu til að færa kortið og notaðu + og − til að þysja.",
+          "figure": "map"
+        },
+        {
+          "heading": "Lokið",
+          "body": "Ýttu á hringinn í kassa þegar þú kannt hæfniviðmiðið, og hann verður að grænu haki. Þetta vistast aðeins í vafranum þínum.",
+          "figure": "check"
+        },
+        {
+          "heading": "Einn kassi",
+          "body": "Ýttu á kassa til að sjá hvers hæfniviðmiðið krefst, á hverju það byggir og fyrirmæli sem þú getur límt inn í spjallmenni og æft þig með. Ýttu aftur til að loka.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Merkja mörg",
+          "body": "Listatáknin merkja öll viðmið í efnisþætti í einu, eða fjarlægja merkingarnar. Með A og B gilda þau fyrir allt tréð.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Leit",
+          "body": "Finndu hæfniviðmið eftir orði úr heiti þess eða lýsingu.",
+          "figure": "search"
+        },
+        {
+          "heading": "Próf",
+          "body": "Fyrirmæli fyrir gervigreind að prófi úr viðmiðunum sem þú velur. Þú ræður erfiðleikastigi, fjölda og gerð verkefna.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Kennsluáætlanir (fyrir kennara)",
+          "body": "Veldu hæfniviðmið og ýttu á „Búa til efni“ til að fá kennsluáætlun, smátré eða hermun.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Prentun",
+          "body": "Sæktu allt tréð sem PDF, með hringjum sem nemendur geta hakað við með penna.",
+          "figure": "print"
+        },
+        {
+          "heading": "Hjálpargagnamerkið",
+          "body": "„Hluti 1“ eða „Hluti 2“ á spjaldinu sýnir á hvaða stigi hjálpargagna viðmiðið er. Ýttu á merkið til að lesa meira undir „Um námsgreinina“.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Hvatning",
+          "body": "Stutt samtal við gervigreind um hvers vegna námsgreinin er þess virði að læra hana.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Flýtilyklar",
+        "search": "Opna leit",
+        "escape": "Loka glugganum, valmyndinni eða spjaldinu sem er opið",
+        "zoom": "Þysja inn og út",
+        "fit": "Sýna allt tréð, og aftur til baka"
+      }
+    },
+    "safety": {
+      "label": "Öryggi",
+      "heading": "Öryggi",
+      "lead": "Kennari býr til færnitré, en hver sem er getur búið til skrá sem lítur út eins og færnitré. Lestu þetta áður en þú notar tré sem einhver hefur sent þér.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Færnitré biður aldrei um persónuupplýsingar",
+          "body": "Tréð hefur enga innskráningu og þarf ekkert að vita um þig. Það biður aldrei um nafnið þitt, lykilorð, innskráningu í skólann, kennitölu, heimilisfang, símanúmer eða í hvaða skóla þú ert. Framvindan þín vistast aðeins í vafranum á þessu tæki. Ef síða sem líkist færnitré biður um eitthvað af þessu er hún ekki ósvikin. Lokaðu henni og segðu kennaranum þínum frá."
+        },
+        {
+          "id": "sender",
+          "heading": "Hver sendi þér tréð?",
+          "body": "Mikilvægasta spurningin er hvaðan tréð kemur. Tré á aiskilltrees.com, eða tré sem kennarinn þinn hefur sett þar sem þið fáið venjulega námsefnið, getur þú treyst jafn vel og þú treystir kennaranum. Ef þú fékkst skrá í tölvupósti, í spjalli eða á samfélagsmiðlum frá einhverjum sem þú þekkir ekki, eða hún kom óvænt, skaltu fara varlega, jafnvel þótt hún líti rétt út."
+        },
+        {
+          "id": "html",
+          "heading": "HTML-skrá er vefsíða, ekki skjal",
+          "body": "Þegar einhver deilir tré sem .html-skrá færðu ekki skjal eins og PDF- eða Word-skrá. Þú færð heila vefsíðu með kóða sem keyrir þegar þú opnar hana. Vafrinn kemur í veg fyrir að hún lesi skrárnar þínar eða setji eitthvað upp á tölvunni, en hún getur sýnt hvað sem er: falska innskráningarsíðu, hnapp sem sækir eitthvað, eða tengla á aðrar vefsíður. Sá sem bjó til skrána ræður hvað hún gerir. Þótt hún líti út eins og færnitré er hún ekki endilega færnitré. Skráðu þig aldrei inn og sæktu aldrei neitt af síðu sem þú opnaðir úr skrá."
+        },
+        {
+          "id": "links",
+          "heading": "Athugaðu tengla áður en þú smellir",
+          "body": "Ítarefnið í trénu getur vísað á myndbönd, verkefni og kennslubækur. Haltu músinni yfir tengli, eða haltu fingrinum á honum, og sjáðu hvert hann vísar áður en þú smellir. Ef þú þekkir ekki vefsíðuna, eða slóðin lítur undarlega út, skaltu sleppa því."
+        },
+        {
+          "id": "injection",
+          "heading": "Það er hægt að eiga við fyrirmælin",
+          "body": "Fyrirmælin sem þú afritar eru texti eftir þann sem bjó til tréð, og þú límir þau beint inn í spjallmenni. Sá sem býr til tré getur skrifað hvað sem er í þau, líka skipanir sem fá spjallmennið til að haga sér öðruvísi en þú býst við: gefa þér röng svör, senda þig á aðra vefsíðu eða spyrja um hluti sem koma því ekki við. Þetta kallast fyrirmælainnspýting (prompt injection). Það er góð hugmynd að renna yfir textann áður en þú límir hann inn, og þú skalt ekki treysta spjallmenninu í blindni."
+        },
+        {
+          "id": "chat",
+          "heading": "Þú ræður hvað þú segir spjallmenninu",
+          "body": "Sum fyrirmæli biðja spjallmennið að kynnast þér, til dæmis hvernig þér finnst námsgreinin og hvað þér gengur vel með. Þú getur svarað eins miklu eða litlu og þú vilt. En engin fyrirmæli þurfa nafnið þitt, samskiptaupplýsingar eða lykilorð. Ef spjallmennið biður um eitthvað slíkt skaltu ekki svara og segja kennaranum þínum frá. Mundu líka að það sem þú skrifar í spjallmenni er geymt hjá fyrirtækinu sem rekur það. Skólinn þinn hefur oft aðgang að gervigreindarþjónustu þar sem friðhelgi þín er vernduð. Spurðu kennarann þinn, og notaðu hana ef þið hafið slíka."
+        },
+        {
+          "id": "teachers",
+          "heading": "Fyrir kennara: tré frá samstarfsmanni",
+          "body": "Ef þú fékkst tré frá einhverjum öðrum geturðu opnað það í smiðnum á aiskilltrees.com/make-your-own/ áður en þú deilir því með nemendum þínum, til að vera viss. Smiðurinn tekur aðeins töflureikninn úr skránni og býr til nýja, hreina skrá úr honum, og þar geturðu lesið öll fyrirmælin sem tréð notar."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Hæfniviðmið",
+      "title": "Sýna kerfisbundinn lista yfir öll hæfniviðmið, raðað eftir efnisþáttum",
+      "heading": "Hæfniviðmið",
+      "copyAll": "Afrita öll",
+      "intro": "Listinn sýnir öll hæfniviðmið námsgreinarinnar, raðað eftir efnisþáttum, og stöðu hvers þeirra. Hakaðu við viðmið til að merkja því lokið — sama hak og á hnútnum á kortinu — svo þú getir farið niður listann í röð og merkt við það sem þú hefur farið yfir.",
+      "markAria": "Merkja hæfniviðmiðið „{name}“ sem lokið",
+      "markAllButton": "Merkja öll sem lokið",
+      "clearAllButton": "Fjarlægja allar „lokið“-merkingar",
+      "clearAllConfirm": "Fjarlægja „lokið“-merkinguna af öllum hæfniviðmiðum í trénu?",
+      "openNode": "Fara á þennan hnút á kortinu"
+    },
+    "lessonPlanner": {
+      "button": "Kennsluáætlanir",
+      "title": "Veldu hæfniviðmið og afritaðu fyrirmæli fyrir kennsluáætlun, smátré eða hermun",
+      "selectAll": "Haka við öll",
+      "deselectAll": "Taka hak af öllum",
+      "selectTopic": "Haka við öll hæfniviðmið í efnisþættinum „{topic}“",
+      "deselectTopic": "Taka hak af öllum hæfniviðmiðum í efnisþættinum „{topic}“",
+      "heading": "Kennsluáætlanir",
+      "intro": "Hakaðu við hæfniviðmiðin sem þú vilt búa eitthvað til fyrir, og ýttu á „Búa til efni“ neðst. Þar velurðu hvað það á að vera: kennsluáætlun, smátré eða hermun. Hökin hér eru aðeins fyrir þetta: þau merkja ekkert sem lokið, og þau hverfa þegar þú endurhleður síðuna."
+    },
+    "search": {
+      "button": "Leita",
+      "title": "Leita í hæfniviðmiðum eftir heiti og lýsingu",
+      "heading": "Leit",
+      "placeholder": "Leita í hæfniviðmiðum …",
+      "hint": "Skrifaðu orð. Leitin skoðar heiti, lýsingu og efnisþátt hvers hæfniviðmiðs, og þú getur smellt beint á hnútinn á kortinu.",
+      "noResults": "Ekkert hæfniviðmið inniheldur „{query}“.",
+      "countOne": "1 hæfniviðmið",
+      "countMany": "{n} hæfniviðmið",
+      "openNode": "Fara á þennan hnút á kortinu"
+    },
+    "resourceList": {
+      "button": "Verkefni og heimildir",
+      "title": "Sýna allt ítarefni trésins og hæfniviðmiðin sem það tilheyrir",
+      "heading": "Verkefni og heimildir",
+      "placeholder": "Sía verkefni og heimildir …",
+      "intro": "Verkefni og heimildir: {n}",
+      "countFiltered": "{n} af {total}",
+      "noResults": "Ekkert ítarefni passar við „{query}“.",
+      "openNode": "Fara á þennan hnút á kortinu",
+      "help": "Verkefni og heimildir sem tilheyra trénu, til dæmis prófverkefni, tenglar og myndbönd. Undir hverju atriði eru hæfniviðmiðin sem það tilheyrir; ýttu á eitt til að fara á það á kortinu. Skrifaðu í reitinn til að sía."
+    },
+    "motivation": {
+      "button": "Hvatning",
+      "title": "Afrita fyrirmæli fyrir samtal um hvers vegna námsgreinin er þess virði að læra hana",
+      "heading": "Hvatning",
+      "desc": "Stutt samtal við gervigreind um hvers vegna námsgreinin er þess virði að læra hana. Gervigreindin spyr og hlustar, og þið finnið svarið saman.",
+      "help": "Ýttu á „Afrita fyrirmælin“ og límdu þau inn í spjallmenni. Samtalið byrjar þar sem þú segist vera, og gervigreindin spyr einnar spurningar í einu. Ekkert sem þú skrifar er vistað hér.",
+      "startLabel": "Hvernig líður þér með námsgreinina?",
+      "start": {
+        "unknown": "Veit ekki",
+        "hard": "Þetta er erfitt",
+        "bored": "Þetta er leiðinlegt",
+        "use": "Til hvers þarf ég þetta?"
+      },
+      "lengthLabel": "Lengd",
+      "length": {
+        "short": "Stutt",
+        "normal": "Venjulegt",
+        "long": "Langt"
+      }
+    },
+    "lesson": {
+      "button": "Gera kennsluáætlun (fyrir kennara)",
+      "title": "Afrita fyrirmæli fyrir heila kennslustund um hæfniviðmiðin sem þú hefur hakað við",
+      "typeLabel": "Gerð kennslustundar",
+      "typeAria": "Hvers konar kennslustund þetta er",
+      "types": {
+        "intro": "Kynning",
+        "practice": "Þjálfun",
+        "review": "Upprifjun",
+        "other": "Annað"
+      },
+      "minutesLabel": "Lengd",
+      "minutesAria": "Lengd kennslustundarinnar í mínútum",
+      "includeAria": "Taka hæfniviðmiðið „{name}“ með í kennsluáætlunina",
+      "selectedNone": "Engin hæfniviðmið valin",
+      "selectedOne": "1 hæfniviðmið valið",
+      "selectedMany": "Valin hæfniviðmið: {n}"
+    },
+    "make": {
+      "button": "Búa til efni →",
+      "buttonTitle": "Veldu hvað þú vilt búa til fyrir hæfniviðmiðin sem þú hefur hakað við",
+      "heading": "Hvað viltu búa til?",
+      "back": "← Hæfniviðmiðin",
+      "forOne": "Fyrir 1 hæfniviðmið:",
+      "forMany": "Fyrir {n} hæfniviðmið:",
+      "copy": "Afrita fyrirmælin",
+      "htmlBadge": "HTML-skrá",
+      "htmlAfter": "Límdu þau inn í spjallmenni. Svarið er HTML-skrá sem þú vistar og opnar í vafra, og getur deilt með nemendum þínum.",
+      "lesson": {
+        "title": "Kennsluáætlun",
+        "desc": "Heildstæð áætlun fyrir eina kennslustund, með tímasetningum í mínútum, því sem á að fara á töfluna og svörum við öllum verkefnum.",
+        "minutes": "mín.",
+        "shorter": "Styttri",
+        "longer": "Lengri",
+        "after": "Límdu þau inn í spjallmenni. Svarið er áætlun sem þú getur fylgt á meðan þú kennir.",
+        "typeHints": {
+          "intro": "Ný hæfniviðmið: upphafsverkefni, sýnidæmi í lotum, ein greiningarspurning fyrir hvert viðmið og upprifjun úr minni í lokin.",
+          "practice": "Viðmið sem nemendur lærðu nýlega: stutt áminning, síðan verkefnaraðir með litlum breytingum og sífellt minni stuðningi.",
+          "review": "Viðmið frá því fyrir nokkru: upprifjun án glósa, athugun á því hvað situr eftir, endurkennsla þar sem þarf og blönduð þjálfun.",
+          "other": "Eitthvað annað: lýstu kennslustundinni, annars spyr gervigreindin þig fyrst."
+        }
+      },
+      "miniTree": {
+        "title": "Smátré",
+        "desc": "Færnitré sem nemendur æfa sig í upp á eigin spýtur fyrir próf: völdu viðmiðin flokkuð í nokkur þemu með stigum, sýnidæmi á undan hverri verkefnalotu, svar og útskýring á eftir, og þegar stigi er náð opnast það næsta.",
+        "levelsLabel": "Stig í hverju þema",
+        "levels1": "Eitt stig",
+        "levels3": "Þrjú stig",
+        "streakLabel": "Rétt í röð til að ljúka stigi",
+        "supportLabel": "Aðlögun",
+        "easyRead": "Auðlesið (Comic Sans, stuttur texti)",
+        "readAloud": "Upplestur",
+        "game": "Stjörnur og ný stig",
+        "mixedTest": "Blönduð prófæfing",
+        "credit": "Byggt á meginreglum sérkennarans Ninu Haugerud."
+      },
+      "simulation": {
+        "title": "Hermun",
+        "desc": "Gagnvirk hermun sem nemendur geta kannað, með fræðilegu líkani sem er ekki tilbúningur og spjaldi sem útskýrir hvað líkanið getur og getur ekki.",
+        "workflowLabel": "Vinnulag",
+        "design": "Hönnunarsamtal fyrst",
+        "build": "Frumgerð strax",
+        "screenLabel": "Skjár",
+        "laptop": "Fartölva",
+        "tablet": "Spjaldtölva",
+        "projector": "Skjávarpi",
+        "extrasLabel": "Hafa með",
+        "tasks": "Nemendaverkefni",
+        "critique": "Gagnrýni á líkanið",
+        "export": "Gagnaútflutningur (CSV)",
+        "credit": "Eftir fyrirmælum Hennings Vinjusveen Myhrehagen á skolesim.no."
+      },
+      "less": "Minna",
+      "more": "Meira",
+      "help": "Hvert efni eru fyrirmæli fyrir gervigreind. Veldu það sem þú vilt, ýttu á „Afrita fyrirmælin“ og límdu þau inn í spjallmenni eins og ChatGPT eða Claude. Kennsluáætlunin verður áætlun sem þú getur fylgt á meðan þú kennir. Smátréð og hermunin verða HTML-skrá sem þú vistar, opnar í vafra og getur deilt með nemendum þínum. Valið er ekki vistað.",
+      "forLabel": "Fyrir:"
+    },
+    "exam": {
+      "button": "Próf",
+      "title": "Búa til fyrirmæli fyrir próf úr því sem þú hefur merkt sem lokið",
+      "none": "Engum hæfniviðmiðum lokið enn",
+      "countLabel": "Fjöldi verkefna",
+      "countAria": "Fjöldi verkefna í prófinu",
+      "heading": "Próf",
+      "desc": "Skriflegt próf úr því sem þú hefur merkt sem lokið, með svörum þegar þú biður um þau.",
+      "help": "Prófið byggir á hæfniviðmiðunum sem þú hefur merkt sem lokið í trénu. Veldu erfiðleikastig, fjölda verkefna og gerð þeirra, ýttu á „Afrita fyrirmælin“ og límdu þau inn í spjallmenni. Gervigreindin sýnir fyrst aðeins verkefnin, og gefur svör og mat þegar þú biður um það.",
+      "covers": "Prófið nær yfir {n} hæfniviðmið sem er lokið:",
+      "coversOne": "Prófið nær yfir 1 hæfniviðmið sem er lokið:",
+      "noneHint": "Þú hefur ekki enn merkt nein hæfniviðmið sem lokið. Hakaðu við það sem þú kannt í trénu, og þá geturðu búið til próf.",
+      "showAll": "Sýna öll hæfniviðmið",
+      "showSelected": "Sýna aðeins valin hæfniviðmið",
+      "difficultyLabel": "Erfiðleikastig",
+      "difficulty": {
+        "easy": "Létt",
+        "medium": "Miðlungs",
+        "hard": "Erfitt"
+      },
+      "difficultyHints": {
+        "easy": "Eitt hæfniviðmið í hverju verkefni, algengustu tilvikin og engar gildrur.",
+        "medium": "Eins og venjulegt próf: sum verkefni einföld, önnur sem tengja saman nokkur viðmið.",
+        "hard": "Flest verkefnin tengja saman viðmið, nota nýtt samhengi eða biðja þig að útskýra eða finna villu."
+      },
+      "formatLabel": "Gerð verkefna",
+      "format": {
+        "closed": "Lokuð",
+        "open": "Opin",
+        "mixed": "Blönduð"
+      },
+      "formatHints": {
+        "closed": "Krossaspurningar eða stutt svör sem má bera saman við lausnir.",
+        "open": "Þú sýnir útreikninga eða útskýrir með eigin orðum.",
+        "mixed": "Um það bil helmingur af hvoru."
+      },
+      "coversLabel": "Prófið nær yfir:"
+    },
+    "node": {
+      "markMastered": "Merkja sem lokið"
+    },
+    "column": {
+      "markAll": "Merkja öll hæfniviðmið í efnisþættinum „{topic}“ sem lokið",
+      "clearAll": "Fjarlægja „lokið“-merkinguna af öllum hæfniviðmiðum í efnisþættinum „{topic}“"
+    },
+    "detail": {
+      "show": "Sýna fyrirmælin",
+      "hide": "Fela fyrirmælin",
+      "copy": "Afrita fyrirmælin",
+      "prereqs": "Forkröfur",
+      "resources": "Ítarefni",
+      "mastered": "✓ Lokið",
+      "available": "Opið — forkröfur uppfylltar",
+      "locked": "Læst — forkröfur vantar",
+      "empty": "Smelltu á hnút á kortinu til að sjá nánar."
+    },
+    "loadError": "Alvarleg villa við hleðslu: {message} (keyrirðu síðuna í gegnum staðbundinn vefþjón? fetch() á gagnaskránum mistekst í mörgum vöfrum þegar index.html er opnuð beint af diski.)",
+    "defaultTopic": "Annað",
+    "aids": {
+      "heading": "Hjálpargögn",
+      "tagTitle": "Sjáðu hvað þú mátt nota á þessu stigi",
+      "multipleNote": "Þetta hæfniviðmið tilheyrir fleiri en einu stigi. Þú ættir að ráða við það á því strangasta þeirra — það er, með fæstum hjálpargögnum.",
+      "multipleNoteGeneral": "Hæfniviðmið getur tilheyrt fleiri en einu stigi. Merkið þess skiptist þá í fleiri liti, og þú ættir að ráða við viðmiðið á því strangasta af stigunum — það er, með fæstum hjálpargögnum."
+    },
+    "menu": {
+      "label": "Valmynd",
+      "groups": {
+        "practice": "Æfa",
+        "plan": "Skipuleggja",
+        "about": "Um"
+      }
+    },
+    "download": {
+      "button": "Sækja tréð",
+      "title": "Sækja tréð á tvennu formi: töflureikninn sem þú getur breytt, og eina skrá sem virkar án nettengingar",
+      "working": "Set saman skrána …",
+      "failed": "Ekki tókst að setja saman skrána",
+      "edit": "Breyta trénu",
+      "editTitle": "Opna tréð í ritlinum, þar sem þú getur breytt því og sótt það sem töflureikni eða sem eina skrá sem virkar án nettengingar"
+    },
+    "courseInfo": {
+      "button": "Um námsgreinina",
+      "heading": "Um námsgreinina",
+      "division": "Bekkur eða deild",
+      "curriculum": "Námskrá",
+      "institution": "Stofnun",
+      "country": "Land",
+      "language": "Tungumál",
+      "size": "Umfang",
+      "decompositionVersion": "Greiningarlíkan",
+      "credits": "Höfundar",
+      "author": "Höfundur",
+      "updated": "Síðast uppfært",
+      "license": "Leyfi",
+      "basedOn": "Byggt á",
+      "skills": "{n} færniþættir",
+      "concepts": "{n} hugtök",
+      "facts": "{n} staðreyndalistar",
+      "nodes": "{n} hnútar"
+    },
+    "helpToggle": "Skýring",
+    "print": {
+      "button": "Prenta",
+      "title": "Sækja allt tréð sem PDF, tilbúið til prentunar",
+      "working": "Bý til PDF …",
+      "failed": "Ekki tókst að búa til PDF",
+      "heading": "Prenta",
+      "help": "Sæktu allt tréð sem eina PDF-síðu, tilbúna til prentunar. Forskoðunin sýnir blaðið eins og það verður. Titillinn og aiskilltrees.com eru alltaf á blaðinu.",
+      "paperLabel": "Pappírsstærð",
+      "orientationLabel": "Snúningur",
+      "orientation": {
+        "auto": "Sjálfvirkt",
+        "landscape": "Lárétt",
+        "portrait": "Lóðrétt"
+      },
+      "colorLabel": "Litir",
+      "color": {
+        "color": "Í lit",
+        "gray": "Svarthvítt"
+      },
+      "rings": "Hringir til að haka við",
+      "legend": "Skýringar",
+      "download": "Sækja PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Aftur í fyrra sjónarhorn"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, same role as languages/nb.json → prompt. Only what is PARTICULAR TO ICELANDIC belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json → writingStyleGeneral. `conversationLanguage` is the nominative „íslenska“, because Icelandic would otherwise need a different case in every sentence (á íslensku) and the English prompts insert the same value too (»Comment the code in íslenska«); `outputLanguage` is therefore written around a copula („Tungumál þessa samtals er íslenska“), so that a config row `languageName` also slots in. NOTE: `outputLanguage` says which language the conversation STARTS in — it must not forbid the student from asking for another one. That the student may ask for another language, and what then happens, is language-independent and lives in prompts/shared.json → languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "íslenska",
+    "outputLanguage": "Tungumál þessa samtals er {conversationLanguage}: hafðu allt samtalið á því tungumáli. Allt sem vitnað er í úr færnitrénu hér fyrir neðan — heiti hnúta, lýsingar, forkröfur — er skrifað á því tungumáli, og notandinn býst við að þú talir við hann á því. Hluti fyrirmælanna sem þú ert að lesa er á ensku; það er engin ástæða til að svara á ensku. Skiptu ekki um tungumál að eigin frumkvæði, og ekki gera athugasemdir við það á hvaða tungumáli fyrirmælin eru skrifuð. Ávarpaðu notandann með „þú“. Ef þarf að nefna þann sem lærir er orðið „{learnerDefinite}“ – ekki annað orð yfir það sama.",
+    "writingStyle": "Íslensk dæmi um ráðin tvö hér fyrir ofan:\n- Germynd: skrifaðu „við getum skrifað töluna sem …“, ekki „talan er skrifuð sem …“ eða „hægt er að skrifa töluna sem …“; skrifaðu „þú gerir þetta með því að …“, ekki „þetta er gert með því að …“. Forðastu „er gert“ og „er hægt að gera“ þar sem þú getur sagt hver gerir það.\n- Orð sem eru algeng í rituðu máli en sjaldgæf í talmáli, hátíðleg eða of fullorðinsleg skaltu skipta út fyrir einfaldara orð: „ennfremur“, „þar af leiðandi“, „sökum“, „hagnýta“ (segðu frekar „líka“, „þess vegna“, „af því að“, „nota“). Vinaprófið: myndirðu í alvöru segja orðið upphátt við vin þinn?",
+    "overrides": {}
+  }
+}

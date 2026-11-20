@@ -1,0 +1,15 @@
+{
+  "doc-title": "Pošalji svoje stablo | AI Skill Trees",
+  "meta-description": "Kako poslati svoje stablo vještina u katalog na ovoj stranici.",
+  "page-eyebrow": "Za učitelje",
+  "page-heading": "Pošalji svoje stablo",
+  "page-lede": "Ako imaš stablo vještina za svoj predmet, možeš ga poslati kako bi bilo dodano u katalog na ovoj stranici.",
+  "how-body": "Zasad mi svoj tree.csv pošalji e-poštom:",
+  "terms-eyebrow": "Prije slanja",
+  "terms-1": "Svako stablo pročitam prije objave.",
+  "terms-2": "Stablo se objavljuje pod imenom osobe koja ga je izradila. Ako je prilagođeno iz drugog stabla, zadržava retke „Temelji se na“ koje alat za izradu upisuje u datoteku, tako da i raniji autori ostaju navedeni.",
+  "terms-3": "Stabla i upute na ovoj stranici objavljeni su pod licencijom CC BY 4.0: svatko ih smije koristiti i prilagođavati, uz uvjet da navede autora. Stablo koje pošalješ objavljuje se pod tom licencijom.",
+  "terms-4": "Prilozi putem pull requestova na GitHubu nisu otvoreni.",
+  "own-body": "Ne moraš ništa slati da se služiš metodom. Alat za izradu daje ti vlastitu datoteku, koju koristiš i dijeliš kako želiš.",
+  "own-cta": "Izradi svoje stablo"
+}

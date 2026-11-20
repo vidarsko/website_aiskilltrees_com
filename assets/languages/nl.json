@@ -1,0 +1,458 @@
+{
+  "code": "nl",
+  "htmlLang": "nl",
+  "name": "Nederlands",
+  "endonym": "Nederlands",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Written for Dutch secondary school (vo): the user is addressed as \"je/jij\", never \"u\"; the teacher is \"docent\".",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use: \"de leerling\", \"de student\", \"de deelnemer\" or anything else. The panel capitalises the first letter (\"De leerling kan:\"). A skill description is an infinitive phrase with the verb last (\"De leerling kan: breuken vereenvoudigen\"), a concept a definition, and they need different lead-ins.",
+    "default": "de leerling",
+    "legacy": {
+      "pupil": "de leerling",
+      "student": "de student",
+      "participant": "de deelnemer"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} kan:",
+      "concept": "{LearnerDefinite} kan uitleggen:",
+      "fact": "{LearnerDefinite} kent:"
+    }
+  },
+  "ui": {
+    "backLink": "← Alle bomen",
+    "pageTitle": "Vaardighedenboom voor {title}",
+    "tagline": "Een kaart van hoe leerdoelen op elkaar voortbouwen — vink af wat je beheerst, en kopieer een AI-instructie om verder te oefenen.",
+    "makeYourOwn": "{subject}. Maak je eigen boom:",
+    "progressLabel": "{done} van {total} leerdoelen behaald",
+    "zoomIn": "Inzoomen",
+    "zoomOut": "Uitzoomen",
+    "fitToView": "Hele boom tonen",
+    "fitToViewTitle": "Hele boom tonen (Ctrl+scrollen om te zoomen)",
+    "close": "✕ Sluiten",
+    "closeLower": "✕ Sluiten",
+    "copied": "Gekopieerd!",
+    "copyFallback": "Automatisch kopiëren lukte niet — kopieer de tekst hieronder zelf:",
+    "errorBanner": "⚠ Problemen gevonden in de databestanden: {n} (details in de console):",
+    "errorCsv": "De spreadsheet kon op rij {row} niet worden gelezen: {message}",
+    "errorCsvHeader": "De eerste rij van {file} moet de kolommen benoemen. Ontbreekt: {missing}. De eerste rij luidt: {found}. Het bestand is waarschijnlijk zonder de eerste rij of in een ander formaat opgeslagen; sla het opnieuw op als gewone CSV.",
+    "errorUnknownDep": "Knoop “{id}” noemt “{dep}” als voorkennis, maar geen enkele knoop heeft dat id.",
+    "errorNoTopic": "Knoop “{id}” heeft geen onderwerp en komt in de restkolom “{topic}” terecht.",
+    "errorUnknownResourceNode": "Rij {row} van tree.csv: de bron verwijst in depends_on naar knoop-id “{id}”, maar die bestaat niet.",
+    "errorExamsRenamed": "Rij {row} van tree.csv: de instelling “features.exams” stamt van vóór versie 0.22.0. Bronnen zijn nu rijen in tree.csv met het type “resource”: topic = groep, name = titel, description = link, depends_on = de knopen. Verwijder de rij, en open de boom in de bouwer om een oude exams.csv om te zetten. Er is niets toegepast.",
+    "errorResourceEmpty": "Rij {row} van tree.csv: de bron heeft geen titel (name) en geen link (description).",
+    "errorResourceNoNode": "Rij {row} van tree.csv: de bron “{label}” hoort bij geen enkele knoop. Zet een of meer knoop-id's in depends_on, of verwijder de rij.",
+    "errorResourceDuplicate": "Rij {row} van tree.csv: de bron “{label}” is dezelfde als op rij {first}. Maak er één rij van, met alle knopen in depends_on.",
+    "errorResourceUrl": "Rij {row} van tree.csv: de link van de bron “{label}” moet beginnen met https:// of mailto:. Daarom staat hij er als gewone tekst, zonder link.",
+    "errorCycle": "Deze knopen zijn in een kringetje voorkennis voor elkaar: {cycle}. Een van die verbindingen moet weg.",
+    "errorUnknownConfig": "Onbekende instelling “{key}” op rij {row} van tree.csv. Er is niets toegepast.",
+    "errorUnknownNodeType": "De knoop “{id}” heeft het type “{type}”, en dat bestaat niet. De types zijn: {valid}.",
+    "errorUnknownPromptSection": "Onbekende sectie “{section}” in de prompt-rij op rij {row} van tree.csv. Er is niets toegepast.",
+    "errorUnknownPromptTarget": "De prompt-rij op rij {row} van tree.csv is gericht op “{name}”, maar dat is geen instructie die deze boom samenstelt. Er is niets toegepast.",
+    "errorDidYouMean": "Bedoelde je “{key}”?",
+    "errorMissingConfig": "tree.csv heeft geen config-rij voor “{key}”, en die is verplicht.",
+    "errorStyleColor": "De instelling “{key}” op rij {row} van tree.csv moet een kleur zijn, geschreven als hexcode, zoals #1F6F4A. “{value}” is dat niet, dus de standaardkleur blijft staan.",
+    "errorLinkUrl": "De instelling “{key}” op rij {row} van tree.csv moet een link zijn die begint met https:// of mailto:. “{value}” is dat niet, dus die staat er als gewone tekst.",
+    "errorStyleFont": "Onbekend lettertype “{value}” op rij {row} van tree.csv. De lettertypen die een boom kan gebruiken: {valid}. Het standaardlettertype blijft staan.",
+    "nodeType": {
+      "skill": "vaardigheid",
+      "concept": "begrip",
+      "fact": "feiten"
+    },
+    "badges": {
+      "del1": "Deel 1",
+      "del2": "Deel 2",
+      "begge": "Deel 1+2"
+    },
+    "status": {
+      "mastered": "Beheerst",
+      "ready": "Klaar om te leren",
+      "notMastered": "Nog niet beheerst",
+      "blocked": "Eerst nodig: {codes}"
+    },
+    "help": {
+      "label": "Hulp",
+      "heading": "Hulp",
+      "sections": [
+        {
+          "heading": "Het menu",
+          "body": "Al het andere zit achter ☰ linksonder: de leerdoelen, zoeken, toets, afdrukken en de rest. Elk venster heeft een “?” dat het uitlegt.",
+          "figure": "menu"
+        },
+        {
+          "heading": "De kaart",
+          "body": "Elk vakje is een leerdoel, en de pijlen lopen vanaf wat je eerst moet kennen. De vorm laat het type zien: feiten zijn vierkant, begrippen een beetje afgerond en vaardigheden rond. Sleep om de kaart te verschuiven en zoom met + en −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Beheerst",
+          "body": "Druk op het rondje in een vakje als je het leerdoel beheerst, dan wordt het een groen vinkje. Alleen je eigen browser onthoudt dat.",
+          "figure": "check"
+        },
+        {
+          "heading": "Eén vakje",
+          "body": "Druk op een vakje om te zien wat het leerdoel vraagt, waar het op voortbouwt, en een AI-instructie die je in een AI-chat plakt om mee te oefenen. Druk nog een keer om te sluiten.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Veel tegelijk",
+          "body": "De lijsticoontjes vinken alle doelen in een onderwerp in één keer af, of halen de vinkjes weg. Met A en B gelden ze voor de hele boom.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Zoeken",
+          "body": "Vind een leerdoel met een woord uit de naam of de beschrijving.",
+          "figure": "search"
+        },
+        {
+          "heading": "Toets",
+          "body": "Een AI-instructie voor een toets over de doelen die jij kiest. Jij bepaalt de moeilijkheid, het aantal en het soort opgaven.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Lesplannen (voor docenten)",
+          "body": "Kies leerdoelen en druk op “Maak materiaal” voor een lesplan, een miniboom of een simulatie.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Afdrukken",
+          "body": "Download de hele boom als pdf, met rondjes die leerlingen met een pen kunnen afvinken.",
+          "figure": "print"
+        },
+        {
+          "heading": "Het hulpmiddelenlabel",
+          "body": "“Deel 1” of “Deel 2” in het paneel laat zien bij welk niveau van hulpmiddelen het doel hoort. Druk op het label om meer te lezen onder “Over de cursus”.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivatie",
+          "body": "Een kort gesprek met een AI over waarom het vak de moeite waard is om te leren.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Sneltoetsen",
+        "search": "Zoeken openen",
+        "escape": "Het open venster, menu of paneel sluiten",
+        "zoom": "In- en uitzoomen",
+        "fit": "De hele boom tonen, en weer terug"
+      }
+    },
+    "safety": {
+      "label": "Veiligheid",
+      "heading": "Veiligheid",
+      "lead": "Een docent maakt een vaardighedenboom, maar iedereen kan een bestand maken dat er zo uitziet. Lees dit voordat je een boom gebruikt die iemand je heeft gestuurd.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Een vaardighedenboom vraagt nooit om persoonlijke gegevens",
+          "body": "De boom heeft geen inlog en heeft niets over jou nodig. Hij vraagt nooit om je naam, een wachtwoord, je schoolaccount, je BSN, je adres, je telefoonnummer of op welke school je zit. Je voortgang staat alleen in de browser op dit apparaat. Vraagt een pagina die op een vaardighedenboom lijkt toch om iets hiervan, dan is die niet echt. Sluit de pagina en vertel het je docent."
+        },
+        {
+          "id": "sender",
+          "heading": "Wie heeft je de boom gestuurd?",
+          "body": "De belangrijkste vraag is waar de boom vandaan komt. Een boom op aiskilltrees.com, of een die je docent heeft neergezet waar je normaal je lesmateriaal vindt, kun je net zo vertrouwen als je docent. Kreeg je een bestand via e-mail, in een chat of op sociale media van iemand die je niet kent, of kwam het onverwacht, wees dan kritisch, ook als het er goed uitziet."
+        },
+        {
+          "id": "html",
+          "heading": "Een HTML-bestand is een webpagina, geen document",
+          "body": "Als iemand een boom deelt als .html-bestand, krijg je geen document zoals een pdf of een Word-bestand. Je krijgt een hele webpagina met code die draait zodra je hem opent. De browser zorgt dat die code je bestanden niet kan lezen en niets op de computer kan installeren, maar de pagina kan van alles laten zien: een nep-inlogpagina, een knop die iets downloadt, of links naar andere websites. Wie het bestand heeft gemaakt, bepaalt wat het doet. Dat het eruitziet als een vaardighedenboom, maakt het er nog geen. Log nooit in en download nooit iets op een pagina die je uit een bestand hebt geopend."
+        },
+        {
+          "id": "links",
+          "heading": "Controleer links voordat je klikt",
+          "body": "De bronnen in de boom kunnen linken naar video's, oefeningen en lesboeken. Ga met je muis op een link staan, of houd hem ingedrukt, en kijk waar hij heen gaat voordat je klikt. Herken je de website niet, of ziet het adres er vreemd uit, laat het dan zitten."
+        },
+        {
+          "id": "injection",
+          "heading": "Er kan met instructies geknoeid zijn",
+          "body": "De AI-instructie die je kopieert, is tekst die de maker van de boom heeft geschreven, en jij plakt die rechtstreeks in een AI-chat. Wie een boom maakt, kan er alles in zetten, ook opdrachten waardoor de chat zich anders gedraagt dan je verwacht: je foute antwoorden geven, je naar een andere website sturen of vragen naar dingen die hem niets aangaan. Dat heet prompt injection. Het is slim om de tekst even door te lezen voordat je hem plakt, en vertrouw de chat niet blind."
+        },
+        {
+          "id": "chat",
+          "heading": "Jij bepaalt wat je de chat vertelt",
+          "body": "Sommige instructies vragen de chat om je te leren kennen, bijvoorbeeld hoe je over het vak denkt en waar je goed in bent. Je mag zoveel of zo weinig antwoorden als je wilt. Maar geen enkele instructie heeft je naam, contactgegevens of wachtwoorden nodig. Vraagt de chat daar toch om, geef dan geen antwoord en vertel het je docent. Denk er ook aan dat het bedrijf achter de chat bewaart wat je in een AI-chat schrijft. Je school heeft vaak een AI-dienst waarbij je privacy beschermd is. Vraag het je docent, en gebruik die als jullie er een hebben."
+        },
+        {
+          "id": "teachers",
+          "heading": "Voor docenten: een boom van een collega",
+          "body": "Heb je een boom van iemand anders gekregen, dan kun je hem voor de zekerheid openen in de bouwer op aiskilltrees.com/make-your-own/ voordat je hem met je leerlingen deelt. De bouwer haalt alleen de spreadsheet uit het bestand en maakt daar een nieuw, schoon bestand van, en daar kun je elke instructie lezen die de boom gebruikt."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Leerdoelen",
+      "title": "Toon een overzichtelijke lijst van alle leerdoelen, per onderwerp",
+      "heading": "Leerdoelen",
+      "copyAll": "Alles kopiëren",
+      "intro": "De lijst toont alle leerdoelen van de cursus, per onderwerp, met de status van elk doel. Vink een doel aan om het als beheerst te markeren — hetzelfde vinkje als bij de knoop op de kaart — zodat je de lijst op volgorde kunt doorlopen en kunt afvinken wat je al hebt gehad.",
+      "markAria": "“{name}” markeren als beheerst",
+      "markAllButton": "Alles markeren als beheerst",
+      "clearAllButton": "Alle vinkjes weghalen",
+      "clearAllConfirm": "Het vinkje ‘beheerst’ weghalen bij alle leerdoelen in de boom?",
+      "openNode": "Ga naar deze knoop op de kaart"
+    },
+    "lessonPlanner": {
+      "button": "Lesplannen",
+      "title": "Kies leerdoelen en kopieer een AI-instructie voor een lesplan, een miniboom of een simulatie",
+      "selectAll": "Alles aanvinken",
+      "deselectAll": "Alles uitvinken",
+      "selectTopic": "Alle leerdoelen in “{topic}” aanvinken",
+      "deselectTopic": "Alle leerdoelen in “{topic}” uitvinken",
+      "heading": "Lesplannen",
+      "intro": "Vink de leerdoelen aan waarvoor je iets wilt maken, en druk onderaan op “Maak materiaal”. Daar kies je wat het moet worden: een lesplan, een miniboom of een simulatie. De vinkjes hier zijn alleen hiervoor: ze markeren niets als beheerst, en ze verdwijnen als je de pagina opnieuw laadt."
+    },
+    "search": {
+      "button": "Zoeken",
+      "title": "Doorzoek de leerdoelen op naam en beschrijving",
+      "heading": "Zoeken",
+      "placeholder": "Zoek in de leerdoelen …",
+      "hint": "Typ een woord. De zoekfunctie kijkt in de naam, de beschrijving en het onderwerp van elk leerdoel, en je klikt meteen door naar de knoop op de kaart.",
+      "noResults": "Geen enkel leerdoel bevat “{query}”.",
+      "countOne": "1 leerdoel",
+      "countMany": "{n} leerdoelen",
+      "openNode": "Ga naar deze knoop op de kaart"
+    },
+    "resourceList": {
+      "button": "Opgaven en bronnen",
+      "title": "Toon alle bronnen in de boom en de leerdoelen waar ze bij horen",
+      "heading": "Opgaven en bronnen",
+      "placeholder": "Filter opgaven en bronnen …",
+      "intro": "{n} opgaven en bronnen",
+      "countFiltered": "{n} van {total}",
+      "noResults": "Geen bron past bij “{query}”.",
+      "openNode": "Ga naar deze knoop op de kaart",
+      "help": "Opgaven en bronnen die bij de boom horen, zoals examenopgaven, links en video's. Onder elke bron staan de leerdoelen waar die bij hoort; druk op een doel om ernaartoe te gaan op de kaart. Typ in het veld om te filteren."
+    },
+    "motivation": {
+      "button": "Motivatie",
+      "title": "Kopieer een AI-instructie voor een gesprek over waarom het vak de moeite waard is",
+      "heading": "Motivatie",
+      "desc": "Een kort gesprek met een AI over waarom het vak de moeite waard is om te leren. De AI vraagt en luistert, en samen komen jullie tot een antwoord.",
+      "help": "Druk op “Kopieer de instructie” en plak die in een AI-chat. Het gesprek begint bij wat je kiest, en de AI stelt één vraag tegelijk. Niets wat je schrijft, wordt hier bewaard.",
+      "startLabel": "Hoe sta je tegenover het vak?",
+      "start": {
+        "unknown": "Weet ik niet",
+        "hard": "Het is moeilijk",
+        "bored": "Het is saai",
+        "use": "Waar heb ik het voor nodig?"
+      },
+      "lengthLabel": "Lengte",
+      "length": {
+        "short": "Kort",
+        "normal": "Normaal",
+        "long": "Lang"
+      }
+    },
+    "lesson": {
+      "button": "Maak een lesplan (voor docenten)",
+      "title": "Kopieer een AI-instructie voor een complete les over de doelen die je hebt aangevinkt",
+      "typeLabel": "Soort les",
+      "typeAria": "Wat voor les dit is",
+      "types": {
+        "intro": "Introductie",
+        "practice": "Oefenen",
+        "review": "Herhaling",
+        "other": "Anders"
+      },
+      "minutesLabel": "Lengte",
+      "minutesAria": "Lengte van de les in minuten",
+      "includeAria": "“{name}” opnemen in het lesplan",
+      "selectedNone": "Geen leerdoelen gekozen",
+      "selectedOne": "1 leerdoel gekozen",
+      "selectedMany": "{n} leerdoelen gekozen"
+    },
+    "make": {
+      "button": "Maak materiaal →",
+      "buttonTitle": "Kies wat je wilt maken voor de leerdoelen die je hebt aangevinkt",
+      "heading": "Wat wil je maken?",
+      "back": "← De leerdoelen",
+      "forOne": "Voor 1 leerdoel:",
+      "forMany": "Voor {n} leerdoelen:",
+      "copy": "Kopieer de instructie",
+      "htmlBadge": "HTML-bestand",
+      "htmlAfter": "Plak die in een AI-chat. Het antwoord is een HTML-bestand dat je opslaat, in een browser opent en met je leerlingen kunt delen.",
+      "lesson": {
+        "title": "Lesplan",
+        "desc": "Een compleet plan voor één les, met tijden per onderdeel, wat er op het bord komt en antwoorden op alle opgaven.",
+        "minutes": "min",
+        "shorter": "Korter",
+        "longer": "Langer",
+        "after": "Plak die in een AI-chat. Het antwoord is een plan dat je tijdens de les naast je kunt houden.",
+        "typeHints": {
+          "intro": "Nieuwe leerdoelen: een startopdracht, uitgewerkte voorbeelden in rondes, een diagnostische vraag per doel en ophalen uit het geheugen aan het eind.",
+          "practice": "Doelen die de leerlingen kort geleden hebben geleerd: een korte opfrisser, daarna opgavenreeksen met kleine variaties en steeds minder steun.",
+          "review": "Doelen van een tijd geleden: ophalen zonder aantekeningen, nagaan wat is blijven hangen, opnieuw uitleggen waar nodig, en gemengd oefenen.",
+          "other": "Iets anders: beschrijf de les zelf, of de AI vraagt het je eerst."
+        }
+      },
+      "miniTree": {
+        "title": "Miniboom",
+        "desc": "Een vaardighedenboom waarin leerlingen zelfstandig oefenen voor een toets: de gekozen doelen gebundeld in een paar thema's met niveaus, een uitgewerkt voorbeeld voor elke ronde opgaven, het antwoord en een uitleg erna, en beheersing die het volgende niveau opent.",
+        "levelsLabel": "Niveaus per thema",
+        "levels1": "Eén niveau",
+        "levels3": "Drie niveaus",
+        "streakLabel": "Goed op rij om te beheersen",
+        "supportLabel": "Aanpassing",
+        "easyRead": "Makkelijk lezen (Comic Sans, weinig tekst)",
+        "readAloud": "Voorlezen",
+        "game": "Sterren en vrijspelen",
+        "mixedTest": "Gemengde oefentoets",
+        "credit": "Gebouwd op de principes van Nina Haugerud, docent speciaal onderwijs."
+      },
+      "simulation": {
+        "title": "Simulatie",
+        "desc": "Een interactieve simulatie die leerlingen kunnen onderzoeken, met een vakinhoudelijk model dat niet verzonnen is en een paneel dat uitlegt wat het model wel en niet kan.",
+        "workflowLabel": "Werkwijze",
+        "design": "Eerst een ontwerpgesprek",
+        "build": "Meteen een prototype",
+        "screenLabel": "Scherm",
+        "laptop": "Laptop",
+        "tablet": "Tablet",
+        "projector": "Beamer",
+        "extrasLabel": "Toevoegen",
+        "tasks": "Opdrachten voor leerlingen",
+        "critique": "Kritiek op het model",
+        "export": "Data-export (CSV)",
+        "credit": "Naar de prompt van Henning Vinjusveen Myhrehagen op skolesim.no."
+      },
+      "less": "Minder",
+      "more": "Meer",
+      "help": "Elk materiaal is een AI-instructie. Kies wat je wilt, druk op “Kopieer de instructie” en plak die in een AI-chat zoals ChatGPT of Claude. Het lesplan wordt een plan dat je tijdens de les naast je kunt houden. De miniboom en de simulatie worden een HTML-bestand dat je opslaat, in een browser opent en met je leerlingen kunt delen. De keuzes worden niet bewaard.",
+      "forLabel": "Voor:"
+    },
+    "exam": {
+      "button": "Toets",
+      "title": "Maak een AI-instructie voor een toets over wat je als beheerst hebt gemarkeerd",
+      "none": "Nog geen beheerste leerdoelen",
+      "countLabel": "Aantal opgaven",
+      "countAria": "Aantal opgaven in de toets",
+      "heading": "Toets",
+      "desc": "Een schriftelijke toets over wat je als beheerst hebt gemarkeerd, met antwoorden als je erom vraagt.",
+      "help": "De toets gaat over de leerdoelen die je in de boom als beheerst hebt gemarkeerd. Kies de moeilijkheid, het aantal opgaven en het soort opgaven, druk op “Kopieer de instructie” en plak die in een AI-chat. De AI laat eerst alleen de opgaven zien, en geeft de antwoorden en een beoordeling als je erom vraagt.",
+      "covers": "De toets gaat over {n} beheerste leerdoelen:",
+      "coversOne": "De toets gaat over 1 beheerst leerdoel:",
+      "noneHint": "Je hebt nog geen leerdoelen als beheerst gemarkeerd. Vink in de boom aan wat je kunt, dan kun je een toets maken.",
+      "showAll": "Alle leerdoelen tonen",
+      "showSelected": "Alleen de gekozen leerdoelen tonen",
+      "difficultyLabel": "Moeilijkheid",
+      "difficulty": {
+        "easy": "Makkelijk",
+        "medium": "Gemiddeld",
+        "hard": "Moeilijk"
+      },
+      "difficultyHints": {
+        "easy": "Eén leerdoel per opgave, de meest voorkomende gevallen en geen valkuilen.",
+        "medium": "Zoals een gewone toets: een paar rechttoe-rechtaan opgaven, en een paar die meerdere doelen combineren.",
+        "hard": "De meeste opgaven combineren doelen, gebruiken nieuwe situaties of vragen je iets uit te leggen of een fout te vinden."
+      },
+      "formatLabel": "Soort opgaven",
+      "format": {
+        "closed": "Gesloten",
+        "open": "Open",
+        "mixed": "Gemengd"
+      },
+      "formatHints": {
+        "closed": "Meerkeuze of korte antwoorden die je met een antwoordmodel kunt nakijken.",
+        "open": "Je laat je berekening zien of legt uit in je eigen woorden.",
+        "mixed": "Ongeveer half om half."
+      },
+      "coversLabel": "De toets gaat over:"
+    },
+    "node": {
+      "markMastered": "Markeren als beheerst"
+    },
+    "column": {
+      "markAll": "Alle leerdoelen in “{topic}” markeren als beheerst",
+      "clearAll": "Het vinkje ‘beheerst’ weghalen bij alle leerdoelen in “{topic}”"
+    },
+    "detail": {
+      "show": "Toon de instructie",
+      "hide": "Verberg de instructie",
+      "copy": "Kopieer de instructie",
+      "prereqs": "Voorkennis",
+      "resources": "Bronnen",
+      "mastered": "✓ Beheerst",
+      "available": "Beschikbaar — de voorkennis is er",
+      "locked": "Op slot — er ontbreekt voorkennis",
+      "empty": "Klik op een knoop op de kaart om details te zien."
+    },
+    "loadError": "Kritieke fout bij het laden: {message} (gebruik je een lokale server? In veel browsers mislukt fetch() van de databestanden als je index.html rechtstreeks van schijf opent.)",
+    "defaultTopic": "Overig",
+    "aids": {
+      "heading": "Hulpmiddelen",
+      "tagTitle": "Bekijk wat je op dit niveau mag gebruiken",
+      "multipleNote": "Dit leerdoel hoort bij meerdere niveaus. Je moet het kunnen onder het strengste daarvan — dus met de minste hulpmiddelen.",
+      "multipleNoteGeneral": "Een leerdoel kan bij meerdere niveaus horen. Het label heeft dan meerdere kleuren, en je moet het leerdoel kunnen onder het strengste van die niveaus — dus met de minste hulpmiddelen."
+    },
+    "menu": {
+      "label": "Menu",
+      "groups": {
+        "practice": "Oefenen",
+        "plan": "Plannen",
+        "about": "Over"
+      }
+    },
+    "download": {
+      "button": "Download de boom",
+      "title": "Download de boom in twee vormen: de spreadsheet die je kunt bewerken, en één bestand dat offline werkt",
+      "working": "Het losse bestand wordt gemaakt…",
+      "failed": "Het losse bestand kon niet worden gemaakt",
+      "edit": "Boom bewerken",
+      "editTitle": "Open de boom in de editor, waar je hem kunt aanpassen en downloaden als spreadsheet of als één bestand dat offline werkt"
+    },
+    "courseInfo": {
+      "button": "Over de cursus",
+      "heading": "Over de cursus",
+      "division": "Leerjaar of faculteit",
+      "curriculum": "Leerplan",
+      "institution": "Instelling",
+      "country": "Land",
+      "language": "Taal",
+      "size": "Omvang",
+      "decompositionVersion": "Decompositiemodel",
+      "credits": "Gemaakt door",
+      "author": "Auteur",
+      "updated": "Laatst bijgewerkt",
+      "license": "Licentie",
+      "basedOn": "Gebaseerd op",
+      "skills": "{n} vaardigheden",
+      "concepts": "{n} begrippen",
+      "facts": "{n} feitenlijsten",
+      "nodes": "{n} knopen"
+    },
+    "helpToggle": "Uitleg",
+    "print": {
+      "button": "Afdrukken",
+      "title": "Download de hele boom als pdf, klaar om af te drukken",
+      "working": "Pdf maken …",
+      "failed": "De pdf kon niet worden gemaakt",
+      "heading": "Afdrukken",
+      "help": "Download de hele boom als één pdf-pagina, klaar om af te drukken. Het voorbeeld toont het vel precies zoals het wordt. De titel en aiskilltrees.com staan altijd op het vel.",
+      "paperLabel": "Papierformaat",
+      "orientationLabel": "Stand",
+      "orientation": {
+        "auto": "Automatisch",
+        "landscape": "Liggend",
+        "portrait": "Staand"
+      },
+      "colorLabel": "Kleuren",
+      "color": {
+        "color": "Kleur",
+        "gray": "Zwart-wit"
+      },
+      "rings": "Rondjes om af te vinken",
+      "legend": "Legenda",
+      "download": "Pdf downloaden",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Terug naar je vorige weergave"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Dutch, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO DUTCH belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is \"Nederlands\", read inside the sentence as \"in het Nederlands\". The line about \"je\" and not \"u\" is the Dutch counterpart of the Swedish \"du\": a model left to itself often slips into the polite \"u\". NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "Nederlands",
+    "outputLanguage": "Voer dit hele gesprek in het {conversationLanguage}. Alles wat hieronder uit de vaardighedenboom komt — namen van knopen, beschrijvingen, voorkennis — is in het {conversationLanguage} geschreven, en dat is de taal waarin de gebruiker aangesproken wil worden. Delen van de instructie die je nu leest zijn in het Engels; dat is geen aanwijzing om in het Engels te antwoorden. Wissel niet uit jezelf van taal, en geef geen commentaar op de taal waarin de instructie is geschreven. Spreek de gebruiker aan met “je” en “jij”, zoals een docent een leerling aanspreekt, niet met “u”. Moet je de persoon die leert een naam geven, dan is het woord “{learnerDefinite}” - geen ander woord voor hetzelfde.",
+    "writingStyle": "Nederlandse voorbeelden van de twee adviezen hierboven:\n- Bedrijvende vorm: schrijf “we kunnen het getal schrijven als …”, niet “het getal kan geschreven worden als …”; schrijf “we doen dit door …” of “je doet dit door …”, niet “dit wordt gedaan door …”. Vermijd “wordt gedaan” en “kan worden berekend” waar je kunt zeggen wie het doet.\n- Woorden die correct Nederlands zijn, maar in gesproken taal zelden voorkomen, boekachtig klinken of net te volwassen zijn, vervang je door een eenvoudiger woord: “derhalve” (→ “dus”), “teneinde” (→ “om”), “dienen te” (→ “moeten”), “middels” (→ “met”), “alsmede” (→ “en”). De vriendentest: zou je dit woord echt hardop zeggen tegen een vriend?",
+    "overrides": {}
+  }
+}

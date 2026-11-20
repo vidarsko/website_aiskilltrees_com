@@ -1,0 +1,198 @@
+/* ==========================================================================
+   etuce.css — /etuce/, the map for the ETUCE conference in Lisbon
+   (2026-11-25). Tokens only; no colours or fonts of its own.
+
+   The map is a full-bleed band (the design system's own rule for wide
+   visual content). A country's state is never colour alone: the legend
+   names the fills, the panel says it in words, and the list below the map
+   repeats every country with its state.
+   ========================================================================== */
+
+.etuce-intro { padding-bottom: var(--space-4); }
+
+.etuce-mapband { padding-block: 0; background: var(--primary-tint); }
+
+.etuce-map {
+  position: relative;
+  height: min(78vh, 46rem);
+  min-height: 24rem;
+  overflow: hidden;
+  touch-action: none;           /* pan and pinch are ours, not the page's */
+  user-select: none;
+}
+.etuce-map__canvas { position: absolute; inset: 0; cursor: grab; }
+.etuce-map__canvas.is-dragging { cursor: grabbing; }
+.etuce-map__svg { display: block; width: 100%; height: 100%; }
+
+.etuce-map__svg .bg {
+  fill: var(--paper-2);
+  stroke: var(--surface);
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.etuce-map__svg .member {
+  fill: var(--surface);
+  stroke: var(--ink-3);
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+  transition: fill 150ms ease;
+}
+.etuce-map__svg .member.is-ready { fill: var(--primary); stroke: var(--surface); }
+.etuce-map__svg .member:hover,
+.etuce-map__svg .member:focus-visible { fill: var(--primary-tint); outline: none; }
+.etuce-map__svg .member.is-ready:hover,
+.etuce-map__svg .member.is-ready:focus-visible { fill: var(--primary-strong); }
+.etuce-map__svg .member.is-selected { fill: var(--amber); stroke: var(--ink); stroke-width: 1.4; }
+/* Small countries (Malta, Luxembourg ...) get a dot so they can be hit. */
+.etuce-map__svg .dot { fill: var(--surface); stroke: var(--ink-3); stroke-width: 1; vector-effect: non-scaling-stroke; cursor: pointer; }
+.etuce-map__svg .dot.is-ready { fill: var(--primary); stroke: var(--surface); }
+.etuce-map__svg .dot.is-selected { fill: var(--amber); stroke: var(--ink); }
+
+.etuce-map__controls {
+  position: absolute;
+  left: var(--space-2);
+  bottom: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+}
+.etuce-map__btn {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.etuce-map__btn:hover { background: var(--paper-2); }
+
+.etuce-legend {
+  position: absolute;
+  left: calc(var(--space-2) + 52px);
+  bottom: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: var(--space-1) var(--space-2);
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  color: var(--ink-2);
+  max-width: calc(100% - 52px - var(--space-2) * 2);
+}
+.etuce-legend li { display: flex; align-items: center; gap: 0.4rem; }
+.etuce-legend__swatch { width: 0.9rem; height: 0.9rem; border: 1px solid var(--ink-3); }
+.etuce-legend__swatch--ready { background: var(--primary); border-color: var(--primary); }
+.etuce-legend__swatch--coming { background: var(--surface); }
+.etuce-legend__swatch--other { background: var(--paper-2); border-color: var(--rule-strong); }
+
+/* ---- The country panel: right-hand card on a wide screen, a sheet from
+   the bottom on a phone. ---------------------------------------------- */
+.etuce-panel {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: min(24rem, calc(100% - var(--space-2) * 2));
+  max-height: calc(100% - var(--space-2) * 2);
+  overflow-y: auto;
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  box-shadow: var(--shadow-float);
+}
+.etuce-panel[hidden] { display: none; }
+/* Navigation is text, actions are buttons (design principle 13). */
+.etuce-panel__close {
+  float: right;
+  min-height: 44px;
+  margin: -0.75rem -0.5rem 0 var(--space-2);
+  padding: 0 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: var(--step-xs);
+  cursor: pointer;
+}
+.etuce-panel__close:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 0.15em; }
+.etuce-panel__title {
+  margin: 0;
+  font-size: var(--step-l);
+  line-height: 1.2;
+}
+.etuce-panel__endonym { margin: 0.25rem 0 var(--space-3); font-family: var(--font-sans); font-size: var(--step-xs); color: var(--ink-3); }
+.etuce-panel__endonym:empty { display: none; }
+.etuce-panel__status { font-family: var(--font-serif); font-size: var(--step-m); line-height: 1.55; color: var(--ink-2); margin: 0; }
+
+.etuce-tree + .etuce-tree { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--rule); }
+.etuce-tree__title { margin: 0; font-size: var(--step-m); font-weight: 600; line-height: 1.3; }
+.etuce-tree__sub { margin: 0.25rem 0 var(--space-2); font-family: var(--font-sans); font-size: var(--step-xs); color: var(--ink-2); }
+.etuce-tree__facts { margin: 0 0 var(--space-3); font-family: var(--font-sans); font-size: var(--step-xs); color: var(--ink-2); }
+.etuce-tree__facts dt { font-weight: 600; color: var(--ink-3); margin-top: 0.5rem; }
+.etuce-tree__facts dd { margin: 0.1rem 0 0; }
+.etuce-tree__facts a { color: var(--primary); text-underline-offset: 0.15em; }
+
+@media (max-width: 767px) {
+  .etuce-map { height: 70vh; }
+  .etuce-panel {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    max-height: 62%;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  .etuce-legend { display: none; }
+}
+
+/* ---- The list under the map ------------------------------------------- */
+.etuce-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.etuce-list li { background: var(--surface); }
+.etuce-list button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5rem var(--space-2);
+  border: 0;
+  border-left: 4px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-s);
+  text-align: left;
+  cursor: pointer;
+}
+.etuce-list button:hover { background: var(--paper-2); }
+.etuce-list button.is-ready { border-left-color: var(--primary); }
+.etuce-list__state { font-size: var(--step-xs); color: var(--ink-3); white-space: nowrap; }
+.etuce-list button.is-ready .etuce-list__state { color: var(--primary); font-weight: 600; }
+
+.etuce-note { margin-top: var(--space-4); }

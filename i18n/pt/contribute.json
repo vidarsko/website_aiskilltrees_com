@@ -1,0 +1,15 @@
+{
+  "doc-title": "Envia a tua árvore | AI Skill Trees",
+  "meta-description": "Como enviar uma árvore de competências que tenhas feito para o catálogo deste site.",
+  "page-eyebrow": "Para professores",
+  "page-heading": "Envia a tua árvore",
+  "page-lede": "Se fizeste uma árvore de competências para a tua disciplina, podes enviá-la para ser acrescentada ao catálogo deste site.",
+  "how-body": "Por agora, envia-me o teu tree.csv por e-mail:",
+  "terms-eyebrow": "Antes de enviares",
+  "terms-1": "Leio todas as árvores antes de serem publicadas.",
+  "terms-2": "Cada árvore é publicada com o nome de quem a fez. Se for adaptada de outra árvore, mantém as linhas «Baseado em» que o construtor escreve no ficheiro, para que os autores anteriores continuem a ser creditados.",
+  "terms-3": "As árvores e as instruções deste site têm licença CC BY 4.0: qualquer pessoa as pode usar e adaptar, desde que credite o autor. A árvore que enviares é publicada com essa licença.",
+  "terms-4": "Não se aceitam contribuições por pull request no GitHub.",
+  "own-body": "Não precisas de enviar nada para usar o método. O construtor dá-te o teu próprio ficheiro, para usares e partilhares como quiseres.",
+  "own-cta": "Cria a tua"
+}

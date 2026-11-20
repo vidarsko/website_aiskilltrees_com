@@ -1,0 +1,15 @@
+{
+  "doc-title": "Send inn treet ditt | AI Skill Trees",
+  "meta-description": "Slik sender du inn et ferdighetstre du har laget, til katalogen på denne siden.",
+  "page-eyebrow": "For lærere",
+  "page-heading": "Send inn treet ditt",
+  "page-lede": "Har du laget et ferdighetstre for faget ditt, kan du sende det inn og få det lagt til i katalogen på denne siden.",
+  "how-body": "Foreløpig sender du tree.csv-fila di til meg på e-post:",
+  "terms-eyebrow": "Før du sender",
+  "terms-1": "Jeg leser hvert tre før det publiseres.",
+  "terms-2": "Et tre publiseres under navnet til den som har laget det. Er det bearbeidet fra et annet tre, beholder det «Bygger på»-radene byggeren skriver inn i fila, slik at de tidligere forfatterne fortsatt er kreditert.",
+  "terms-3": "Trærne og instruksene på denne siden er lisensiert CC BY 4.0: hvem som helst kan bruke og bearbeide dem, så lenge de oppgir hvem som har laget dem. Et tre du sender inn, publiseres under den lisensen.",
+  "terms-4": "Bidrag via pull requests på GitHub er ikke åpnet.",
+  "own-body": "Du trenger ikke sende inn noe for å bruke metoden. Byggeren gir deg din egen fil, som du kan bruke og dele som du vil.",
+  "own-cta": "Lag ditt eget"
+}

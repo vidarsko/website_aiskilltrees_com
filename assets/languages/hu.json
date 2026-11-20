@@ -1,0 +1,458 @@
+{
+  "code": "hu",
+  "htmlLang": "hu",
+  "name": "Magyar",
+  "endonym": "Magyar",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. AI is \"MI\" (mesterséges intelligencia), as in Hungarian school documents. Hungarian has no grammatical gender, but it attaches case suffixes directly to the word, and the suffix (and the article a/az) depends on the sound of what is inserted. Placeholders therefore sit where nothing is attached to them: after a colon, in quotation marks after a noun, or before an ordinal dot (\"{row}. sor\"). Where a quoted placeholder needs an article, the strings use the conventional \"a(z)\". A noun after a number stays singular in Hungarian (5 tanulási cél), so \"{n} tanulási cél\" is always grammatical.",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use: \"a tanuló\", \"a hallgató\", \"a résztvevő\" or anything else. \"A tanuló\" is the word the Hungarian national curriculum (NAT) uses for a pupil. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form, so an older file reads the same. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter. A skill is a bare infinitive phrase (\"A tanuló képes: törteket összeadni\"), a concept a definition, and they need different lead-ins.",
+    "default": "a tanuló",
+    "legacy": {
+      "pupil": "a tanuló",
+      "student": "a hallgató",
+      "participant": "a résztvevő"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} képes:",
+      "concept": "{LearnerDefinite} el tudja magyarázni:",
+      "fact": "{LearnerDefinite} fel tudja idézni:"
+    }
+  },
+  "ui": {
+    "backLink": "← Az összes fa",
+    "pageTitle": "Készségfa: {title}",
+    "tagline": "Térkép arról, hogyan épülnek egymásra a tanulási célok — pipáld ki, amit már tudsz, és másolj ki egy MI-utasítást, hogy gyakorold, ami utána jön.",
+    "makeYourOwn": "{subject}. Készítsd el a saját fádat:",
+    "progressLabel": "Teljesített tanulási célok: {done} / {total}",
+    "zoomIn": "Nagyítás",
+    "zoomOut": "Kicsinyítés",
+    "fitToView": "Az egész fa",
+    "fitToViewTitle": "Az egész fa megjelenítése (Ctrl + görgetés: nagyítás)",
+    "close": "✕ Bezárás",
+    "closeLower": "✕ Bezárás",
+    "copied": "Kimásolva!",
+    "copyFallback": "Nem sikerült automatikusan másolni — másold ki kézzel az alábbi szöveget:",
+    "errorBanner": "⚠ Hibák az adatfájlokban: {n} (a részletek a konzolon):",
+    "errorCsv": "A táblázat {row}. sora nem olvasható be: {message}",
+    "errorCsvHeader": "{file}: az első sorban az oszlopok nevének kell állnia. Hiányzik: {missing}. Az első sor tartalma: {found}. A fájlt valószínűleg az első sora nélkül vagy más formátumban mentették; mentsd el újra egyszerű CSV-ként.",
+    "errorUnknownDep": "A(z) „{id}” csomópont előfeltételként ezt adja meg: „{dep}”, de nincs ilyen azonosítójú csomópont.",
+    "errorNoTopic": "A(z) „{id}” csomópontnak nincs témaköre, ezért ebbe a gyűjtőoszlopba kerül: „{topic}”.",
+    "errorUnknownResourceNode": "A tree.csv {row}. sora: a forrás a depends_on mezőben egy nem létező csomópont-azonosítóra hivatkozik: „{id}”.",
+    "errorExamsRenamed": "A tree.csv {row}. sora: a „features.exams” beállítás a 0.22.0-s verzió előtti időkből való. A források most „resource” típusú sorok a tree.csv-ben: topic = csoport, name = cím, description = hivatkozás, depends_on = a csomópontok. Töröld a sort, és nyisd meg a fát a szerkesztőben, hogy átalakítsd a régi exams.csv fájlt. Semmi sem lépett életbe.",
+    "errorResourceEmpty": "A tree.csv {row}. sora: a forrásnak nincs se címe (name), se hivatkozása (description).",
+    "errorResourceNoNode": "A tree.csv {row}. sora: a(z) „{label}” forrás egyik csomóponthoz sem tartozik. Írj egy vagy több csomópont-azonosítót a depends_on mezőbe, vagy töröld a sort.",
+    "errorResourceDuplicate": "A tree.csv {row}. sora: a(z) „{label}” forrás ugyanaz, mint a tree.csv {first}. sorában. Vond össze egy sorba, az összes csomóponttal a depends_on mezőben.",
+    "errorResourceUrl": "A tree.csv {row}. sora: a(z) „{label}” forrás hivatkozásának https:// vagy mailto: kezdetűnek kell lennie. Ezért sima szövegként jelenik meg, hivatkozás nélkül.",
+    "errorCycle": "Ezek a csomópontok körbe-körbe egymás előfeltételei: {cycle}. Az egyik kapcsolatot törölni kell.",
+    "errorUnknownConfig": "Ismeretlen beállítás a tree.csv {row}. sorában: „{key}”. Semmi sem lépett életbe.",
+    "errorUnknownNodeType": "A(z) „{id}” csomópont típusa „{type}”, de ilyen típus nincs. A típusok: {valid}.",
+    "errorUnknownPromptSection": "Ismeretlen szakasz a prompt sorban (a tree.csv {row}. sora): „{section}”. Semmi sem lépett életbe.",
+    "errorUnknownPromptTarget": "A prompt sor (a tree.csv {row}. sora) ezt célozza: „{name}”, de ez nem olyan utasítás, amelyet ez a fa összeállít. Semmi sem lépett életbe.",
+    "errorDidYouMean": "Erre gondoltál: „{key}”?",
+    "errorMissingConfig": "A tree.csv-ből hiányzik egy kötelező config sor: „{key}”.",
+    "errorStyleColor": "A tree.csv {row}. sorában a(z) „{key}” beállításnak hexakóddal megadott színnek kell lennie, például #1F6F4A. „{value}” nem ilyen, ezért az alapértelmezett szín maradt.",
+    "errorLinkUrl": "A tree.csv {row}. sorában a(z) „{key}” beállításnak https:// vagy mailto: kezdetű hivatkozásnak kell lennie. „{value}” nem ilyen, ezért sima szövegként jelenik meg.",
+    "errorStyleFont": "Ismeretlen betűtípus a tree.csv {row}. sorában: „{value}”. A fákban használható betűtípusok: {valid}. Az alapértelmezett betűtípus maradt.",
+    "nodeType": {
+      "skill": "készség",
+      "concept": "fogalom",
+      "fact": "tények"
+    },
+    "badges": {
+      "del1": "1. rész",
+      "del2": "2. rész",
+      "begge": "1+2. rész"
+    },
+    "status": {
+      "mastered": "Elsajátítva",
+      "ready": "Tanulható",
+      "notMastered": "Még nincs elsajátítva",
+      "blocked": "Előbb ezek kellenek: {codes}"
+    },
+    "help": {
+      "label": "Súgó",
+      "heading": "Súgó",
+      "sections": [
+        {
+          "heading": "A menü",
+          "body": "Minden más a bal alsó sarokban lévő ☰ mögött van: a tanulási célok, a keresés, a dolgozat, a nyomtatás és a többi. Minden ablakban van egy „?”, amely elmagyarázza, mire való.",
+          "figure": "menu"
+        },
+        {
+          "heading": "A térkép",
+          "body": "Minden doboz egy tanulási cél, a nyilak pedig attól indulnak, amit előbb tudnod kell. Az alak mutatja a típust: a tények szögletesek, a fogalmak kicsit lekerekítettek, a készségek kerekek. A térképet húzással mozgathatod, a + és a − gombbal nagyíthatsz.",
+          "figure": "map"
+        },
+        {
+          "heading": "Elsajátítva",
+          "body": "Ha már tudod a tanulási célt, nyomd meg a karikát a dobozban, és zöld pipa lesz belőle. Ezt csak a böngésződ jegyzi meg.",
+          "figure": "check"
+        },
+        {
+          "heading": "Egy doboz",
+          "body": "Nyomj rá egy dobozra, és megnézheted, mit kíván a tanulási cél, mire épül, és kapsz egy MI-utasítást, amelyet bemásolhatsz egy MI-csevegőbe, hogy gyakorolj vele. Ha újra megnyomod, bezárul.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Több megjelölése",
+          "body": "A lista ikonokkal egyszerre megjelölheted egy témakör összes célját, vagy leveheted róluk a jelölést. Az A és a B ikonnal ez az egész fára vonatkozik.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Keresés",
+          "body": "Keress meg egy tanulási célt egy szóval a nevéből vagy a leírásából.",
+          "figure": "search"
+        },
+        {
+          "heading": "Dolgozat",
+          "body": "MI-utasítás egy dolgozathoz azokból a célokból, amelyeket kiválasztasz. Te döntöd el a nehézséget, a feladatok számát és típusát.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Óratervek (tanároknak)",
+          "body": "Válassz tanulási célokat, és nyomd meg a „Tananyag készítése” gombot, hogy óratervet, minifát vagy szimulációt kapj.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Nyomtatás",
+          "body": "Töltsd le az egész fát PDF-ben, karikákkal, amelyeket a tanulók tollal kipipálhatnak.",
+          "figure": "print"
+        },
+        {
+          "heading": "A segédeszköz-címke",
+          "body": "Az „1. rész” vagy „2. rész” a panelen azt mutatja, melyik segédeszköz-szinthez tartozik a cél. Nyomd meg a címkét, és többet olvashatsz róla „A kurzusról” ablakban.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motiváció",
+          "body": "Rövid beszélgetés egy MI-vel arról, miért érdemes megtanulni a tantárgyat.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Billentyűparancsok",
+        "search": "Keresés megnyitása",
+        "escape": "A nyitott ablak, menü vagy panel bezárása",
+        "zoom": "Nagyítás és kicsinyítés",
+        "fit": "Az egész fa, és vissza"
+      }
+    },
+    "safety": {
+      "label": "Biztonság",
+      "heading": "Biztonság",
+      "lead": "A készségfát egy tanár készíti, de bárki készíthet olyan fájlt, amely úgy néz ki, mint egy készségfa. Olvasd el ezt, mielőtt olyan fát használsz, amelyet valaki elküldött neked.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "A készségfa soha nem kér személyes adatokat",
+          "body": "A fához nem kell bejelentkezni, és semmit nem kell tudnia rólad. Soha nem kéri a nevedet, jelszót, az iskolai belépésedet, személyi számot, a címedet, a telefonszámodat, és azt sem, melyik iskolába jársz. A haladásodat csak ezen az eszközön, a böngészőben tárolja. Ha egy készségfának látszó oldal ezek közül bármit kér, az nem valódi. Zárd be, és szólj a tanárodnak."
+        },
+        {
+          "id": "sender",
+          "heading": "Ki küldte neked a fát?",
+          "body": "A legfontosabb kérdés, honnan jön a fa. Az aiskilltrees.com oldalon lévő fában, vagy abban, amelyet a tanárod oda tett fel, ahonnan a tananyagot szoktad kapni, annyira bízhatsz, amennyire a tanárodban. Ha e-mailben, csetben vagy közösségi médián kaptál fájlt valakitől, akit nem ismersz, vagy váratlanul jött, légy gyanakvó, még ha jónak látszik is."
+        },
+        {
+          "id": "html",
+          "heading": "A HTML-fájl weboldal, nem dokumentum",
+          "body": "Ha egy fát .html fájlként osztanak meg, nem olyan dokumentumot kapsz, mint egy PDF vagy egy Word-fájl. Egy egész weboldalt kapsz, benne kóddal, amely megnyitáskor lefut. A böngésző nem engedi, hogy a fájljaidat olvassa vagy bármit telepítsen a gépre, de bármit megmutathat: hamis bejelentkezési oldalt, egy gombot, amely letölt valamit, vagy hivatkozásokat más oldalakra. Azt, hogy mit csinál, a fájl készítője dönti el. Attól, hogy készségfának látszik, még nem az. Soha ne jelentkezz be és ne tölts le semmit egy fájlból megnyitott oldalról."
+        },
+        {
+          "id": "links",
+          "heading": "Nézd meg a hivatkozást, mielőtt rákattintasz",
+          "body": "A fában lévő források videókra, feladatokra és tankönyvekre mutathatnak. Vidd az egeret a hivatkozás fölé, vagy nyomd meg és tartsd rajta az ujjad, és nézd meg, hová visz, mielőtt rákattintasz. Ha nem ismered fel az oldalt, vagy furcsa a cím, hagyd."
+        },
+        {
+          "id": "injection",
+          "heading": "Az utasításokat meg lehet hamisítani",
+          "body": "Az MI-utasítás, amelyet kimásolsz, olyan szöveg, amelyet a fa készítője írt, és te egyenesen egy MI-csevegőbe másolod. Aki fát készít, bármit beleírhat, olyan parancsokat is, amelyek miatt a csevegő másképp viselkedik, mint várnád: rossz válaszokat ad, más oldalra küld, vagy olyasmiről kérdez, amihez semmi köze. Ezt prompt injectionnek (utasításbefecskendezésnek) hívják. Érdemes átfutnod a szöveget, mielőtt bemásolod, és ne bízz vakon a csevegőben."
+        },
+        {
+          "id": "chat",
+          "heading": "Te döntöd el, mit mondasz el a csevegőnek",
+          "body": "Néhány utasítás arra kéri a csevegőt, hogy ismerjen meg téged, például hogy mit érzel a tantárgy iránt, és miben vagy jó. Annyit válaszolsz, amennyit akarsz. De egyik utasításhoz sem kell a neved, az elérhetőséged vagy a jelszavad. Ha a csevegő ilyesmit kér, ne válaszolj, és szólj a tanárodnak. Ne feledd azt sem, hogy amit egy MI-csevegőbe írsz, azt a csevegőt üzemeltető cég tárolja. Az iskoládnak gyakran van olyan MI-szolgáltatása, amely védi a magánszférádat. Kérdezd meg a tanárodat, és ha van ilyen, azt használd."
+        },
+        {
+          "id": "teachers",
+          "heading": "Tanároknak: fa egy kollégától",
+          "body": "Ha valaki mástól kaptál fát, a biztonság kedvéért megnyithatod a szerkesztőben az aiskilltrees.com/make-your-own/ oldalon, mielőtt megosztod a tanulóiddal. A szerkesztő csak a táblázatot veszi ki a fájlból, és új, tiszta fájlt készít belőle, ott pedig elolvashatod a fa összes utasítását."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Tanulási célok",
+      "title": "Az összes tanulási cél rendszerezett listája, témakörök szerint",
+      "heading": "Tanulási célok",
+      "copyAll": "Az összes másolása",
+      "intro": "A lista a kurzus összes tanulási célját mutatja témakörök szerint, mindegyiknek az állapotával. Pipálj ki egy célt, hogy elsajátítottnak jelöld — ugyanaz a pipa, mint a térképen a csomóponton —, így sorban végigmehetsz a listán, és megjelölheted, amivel már végeztél.",
+      "markAria": "Megjelölés elsajátítottként: „{name}”",
+      "markAllButton": "Az összes megjelölése elsajátítottként",
+      "clearAllButton": "Az összes jelölés törlése",
+      "clearAllConfirm": "Törlöd az elsajátítva jelölést a fa összes tanulási céljáról?",
+      "openNode": "Ugrás erre a csomópontra a térképen"
+    },
+    "lessonPlanner": {
+      "button": "Óratervek",
+      "title": "Válassz tanulási célokat, és másolj ki egy MI-utasítást óratervhez, minifához vagy szimulációhoz",
+      "selectAll": "Az összes kijelölése",
+      "deselectAll": "Kijelölés törlése",
+      "selectTopic": "Minden cél kijelölése ebben a témakörben: „{topic}”",
+      "deselectTopic": "Kijelölés törlése ebben a témakörben: „{topic}”",
+      "heading": "Óratervek",
+      "intro": "Pipáld ki azokat a tanulási célokat, amelyekhez valamit készíteni szeretnél, és nyomd meg lent a „Tananyag készítése” gombot. Ott választod ki, mi legyen: óraterv, minifa vagy szimuláció. Az itteni pipák csak erre valók: semmit nem jelölnek elsajátítottnak, és eltűnnek, ha újratöltöd az oldalt."
+    },
+    "search": {
+      "button": "Keresés",
+      "title": "Keresés a tanulási célok nevében és leírásában",
+      "heading": "Keresés",
+      "placeholder": "Keresés a tanulási célok között …",
+      "hint": "Írj be egy szót. A keresés minden tanulási cél nevében, leírásában és témakörében keres, és egyenesen a térkép csomópontjára kattinthatsz.",
+      "noResults": "Egyik tanulási cél sem tartalmazza ezt: „{query}”.",
+      "countOne": "1 tanulási cél",
+      "countMany": "{n} tanulási cél",
+      "openNode": "Ugrás erre a csomópontra a térképen"
+    },
+    "resourceList": {
+      "button": "Feladatok és források",
+      "title": "A fa összes forrása, és a tanulási célok, amelyekhez tartoznak",
+      "heading": "Feladatok és források",
+      "placeholder": "Feladatok és források szűrése …",
+      "intro": "{n} feladat és forrás",
+      "countFiltered": "{n} / {total}",
+      "noResults": "Egyik forrás sem illik erre: „{query}”.",
+      "openNode": "Ugrás erre a csomópontra a térképen",
+      "help": "A fához tartozó feladatok és források, például vizsgafeladatok, hivatkozások és videók. Mindegyik alatt ott vannak a tanulási célok, amelyekhez tartozik; nyomj rá egyre, és odaugrasz a térképen. Írj a mezőbe a szűréshez."
+    },
+    "motivation": {
+      "button": "Motiváció",
+      "title": "Másolj ki egy MI-utasítást egy beszélgetéshez arról, miért érdemes megtanulni a tantárgyat",
+      "heading": "Motiváció",
+      "desc": "Rövid beszélgetés egy MI-vel arról, miért érdemes megtanulni a tantárgyat. Az MI kérdez és figyel, a választ pedig együtt találjátok meg.",
+      "help": "Nyomd meg az „Utasítás másolása” gombot, és másold be egy MI-csevegőbe. A beszélgetés onnan indul, ahol most vagy, és az MI egyszerre egy kérdést tesz fel. Semmi nem mentődik el itt abból, amit írsz.",
+      "startLabel": "Mit érzel a tantárgy iránt?",
+      "start": {
+        "unknown": "Nem tudom",
+        "hard": "Nehéz",
+        "bored": "Unalmas",
+        "use": "Mire lesz ez jó nekem?"
+      },
+      "lengthLabel": "Hossz",
+      "length": {
+        "short": "Rövid",
+        "normal": "Közepes",
+        "long": "Hosszú"
+      }
+    },
+    "lesson": {
+      "button": "Óraterv készítése (tanároknak)",
+      "title": "Másolj ki egy MI-utasítást egy teljes órához a kipipált célokból",
+      "typeLabel": "Az óra típusa",
+      "typeAria": "Milyen típusú óra ez",
+      "types": {
+        "intro": "Új anyag",
+        "practice": "Gyakorlás",
+        "review": "Ismétlés",
+        "other": "Egyéb"
+      },
+      "minutesLabel": "Hossz",
+      "minutesAria": "Az óra hossza percben",
+      "includeAria": "Felvétel az óratervbe: „{name}”",
+      "selectedNone": "Nincs kijelölt tanulási cél",
+      "selectedOne": "1 tanulási cél kijelölve",
+      "selectedMany": "{n} tanulási cél kijelölve"
+    },
+    "make": {
+      "button": "Tananyag készítése →",
+      "buttonTitle": "Válaszd ki, mit készítesz a kipipált tanulási célokhoz",
+      "heading": "Mit szeretnél készíteni?",
+      "back": "← A tanulási célok",
+      "forOne": "1 tanulási célhoz:",
+      "forMany": "{n} tanulási célhoz:",
+      "copy": "Utasítás másolása",
+      "htmlBadge": "HTML-fájl",
+      "htmlAfter": "Másold be egy MI-csevegőbe. A válasz egy HTML-fájl, amelyet elmentesz, megnyitsz a böngészőben, és megoszthatsz a tanulóiddal.",
+      "lesson": {
+        "title": "Óraterv",
+        "desc": "Teljes terv egy tanórához, percbeosztással, táblaképpel és az összes feladat megoldásával.",
+        "minutes": "perc",
+        "shorter": "Rövidebb",
+        "longer": "Hosszabb",
+        "after": "Másold be egy MI-csevegőbe. A válasz egy terv, amelyből tanítás közben olvashatsz.",
+        "typeHints": {
+          "intro": "Új tanulási célok: ráhangoló feladat, kidolgozott példák körökben, célonként egy diagnosztikus kérdés, a végén felidézés.",
+          "practice": "Nemrég tanult célok: rövid emlékeztető, aztán feladatsorok kis változtatásokkal és egyre kevesebb segítséggel.",
+          "review": "Régebben tanult célok: felidézés jegyzet nélkül, annak ellenőrzése, mi maradt meg, újratanítás, ahol kell, és vegyes gyakorlás.",
+          "other": "Valami más: írd le magad az órát, vagy az MI előbb megkérdez."
+        }
+      },
+      "miniTree": {
+        "title": "Minifa",
+        "desc": "Készségfa, amelyben a tanulók dolgozat előtt önállóan gyakorolnak: a kiválasztott célok néhány témába gyűjtve, szintekkel, minden feladatkör előtt egy kidolgozott példa, utána a megoldás és magyarázat, és az elsajátítás nyitja meg a következő szintet.",
+        "levelsLabel": "Szintek témánként",
+        "levels1": "Egy szint",
+        "levels3": "Három szint",
+        "streakLabel": "Ennyi jó válasz egymás után az elsajátításhoz",
+        "supportLabel": "Differenciálás",
+        "easyRead": "Könnyen olvasható (Comic Sans, kevés szöveg)",
+        "readAloud": "Felolvasás",
+        "game": "Csillagok és feloldás",
+        "mixedTest": "Vegyes gyakorló dolgozat",
+        "credit": "Nina Haugerud gyógypedagógus elvei alapján."
+      },
+      "simulation": {
+        "title": "Szimuláció",
+        "desc": "Interaktív szimuláció, amelyet a tanulók felfedezhetnek, nem kitalált szakmai modellel, és egy panellel, amely elmagyarázza, mire képes és mire nem a modell.",
+        "workflowLabel": "Munkamód",
+        "design": "Előbb tervezési beszélgetés",
+        "build": "Azonnal prototípus",
+        "screenLabel": "Képernyő",
+        "laptop": "Laptop",
+        "tablet": "Táblagép",
+        "projector": "Projektor",
+        "extrasLabel": "Legyen benne",
+        "tasks": "Feladatok a tanulóknak",
+        "critique": "A modell kritikája",
+        "export": "Adatexport (CSV)",
+        "credit": "Henning Vinjusveen Myhrehagen promptja alapján a skolesim.no oldalról."
+      },
+      "less": "Kevesebb",
+      "more": "Több",
+      "help": "Minden tananyag egy MI-utasítás. Válaszd ki, mit szeretnél, nyomd meg az „Utasítás másolása” gombot, és másold be egy MI-csevegőbe, például a ChatGPT-be vagy a Claude-ba. Az óraterv olyan terv lesz, amelyből tanítás közben olvashatsz. A minifa és a szimuláció HTML-fájl lesz, amelyet elmentesz, megnyitsz a böngészőben, és megoszthatsz a tanulóiddal. A választásaid nem mentődnek el.",
+      "forLabel": "Ehhez:"
+    },
+    "exam": {
+      "button": "Dolgozat",
+      "title": "MI-utasítás egy dolgozathoz abból, amit elsajátítottnak jelöltél",
+      "none": "Még nincs elsajátított tanulási cél",
+      "countLabel": "Feladatok száma",
+      "countAria": "A dolgozat feladatainak száma",
+      "heading": "Dolgozat",
+      "desc": "Írásbeli dolgozat abból, amit elsajátítottnak jelöltél, megoldásokkal, amikor kéred őket.",
+      "help": "A dolgozat azokból a tanulási célokból készül, amelyeket a fában elsajátítottnak jelöltél. Válaszd ki a nehézséget, a feladatok számát és formáját, nyomd meg az „Utasítás másolása” gombot, és másold be egy MI-csevegőbe. Az MI előbb csak a feladatokat mutatja, a megoldásokat és az értékelést akkor adja meg, amikor kéred.",
+      "covers": "A dolgozat {n} elsajátított tanulási célt fed le:",
+      "coversOne": "A dolgozat 1 elsajátított tanulási célt fed le:",
+      "noneHint": "Még nem jelöltél egyetlen tanulási célt sem elsajátítottnak. Pipáld ki a fában, amit tudsz, és utána készíthetsz dolgozatot.",
+      "showAll": "Az összes tanulási cél",
+      "showSelected": "Csak a kijelölt tanulási célok",
+      "difficultyLabel": "Nehézség",
+      "difficulty": {
+        "easy": "Könnyű",
+        "medium": "Közepes",
+        "hard": "Nehéz"
+      },
+      "difficultyHints": {
+        "easy": "Feladatonként egy tanulási cél, a leggyakoribb esetek, csapdák nélkül.",
+        "medium": "Mint egy átlagos dolgozat: néhány egyszerű feladat, néhány, amely több célt is összekapcsol.",
+        "hard": "A legtöbb feladat célokat kapcsol össze, új helyzetekben, vagy azt kéri, hogy magyarázz el valamit vagy találj meg egy hibát."
+      },
+      "formatLabel": "A feladatok formája",
+      "format": {
+        "closed": "Zárt",
+        "open": "Nyílt",
+        "mixed": "Vegyes"
+      },
+      "formatHints": {
+        "closed": "Feleletválasztós vagy rövid válaszos feladatok, amelyeket kulcs alapján lehet ellenőrizni.",
+        "open": "Leírod a megoldás menetét, vagy a saját szavaiddal magyarázol.",
+        "mixed": "Nagyjából fele-fele."
+      },
+      "coversLabel": "A dolgozat ezeket fedi le:"
+    },
+    "node": {
+      "markMastered": "Megjelölés elsajátítottként"
+    },
+    "column": {
+      "markAll": "Minden cél megjelölése elsajátítottként ebben a témakörben: „{topic}”",
+      "clearAll": "Az elsajátítva jelölés törlése ebben a témakörben: „{topic}”"
+    },
+    "detail": {
+      "show": "Utasítás megjelenítése",
+      "hide": "Utasítás elrejtése",
+      "copy": "Utasítás másolása",
+      "prereqs": "Előfeltételek",
+      "resources": "Források",
+      "mastered": "✓ Elsajátítva",
+      "available": "Elérhető — az előfeltételek teljesülnek",
+      "locked": "Zárolva — hiányoznak előfeltételek",
+      "empty": "Kattints egy csomópontra a térképen a részletekért."
+    },
+    "loadError": "Súlyos hiba betöltés közben: {message} (helyi szerveren keresztül nyitottad meg az oldalt? Sok böngészőben az adatfájlok fetch()-elése nem sikerül, ha az index.html-t közvetlenül a lemezről nyitod meg.)",
+    "defaultTopic": "Egyéb",
+    "aids": {
+      "heading": "Segédeszközök",
+      "tagTitle": "Nézd meg, mit használhatsz ezen a szinten",
+      "multipleNote": "Ez a tanulási cél több szinthez is tartozik. A legszigorúbb szinten is boldogulnod kell vele — vagyis a legkevesebb segédeszközzel.",
+      "multipleNoteGeneral": "Egy tanulási cél több szinthez is tartozhat. Ilyenkor a címkéje több színre oszlik, és a cél teljesítéséhez a legszigorúbb szinten is boldogulnod kell vele — vagyis a legkevesebb segédeszközzel."
+    },
+    "menu": {
+      "label": "Menü",
+      "groups": {
+        "practice": "Gyakorlás",
+        "plan": "Tervezés",
+        "about": "Információ"
+      }
+    },
+    "download": {
+      "button": "A fa letöltése",
+      "title": "A fa letöltése kétféleképpen: a szerkeszthető táblázat, és egyetlen fájl, amely internet nélkül is működik",
+      "working": "Az egyetlen fájl készül…",
+      "failed": "Az egyetlen fájlt nem sikerült elkészíteni",
+      "edit": "A fa szerkesztése",
+      "editTitle": "A fa megnyitása a szerkesztőben, ahol módosíthatod, és letöltheted táblázatként vagy internet nélkül is működő egyetlen fájlként"
+    },
+    "courseInfo": {
+      "button": "A kurzusról",
+      "heading": "A kurzusról",
+      "division": "Évfolyam vagy kar",
+      "curriculum": "Tanterv",
+      "institution": "Intézmény",
+      "country": "Ország",
+      "language": "Nyelv",
+      "size": "Méret",
+      "decompositionVersion": "Felbontási modell",
+      "credits": "Készítették",
+      "author": "Szerző",
+      "updated": "Utoljára frissítve",
+      "license": "Licenc",
+      "basedOn": "Alapja",
+      "skills": "{n} készség",
+      "concepts": "{n} fogalom",
+      "facts": "{n} ténylista",
+      "nodes": "{n} csomópont"
+    },
+    "helpToggle": "Magyarázat",
+    "print": {
+      "button": "Nyomtatás",
+      "title": "Az egész fa letöltése nyomtatásra kész PDF-ként",
+      "working": "PDF készül …",
+      "failed": "A PDF-et nem sikerült elkészíteni",
+      "heading": "Nyomtatás",
+      "help": "Töltsd le az egész fát egyetlen PDF-oldalként, nyomtatásra készen. Az előnézet pontosan úgy mutatja a lapot, ahogy kinyomtatva lesz. A cím és az aiskilltrees.com mindig rajta van a lapon.",
+      "paperLabel": "Papírméret",
+      "orientationLabel": "Tájolás",
+      "orientation": {
+        "auto": "Automatikus",
+        "landscape": "Fekvő",
+        "portrait": "Álló"
+      },
+      "colorLabel": "Színek",
+      "color": {
+        "color": "Színes",
+        "gray": "Fekete-fehér"
+      },
+      "rings": "Kipipálható karikák",
+      "legend": "Jelmagyarázat",
+      "download": "PDF letöltése",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Vissza az előző nézethez"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Hungarian, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO HUNGARIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is the bare adjective \"magyar\", which also reads acceptably in the English core (\"Comment the code in magyar\"); `outputLanguage` puts it after a colon (\"A beszélgetés nyelve: magyar\") and refers back to it as \"ezen a nyelven\", so no case suffix is ever attached to it and a tree's own `languageName` row slots in too. Hungarian has no grammatical gender and a gender-neutral third person (ő), so no gender note is needed. Address is informal (tegezés), as teachers address pupils. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "magyar",
+    "outputLanguage": "A beszélgetés nyelve: {conversationLanguage}. Az egész beszélgetést ezen a nyelven folytasd. Minden, amit alább a készségfából idézünk — a csomópontok nevei, a leírások, az előfeltételek — ezen a nyelven íródott, és a felhasználó azt várja, hogy ezen a nyelven szólj hozzá. Az utasítás, amelyet most olvasol, részben angolul van; ez nem jelenti azt, hogy angolul kellene válaszolnod. Ne válts nyelvet a saját kezdeményezésedre, és ne tedd szóvá, milyen nyelven íródott az utasítás. Tegeződj a felhasználóval, ahogy a tanár a tanulóval. Ha meg kell nevezni azt, aki tanul, a szó: „{learnerDefinite}” — ne használj más szót ugyanerre.",
+    "writingStyle": "Magyar példák a fenti két tanácsra:\n- Cselekvő szerkezet: írd azt, hogy „a számot így írhatjuk fel: …”, ne azt, hogy „a szám így írható fel: …” vagy „a szám felírásra kerül …”; írd azt, hogy „ezt úgy csináljuk, hogy …” vagy „ezt úgy csinálod, hogy …”, ne azt, hogy „ez úgy történik, hogy …” vagy „ez … által valósul meg”. Kerüld a „kiszámításra kerül” és a „kiszámítható” típusú szerkezeteket, ha meg tudod mondani, ki csinálja.\n- A helyes, de beszédben ritka, könyvszerű vagy túl felnőttes szavakat cseréld egyszerűbbre: „eszközöl” (→ „csinál”), „rendelkezik vele” (→ „van neki”), „annak érdekében, hogy” (→ „hogy”), „továbbá” (→ „és még”), „azonban” (→ „de”). Barátteszt: tényleg kimondanád ezt a szót egy barátodnak?",
+    "overrides": {}
+  }
+}

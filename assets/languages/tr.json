@@ -1,0 +1,458 @@
+{
+  "code": "tr",
+  "htmlLang": "tr",
+  "name": "Türkçe",
+  "endonym": "Türkçe",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Turkish attaches case endings to the word, and the ending depends on the word's last vowel and consonant, so no ending is ever glued to a {placeholder}: the placeholder stands next to a noun that takes the ending instead (“{id}” düğümü, {row}. satır). After a number the noun stays singular (5 öğrenme hedefi). Kept distinct from Azerbaijani (az.json): Turkish spelling and words throughout, with “” quotes.",
+  "learner": {
+    "_comment": "What the learner is CALLED. Turkish has no articles, so the 'definite' form is the bare noun in the nominative: “öğrenci”. Turkish uses “öğrenci” for both a school pupil and a university student, so `pupil` and `student` map to the same word. The lead-ins use “şunları/şunu” + a verb, so a bare infinitive phrase (“kesirleri toplamak”) or a `Term: definition` line reads naturally after the colon.",
+    "default": "öğrenci",
+    "legacy": {
+      "pupil": "öğrenci",
+      "student": "öğrenci",
+      "participant": "katılımcı"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} şunları yapabilir:",
+      "concept": "{LearnerDefinite} şunu açıklayabilir:",
+      "fact": "{LearnerDefinite} şunları bilir:"
+    }
+  },
+  "ui": {
+    "backLink": "← Tüm ağaçlar",
+    "pageTitle": "Beceri ağacı: {title}",
+    "tagline": "Öğrenme hedeflerinin birbirine nasıl dayandığını gösteren bir harita — öğrendiklerini işaretle, sıradakini çalışmak için bir yapay zekâ talimatı kopyala.",
+    "makeYourOwn": "{subject}. Kendi ağacını yap:",
+    "progressLabel": "{total} öğrenme hedefinden {done} tanesi tamamlandı",
+    "zoomIn": "Yakınlaştır",
+    "zoomOut": "Uzaklaştır",
+    "fitToView": "Tüm ağacı göster",
+    "fitToViewTitle": "Tüm ağacı göster (yakınlaştırmak için Ctrl+kaydırma)",
+    "close": "✕ Kapat",
+    "closeLower": "✕ Kapat",
+    "copied": "Kopyalandı!",
+    "copyFallback": "Otomatik kopyalanamadı — aşağıdaki metni elle kopyala:",
+    "errorBanner": "⚠ Veri dosyalarında {n} sorun bulundu (ayrıntılar için konsola bak):",
+    "errorCsv": "Tablonun {row}. satırı okunamadı: {message}",
+    "errorCsvHeader": "{file} dosyasının ilk satırı sütunların adlarını içermeli. Eksik: {missing}. İlk satırda şu yazıyor: {found}. Dosya büyük olasılıkla ilk satırı olmadan ya da başka bir biçimde kaydedildi; düz CSV olarak yeniden kaydet.",
+    "errorUnknownDep": "“{id}” düğümü “{dep}” düğümünü ön koşul olarak gösteriyor, ama bu kimliğe sahip bir düğüm yok.",
+    "errorNoTopic": "“{id}” düğümünün konusu yok, bu yüzden “{topic}” adlı genel sütuna düşüyor.",
+    "errorUnknownResourceNode": "tree.csv, {row}. satır: kaynak, depends_on alanında “{id}” düğüm kimliğini gösteriyor, ama böyle bir düğüm yok.",
+    "errorExamsRenamed": "tree.csv, {row}. satır: “features.exams” ayarı 0.22.0 sürümünden önceye ait. Kaynaklar artık tree.csv içinde “resource” türündeki satırlardır: topic = grup, name = başlık, description = bağlantı, depends_on = düğümler. Satırı sil; eski bir exams.csv dosyasını dönüştürmek için de ağacı oluşturucuda aç. Hiçbir şey uygulanmadı.",
+    "errorResourceEmpty": "tree.csv, {row}. satır: kaynağın ne başlığı (name) ne de bağlantısı (description) var.",
+    "errorResourceNoNode": "tree.csv, {row}. satır: “{label}” kaynağı hiçbir düğüme bağlı değil. depends_on alanına bir ya da daha fazla düğüm kimliği yaz ya da satırı sil.",
+    "errorResourceDuplicate": "tree.csv, {row}. satır: “{label}” kaynağı {first}. satırdakiyle aynı. Bunu, tüm düğümleri depends_on alanında olan tek bir satır yap.",
+    "errorResourceUrl": "tree.csv, {row}. satır: “{label}” kaynağının bağlantısı https:// ya da mailto: ile başlamalı. Bu yüzden bağlantısız, düz metin olarak gösteriliyor.",
+    "errorCycle": "Bu düğümler bir döngü içinde birbirinin ön koşulu: {cycle}. Bu bağlantılardan birini kaldırman gerekiyor.",
+    "errorUnknownConfig": "tree.csv, {row}. satır: bilinmeyen ayar “{key}”. Hiçbir şey uygulanmadı.",
+    "errorUnknownNodeType": "“{id}” düğümünün türü “{type}”, ama böyle bir tür yok. Geçerli türler: {valid}.",
+    "errorUnknownPromptSection": "tree.csv, {row}. satırdaki prompt satırında bilinmeyen bölüm: “{section}”. Hiçbir şey uygulanmadı.",
+    "errorUnknownPromptTarget": "tree.csv, {row}. satırdaki prompt satırı “{name}” talimatını hedefliyor, ama bu ağaç böyle bir talimat oluşturmuyor. Hiçbir şey uygulanmadı.",
+    "errorDidYouMean": "Şunu mu demek istedin: “{key}”?",
+    "errorMissingConfig": "tree.csv dosyasında zorunlu “{key}” ayarı için bir config satırı yok.",
+    "errorStyleColor": "tree.csv, {row}. satır: “{key}” ayarı #1F6F4A gibi onaltılık kodla yazılmış bir renk olmalı. “{value}” bir renk değil, bu yüzden varsayılan renk korundu.",
+    "errorLinkUrl": "tree.csv, {row}. satır: “{key}” ayarı https:// ya da mailto: ile başlayan bir bağlantı olmalı. “{value}” öyle değil, bu yüzden düz metin olarak gösteriliyor.",
+    "errorStyleFont": "tree.csv, {row}. satır: bilinmeyen yazı tipi “{value}”. Bir ağacın kullanabileceği yazı tipleri: {valid}. Varsayılan yazı tipi korundu.",
+    "nodeType": {
+      "skill": "beceri",
+      "concept": "kavram",
+      "fact": "bilgiler"
+    },
+    "badges": {
+      "del1": "1. Bölüm",
+      "del2": "2. Bölüm",
+      "begge": "1+2. Bölüm"
+    },
+    "status": {
+      "mastered": "Öğrenildi",
+      "ready": "Öğrenmeye hazır",
+      "notMastered": "Henüz öğrenilmedi",
+      "blocked": "Önce gerekenler: {codes}"
+    },
+    "help": {
+      "label": "Yardım",
+      "heading": "Yardım",
+      "sections": [
+        {
+          "heading": "Menü",
+          "body": "Geri kalan her şey sol alttaki ☰ düğmesinin arkasında: öğrenme hedefleri, arama, sınav, yazdırma ve diğerleri. Her pencerede onu açıklayan bir “?” var.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Harita",
+          "body": "Her kutu bir öğrenme hedefi; oklar önce bilmen gerekenden çıkıyor. Şekil türü gösterir: bilgiler kare, kavramlar hafif yuvarlatılmış, beceriler yuvarlak. Haritayı sürükleyerek kaydır, + ve − ile yakınlaştır.",
+          "figure": "map"
+        },
+        {
+          "heading": "Öğrenildi",
+          "body": "Öğrenme hedefini bildiğinde kutudaki halkaya bas, halka yeşil bir onay işaretine dönüşür. Bu yalnızca senin tarayıcında kaydedilir.",
+          "figure": "check"
+        },
+        {
+          "heading": "Tek kutu",
+          "body": "Bir kutuya bas; öğrenme hedefinin ne gerektirdiğini, neye dayandığını ve alıştırma yapmak için bir yapay zekâ sohbetine yapıştırabileceğin talimatı görürsün. Kapatmak için tekrar bas.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Toplu işaretleme",
+          "body": "Liste simgeleri bir konudaki tüm hedefleri tek seferde işaretler ya da işaretleri kaldırır. A ve B ile tüm ağaca uygulanırlar.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Arama",
+          "body": "Bir öğrenme hedefini adındaki ya da açıklamasındaki bir kelimeyle bul.",
+          "figure": "search"
+        },
+        {
+          "heading": "Sınav",
+          "body": "Seçtiğin hedeflerden bir sınav için yapay zekâ talimatı. Zorluğu, soru sayısını ve soru türünü sen seçersin.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Ders planları (öğretmenler için)",
+          "body": "Öğrenme hedeflerini seç ve ders planı, mini ağaç ya da simülasyon için “Kaynak oluştur” düğmesine bas.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Yazdır",
+          "body": "Tüm ağacı, öğrencilerin kalemle işaretleyebileceği halkalarla birlikte PDF olarak indir.",
+          "figure": "print"
+        },
+        {
+          "heading": "Yardımcı araç etiketi",
+          "body": "Paneldeki “1. Bölüm” ya da “2. Bölüm”, hedefin hangi yardımcı araç düzeyine ait olduğunu gösterir. “Ders hakkında” bölümünde daha fazlasını okumak için etikete bas.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivasyon",
+          "body": "Bu dersin neden öğrenmeye değer olduğu üzerine bir yapay zekâyla kısa bir sohbet.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Klavye kısayolları",
+        "search": "Aramayı aç",
+        "escape": "Açık pencereyi, menüyü ya da paneli kapat",
+        "zoom": "Yakınlaştır ve uzaklaştır",
+        "fit": "Tüm ağacı göster ve geri dön"
+      }
+    },
+    "safety": {
+      "label": "Güvenlik",
+      "heading": "Güvenlik",
+      "lead": "Bir beceri ağacını bir öğretmen hazırlar, ama herkes ona benzeyen bir dosya yapabilir. Birinin sana gönderdiği bir ağacı kullanmadan önce bunu oku.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Bir beceri ağacı asla kişisel bilgi istemez",
+          "body": "Ağaçta giriş yapılmaz ve ağacın senin hakkında hiçbir bilgiye ihtiyacı yok. Asla adını, bir şifreyi, okul hesabının giriş bilgilerini, kimlik numaranı, adresini, telefon numaranı ya da hangi okula gittiğini sormaz. İlerlemen yalnızca bu cihazdaki tarayıcıda saklanır. Beceri ağacına benzeyen bir sayfa bunlardan birini isterse, o sayfa gerçek değildir. Sayfayı kapat ve öğretmenine haber ver."
+        },
+        {
+          "id": "sender",
+          "heading": "Ağacı sana kim gönderdi?",
+          "body": "En önemli soru, ağacın nereden geldiği. aiskilltrees.com'daki bir ağaca ya da öğretmeninin ders materyallerini genelde paylaştığı yere koyduğu bir ağaca, öğretmenine güvendiğin kadar güvenebilirsin. Dosyayı tanımadığın birinden e-postayla, bir sohbette ya da sosyal medyada aldıysan ya da dosya beklenmedik bir anda geldiyse, doğru görünse bile şüpheyle yaklaş."
+        },
+        {
+          "id": "html",
+          "heading": "HTML dosyası bir belge değil, bir web sayfasıdır",
+          "body": "Bir ağaç .html dosyası olarak paylaşıldığında, PDF ya da Word dosyası gibi bir belge almıyorsun. Açtığında çalışan kodu olan koca bir web sayfası alıyorsun. Tarayıcı bu kodun dosyalarını okumasını ya da bilgisayara bir şey kurmasını engeller, ama sayfa her şeyi gösterebilir: sahte bir giriş sayfası, bir şey indiren bir düğme ya da başka web sitelerine giden bağlantılar. Dosyanın ne yapacağına onu yapan kişi karar verir. Beceri ağacına benzemesi, onu beceri ağacı yapmaz. Bir dosyadan açtığın sayfada asla giriş yapma ve hiçbir şey indirme."
+        },
+        {
+          "id": "links",
+          "heading": "Tıklamadan önce bağlantıları kontrol et",
+          "body": "Ağaçtaki kaynaklar videolara, alıştırmalara ve ders kitaplarına bağlantı verebilir. Tıklamadan önce imleci bağlantının üzerine getir ya da bağlantıya basılı tut ve nereye gittiğine bak. Web sitesini tanımıyorsan ya da adres tuhaf görünüyorsa, açma."
+        },
+        {
+          "id": "injection",
+          "heading": "Talimatlar değiştirilmiş olabilir",
+          "body": "Kopyaladığın yapay zekâ talimatı, ağacı yapan kişinin yazdığı bir metin ve sen onu doğrudan bir yapay zekâ sohbetine yapıştırıyorsun. Ağacı yapan kişi içine her şeyi yazabilir; sohbetin beklediğinden farklı davranmasına yol açan komutları da: sana yanlış cevaplar vermesi, seni başka bir siteye göndermesi ya da onu ilgilendirmeyen şeyleri sorması gibi. Buna istem enjeksiyonu (prompt injection) denir. Yapıştırmadan önce metne göz atmak isteyebilirsin; sohbete de körü körüne güvenme."
+        },
+        {
+          "id": "chat",
+          "heading": "Sohbete ne anlatacağına sen karar verirsin",
+          "body": "Bazı talimatlar sohbetten seni tanımasını ister; örneğin dersle ilgili ne hissettiğini ve nelerde iyi olduğunu. İstediğin kadar az ya da çok cevap verebilirsin. Ama hiçbir talimatın adına, iletişim bilgilerine ya da şifrelerine ihtiyacı yok. Sohbet böyle bir şey sorarsa cevap verme ve öğretmenine haber ver. Bir yapay zekâ sohbetine yazdıklarını sohbeti işleten şirketin sakladığını da unutma. Okulunun çoğu zaman gizliliğinin korunduğu bir yapay zekâ hizmetine erişimi vardır. Öğretmenine sor, varsa onu kullan."
+        },
+        {
+          "id": "teachers",
+          "heading": "Öğretmenler için: bir meslektaştan gelen ağaç",
+          "body": "Başka birinden bir ağaç aldıysan, emin olmak için öğrencilerinle paylaşmadan önce onu aiskilltrees.com/make-your-own/ adresindeki oluşturucuda açabilirsin. Oluşturucu dosyadan yalnızca tabloyu alır ve ondan yeni, temiz bir dosya yapar; orada ağacın kullandığı her talimatı okuyabilirsin."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Öğrenme hedefleri",
+      "title": "Tüm öğrenme hedeflerinin konulara göre sıralanmış listesini göster",
+      "heading": "Öğrenme hedefleri",
+      "copyAll": "Tümünü kopyala",
+      "intro": "Liste, dersteki tüm öğrenme hedeflerini konulara göre sıralanmış olarak ve her birinin durumuyla gösterir. Bir hedefi öğrenildi olarak işaretlemek için kutucuğunu işaretle — haritadaki düğümdeki işaretin aynısı — böylece listede sırayla ilerleyip geçtiklerini işaretleyebilirsin.",
+      "markAria": "“{name}” hedefini öğrenildi olarak işaretle",
+      "markAllButton": "Tümünü öğrenildi olarak işaretle",
+      "clearAllButton": "Tüm öğrenildi işaretlerini kaldır",
+      "clearAllConfirm": "Ağaçtaki tüm öğrenme hedeflerinden öğrenildi işareti kaldırılsın mı?",
+      "openNode": "Haritada bu düğüme git"
+    },
+    "lessonPlanner": {
+      "button": "Ders planları",
+      "title": "Öğrenme hedeflerini seç ve ders planı, mini ağaç ya da simülasyon için bir yapay zekâ talimatı kopyala",
+      "selectAll": "Tümünü seç",
+      "deselectAll": "Seçimi kaldır",
+      "selectTopic": "“{topic}” konusundaki tüm öğrenme hedeflerini seç",
+      "deselectTopic": "“{topic}” konusundaki tüm öğrenme hedeflerinin seçimini kaldır",
+      "heading": "Ders planları",
+      "intro": "Bir şey hazırlamak istediğin öğrenme hedeflerini işaretle ve en alttaki “Kaynak oluştur” düğmesine bas. Orada ne olacağını seçersin: ders planı, mini ağaç ya da simülasyon. Buradaki işaretler yalnızca bunun için: hiçbir şeyi öğrenildi olarak işaretlemez ve sayfayı yenilediğinde kaybolur."
+    },
+    "search": {
+      "button": "Ara",
+      "title": "Öğrenme hedeflerini ada ve açıklamaya göre ara",
+      "heading": "Arama",
+      "placeholder": "Öğrenme hedeflerinde ara …",
+      "hint": "Bir kelime yaz. Arama her öğrenme hedefinin adına, açıklamasına ve konusuna bakar; sonuçtan doğrudan haritadaki düğüme gidebilirsin.",
+      "noResults": "“{query}” içeren bir öğrenme hedefi yok.",
+      "countOne": "1 öğrenme hedefi",
+      "countMany": "{n} öğrenme hedefi",
+      "openNode": "Haritada bu düğüme git"
+    },
+    "resourceList": {
+      "button": "Sorular ve kaynaklar",
+      "title": "Ağaçtaki tüm kaynakları ve ait oldukları öğrenme hedeflerini göster",
+      "heading": "Sorular ve kaynaklar",
+      "placeholder": "Soruları ve kaynakları süz …",
+      "intro": "{n} soru ve kaynak",
+      "countFiltered": "{n} / {total}",
+      "noResults": "“{query}” ile eşleşen bir kaynak yok.",
+      "openNode": "Haritada bu düğüme git",
+      "help": "Ağaca ait sorular ve kaynaklar: sınav soruları, bağlantılar ve videolar gibi. Her birinin altında ait olduğu öğrenme hedefleri var; haritada birine gitmek için üzerine bas. Süzmek için alana yaz."
+    },
+    "motivation": {
+      "button": "Motivasyon",
+      "title": "Bu dersin neden öğrenmeye değer olduğu üzerine bir sohbet için yapay zekâ talimatı kopyala",
+      "heading": "Motivasyon",
+      "desc": "Bu dersin neden öğrenmeye değer olduğu üzerine bir yapay zekâyla kısa bir sohbet. Yapay zekâ sorar ve dinler, cevabı birlikte bulursunuz.",
+      "help": "“Talimatı kopyala” düğmesine bas ve bir yapay zekâ sohbetine yapıştır. Sohbet, kendini nerede gördüğünü söylediğin yerden başlar ve yapay zekâ her seferinde tek bir soru sorar. Yazdığın hiçbir şey burada kaydedilmez.",
+      "startLabel": "Bu ders hakkında ne hissediyorsun?",
+      "start": {
+        "unknown": "Bilmiyorum",
+        "hard": "Zor geliyor",
+        "bored": "Sıkıcı",
+        "use": "Ne işime yarayacak?"
+      },
+      "lengthLabel": "Uzunluk",
+      "length": {
+        "short": "Kısa",
+        "normal": "Normal",
+        "long": "Uzun"
+      }
+    },
+    "lesson": {
+      "button": "Ders planı hazırla (öğretmenler için)",
+      "title": "İşaretlediğin hedefleri kapsayan eksiksiz bir ders için yapay zekâ talimatı kopyala",
+      "typeLabel": "Ders türü",
+      "typeAria": "Bu dersin türü",
+      "types": {
+        "intro": "Giriş",
+        "practice": "Alıştırma",
+        "review": "Tekrar",
+        "other": "Diğer"
+      },
+      "minutesLabel": "Süre",
+      "minutesAria": "Dersin dakika cinsinden süresi",
+      "includeAria": "“{name}” hedefini ders planına ekle",
+      "selectedNone": "Seçili öğrenme hedefi yok",
+      "selectedOne": "1 öğrenme hedefi seçildi",
+      "selectedMany": "{n} öğrenme hedefi seçildi"
+    },
+    "make": {
+      "button": "Kaynak oluştur →",
+      "buttonTitle": "İşaretlediğin öğrenme hedefleri için ne hazırlayacağını seç",
+      "heading": "Ne hazırlamak istiyorsun?",
+      "back": "← Öğrenme hedefleri",
+      "forOne": "1 öğrenme hedefi için:",
+      "forMany": "{n} öğrenme hedefi için:",
+      "copy": "Talimatı kopyala",
+      "htmlBadge": "HTML dosyası",
+      "htmlAfter": "Bir yapay zekâ sohbetine yapıştır. Cevap, kaydedip tarayıcıda açacağın ve öğrencilerinle paylaşabileceğin bir HTML dosyası olur.",
+      "lesson": {
+        "title": "Ders planı",
+        "desc": "Tek bir ders için eksiksiz bir plan: dakika dakika akış, tahtaya yazılacaklar ve tüm soruların cevapları.",
+        "minutes": "dk",
+        "shorter": "Daha kısa",
+        "longer": "Daha uzun",
+        "after": "Bir yapay zekâ sohbetine yapıştır. Cevap, ders anlatırken bakarak ilerleyebileceğin bir plan olur.",
+        "typeHints": {
+          "intro": "Yeni öğrenme hedefleri: bir ısınma sorusu, turlar halinde çözümlü örnekler, her hedef için bir tanılayıcı soru ve sonda hatırlama çalışması.",
+          "practice": "Öğrencilerin yakın zamanda öğrendiği hedefler: kısa bir hatırlatma, ardından küçük farklarla ilerleyen ve giderek daha az destek veren soru setleri.",
+          "review": "Bir süre önce işlenen hedefler: not kullanmadan hatırlama, akılda neyin kaldığını kontrol etme, gereken yerde yeniden anlatma ve karışık alıştırma.",
+          "other": "Başka bir şey: dersi kendin anlat ya da yapay zekâ önce sana sorsun."
+        }
+      },
+      "miniTree": {
+        "title": "Mini ağaç",
+        "desc": "Öğrencilerin sınavdan önce kendi başlarına çalışacağı bir beceri ağacı: seçilen hedefler seviyeli birkaç temada toplanır, her soru turundan önce çözümlü bir örnek, sonra cevap ve açıklama gelir; ustalaşınca bir sonraki seviye açılır.",
+        "levelsLabel": "Tema başına seviye",
+        "levels1": "Tek seviye",
+        "levels3": "Üç seviye",
+        "streakLabel": "Ustalaşmak için art arda doğru",
+        "supportLabel": "Uyarlama",
+        "easyRead": "Kolay okuma (Comic Sans, az metin)",
+        "readAloud": "Sesli okuma",
+        "game": "Yıldızlar ve kilit açma",
+        "mixedTest": "Karışık deneme sınavı",
+        "credit": "Özel eğitim öğretmeni Nina Haugerud'un ilkelerine dayanır."
+      },
+      "simulation": {
+        "title": "Simülasyon",
+        "desc": "Öğrencilerin keşfedebileceği etkileşimli bir simülasyon: uydurma olmayan bir konu modeli ve modelin neyi yapıp neyi yapamadığını açıklayan bir panel ile.",
+        "workflowLabel": "Çalışma biçimi",
+        "design": "Önce tasarım sohbeti",
+        "build": "Hemen prototip",
+        "screenLabel": "Ekran",
+        "laptop": "Dizüstü",
+        "tablet": "Tablet",
+        "projector": "Projeksiyon",
+        "extrasLabel": "Ekle",
+        "tasks": "Öğrenci görevleri",
+        "critique": "Model eleştirisi",
+        "export": "Veri dışa aktarma (CSV)",
+        "credit": "Henning Vinjusveen Myhrehagen'in skolesim.no'daki istemine dayanır."
+      },
+      "less": "Daha az",
+      "more": "Daha fazla",
+      "help": "Her kaynak bir yapay zekâ talimatıdır. İstediğini seç, “Talimatı kopyala” düğmesine bas ve ChatGPT ya da Claude gibi bir yapay zekâ sohbetine yapıştır. Ders planı, ders anlatırken bakarak ilerleyebileceğin bir plana dönüşür. Mini ağaç ve simülasyon, kaydedip tarayıcıda açabileceğin ve öğrencilerinle paylaşabileceğin bir HTML dosyasına dönüşür. Seçimler kaydedilmez.",
+      "forLabel": "Hedefler:"
+    },
+    "exam": {
+      "button": "Sınav",
+      "title": "Öğrenildi olarak işaretlediklerinden bir sınav için yapay zekâ talimatı hazırla",
+      "none": "Henüz öğrenilen hedef yok",
+      "countLabel": "Soru sayısı",
+      "countAria": "Sınavdaki soru sayısı",
+      "heading": "Sınav",
+      "desc": "Öğrenildi olarak işaretlediklerinden yazılı bir sınav; cevapları istediğinde alırsın.",
+      "help": "Sınav, ağaçta öğrenildi olarak işaretlediğin hedeflerden oluşur. Zorluğu, soru sayısını ve soruların biçimini seç, “Talimatı kopyala” düğmesine bas ve bir yapay zekâ sohbetine yapıştır. Yapay zekâ önce yalnızca soruları gösterir; cevapları ve değerlendirmeyi sen istediğinde verir.",
+      "covers": "Sınav, öğrenilen {n} hedefi kapsıyor:",
+      "coversOne": "Sınav, öğrenilen 1 hedefi kapsıyor:",
+      "noneHint": "Henüz hiçbir öğrenme hedefini öğrenildi olarak işaretlemedin. Ağaçta yapabildiklerini işaretle, sonra bir sınav hazırlayabilirsin.",
+      "showAll": "Tüm öğrenme hedeflerini göster",
+      "showSelected": "Yalnızca seçili öğrenme hedeflerini göster",
+      "difficultyLabel": "Zorluk",
+      "difficulty": {
+        "easy": "Kolay",
+        "medium": "Orta",
+        "hard": "Zor"
+      },
+      "difficultyHints": {
+        "easy": "Her soruda tek bir öğrenme hedefi, en yaygın durumlar, tuzak yok.",
+        "medium": "Normal bir sınav gibi: bazı sorular doğrudan, bazıları birkaç hedefi birleştiriyor.",
+        "hard": "Soruların çoğu hedefleri birleştirir, yeni bağlamlar kullanır ya da açıklamanı veya bir hatayı bulmanı ister."
+      },
+      "formatLabel": "Soruların biçimi",
+      "format": {
+        "closed": "Kapalı uçlu",
+        "open": "Açık uçlu",
+        "mixed": "Karışık"
+      },
+      "formatHints": {
+        "closed": "Çoktan seçmeli ya da cevap anahtarıyla kontrol edilebilen kısa cevaplı sorular.",
+        "open": "Çözüm yolunu gösterirsin ya da kendi sözlerinle açıklarsın.",
+        "mixed": "Aşağı yukarı yarı yarıya."
+      },
+      "coversLabel": "Sınavın kapsamı:"
+    },
+    "node": {
+      "markMastered": "Öğrenildi olarak işaretle"
+    },
+    "column": {
+      "markAll": "“{topic}” konusundaki tüm öğrenme hedeflerini öğrenildi olarak işaretle",
+      "clearAll": "“{topic}” konusundaki tüm öğrenme hedeflerinden öğrenildi işaretini kaldır"
+    },
+    "detail": {
+      "show": "Talimatı göster",
+      "hide": "Talimatı gizle",
+      "copy": "Talimatı kopyala",
+      "prereqs": "Ön koşullar",
+      "resources": "Kaynaklar",
+      "mastered": "✓ Öğrenildi",
+      "available": "Hazır — ön koşullar karşılandı",
+      "locked": "Kilitli — eksik ön koşullar var",
+      "empty": "Ayrıntıları görmek için haritada bir düğüme tıkla."
+    },
+    "loadError": "Yükleme sırasında kritik hata: {message} (sayfayı yerel bir sunucu üzerinden mi açıyorsun? index.html doğrudan diskten açıldığında birçok tarayıcıda veri dosyalarının fetch() ile alınması başarısız olur.)",
+    "defaultTopic": "Diğer",
+    "aids": {
+      "heading": "Yardımcı araçlar",
+      "tagTitle": "Bu seviyede neleri kullanabileceğini gör",
+      "multipleNote": "Bu öğrenme hedefi birden fazla seviyeye ait. Onu bu seviyelerin en kısıtlayıcısında, yani en az yardımcı araçla başarabilmelisin.",
+      "multipleNoteGeneral": "Bir öğrenme hedefi birden fazla seviyeye ait olabilir. O zaman etiketi birkaç renge bölünür ve hedefi bu seviyelerin en kısıtlayıcısında, yani en az yardımcı araçla başarabilmelisin."
+    },
+    "menu": {
+      "label": "Menü",
+      "groups": {
+        "practice": "Çalış",
+        "plan": "Planla",
+        "about": "Hakkında"
+      }
+    },
+    "download": {
+      "button": "Ağacı indir",
+      "title": "Ağacı iki biçimde indir: düzenleyebileceğin tablo ve çevrimdışı çalışan tek bir dosya",
+      "working": "Tek dosya hazırlanıyor…",
+      "failed": "Tek dosya hazırlanamadı",
+      "edit": "Ağacı düzenle",
+      "editTitle": "Ağacı düzenleyicide aç; orada değiştirip tablo ya da çevrimdışı çalışan tek bir dosya olarak indirebilirsin"
+    },
+    "courseInfo": {
+      "button": "Ders hakkında",
+      "heading": "Ders hakkında",
+      "division": "Sınıf ya da fakülte",
+      "curriculum": "Öğretim programı",
+      "institution": "Kurum",
+      "country": "Ülke",
+      "language": "Dil",
+      "size": "Boyut",
+      "decompositionVersion": "Ayrıştırma modeli",
+      "credits": "Hazırlayan",
+      "author": "Yazar",
+      "updated": "Son güncelleme",
+      "license": "Lisans",
+      "basedOn": "Dayandığı kaynak",
+      "skills": "{n} beceri",
+      "concepts": "{n} kavram",
+      "facts": "{n} bilgi listesi",
+      "nodes": "{n} düğüm"
+    },
+    "helpToggle": "Açıklama",
+    "print": {
+      "button": "Yazdır",
+      "title": "Tüm ağacı yazdırmaya hazır PDF olarak indir",
+      "working": "PDF hazırlanıyor …",
+      "failed": "PDF hazırlanamadı",
+      "heading": "Yazdır",
+      "help": "Tüm ağacı yazdırmaya hazır tek sayfalık bir PDF olarak indir. Önizleme, sayfanın nasıl görüneceğini gösterir. Başlık ve aiskilltrees.com her zaman sayfada yer alır.",
+      "paperLabel": "Kâğıt boyutu",
+      "orientationLabel": "Yönlendirme",
+      "orientation": {
+        "auto": "Otomatik",
+        "landscape": "Yatay",
+        "portrait": "Dikey"
+      },
+      "colorLabel": "Renkler",
+      "color": {
+        "color": "Renkli",
+        "gray": "Siyah beyaz"
+      },
+      "rings": "İşaretleme halkaları",
+      "legend": "Lejant",
+      "download": "PDF indir",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Önceki görünüme dön"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Turkish, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO TURKISH belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is “Türkçe”, which stands as the predicate in the `outputLanguage` sentence (“Bu konuşmanın dili …”) without any case ending, so a tree's own `languageName` row also reads grammatically there. Turkish marks no grammatical gender, so no gender note is needed; the address form is the informal “sen”, as teachers use with pupils. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "Türkçe",
+    "outputLanguage": "Bu konuşmanın dili {conversationLanguage}: konuşmanın tamamını bu dilde yürüt. Aşağıda beceri ağacından alıntılanan her şey — düğüm adları, açıklamalar, ön koşullar — bu dilde yazılmıştır ve kullanıcı kendisiyle bu dilde konuşulmasını bekler. Şu anda okuduğun talimatın bazı bölümleri İngilizce; bu, İngilizce cevap vermen için bir çağrı değildir. Kendi inisiyatifinle dil değiştirme ve talimatın hangi dilde yazıldığı hakkında yorum yapma. Kullanıcıya, öğretmenin öğrenciye hitap ettiği gibi “sen” diye hitap et, “siz” diye değil. Öğrenen kişiden söz etmen gerektiğinde kullanacağın kelime “{learnerDefinite}” — aynı şey için başka bir kelime değil.",
+    "writingStyle": "Yukarıdaki iki tavsiyenin Türkçe örnekleri:\n- Etken çatı: “sayı … biçiminde yazılabilir” değil, “sayıyı … biçiminde yazabiliriz” yaz; “bu, … yapılarak bulunur” değil, “bunu … yaparak buluruz” ya da “bunu … yaparak bulursun” yaz. Kimin yaptığını söyleyebildiğin yerde “yapılır”, “hesaplanır” ve “elde edilir” gibi edilgen biçimlerden kaçın.\n- Yazıda yaygın ama konuşmada seyrek, kitabi ya da fazla resmî kelimeleri daha basit bir kelimeyle değiştir: “gerçekleştirmek” (→ “yapmak”), “mevcut” (→ “var”), “dolayısıyla” (→ “bu yüzden”), “hususunda” (→ “konusunda”), “nihayetinde” (→ “sonunda”). Arkadaş testi: bu kelimeyi bir arkadaşına gerçekten yüksek sesle söyler miydin?",
+    "overrides": {}
+  }
+}

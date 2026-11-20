@@ -1,0 +1,458 @@
+{
+  "code": "lt",
+  "htmlLang": "lt",
+  "name": "Lietuvių",
+  "endonym": "Lietuvių",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. AI is \"DI\" (dirbtinis intelektas), as in Lithuanian schools. Participles and adjectives are gendered in Lithuanian, so the strings addressed to the user avoid them (\"Išmokta\" rather than \"Išmokęs/Išmokusi\"). Placeholders sit where their case does not matter: after a colon, in quotation marks, or in the form \"Label: {n}\", because a noun after a bare number changes with the number (2 tikslai, 10 tikslų).",
+  "learner": {
+    "_comment": "What the learner is CALLED. Lithuanian has no articles, so the 'definite' form is the bare noun in the nominative: \"mokinys\", \"studentas\", \"dalyvis\". The lead-ins use present-tense verbs (geba, žino), which do not change with gender, so they also fit \"mokinė\" if a tree sets it. A skill description is a bare infinitive phrase (\"Mokinys geba: sudėti trupmenas\"), a concept a definition.",
+    "default": "mokinys",
+    "legacy": {
+      "pupil": "mokinys",
+      "student": "studentas",
+      "participant": "dalyvis"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} geba:",
+      "concept": "{LearnerDefinite} geba paaiškinti:",
+      "fact": "{LearnerDefinite} žino:"
+    }
+  },
+  "ui": {
+    "backLink": "← Visi medžiai",
+    "pageTitle": "Įgūdžių medis: {title}",
+    "tagline": "Žemėlapis, rodantis, kaip mokymosi tikslai remiasi vienas kitu — pažymėk, ką jau moki, ir nusikopijuok DI instrukciją, kad galėtum mokytis toliau.",
+    "makeYourOwn": "{subject}. Susikurk savo medį:",
+    "progressLabel": "Išmokta tikslų: {done} iš {total}",
+    "zoomIn": "Priartinti",
+    "zoomOut": "Nutolinti",
+    "fitToView": "Rodyti visą medį",
+    "fitToViewTitle": "Rodyti visą medį (Ctrl + pelės ratukas keičia mastelį)",
+    "close": "✕ Uždaryti",
+    "closeLower": "✕ Uždaryti",
+    "copied": "Nukopijuota!",
+    "copyFallback": "Nepavyko nukopijuoti automatiškai — nukopijuok žemiau esantį tekstą rankiniu būdu:",
+    "errorBanner": "⚠ Duomenų failuose rasta problemų: {n} (išsamiau – konsolėje):",
+    "errorCsv": "Nepavyko perskaityti skaičiuoklės, eilutė {row}: {message}",
+    "errorCsvHeader": "Pirmoje failo {file} eilutėje turi būti stulpelių pavadinimai. Trūksta: {missing}. Pirmoji eilutė dabar tokia: {found}. Tikriausiai failas išsaugotas be pirmosios eilutės arba kitu formatu; išsaugok jį iš naujo kaip paprastą CSV.",
+    "errorUnknownDep": "Mazgo „{id}“ būtinose žiniose nurodytas „{dep}“, bet tokio id neturi joks mazgas.",
+    "errorNoTopic": "Mazgas „{id}“ neturi temos, todėl patenka į bendrą stulpelį „{topic}“.",
+    "errorUnknownResourceNode": "tree.csv, eilutė {row}: ištekliaus depends_on nurodytas mazgo id „{id}“, kurio nėra.",
+    "errorExamsRenamed": "tree.csv, eilutė {row}: nustatymas „features.exams“ yra iš laikų prieš 0.22.0 versiją. Ištekliai dabar yra tree.csv eilutės, kurių tipas „resource“: topic = grupė, name = pavadinimas, description = nuoroda, depends_on = mazgai. Ištrink eilutę ir atidaryk medį kūrimo įrankyje, kad konvertuotum seną exams.csv. Niekas nepritaikyta.",
+    "errorResourceEmpty": "tree.csv, eilutė {row}: išteklius neturi nei pavadinimo (name), nei nuorodos (description).",
+    "errorResourceNoNode": "tree.csv, eilutė {row}: išteklius „{label}“ nepriklauso jokiam mazgui. Įrašyk vieną ar kelis mazgų id į depends_on arba ištrink eilutę.",
+    "errorResourceDuplicate": "tree.csv, eilutė {row}: išteklius „{label}“ toks pat kaip eilutėje {first}. Sujunk juos į vieną eilutę, o visus mazgus surašyk į depends_on.",
+    "errorResourceUrl": "tree.csv, eilutė {row}: ištekliaus „{label}“ nuoroda turi prasidėti https:// arba mailto:. Todėl ji rodoma kaip paprastas tekstas, be nuorodos.",
+    "errorCycle": "Šie mazgai ratu yra būtinos žinios vienas kitam: {cycle}. Vieną iš šių ryšių reikia pašalinti.",
+    "errorUnknownConfig": "Nežinomas nustatymas „{key}“ (tree.csv, eilutė {row}). Niekas nepritaikyta.",
+    "errorUnknownNodeType": "Mazgo „{id}“ tipas yra „{type}“, o tokio tipo nėra. Galimi tipai: {valid}.",
+    "errorUnknownPromptSection": "Nežinoma sekcija „{section}“ prompt eilutėje (tree.csv, eilutė {row}). Niekas nepritaikyta.",
+    "errorUnknownPromptTarget": "Prompt eilutė (tree.csv, eilutė {row}) skirta „{name}“, bet tai ne instrukcija, kurią sudaro šis medis. Niekas nepritaikyta.",
+    "errorDidYouMean": "Gal turėjai omenyje „{key}“?",
+    "errorMissingConfig": "tree.csv trūksta privalomos config eilutės „{key}“.",
+    "errorStyleColor": "Nustatymas „{key}“ (tree.csv, eilutė {row}) turi būti spalva, užrašyta šešioliktainiu kodu, pvz., #1F6F4A. „{value}“ toks nėra, todėl palikta numatytoji spalva.",
+    "errorLinkUrl": "Nustatymas „{key}“ (tree.csv, eilutė {row}) turi būti nuoroda, prasidedanti https:// arba mailto:. „{value}“ tokia nėra, todėl rodoma kaip paprastas tekstas.",
+    "errorStyleFont": "Nežinomas šriftas „{value}“ (tree.csv, eilutė {row}). Šriftai, kuriuos gali naudoti medis: {valid}. Paliktas numatytasis šriftas.",
+    "nodeType": {
+      "skill": "įgūdis",
+      "concept": "sąvoka",
+      "fact": "faktai"
+    },
+    "badges": {
+      "del1": "1 dalis",
+      "del2": "2 dalis",
+      "begge": "1+2 dalys"
+    },
+    "status": {
+      "mastered": "Išmokta",
+      "ready": "Galima mokytis",
+      "notMastered": "Dar neišmokta",
+      "blocked": "Pirmiau trūksta: {codes}"
+    },
+    "help": {
+      "label": "Pagalba",
+      "heading": "Pagalba",
+      "sections": [
+        {
+          "heading": "Meniu",
+          "body": "Visa kita – po ☰ apačioje kairėje: mokymosi tikslai, paieška, testas, spausdinimas ir kita. Kiekviename lange yra „?“, kuris jį paaiškina.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Žemėlapis",
+          "body": "Kiekvienas langelis yra mokymosi tikslas, o rodyklės eina nuo to, ką reikia mokėti pirmiau. Forma rodo tipą: faktai kvadratiniai, sąvokos šiek tiek suapvalintos, o įgūdžiai apvalūs. Tempk, kad pajudintum žemėlapį, ir keisk mastelį mygtukais + ir −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Išmokta",
+          "body": "Kai moki tikslą, paspausk langelyje esantį apskritimą, ir jis virs žalia varnele. Tai išsaugoma tik tavo naršyklėje.",
+          "figure": "check"
+        },
+        {
+          "heading": "Vienas langelis",
+          "body": "Paspausk langelį, kad pamatytum, ko reikalauja tikslas, kuo jis remiasi, ir DI instrukciją, kurią gali įklijuoti į DI pokalbį ir pasipraktikuoti. Paspausk dar kartą, kad uždarytum.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Žymėti daug",
+          "body": "Sąrašo piktogramos iš karto pažymi visus temos tikslus arba nuima žymes. Su A ir B jos veikia visą medį.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Paieška",
+          "body": "Rask mokymosi tikslą pagal žodį iš jo pavadinimo ar aprašymo.",
+          "figure": "search"
+        },
+        {
+          "heading": "Testas",
+          "body": "DI instrukcija testui iš tavo pasirinktų tikslų. Tu nusprendi, koks bus sunkumas, kiek ir kokių užduočių.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Pamokų planai (mokytojams)",
+          "body": "Pasirink mokymosi tikslus ir paspausk „Kurti medžiagą“ – gausi pamokos planą, mini medį arba simuliaciją.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Spausdinimas",
+          "body": "Atsisiųsk visą medį kaip PDF su apskritimais, kuriuos mokiniai gali pažymėti rašikliu.",
+          "figure": "print"
+        },
+        {
+          "heading": "Pagalbinių priemonių žymė",
+          "body": "„1 dalis“ arba „2 dalis“ skydelyje rodo, kuriam pagalbinių priemonių lygiui priklauso tikslas. Paspausk žymę, kad daugiau perskaitytum skiltyje „Apie kursą“.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motyvacija",
+          "body": "Trumpas pokalbis su DI apie tai, kodėl verta mokytis šio dalyko.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Spartieji klavišai",
+        "search": "Atidaryti paiešką",
+        "escape": "Uždaryti atidarytą langą, meniu ar skydelį",
+        "zoom": "Priartinti ir nutolinti",
+        "fit": "Rodyti visą medį ir grįžti atgal"
+      }
+    },
+    "safety": {
+      "label": "Saugumas",
+      "heading": "Saugumas",
+      "lead": "Įgūdžių medį kuria mokytojas, tačiau bet kas gali sukurti failą, kuris atrodo kaip medis. Perskaityk tai, kol dar nepradėjai naudoti medžio, kurį tau kas nors atsiuntė.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Įgūdžių medis niekada neprašo asmens duomenų",
+          "body": "Medis neturi prisijungimo, ir jam nieko apie tave nereikia. Jis niekada neprašo tavo vardo, slaptažodžio, mokyklos paskyros, asmens kodo, adreso ar telefono numerio ir neklausia, kurioje mokykloje mokaisi. Tavo pažanga saugoma tik šio įrenginio naršyklėje. Jei puslapis, atrodantis kaip įgūdžių medis, prašo ko nors iš to, jis netikras. Uždaryk jį ir pasakyk mokytojui."
+        },
+        {
+          "id": "sender",
+          "heading": "Kas tau atsiuntė medį?",
+          "body": "Svarbiausias klausimas – iš kur medis atkeliavo. Medžiu iš aiskilltrees.com arba tokiu, kurį mokytojas įkėlė ten, kur paprastai gauni mokymosi medžiagą, gali pasitikėti tiek pat, kiek pasitiki mokytoju. Jei failą gavai el. paštu, pokalbyje ar socialiniuose tinkluose iš nepažįstamo žmogaus arba visai netikėtai, elkis atsargiai, net jei viskas atrodo gerai."
+        },
+        {
+          "id": "html",
+          "heading": "HTML failas yra tinklalapis, o ne dokumentas",
+          "body": "Kai kas nors bendrina medį kaip .html failą, gauni ne dokumentą, kaip PDF ar Word failą. Gauni visą tinklalapį su kodu, kuris pasileidžia, kai jį atidarai. Naršyklė neleidžia jam skaityti tavo failų ar ką nors įdiegti kompiuteryje, bet jis gali rodyti bet ką: netikrą prisijungimo puslapį, mygtuką, kuris kažką atsisiunčia, ar nuorodas į kitas svetaines. Ką failas daro, sprendžia tas, kas jį sukūrė. Tai, kad jis atrodo kaip įgūdžių medis, dar nereiškia, kad jis toks yra. Niekada nesijunk ir nieko nesisiųsk iš puslapio, kurį atidarei iš failo."
+        },
+        {
+          "id": "links",
+          "heading": "Pirma patikrink nuorodą, tada spausk",
+          "body": "Medžio ištekliai gali vesti į vaizdo įrašus, pratimus ir vadovėlius. Užvesk pelę ant nuorodos arba ilgai ją paspausk ir pirma pažiūrėk, kur ji veda. Jei svetainės neatpažįsti ar adresas atrodo keistai, geriau jos neatidaryk."
+        },
+        {
+          "id": "injection",
+          "heading": "Instrukcijas galima suklastoti",
+          "body": "DI instrukcija, kurią kopijuoji, yra tekstas, kurį parašė medžio kūrėjas, o tu ją įklijuoji tiesiai į DI pokalbį. Medžio kūrėjas gali į ją įrašyti bet ką, net nurodymus, dėl kurių pokalbis elgsis kitaip, nei tikiesi: duos neteisingus atsakymus, nusiųs tave į kitą svetainę ar klausinės apie dalykus, kurie jam visai neturėtų rūpėti. Tai vadinama raginimo injekcija (angl. prompt injection). Prieš įklijuojant tekstą verta jį peržvelgti, ir nepasitikėk pokalbiu aklai."
+        },
+        {
+          "id": "chat",
+          "heading": "Tu sprendi, ką pasakoji DI",
+          "body": "Kai kurios instrukcijos prašo DI geriau tave pažinti, pavyzdžiui, ką manai apie dalyką ir kas tau sekasi. Gali atsakyti tiek, kiek nori. Bet jokiai instrukcijai nereikia tavo vardo, kontaktų ar slaptažodžių. Jei pokalbis ko nors tokio prašo, neatsakinėk ir pasakyk mokytojui. Taip pat atmink, kad tai, ką rašai DI pokalbyje, saugo pokalbį valdanti įmonė. Tavo mokykla dažnai turi prieigą prie DI paslaugos, kurioje tavo privatumas apsaugotas. Paklausk mokytojo ir naudokis ja, jei tokią turite."
+        },
+        {
+          "id": "teachers",
+          "heading": "Mokytojams: medis iš kolegos",
+          "body": "Jei medį gavai iš kito žmogaus, dėl viso pikto pirma atidaryk jį kūrimo įrankyje adresu aiskilltrees.com/make-your-own/ ir tik tada bendrink su mokiniais. Įrankis iš failo paima tik skaičiuoklę ir iš jos sukuria naują, švarų failą, o ten gali perskaityti kiekvieną instrukciją, kurią naudoja medis."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Mokymosi tikslai",
+      "title": "Rodyti sistemingą visų mokymosi tikslų sąrašą pagal temas",
+      "heading": "Mokymosi tikslai",
+      "copyAll": "Kopijuoti viską",
+      "intro": "Sąraše matai visus kurso mokymosi tikslus pagal temas ir kiekvieno būseną. Pažymėk tikslą kaip išmoktą — tai ta pati varnelė kaip prie mazgo žemėlapyje — kad galėtum eiti sąrašu iš eilės ir pažymėti, ką jau perėjai.",
+      "markAria": "Pažymėti tikslą „{name}“ kaip išmoktą",
+      "markAllButton": "Pažymėti visus kaip išmoktus",
+      "clearAllButton": "Nuimti visas žymes",
+      "clearAllConfirm": "Nuimti žymę „Išmokta“ nuo visų medžio tikslų?",
+      "openNode": "Eiti į šį mazgą žemėlapyje"
+    },
+    "lessonPlanner": {
+      "button": "Pamokų planai",
+      "title": "Pasirink mokymosi tikslus ir nukopijuok DI instrukciją pamokos planui, mini medžiui arba simuliacijai",
+      "selectAll": "Pažymėti visus",
+      "deselectAll": "Atžymėti visus",
+      "selectTopic": "Pažymėti visus temos „{topic}“ tikslus",
+      "deselectTopic": "Atžymėti visus temos „{topic}“ tikslus",
+      "heading": "Pamokų planai",
+      "intro": "Pažymėk mokymosi tikslus, kuriems nori ką nors parengti, ir apačioje paspausk „Kurti medžiagą“. Ten pasirinksi, kas tai turi būti: pamokos planas, mini medis ar simuliacija. Šios žymės skirtos tik tam: jos nieko nepažymi kaip išmokto ir dingsta perkrovus puslapį."
+    },
+    "search": {
+      "button": "Paieška",
+      "title": "Ieškoti mokymosi tikslų pagal pavadinimą ir aprašymą",
+      "heading": "Paieška",
+      "placeholder": "Ieškoti mokymosi tikslų …",
+      "hint": "Įrašyk žodį. Paieška žiūri į kiekvieno mokymosi tikslo pavadinimą, aprašymą ir temą, o iš rezultatų gali iškart pereiti į mazgą žemėlapyje.",
+      "noResults": "Nerasta tikslų su „{query}“.",
+      "countOne": "1 mokymosi tikslas",
+      "countMany": "Rasta tikslų: {n}",
+      "openNode": "Eiti į šį mazgą žemėlapyje"
+    },
+    "resourceList": {
+      "button": "Užduotys ir šaltiniai",
+      "title": "Rodyti visus medžio išteklius ir tikslus, kuriems jie priklauso",
+      "heading": "Užduotys ir šaltiniai",
+      "placeholder": "Filtruoti užduotis ir šaltinius …",
+      "intro": "Užduočių ir šaltinių: {n}",
+      "countFiltered": "{n} iš {total}",
+      "noResults": "Nėra išteklių, atitinkančių „{query}“.",
+      "openNode": "Eiti į šį mazgą žemėlapyje",
+      "help": "Užduotys ir šaltiniai, priklausantys medžiui, pavyzdžiui, egzaminų užduotys, nuorodos ir vaizdo įrašai. Po kiekvienu yra tikslai, kuriems jis priklauso; paspausk tikslą, kad pereitum prie jo žemėlapyje. Rašyk laukelyje, kad filtruotum."
+    },
+    "motivation": {
+      "button": "Motyvacija",
+      "title": "Nukopijuok DI instrukciją pokalbiui apie tai, kodėl verta mokytis šio dalyko",
+      "heading": "Motyvacija",
+      "desc": "Trumpas pokalbis su DI apie tai, kodėl verta mokytis šio dalyko. DI klausia ir klausosi, o atsakymą randate kartu.",
+      "help": "Paspausk „Kopijuoti instrukciją“ ir įklijuok ją į DI pokalbį. Pokalbis prasideda nuo to, ką pasirinksi, o DI užduoda po vieną klausimą. Niekas, ką parašai, čia neišsaugoma.",
+      "startLabel": "Ką manai apie šį dalyką?",
+      "start": {
+        "unknown": "Nežinau",
+        "hard": "Sunku",
+        "bored": "Nuobodu",
+        "use": "Kam man to reikės?"
+      },
+      "lengthLabel": "Trukmė",
+      "length": {
+        "short": "Trumpas",
+        "normal": "Įprastas",
+        "long": "Ilgas"
+      }
+    },
+    "lesson": {
+      "button": "Kurti pamokos planą (mokytojams)",
+      "title": "Nukopijuok DI instrukciją visai pamokai apie pažymėtus tikslus",
+      "typeLabel": "Pamokos tipas",
+      "typeAria": "Kokia tai pamoka",
+      "types": {
+        "intro": "Įvadinė",
+        "practice": "Įtvirtinimo",
+        "review": "Kartojimo",
+        "other": "Kita"
+      },
+      "minutesLabel": "Trukmė",
+      "minutesAria": "Pamokos trukmė minutėmis",
+      "includeAria": "Įtraukti „{name}“ į pamokos planą",
+      "selectedNone": "Nepasirinkta nė vieno tikslo",
+      "selectedOne": "Pasirinktas 1 tikslas",
+      "selectedMany": "Pasirinkta tikslų: {n}"
+    },
+    "make": {
+      "button": "Kurti medžiagą →",
+      "buttonTitle": "Pasirink, ką kurti pažymėtiems tikslams",
+      "heading": "Ką nori sukurti?",
+      "back": "← Mokymosi tikslai",
+      "forOne": "1 tikslui:",
+      "forMany": "Tikslams ({n}):",
+      "copy": "Kopijuoti instrukciją",
+      "htmlBadge": "HTML failas",
+      "htmlAfter": "Įklijuok ją į DI pokalbį. Atsakymas bus HTML failas, kurį išsaugai, atidarai naršyklėje ir gali pasidalyti su mokiniais.",
+      "lesson": {
+        "title": "Pamokos planas",
+        "desc": "Išsamus vienos pamokos planas su laiku minutėmis, tuo, kas rašoma ant lentos, ir visų užduočių atsakymais.",
+        "minutes": "min.",
+        "shorter": "Trumpiau",
+        "longer": "Ilgiau",
+        "after": "Įklijuok ją į DI pokalbį. Atsakymas bus planas, kuriuo gali vadovautis per pamoką.",
+        "typeHints": {
+          "intro": "Nauji tikslai: pradinė užduotis, išspręsti pavyzdžiai keliais etapais, diagnostinis klausimas kiekvienam tikslui ir prisiminimas pabaigoje.",
+          "practice": "Neseniai išmokti tikslai: trumpas priminimas, tada užduočių serijos su nedideliais pakeitimais ir vis mažesne pagalba.",
+          "review": "Seniau mokyti tikslai: prisiminimas be užrašų, patikrinimas, kas išliko, pakartotinis aiškinimas, kur reikia, ir mišrios užduotys.",
+          "other": "Kas nors kita: aprašyk pamoką savo žodžiais arba DI pirmiausia tavęs paklaus."
+        }
+      },
+      "miniTree": {
+        "title": "Mini medis",
+        "desc": "Įgūdžių medis, kuriame mokiniai savarankiškai mokosi prieš kontrolinį: pasirinkti tikslai sugrupuoti į kelias temas su lygiais, prieš kiekvieną užduočių etapą – išspręstas pavyzdys, po jo – atsakymas ir paaiškinimas, o įveiktas lygis atrakina kitą.",
+        "levelsLabel": "Lygių temoje",
+        "levels1": "Vienas lygis",
+        "levels3": "Trys lygiai",
+        "streakLabel": "Teisingų iš eilės lygiui įveikti",
+        "supportLabel": "Pritaikymas",
+        "easyRead": "Lengvas skaitymas (Comic Sans, mažai teksto)",
+        "readAloud": "Skaitymas balsu",
+        "game": "Žvaigždutės ir atrakinimas",
+        "mixedTest": "Mišrus bandomasis testas",
+        "credit": "Sukurta pagal specialiosios pedagogės Ninos Haugerud principus."
+      },
+      "simulation": {
+        "title": "Simuliacija",
+        "desc": "Interaktyvi simuliacija, kurią mokiniai gali tyrinėti, su dalykiniu modeliu, kuris nėra išgalvotas, ir skydeliu, paaiškinančiu, ką modelis gali ir ko negali.",
+        "workflowLabel": "Darbo būdas",
+        "design": "Pirma pokalbis apie dizainą",
+        "build": "Iškart prototipas",
+        "screenLabel": "Ekranas",
+        "laptop": "Nešiojamasis",
+        "tablet": "Planšetė",
+        "projector": "Projektorius",
+        "extrasLabel": "Įtraukti",
+        "tasks": "Užduotys mokiniams",
+        "critique": "Modelio kritika",
+        "export": "Duomenų eksportas (CSV)",
+        "credit": "Pagal Henningo Vinjusveeno Myhrehageno instrukciją svetainėje skolesim.no."
+      },
+      "less": "Mažiau",
+      "more": "Daugiau",
+      "help": "Kiekviena medžiaga yra DI instrukcija. Pasirink, ko nori, paspausk „Kopijuoti instrukciją“ ir įklijuok ją į DI pokalbį, pavyzdžiui, ChatGPT ar Claude. Pamokos planas taps planu, kuriuo gali vadovautis per pamoką. Mini medis ir simuliacija taps HTML failu, kurį išsaugai, atidarai naršyklėje ir gali pasidalyti su mokiniais. Pasirinkimai neišsaugomi.",
+      "forLabel": "Tikslai:"
+    },
+    "exam": {
+      "button": "Testas",
+      "title": "Sukurk DI instrukciją testui iš to, ką pažymėjai kaip išmokta",
+      "none": "Dar nėra išmoktų tikslų",
+      "countLabel": "Užduočių skaičius",
+      "countAria": "Užduočių skaičius teste",
+      "heading": "Testas",
+      "desc": "Rašto testas iš to, ką pažymėjai kaip išmokta, su atsakymais, kai jų paprašysi.",
+      "help": "Testas sudaromas iš tikslų, kuriuos medyje pažymėjai kaip išmoktus. Pasirink sunkumą, užduočių skaičių ir formą, paspausk „Kopijuoti instrukciją“ ir įklijuok ją į DI pokalbį. DI iš pradžių parodo tik užduotis, o atsakymus ir įvertinimą pateikia, kai paprašai.",
+      "covers": "Testas apima išmoktus tikslus ({n}):",
+      "coversOne": "Testas apima 1 išmoktą tikslą:",
+      "noneHint": "Dar nepažymėjai nė vieno tikslo kaip išmokto. Pažymėk medyje, ką moki, ir tada galėsi sukurti testą.",
+      "showAll": "Rodyti visus tikslus",
+      "showSelected": "Rodyti tik pasirinktus tikslus",
+      "difficultyLabel": "Sunkumas",
+      "difficulty": {
+        "easy": "Lengvas",
+        "medium": "Vidutinis",
+        "hard": "Sunkus"
+      },
+      "difficultyHints": {
+        "easy": "Viena užduotis – vienas tikslas, dažniausi atvejai ir jokių spąstų.",
+        "medium": "Kaip įprastas kontrolinis: kelios paprastos užduotys ir kelios, jungiančios kelis tikslus.",
+        "hard": "Dauguma užduočių jungia tikslus, naudoja naujas situacijas arba prašo paaiškinti ar rasti klaidą."
+      },
+      "formatLabel": "Užduočių forma",
+      "format": {
+        "closed": "Uždaros",
+        "open": "Atviros",
+        "mixed": "Mišrios"
+      },
+      "formatHints": {
+        "closed": "Pasirenkamojo ar trumpo atsakymo užduotys, kurias galima patikrinti pagal atsakymus.",
+        "open": "Parodai sprendimą arba paaiškini savais žodžiais.",
+        "mixed": "Maždaug pusė vienų ir pusė kitų."
+      },
+      "coversLabel": "Testas apima:"
+    },
+    "node": {
+      "markMastered": "Pažymėti kaip išmoktą"
+    },
+    "column": {
+      "markAll": "Pažymėti visus temos „{topic}“ tikslus kaip išmoktus",
+      "clearAll": "Nuimti žymę „Išmokta“ nuo visų temos „{topic}“ tikslų"
+    },
+    "detail": {
+      "show": "Rodyti instrukciją",
+      "hide": "Slėpti instrukciją",
+      "copy": "Kopijuoti instrukciją",
+      "prereqs": "Būtinos žinios",
+      "resources": "Ištekliai",
+      "mastered": "✓ Išmokta",
+      "available": "Prieinama — būtinos žinios yra",
+      "locked": "Užrakinta — trūksta būtinų žinių",
+      "empty": "Spustelėk mazgą žemėlapyje, kad pamatytum daugiau."
+    },
+    "loadError": "Kritinė klaida įkeliant: {message} (ar puslapį pateikia vietinis serveris? Daugelyje naršyklių duomenų failų fetch() nepavyksta, kai index.html atidaromas tiesiai iš disko.)",
+    "defaultTopic": "Kita",
+    "aids": {
+      "heading": "Pagalbinės priemonės",
+      "tagTitle": "Pažiūrėk, ką šiame lygyje galima naudoti",
+      "multipleNote": "Šis tikslas priklauso keliems lygiams. Jį reikia įveikti griežčiausio iš jų sąlygomis — tai yra su mažiausiai pagalbinių priemonių.",
+      "multipleNoteGeneral": "Tikslas gali priklausyti keliems lygiams. Tada jo žymė būna kelių spalvų, o tikslą reikia įveikti griežčiausio iš tų lygių sąlygomis — tai yra su mažiausiai pagalbinių priemonių."
+    },
+    "menu": {
+      "label": "Meniu",
+      "groups": {
+        "practice": "Mokytis",
+        "plan": "Planuoti",
+        "about": "Apie"
+      }
+    },
+    "download": {
+      "button": "Atsisiųsti medį",
+      "title": "Atsisiųsk medį dviem pavidalais: skaičiuoklę, kurią gali redaguoti, ir vieną failą, veikiantį be interneto",
+      "working": "Kuriamas vienas failas…",
+      "failed": "Nepavyko sukurti vieno failo",
+      "edit": "Redaguoti medį",
+      "editTitle": "Atidaryk medį redaktoriuje, kur gali jį pakeisti ir atsisiųsti kaip skaičiuoklę arba kaip vieną failą, veikiantį be interneto"
+    },
+    "courseInfo": {
+      "button": "Apie kursą",
+      "heading": "Apie kursą",
+      "division": "Klasė ar fakultetas",
+      "curriculum": "Ugdymo programa",
+      "institution": "Įstaiga",
+      "country": "Šalis",
+      "language": "Kalba",
+      "size": "Apimtis",
+      "decompositionVersion": "Skaidymo modelis",
+      "credits": "Sukūrė",
+      "author": "Autorius",
+      "updated": "Paskutinį kartą atnaujinta",
+      "license": "Licencija",
+      "basedOn": "Remiantis",
+      "skills": "įgūdžiai: {n}",
+      "concepts": "sąvokos: {n}",
+      "facts": "faktų sąrašai: {n}",
+      "nodes": "mazgai: {n}"
+    },
+    "helpToggle": "Paaiškinimas",
+    "print": {
+      "button": "Spausdinti",
+      "title": "Atsisiųsk visą medį kaip PDF, paruoštą spausdinti",
+      "working": "Kuriamas PDF …",
+      "failed": "Nepavyko sukurti PDF",
+      "heading": "Spausdinimas",
+      "help": "Atsisiųsk visą medį kaip vieną PDF puslapį, paruoštą spausdinti. Peržiūroje lapas matomas toks, koks bus. Pavadinimas ir aiskilltrees.com visada yra lape.",
+      "paperLabel": "Popieriaus dydis",
+      "orientationLabel": "Padėtis",
+      "orientation": {
+        "auto": "Automatinė",
+        "landscape": "Gulsčia",
+        "portrait": "Stačia"
+      },
+      "colorLabel": "Spalvos",
+      "color": {
+        "color": "Spalvotai",
+        "gray": "Nespalvotai"
+      },
+      "rings": "Apskritimai žymėti",
+      "legend": "Legenda",
+      "download": "Atsisiųsti PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Grįžti į ankstesnį vaizdą"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Lithuanian, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO LITHUANIAN belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is \"lietuvių kalba\": the nominative and the instrumental are spelled the same, so it reads correctly both as a name in the English core and in \"Visą šį pokalbį vesk …\". The rest of `outputLanguage` refers back to it as \"šia kalba\" rather than inflecting it. The gender note is the Lithuanian counterpart of the Swedish \"hen\": participles and adjectives are gendered. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "lietuvių kalba",
+    "outputLanguage": "Visą šį pokalbį vesk {conversationLanguage}. Viskas, kas toliau paimta iš įgūdžių medžio — mazgų pavadinimai, aprašymai, būtinos žinios — parašyta šia kalba, ir būtent šia kalba naudotojas tikisi, kad į jį kreipsiesi. Dalis instrukcijos, kurią dabar skaitai, parašyta angliškai; tai nėra paraginimas atsakyti angliškai. Nekeisk kalbos savo iniciatyva ir nekomentuok, kokia kalba parašyta instrukcija. Kreipkis į naudotoją „tu“, kaip mokytojas į mokinį, o ne „jūs“. Kol nežinai, ar kalbiesi su vaikinu, ar su mergina, venk giminę rodančių formų (pvz., rašyk „tau pavyko“, o ne „tu buvai teisus“). Jei reikia įvardyti besimokantįjį, žodis yra „{learnerDefinite}“ — ne kitas žodis tam pačiam dalykui.",
+    "writingStyle": "Lietuviški dviejų aukščiau pateiktų patarimų pavyzdžiai:\n- Veikiamoji rūšis: rašyk „skaičių galime užrašyti kaip …“, o ne „skaičius gali būti užrašytas kaip …“; rašyk „tai darome taip: …“ arba „tai darai taip: …“, o ne „tai yra atliekama …“. Venk „yra atliekamas“, „gali būti apskaičiuotas“ ir beasmenio „apskaičiuojama“, kai gali pasakyti, kas tai daro.\n- Žodžius, kurie taisyklingi, bet šnekamojoje kalboje reti, knyginiai ar per daug suaugusiški, keisk paprastesniais: „vykdyti“ (→ „daryti“), „įgyvendinti“ (→ „padaryti“), „siekiant“ (→ „kad“), „bei“ (→ „ir“), „pateikti“ (→ „parodyti“ ar „duoti“). Draugo testas: ar tikrai šį žodį pasakytum garsiai draugui?",
+    "overrides": {}
+  }
+}

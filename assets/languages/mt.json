@@ -1,0 +1,458 @@
+{
+  "code": "mt",
+  "htmlLang": "mt",
+  "name": "Malti",
+  "endonym": "Malti",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Standard Maltese orthography (ċ, ġ, ħ, ż, għ, ie). AI is \"IA\" (intelliġenza artifiċjali), as in official Maltese texts; everyday loanwords Maltese speakers actually use (chat, browser, link, spreadsheet, login) stay as they are. In Malta maths is mostly taught in English; this file is the Maltese interface, for a tree written in Maltese. The definite article is joined with a hyphen and assimilates (l-istudent, it-tema, iċ-chat), so a {placeholder} that is a name never takes an article: it stands in quotation marks after a head noun that carries it (it-tema “{topic}”), after a colon, or in the form \"Label: {n}\", because a noun after a number changes form (2 għanijiet, 11-il għan). Adjectives and participles are gendered (lest/lesta, attent/attenta), so the strings addressed to the user avoid them and use second-person verbs, which are not: \"Mastered\" is \"Tafu\" (you know it), not an adjective.",
+  "learner": {
+    "_comment": "What the learner is CALLED, in the definite form the instructions and the panel use: \"l-istudent\", \"il-parteċipant\" or anything else. \"Student\" is the usual word for a secondary-school learner in Malta. A tree sets it with the config row `learner`, as free text; left out, `default` applies. `legacy` maps the keys trees used before 0.31.0 (`pupil`, `student`, `participant`) to that form. `leadIn` is what the panel prints in front of a description; {LearnerDefinite} is the form with a capital first letter, \"L-istudent\", which is the correct form at the start of a sentence. Maltese has no infinitive: a skill description is a verb phrase in the third person masculine imperfect, the form that follows \"jista'\" (\"L-istudent jista': iżid il-frazzjonijiet\"), a concept a definition (\"Terminu: definizzjoni\"). The lead-ins are masculine, to agree with l-istudent; a tree that sets a feminine learner word (l-istudenta) still gets them.",
+    "default": "l-istudent",
+    "legacy": {
+      "pupil": "l-istudent",
+      "student": "l-istudent",
+      "participant": "il-parteċipant"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} jista':",
+      "concept": "{LearnerDefinite} jista' jispjega:",
+      "fact": "{LearnerDefinite} jaf:"
+    }
+  },
+  "ui": {
+    "backLink": "← Is-siġar kollha",
+    "pageTitle": "Siġra tal-ħiliet: {title}",
+    "tagline": "Mappa ta' kif l-għanijiet tat-tagħlim jibnu fuq xulxin — immarka dak li taf, u kkopja struzzjoni tal-IA biex tipprattika dak li jmiss.",
+    "makeYourOwn": "{subject}. Agħmel is-siġra tiegħek:",
+    "progressLabel": "Għanijiet li taf: {done} minn {total}",
+    "zoomIn": "Kabbar",
+    "zoomOut": "Ċekken",
+    "fitToView": "Uri s-siġra kollha",
+    "fitToViewTitle": "Uri s-siġra kollha (Ctrl + scroll biex tkabbar u ċċekken)",
+    "close": "✕ Agħlaq",
+    "closeLower": "✕ Agħlaq",
+    "copied": "Ikkopjat!",
+    "copyFallback": "L-ikkopjar awtomatiku ma rnexxiex — ikkopja t-test hawn taħt int stess:",
+    "errorBanner": "⚠ Instabu problemi fil-fajls tad-data: {n} (ara l-console għad-dettalji):",
+    "errorCsv": "L-ispreadsheet ma setgħetx tinqara, ringiela {row}: {message}",
+    "errorCsvHeader": "L-ewwel ringiela ta' {file} trid issemmi l-kolonni. Jonqos: {missing}. L-ewwel ringiela issa tgħid: {found}. Probabbilment il-fajl ġie ssejvjat mingħajr l-ewwel ringiela, jew f'format ieħor; erġa' ssejvjah bħala CSV sempliċi.",
+    "errorUnknownDep": "In-nodu “{id}” isemmi “{dep}” bħala prerekwiżit, imma l-ebda nodu m'għandu dak l-id.",
+    "errorNoTopic": "In-nodu “{id}” m'għandux tema, u jispiċċa fil-kolonna ġenerali “{topic}”.",
+    "errorUnknownResourceNode": "tree.csv, ringiela {row}: ir-riżorsa tirreferi f'depends_on għall-id tan-nodu “{id}”, li ma jeżistix.",
+    "errorExamsRenamed": "tree.csv, ringiela {row}: l-issettjar “features.exams” huwa minn qabel il-verżjoni 0.22.0. Ir-riżorsi issa huma ringieli f'tree.csv bit-tip “resource”: topic = grupp, name = titlu, description = link, depends_on = in-nodi. Ħassar ir-ringiela, u iftaħ is-siġra fl-għodda tal-ħolqien biex tikkonverti exams.csv qadim. Ma ġie applikat xejn.",
+    "errorResourceEmpty": "tree.csv, ringiela {row}: ir-riżorsa la għandha titlu (name) u lanqas link (description).",
+    "errorResourceNoNode": "tree.csv, ringiela {row}: ir-riżorsa “{label}” ma tappartjeni għall-ebda nodu. Ikteb l-id ta' nodu wieħed jew aktar f'depends_on, jew ħassar ir-ringiela.",
+    "errorResourceDuplicate": "tree.csv, ringiela {row}: ir-riżorsa “{label}” hija l-istess bħal dik fir-ringiela {first}. Agħmilhom ringiela waħda, bin-nodi kollha f'depends_on.",
+    "errorResourceUrl": "tree.csv, ringiela {row}: il-link tar-riżorsa “{label}” irid jibda b'https:// jew mailto:. Għalhekk qed jintwera bħala test sempliċi, mingħajr link.",
+    "errorCycle": "Dawn in-nodi huma prerekwiżiti ta' xulxin, f'ċirku: {cycle}. Waħda minn dawn ir-rabtiet trid titneħħa.",
+    "errorUnknownConfig": "Issettjar mhux magħruf “{key}” (tree.csv, ringiela {row}). Ma ġie applikat xejn.",
+    "errorUnknownNodeType": "In-nodu “{id}” għandu t-tip “{type}”, li ma jeżistix. It-tipi huma: {valid}.",
+    "errorUnknownPromptSection": "Taqsima mhux magħrufa “{section}” fir-ringiela prompt (tree.csv, ringiela {row}). Ma ġie applikat xejn.",
+    "errorUnknownPromptTarget": "Ir-ringiela prompt (tree.csv, ringiela {row}) hija mmirata lejn “{name}”, li mhix struzzjoni li tagħmel din is-siġra. Ma ġie applikat xejn.",
+    "errorDidYouMean": "Ridt tgħid “{key}”?",
+    "errorMissingConfig": "tree.csv m'għandux ringiela config għal “{key}”, li hija meħtieġa.",
+    "errorStyleColor": "L-issettjar “{key}” (tree.csv, ringiela {row}) irid ikun kulur miktub bħala kodiċi hex, bħal #1F6F4A. “{value}” mhuwiex, għalhekk inżamm il-kulur standard.",
+    "errorLinkUrl": "L-issettjar “{key}” (tree.csv, ringiela {row}) irid ikun link li jibda b'https:// jew mailto:. “{value}” mhuwiex, għalhekk qed jintwera bħala test sempliċi.",
+    "errorStyleFont": "Font mhux magħruf “{value}” (tree.csv, ringiela {row}). Il-fonts li tista' tuża siġra: {valid}. Inżamm il-font standard.",
+    "nodeType": {
+      "skill": "ħila",
+      "concept": "kunċett",
+      "fact": "fatti"
+    },
+    "badges": {
+      "del1": "Parti 1",
+      "del2": "Parti 2",
+      "begge": "Parti 1+2"
+    },
+    "status": {
+      "mastered": "Tafu",
+      "ready": "Tista' titgħallmu",
+      "notMastered": "Għadek ma tafux",
+      "blocked": "L-ewwel jonqos: {codes}"
+    },
+    "help": {
+      "label": "Għajnuna",
+      "heading": "Għajnuna",
+      "sections": [
+        {
+          "heading": "Il-menu",
+          "body": "Kull ħaġa oħra tinsab taħt ☰ isfel fuq ix-xellug: l-għanijiet tat-tagħlim, it-tiftix, it-test, l-ipprintjar u l-bqija. Kull tieqa għandha “?” li tispjegaha.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Il-mappa",
+          "body": "Kull kaxxa hija għan tat-tagħlim, u l-vleġeġ jibdew minn dak li trid tkun taf l-ewwel. Il-forma turi t-tip: il-fatti huma kwadri, il-kunċetti kemxejn tondi u l-ħiliet tondi. Kaxkar biex iċċaqlaq il-mappa, u kabbar jew ċekken b'+ u −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Tafu",
+          "body": "Agħfas iċ-ċirku f'kaxxa meta taf l-għan tat-tagħlim, u jinbidel f'marka ħadra. Jinħażen biss fil-browser tiegħek.",
+          "figure": "check"
+        },
+        {
+          "heading": "Kaxxa waħda",
+          "body": "Agħfas kaxxa biex tara x'jitlob l-għan tat-tagħlim, fuq xiex jibni, u struzzjoni tal-IA li tista' twaħħal f'chat tal-IA biex tipprattika. Agħfas għal darb'oħra biex tagħlaq.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Immarka ħafna",
+          "body": "L-ikoni tal-lista jimmarkaw l-għanijiet kollha ta' tema f'daqqa, jew ineħħu l-marki. B'A u B japplikaw għas-siġra kollha.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Fittex",
+          "body": "Sib għan tat-tagħlim permezz ta' kelma minn ismu jew mid-deskrizzjoni tiegħu.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Struzzjoni tal-IA għal test fuq l-għanijiet li tagħżel. Int tiddeċiedi d-diffikultà, in-numru u t-tip tal-mistoqsijiet.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Pjanijiet tal-lezzjoni (għall-għalliema)",
+          "body": "Agħżel għanijiet tat-tagħlim u agħfas “Agħmel riżorsa” għal pjan tal-lezzjoni, siġra żgħira jew simulazzjoni.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Ipprintja",
+          "body": "Niżżel is-siġra kollha bħala PDF, b'ċrieki li l-istudenti jistgħu jimmarkaw bil-pinna.",
+          "figure": "print"
+        },
+        {
+          "heading": "It-tikketta tal-għajnuniet",
+          "body": "“Parti 1” jew “Parti 2” fil-pannell turi għal liema livell ta' għajnuniet jappartjeni l-għan. Agħfas it-tikketta biex taqra aktar f'“Dwar il-kors”.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motivazzjoni",
+          "body": "Konversazzjoni qasira mal-IA dwar għaliex is-suġġett jiswa li titgħallmu.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Shortcuts tat-tastiera",
+        "search": "Iftaħ it-tiftix",
+        "escape": "Agħlaq it-tieqa, il-menu jew il-pannell miftuħ",
+        "zoom": "Kabbar u ċekken",
+        "fit": "Uri s-siġra kollha, u erġa' lura"
+      }
+    },
+    "safety": {
+      "label": "Sigurtà",
+      "heading": "Sigurtà",
+      "lead": "Siġra tal-ħiliet jagħmilha għalliem, imma kulħadd jista' jagħmel fajl li jidher bħalha. Aqra dan qabel tuża siġra li bagħtlek xi ħadd.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Siġra tal-ħiliet qatt ma titlob dettalji personali",
+          "body": "Is-siġra m'għandhiex login u m'għandha bżonn xejn dwarek. Qatt ma titlob ismek, password, il-login tal-iskola, in-numru tal-karta tal-identità, l-indirizz, in-numru tat-telefon jew f'liema skola tmur. Il-progress tiegħek jinħażen biss fil-browser ta' dan l-apparat. Jekk paġna li tidher bħal siġra tal-ħiliet titlob xi ħaġa minn dawn, mhix vera. Agħlaqha, u għid lill-għalliem tiegħek."
+        },
+        {
+          "id": "sender",
+          "heading": "Min bagħtlek is-siġra?",
+          "body": "L-iktar mistoqsija importanti hija minn fejn ġiet is-siġra. Siġra fuq aiskilltrees.com, jew waħda li l-għalliem tiegħek tella' fejn normalment issib il-materjal tal-kors, tista' tafdaha daqs kemm tafda lill-għalliem tiegħek. Jekk irċevejt fajl b'email, f'chat jew fuq il-midja soċjali minn xi ħadd li ma tafux, jew wasal meta ma kontx qed tistennieh, la tafdahx bla ma taħseb, anke jekk jidher sew."
+        },
+        {
+          "id": "html",
+          "heading": "Fajl HTML huwa paġna tal-web, mhux dokument",
+          "body": "Meta siġra tinqasam bħala fajl .html, mhux qed tieħu dokument bħal PDF jew fajl tal-Word. Qed tieħu paġna tal-web sħiħa b'kodiċi li jaħdem meta tiftaħha. Il-browser ma jħallihiex taqra l-fajls tiegħek jew tinstalla xi ħaġa fuq il-kompjuter, imma tista' turi kwalunkwe ħaġa: paġna tal-login falza, buttuna li tniżżel xi ħaġa, jew links għal websajts oħra. Min għamel il-fajl jiddeċiedi x'tagħmel. Li tidher bħal siġra tal-ħiliet ma jfissirx li hija waħda. Qatt m'għandek tagħmel login jew tniżżel xi ħaġa minn paġna li ftaħt minn fajl."
+        },
+        {
+          "id": "links",
+          "heading": "Iċċekkja l-links qabel tikklikkja",
+          "body": "Ir-riżorsi fis-siġra jistgħu jwasslu għal vidjows, eżerċizzji u kotba tal-iskola. Żomm il-mouse fuq link, jew agħfas u żomm subgħajk fuqu, u ara fejn imur qabel tikklikkja. Jekk ma tagħrafx il-websajt, jew l-indirizz jidher stramb, ħallih."
+        },
+        {
+          "id": "injection",
+          "heading": "L-istruzzjonijiet jistgħu jitbagħbsu",
+          "body": "L-istruzzjoni tal-IA li tikkopja hija test miktub minn min għamel is-siġra, u int twaħħalha dritt f'chat tal-IA. Min jagħmel siġra jista' jikteb fiha kwalunkwe ħaġa, anke ordnijiet li jġiegħlu liċ-chat iġib ruħu b'mod differenti milli tistenna: jagħtik tweġibiet żbaljati, jibagħtek fuq websajt oħra jew jistaqsik dwar affarijiet li mhumiex affarijietu. Dan jissejjaħ prompt injection. Tista' tagħti ħarsa malajr lejn it-test qabel twaħħlu, u la tafdax liċ-chat għal kollox."
+        },
+        {
+          "id": "chat",
+          "heading": "Int tiddeċiedi x'tgħid liċ-chat",
+          "body": "Xi struzzjonijiet jitolbu liċ-chat isir jafek, pereżempju kif tħossok dwar is-suġġett u f'xiex tirnexxi. Tista' twieġeb kemm trid, ftit jew ħafna. Imma l-ebda struzzjoni m'għandha bżonn ismek, id-dettalji ta' kuntatt jew il-passwords tiegħek. Jekk iċ-chat jistaqsik xi ħaġa bħal din, la twieġibx, u għid lill-għalliem tiegħek. Ftakar ukoll li dak li tikteb f'chat tal-IA jinħażen mill-kumpanija li tħaddem iċ-chat. L-iskola tiegħek ħafna drabi għandha aċċess għal servizz tal-IA fejn il-privatezza tiegħek hija protetta. Staqsi lill-għalliem tiegħek, u użah jekk għandkom wieħed."
+        },
+        {
+          "id": "teachers",
+          "heading": "Għall-għalliema: siġra minn kollega",
+          "body": "Jekk irċevejt siġra minn xi ħadd ieħor, tista' tiftaħha fl-għodda tal-ħolqien fuq aiskilltrees.com/make-your-own/ qabel taqsamha mal-istudenti tiegħek, għal aktar sigurtà. L-għodda toħroġ biss l-ispreadsheet mill-fajl u tagħmel minnha fajl ġdid u nadif, u hemmhekk tista' taqra kull struzzjoni li tuża s-siġra."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Għanijiet tat-tagħlim",
+      "title": "Uri lista sistematika tal-għanijiet tat-tagħlim kollha, skont it-tema",
+      "heading": "Għanijiet tat-tagħlim",
+      "copyAll": "Ikkopja kollox",
+      "intro": "Il-lista turi l-għanijiet tat-tagħlim kollha tal-kors, skont it-tema, bl-istatus ta' kull wieħed. Immarka għan meta tafu — l-istess marka bħal fuq in-nodu fil-mappa — biex tkun tista' tgħaddi mil-lista bl-ordni u timmarka dak li għamilt.",
+      "markAria": "Immarka li taf “{name}”",
+      "markAllButton": "Immarka li taf kollox",
+      "clearAllButton": "Neħħi l-marki kollha",
+      "clearAllConfirm": "Tneħħi l-marka minn kull għan tat-tagħlim fis-siġra?",
+      "openNode": "Mur għal dan in-nodu fil-mappa"
+    },
+    "lessonPlanner": {
+      "button": "Pjanijiet tal-lezzjoni",
+      "title": "Agħżel għanijiet tat-tagħlim u kkopja struzzjoni tal-IA għal pjan tal-lezzjoni, siġra żgħira jew simulazzjoni",
+      "selectAll": "Agħżel kollox",
+      "deselectAll": "Neħħi l-għażla kollha",
+      "selectTopic": "Agħżel l-għanijiet kollha tat-tema “{topic}”",
+      "deselectTopic": "Neħħi l-għażla mill-għanijiet kollha tat-tema “{topic}”",
+      "heading": "Pjanijiet tal-lezzjoni",
+      "intro": "Immarka l-għanijiet tat-tagħlim li trid tagħmel xi ħaġa għalihom, u agħfas “Agħmel riżorsa” isfel. Hemmhekk tagħżel x'għandu jkun: pjan tal-lezzjoni, siġra żgħira jew simulazzjoni. Il-marki hawn huma biss għal dan: ma jimmarkaw xejn bħala magħruf, u jisparixxu meta terġa' ttella' l-paġna."
+    },
+    "search": {
+      "button": "Fittex",
+      "title": "Fittex fl-għanijiet tat-tagħlim skont l-isem u d-deskrizzjoni",
+      "heading": "Fittex",
+      "placeholder": "Fittex l-għanijiet tat-tagħlim …",
+      "hint": "Ikteb kelma. It-tiftix iħares lejn l-isem, id-deskrizzjoni u t-tema ta' kull għan tat-tagħlim, u tista' tikklikkja dritt għan-nodu fil-mappa.",
+      "noResults": "L-ebda għan tat-tagħlim ma fih “{query}”.",
+      "countOne": "Għan tat-tagħlim wieħed",
+      "countMany": "Għanijiet tat-tagħlim: {n}",
+      "openNode": "Mur għal dan in-nodu fil-mappa"
+    },
+    "resourceList": {
+      "button": "Eżerċizzji u sorsi",
+      "title": "Uri r-riżorsi kollha tas-siġra u l-għanijiet tat-tagħlim li jappartjenu għalihom",
+      "heading": "Eżerċizzji u sorsi",
+      "placeholder": "Iffiltra l-eżerċizzji u s-sorsi …",
+      "intro": "Eżerċizzji u sorsi: {n}",
+      "countFiltered": "{n} minn {total}",
+      "noResults": "L-ebda riżorsa ma taqbel ma' “{query}”.",
+      "openNode": "Mur għal dan in-nodu fil-mappa",
+      "help": "Eżerċizzji u sorsi li jappartjenu għas-siġra, bħal mistoqsijiet tal-eżamijiet, links u vidjows. Taħt kull wieħed hemm l-għanijiet tat-tagħlim li jappartjeni għalihom; agħfas wieħed biex tmur għalih fil-mappa. Ikteb fil-kaxxa biex tiffiltra."
+    },
+    "motivation": {
+      "button": "Motivazzjoni",
+      "title": "Ikkopja struzzjoni tal-IA għal konversazzjoni dwar għaliex is-suġġett jiswa li titgħallmu",
+      "heading": "Motivazzjoni",
+      "desc": "Konversazzjoni qasira mal-IA dwar għaliex is-suġġett jiswa li titgħallmu. L-IA tistaqsi u tisma', u flimkien issibu t-tweġiba.",
+      "help": "Agħfas “Ikkopja l-istruzzjoni” u waħħalha f'chat tal-IA. Il-konversazzjoni tibda minn fejn tgħid li int, u l-IA tistaqsi mistoqsija waħda kull darba. Xejn minn dak li tikteb ma jinħażen hawn.",
+      "startLabel": "Kif tħossok dwar is-suġġett?",
+      "start": {
+        "unknown": "Ma nafx",
+        "hard": "Diffiċli",
+        "bored": "Ddejjaqni",
+        "use": "Għalxiex se jservini?"
+      },
+      "lengthLabel": "Tul",
+      "length": {
+        "short": "Qasira",
+        "normal": "Normali",
+        "long": "Twila"
+      }
+    },
+    "lesson": {
+      "button": "Agħmel pjan tal-lezzjoni (għall-għalliema)",
+      "title": "Ikkopja struzzjoni tal-IA għal lezzjoni sħiħa fuq l-għanijiet li mmarkajt",
+      "typeLabel": "Tip ta' lezzjoni",
+      "typeAria": "X'tip ta' lezzjoni hija",
+      "types": {
+        "intro": "Introduzzjoni",
+        "practice": "Prattika",
+        "review": "Reviżjoni",
+        "other": "Oħra"
+      },
+      "minutesLabel": "Tul",
+      "minutesAria": "Tul tal-lezzjoni f'minuti",
+      "includeAria": "Inkludi “{name}” fil-pjan tal-lezzjoni",
+      "selectedNone": "L-ebda għan tat-tagħlim magħżul",
+      "selectedOne": "Għan tat-tagħlim wieħed magħżul",
+      "selectedMany": "Għanijiet magħżula: {n}"
+    },
+    "make": {
+      "button": "Agħmel riżorsa →",
+      "buttonTitle": "Agħżel x'tagħmel għall-għanijiet tat-tagħlim li mmarkajt",
+      "heading": "X'trid tagħmel?",
+      "back": "← L-għanijiet tat-tagħlim",
+      "forOne": "Għal għan tat-tagħlim wieħed:",
+      "forMany": "Għall-għanijiet magħżula ({n}):",
+      "copy": "Ikkopja l-istruzzjoni",
+      "htmlBadge": "Fajl HTML",
+      "htmlAfter": "Waħħalha f'chat tal-IA. It-tweġiba hija fajl HTML li tissejvja u tiftaħ f'browser, u li tista' taqsam mal-istudenti tiegħek.",
+      "lesson": {
+        "title": "Pjan tal-lezzjoni",
+        "desc": "Pjan sħiħ għal lezzjoni waħda, bil-minuti, x'imur fuq il-bord u t-tweġibiet għall-problemi kollha.",
+        "minutes": "min",
+        "shorter": "Iqsar",
+        "longer": "Itwal",
+        "after": "Waħħalha f'chat tal-IA. It-tweġiba hija pjan li tista' taqra minnu waqt li tgħallem.",
+        "typeHints": {
+          "intro": "Għanijiet ġodda: attività tal-bidu, eżempji maħdumin f'diversi rawnds, mistoqsija dijanjostika għal kull għan, u tiftakir fl-aħħar.",
+          "practice": "Għanijiet li l-istudenti tgħallmu reċentement: tfakkira qasira, imbagħad settijiet ta' problemi b'varjazzjonijiet żgħar u b'inqas u inqas għajnuna.",
+          "review": "Għanijiet ta' żmien ilu: tiftakir mingħajr noti, verifika ta' x'baqa' f'moħħhom, tagħlim mill-ġdid fejn hemm bżonn, u prattika mħallta.",
+          "other": "Xi ħaġa oħra: iddeskrivi l-lezzjoni int, jew l-IA tistaqsik l-ewwel."
+        }
+      },
+      "miniTree": {
+        "title": "Siġra żgħira",
+        "desc": "Siġra tal-ħiliet fejn l-istudenti jipprattikaw waħedhom qabel test: l-għanijiet magħżula miġbura f'ftit temi b'livelli, eżempju maħdum qabel kull rawnd ta' problemi, it-tweġiba u spjegazzjoni wara, u l-ħakma li tiftaħ il-livell li jmiss.",
+        "levelsLabel": "Livelli għal kull tema",
+        "levels1": "Livell wieħed",
+        "levels3": "Tliet livelli",
+        "streakLabel": "Tweġibiet tajba wara xulxin biex tgħaddi",
+        "supportLabel": "Adattament",
+        "easyRead": "Faċli tinqara (Comic Sans, ftit test)",
+        "readAloud": "Qari b'leħen għoli",
+        "game": "Stilel u livelli li jinfetħu",
+        "mixedTest": "Test ta' prattika mħallat",
+        "credit": "Mibni fuq il-prinċipji tal-għalliema tal-edukazzjoni speċjali Nina Haugerud."
+      },
+      "simulation": {
+        "title": "Simulazzjoni",
+        "desc": "Simulazzjoni interattiva li l-istudenti jistgħu jesploraw, b'mudell tas-suġġett li mhux ivvintat, u pannell li jispjega x'jista' u x'ma jistax jagħmel il-mudell.",
+        "workflowLabel": "Kif taħdem",
+        "design": "L-ewwel konversazzjoni dwar id-disinn",
+        "build": "Prototip mill-ewwel",
+        "screenLabel": "Skrin",
+        "laptop": "Laptop",
+        "tablet": "Tablet",
+        "projector": "Projector",
+        "extrasLabel": "Inkludi",
+        "tasks": "Kompiti għall-istudenti",
+        "critique": "Kritika tal-mudell",
+        "export": "Esportazzjoni tad-data (CSV)",
+        "credit": "Ibbażat fuq il-prompt ta' Henning Vinjusveen Myhrehagen fuq skolesim.no."
+      },
+      "less": "Inqas",
+      "more": "Aktar",
+      "help": "Kull riżorsa hija struzzjoni tal-IA. Agħżel dak li trid, agħfas “Ikkopja l-istruzzjoni” u waħħalha f'chat tal-IA bħal ChatGPT jew Claude. Il-pjan tal-lezzjoni jsir pjan li tista' taqra minnu waqt li tgħallem. Is-siġra żgħira u s-simulazzjoni jsiru fajl HTML li tissejvja, tiftaħ f'browser u tista' taqsam mal-istudenti tiegħek. L-għażliet ma jinħażnux.",
+      "forLabel": "Għanijiet:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Agħmel struzzjoni tal-IA għal test fuq dak li mmarkajt li taf",
+      "none": "Għadek ma mmarkajt l-ebda għan",
+      "countLabel": "Numru ta' mistoqsijiet",
+      "countAria": "Numru ta' mistoqsijiet fit-test",
+      "heading": "Test",
+      "desc": "Test bil-miktub fuq dak li mmarkajt li taf, bit-tweġibiet meta titlobhom.",
+      "help": "It-test jinbena mill-għanijiet tat-tagħlim li mmarkajt fis-siġra li taf. Agħżel id-diffikultà, in-numru u l-forma tal-mistoqsijiet, agħfas “Ikkopja l-istruzzjoni” u waħħalha f'chat tal-IA. L-IA turi l-ewwel il-mistoqsijiet biss, u tagħti t-tweġibiet u valutazzjoni meta titlobhom.",
+      "covers": "It-test ikopri l-għanijiet li taf ({n}):",
+      "coversOne": "It-test ikopri għan wieħed li taf:",
+      "noneHint": "Għadek ma mmarkajt l-ebda għan tat-tagħlim li taf. Immarka fis-siġra dak li taf, u mbagħad tista' tagħmel test.",
+      "showAll": "Uri l-għanijiet tat-tagħlim kollha",
+      "showSelected": "Uri biss l-għanijiet magħżula",
+      "difficultyLabel": "Diffikultà",
+      "difficulty": {
+        "easy": "Faċli",
+        "medium": "Medja",
+        "hard": "Diffiċli"
+      },
+      "difficultyHints": {
+        "easy": "Għan wieħed f'kull mistoqsija, l-aktar każijiet komuni u l-ebda nassa.",
+        "medium": "Bħal test normali: xi mistoqsijiet sempliċi, u xi wħud li jgħaqqdu diversi għanijiet.",
+        "hard": "Il-biċċa l-kbira tal-mistoqsijiet jgħaqqdu l-għanijiet, jużaw kuntesti ġodda jew jitolbuk tispjega jew issib żball."
+      },
+      "formatLabel": "Forma tal-mistoqsijiet",
+      "format": {
+        "closed": "Magħluqa",
+        "open": "Miftuħa",
+        "mixed": "Imħallta"
+      },
+      "formatHints": {
+        "closed": "Għażla multipla jew tweġibiet qosra li jistgħu jiġu ċċekkjati ma' ċavetta.",
+        "open": "Turi l-ħidma tiegħek jew tispjega b'kliemek.",
+        "mixed": "Bejn wieħed u ieħor nofs u nofs."
+      },
+      "coversLabel": "It-test ikopri:"
+    },
+    "node": {
+      "markMastered": "Immarka li tafu"
+    },
+    "column": {
+      "markAll": "Immarka li taf l-għanijiet kollha tat-tema “{topic}”",
+      "clearAll": "Neħħi l-marka mill-għanijiet kollha tat-tema “{topic}”"
+    },
+    "detail": {
+      "show": "Uri l-istruzzjoni",
+      "hide": "Aħbi l-istruzzjoni",
+      "copy": "Ikkopja l-istruzzjoni",
+      "prereqs": "Prerekwiżiti",
+      "resources": "Riżorsi",
+      "mastered": "✓ Tafu",
+      "available": "Miftuħ — għandek il-prerekwiżiti kollha",
+      "locked": "Imsakkar — jonqsu prerekwiżiti",
+      "empty": "Ikklikkja nodu fil-mappa biex tara d-dettalji."
+    },
+    "loadError": "Żball kritiku waqt it-tagħbija: {message} (qed tiftaħ il-paġna permezz ta' server lokali? F'ħafna browsers, fetch() tal-fajls tad-data ma jaħdimx meta index.html jinfetaħ direttament mid-diska.)",
+    "defaultTopic": "Oħrajn",
+    "aids": {
+      "heading": "Għajnuniet",
+      "tagTitle": "Ara x'tista' tuża f'dan il-livell",
+      "multipleNote": "Dan l-għan tat-tagħlim jappartjeni għal diversi livelli. Għandek tlaħħaq miegħu fl-iktar wieħed strett minnhom — jiġifieri bl-inqas għajnuniet.",
+      "multipleNoteGeneral": "Għan tat-tagħlim jista' jappartjeni għal diversi livelli. Imbagħad it-tikketta tiegħu tinqasam f'diversi kuluri, u għandek tlaħħaq miegħu fl-iktar livell strett minnhom — jiġifieri bl-inqas għajnuniet."
+    },
+    "menu": {
+      "label": "Menu",
+      "groups": {
+        "practice": "Ipprattika",
+        "plan": "Ippjana",
+        "about": "Dwar"
+      }
+    },
+    "download": {
+      "button": "Niżżel is-siġra",
+      "title": "Niżżel is-siġra f'żewġ forom: l-ispreadsheet li tista' teditja, u fajl wieħed li jaħdem offline",
+      "working": "Qed nagħmel il-fajl wieħed…",
+      "failed": "Il-fajl wieħed ma setax isir",
+      "edit": "Editja s-siġra",
+      "editTitle": "Iftaħ is-siġra fl-editur, fejn tista' tbiddilha u tniżżilha bħala spreadsheet jew bħala fajl wieħed li jaħdem offline"
+    },
+    "courseInfo": {
+      "button": "Dwar il-kors",
+      "heading": "Dwar il-kors",
+      "division": "Sena jew fakultà",
+      "curriculum": "Kurrikulu",
+      "institution": "Istituzzjoni",
+      "country": "Pajjiż",
+      "language": "Lingwa",
+      "size": "Daqs",
+      "decompositionVersion": "Mudell tad-dekompożizzjoni",
+      "credits": "Magħmul minn",
+      "author": "Awtur",
+      "updated": "L-aħħar aġġornament",
+      "license": "Liċenzja",
+      "basedOn": "Ibbażat fuq",
+      "skills": "ħiliet: {n}",
+      "concepts": "kunċetti: {n}",
+      "facts": "listi ta' fatti: {n}",
+      "nodes": "nodi: {n}"
+    },
+    "helpToggle": "Spjegazzjoni",
+    "print": {
+      "button": "Ipprintja",
+      "title": "Niżżel is-siġra kollha bħala PDF, lesta għall-ipprintjar",
+      "working": "Qed nagħmel il-PDF …",
+      "failed": "Il-PDF ma setax isir",
+      "heading": "Ipprintja",
+      "help": "Niżżel is-siġra kollha bħala paġna PDF waħda, lesta għall-ipprintjar. Il-preview turi l-folja kif se toħroġ. It-titlu u aiskilltrees.com dejjem ikunu fuq il-folja.",
+      "paperLabel": "Daqs tal-karta",
+      "orientationLabel": "Orjentazzjoni",
+      "orientation": {
+        "auto": "Awtomatika",
+        "landscape": "Orizzontali",
+        "portrait": "Vertikali"
+      },
+      "colorLabel": "Kuluri",
+      "color": {
+        "color": "Bil-kulur",
+        "gray": "Iswed u abjad"
+      },
+      "rings": "Ċrieki biex timmarka",
+      "legend": "Leġġenda",
+      "download": "Niżżel il-PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Lura għall-veduta li kellek"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Maltese, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO MALTESE belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is the bare \"Malti\", without the article (il-Malti, bil-Malti), so it reads as a name in the English prompts (\"Comment the code in Malti\") and a config row `languageName` slots in too; `outputLanguage` therefore names it after a colon (\"Il-lingwa ta' din il-konversazzjoni: …\") and refers back to it as \"din il-lingwa\". The gender note is the Maltese counterpart of the Swedish \"hen\": adjectives and participles are gendered, second-person verbs are not. Maltese teachers address a pupil as \"int\". NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another (many Maltese learners will want English for maths terms). That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "Malti",
+    "outputLanguage": "Il-lingwa ta' din il-konversazzjoni: {conversationLanguage}. Mexxi l-konversazzjoni kollha b'din il-lingwa. Dak kollu li hu kkwotat hawn taħt mis-siġra tal-ħiliet — l-ismijiet tan-nodi, id-deskrizzjonijiet, il-prerekwiżiti — huwa miktub b'din il-lingwa, u b'din il-lingwa l-utent jistenna li tkellmu. Parti mill-istruzzjoni li qed taqra issa hija bl-Ingliż; dan mhux sinjal biex twieġeb bl-Ingliż. La tbiddilx il-lingwa fuq inizjattiva tiegħek, u la tikkummentax dwar il-lingwa li biha hija miktuba l-istruzzjoni. Kellem lill-utent b'“int”, bħalma għalliem ikellem lil student. Sakemm ma tafx jekk qed titkellem ma' tifel jew ma' tifla, evita l-forom li juru l-ġeneru (pereżempju, ikteb “irnexxielek”, mhux “int lest” jew “int kuntent”). Jekk trid issemmi lil min qed jitgħallem, il-kelma hija “{learnerDefinite}” — mhux xi kelma oħra għall-istess ħaġa.",
+    "writingStyle": "Eżempji bil-Malti taż-żewġ pariri ta' hawn fuq:\n- Il-vuċi attiva: ikteb “nistgħu niktbu n-numru bħala …”, mhux “in-numru jista' jinkiteb bħala …”; ikteb “nagħmlu dan billi …” jew “tagħmel dan billi …”, mhux “dan isir billi …”. Evita “jiġi kkalkulat” u “jista' jsir” meta tista' tgħid min qed jagħmel il-ħaġa.\n- Kliem li hu korrett imma rari fit-taħdit, kotbi jew kbir wisq għall-età, biddlu b'kelma aktar sempliċi: “għaldaqstant” (→ “għalhekk”), “sabiex” (→ “biex”), “madankollu” (→ “imma”), “jeħtieġ” (→ “hemm bżonn”). It-test tal-ħabib: verament tgħid din il-kelma b'leħen għoli lil ħabib tiegħek?",
+    "overrides": {}
+  }
+}

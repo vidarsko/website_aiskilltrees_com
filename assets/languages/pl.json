@@ -1,0 +1,458 @@
+{
+  "code": "pl",
+  "htmlLang": "pl",
+  "name": "Polski",
+  "endonym": "Polski",
+  "_comment": "Everything that varies with LANGUAGE, in one file. Adding a language means writing this one file - engine.js, prompts/ and the tree folders stay untouched. Same key set as languages/en.json. Second-person past tense and adjectives are gendered in Polish (zrobiłeś/zrobiłaś, gotowy/gotowa), so the strings here avoid them: present tense, imperatives and neuter forms. Counts use the form \"Label: {n}\", because a noun after a bare number changes with the number (2 cele, 5 celów).",
+  "learner": {
+    "_comment": "What the learner is CALLED. Polish has no articles, so the 'definite' form is the bare noun in the nominative: \"uczeń\", \"student\", \"uczestnik\". The lead-ins use present-tense verbs (potrafi, pamięta), which do not change with gender, so they also fit \"uczennica\" or \"studentka\" if a tree sets those. A skill description is an infinitive phrase (\"Uczeń potrafi: obliczać …\"), a concept a definition.",
+    "default": "uczeń",
+    "legacy": {
+      "pupil": "uczeń",
+      "student": "student",
+      "participant": "uczestnik"
+    },
+    "leadIn": {
+      "skill": "{LearnerDefinite} potrafi:",
+      "concept": "{LearnerDefinite} potrafi wyjaśnić:",
+      "fact": "{LearnerDefinite} pamięta:"
+    }
+  },
+  "ui": {
+    "backLink": "← Wszystkie drzewa",
+    "pageTitle": "Drzewo umiejętności: {title}",
+    "tagline": "Mapa tego, jak cele nauki opierają się na sobie nawzajem — zaznacz to, co już umiesz, i skopiuj instrukcję dla AI, żeby ćwiczyć dalej.",
+    "makeYourOwn": "{subject}. Zrób własne drzewo:",
+    "progressLabel": "Opanowane cele: {done} z {total}",
+    "zoomIn": "Powiększ",
+    "zoomOut": "Pomniejsz",
+    "fitToView": "Pokaż całe drzewo",
+    "fitToViewTitle": "Pokaż całe drzewo (Ctrl + kółko myszy powiększa)",
+    "close": "✕ Zamknij",
+    "closeLower": "✕ Zamknij",
+    "copied": "Skopiowano!",
+    "copyFallback": "Nie udało się skopiować automatycznie — skopiuj poniższy tekst ręcznie:",
+    "errorBanner": "⚠ Problemy w plikach danych: {n} (szczegóły w konsoli):",
+    "errorCsv": "Nie udało się odczytać arkusza w wierszu {row}: {message}",
+    "errorCsvHeader": "Pierwszy wiersz pliku {file} musi zawierać nazwy kolumn. Brakuje: {missing}. Pierwszy wiersz brzmi: {found}. Plik zapisano prawdopodobnie bez pierwszego wiersza albo w innym formacie; zapisz go ponownie jako zwykły CSV.",
+    "errorUnknownDep": "Węzeł „{id}” podaje „{dep}” jako wymaganie wstępne, ale żaden węzeł nie ma takiego id.",
+    "errorNoTopic": "Węzeł „{id}” nie ma tematu i trafia do zbiorczej kolumny „{topic}”.",
+    "errorUnknownResourceNode": "Wiersz {row} w tree.csv: zasób odwołuje się w depends_on do id węzła „{id}”, którego nie ma.",
+    "errorExamsRenamed": "Wiersz {row} w tree.csv: ustawienie „features.exams” pochodzi sprzed wersji 0.22.0. Zasoby to teraz wiersze w tree.csv z typem „resource”: topic = grupa, name = tytuł, description = link, depends_on = węzły. Usuń ten wiersz i otwórz drzewo w kreatorze, żeby przekonwertować stary plik exams.csv. Niczego nie zastosowano.",
+    "errorResourceEmpty": "Wiersz {row} w tree.csv: zasób nie ma ani tytułu (name), ani linku (description).",
+    "errorResourceNoNode": "Wiersz {row} w tree.csv: zasób „{label}” nie należy do żadnego węzła. Wpisz w depends_on jedno lub więcej id węzłów albo usuń wiersz.",
+    "errorResourceDuplicate": "Wiersz {row} w tree.csv: zasób „{label}” jest taki sam jak w wierszu {first}. Połącz je w jeden wiersz, ze wszystkimi węzłami w depends_on.",
+    "errorResourceUrl": "Wiersz {row} w tree.csv: link zasobu „{label}” musi zaczynać się od https:// lub mailto:. Dlatego jest pokazany jako zwykły tekst, bez linku.",
+    "errorCycle": "Te węzły są dla siebie nawzajem wymaganiami wstępnymi, w kółko: {cycle}. Jedno z tych powiązań trzeba usunąć.",
+    "errorUnknownConfig": "Nieznane ustawienie „{key}” w wierszu {row} w tree.csv. Niczego nie zastosowano.",
+    "errorUnknownNodeType": "Węzeł „{id}” ma typ „{type}”, który nie istnieje. Dostępne typy: {valid}.",
+    "errorUnknownPromptSection": "Nieznana sekcja „{section}” w wierszu prompt (wiersz {row} w tree.csv). Niczego nie zastosowano.",
+    "errorUnknownPromptTarget": "Wiersz prompt (wiersz {row} w tree.csv) dotyczy „{name}”, a to nie jest instrukcja, którą składa to drzewo. Niczego nie zastosowano.",
+    "errorDidYouMean": "Czy chodziło o „{key}”?",
+    "errorMissingConfig": "W tree.csv brakuje wymaganego wiersza config dla „{key}”.",
+    "errorStyleColor": "Ustawienie „{key}” w wierszu {row} w tree.csv musi być kolorem zapisanym jako kod szesnastkowy, np. #1F6F4A. „{value}” nim nie jest, więc zostaje kolor domyślny.",
+    "errorLinkUrl": "Ustawienie „{key}” w wierszu {row} w tree.csv musi być linkiem zaczynającym się od https:// lub mailto:. „{value}” nim nie jest, więc jest pokazane jako zwykły tekst.",
+    "errorStyleFont": "Nieznana czcionka „{value}” w wierszu {row} w tree.csv. Czcionki, których drzewo może używać: {valid}. Zostaje czcionka domyślna.",
+    "nodeType": {
+      "skill": "umiejętność",
+      "concept": "pojęcie",
+      "fact": "fakty"
+    },
+    "badges": {
+      "del1": "Część 1",
+      "del2": "Część 2",
+      "begge": "Część 1+2"
+    },
+    "status": {
+      "mastered": "Opanowane",
+      "ready": "Gotowe do nauki",
+      "notMastered": "Jeszcze nieopanowane",
+      "blocked": "Najpierw potrzebne: {codes}"
+    },
+    "help": {
+      "label": "Pomoc",
+      "heading": "Pomoc",
+      "sections": [
+        {
+          "heading": "Menu",
+          "body": "Wszystko inne jest pod ☰ w lewym dolnym rogu: cele nauki, wyszukiwanie, test, drukowanie i reszta. Każde okno ma „?”, które je objaśnia.",
+          "figure": "menu"
+        },
+        {
+          "heading": "Mapa",
+          "body": "Każde pole to jeden cel nauki, a strzałki prowadzą od tego, co trzeba umieć najpierw. Kształt pokazuje typ: fakty są kwadratowe, pojęcia lekko zaokrąglone, a umiejętności okrągłe. Przeciągnij, żeby przesunąć mapę, i powiększaj przyciskami + i −.",
+          "figure": "map"
+        },
+        {
+          "heading": "Opanowane",
+          "body": "Naciśnij kółko w polu, gdy umiesz dany cel, a zmieni się w zielonego ptaszka. Zapisuje się to tylko w twojej przeglądarce.",
+          "figure": "check"
+        },
+        {
+          "heading": "Jedno pole",
+          "body": "Naciśnij pole, żeby zobaczyć, czego wymaga cel, na czym się opiera, i instrukcję dla AI, którą możesz wkleić do czatu z AI, żeby poćwiczyć. Naciśnij jeszcze raz, żeby zamknąć.",
+          "figure": "detail"
+        },
+        {
+          "heading": "Zaznacz wiele",
+          "body": "Ikony list zaznaczają naraz wszystkie cele w temacie albo usuwają zaznaczenia. Przy A i B działają na całe drzewo.",
+          "figure": "bulk"
+        },
+        {
+          "heading": "Szukaj",
+          "body": "Znajdź cel nauki po słowie z jego nazwy lub opisu.",
+          "figure": "search"
+        },
+        {
+          "heading": "Test",
+          "body": "Instrukcja dla AI do testu z celów, które wybierzesz. Ty decydujesz o poziomie trudności, liczbie i rodzaju zadań.",
+          "figure": "exam"
+        },
+        {
+          "heading": "Plany lekcji (dla nauczycieli)",
+          "body": "Wybierz cele nauki i naciśnij „Utwórz materiał”, żeby dostać plan lekcji, mini drzewo albo symulację.",
+          "figure": "lesson"
+        },
+        {
+          "heading": "Drukuj",
+          "body": "Pobierz całe drzewo jako PDF, z kółkami, które uczniowie mogą zaznaczać długopisem.",
+          "figure": "print"
+        },
+        {
+          "heading": "Etykieta dozwolonych pomocy",
+          "body": "„Część 1” lub „Część 2” w panelu pokazuje, do którego poziomu dozwolonych pomocy należy cel. Naciśnij etykietę, żeby przeczytać więcej w „O kursie”.",
+          "when": "feature:aids"
+        },
+        {
+          "heading": "Motywacja",
+          "body": "Krótka rozmowa z AI o tym, dlaczego warto uczyć się tego przedmiotu.",
+          "figure": "motivation",
+          "when": "feature:motivation"
+        }
+      ],
+      "shortcuts": {
+        "heading": "Skróty klawiszowe",
+        "search": "Otwórz wyszukiwanie",
+        "escape": "Zamknij otwarte okno, menu lub panel",
+        "zoom": "Powiększ i pomniejsz",
+        "fit": "Pokaż całe drzewo i wróć do poprzedniego widoku"
+      }
+    },
+    "safety": {
+      "label": "Bezpieczeństwo",
+      "heading": "Bezpieczeństwo",
+      "lead": "Drzewo umiejętności tworzy nauczyciel, ale każdy może zrobić plik, który wygląda jak drzewo. Przeczytaj to, zanim użyjesz drzewa, które ktoś ci przysłał.",
+      "sections": [
+        {
+          "id": "personal",
+          "heading": "Drzewo umiejętności nigdy nie prosi o dane osobowe",
+          "body": "Drzewo nie ma logowania i nie potrzebuje żadnych informacji o tobie. Nigdy nie prosi o imię i nazwisko, hasło, szkolny login, numer PESEL, adres, numer telefonu ani o to, do jakiej szkoły chodzisz. Twoje postępy zapisują się tylko w przeglądarce na tym urządzeniu. Jeśli strona, która wygląda jak drzewo umiejętności, prosi o cokolwiek z tego, to nie jest prawdziwe drzewo. Zamknij ją i powiedz o tym nauczycielowi."
+        },
+        {
+          "id": "sender",
+          "heading": "Kto przysłał ci drzewo?",
+          "body": "Najważniejsze pytanie brzmi: skąd pochodzi drzewo? Drzewu z aiskilltrees.com albo takiemu, które nauczyciel zamieścił tam, gdzie zwykle dostajesz materiały do lekcji, możesz ufać tak samo jak nauczycielowi. Jeśli plik przyszedł mailem, na czacie albo w mediach społecznościowych od kogoś, kogo nie znasz, albo zupełnie niespodziewanie, zachowaj ostrożność, nawet jeśli wszystko wygląda dobrze."
+        },
+        {
+          "id": "html",
+          "heading": "Plik HTML to strona internetowa, a nie dokument",
+          "body": "Gdy ktoś udostępnia drzewo jako plik .html, nie dostajesz dokumentu takiego jak PDF czy plik Worda. Dostajesz całą stronę internetową z kodem, który uruchamia się, gdy ją otworzysz. Przeglądarka nie pozwala jej czytać twoich plików ani niczego instalować na komputerze, ale strona może pokazać cokolwiek: fałszywą stronę logowania, przycisk, który coś pobiera, albo linki do innych stron. O tym, co robi plik, decyduje ten, kto go zrobił. To, że wygląda jak drzewo umiejętności, nie znaczy, że nim jest. Nigdy nie loguj się i niczego nie pobieraj ze strony otwartej z pliku."
+        },
+        {
+          "id": "links",
+          "heading": "Sprawdź link, zanim klikniesz",
+          "body": "Zasoby w drzewie mogą prowadzić do filmów, ćwiczeń i podręczników. Najedź na link albo przytrzymaj go palcem i zobacz, dokąd prowadzi, zanim klikniesz. Jeśli nie znasz strony albo adres wygląda dziwnie, nie otwieraj go."
+        },
+        {
+          "id": "injection",
+          "heading": "Instrukcję można zmanipulować",
+          "body": "Instrukcja dla AI, którą kopiujesz, to tekst napisany przez autora drzewa, a ty wklejasz ją prosto do czatu z AI. Autor drzewa może w niej napisać wszystko, także polecenia, przez które czat zachowa się inaczej, niż się spodziewasz: poda ci błędne odpowiedzi, odeśle cię na inną stronę albo zapyta o rzeczy, które nie są jego sprawą. Nazywa się to prompt injection (wstrzykiwanie poleceń). Warto przejrzeć tekst, zanim go wkleisz, i nie ufać czatowi bezkrytycznie."
+        },
+        {
+          "id": "chat",
+          "heading": "To ty decydujesz, co mówisz czatowi",
+          "body": "Niektóre instrukcje proszą czat, żeby cię poznał, na przykład co myślisz o przedmiocie i co ci dobrze wychodzi. Możesz odpowiedzieć tyle, ile chcesz. Ale żadna instrukcja nie potrzebuje twojego imienia i nazwiska, danych kontaktowych ani haseł. Jeśli czat prosi o coś takiego, nie odpowiadaj i powiedz o tym nauczycielowi. Pamiętaj też, że to, co piszesz na czacie z AI, przechowuje firma, która prowadzi ten czat. Twoja szkoła często ma dostęp do usługi AI, w której twoja prywatność jest chroniona. Zapytaj nauczyciela i korzystaj z niej, jeśli ją macie."
+        },
+        {
+          "id": "teachers",
+          "heading": "Dla nauczycieli: drzewo od kogoś z grona",
+          "body": "Jeśli drzewo pochodzi od kogoś innego, możesz dla pewności otworzyć je w kreatorze na aiskilltrees.com/make-your-own/, zanim udostępnisz je uczniom. Kreator wyjmuje z pliku tylko arkusz i robi z niego nowy, czysty plik, a tam możesz przeczytać każdą instrukcję, której używa drzewo."
+        }
+      ]
+    },
+    "goalIndex": {
+      "button": "Cele nauki",
+      "title": "Pokaż uporządkowaną listę wszystkich celów nauki, według tematów",
+      "heading": "Cele nauki",
+      "copyAll": "Kopiuj wszystko",
+      "intro": "Lista pokazuje wszystkie cele nauki w kursie, uporządkowane według tematów, ze stanem każdego z nich. Zaznacz cel, żeby oznaczyć go jako opanowany — to ten sam znaczek co przy węźle na mapie — wtedy możesz iść po liście po kolei i odhaczać to, co masz już za sobą.",
+      "markAria": "Oznacz cel „{name}” jako opanowany",
+      "markAllButton": "Oznacz wszystkie jako opanowane",
+      "clearAllButton": "Usuń wszystkie oznaczenia",
+      "clearAllConfirm": "Usunąć oznaczenie „opanowane” ze wszystkich celów w drzewie?",
+      "openNode": "Przejdź do tego węzła na mapie"
+    },
+    "lessonPlanner": {
+      "button": "Plany lekcji",
+      "title": "Wybierz cele nauki i skopiuj instrukcję dla AI do planu lekcji, mini drzewa albo symulacji",
+      "selectAll": "Zaznacz wszystkie",
+      "deselectAll": "Odznacz wszystkie",
+      "selectTopic": "Zaznacz wszystkie cele w temacie „{topic}”",
+      "deselectTopic": "Odznacz wszystkie cele w temacie „{topic}”",
+      "heading": "Plany lekcji",
+      "intro": "Zaznacz cele nauki, dla których chcesz coś przygotować, i naciśnij „Utwórz materiał” na dole. Tam wybierasz, co to ma być: plan lekcji, mini drzewo czy symulacja. Te zaznaczenia służą tylko do tego: niczego nie oznaczają jako opanowane i znikają po odświeżeniu strony."
+    },
+    "search": {
+      "button": "Szukaj",
+      "title": "Przeszukaj cele nauki po nazwie i opisie",
+      "heading": "Szukaj",
+      "placeholder": "Szukaj celów nauki …",
+      "hint": "Wpisz słowo. Wyszukiwarka przeszukuje nazwę, opis i temat każdego celu, a z wyniku możesz od razu przejść do węzła na mapie.",
+      "noResults": "Żaden cel nie zawiera „{query}”.",
+      "countOne": "1 cel nauki",
+      "countMany": "Znalezione cele: {n}",
+      "openNode": "Przejdź do tego węzła na mapie"
+    },
+    "resourceList": {
+      "button": "Zadania i źródła",
+      "title": "Pokaż wszystkie zasoby w drzewie i cele, do których należą",
+      "heading": "Zadania i źródła",
+      "placeholder": "Filtruj zadania i źródła …",
+      "intro": "Zadania i źródła: {n}",
+      "countFiltered": "{n} z {total}",
+      "noResults": "Żaden zasób nie pasuje do „{query}”.",
+      "openNode": "Przejdź do tego węzła na mapie",
+      "help": "Zadania i źródła należące do drzewa, np. zadania egzaminacyjne, linki i filmy. Pod każdym z nich są cele, do których należy; naciśnij cel, żeby przejść do niego na mapie. Pisz w polu, żeby filtrować."
+    },
+    "motivation": {
+      "button": "Motywacja",
+      "title": "Skopiuj instrukcję dla AI do rozmowy o tym, dlaczego warto uczyć się tego przedmiotu",
+      "heading": "Motywacja",
+      "desc": "Krótka rozmowa z AI o tym, dlaczego warto uczyć się tego przedmiotu. AI pyta i słucha, a odpowiedź wypracowujecie razem.",
+      "help": "Naciśnij „Kopiuj instrukcję” i wklej ją do czatu z AI. Rozmowa zaczyna się od tego, co wybierzesz, a AI zadaje jedno pytanie naraz. Nic, co piszesz, nie zapisuje się tutaj.",
+      "startLabel": "Co myślisz o tym przedmiocie?",
+      "start": {
+        "unknown": "Nie wiem",
+        "hard": "Jest trudny",
+        "bored": "Jest nudny",
+        "use": "Po co mi to?"
+      },
+      "lengthLabel": "Długość",
+      "length": {
+        "short": "Krótka",
+        "normal": "Zwykła",
+        "long": "Długa"
+      }
+    },
+    "lesson": {
+      "button": "Zrób plan lekcji (dla nauczycieli)",
+      "title": "Skopiuj instrukcję dla AI do pełnej lekcji obejmującej zaznaczone cele",
+      "typeLabel": "Typ lekcji",
+      "typeAria": "Jaki to rodzaj lekcji",
+      "types": {
+        "intro": "Wprowadzenie",
+        "practice": "Ćwiczenia",
+        "review": "Powtórka",
+        "other": "Inna"
+      },
+      "minutesLabel": "Długość",
+      "minutesAria": "Długość lekcji w minutach",
+      "includeAria": "Uwzględnij „{name}” w planie lekcji",
+      "selectedNone": "Nie zaznaczono żadnego celu",
+      "selectedOne": "Zaznaczono 1 cel",
+      "selectedMany": "Zaznaczone cele: {n}"
+    },
+    "make": {
+      "button": "Utwórz materiał →",
+      "buttonTitle": "Wybierz, co przygotować dla zaznaczonych celów",
+      "heading": "Co chcesz zrobić?",
+      "back": "← Cele nauki",
+      "forOne": "Dla 1 celu:",
+      "forMany": "Dla {n} celów:",
+      "copy": "Kopiuj instrukcję",
+      "htmlBadge": "Plik HTML",
+      "htmlAfter": "Wklej ją do czatu z AI. Odpowiedzią będzie plik HTML, który zapisujesz, otwierasz w przeglądarce i możesz udostępnić uczniom.",
+      "lesson": {
+        "title": "Plan lekcji",
+        "desc": "Pełny plan jednej lekcji, z podziałem na minuty, tym, co trafia na tablicę, i odpowiedziami do wszystkich zadań.",
+        "minutes": "min",
+        "shorter": "Krócej",
+        "longer": "Dłużej",
+        "after": "Wklej ją do czatu z AI. Odpowiedzią będzie plan, z którego możesz korzystać w trakcie lekcji.",
+        "typeHints": {
+          "intro": "Nowe cele: zadanie na start, przykłady rozwiązane krok po kroku w rundach, pytanie diagnostyczne do każdego celu i przypominanie z pamięci na koniec.",
+          "practice": "Cele, które uczniowie poznali niedawno: krótkie przypomnienie, potem serie zadań z małymi zmianami i coraz mniejszym wsparciem.",
+          "review": "Cele sprzed jakiegoś czasu: przypominanie bez notatek, sprawdzenie, co zostało w pamięci, ponowne wyjaśnienie tam, gdzie trzeba, i ćwiczenia mieszane.",
+          "other": "Coś innego: opisz lekcję własnymi słowami albo AI najpierw cię zapyta."
+        }
+      },
+      "miniTree": {
+        "title": "Mini drzewo",
+        "desc": "Drzewo umiejętności, w którym uczniowie ćwiczą samodzielnie przed sprawdzianem: wybrane cele zebrane w kilka tematów z poziomami, przykład rozwiązany krok po kroku przed każdą rundą zadań, odpowiedź i wyjaśnienie po niej, a opanowanie poziomu otwiera następny.",
+        "levelsLabel": "Poziomy w temacie",
+        "levels1": "Jeden poziom",
+        "levels3": "Trzy poziomy",
+        "streakLabel": "Poprawnie z rzędu, by opanować",
+        "supportLabel": "Dostosowanie",
+        "easyRead": "Łatwe czytanie (Comic Sans, mało tekstu)",
+        "readAloud": "Czytanie na głos",
+        "game": "Gwiazdki i odblokowywanie",
+        "mixedTest": "Mieszany test próbny",
+        "credit": "Na podstawie zasad Niny Haugerud, nauczycielki edukacji specjalnej."
+      },
+      "simulation": {
+        "title": "Symulacja",
+        "desc": "Interaktywna symulacja, którą uczniowie mogą badać, z modelem merytorycznym, który nie jest zmyślony, i panelem wyjaśniającym, co model potrafi, a czego nie.",
+        "workflowLabel": "Sposób pracy",
+        "design": "Najpierw rozmowa o projekcie",
+        "build": "Od razu prototyp",
+        "screenLabel": "Ekran",
+        "laptop": "Laptop",
+        "tablet": "Tablet",
+        "projector": "Projektor",
+        "extrasLabel": "Dołącz",
+        "tasks": "Zadania dla uczniów",
+        "critique": "Krytyka modelu",
+        "export": "Eksport danych (CSV)",
+        "credit": "Na podstawie promptu Henninga Vinjusveena Myhrehagena ze skolesim.no."
+      },
+      "less": "Mniej",
+      "more": "Więcej",
+      "help": "Każdy materiał to instrukcja dla AI. Wybierz, czego chcesz, naciśnij „Kopiuj instrukcję” i wklej ją do czatu z AI, np. ChatGPT albo Claude. Z planu lekcji powstaje plan, z którego korzystasz w trakcie lekcji. Z mini drzewa i symulacji powstaje plik HTML, który zapisujesz, otwierasz w przeglądarce i możesz udostępnić uczniom. Wybory nie zapisują się.",
+      "forLabel": "Dla:"
+    },
+    "exam": {
+      "button": "Test",
+      "title": "Utwórz instrukcję dla AI do testu z celów oznaczonych jako opanowane",
+      "none": "Brak opanowanych celów",
+      "countLabel": "Liczba zadań",
+      "countAria": "Liczba zadań w teście",
+      "heading": "Test",
+      "desc": "Pisemny test z celów oznaczonych jako opanowane, z odpowiedziami, gdy o nie poprosisz.",
+      "help": "Test powstaje z celów, które w drzewie są oznaczone jako opanowane. Wybierz poziom trudności, liczbę zadań i ich rodzaj, naciśnij „Kopiuj instrukcję” i wklej ją do czatu z AI. AI najpierw pokazuje tylko zadania, a odpowiedzi i ocenę daje wtedy, gdy o nie poprosisz.",
+      "covers": "Opanowane cele w teście ({n}):",
+      "coversOne": "Test obejmuje 1 opanowany cel:",
+      "noneHint": "Nie ma jeszcze żadnego celu oznaczonego jako opanowany. Zaznacz w drzewie to, co umiesz, a wtedy możesz utworzyć test.",
+      "showAll": "Pokaż wszystkie cele",
+      "showSelected": "Pokaż tylko wybrane cele",
+      "difficultyLabel": "Poziom trudności",
+      "difficulty": {
+        "easy": "Łatwy",
+        "medium": "Średni",
+        "hard": "Trudny"
+      },
+      "difficultyHints": {
+        "easy": "Jeden cel na zadanie, najczęstsze przypadki i żadnych pułapek.",
+        "medium": "Jak zwykły sprawdzian: kilka prostych zadań i kilka, które łączą kilka celów.",
+        "hard": "Większość zadań łączy cele, wykorzystuje nowe sytuacje albo prosi o wyjaśnienie lub znalezienie błędu."
+      },
+      "formatLabel": "Rodzaj zadań",
+      "format": {
+        "closed": "Zamknięte",
+        "open": "Otwarte",
+        "mixed": "Mieszane"
+      },
+      "formatHints": {
+        "closed": "Zadania wyboru albo krótkie odpowiedzi, które można sprawdzić z kluczem.",
+        "open": "Pokazujesz rozwiązanie albo wyjaśniasz własnymi słowami.",
+        "mixed": "Mniej więcej po połowie."
+      },
+      "coversLabel": "Test obejmuje:"
+    },
+    "node": {
+      "markMastered": "Oznacz jako opanowane"
+    },
+    "column": {
+      "markAll": "Oznacz wszystkie cele w temacie „{topic}” jako opanowane",
+      "clearAll": "Usuń oznaczenie „opanowane” ze wszystkich celów w temacie „{topic}”"
+    },
+    "detail": {
+      "show": "Pokaż instrukcję",
+      "hide": "Ukryj instrukcję",
+      "copy": "Kopiuj instrukcję",
+      "prereqs": "Wymagania wstępne",
+      "resources": "Zasoby",
+      "mastered": "✓ Opanowane",
+      "available": "Dostępne — wymagania wstępne spełnione",
+      "locked": "Zablokowane — brakuje wymagań wstępnych",
+      "empty": "Kliknij węzeł na mapie, żeby zobaczyć szczegóły."
+    },
+    "loadError": "Błąd krytyczny podczas ładowania: {message} (czy stronę serwuje lokalny serwer? W wielu przeglądarkach fetch() plików danych nie działa, gdy index.html otwiera się prosto z dysku.)",
+    "defaultTopic": "Inne",
+    "aids": {
+      "heading": "Dozwolone pomoce",
+      "tagTitle": "Zobacz, z czego możesz korzystać na tym poziomie",
+      "multipleNote": "Ten cel należy do kilku poziomów. Trzeba go opanować na najbardziej restrykcyjnym z nich — czyli z najmniejszą liczbą pomocy.",
+      "multipleNoteGeneral": "Cel może należeć do kilku poziomów. Jego etykieta ma wtedy kilka kolorów, a cel trzeba opanować na najbardziej restrykcyjnym z tych poziomów — czyli z najmniejszą liczbą pomocy."
+    },
+    "menu": {
+      "label": "Menu",
+      "groups": {
+        "practice": "Ćwicz",
+        "plan": "Planuj",
+        "about": "Informacje"
+      }
+    },
+    "download": {
+      "button": "Pobierz drzewo",
+      "title": "Pobierz drzewo w dwóch postaciach: arkusz, który możesz edytować, i jeden plik, który działa offline",
+      "working": "Tworzenie pojedynczego pliku…",
+      "failed": "Nie udało się utworzyć pojedynczego pliku",
+      "edit": "Edytuj drzewo",
+      "editTitle": "Otwórz drzewo w edytorze, gdzie możesz je zmienić i pobrać jako arkusz albo jako jeden plik działający offline"
+    },
+    "courseInfo": {
+      "button": "O kursie",
+      "heading": "O kursie",
+      "division": "Klasa lub wydział",
+      "curriculum": "Podstawa programowa",
+      "institution": "Instytucja",
+      "country": "Kraj",
+      "language": "Język",
+      "size": "Rozmiar",
+      "decompositionVersion": "Model dekompozycji",
+      "credits": "Autorzy",
+      "author": "Autor",
+      "updated": "Ostatnia aktualizacja",
+      "license": "Licencja",
+      "basedOn": "Na podstawie",
+      "skills": "umiejętności: {n}",
+      "concepts": "pojęcia: {n}",
+      "facts": "listy faktów: {n}",
+      "nodes": "węzły: {n}"
+    },
+    "helpToggle": "Wyjaśnienie",
+    "print": {
+      "button": "Drukuj",
+      "title": "Pobierz całe drzewo jako PDF gotowy do druku",
+      "working": "Tworzenie PDF …",
+      "failed": "Nie udało się utworzyć PDF",
+      "heading": "Drukuj",
+      "help": "Pobierz całe drzewo jako jedną stronę PDF gotową do druku. Podgląd pokazuje arkusz dokładnie tak, jak będzie wyglądał. Tytuł i aiskilltrees.com są zawsze na arkuszu.",
+      "paperLabel": "Rozmiar papieru",
+      "orientationLabel": "Orientacja",
+      "orientation": {
+        "auto": "Automatyczna",
+        "landscape": "Pozioma",
+        "portrait": "Pionowa"
+      },
+      "colorLabel": "Kolory",
+      "color": {
+        "color": "W kolorze",
+        "gray": "Czarno-białe"
+      },
+      "rings": "Kółka do zaznaczania",
+      "legend": "Legenda",
+      "download": "Pobierz PDF",
+      "caption": "{paper}, {orientation}"
+    },
+    "restoreView": "Wróć do poprzedniego widoku"
+  },
+  "prompt": {
+    "_comment": "The language layer in the AI instructions, in Polish, same role as languages/nb.json -> prompt. Only what is SPECIFIC TO POLISH belongs here: the principles themselves (active voice, avoid bookish words) are language-independent and live in prompts/shared.json -> writingStyleGeneral. `conversationLanguage` is in the nominative (\"polski\") because the sentence in `outputLanguage` puts it in the nominative (\"Językiem całej tej rozmowy jest …\"), so a tree's own `languageName` row also reads grammatically there. The gender note is the Polish counterpart of the Swedish \"hen\": second-person past tense is gendered in Polish. NOTE: `outputLanguage` says which language the conversation STARTS in - it must not forbid the learner from asking for another. That right lives in prompts/shared.json -> languageSwitch. Do not write an absolute prohibition here: the two would contradict each other, and the model follows the prohibition.",
+    "conversationLanguage": "polski",
+    "outputLanguage": "Językiem całej tej rozmowy jest {conversationLanguage}. Wszystko, co poniżej pochodzi z drzewa umiejętności — nazwy węzłów, opisy, wymagania wstępne — jest napisane w tym języku i właśnie w nim użytkownik chce, żeby się do niego zwracać. Część instrukcji, którą teraz czytasz, jest po angielsku; to nie jest prośba o odpowiadanie po angielsku. Nie zmieniaj języka z własnej inicjatywy i nie komentuj, w jakim języku jest napisana instrukcja. Zwracaj się do użytkownika na „ty”, tak jak nauczyciel do ucznia. Dopóki nie wiesz, czy piszesz do chłopaka, czy do dziewczyny, unikaj form zależnych od rodzaju (pisz np. „udało ci się”, a nie „zrobiłeś to”). Jeśli trzeba nazwać osobę, która się uczy, użyj słowa „{learnerDefinite}” — a nie innego słowa na to samo.",
+    "writingStyle": "Polskie przykłady dwóch powyższych rad:\n- Strona czynna: pisz „możemy zapisać tę liczbę jako …”, a nie „liczba może zostać zapisana jako …”; pisz „robimy to tak, że …” albo „robisz to tak, że …”, a nie „robi się to poprzez …” ani „zostaje to wykonane przez …”. Unikaj „zostaje obliczone”, „jest wykonywane” i bezosobowego „oblicza się”, gdy możesz powiedzieć, kto to robi.\n- Słowa poprawne, ale rzadkie w mowie, książkowe albo zbyt dorosłe zamieniaj na prostsze: „dokonać” (→ „zrobić”), „posiadać” (→ „mieć”), „w celu” (→ „żeby”), „ponadto” (→ „poza tym”), „jednakże” (→ „ale”). Test kolegi: czy to słowo naprawdę padłoby w rozmowie z kolegą?",
+    "overrides": {}
+  }
+}

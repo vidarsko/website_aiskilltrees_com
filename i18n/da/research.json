@@ -1,0 +1,13 @@
+{
+  "doc-title": "Forskning | AI Skill Trees",
+  "meta-description": "Baggrundslæsning om designet og artiklen, der beskriver metoden.",
+  "page-heading": "Forskning",
+  "page-lede": "Den udgivne version af metoden, og hvordan du henviser til den.",
+  "cite-eyebrow": "Software og kildehenvisning",
+  "cite-heading": "Version 0.33.0",
+  "cite-body-1": "Motoren, instrukserne, sprogfilerne og starttræet ligger i et offentligt GitHub-repository, <a href=\"https://github.com/vidarsko/ai-skill-trees\">vidarsko/ai-skill-trees</a>. Denne side udgiver version <a href=\"https://github.com/vidarsko/ai-skill-trees/releases/tag/v0.33.0\">v0.33.0</a> af det.",
+  "cite-body-2": "Hver version arkiveres på Zenodo med sin egen DOI. Version 0.33.0 er <a href=\"https://doi.org/10.5281/zenodo.23261926\">10.5281/zenodo.23261926</a>. DOI'en <a href=\"https://doi.org/10.5281/zenodo.22959546\">10.5281/zenodo.22959546</a> peger altid på den nyeste version.",
+  "cite-body-3": "Hvis du bruger metoden eller materialet, så henvis til den version, du brugte, og ikke til hovedgrenen:",
+  "cite-cta-github": "Versionen på GitHub",
+  "cite-cta-zenodo": "Arkivet på Zenodo"
+}

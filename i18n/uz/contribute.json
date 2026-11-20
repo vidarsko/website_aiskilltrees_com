@@ -1,0 +1,15 @@
+{
+  "doc-title": "Daraxtingni yubor | AI Skill Trees",
+  "meta-description": "Oʻzing yaratgan koʻnikmalar daraxtini ushbu saytdagi katalogga qanday yuborish mumkin.",
+  "page-eyebrow": "Oʻqituvchilar uchun",
+  "page-heading": "Daraxtingni yubor",
+  "page-lede": "Agar faning boʻyicha koʻnikmalar daraxtini yaratgan boʻlsang, uni ushbu saytdagi katalogga qoʻshish uchun yuborishing mumkin.",
+  "how-body": "Hozircha tree.csv faylingni menga elektron pochta orqali yubor:",
+  "terms-eyebrow": "Yuborishdan oldin",
+  "terms-1": "Har bir daraxtni eʼlon qilishdan oldin oʻqib chiqaman.",
+  "terms-2": "Daraxt uni yaratgan odamning ismi bilan eʼlon qilinadi. Agar u boshqa daraxt asosida tuzilgan boʻlsa, muharrir faylga yozgan «Asos» qatorlari saqlanadi, shu tariqa avvalgi mualliflar ham koʻrsatib turiladi.",
+  "terms-3": "Ushbu saytdagi daraxtlar va koʻrsatmalar CC BY 4.0 litsenziyasi ostida tarqatiladi: muallifni koʻrsatish sharti bilan ulardan har kim foydalanishi va ularni oʻzgartirishi mumkin. Sen yuborgan daraxt ham shu litsenziya ostida eʼlon qilinadi.",
+  "terms-4": "GitHubʼdagi pull request orqali hissa qoʻshish hozircha yopiq.",
+  "own-body": "Metoddan foydalanish uchun hech narsa yuborish shart emas. Muharrir senga oʻz faylingni beradi, undan xohlagancha foydalanishing va ulashishing mumkin.",
+  "own-cta": "Oʻzing yarat"
+}

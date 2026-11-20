@@ -19,50 +19,40 @@
 (function () {
   'use strict';
 
+  /* English fallbacks. Every language, English included, is in
+     /i18n/<lang>/_site.json (keys footer-*), read through window.i18n.s(). */
   var T = {
-    by: {
-      en: 'AI Skill Trees — an open method by Vidar Skogvoll.',
-      nb: 'AI Skill Trees — en åpen metode av Vidar Skogvoll.',
-      sv: 'AI Skill Trees — en öppen metod av Vidar Skogvoll.'
-    },
-    licence: {
-      en: 'The engine is MIT-licensed; the instructions and the trees are CC BY 4.0.',
-      nb: 'Motoren er MIT-lisensiert; instruksene og trærne er CC BY 4.0.',
-      sv: 'Motorn är MIT-licensierad; instruktionerna och träden är CC BY 4.0.'
-    },
-    affiliation: {
-      en: 'Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.',
-      nb: 'Del av et forskningsprosjekt ved <a href="https://www.mn.uio.no/kurt/index.html">Kompetansesenter for undervisning i realfag og teknologi (KURT)</a>, Universitetet i Oslo.',
-      sv: 'Del av ett forskningsprojekt vid <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, Universitetet i Oslo.'
-    },
-    links: { en: 'Footer', nb: 'Bunntekst', sv: 'Sidfot' }
+    by: ['footer-by', 'AI Skill Trees — an open method by Vidar Skogvoll.'],
+    licence: ['footer-licence', 'The engine is MIT-licensed; the instructions and the trees are CC BY 4.0.'],
+    affiliation: ['footer-affiliation', 'Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.'],
+    links: ['footer-links', 'Footer']
   };
 
   var LINKS = [
-    { href: '/contribute/', label: { en: 'Submit your tree', nb: 'Send inn treet ditt', sv: 'Skicka in ditt träd' } },
-    { href: '/privacy/',    label: { en: 'Privacy',          nb: 'Personvern',          sv: 'Integritet' } },
-    { href: 'https://github.com/vidarsko/ai-skill-trees', label: { en: 'Source code', nb: 'Kildekode', sv: 'Källkod' } }
+    { href: '/contribute/', label: ['footer-submit', 'Submit your tree'] },
+    { href: '/privacy/',    label: ['footer-privacy', 'Privacy'] },
+    { href: 'https://github.com/vidarsko/ai-skill-trees', label: ['footer-source', 'Source code'] }
   ];
 
   var host = document.querySelector('[data-site-footer]');
   if (!host) return;
 
-  function lang() {
-    var l = (window.i18n && window.i18n.lang) || document.documentElement.lang || 'en';
-    return /^(nb|no|nn)/.test(l) ? 'nb' : (/^sv/.test(l) ? 'sv' : 'en');
+  function s(pair) {
+    return (window.i18n && window.i18n.s) ? window.i18n.s(pair[0], pair[1]) : pair[1];
   }
 
+  /* The strings come from the site's own files, never from a visitor, so
+     innerHTML is safe here; the KURT line carries a link. */
   function render() {
-    var L = lang();
     var links = LINKS.map(function (x) {
-      return '<li><a href="' + x.href + '">' + (x.label[L] || x.label.en) + '</a></li>';
+      return '<li><a href="' + x.href + '">' + s(x.label) + '</a></li>';
     }).join('');
     host.innerHTML =
       '<div class="band__inner sitefooter__inner">' +
-        '<p class="sitefooter__by">' + T.by[L] + '</p>' +
-        '<ul class="sitefooter__links" aria-label="' + T.links[L] + '">' + links + '</ul>' +
-        '<p class="sitefooter__meta">' + T.licence[L] + '</p>' +
-        '<p class="sitefooter__meta">' + T.affiliation[L] + '</p>' +
+        '<p class="sitefooter__by">' + s(T.by) + '</p>' +
+        '<ul class="sitefooter__links" aria-label="' + s(T.links) + '">' + links + '</ul>' +
+        '<p class="sitefooter__meta">' + s(T.licence) + '</p>' +
+        '<p class="sitefooter__meta">' + s(T.affiliation) + '</p>' +
       '</div>';
   }
 
