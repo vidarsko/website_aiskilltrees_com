@@ -5902,9 +5902,11 @@ function renderGraph(columnMeta, stageMeta) {
     header.className = 'column-header';
     // BARNESKOLEMATTE: overskriften får hele kolonnebredden med mellomrommet,
     // så emnenavnet får plass på to linjer over de smale rutene.
-    header.style.left = (LAYOUT.padding + col.x - LAYOUT.columnGap / 2 + 4) + 'px';
+    // Overskriftene ligger kant i kant uten glipe (2026-11-22); de 4 px
+    // luft til teksten er padding i tree.css.
+    header.style.left = (LAYOUT.padding + col.x - LAYOUT.columnGap / 2) + 'px';
     header.style.top = LAYOUT.padding + 'px';
-    header.style.width = (col.width + LAYOUT.columnGap - 8) + 'px';
+    header.style.width = (col.width + LAYOUT.columnGap + 1) + 'px'; // +1: ingen hårstrek ved skjev zoom
 
     const label = document.createElement('span');
     label.className = 'column-header-label';

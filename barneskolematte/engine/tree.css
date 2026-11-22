@@ -2738,7 +2738,8 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   font-size: 0.74rem;
   line-height: 1.2;
   letter-spacing: 0.03em;
-  padding: 4px 0 5px;
+  box-sizing: border-box;
+  padding: 4px 4px 5px;
   margin-top: -4px;
   /* Solid bakgrunn hele tiden (Vidar 2026-11-22): glasset slapp
      trinnbåndene og kortene gjennom og gjorde navnene vanskelige å lese. */
