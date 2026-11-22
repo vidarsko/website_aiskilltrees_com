@@ -2607,13 +2607,15 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 }
 
 .stage-divider-inner {
-  position: sticky;
-  left: 0;
+  /* Følger med bortover via transform i updateStickyHeaders (engine.js);
+     sticky virket ikke i det skalerte lerretet. */
+  position: relative;
+  z-index: 4;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem 0.9rem;
-  padding: 0 0.75rem 0 calc(var(--stage-divider-inset, 18px));
+  padding: 0 0.75rem 0 18px; /* = STAGE_TEXT_INSET i engine.js */
   pointer-events: auto;
 }
 
@@ -2728,7 +2730,7 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 
 /* Emnenavnene over de smale kolonnene: på to linjer i stedet for
    avkuttet, og de står fast øverst når kartet rulles nedover (se
-   updateStickyHeaders). Som glass, så det som ruller under, synes svakt. */
+   updateStickyHeaders), på en solid bakgrunn. */
 #column-headers .column-header {
   z-index: 6;
   align-items: flex-end;
@@ -2738,9 +2740,9 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   letter-spacing: 0.03em;
   padding: 4px 0 5px;
   margin-top: -4px;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  /* Solid bakgrunn hele tiden (Vidar 2026-11-22): glasset slapp
+     trinnbåndene og kortene gjennom og gjorde navnene vanskelige å lese. */
+  background: var(--bg);
 }
 #column-headers .column-header-label {
   white-space: normal;
@@ -2751,7 +2753,7 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   box-shadow: 0 6px 10px -8px color-mix(in srgb, var(--text) 35%, transparent);
 }
 
-.stage-label { font-size: 0.74rem; }
+.stage-label { font-size: 0.95rem; }
 .stage-divider-heading { font-size: 0.78rem; }
 .stage-divider-test.resource-copy { font-size: 0.76rem; padding: 0.32rem 0.85rem; }
 .stage-divider .goal-index-bulk-btn .bulk-icon { height: 1.3rem; }

@@ -139,7 +139,7 @@ let LAYOUT = {
   barycenterPasses: 4,
   // BARNESKOLEMATTE: stripen øverst i hvert trinnbånd (navn + ✓/✕ per tema)
   // og skillelinja nederst (knappene for alt til og med trinnet).
-  stageHeaderHeight: 24,
+  stageHeaderHeight: 28,   // 28 fra 2026-11-22: større trinnnavn
   stageDividerHeight: 38,
   // BARNESKOLEMATTE: en lukket celle er en liten glassrute med et minitre
   // (2026-11-11, Vidar: hele oversikten skal få plass på én skjerm).
@@ -5517,6 +5517,14 @@ function updateStickyHeaders() {
     h.style.top = (LAYOUT.padding + offset) + 'px';
     h.classList.toggle('stuck', offset > 0);
   });
+  /* Trinnnavnet («1. trinn») og «Til og med 1. trinn» følger med bortover
+     når kartet rulles sidelengs, og står alltid rett over hverandre ved
+     venstre kant av det synlige feltet (Vidar 2026-11-22). */
+  const container = document.getElementById('graph-container');
+  const dx = Math.max(0, (scrollEl.scrollLeft - (container ? container.offsetLeft : 0)) / zoomLevel);
+  document.querySelectorAll('#column-headers .stage-label, #column-headers .stage-divider-inner').forEach(el => {
+    el.style.transform = dx ? `translateX(${dx}px)` : '';
+  });
 }
 
 /* BARNESKOLEMATTE: trinnbåndene. For hvert trinn:
@@ -5528,6 +5536,7 @@ function updateStickyHeaders() {
    Fargen bærer aldri betydningen alene: navnet står i stripa.
    Merk/fjern bruker listeikonet fra maskineriet (prinsipp 14), og «Lukk» er
    ren tekst (prinsipp 13). */
+const STAGE_TEXT_INSET = 18; // venstre luft for trinnnavnet og skillelinjas tekst
 function renderStages(columnMeta, stageMeta, bandsLayer, headersLayer) {
   const fullWidth = columnMeta.length
     ? columnMeta[columnMeta.length - 1].x + columnMeta[columnMeta.length - 1].width + LAYOUT.columnGap
@@ -5547,7 +5556,7 @@ function renderStages(columnMeta, stageMeta, bandsLayer, headersLayer) {
     const label = document.createElement('div');
     label.className = 'stage-label';
     label.textContent = t('stage.label', { n: stage });
-    label.style.left = (LAYOUT.padding) + 'px';
+    label.style.left = (left + STAGE_TEXT_INSET) + 'px'; // samme kant som skillelinjas tekst
     label.style.top = (LAYOUT.padding + top + 5) + 'px';
     headersLayer.appendChild(label);
 
