@@ -216,7 +216,17 @@ function resolveLearner() {
 function learnerLeadIn(type) {
   const lead = (LANG && LANG.learner && LANG.learner.leadIn) || {};
   const tmpl = lead[type] || lead.skill || '{LearnerDefinite}:';
-  return tmpl.replace('{LearnerDefinite}', LEARNER.charAt(0).toUpperCase() + LEARNER.slice(1));
+  return tmpl.replace('{LearnerDefinite}', capitaliseFirst(LEARNER));
+}
+
+/* Stor forbokstav etter språkets egne regler (maskineriet 0.43.0): ingen i
+   georgisk, İ i tyrkisk og aserbajdsjansk. */
+function capitaliseFirst(s) {
+  const first = s.charAt(0);
+  if (/[ა-ჿ]/.test(first)) return s;
+  let up;
+  try { up = first.toLocaleUpperCase((LANG && (LANG.htmlLang || LANG.code)) || undefined); } catch (e) { up = first.toUpperCase(); }
+  return up + s.slice(1);
 }
 
 /* Ordet for den som lærer, som {learnerDefinite}. Det kan bare brukes i
@@ -2964,7 +2974,20 @@ function renderGoalIndexBody(body) {
   bulk.appendChild(goalIndexBulkButton(allOff, allNodes, false, body, true));
   body.appendChild(bulk);
 
-  themeList.forEach(({ letter, topic, nodes }) => {
+  /* BARNESKOLEMATTE: delt opp per trinn, med merk/fjern for hele trinnet
+     ved trinnoverskriften. Merk/fjern ved temaet gjelder temaet på trinnet. */
+  stageList().forEach(stage => {
+  const stageNodes = allNodes.filter(n => n.stage === stage);
+  const h2 = makeEl('h2', 'goal-index-stage');
+  h2.appendChild(makeEl('span', '', t('stage.label', { n: stage })));
+  const stageActs = makeEl('span', 'column-header-actions');
+  stageActs.appendChild(goalIndexBulkButton(
+    t(lessonMode ? 'stage.selectStage' : 'stage.markStage', { n: stage }), stageNodes, true, body, false));
+  stageActs.appendChild(goalIndexBulkButton(
+    t(lessonMode ? 'stage.deselectStage' : 'stage.clearStage', { n: stage }), stageNodes, false, body, false));
+  h2.appendChild(stageActs);
+  body.appendChild(h2);
+  stageThemes(stage).forEach(({ letter, topic, nodes }) => {
     const section = document.createElement('div');
     section.className = 'goal-index-section';
 
@@ -2975,9 +2998,9 @@ function renderGoalIndexBody(body) {
     const actions = document.createElement('span');
     actions.className = 'column-header-actions';
     actions.appendChild(goalIndexBulkButton(
-      t(lessonMode ? 'lessonPlanner.selectTopic' : 'column.markAll', { topic: topic }), nodes, true, body, false));
+      t(lessonMode ? 'stage.markCellPick' : 'stage.markCell', { topic: topic, n: stage }), nodes, true, body, false));
     actions.appendChild(goalIndexBulkButton(
-      t(lessonMode ? 'lessonPlanner.deselectTopic' : 'column.clearAll', { topic: topic }), nodes, false, body, false));
+      t(lessonMode ? 'stage.clearCellPick' : 'stage.clearCell', { topic: topic, n: stage }), nodes, false, body, false));
     h3.appendChild(actions);
     section.appendChild(h3);
 
@@ -3045,6 +3068,7 @@ function renderGoalIndexBody(body) {
     section.appendChild(ul);
 
     body.appendChild(section);
+  });
   });
 }
 
@@ -3672,12 +3696,32 @@ function openExamModal(presetIds) {
      i skillelinja gir sitt eget utvalg (alt til og med trinnet). */
   const progress = getProgress();
   examSelection = new Set(presetIds || allNodes.filter(n => isNodeMastered(n, progress)).map(n => n.id));
+  examShowAll = false;
+  examShown = new Set(examSelection);
   const overlay = ensureSimpleModal('exam', t('exam.heading'), t('exam.help'));
   renderExamBody(overlay.querySelector('.aist-modal-body'));
   overlay.classList.add('open');
 }
 
 let examSelection = new Set();
+/* Fra maskineriet 0.42.0 (lagt inn i klonen 2026-11-22): vinduet viser bare
+   de valgte læringsmålene til man ber om alle. `examShown` er utvalget slik
+   det var da lista ble vist, så et mål man velger bort, blir stående som et
+   svakt merke i stedet for å forsvinne (prinsipp 12). */
+let examShowAll = false;
+let examShown = new Set();
+
+/* Ikonet for «vis alle læringsmålene»: tre rader med små merker, der de
+   som er skjult står stiplet. Når alle vises, er alle merkene hele. */
+function examShowAllIcon(all) {
+  const rowsSpec = [[0, 7, 14], [0, 7], [0, 7, 14, 21]];
+  let out = '';
+  rowsSpec.forEach((xs, r) => xs.forEach((x, i) => {
+    const hidden = !all && (i > 0 && (r + i) % 2 === 1);
+    out += `<rect x="${x + 1}" y="${3 + r * 7}" width="5.5" height="4.6" rx="1.4" class="${hidden ? 'ea-hidden' : 'ea-tag'}"/>`;
+  }));
+  return `<svg viewBox="0 0 30 24" width="30" height="24" aria-hidden="true" class="exam-all-icon">${out}</svg>`;
+}
 
 function renderExamBody(body) {
   body.innerHTML = '';
@@ -3697,22 +3741,59 @@ function renderExamBody(body) {
     nodes.forEach(n => { if (on) examSelection.add(n.id); else examSelection.delete(n.id); });
     renderExamBody(body);
   };
+  const toggleAll = () => {
+    examShowAll = !examShowAll;
+    if (!examShowAll) examShown = new Set(examSelection);
+    renderExamBody(body);
+  };
   const allRow = makeEl('div', 'goal-tag-row exam-bulk-row');
-  allRow.appendChild(bulkIconButton(t('lessonPlanner.selectAll'), true, true, () => setAll(allNodes, true), 'goal-index-bulk-btn'));
-  allRow.appendChild(bulkIconButton(t('lessonPlanner.deselectAll'), false, true, () => setAll(allNodes, false), 'goal-index-bulk-btn'));
+  const showBtn = makeEl('button', 'column-header-btn exam-show-all-btn' + (examShowAll ? ' on' : ''));
+  showBtn.type = 'button';
+  showBtn.innerHTML = examShowAllIcon(examShowAll);
+  const showLabel = t(examShowAll ? 'exam.showSelected' : 'exam.showAll');
+  showBtn.title = showLabel;
+  showBtn.setAttribute('aria-label', showLabel);
+  showBtn.setAttribute('aria-pressed', String(examShowAll));
+  showBtn.addEventListener('click', toggleAll);
+  allRow.appendChild(showBtn);
+  /* Velg alle / velg bort alle gir bare mening når alle målene vises. */
+  if (examShowAll) {
+    allRow.appendChild(bulkIconButton(t('lessonPlanner.selectAll'), true, true, () => setAll(allNodes, true), 'goal-index-bulk-btn'));
+    allRow.appendChild(bulkIconButton(t('lessonPlanner.deselectAll'), false, true, () => setAll(allNodes, false), 'goal-index-bulk-btn'));
+  }
   rows.appendChild(allRow);
-  themeList.forEach(({ letter, topic, nodes }) => {
-    const row = makeEl('div', 'goal-tag-row');
-    row.appendChild(makeEl('span', 'goal-tag-letter', letter));
-    nodes.forEach(n => row.appendChild(goalTag(n, examSelection.has(n.id), on => {
-      if (on) examSelection.add(n.id); else examSelection.delete(n.id);
-      sync();
-    })));
-    const acts = makeEl('span', 'goal-tag-row-actions');
-    acts.appendChild(bulkIconButton(t('lessonPlanner.selectTopic', { topic }), true, false, () => setAll(nodes, true)));
-    acts.appendChild(bulkIconButton(t('lessonPlanner.deselectTopic', { topic }), false, false, () => setAll(nodes, false)));
-    row.appendChild(acts);
-    rows.appendChild(row);
+  const visible = n => examShowAll || examShown.has(n.id);
+  /* BARNESKOLEMATTE: delt opp per trinn, med trinnets navn foran. */
+  stageList().forEach(stage => {
+    const themes = stageThemes(stage)
+      .map(e => ({ ...e, shown: e.nodes.filter(visible) }))
+      .filter(e => e.shown.length);
+    if (!themes.length) return;
+    const stageRow = makeEl('div', 'goal-tag-row goal-tag-stage-row');
+    stageRow.appendChild(makeEl('span', 'goal-tag-stage', t('stage.label', { n: stage })));
+    if (examShowAll) {
+      const stageNodes = allNodes.filter(n => n.stage === stage);
+      const acts = makeEl('span', 'goal-tag-row-actions');
+      acts.appendChild(bulkIconButton(t('stage.selectStage', { n: stage }), true, false, () => setAll(stageNodes, true)));
+      acts.appendChild(bulkIconButton(t('stage.deselectStage', { n: stage }), false, false, () => setAll(stageNodes, false)));
+      stageRow.appendChild(acts);
+    }
+    rows.appendChild(stageRow);
+    themes.forEach(({ letter, topic, nodes, shown }) => {
+      const row = makeEl('div', 'goal-tag-row');
+      row.appendChild(makeEl('span', 'goal-tag-letter', letter));
+      shown.forEach(n => row.appendChild(goalTag(n, examSelection.has(n.id), on => {
+        if (on) examSelection.add(n.id); else examSelection.delete(n.id);
+        sync();
+      })));
+      if (examShowAll) {
+        const acts = makeEl('span', 'goal-tag-row-actions');
+        acts.appendChild(bulkIconButton(t('stage.markCellPick', { topic, n: stage }), true, false, () => setAll(nodes, true)));
+        acts.appendChild(bulkIconButton(t('stage.clearCellPick', { topic, n: stage }), false, false, () => setAll(nodes, false)));
+        row.appendChild(acts);
+      }
+      rows.appendChild(row);
+    });
   });
   cover.appendChild(rows);
   cover.appendChild(empty);
@@ -4145,9 +4226,16 @@ function helpToggle(panel) {
     const hr = host.getBoundingClientRect();
     const br = b.getBoundingClientRect();
     panel.style.top = (br.bottom - hr.top + 8) + 'px';
-    const right = Math.max(8, hr.right - br.right);
-    panel.style.right = right + 'px';
-    panel.style.setProperty('--arrow-right', (br.width / 2 - 7) + 'px');
+    /* Boblen står med høyre kant under knappen, men aldri utenfor
+       skjermen: på en smal mobil var den bredere enn plassen til venstre
+       for «?», og venstre del havnet utenfor (maskineriet 0.42.1). Pila
+       følger knappen uansett hvor boblen havner. */
+    const vw = document.documentElement.clientWidth;
+    const pw = panel.offsetWidth;
+    let panelRight = Math.min(br.right, hr.right - 8, vw - 8);
+    panelRight = Math.max(panelRight, Math.min(pw + 8, vw - 8));
+    panel.style.right = (hr.right - panelRight) + 'px';
+    panel.style.setProperty('--arrow-right', (panelRight - (br.left + br.width / 2) - 7) + 'px');
   });
   return b;
 }
@@ -4600,7 +4688,13 @@ function fitToView() {
 
 function setupPanning() {
   const scrollEl = document.getElementById('graph-scroll');
-  scrollEl.addEventListener('scroll', updateStickyHeaders, { passive: true }); // BARNESKOLEMATTE
+  // BARNESKOLEMATTE: høyst én gang per bilde, ikke for hver scroll-hendelse.
+  let stickyQueued = false;
+  scrollEl.addEventListener('scroll', () => {
+    if (stickyQueued) return;
+    stickyQueued = true;
+    requestAnimationFrame(() => { stickyQueued = false; updateStickyHeaders(); });
+  }, { passive: true });
   const DRAG_THRESHOLD = 4;
   let isPanning = false;
   let didDrag = false;
@@ -5015,6 +5109,16 @@ function validateStages() {
 
 function maxStage(nodes) {
   return nodes.reduce((m, n) => Math.max(m, n.stage || 1), 1);
+}
+
+/* BARNESKOLEMATTE: temaene med bare målene på ett trinn, i samme rekkefølge
+   og med samme bokstav som i themeList. Brukes der læringsmål listes opp
+   (Læringsmål, Undervisningsopplegg, Prøve, utvalget i bunnlinja), så
+   det alltid framgår hvilket trinn et mål hører til (Vidar 2026-11-22). */
+function stageThemes(stage) {
+  return themeList
+    .map(({ letter, topic, nodes }) => ({ letter, topic, nodes: nodes.filter(n => n.stage === stage) }))
+    .filter(e => e.nodes.length);
 }
 
 function stageList() {
@@ -6229,7 +6333,13 @@ function goalTagList(nodes, label) {
     return wrap;
   }
   if (label) wrap.appendChild(makeEl('span', 'goal-tags-label', label));
-  nodes.forEach(n => wrap.appendChild(goalTag(n)));
+  // BARNESKOLEMATTE: trinnets navn foran målene på hvert trinn.
+  [...new Set(nodes.map(n => n.stage))].sort((a, b) => a - b).forEach(stage => {
+    const group = makeEl('span', 'goal-tags-stage-group');
+    group.appendChild(makeEl('span', 'goal-tag-stage', t('stage.label', { n: stage })));
+    nodes.filter(n => n.stage === stage).forEach(n => group.appendChild(goalTag(n)));
+    wrap.appendChild(group);
+  });
   return wrap;
 }
 

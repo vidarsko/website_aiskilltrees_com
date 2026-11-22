@@ -355,7 +355,9 @@
         "open": "You show your working or explain in your own words.",
         "mixed": "Roughly half of each."
       },
-      "coversLabel": "The test covers:"
+      "coversLabel": "The test covers:",
+      "showAll": "Show all learning goals",
+      "showSelected": "Show only the selected learning goals"
     },
     "node": {
       "markMastered": "Mark as mastered"

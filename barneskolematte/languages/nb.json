@@ -360,7 +360,9 @@
         "open": "Du viser utregningen eller forklarer med egne ord.",
         "mixed": "Omtrent halvparten av hver."
       },
-      "coversLabel": "Prøven dekker:"
+      "coversLabel": "Prøven dekker:",
+      "showAll": "Vis alle læringsmålene",
+      "showSelected": "Vis bare de valgte læringsmålene"
     },
     "node": {
       "markMastered": "Marker som mestret"
@@ -465,7 +467,13 @@
       "openCell": "Åpne «{topic}» på {n}. trinn",
       "closeCell": "▴ Lukk",
       "closeCellTitle": "Lukk «{topic}» på {n}. trinn",
-      "cellCount": "{total} mål · {done} mestret"
+      "cellCount": "{total} mål · {done} mestret",
+      "markStage": "Marker alt på {n}. trinn som mestret",
+      "clearStage": "Fjern mestret-merking for alt på {n}. trinn",
+      "selectStage": "Velg alle læringsmålene på {n}. trinn",
+      "deselectStage": "Velg bort alle læringsmålene på {n}. trinn",
+      "markCellPick": "Velg alle i «{topic}» på {n}. trinn",
+      "clearCellPick": "Velg bort alle i «{topic}» på {n}. trinn"
     }
   },
   "prompt": {

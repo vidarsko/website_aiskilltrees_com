@@ -975,6 +975,15 @@ main {
   .resource-art svg { width: 64px; height: 64px; }
 }
 
+/* På en smal skjerm får ikke overskrift og knapper plass på én linje.
+   Da brytes knappene ned på en egen linje i stedet for å skyve vinduet ut
+   over skjermkanten (maskineriet 0.42.1). */
+@media (max-width: 720px) {
+  #goal-index-header, #search-header, #resources-header, .aist-modal-header { flex-wrap: wrap; row-gap: 0.6rem; }
+  #goal-index-header h2, #search-header h2, #resources-header h2, .aist-modal-header h2 { min-width: 0; overflow-wrap: anywhere; }
+  #goal-index-actions, .aist-modal-actions { margin-left: auto; }
+}
+
 @media (max-width: 720px) {
   #goal-index-overlay { padding: 0; }
   #goal-index-modal { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
@@ -2339,7 +2348,7 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 .aist-help.aist-popover {
   position: absolute;
   z-index: 60;
-  width: min(22rem, calc(100% - 2rem));
+  width: min(22rem, calc(100% - 2rem), calc(100vw - 16px));
   margin: 0;
   padding: 0.75rem 0.95rem;
   font-size: 0.85rem;
@@ -2639,7 +2648,7 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 
 /* En lukket celle (ett tema på ett trinn) er en glassrute med et minitre
    (2026-11-11). Ingen tekst: temaet står over kolonnen, trinnet i båndet.
-   Glasset er en lys, halvgjennomsiktig flate med uskarphet bak, en lys
+   Glasset er en lys, halvgjennomsiktig flate, en lys
    kant øverst og en myk skygge. Klikk åpner cellen. */
 .cell-box {
   position: absolute;
@@ -2656,8 +2665,10 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
     linear-gradient(180deg,
       color-mix(in srgb, var(--surface) 78%, transparent) 0%,
       color-mix(in srgb, var(--surface) 46%, transparent) 100%);
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  /* Ingen backdrop-filter (fjernet 2026-11-22): uskarpheten bak 70+ ruter
+     måtte regnes ut på nytt i hvert bilde under rulling og ga hakking,
+     særlig på iPad. Bak rutene ligger bare en flat trinnfarge, så den
+     synlige forskjellen er så godt som ingen. */
   border: 1px solid color-mix(in srgb, var(--surface) 70%, var(--border-strong));
   border-radius: 14px;
   box-shadow:
@@ -2758,3 +2769,38 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
 .stage-divider-heading { font-size: 0.78rem; }
 .stage-divider-test.resource-copy { font-size: 0.76rem; padding: 0.32rem 0.85rem; }
 .stage-divider .goal-index-bulk-btn .bulk-icon { height: 1.3rem; }
+
+/* BARNESKOLEMATTE (2026-11-22): lister over læringsmål er delt opp per
+   trinn, så det alltid framgår hvilket trinn et mål hører til. */
+.goal-index-stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 1.6rem 0 0.8rem;
+  padding: 0.35rem 0.6rem;
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+  border-radius: 6px;
+}
+#goal-index-bulk + .goal-index-stage { margin-top: 0.4rem; }
+.goal-tag-stage {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  margin-right: 0.2rem;
+}
+.goal-tag-stage-row { margin-top: 0.35rem; }
+.goal-tag-stage-row .goal-tag-stage { font-size: 0.8rem; }
+.goal-tags-stage-group { display: flex; flex-wrap: wrap; flex-basis: 100%; gap: 0.25rem; align-items: center; }
+
+/* «Vis alle læringsmålene» i Prøve, fra maskineriet 0.42.0. */
+.exam-show-all-btn { padding: 0.2rem 0.4rem; color: var(--text-muted); }
+.exam-show-all-btn.on { color: var(--primary); }
+.exam-all-icon { width: auto; height: 1.6rem; display: block; }
+.exam-all-icon .ea-tag { fill: currentColor; opacity: 0.55; }
+.exam-show-all-btn.on .exam-all-icon .ea-tag { opacity: 0.9; }
+.exam-all-icon .ea-hidden { fill: none; stroke: currentColor; stroke-width: 0.8; stroke-dasharray: 1.4 1.1; opacity: 0.6; }
