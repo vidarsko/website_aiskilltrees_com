@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make your own | AI Skill Trees</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Build a skill tree for your own subject. Your spreadsheet stays on your machine; you get back one HTML file that works offline." data-i18n-attr="content:meta-description">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/catalog.css">
+  <link rel="stylesheet" href="/css/editor.css">
+
+  <script src="/js/analytics.js"></script>
+  <meta name="i18n-page" content="make-your-own">
+  <meta name="i18n-available" content="en az be bg bs cnr cs da de el es et fi fr hr hu hy is it ka kk ky lt lv mk mt nb nl pl pt ro ru sk sl sq sr sv tg tr uk uz">
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Samme lokale kopi av PapaParse som ferdighetstrærne bruker - ingen CDN. -->
+  <script src="/assets/engine/vendor/papaparse.min.js" defer></script>
+  <script src="/js/standalone.js" defer></script>
+  <script src="/js/facet-dropdown.js" defer></script>
+  <script src="/js/tree-picker.js" defer></script>
+  <script src="/js/editor.js" defer></script>
+
+  <!--
+    LAG DITT EGET = REDIGERINGSVERKTØYET (fra 2026-09-28). Sida ER verktøyet:
+    et panel til venstre og treet til høyre. Det som før var sidas innhold -
+    de tre veiene inn - ligger i et vindu over et uskarpt eksempeltre, og
+    forsvinner når læreren har valgt en vei. Se make-your-own_private/CLAUDE.md.
+
+    Alt verktøyet endrer er rader i tree.csv, og ingenting annet. Treet til
+    høyre er den fila som lastes ned. Ingenting lastes opp, og ingenting
+    lagres i nettleseren. «Last opp» står det derfor ingen steder.
+  -->
+  <script type="application/json" id="i18n-dict">
+  {
+      "doc-title": {
+          "en": "Make your own | AI Skill Trees"
+      },
+      "meta-description": {
+          "en": "Build a skill tree for your own subject. Your spreadsheet stays on your machine; you get back one HTML file that works offline."
+      },
+      "page-eyebrow": {
+          "en": "For teachers"
+      },
+      "page-heading": {
+          "en": "Make your own"
+      },
+      "page-lede": {
+          "en": "A skill tree is one spreadsheet. Make it with an AI chat, open it here, change anything you disagree with on screen, and download it as one HTML file for your students. No account, no installation, no cost."
+      },
+      "start-drop": {
+          "en": "Drop tree.csv or a downloaded tree (.html) here, or click to choose"
+      },
+      "start-example": {
+          "en": "Open the example tree"
+      },
+      "start-blank": {
+          "en": "Start from scratch"
+      },
+      "start-catalogue": {
+          "en": "Find a tree in the catalogue"
+      },
+      "picker-heading": {
+          "en": "Start from a tree in the catalogue"
+      },
+      "picker-close": {
+          "en": "Back"
+      },
+      "picker-open": {
+          "en": "Open a copy →"
+      },
+      "picker-load-error": {
+          "en": "Could not load the catalogue. Try again, or start another way."
+      },
+      "search-label": {
+          "en": "Search"
+      },
+      "search-placeholder": {
+          "en": "Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”"
+      },
+      "filters-heading": {
+          "en": "Filters"
+      },
+      "reset-all": {
+          "en": "Clear all filters"
+      },
+      "loading": {
+          "en": "Loading skill trees …"
+      },
+      "facet-country": {
+          "en": "Country"
+      },
+      "facet-subjectArea": {
+          "en": "Subject area"
+      },
+      "facet-subjectFamily": {
+          "en": "Subject family"
+      },
+      "facet-institution": {
+          "en": "Institution"
+      },
+      "facet-division": {
+          "en": "Year or faculty"
+      },
+      "facet-language": {
+          "en": "Language"
+      },
+      "results-one": {
+          "en": "{n} skill tree"
+      },
+      "results-many": {
+          "en": "{n} skill trees"
+      },
+      "results-of": {
+          "en": " of {total}"
+      },
+      "empty-title": {
+          "en": "No skill trees match"
+      },
+      "empty-body": {
+          "en": "Try fewer filters or a broader search."
+      },
+      "empty-reset": {
+          "en": "Clear everything"
+      },
+      "card-skills": {
+          "en": "{n} skills"
+      },
+      "card-concepts": {
+          "en": "{n} concepts"
+      },
+      "card-facts": {
+          "en": "{n} fact lists"
+      },
+      "card-nodes": {
+          "en": "{n} nodes"
+      },
+      "chip-remove-aria": {
+          "en": "Remove the filter {facet}: {value}"
+      },
+      "start-catalogue-hint": {
+          "en": "You get your own copy to change. The published tree is not affected."
+      },
+      "start-no-tree": {
+          "en": "That was not a tree. Choose a tree.csv, or an .html file downloaded from this site."
+      },
+      "paste-cta": {
+          "en": "Paste from the AI chat"
+      },
+      "paste-placeholder": {
+          "en": "Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)"
+      },
+      "paste-open": {
+          "en": "Open"
+      },
+      "paste-not-tree": {
+          "en": "That does not look like a skill tree. Copy the whole spreadsheet from the chat, from the line that starts with id,type,topic down to the last row."
+      },
+      "start-html-bad": {
+          "en": "{name} does not contain a skill tree. Only files downloaded from this site can be opened here."
+      },
+      "start-fetch-failed": {
+          "en": "The tree could not be fetched. Check your connection and try again."
+      },
+      "mode-label": {
+          "en": "Mode"
+      },
+      "mode-edit": {
+          "en": "Edit"
+      },
+      "mode-view": {
+          "en": "View"
+      },
+      "undo": {
+          "en": "Undo"
+      },
+      "redo": {
+          "en": "Redo"
+      },
+      "open-other": {
+          "en": "Open another"
+      },
+      "tab-tree": {
+          "en": "Tree"
+      },
+      "tab-node": {
+          "en": "Node"
+      },
+      "tab-instructions": {
+          "en": "Instructions"
+      },
+      "tab-nodes": {
+          "en": "Nodes"
+      },
+      "tab-look": {
+          "en": "Look"
+      },
+      "split-label": {
+          "en": "Panel width. Drag, or use the arrow keys"
+      },
+      "preview-label": {
+          "en": "Preview of the tree"
+      },
+      "status-building": {
+          "en": "Building…"
+      },
+      "status-ok": {
+          "en": "No problems found"
+      },
+      "status-error-one": {
+          "en": "1 problem"
+      },
+      "status-errors": {
+          "en": "{n} problems"
+      },
+      "copy-errors": {
+          "en": "Copy the list for your AI chat"
+      },
+      "copied": {
+          "en": "Copied"
+      },
+      "copy-preamble": {
+          "en": "The skill tree builder found these problems in the tree.csv you made for me. Please fix them and give me the whole corrected file back."
+      },
+      "download-csv": {
+          "en": "Download spreadsheet"
+      },
+      "node-resources": {
+          "en": "Resources"
+      },
+      "node-resources-none": {
+          "en": "None yet."
+      },
+      "node-resources-hint": {
+          "en": "Exam tasks, textbook sections, videos. The student sees them under the node, and in “Resources” in the tree's menu. Click one to change it."
+      },
+      "node-resource-add": {
+          "en": "Add resource"
+      },
+      "res-title-add": {
+          "en": "Add a resource to “{name}”"
+      },
+      "res-title-new": {
+          "en": "New resource"
+      },
+      "res-title-edit": {
+          "en": "Change the resource"
+      },
+      "res-search": {
+          "en": "Search the tree's resources …"
+      },
+      "res-new": {
+          "en": "New resource"
+      },
+      "res-count": {
+          "en": "{n} of the tree's {total} resources. Click one to add it to this node."
+      },
+      "res-none-in-tree": {
+          "en": "The tree has no resources yet. Make the first one with “New resource”."
+      },
+      "res-no-match": {
+          "en": "No resource matches. Make it with “New resource”."
+      },
+      "res-all-attached": {
+          "en": "The node already has every resource in the tree."
+      },
+      "res-no-group": {
+          "en": "No group"
+      },
+      "res-used-by": {
+          "en": "Used by: {names}"
+      },
+      "res-used-by-none": {
+          "en": "Used by no node"
+      },
+      "res-shared": {
+          "en": "also on {n} other node(s)"
+      },
+      "res-group": {
+          "en": "Group"
+      },
+      "res-group-hint": {
+          "en": "The heading it is listed under, e.g. “Exam” or “Textbook”. Pick one the tree already uses, or write a new one."
+      },
+      "res-label": {
+          "en": "Title"
+      },
+      "res-url": {
+          "en": "Link"
+      },
+      "res-url-hint": {
+          "en": "Optional. Without a link, the title is shown as text, e.g. “2026 Spring, Part 1, task 3”."
+      },
+      "res-edit-shared": {
+          "en": "This resource belongs to {n} nodes ({names}). A change here changes it on all of them."
+      },
+      "res-save": {
+          "en": "Save"
+      },
+      "res-back": {
+          "en": "Back to the list"
+      },
+      "res-cancel": {
+          "en": "Cancel"
+      },
+      "res-close": {
+          "en": "Close"
+      },
+      "res-need-label": {
+          "en": "Write a title or a link."
+      },
+      "res-duplicate": {
+          "en": "Another resource has the same title and link. Add that one to the nodes instead."
+      },
+      "res-edit": {
+          "en": "Change this resource"
+      },
+      "res-detach": {
+          "en": "Remove from this node"
+      },
+      "res-confirm-delete": {
+          "en": "“{name}” belongs to no other node. Delete the resource from the tree?"
+      },
+      "res-untitled": {
+          "en": "(untitled)"
+      },
+      "download-html": {
+          "en": "Download the tree"
+      },
+      "download-note": {
+          "en": "The spreadsheet is what you keep and edit. The tree is one HTML file for your students: it opens by double-clicking and works offline."
+      },
+      "err-render": {
+          "en": "The tree could not be drawn: {message}"
+      },
+      "err-timeout": {
+          "en": "The tree did not finish drawing. That usually means the file is not a skill tree spreadsheet at all."
+      },
+      "confirm-discard": {
+          "en": "You have changes that are not downloaded. Open another tree anyway?"
+      },
+      "blank-title": {
+          "en": "My skill tree"
+      },
+      "blank-topic": {
+          "en": "First topic"
+      },
+      "blank-node": {
+          "en": "First node"
+      },
+      "blank-node-description": {
+          "en": "Term: what it means, in one sentence."
+      },
+      "view-intro": {
+          "en": "This is the tree as your students will see it. Click a node to see the instruction it gives them."
+      },
+      "view-to-edit": {
+          "en": "Back to editing"
+      },
+      "stat-nodes": {
+          "en": "nodes"
+      },
+      "stat-skills": {
+          "en": "skills / concepts"
+      },
+      "stat-skills-facts": {
+          "en": "skills / concepts / facts"
+      },
+      "stat-topics": {
+          "en": "topics"
+      },
+      "stat-depth": {
+          "en": "levels deep"
+      },
+      "stat-roots": {
+          "en": "with no prerequisites"
+      },
+      "tree-intro": {
+          "en": "Click a node in the tree, or in the list, to edit it."
+      },
+      "tree-search": {
+          "en": "Find a node"
+      },
+      "tree-no-topic": {
+          "en": "(no topic)"
+      },
+      "tree-add-node": {
+          "en": "+ Add a node here"
+      },
+      "tree-new-topic": {
+          "en": "+ New topic"
+      },
+      "tree-new-topic-prompt": {
+          "en": "Name of the new topic:"
+      },
+      "tree-auto-order": {
+          "en": "Order topics automatically"
+      },
+      "topic-up": {
+          "en": "Move topic left"
+      },
+      "topic-down": {
+          "en": "Move topic right"
+      },
+      "topic-rename": {
+          "en": "Rename topic"
+      },
+      "topic-rename-prompt": {
+          "en": "New name for the topic:"
+      },
+      "type-skill": {
+          "en": "Skill"
+      },
+      "type-concept": {
+          "en": "Concept"
+      },
+      "type-fact": {
+          "en": "Facts"
+      },
+      "new-node-name": {
+          "en": "New node"
+      },
+      "node-none": {
+          "en": "Click a node in the tree to edit it."
+      },
+      "node-back": {
+          "en": "All nodes"
+      },
+      "node-delete": {
+          "en": "Delete node"
+      },
+      "node-delete-named": {
+          "en": "Delete “{name}”"
+      },
+      "topic-delete": {
+          "en": "Delete the topic and all its nodes"
+      },
+      "confirm-delete-topic": {
+          "en": "Delete the topic “{topic}” and all {n} nodes in it? You can undo it with Undo."
+      },
+      "node-name": {
+          "en": "Name"
+      },
+      "node-type": {
+          "en": "Type"
+      },
+      "node-type-hint": {
+          "en": "A skill is something the student does. A concept is something the student has to understand and explain. Facts are a list the student has to know by heart."
+      },
+      "node-topic": {
+          "en": "Topic"
+      },
+      "node-description": {
+          "en": "Learning outcome"
+      },
+      "node-description-skill": {
+          "en": "What the student can do, finishing the sentence “The student can …”."
+      },
+      "node-description-concept": {
+          "en": "The term and its definition, as “Term: definition”. One per line if the node holds several."
+      },
+      "node-description-fact": {
+          "en": "What the student can recall, one item per line as “cue: answer” (“the year Norway joined NATO: 1949”, “perro: dog”). A line with no colon is a rule the items are made from."
+      },
+      "node-prereqs": {
+          "en": "Builds on"
+      },
+      "node-prereqs-none": {
+          "en": "Nothing: the student can start here."
+      },
+      "node-prereqs-hint": {
+          "en": "Only the nearest prerequisites. The tutor finds the rest by following the arrows."
+      },
+      "node-prereq-add": {
+          "en": "Add a prerequisite…"
+      },
+      "node-prereq-remove": {
+          "en": "Remove this prerequisite"
+      },
+      "node-prereq-unknown": {
+          "en": "No node has this id"
+      },
+      "node-prereq-would-cycle": {
+          "en": "would make a circle"
+      },
+      "node-go-to": {
+          "en": "Go to this node"
+      },
+      "node-pick": {
+          "en": "Pick in the tree"
+      },
+      "node-pick-stop": {
+          "en": "Done picking"
+      },
+      "node-pick-hint": {
+          "en": "Click nodes in the tree to add or remove them as prerequisites. Dashed outline: this node builds on it."
+      },
+      "node-cycle": {
+          "en": "“{dep}” already builds on “{node}”, so it cannot also be a prerequisite for it. That would be a circle."
+      },
+      "node-needed-by": {
+          "en": "Needed by"
+      },
+      "node-aids": {
+          "en": "Aids"
+      },
+      "node-aids-hint": {
+          "en": "Which of the tree’s aid levels this node is examined under. Set the levels under Tree."
+      },
+      "node-instruction": {
+          "en": "Extra instruction for this node"
+      },
+      "node-instruction-hint": {
+          "en": "Added to the tutor’s instruction for this node only. Leave empty if the general instruction is enough."
+      },
+      "node-id": {
+          "en": "Id"
+      },
+      "node-id-hint": {
+          "en": "The node’s key in the spreadsheet. Changing it updates every arrow, but students who already have the file lose their tick on this node."
+      },
+      "node-id-taken": {
+          "en": "Another node already has the id “{id}”."
+      },
+      "aids-level": {
+          "en": "Level"
+      },
+      "instr-loading": {
+          "en": "The instructions appear when the tree has been built."
+      },
+      "instr-intro": {
+          "en": "These are the instructions your students paste into their AI chat. Each one is in a few parts; open a part with Edit to see all its text and change it for this tree only. The rest stays as published, and your version is saved as a row in the spreadsheet. Every instruction ends with Extra, for anything you want to add. Words in {braces} are filled in by the tree."
+      },
+      "instr-version": {
+          "en": "Instruction “{id}”, version {version}"
+      },
+      "instr-name-node": {
+          "en": "Practice tutor"
+      },
+      "instr-name-exam": {
+          "en": "Test generator"
+      },
+      "instr-name-motivation": {
+          "en": "Motivation"
+      },
+      "instr-name-miniTree": {
+          "en": "Mini tree"
+      },
+      "instr-name-simulation": {
+          "en": "Simulation"
+      },
+      "instr-name-lessonPlan": {
+          "en": "Lesson plan"
+      },
+      "sec-changed": {
+          "en": "Changed in this tree"
+      },
+      "sec-changed-all": {
+          "en": "Changed for all instructions"
+      },
+      "sec-runtime": {
+          "en": "Filled from the tree"
+      },
+      "sec-conditional": {
+          "en": "Only sometimes"
+      },
+      "sec-from-language": {
+          "en": "From the language"
+      },
+      "sec-from-family": {
+          "en": "From the subject family"
+      },
+      "sec-from-family-named": {
+          "en": "From the {family} family"
+      },
+      "cond-hasPrerequisites": {
+          "en": "With prerequisites"
+      },
+      "cond-noPrerequisites": {
+          "en": "Without prerequisites"
+      },
+      "cond-skillNode": {
+          "en": "Skill nodes"
+      },
+      "cond-conceptNode": {
+          "en": "Concept nodes"
+      },
+      "cond-severalConcepts": {
+          "en": "Concept nodes with several terms"
+      },
+      "cond-factNode": {
+          "en": "Fact nodes"
+      },
+      "cond-nodeInstruction": {
+          "en": "Nodes with an extra instruction"
+      },
+      "cond-aids": {
+          "en": "When aid levels are set"
+      },
+      "cond-severalAids": {
+          "en": "Several aid levels"
+      },
+      "cond-expressionFocus": {
+          "en": "When the tree sets expressionFocus"
+      },
+      "cond-courseSpecifics": {
+          "en": "When the tree has a course text"
+      },
+      "cond-hasConcepts": {
+          "en": "When concepts are included"
+      },
+      "cond-allConcepts": {
+          "en": "Only concepts"
+      },
+      "cond-someConcepts": {
+          "en": "Concepts and skills mixed"
+      },
+      "examEasy": {
+          "en": "When the test is easy"
+      },
+      "examMedium": {
+          "en": "When the test is medium"
+      },
+      "examHard": {
+          "en": "When the test is hard"
+      },
+      "examClosed": {
+          "en": "When the tasks are closed"
+      },
+      "examOpen": {
+          "en": "When the tasks are open"
+      },
+      "examMixed": {
+          "en": "When the tasks are mixed"
+      },
+      "motNoStart": {
+          "en": "When the student has not said where they are"
+      },
+      "motStartHard": {
+          "en": "When the student finds it hard"
+      },
+      "motStartBored": {
+          "en": "When the student finds it boring"
+      },
+      "motStartUse": {
+          "en": "When the student asks what it is for"
+      },
+      "motShort": {
+          "en": "When the conversation is short"
+      },
+      "motLong": {
+          "en": "When the conversation is long"
+      },
+      "miniThreeLevels": {
+          "en": "When each goal has three levels"
+      },
+      "miniOneLevel": {
+          "en": "When each goal has one level"
+      },
+      "miniMixedTest": {
+          "en": "When the file ends with a mixed test"
+      },
+      "miniGame": {
+          "en": "When the file has game elements"
+      },
+      "miniEasyRead": {
+          "en": "When the text is easy to read"
+      },
+      "miniPlainRead": {
+          "en": "When the text is ordinary"
+      },
+      "miniReadAloud": {
+          "en": "When the text can be read aloud"
+      },
+      "simDesignFirst": {
+          "en": "When the design is agreed first"
+      },
+      "simBuildNow": {
+          "en": "When the simulation is built straight away"
+      },
+      "simScreenLaptop": {
+          "en": "For a laptop screen"
+      },
+      "simScreenTablet": {
+          "en": "For a tablet"
+      },
+      "simScreenProjector": {
+          "en": "For a projector"
+      },
+      "simTasks": {
+          "en": "When the simulation comes with tasks"
+      },
+      "simCritique": {
+          "en": "When the students criticise the model"
+      },
+      "simExport": {
+          "en": "When results can be exported"
+      },
+      "cond-lessonIntro": {
+          "en": "When the lesson type is Introduction"
+      },
+      "cond-lessonPractice": {
+          "en": "When the lesson type is Practice"
+      },
+      "cond-lessonReview": {
+          "en": "When the lesson type is Review"
+      },
+      "cond-lessonOther": {
+          "en": "When the lesson type is Other"
+      },
+      "cond-hasSkills": {
+          "en": "When skills are included"
+      },
+      "cond-hasFacts": {
+          "en": "When facts are included"
+      },
+      "grp-changed-one": {
+          "en": "1 changed"
+      },
+      "grp-changed-many": {
+          "en": "{n} changed"
+      },
+      "grp-sections": {
+          "en": "Sections in this part"
+      },
+      "grp-edit-aria": {
+          "en": "Edit “{group}”"
+      },
+      "grp-how": {
+          "en": "Change any text and press Save. A row you have changed is marked green; “Use the published text” takes it back. Empty a row to leave that section out of this tree’s instruction."
+      },
+      "grp-col-name": {
+          "en": "Section"
+      },
+      "grp-col-text": {
+          "en": "What it says"
+      },
+      "grp-discard": {
+          "en": "Close without saving your changes?"
+      },
+      "sec-extra-placeholder": {
+          "en": "Anything else you want the AI to know or do. Left empty, nothing is added."
+      },
+      "sec-empty-placeholder": {
+          "en": "(empty: this section is left out)"
+      },
+      "sec-empty": {
+          "en": "(empty unless the tree fills it)"
+      },
+      "sec-more": {
+          "en": "Show all"
+      },
+      "sec-less": {
+          "en": "Show less"
+      },
+      "sec-edit": {
+          "en": "Edit"
+      },
+      "sec-edit-again": {
+          "en": "Edit your version"
+      },
+      "sec-reset": {
+          "en": "Use the published text"
+      },
+      "sec-reset-all": {
+          "en": "Use the published text everywhere"
+      },
+      "sec-published": {
+          "en": "The published text"
+      },
+      "sec-save": {
+          "en": "Save"
+      },
+      "sec-cancel": {
+          "en": "Cancel"
+      },
+      "sec-apply-all": {
+          "en": "Use this text in every instruction that has this section ({list})"
+      },
+      "sec-runtime-node": {
+          "en": "Written on each node, under “Extra instruction for this node”."
+      },
+      "sec-runtime-aids": {
+          "en": "Written from the aid levels under Tree."
+      },
+      "set-group-about": {
+          "en": "Basics"
+      },
+      "set-title": {
+          "en": "Title"
+      },
+      "set-description": {
+          "en": "Short description"
+      },
+      "set-language": {
+          "en": "Language"
+      },
+      "set-learner": {
+          "en": "The learner is called"
+      },
+      "set-learner-hint": {
+          "en": "In the definite form, as the instructions say it: “the student”, “the participant”. Empty gives the language’s default."
+      },
+      "set-family": {
+          "en": "Subject family"
+      },
+      "set-family-hint": {
+          "en": "Adds what the instructions should know about this kind of subject."
+      },
+      "set-family-none": {
+          "en": "None"
+      },
+      "set-decomposition": {
+          "en": "Decomposition prompt version"
+      },
+      "set-decomposition-hint": {
+          "en": "Which version of the method the tree was built with, so you can tell later."
+      },
+      "set-group-course": {
+          "en": "About the course"
+      },
+      "set-group-course-note": {
+          "en": "Shown to students under “About the subject”."
+      },
+      "set-subtitle": {
+          "en": "Subtitle"
+      },
+      "set-subtitle-hint": {
+          "en": "One line under the title on the tree’s card, e.g. “Programme subject, Year 12”."
+      },
+      "set-course-code": {
+          "en": "Course code"
+      },
+      "set-updated": {
+          "en": "Last updated"
+      },
+      "set-updated-hint": {
+          "en": "As YYYY-MM-DD."
+      },
+      "set-group-catalogue": {
+          "en": "In the catalogue"
+      },
+      "set-group-catalogue-note": {
+          "en": "What the filters on aiskilltrees.com/trees/ sort by. Also shown under “About the subject”."
+      },
+      "set-country": {
+          "en": "Country"
+      },
+      "set-institution": {
+          "en": "Institution"
+      },
+      "set-division": {
+          "en": "Year or faculty"
+      },
+      "set-subject-area": {
+          "en": "Subject area"
+      },
+      "set-keywords": {
+          "en": "Keywords"
+      },
+      "set-keywords-hint": {
+          "en": "Extra words the catalogue search should find the tree by, separated by semicolons."
+      },
+      "set-curriculum": {
+          "en": "Curriculum"
+      },
+      "set-author": {
+          "en": "Author"
+      },
+      "set-author-url": {
+          "en": "Author’s web page"
+      },
+      "set-license": {
+          "en": "Licence"
+      },
+      "set-author-yours": {
+          "en": "Your name"
+      },
+      "set-author-inherited": {
+          "en": "This tree was made by {author}. If you are adapting it, write your own name here: {author} is then listed under “Based on”, as the CC BY licence requires. Leave the field empty if you are {author}."
+      },
+      "set-based-on": {
+          "en": "Based on"
+      },
+      "set-based-on-hint": {
+          "en": "The trees this one was made from, nearest first. Shown to students under “About the subject”, and kept in the file when it is downloaded."
+      },
+      "set-group-buttons": {
+          "en": "Buttons"
+      },
+      "set-motivation": {
+          "en": "Motivation button"
+      },
+      "set-motivation-hint": {
+          "en": "A button that starts a conversation about why the subject is worth learning."
+      },
+      "set-group-slots": {
+          "en": "Words the instructions use"
+      },
+      "set-group-slots-note": {
+          "en": "Filled into the instructions wherever they refer to the course."
+      },
+      "set-slot-course": {
+          "en": "Course name, as the instructions say it"
+      },
+      "set-slot-motivation": {
+          "en": "The subject, in the motivation dialogue"
+      },
+      "set-slot-expression": {
+          "en": "What students often get wrong in writing"
+      },
+      "set-slot-expression-hint": {
+          "en": "The tutor watches for this in every answer."
+      },
+      "set-slot-specifics": {
+          "en": "About this course"
+      },
+      "set-slot-specifics-hint": {
+          "en": "Anything every instruction should know: the level, the textbook, what the students have done before."
+      },
+      "set-group-aids": {
+          "en": "Aid levels"
+      },
+      "set-group-aids-note": {
+          "en": "For subjects that are examined with and without aids. Leave empty if yours is not."
+      },
+      "set-aids-label": {
+          "en": "Name of a level"
+      },
+      "set-aids-label-hint": {
+          "en": "For example “Part”, so the tags read “Part 1” and “Part 2”."
+      },
+      "set-aids-name": {
+          "en": "Own name for this level (optional)"
+      },
+      "set-aids-student": {
+          "en": "What the student is told"
+      },
+      "set-aids-model": {
+          "en": "What the AI is told"
+      },
+      "set-aids-add": {
+          "en": "+ Add a level"
+      },
+      "set-aids-remove": {
+          "en": "Remove level"
+      },
+      "set-aids-new-student": {
+          "en": "Describe the aids the student may use."
+      },
+      "set-aids-new-model": {
+          "en": "Describe the aids the student may use, so the AI can set tasks that fit."
+      },
+      "set-group-other": {
+          "en": "Other settings in the file"
+      },
+      "set-group-other-note": {
+          "en": "Settings this page has no field for, shown as they stand in the spreadsheet."
+      },
+      "set-remove": {
+          "en": "Remove setting"
+      },
+      "set-add": {
+          "en": "+ Add a setting"
+      },
+      "set-add-prompt": {
+          "en": "Name of the setting (as in the name column):"
+      },
+      "set-add-value": {
+          "en": "Value for {key}:"
+      },
+      "lang-en": {
+          "en": "English"
+      },
+      "lang-nb": {
+          "en": "Norwegian (bokmål)"
+      },
+      "lang-sv": {
+          "en": "Swedish"
+      },
+      "look-intro": {
+          "en": "The colour of each type of node, and the font. The type is always written on the node too, so the colour never has to carry the meaning alone."
+      },
+      "look-concept": {
+          "en": "Concept colour"
+      },
+      "look-skill": {
+          "en": "Skill colour"
+      },
+      "look-fact": {
+          "en": "Fact colour"
+      },
+      "look-default": {
+          "en": "Use the default"
+      },
+      "look-contrast": {
+          "en": "The node names will be hard to read on this colour (contrast {ratio}:1, 4.5:1 is the minimum). Try a lighter or less saturated colour."
+      },
+      "look-font": {
+          "en": "Font"
+      },
+      "look-font-hint": {
+          "en": "These fonts are on every computer already, so the downloaded tree looks the same without a network."
+      },
+      "look-font-sample": {
+          "en": "Add fractions"
+      },
+      "look-font-system": {
+          "en": "Standard"
+      },
+      "look-font-humanist": {
+          "en": "Humanist"
+      },
+      "look-font-rounded": {
+          "en": "Rounded"
+      },
+      "look-font-serif": {
+          "en": "Serif"
+      },
+      "look-font-mono": {
+          "en": "Typewriter"
+      },
+      "footer-privacy": {
+          "en": "Privacy"
+      },
+      "l0-title": {
+          "en": "You have nothing yet"
+      },
+      "l0-body": {
+          "en": "Copy the instruction below into whichever AI chat you already use. It asks about your subject, your level and your curriculum, takes you through the decomposition, and hands you a spreadsheet at the end. Nothing to install."
+      },
+      "l0-cta": {
+          "en": "Copy the prompt"
+      },
+      "l0-placeholder": {
+          "en": "[ Loading the prompt… ]"
+      },
+      "l1-title": {
+          "en": "You have a spreadsheet"
+      },
+      "l1-cta": {
+          "en": "Download an example spreadsheet"
+      },
+      "l1-cta-note": {
+          "en": "Nine nodes, two resources, and every setting a tree can have. It is also the best thing to hand the AI as a format example."
+      },
+      "l2-title": {
+          "en": "You are going to live with this"
+      },
+      "l2-body": {
+          "en": "If you will maintain a tree over several years, or build them for a whole department, it is worth working in an editor with an AI agent that can read the specification, run the checks and keep your versions. The method repository has the decomposition model, the default instructions and the file format."
+      },
+      "l2-cta": {
+          "en": "Open the method repository"
+      },
+      "contribute-body": {
+          "en": "Made a tree you want other teachers to use? You can submit it to the catalogue on this site."
+      },
+      "contribute-cta": {
+          "en": "Submit your tree"
+      },
+      "stat-roots-flat": {
+          "en": "That is a lot. A tree where most nodes start from nothing is usually one where the prerequisites were never worked out — worth sending back to the AI."
+      },
+      "set-derived": {
+          "en": "(worked out for you)"
+      },
+      "set-decomposition-missing": {
+          "en": "not given — add a decompositionVersion row, so you can tell later which version of the method the tree was built with"
+      },
+      "l1-body": {
+          "en": "Drop it here, or paste it if you copied it from the chat. A tree you downloaded from this site earlier works too. It opens in the editor, where you can change it and download it again."
+      },
+      "l0-show": {
+          "en": "Show the prompt"
+      },
+      "l0-hide": {
+          "en": "Hide the prompt"
+      },
+      "l0-next": {
+          "en": "Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one, or copy it and paste it there."
+      },
+      "l3-title": {
+          "en": "You want to start from something"
+      },
+      "ov-close": {
+          "en": "Close and look at the example"
+      },
+      "ov-foot-l2": {
+          "en": "Maintaining trees for years, or for a whole department? Work in an editor with an AI agent instead:"
+      },
+      "ov-foot-contribute": {
+          "en": "Made a tree other teachers could use?"
+      },
+      "rep-settings": {
+          "en": "How your settings were read"
+      },
+      "rep-settings-note": {
+          "en": "Some of these you wrote, and some were worked out from your file. A tree that looks wrong is usually one of these."
+      },
+      "rep-title": {
+          "en": "Title"
+      },
+      "rep-language": {
+          "en": "Language"
+      },
+      "rep-family": {
+          "en": "Subject family"
+      },
+      "rep-decomposition": {
+          "en": "Decomposition prompt"
+      },
+      "rep-learner": {
+          "en": "The learner is called"
+      },
+      "rep-storage": {
+          "en": "Storage key"
+      },
+      "rep-topicorder": {
+          "en": "Topic order"
+      },
+      "rep-prompts": {
+          "en": "Instruction overrides"
+      },
+      "privacy-note": {
+          "en": "Nothing is uploaded, and nothing is saved in your browser. Your tree exists only on this page until you download it."
+      },
+      "footer-affiliation": {
+          "en": "Part of a research project at <a href=\"https://www.mn.uio.no/kurt/index.html\">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo."
+      },
+      "status-flat": {
+          "en": "No errors, but most nodes have no prerequisites. See View."
+      },
+      "facet-all": {
+          "en": "All"
+      },
+      "facet-find": {
+          "en": "Find…"
+      }
+  }
+  </script>
+</head>
+<body class="edpage">
+
+  <header class="siteheader" data-site-header></header>
+
+  <main class="editor" id="editor" data-state="open" data-mode="edit">
+
+    <div class="ed-app" id="ed-app">
+      <aside class="ed-panel" id="ed-panel">
+        <div class="ed-bar">
+          <div class="ed-seg ed-seg--mode" role="group" aria-label="Mode" data-i18n-attr="aria-label:mode-label">
+            <button type="button" class="ed-seg__btn" data-mode="edit" aria-pressed="true" data-i18n="mode-edit">Edit</button>
+            <button type="button" class="ed-seg__btn" data-mode="view" aria-pressed="false" data-i18n="mode-view">View</button>
+          </div>
+          <span class="ed-bar__spacer"></span>
+          <button type="button" class="ed-btn ed-btn--icon" id="ed-undo" disabled title="Undo" aria-label="Undo" data-i18n-attr="title:undo,aria-label:undo">↶</button>
+          <button type="button" class="ed-btn ed-btn--icon" id="ed-redo" disabled title="Redo" aria-label="Redo" data-i18n-attr="title:redo,aria-label:redo">↷</button>
+          <button type="button" class="ed-btn ed-btn--quiet ed-btn--small" id="ed-open-other" data-i18n="open-other">Open another</button>
+        </div>
+
+        <nav class="ed-tabs" id="ed-tabs" role="tablist">
+          <button type="button" role="tab" data-tab="tree" aria-selected="true" data-i18n="tab-tree">Tree</button>
+          <button type="button" role="tab" data-tab="nodes" aria-selected="false" data-i18n="tab-nodes">Nodes</button>
+          <button type="button" role="tab" data-tab="node" aria-selected="false" data-i18n="tab-node">Node</button>
+          <button type="button" role="tab" data-tab="instructions" aria-selected="false" data-i18n="tab-instructions">Instructions</button>
+          <button type="button" role="tab" data-tab="look" aria-selected="false" data-i18n="tab-look">Look</button>
+        </nav>
+
+        <div class="ed-body" id="ed-body"></div>
+
+        <div class="ed-status" id="ed-status" data-errors="false">
+          <details class="ed-errors" id="ed-error-details" hidden>
+            <summary id="ed-error-count-summary"></summary>
+            <ul id="ed-error-list"></ul>
+            <button type="button" class="ed-btn ed-btn--small" id="ed-copy-errors" data-i18n="copy-errors">Copy the list for your AI chat</button>
+          </details>
+          <p class="ed-status__line" id="ed-error-count" role="status" aria-live="polite"></p>
+          <div class="ed-downloads">
+            <button type="button" class="ed-btn ed-btn--primary" id="ed-download-html" disabled data-i18n="download-html">Download the tree</button>
+            <button type="button" class="ed-btn" id="ed-download-csv" disabled data-i18n="download-csv">Download spreadsheet</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="ed-split" id="ed-split" role="separator" aria-orientation="vertical" tabindex="0" aria-controls="ed-panel" aria-label="Panel width" data-i18n-attr="aria-label:split-label"></div>
+
+      <div class="ed-stage" id="ed-stage">
+        <iframe class="ed-frame is-live" id="ed-frame-a" title="Preview of the tree" data-i18n-attr="title:preview-label"></iframe>
+        <iframe class="ed-frame" id="ed-frame-b" title="Preview of the tree" data-i18n-attr="title:preview-label"></iframe>
+      </div>
+    </div>
+
+    <!--
+      Veiene inn, som et vindu over verktøyet. Bak det står eksempeltreet,
+      uskarpt, slik at læreren ser hva hen skal lage før hen har valgt noe.
+      Å kopiere ledeteksten lukker det IKKE: den læreren skal til chatten og
+      komme tilbake med et regneark, og da er det dette vinduet hen trenger.
+    -->
+    <div class="ed-overlay" id="ed-overlay" role="dialog" aria-modal="true" aria-labelledby="ov-heading">
+      <div class="ed-overlay__card">
+        <button type="button" class="ed-overlay__close" id="ed-overlay-close" title="Close and look at the example" aria-label="Close and look at the example" data-i18n-attr="title:ov-close,aria-label:ov-close">×</button>
+        <p class="eyebrow" data-i18n="page-eyebrow">For teachers</p>
+        <h1 class="ed-overlay__title" id="ov-heading" data-i18n="page-heading">Make your own</h1>
+        <p class="ed-overlay__lede" data-i18n="page-lede">A skill tree is one spreadsheet. Make it with an AI chat, open it here, change anything you disagree with on screen, and download it as one HTML file for your students. No account, no installation, no cost.</p>
+
+        <ol class="ed-ways">
+          <li class="ed-way">
+            <span class="step__index" aria-hidden="true">01</span>
+            <h2 class="ed-way__title" data-i18n="l0-title">You have nothing yet</h2>
+            <p class="ed-way__body" data-i18n="l0-body">Copy the instruction below into whichever AI chat you already use. It asks about your subject, your level and your curriculum, takes you through the decomposition, and hands you a spreadsheet at the end. Nothing to install.</p>
+            <div class="btn-row">
+              <button type="button" class="btn btn--primary" id="ed-copy-prompt" data-i18n="l0-cta">Copy the prompt</button>
+              <button type="button" class="ed-btn ed-btn--link" id="ed-show-prompt" aria-expanded="false" aria-controls="authoring-prompt" data-i18n="l0-show">Show the prompt</button>
+            </div>
+            <p class="ed-way__next" id="ed-prompt-next" role="status" hidden data-i18n="l0-next">Copied. Paste it into your AI chat. When the chat gives you the spreadsheet, drop it in the box next to this one, or copy it and paste it there.</p>
+            <pre class="promptbox" id="authoring-prompt" hidden data-i18n="l0-placeholder">[ Loading the prompt… ]</pre>
+          </li>
+          <li class="ed-way">
+            <span class="step__index" aria-hidden="true">02</span>
+            <h2 class="ed-way__title" data-i18n="l1-title">You have a spreadsheet</h2>
+            <p class="ed-way__body" data-i18n="l1-body">Drop it here, or paste it if you copied it from the chat. A tree you downloaded from this site earlier works too. It opens in the editor, where you can change it and download it again.</p>
+            <div class="builder__drop" id="ed-drop" tabindex="0" role="button">
+              <span class="builder__droplabel" data-i18n="start-drop">Drop tree.csv or a downloaded tree (.html) here, or click to choose</span>
+              <input type="file" id="ed-file" accept=".csv,text/csv,.html,.htm,text/html" multiple hidden>
+            </div>
+            <!-- Lim inn: regnearket kommer oftest som tekst i en KI-chat, ikke som
+                 fil. Knappen prøver utklippstavla, og viser ellers et felt å lime i. -->
+            <button type="button" class="btn btn--ghost ed-way__paste" id="ed-paste-button" data-i18n="paste-cta">Paste from the AI chat</button>
+            <div class="ed-paste" id="ed-paste" hidden>
+              <textarea class="ed-input ed-paste__area" id="ed-paste-area" rows="6" spellcheck="false" placeholder="Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)" aria-label="Paste the spreadsheet the chat gave you here (Ctrl+V or ⌘V)" data-i18n-attr="placeholder:paste-placeholder,aria-label:paste-placeholder"></textarea>
+              <button type="button" class="btn btn--primary" id="ed-paste-open" data-i18n="paste-open">Open</button>
+            </div>
+            <a class="ed-btn ed-btn--link" href="/assets/starter/tree.csv" download data-i18n="l1-cta">Download an example spreadsheet</a>
+          </li>
+          <li class="ed-way">
+            <span class="step__index" aria-hidden="true">03</span>
+            <h2 class="ed-way__title" data-i18n="l3-title">You want to start from something</h2>
+            <div class="ed-way__stack">
+              <button type="button" class="btn btn--ghost" id="ed-start-example" data-i18n="start-example">Open the example tree</button>
+              <button type="button" class="btn btn--ghost" id="ed-start-blank" data-i18n="start-blank">Start from scratch</button>
+              <button type="button" class="btn btn--ghost" id="ed-catalogue" aria-haspopup="dialog" aria-controls="ed-picker" data-i18n="start-catalogue">Find a tree in the catalogue</button>
+            </div>
+            <p class="ed-way__body ed-way__body--quiet" data-i18n="start-catalogue-hint">You get your own copy to change. The published tree is not affected.</p>
+          </li>
+        </ol>
+        <p class="ed-start__error" id="ed-start-error" role="alert" hidden></p>
+
+        <div class="ed-overlay__foot">
+          <p data-i18n="privacy-note">Nothing is uploaded, and nothing is saved in your browser. Your tree exists only on this page until you download it.</p>
+          <p><span data-i18n="ov-foot-l2">Maintaining trees for years, or for a whole department? Work in an editor with an AI agent instead:</span> <a href="https://github.com/vidarsko/ai-skill-trees" data-i18n="l2-cta">Open the method repository</a></p>
+          <p class="ed-overlay__affiliation" data-i18n-html="footer-affiliation">Part of a research project at <a href="https://www.mn.uio.no/kurt/index.html">KURT – Centre for Teaching and Learning in Science</a>, University of Oslo.</p>
+          <p><span data-i18n="ov-foot-contribute">Made a tree other teachers could use?</span> <a href="/contribute/" data-track-cta="make-your-own-contribute" data-i18n="contribute-cta">Submit your tree</a> · <a href="/privacy/" data-i18n="footer-privacy">Privacy</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      Plukkeren for katalogtrærne: søk og filtre som på /trees/, i et vindu
+      over vinduet med veiene inn. Innholdet bygges av js/tree-picker.js, og
+      stilen er katalogens egen (css/catalog.css).
+    -->
+    <div class="ed-overlay ed-picker" id="ed-picker" role="dialog" aria-modal="true" aria-labelledby="picker-heading" hidden>
+      <div class="ed-overlay__card ed-picker__dialog">
+        <button type="button" class="ed-overlay__close" id="picker-close" title="Back" aria-label="Back" data-i18n-attr="title:picker-close,aria-label:picker-close">×</button>
+        <h2 class="ed-overlay__title ed-picker__title" id="picker-heading" data-i18n="picker-heading">Start from a tree in the catalogue</h2>
+        <p class="ed-way__body ed-way__body--quiet" data-i18n="start-catalogue-hint">You get your own copy to change. The published tree is not affected.</p>
+
+        <div class="ed-picker__search">
+          <label class="field-label" for="picker-search" data-i18n="search-label">Search</label>
+          <input class="input" type="search" id="picker-search" autocomplete="off"
+                 placeholder="Subject, level, topic or keyword — e.g. “2P”, “statistics”, “growth factor”"
+                 data-i18n-attr="placeholder:search-placeholder">
+        </div>
+
+        <div class="catalog ed-picker__catalog">
+          <form class="filters" id="picker-filters" data-collapsed="true" onsubmit="return false;">
+            <button class="filters__toggle" type="button" id="picker-filters-toggle" aria-expanded="false" aria-controls="picker-filters-body">
+              <span data-i18n="filters-heading">Filters</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+            <div class="filters__body" id="picker-filters-body">
+              <div class="filters__head">
+                <h3 data-i18n="filters-heading">Filters</h3>
+              </div>
+              <div id="picker-facets"></div>
+            </div>
+          </form>
+
+          <div class="results">
+            <div class="results__head">
+              <p class="results__count" id="picker-count" role="status" aria-live="polite"></p>
+              <button class="linkbtn" type="button" id="picker-reset" hidden data-i18n="reset-all">Clear all filters</button>
+            </div>
+            <div class="chips" id="picker-chips"></div>
+            <p class="loading" id="picker-status" data-i18n="loading">Loading skill trees …</p>
+            <ul class="treegrid" id="picker-grid"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
