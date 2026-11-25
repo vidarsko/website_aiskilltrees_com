@@ -2563,23 +2563,22 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   --stage-5: rgba(213, 94, 0, 0.09);
   --stage-6: rgba(0, 114, 178, 0.10);
   --stage-7: rgba(150, 120, 60, 0.11);
+  /* Den samme tonen helt mettet: trøya på figuren i trinnkolonnen. */
+  --stage-ink-1: rgb(230, 159, 0);
+  --stage-ink-2: rgb(86, 180, 233);
+  --stage-ink-3: rgb(0, 158, 115);
+  --stage-ink-4: rgb(204, 121, 167);
+  --stage-ink-5: rgb(213, 94, 0);
+  --stage-ink-6: rgb(0, 114, 178);
+  --stage-ink-7: rgb(150, 120, 60);
+  /* Den fryste emneraden og hjørnet: helt fylt, svart strek mellom rutene. */
+  --header-fill: color-mix(in srgb, var(--text) 6%, var(--bg));
+  --header-rule: var(--text);
 }
 
 .stage-band {
   position: absolute;
   background: var(--stage-color);
-  pointer-events: none;
-}
-
-/* Samme typografi som emnenavnene over kolonnene. */
-.stage-label {
-  position: absolute;
-  z-index: 3;
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
   pointer-events: none;
 }
 
@@ -2607,43 +2606,102 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
   pointer-events: none;
 }
 
-.stage-divider {
+/* Den fryste trinnkolonnen til venstre (2026-11-25). Ett felt per trinn
+   med navnet, figuren og merk/fjern for alt til og med trinnet, og et felt
+   i skillelinja med «Kartleggingsprøve». updateStickyHeaders flytter dem
+   så de står fast når kartet rulles sidelengs. Feltene er ugjennomsiktige
+   (trinnets tone over bakgrunnen), så kortene ruller inn under dem.
+   Hjørnet over står fast begge veier og dekker emnenavnene. */
+.stage-rail {
   position: absolute;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
+  z-index: 8;
+  box-sizing: border-box;
+  border-right: 1px solid var(--border-strong);
+  transition: box-shadow 0.15s ease;
+}
+.stage-rail.stuck {
+  box-shadow: 6px 0 10px -8px color-mix(in srgb, var(--text) 40%, transparent);
 }
 
-.stage-divider-inner {
-  /* Følger med bortover via transform i updateStickyHeaders (engine.js);
-     sticky virket ikke i det skalerte lerretet. */
-  position: relative;
-  z-index: 4;
+.stage-rail-panel {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6rem 0.9rem;
-  padding: 0 0.75rem 0 18px; /* = STAGE_TEXT_INSET i engine.js */
-  pointer-events: auto;
+  gap: 2px;
+  padding: 7px 6px 6px;
+  overflow: hidden;
+  background: linear-gradient(var(--stage-color), var(--stage-color)), var(--bg);
 }
 
-.stage-divider-heading {
+/* Samme typografi som emnenavnene over kolonnene. */
+.stage-rail-label {
   font-size: 0.86rem;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text);
+}
+
+.stage-rail-figure {
+  display: block;
+  width: 66px;
+  height: 91px;
+  flex-shrink: 0;
+}
+.stage-rail-figure .sf-torso { fill: var(--stage-ink); }
+.stage-rail-figure .sf-arm {
+  fill: none;
+  stroke: var(--stage-ink);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+.stage-rail-figure .sf-leg {
+  fill: none;
+  stroke: var(--text);
+  stroke-opacity: 0.7;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+}
+.stage-rail-figure .sf-ground {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-opacity: 0.35;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.stage-rail-bulk {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.stage-rail-bulk .goal-index-bulk-btn .bulk-icon { height: 1.3rem; }
+
+.stage-rail-test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .stage-divider-test.resource-copy {
   --card-hue: var(--primary);
-  font-size: 0.82rem;
-  padding: 0.5rem 1.05rem;
+  font-size: 0.76rem;
+  padding: 0.32rem 0.85rem;
 }
 
-.stage-divider-bulk {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.stage-rail-corner {
+  position: absolute;
+  z-index: 9;
+  box-sizing: border-box;
+  background: var(--header-fill);
+  border-right: 1px solid var(--header-rule);
+  border-bottom: 1px solid var(--border);
+}
+.stage-rail-corner.stuck {
+  box-shadow: 0 6px 10px -8px color-mix(in srgb, var(--text) 35%, transparent);
 }
 
 /* En lukket celle (ett tema på ett trinn) er en glassrute med et minitre
@@ -2744,31 +2802,33 @@ button.goal-tag:hover { opacity: 0.8; filter: none; }
    updateStickyHeaders), på en solid bakgrunn. */
 #column-headers .column-header {
   z-index: 6;
-  align-items: flex-end;
-  min-height: 2.35em;
-  font-size: 0.74rem;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
   box-sizing: border-box;
-  padding: 4px 4px 5px;
+  align-items: center;
+  font-size: 0.76rem;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  padding: 4px 12px 5px 10px;
   margin-top: -4px;
-  /* Solid bakgrunn hele tiden (Vidar 2026-11-22): glasset slapp
-     trinnbåndene og kortene gjennom og gjorde navnene vanskelige å lese. */
-  background: var(--bg);
+  /* Helt fylt og kant i kant, med svart strek mellom rutene (2026-11-25). */
+  border-right: 1px solid var(--header-rule);
+  background: var(--header-fill);
 }
 #column-headers .column-header-label {
+  flex: 1 1 auto;
+  min-width: 0;
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
 }
+/* Tegningen til hvert tema (topicFigureSvg). */
+#column-headers .column-header-figure {
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+}
 #column-headers .column-header.stuck {
   box-shadow: 0 6px 10px -8px color-mix(in srgb, var(--text) 35%, transparent);
 }
-
-.stage-label { font-size: 0.95rem; }
-.stage-divider-heading { font-size: 0.78rem; }
-.stage-divider-test.resource-copy { font-size: 0.76rem; padding: 0.32rem 0.85rem; }
-.stage-divider .goal-index-bulk-btn .bulk-icon { height: 1.3rem; }
 
 /* BARNESKOLEMATTE (2026-11-22): lister over læringsmål er delt opp per
    trinn, så det alltid framgår hvilket trinn et mål hører til. */

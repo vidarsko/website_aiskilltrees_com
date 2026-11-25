@@ -133,7 +133,7 @@ let LAYOUT = {
   hGap: 34,
   vGap: 96,
   columnGap: 26,           // BARNESKOLEMATTE: 26 (maskineriet: 56), så elleve temaer får plass i bredden
-  columnLabelHeight: 44,   // BARNESKOLEMATTE: 44, plass til emnenavn på to linjer over de smale rutene
+  columnLabelHeight: 76,   // BARNESKOLEMATTE: 76, fast høyde med emnenavnet og en tegning (2026-11-25; var 44)
   maxNodesPerRow: 3, // bryt en emne-rad i flere rader nedover når den blir bredere enn dette
   padding: 12,             // luft rundt hele lerretet; var 20 til 2026-09-20
   barycenterPasses: 4,
@@ -141,6 +141,10 @@ let LAYOUT = {
   // og skillelinja nederst (knappene for alt til og med trinnet).
   stageHeaderHeight: 28,   // 28 fra 2026-11-22: større trinnnavn
   stageDividerHeight: 38,
+  // BARNESKOLEMATTE: den fryste trinnkolonnen til venstre (2026-11-25):
+  // trinnets navn, en figur og merk/fjern, og «Kartleggingsprøve» i
+  // skillelinja. Står fast når kartet rulles sidelengs (updateStickyHeaders).
+  stageColumnWidth: 150,
   // BARNESKOLEMATTE: en lukket celle er en liten glassrute med et minitre
   // (2026-11-11, Vidar: hele oversikten skal få plass på én skjerm).
   // Radhøyden følger innholdet: en rad med bare ruter er
@@ -2600,13 +2604,17 @@ function helpFigure(key) {
         `<rect x="25" y="46" width="34" height="9" rx="4.5" style="fill:var(--primary)"/>`);
     case 'stages':
       /* BARNESKOLEMATTE: to trinnbånd, en lukket celle i det øverste og to
-         kort i det nederste, med skillelinja mellom. */
+         kort i det nederste, med skillelinja mellom, og trinnkolonnen til
+         venstre med en liten figur i hvert trinn (2026-11-25). */
       return svgOf('0 0 96 64', `<rect x="0" y="2" width="96" height="27" style="fill:var(--stage-1)"/>` +
         `<rect x="0" y="35" width="96" height="27" style="fill:var(--stage-2)"/>` +
         `<path d="M0 32h96" style="stroke:var(--border-strong)" stroke-width="1.5"/>` +
-        `<rect x="10" y="7" width="40" height="17" rx="4" style="fill:var(--surface);stroke:var(--border-strong)" stroke-width="1.3"/>` +
-        `<rect x="13" y="10" width="40" height="17" rx="4" style="fill:var(--surface);stroke:var(--border-strong)" stroke-width="1.3"/>` +
-        lines(18, 16, 24) + card(14, 41, 30, 15, 7, 'ferdighet') + card(52, 41, 30, 15, 1, 'fakta'));
+        `<path d="M22 2v60" style="stroke:var(--border-strong)" stroke-width="1"/>` +
+        `<rect x="7" y="9" width="8" height="6" rx="2" style="fill:#C8801F"/><rect x="8.5" y="15" width="5" height="8" rx="1.5" style="fill:var(--stage-ink-1)"/>` +
+        `<rect x="6.5" y="40" width="9" height="6" rx="2" style="fill:#C8801F"/><rect x="8" y="46" width="6" height="12" rx="1.5" style="fill:var(--stage-ink-2)"/>` +
+        `<rect x="30" y="7" width="40" height="17" rx="4" style="fill:var(--surface);stroke:var(--border-strong)" stroke-width="1.3"/>` +
+        `<rect x="33" y="10" width="40" height="17" rx="4" style="fill:var(--surface);stroke:var(--border-strong)" stroke-width="1.3"/>` +
+        lines(38, 16, 24) + card(30, 41, 28, 15, 7, 'ferdighet') + card(64, 41, 28, 15, 1, 'fakta'));
     case 'bulk': {
       const wrap = makeEl('div', 'help-fig-bulk');
       wrap.innerHTML = bulkIcon(true, false) + bulkIcon(false, false) + bulkIcon(true, true);
@@ -3692,8 +3700,8 @@ function openMotivationModal() {
 
 function openExamModal(presetIds) {
   /* Utvalget starter som det som er krysset av som mestret, og kan
-     endres i vinduet. Det lagres ikke. BARNESKOLEMATTE: kartleggingsprøven
-     i skillelinja gir sitt eget utvalg (alt til og med trinnet). */
+     endres i vinduet. Det lagres ikke. BARNESKOLEMATTE: presetIds brukes
+     ikke lenger av kartleggingsprøven (den kopierer rett, 2026-11-25). */
   const progress = getProgress();
   examSelection = new Set(presetIds || allNodes.filter(n => isNodeMastered(n, progress)).map(n => n.id));
   examShowAll = false;
@@ -5539,7 +5547,7 @@ function layoutAndRender() {
   assignLearningGoalIndices(columns);
   const globalRowStart = computeGlobalRowStarts(columns, 'items');
   const columnMeta = [];
-  let cursorX = 0;
+  let cursorX = LAYOUT.stageColumnWidth; // BARNESKOLEMATTE: plass til trinnkolonnen
 
   columns.forEach(({ topic, nodes, items }) => {
     const visualRows = layoutColumn(items, globalRowStart);
@@ -5613,56 +5621,196 @@ function layoutAndRender() {
 /* BARNESKOLEMATTE: emneoverskriftene står fast øverst når kartet rulles
    nedover, så man alltid ser hvilket tema en kolonne er. Lerretet er skalert
    med transform, så rulleavstanden regnes om til lerretets egne enheter. */
+/* BARNESKOLEMATTE: en liten tegning til hvert tema i den fryste
+   overskriftsraden (2026-11-25). Fargene er logoens: blått (#2563A8),
+   grønt (#1F6F4A) og rav (#C8801F), og strekene følger teksten, så de
+   virker i lyst og mørkt tema. Nøkkelen er temaets navn i tree.csv med
+   små bokstaver; et tema uten tegning får bare navnet. Ren pynt, så
+   aria-hidden. */
+const TOPIC_FIGURES = (() => {
+  const B = '#2563A8', G = '#1F6F4A', A = '#C8801F', C = '#F6F4EF';
+  const ink = 'style="stroke:var(--text)"';
+  const grid = (x, y, w, h, n, m, color) => {
+    let d = '';
+    for (let i = 1; i < n; i++) d += `M${x + (w * i) / n} ${y}v${h}`;
+    for (let j = 1; j < m; j++) d += `M${x} ${y + (h * j) / m}h${w}`;
+    return `<path d="${d}" fill="none" stroke="${color}" stroke-width="0.8" stroke-opacity="0.7"/>`;
+  };
+  const signCircle = (cx, cy, color, sign) =>
+    `<circle cx="${cx}" cy="${cy}" r="11" fill="${color}"/>` +
+    `<path d="${sign(cx, cy)}" fill="none" stroke="${C}" stroke-width="3" stroke-linecap="round"/>`;
+  const plus = (x, y) => `M${x - 5.5} ${y}h11M${x} ${y - 5.5}v11`;
+  const minus = (x, y) => `M${x - 5.5} ${y}h11`;
+  const times = (x, y) => `M${x - 4.2} ${y - 4.2}l8.4 8.4M${x + 4.2} ${y - 4.2}l-8.4 8.4`;
+  const divide = (x, y) => `M${x - 5.5} ${y}h11M${x} ${y - 5}v0.01M${x} ${y + 5}v0.01`;
+  return {
+    // Titallsblokker: en hundreplate, to tierstaver og tre enere.
+    'tall og plassverdi':
+      `<rect x="3" y="13" width="22" height="22" rx="1.5" fill="${B}"/>` + grid(3, 13, 22, 22, 5, 5, C) +
+      `<rect x="28" y="13" width="4.5" height="22" rx="1" fill="${G}"/>` + grid(28, 13, 4.5, 22, 1, 5, C) +
+      `<rect x="35" y="13" width="4.5" height="22" rx="1" fill="${G}"/>` + grid(35, 13, 4.5, 22, 1, 5, C) +
+      `<rect x="42" y="30.5" width="4.5" height="4.5" rx="1" fill="${A}"/>` +
+      `<rect x="42" y="24.5" width="4.5" height="4.5" rx="1" fill="${A}"/>` +
+      `<rect x="42" y="18.5" width="4.5" height="4.5" rx="1" fill="${A}"/>`,
+    // Tierramme med 5 + 2.
+    'tallfakta':
+      `<rect x="3" y="12" width="42" height="22" rx="2.5" style="fill:var(--surface);stroke:var(--text)" stroke-width="1.6"/>` +
+      `<path d="M11.4 12v22M19.8 12v22M28.2 12v22M36.6 12v22M3 23h42" fill="none" ${ink} stroke-width="1" stroke-opacity="0.45"/>` +
+      [7.2, 15.6, 24, 32.4, 40.8].map(x => `<circle cx="${x}" cy="17.5" r="3" fill="${B}"/>`).join('') +
+      [7.2, 15.6].map(x => `<circle cx="${x}" cy="28.5" r="3" fill="${A}"/>`).join(''),
+    'addisjon og subtraksjon': signCircle(16, 17, A, plus) + signCircle(32, 31, B, minus),
+    'multiplikasjon og divisjon': signCircle(16, 17, G, times) + signCircle(32, 31, A, divide),
+    // Tre firedeler.
+    'brøk':
+      `<circle cx="24" cy="24" r="17" style="fill:var(--surface)"/>` +
+      `<path d="M24 24V7A17 17 0 1 1 7 24Z" fill="${A}"/>` +
+      `<circle cx="24" cy="24" r="17" fill="none" ${ink} stroke-width="1.6"/>` +
+      `<path d="M24 7v34M7 24h34" fill="none" ${ink} stroke-width="1.3"/>`,
+    'desimaltall og prosent':
+      `<circle cx="14" cy="14" r="6" fill="none" stroke="${B}" stroke-width="3.4"/>` +
+      `<circle cx="34" cy="34" r="6" fill="none" stroke="${B}" stroke-width="3.4"/>` +
+      `<path d="M37 8L11 40" fill="none" stroke="${A}" stroke-width="3.6" stroke-linecap="round"/>`,
+    // Skålvekt i likevekt: x på den ene sida, tre enere på den andre.
+    'algebra':
+      `<path d="M24 12v27M16 40h16M8 16h32M8 16l-4.5 12M8 16l4.5 12M40 16l-4.5 12M40 16l4.5 12" fill="none" ${ink} stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>` +
+      `<path d="M2 28h12a6 4 0 0 1-12 0ZM34 28h12a6 4 0 0 1-12 0Z" fill="${G}"/>` +
+      `<circle cx="24" cy="11" r="2.4" style="fill:var(--text)"/>` +
+      `<rect x="3.5" y="19" width="9" height="9" rx="1.5" fill="${B}"/>` +
+      `<path d="M5.8 21.3l4.4 4.4M10.2 21.3l-4.4 4.4" fill="none" stroke="${C}" stroke-width="1.5" stroke-linecap="round"/>` +
+      `<rect x="35.2" y="23.6" width="4.2" height="4.2" rx="0.8" fill="${A}"/>` +
+      `<rect x="40.6" y="23.6" width="4.2" height="4.2" rx="0.8" fill="${A}"/>` +
+      `<rect x="37.9" y="19" width="4.2" height="4.2" rx="0.8" fill="${A}"/>`,
+    'geometri':
+      `<rect x="22" y="22" width="20" height="20" rx="1.5" fill="${B}"/>` +
+      `<circle cx="15" cy="31" r="10" fill="${A}" fill-opacity="0.92"/>` +
+      `<path d="M24 5L37 27H11Z" fill="${G}" fill-opacity="0.92" stroke-linejoin="round"/>`,
+    // Linjal.
+    'måling':
+      `<rect x="2" y="17" width="44" height="15" rx="2" fill="${A}"/>` +
+      `<path d="${[6, 10, 14, 18, 22, 26, 30, 34, 38, 42].map((x, i) => `M${x} 17v${i % 2 ? 4 : 7.5}`).join('')}" fill="none" stroke="${C}" stroke-width="1.4" stroke-linecap="round"/>`,
+    // Søylediagram og en terning.
+    'statistikk og sannsynlighet':
+      `<path d="M3 42h28" fill="none" ${ink} stroke-width="1.6" stroke-linecap="round"/>` +
+      `<rect x="5" y="26" width="6" height="16" rx="1" fill="${B}"/>` +
+      `<rect x="14" y="16" width="6" height="26" rx="1" fill="${G}"/>` +
+      `<rect x="23" y="31" width="6" height="11" rx="1" fill="${A}"/>` +
+      `<g transform="rotate(14 39 13)"><rect x="32" y="6" width="14" height="14" rx="3" style="fill:var(--surface);stroke:var(--text)" stroke-width="1.5"/>` +
+      `<circle cx="35.8" cy="9.8" r="1.4" style="fill:var(--text)"/><circle cx="39" cy="13" r="1.4" style="fill:var(--text)"/><circle cx="42.2" cy="16.2" r="1.4" style="fill:var(--text)"/></g>`,
+    // Et programvindu med </>.
+    'algoritmer og programmering':
+      `<rect x="3" y="7" width="42" height="34" rx="4" style="fill:var(--surface);stroke:var(--text)" stroke-width="1.6"/>` +
+      `<path d="M3 14.5h42" fill="none" ${ink} stroke-width="1.2" stroke-opacity="0.6"/>` +
+      `<circle cx="8" cy="10.8" r="1.3" fill="${A}"/><circle cx="12.5" cy="10.8" r="1.3" fill="${G}"/><circle cx="17" cy="10.8" r="1.3" fill="${B}"/>` +
+      `<path d="M17 22l-6 5.5 6 5.5M31 22l6 5.5-6 5.5" fill="none" stroke="${B}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>` +
+      `<path d="M26.5 20.5l-5 14" fill="none" stroke="${A}" stroke-width="2.6" stroke-linecap="round"/>`,
+  };
+})();
+
+function topicFigureSvg(topic) {
+  const body = TOPIC_FIGURES[String(topic || '').trim().toLowerCase()];
+  if (!body) return '';
+  return `<svg class="column-header-figure" viewBox="0 0 48 48" aria-hidden="true" focusable="false">${body}</svg>`;
+}
+
 function updateStickyHeaders() {
   const scrollEl = document.getElementById('graph-scroll');
-  if (!scrollEl) return;
+  const container = document.getElementById('graph-container');
+  if (!scrollEl || !container) return;
   const offset = Math.max(0, scrollEl.scrollTop / zoomLevel - 6);
   document.querySelectorAll('#column-headers .column-header').forEach(h => {
     h.style.top = (LAYOUT.padding + offset) + 'px';
     h.classList.toggle('stuck', offset > 0);
   });
-  /* Trinnnavnet («1. trinn») og «Til og med 1. trinn» følger med bortover
-     når kartet rulles sidelengs, og står alltid rett over hverandre ved
-     venstre kant av det synlige feltet (Vidar 2026-11-22). */
-  const container = document.getElementById('graph-container');
-  const dx = Math.max(0, (scrollEl.scrollLeft - (container ? container.offsetLeft : 0)) / zoomLevel);
-  document.querySelectorAll('#column-headers .stage-label, #column-headers .stage-divider-inner').forEach(el => {
-    el.style.transform = dx ? `translateX(${dx}px)` : '';
+  /* Trinnkolonnen står fast til venstre når kartet rulles sidelengs
+     (2026-11-25). Venstre skjermkant i lerretets enheter er
+     (scrollLeft − offsetLeft) / zoom, og kolonnen følger den, men aldri
+     lenger til venstre enn der den står uten rulling. Hjørnet over den
+     står fast begge veier, så emnenavnene ruller inn under det. */
+  const base = LAYOUT.padding - LAYOUT.columnGap / 2;
+  const visLeft = (scrollEl.scrollLeft - container.offsetLeft) / zoomLevel;
+  const x = Math.max(base, visLeft);
+  const stuckX = x > base + 0.5;
+  document.querySelectorAll('#column-headers .stage-rail').forEach(el => {
+    el.style.left = x + 'px';
+    el.classList.toggle('stuck', stuckX);
   });
+  const corner = document.querySelector('#column-headers .stage-rail-corner');
+  if (corner) {
+    corner.style.left = x + 'px';
+    corner.style.top = (LAYOUT.padding + offset - 4) + 'px';
+    corner.classList.toggle('stuck', stuckX || offset > 0);
+  }
+}
+
+/* BARNESKOLEMATTE: figuren i trinnkolonnen. Hodet er logoen (robothodet
+   med de to grenene og kortene øverst), og under den en kropp som vokser
+   fra 1. til 7. trinn: lengre overkropp og bein, litt større hode. Alle
+   figurene har samme målestokk og står på samme grunnlinje, så de blir
+   høyere nedover kolonnen. Trøya har trinnets farge. Ren pynt, så
+   aria-hidden. */
+function stageFigureSvg(stage, stageCount) {
+  const f = stageCount > 1 ? Math.min(1, Math.max(0, (stage - 1) / (stageCount - 1))) : 1;
+  const ground = 86;
+  const cx = 32;
+  const k = 1 + 0.15 * f;                    // hodet vokser litt
+  const legLen = 9 + 17 * f;
+  const torsoH = 13 + 13 * f;
+  const torsoW = 15 + 5 * f;
+  const legGap = 3.2 + 1.2 * f;
+  const torsoTop = ground - legLen - torsoH;
+  const headBottom = torsoTop + 1.5;          // halsen skjules bak trøya
+  const r = v => Math.round(v * 100) / 100;
+  // Logoen (favicon.svg) har hodet fra x 5 til 27 og ned til y 30.
+  const logo = `<g transform="translate(${r(cx - 16 * k)} ${r(headBottom - 30 * k)}) scale(${r(k)})">` +
+    `<path d="M7 9 L11.5 16 M25 9 L20.5 16" fill="none" stroke="#C8801F" stroke-width="2.4" stroke-linecap="round"/>` +
+    `<rect x="1.5" y="1.5" width="11" height="8" rx="0.6" fill="#2563A8"/>` +
+    `<rect x="19.5" y="1.5" width="11" height="8" rx="2.4" fill="#1F6F4A"/>` +
+    `<rect x="5" y="15" width="22" height="15" rx="6.5" fill="#C8801F"/>` +
+    `<circle cx="12" cy="22.5" r="2.3" fill="#F6F4EF"/>` +
+    `<circle cx="20" cy="22.5" r="2.3" fill="#F6F4EF"/>` +
+    `</g>`;
+  const armLen = torsoH * 0.8;
+  const sh = torsoTop + 3;
+  const arms = `<path d="M${r(cx - torsoW / 2 + 1)} ${r(sh)} L${r(cx - torsoW / 2 - 4)} ${r(sh + armLen)} ` +
+    `M${r(cx + torsoW / 2 - 1)} ${r(sh)} L${r(cx + torsoW / 2 + 4)} ${r(sh + armLen)}" class="sf-arm"/>`;
+  const legs = `<path d="M${r(cx - legGap)} ${r(ground - legLen - 1)} L${r(cx - legGap - 0.6)} ${ground} ` +
+    `M${r(cx + legGap)} ${r(ground - legLen - 1)} L${r(cx + legGap + 0.6)} ${ground}" class="sf-leg"/>`;
+  const torso = `<rect x="${r(cx - torsoW / 2)}" y="${r(torsoTop)}" width="${r(torsoW)}" height="${r(torsoH)}" rx="4.5" class="sf-torso"/>`;
+  return `<svg class="stage-rail-figure" viewBox="0 0 64 88" aria-hidden="true" focusable="false">` +
+    `<path d="M14 ${ground + 0.5}h36" class="sf-ground"/>` + legs + arms + torso + logo + `</svg>`;
 }
 
 /* BARNESKOLEMATTE: trinnbåndene. For hvert trinn:
    - et bånd over hele bredden i trinnets farge (--stage-N i tree.css),
-   - en stripe øverst med trinnets navn og merk/fjern per tema, som bare
-     gjelder det temaets noder på DETTE trinnet,
-   - en skillelinje nederst med knapper som gjelder alt til og med trinnet:
-     kartleggingsprøve, og merk/fjern mestret.
-   Fargen bærer aldri betydningen alene: navnet står i stripa.
+   - en stripe øverst med «Lukk» og merk/fjern per tema over åpne celler,
+     som bare gjelder det temaets noder på DETTE trinnet,
+   - en skillelinje nederst,
+   - og i den fryste kolonnen til venstre (fra 2026-11-25): trinnets navn,
+     en figur som blir eldre for hvert trinn, og merk/fjern for alt på
+     trinnet, og i skillelinja under «Kartleggingsprøve». Før sto
+     navnet i stripa og knappene i skillelinja, og begge rullet sidelengs
+     med kartet (Vidar: for rotete når både overskriften og
+     mellomoverskriftene flytter på seg).
+   Fargen bærer aldri betydningen alene: navnet står i kolonnen.
    Merk/fjern bruker listeikonet fra maskineriet (prinsipp 14), og «Lukk» er
    ren tekst (prinsipp 13). */
-const STAGE_TEXT_INSET = 18; // venstre luft for trinnnavnet og skillelinjas tekst
 function renderStages(columnMeta, stageMeta, bandsLayer, headersLayer) {
   const fullWidth = columnMeta.length
     ? columnMeta[columnMeta.length - 1].x + columnMeta[columnMeta.length - 1].width + LAYOUT.columnGap
     : 0;
   const left = LAYOUT.padding - LAYOUT.columnGap / 2;
+  const railWidth = LAYOUT.stageColumnWidth;
 
   stageMeta.forEach(({ stage, top, bottom }) => {
+    const stageColor = `var(--stage-${((stage - 1) % 7) + 1})`;
     const band = document.createElement('div');
     band.className = 'stage-band';
-    band.style.setProperty('--stage-color', `var(--stage-${((stage - 1) % 7) + 1})`);
+    band.style.setProperty('--stage-color', stageColor);
     band.style.left = left + 'px';
     band.style.top = (LAYOUT.padding + top) + 'px';
     band.style.width = fullWidth + 'px';
     band.style.height = (bottom - top) + 'px';
     bandsLayer.appendChild(band);
-
-    const label = document.createElement('div');
-    label.className = 'stage-label';
-    label.textContent = t('stage.label', { n: stage });
-    label.style.left = (left + STAGE_TEXT_INSET) + 'px'; // samme kant som skillelinjas tekst
-    label.style.top = (LAYOUT.padding + top + 5) + 'px';
-    headersLayer.appendChild(label);
 
     /* Lukk og merk/fjern står bare over en ÅPEN celle (2026-11-11, Vidar:
        treet var for bråkete). En lukket celle åpnes først. */
@@ -5699,50 +5847,79 @@ function renderStages(columnMeta, stageMeta, bandsLayer, headersLayer) {
     gap.style.height = LAYOUT.stageDividerHeight + 'px';
     bandsLayer.appendChild(gap);
 
-    const upTo = () => allNodes.filter(n => n.stage <= stage);
-    const divider = document.createElement('div');
-    divider.className = 'stage-divider';
-    divider.style.left = left + 'px';
-    divider.style.width = fullWidth + 'px';
-    divider.style.top = (LAYOUT.padding + bottom - LAYOUT.stageDividerHeight) + 'px';
-    divider.style.height = LAYOUT.stageDividerHeight + 'px';
+    if (!railWidth) return; // utskriften tegner treet uten kolonnen
 
-    const inner = document.createElement('div');
-    inner.className = 'stage-divider-inner';
-    const heading = document.createElement('span');
-    heading.className = 'stage-divider-heading';
-    heading.textContent = t('stage.upTo', { n: stage });
-    inner.appendChild(heading);
+    // Bare dette trinnet (Vidar 2026-11-25; før: alt til og med trinnet).
+    const onStage = () => allNodes.filter(n => n.stage === stage);
 
-    // Hovedhandlingen: åpner Prøve-vinduet med alt til og med trinnet valgt.
-    const testBtn = document.createElement('button');
-    testBtn.type = 'button';
-    testBtn.className = 'resource-copy stage-divider-test';
-    testBtn.textContent = t('stage.mapTest');
-    testBtn.title = t('stage.mapTestTitle', { n: stage });
-    testBtn.addEventListener('click', () => openMappingTest(stage));
-    inner.appendChild(testBtn);
+    // Trinnkolonnen: navn, figur og merk/fjern for alt på trinnet.
+    const panel = document.createElement('div');
+    panel.className = 'stage-rail stage-rail-panel';
+    panel.style.setProperty('--stage-color', stageColor);
+    panel.style.setProperty('--stage-ink', `var(--stage-ink-${((stage - 1) % 7) + 1})`);
+    panel.style.left = left + 'px';
+    panel.style.top = (LAYOUT.padding + top) + 'px';
+    panel.style.width = railWidth + 'px';
+    panel.style.height = (bottom - top - LAYOUT.stageDividerHeight) + 'px';
 
-    const bulk = document.createElement('span');
-    bulk.className = 'stage-divider-bulk';
-    bulk.appendChild(bulkIconButton(t('stage.markUpTo', { n: stage }), true, true,
-      () => bulkSetMastery(upTo(), true), 'goal-index-bulk-btn'));
-    bulk.appendChild(bulkIconButton(t('stage.clearUpTo', { n: stage }), false, true, () => {
+    const label = document.createElement('div');
+    label.className = 'stage-rail-label';
+    label.textContent = t('stage.label', { n: stage });
+    panel.appendChild(label);
+    panel.insertAdjacentHTML('beforeend', stageFigureSvg(stage, stageMeta.length));
+
+    const bulk = document.createElement('div');
+    bulk.className = 'stage-rail-bulk';
+    bulk.appendChild(bulkIconButton(t('stage.markStage', { n: stage }), true, true,
+      () => bulkSetMastery(onStage(), true), 'goal-index-bulk-btn'));
+    bulk.appendChild(bulkIconButton(t('stage.clearStage', { n: stage }), false, true, () => {
       // Som «fjern alle» i Læringsmål: å slette framgangen spør først.
-      if (window.confirm(t('stage.clearUpToConfirm', { n: stage }))) bulkSetMastery(upTo(), false);
+      if (window.confirm(t('stage.clearStageConfirm', { n: stage }))) bulkSetMastery(onStage(), false);
     }, 'goal-index-bulk-btn'));
-    inner.appendChild(bulk);
+    panel.appendChild(bulk);
+    headersLayer.appendChild(panel);
 
-    divider.appendChild(inner);
-    headersLayer.appendChild(divider);
+    // Kartleggingsprøven i skillelinja under trinnet. Kopierer instruksen
+    // rett (se mappingTestButton).
+    const test = document.createElement('div');
+    test.className = 'stage-rail stage-rail-test';
+    test.style.left = left + 'px';
+    test.style.top = (LAYOUT.padding + bottom - LAYOUT.stageDividerHeight) + 'px';
+    test.style.width = railWidth + 'px';
+    test.style.height = LAYOUT.stageDividerHeight + 'px';
+    const testBtn = mappingTestButton(stage);
+    test.appendChild(testBtn);
+    headersLayer.appendChild(test);
   });
+
+  if (railWidth && stageMeta.length) {
+    const corner = document.createElement('div');
+    corner.className = 'stage-rail-corner';
+    corner.style.left = left + 'px';
+    corner.style.top = (LAYOUT.padding - 4) + 'px';
+    corner.style.width = railWidth + 'px';
+    corner.style.height = (LAYOUT.columnLabelHeight + 4) + 'px'; // like høyt som emneoverskriftene
+    headersLayer.appendChild(corner);
+  }
 }
 
-/* BARNESKOLEMATTE: kartleggingsprøven er Prøve-vinduet med alle mål til og
-   med trinnet valgt fra start. Vanskelighetsgrad, antall (standard 10) og
-   oppgaveform velges i vinduet som ellers. */
-function openMappingTest(stage) {
-  openExamModal(allNodes.filter(n => n.stage <= stage).map(n => n.id));
+/* BARNESKOLEMATTE: kartleggingsprøven er én knapp som kopierer
+   instruksen for en prøve på alt til og med trinnet: 10 oppgaver, middels
+   vanskelig, blandet oppgaveform. Fra 2026-11-25 åpner den ikke lenger
+   Prøve-vinduet, fordi lista over alle læringsmålene ble for mye her
+   (Vidar). Den som vil velge selv, bruker Prøve i menyen. */
+const MAPPING_TEST_OPTIONS = { difficulty: 'medium', count: 10, format: 'mixed' };
+
+function mappingTestButton(stage) {
+  const btn = copyButton(t('stage.mapTest'),
+    () => composeExamInstruction(
+      allNodes.filter(n => n.stage <= stage).sort(compareByGoalIndex),
+      MAPPING_TEST_OPTIONS.count, MAPPING_TEST_OPTIONS),
+    () => trackCopy('exam', { node_count: allNodes.filter(n => n.stage <= stage).length,
+      task_count: MAPPING_TEST_OPTIONS.count, mapping_stage: stage }));
+  btn.classList.add('stage-divider-test');
+  btn.title = t('stage.mapTestTitle', { n: stage });
+  return btn;
 }
 
 /* BARNESKOLEMATTE: Skriv ut tegner det som står i siden. Lukkede celler er
@@ -5750,12 +5927,16 @@ function openMappingTest(stage) {
    lukkes igjen etterpå. */
 function withAllCellsOpen(fn) {
   const before = new Set(OPEN_CELLS);
+  const railWidth = LAYOUT.stageColumnWidth;
   allNodes.forEach(n => OPEN_CELLS.add(cellKey(n.stage, n.topic)));
+  // Trinnkolonnen kommer ikke med på arket, så den tar ingen plass der.
+  LAYOUT.stageColumnWidth = 0;
   layoutAndRender();
   try {
     return fn();
   } finally {
     OPEN_CELLS = before;
+    LAYOUT.stageColumnWidth = railWidth;
     layoutAndRender();
   }
 }
@@ -6006,16 +6187,19 @@ function renderGraph(columnMeta, stageMeta) {
     header.className = 'column-header';
     // BARNESKOLEMATTE: overskriften får hele kolonnebredden med mellomrommet,
     // så emnenavnet får plass på to linjer over de smale rutene.
-    // Overskriftene ligger kant i kant uten glipe (2026-11-22); de 4 px
-    // luft til teksten er padding i tree.css.
+    // Fra 2026-11-25 fyller rutene hele bredden, kant i kant, med en svart
+    // strek mellom (Vidar).
     header.style.left = (LAYOUT.padding + col.x - LAYOUT.columnGap / 2) + 'px';
     header.style.top = LAYOUT.padding + 'px';
-    header.style.width = (col.width + LAYOUT.columnGap + 1) + 'px'; // +1: ingen hårstrek ved skjev zoom
+    header.style.width = (col.width + LAYOUT.columnGap) + 'px';
+    // Fast høyde, med navnet til venstre og tegningen til høyre (2026-11-25).
+    header.style.height = (LAYOUT.columnLabelHeight + 4) + 'px'; // helt ned til 1. trinn
 
     const label = document.createElement('span');
     label.className = 'column-header-label';
     label.textContent = col.topic;
     header.appendChild(label);
+    header.insertAdjacentHTML('beforeend', topicFigureSvg(col.topic));
     headersLayer.appendChild(header);
   });
   updateStickyHeaders(); // BARNESKOLEMATTE

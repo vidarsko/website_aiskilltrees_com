@@ -85,7 +85,7 @@
         },
         {
           "heading": "Trinn",
-          "body": "Treet er delt i trinn, og hvert tema på et trinn er en lukket boks. Trykk på boksen for å åpne den, og på «Lukk» øverst i trinnet for å lukke den. Under hvert trinn ligger «Kartleggingsprøve» for alt til og med trinnet.",
+          "body": "Treet er delt i trinn, og hvert tema på et trinn er en lukket boks. Trykk på boksen for å åpne den, og på «Lukk» øverst i trinnet for å lukke den. Trinnene står i kolonnen til venstre, som står fast når du ruller sidelengs. Der kan du merke eller fjerne merkene for alt på trinnet, og under hvert trinn kopierer «Kartleggingsprøve» en KI-instruks for en prøve med 10 oppgaver på alt til og med trinnet.",
           "figure": "stages"
         },
         {
@@ -100,7 +100,7 @@
         },
         {
           "heading": "Merk mange",
-          "body": "Listeikonene merker alle målene i et tema på ett trinn på én gang, eller fjerner merkene. Med A og B gjelder det alt til og med trinnet, eller hele treet i Læringsmål.",
+          "body": "Listeikonene merker alle målene i et tema på ett trinn på én gang, eller fjerner merkene. Med A og B gjelder det alt på trinnet, eller hele treet i Læringsmål.",
           "figure": "bulk"
         },
         {
@@ -460,10 +460,11 @@
       "clearCell": "Fjern mestret-merking for «{topic}» på {n}. trinn",
       "upTo": "Til og med {n}. trinn:",
       "mapTest": "Kartleggingsprøve",
-      "mapTestTitle": "Lag en prøve som dekker alt til og med {n}. trinn",
+      "mapTestTitle": "Kopier en KI-instruks for en kartleggingsprøve med 10 oppgaver som dekker alt til og med {n}. trinn. Lim den inn i en KI-chat.",
       "markUpTo": "Marker alt til og med {n}. trinn som mestret",
       "clearUpTo": "Fjern mestret-merking for alt til og med {n}. trinn",
       "clearUpToConfirm": "Fjerne mestret-merkingen for alt til og med {n}. trinn?",
+      "clearStageConfirm": "Fjerne mestret-merkingen for alt på {n}. trinn?",
       "openCell": "Åpne «{topic}» på {n}. trinn",
       "closeCell": "▴ Lukk",
       "closeCellTitle": "Lukk «{topic}» på {n}. trinn",
